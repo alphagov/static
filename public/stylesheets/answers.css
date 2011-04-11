@@ -1,0 +1,123 @@
+div.task-guidance h4 {
+  background: url(../images/guides-header-bg.png) repeat-x 50% 50%;
+  margin: 0 0.6em;
+}
+
+div.task-guidance h4 span {
+  background-color: #fff;
+  padding: 0 0.5em;
+}
+
+/* answers section data tables */
+table.answers {
+  xborder-collapse: collapse;
+	border-spacing: 0.25em;
+  margin: 0;
+  padding: 0;
+}
+
+table.answers th {
+  background-color: #444;
+  color: #fff;
+  padding: 0.5em;
+}
+
+table.answers td {
+  border: solid 1px #ddd;
+  padding: 0.3em 0.5em;
+}
+
+
+dl.answers {
+	/* margin per ticket #151 */
+	margin: 20px 0 20px 20px;
+}
+
+dl.answers dt, dl.answers dd {
+  margin-bottom: 0.5em;
+  line-height: 1.4em;
+}
+
+dl.answers dt {
+  font-size: 1.25em;
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: bold; 
+  margin: 0.75em 0 0;
+  text-shadow: 0 2px 0 #fff;
+}
+
+
+
+/* numbered answers steps */	
+ol.answers-steps {
+	list-style: none;
+	margin: 0;
+}
+
+ol.answers-steps li {
+	padding: 1em;
+}
+
+ol.answers-steps .answers-step {
+  position: relative;
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: solid 2px #F0EDEB;
+}
+
+ol.answers-steps .answers-step p.step-label {
+  margin: 0;
+  position: absolute;
+	top: 3em;
+	left: 0;
+}
+
+ol.answers-steps .answers-step p.step-label .step-number {
+  display: block;
+  width: 42px;
+  line-height: 42px;
+  font-size: 2em;
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: normal; 
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  background: url(../images/task-step-number-back-passports.png) no-repeat;
+}
+
+ol.answers-steps .answers-step p.step-label .step-number {
+  background: url(../images/task-step-number-back-test-centres.png) no-repeat;
+}
+
+ol.answers-steps li h3 {
+	margin-left: 3em;
+}
+
+ol.answers-steps li p {
+	margin-left: 3.75em;
+}
+
+/* large advisory text headings and infobox for special cases */
+.advisory {
+	background: #F0EDEB;
+	color: #333;
+	font-weight: bold;
+	padding: 1em;
+}
+
+h2.advisory {
+	font-size: 1.63em;
+	line-height: 1.38em;	
+}
+
+.infobox {
+	/* temp, obvs */
+	border: dotted 0.75em orange;
+	font-size: 1.63em;
+	line-height: 1.38em;	
+	margin: 1em auto;
+	padding: 0.5em;
+	text-align: center;
+}

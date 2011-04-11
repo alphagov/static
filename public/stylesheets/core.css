@@ -1,0 +1,1380 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 960px;
+  background: url(/images/application-background.gif) #f7f7f7;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  color: #333;
+}
+
+img {
+  border: none;
+}
+
+a {
+  color: #0092F3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #336699;
+}
+a:active {
+  color: #CC0000;
+}
+
+.clear {
+  clear: both;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+p.error-response {
+  color: red;
+  font-size: small;
+  padding-bottom: 0.25em;
+}
+
+/*
+  layout
+*/
+
+#header {
+  position: relative;
+  z-index: 500;
+  float: left;
+  width: 100%;
+  height: 7.25em;
+  margin-bottom: 2em;
+}
+
+#page-container {
+  margin: 0 3%;
+}
+
+#page {
+  margin: 0 auto;
+  clear: both;
+  max-width: 1050px;
+}
+
+#footer {
+  clear: both;
+  padding: 1em 3%;
+}
+#evel-ke-spaceiel {
+  clear: both;
+}
+
+/*
+  basic columns
+*/
+
+.text-content .section {
+  float: left;
+  margin-top: 1em;
+  clear: left;
+  width: 100%;
+}
+
+.text-content .full-width {
+  float: left;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.text-content .one-third-col {
+  float: left;
+  margin-bottom: 1em;
+  width: 31%;
+}
+.text-content .one-third-col.left {
+  margin-right: 1.75%;
+}
+.text-content .one-third-col.right {
+  margin-left: 1.75%;
+}
+
+.text-content .two-third-col {
+  float: left;
+  margin-bottom: 1em;
+  width: 65.5%;
+}
+.text-content .two-third-col.left {
+  margin-right: 1.75%;
+}
+.text-content .two-third-col.right {
+  margin-left: 1.75%;
+}
+
+.text-content .one-quarter-col {
+  float: left;
+  margin-bottom: 1em;
+  width: 22.4%;
+}
+
+.text-content .right {
+  float: right;
+  clear: right;
+}
+
+/*
+  header
+*/
+
+#discover {
+  position: relative;
+  margin: 0 auto;
+  width: 94%;
+  height: 100%;
+  max-width: 1050px;
+  clear: both;
+}
+
+#logo {
+  float: left;
+  margin-top: -5px;
+  padding: 1em;
+  padding-bottom: 0.75em;
+  border-top: solid 5px #262626;
+  background-color: #393A3A;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+#discover-search {
+  position: relative;
+  top: 4em;
+  margin-left: 13em;
+  height: 3em;
+}
+
+#discover form {
+  padding-top: 2px;
+  height: 1.5em;
+  font-size: 2em;
+  text-align: right;
+}
+
+#discover form input, #discover form label {
+  font-family: inherit;
+  font-size: 0.7em;
+  line-height: 1.5em;
+  border: none;
+}
+
+#discover form input[type="q"] {
+  padding: 0 10px;
+  width: 88%;
+  height: 36px;
+  color: #336699;
+  font-weight: bold;
+  border: solid 2px #7E7F7F;
+  background: url(/images/search-input-back.png) no-repeat -2px -2px;
+  border-radius: 5px;
+  margin-right:10px;
+}
+
+#discover form input[type="submit"] {
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  text-indent: -9999px;
+  border: solid 2px #336699;
+  background: url(/images/search-button.png) no-repeat center center #336699;
+  border-radius: 5px;
+}
+
+#discover #search_hint {
+  text-align:left;
+  display:block;
+  margin-left:42px;
+  font-size:0.6em;
+  padding:0 5px 0 0;
+}
+
+#global-alert {
+  padding: 1em 3%;
+  border-bottom: dashed 3px #F8D158;
+  background: #F8EFCB;
+}
+
+#global-user-location {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background: url(/images/global-user-locator-icon.png) no-repeat center center #BDC0C0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/*
+  common elements
+*/
+
+ul.navigation {
+  list-style: none;
+}
+
+ul.navigation li {
+  margin: 0 0.5em;
+  display: inline;
+}
+
+ul.navigation li a {
+  font-size: 0.75em;
+}
+
+/*
+  forms
+*/
+
+form.app-form {
+  
+}
+
+fieldset {
+  border: none;
+}
+
+form.app-form fieldset {
+  margin-bottom: 1em;
+}
+
+form.app-form fieldset input, form.app-form fieldset select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+form.app-form fieldset select {
+
+}
+
+form.app-form fieldset input[type="text"] {
+  padding: 0.25em;
+}
+
+form.app-form fieldset input[type="radio"] {
+  margin-right: 0.5em;
+}
+
+form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type="button"] {
+  border: solid 2px #3e79b7;
+  background: url(/images/button.png);
+  color: #fff;
+  text-shadow: 1px 1px 0px #254e74;
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size-adjust:0.488;
+  font-weight:600;
+  font-style:normal;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0.25em 0.7em;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+form.app-form fieldset ul {
+  list-style: none;
+}
+
+form.app-form fieldset ul li {
+  margin-bottom: 0.5em;
+  line-height: 1.5em;
+}
+
+form.app-form fieldset ul li label {
+  margin-right: 0.5em;
+}
+
+form.app-form fieldset ul li label, form.app-form fieldset ul li input {
+  line-height: 100%;
+  vertical-align: middle;
+}
+
+form.app-form li.inline-elements li, form.app-form li.inline-elements p {
+  display: inline-block;
+  margin-right: 2em;
+  line-height: 100%;
+  vertical-align: middle;
+}
+
+form.app-form .strong-label {
+  font-weight: bold;
+}
+
+/* Popular and related */
+.related-content {background:#ffffaa; padding:1em; margin-top:2em; min-height:8em;}
+
+/* jquery annotator */
+#jquery-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+}
+
+#jquery-link-annotator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+}
+
+#jquery-link-annotator h3, #jquery-link-annotator p {
+    margin:18px;
+}
+
+#jquery-link-annotator-container {
+	position: relative;
+	background-color: #fff;
+	width: 80%;
+	height: 250px;
+	margin: 0 auto;
+	border:solid 20px #808080;	
+	padding:20px;
+}
+
+.annotate-description {
+    display:none;
+}
+
+/* Infoboxes */
+.infobox {background:#f8f8f8 url(/images/infobox-border.png) repeat-x top left;
+    padding:1em 15px; color:#939393; margin-bottom:1em;}
+.infobox img {border:solid 1px #565040}
+
+.infobox.alt {background:#fff url(/images/infobox-border.png) repeat-x top left;
+    padding:1em 0; color:#939393;}
+
+/* Download lists */
+ul.downloads {padding-left:0; margin-left:0;}
+ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; background:url(/images/download.png) 0 4px no-repeat;}
+
+/* alpha intro */
+#alpha_intro {
+  background:url(/images/alphastripe.png);
+  padding:6px;
+  border-bottom: solid 5px #999;
+  text-align:center;
+  font-size:0.8em;
+}
+#alpha_intro span {color:#cf2322; font-weight:bold;}
+
+/* GROUP: Task components */
+#task-name {
+  /*min-height: 11em;*/
+  padding-right: 35%;
+  border-bottom: 2px solid #333;
+  margin-bottom: 2px;
+}
+#task-name h1 {
+  margin-bottom: 0.5em;
+}
+#task-name h2 {
+  margin-top: -1em;
+}
+
+div.task {
+  float:  left;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 65.5%;
+  margin-right: 1.75%;
+}
+
+div.task.article-text {
+  margin-top: 0;
+}
+
+div.task.overview {
+  float: right;
+  width: 31%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+
+div.task ul li {
+  
+}
+
+div.task.overview ul li {
+  list-style-image: none;
+}
+
+div.task-guidance {
+  margin: 2em 0;
+  padding: 1em;
+  background: #fff;
+  border: 1px solid #BAAA91; /* this colour is actually the colour originally used in passports app, there is no default */
+}
+
+div.task-guidance h4 {
+  margin-bottom: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size-adjust:0.488;
+  font-weight:600;
+  font-style:normal;
+  font-size: 1.25em;
+  font-weight: normal;
+  color: #6B1210; /* this colour is actually the colour originally used in passports app, there is no default */
+}
+
+div.task-guidance ul {
+  padding-left: 1.5em
+}
+
+div.task.overview div.task-guidance ul li {
+  margin-bottom: 0.5em;
+  list-style-image: url(/images/bullet-point-default.png)
+}
+
+div.task.overview div.task-guidance p {
+  margin-bottom: 0.5em;
+}
+
+.task-guidance h5 {
+	color: #000;
+	font-size: 1em;
+	margin: 1em auto;
+	text-align: center;
+}
+
+.task-guidance p.definition {
+	color: #75ACA8;
+	margin-bottom: 0;
+}
+
+.task-guidance a {
+	color: #336699;
+}
+
+div.task fieldset {
+  clear: both;
+  position: relative;
+}
+
+/* Task form elements */
+
+.task-step span.input-box {
+  display: block;
+  float: left;
+  padding: 0.5em 1em;
+  margin: 0 1em 0 0;
+  background: #fff;
+  border: 1px solid #e5e0de;
+  border-radius: 10px; 
+  -webkit-border-radius: 10px; 
+  -moz-border-radius: 10px;
+}
+
+.task-step span.input-box input[type="radio"] {
+  margin-right: 1em;
+}
+
+.task-step span.input-box label {
+  font-weight: bold;
+}
+  
+  /* GROUP: toggle-buttons */
+  div.task fieldset ul {
+    padding: 0;
+  }
+  li.toggle-button {
+    float: left;
+    display: block;
+    padding: 0.5em 1em 0.5em 3.75em;
+    margin: 0 1em 0 0;
+    border: 1px solid #e5e0de;
+    border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+  }
+  li.toggle-others {
+    padding: 0;
+  }
+  li.toggle-others p {
+    line-height: 1.5em;
+    padding: 0.5em 1em 0.5em 2.5em;
+    background: url(/images/option-down-arrow.png) 1em center no-repeat;
+    margin: 0;
+    cursor: pointer;
+  }
+  li.toggle-others.selected p {
+    padding-left: 3.75em;
+  }
+  li.toggle-button input {
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  div.task fieldset ul li.toggle-button label {
+    margin: 0;
+    padding: 0;
+  }
+  div.task fieldset ul li.toggle-button-single.selected, div.task fieldset ul li.toggle-button-single.selected:hover, div.task fieldset ul li.toggle-button-single.selected label:hover, div.task fieldset ul li.toggle-others.selected p, div.task fieldset ul li.toggle-others li.selected {
+      color: #FF3300;
+  }
+  div.task fieldset ul li.toggle-button-single:hover, div.task fieldset ul li.toggle-button-single label:hover {
+      color: #336699;
+      cursor: pointer;
+  }
+  li.toggle-button ul.other-options-data {
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+  }
+  li.toggle-others ul.other-options-ui {
+    margin: 0;
+    display: none;
+  }
+  li.toggle-others ul.other-options-ui li {
+    margin:0;
+    padding: 0.5em 1em 0.5em 3.75em;
+    border-top: 1px solid #e5e0de;
+    background-repeat: no-repeat;
+  }
+  li.toggle-others ul.other-options-ui li:hover, li.toggle-others ul.other-options-ui li label:hover {
+/*    background-color: rgba(0,0,255,0.1);
+*/    color: #336699;
+      cursor: pointer;
+  }
+  div.task fieldset ul.other-options-ui li.selected { 
+    display: none; 
+  }
+
+/* Helpers */
+ul.helpers {
+  padding: 0;
+  list-style-type: none;
+  text-shadow: 0 1px 0px rgba(255,255,255,0.6);
+}
+
+ul.helpers li {
+  padding: 1.25em 7em 1.25em 1em;
+  margin-bottom: 2px;
+  color: #706e6e; /* this colour is actually the colour originally used in passports app, there is no default */
+  background-color: #e5e0de; /* this colour is actually the colour originally used in passports app, there is no default */
+  background-position: 87% center;
+  background-repeat: no-repeat;
+}
+ul.helpers li.active, ul.helpers li.active h3 a {
+  color: #fff;
+}
+
+ul.helpers li#helper-steps-in-page {
+  background-image: url(/images/helper-steps-in-page-icon.png);
+}
+ul.helpers li#helper-multiple-pages {
+  background-image: url(/images/helper-steps-icon.png);
+}
+ul.helpers li#helper-time {
+  background-image: url(/images/helper-time-icon.png);
+}
+ul.helpers li#helper-offline-steps {
+  background-image: url(/images/helper-offline-icon.png);
+}
+
+/*
+  application notices
+*/
+
+.application-notice {
+  display: inline-block;
+  margin: 1em 0;
+  padding: 0.69em 1em 0.69em 3em;
+  background-color: #F7F7F7;
+  background-position: 0.6em 0.6em;
+  background-repeat: no-repeat;
+  background-image: url(/images/application-notice-icon-default.png);
+  border: solid 1px #999;
+  border-radius: 1.3em;
+  -webkit-border-radius: 1.3em;
+  -moz-border-radius: 1.3em;
+}
+
+.application-notice p {
+  font-size: 0.88em;
+  line-height: 1.43em;
+  font-weight: bold;
+}
+.application-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.application-notice.passports {
+  background-image: url(/images/application-notice-icon-passports.png);
+  background-color: #F6F4F0;
+  border-color: #BCA990;
+}
+
+  /* Punchcard */
+  .indexcard {
+    border: solid 1px #e5e0de;
+    background: #fff;
+  }
+  .indexcard .indexcard_heading {
+    border-bottom: solid 2px #ffcccc;
+    padding: 2em 1.5em 0.5em 1.5em;
+    background: url(/images/indexcard.png) center 0 no-repeat; 
+    position: relative; 
+    top: -1px;
+  }
+  .indexcard .indexcard_body {
+    padding: 1.5em;
+  }
+  
+/*
+  Postal address enevelope
+*/
+
+.postal-address {
+  padding: 2em 1em 3em 6em;
+  width: 18em;
+  background: url(/images/stamp.png) 21em 1em no-repeat #fff;
+  border: solid 1px #D3D3D3;
+}
+
+.postal-address p {
+  font-size: 0.85em;
+}
+
+  /*  Page heading */
+.page_heading {
+  position: relative;
+  border-bottom: solid 2px #3e3e3e;
+}
+.page_heading h1 {
+  font-size: 3.5em;
+  line-height: 1.15em;
+}
+.page_heading h2 {
+  font-size: 2.0em;
+}
+.page_heading h1, .page_heading h2 {
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: normal; 
+  font-style: normal;
+  text-shadow: 0 2px 0 #fff;
+}
+
+.page_heading img {
+  position: absolute;
+  bottom: 0;
+  right: 1%;
+}
+  
+/* Maps */
+.map_small {border:solid 1px #747451;width:220px; height:200px;}
+
+/* Phone number */
+a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:active { 
+  color: #404040;
+  font-size: 2em;
+  background: url(/images/phone.png) center left no-repeat;
+  padding-left: 1em;
+  text-decoration: none;
+  font-family: "Alternate Gothic No.3", 'Arial Narrow', Futura, sans-serif;
+  font-size-adjust: 0.5;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*
+  Information box
+*/
+.additional-information {
+  padding: 0.75em 1em 0.5em 3em;
+  background: url(/images/info-icon.png) 0.75em 0.75em no-repeat;
+  border: solid 1px #E7E0DE;
+}
+.additional-information p {
+  font-size: 0.85em;
+}
+
+/* Ask Location */
+div.ask_location, div.finding_location, div.found_location {
+  background: #fff url(/images/locator-icon.png) 15px 18px no-repeat; 
+  padding: 0.75em 1.25em 0.75em 2.75em; 
+  position: relative; 
+  float: left;
+  border: solid 1px #e5e0de;
+  border-radius: 10px; 
+  -webkit-border-radius: 10px; 
+  -moz-border-radius: 10px; 
+}
+div.ask_location, div.finding_location {
+  width: 27.25em;
+}
+div.ask_location.set div {
+  background-position: 15px -115px;
+}
+div.ask_location.set div strong {
+  color: #ff3300;
+}
+div.ask_location.set p {
+  padding-top: 0.3em;
+}
+div.ask_location.set p a {
+  color: #6c6c6c;
+  padding-left: 17px; 
+  font-size: 0.8em;
+}
+div.ask_location.set div p {
+  padding-top: 0;
+}
+div.ask_location input[type='text'] {
+  width: 20em; 
+  padding: 5px;
+}
+div.ask_location input[type='submit'] {
+  margin-left: 0.75em;
+}
+div.ask_location p.locate-me {
+  clear: left;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 0.85em;
+}
+div.finding_location {
+  padding-top: 1.25em;
+}
+div.finding_location p {
+  padding-left: 1.5em;
+  background: url(/images/loading-spinner.gif) 0 center no-repeat;
+}
+div.found_location {
+  padding-top: 1.25em;
+}
+div.found_location h3 {
+  font-size: 1.25em;
+  line-height: 1em;
+  color: #FF0031;
+}
+div.found_location p {
+  margin-bottom: 0;
+}
+div.found_location a {
+  font-size: 0.85em;
+}
+
+/* END GROUP: Task components */
+
+ul.ui-menu {
+    padding: 0;
+}
+
+ul.ui-autocomplete {
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+ul.ui-autocomplete li {
+    border-top: solid 1px #F2F2F2;
+}
+
+ul.ui-autocomplete li a em {
+  padding: 0 0,25em;
+  background-color: #F7E086;
+  font-style: normal;
+  font-weight: bold;
+}
+
+ul.ui-menu .ui-menu-item a.ui-state-hover, ul.ui-menu .ui-menu-item a.ui-state-active {
+    margin: 0;
+}
+
+ul.ui-autocomplete li a.ui-state-hover {
+  background-color: #EBFBFF;
+  border: none;
+  color: inherit;
+  background-image: none;
+  cursor: pointer;
+}
+
+ul.ui-corner-all, ul li a.ui-corner-all {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/*
+  stuff used for the articles app
+*/
+
+.article-heading h1 {
+  font-size: 2em;
+}
+
+.article-heading h1 span {
+  display: block;
+  font-size: 1.67em;
+  line-height: 1.1em;
+}
+
+p.action {
+	margin: 2em auto;
+	text-align: center;
+}
+
+a.action-button {
+  border: solid 2px #3e79b7;
+  border-bottom: solid 3px #3e79b7;
+  border-right: solid 3px #3e79b7;
+  background: url(/images/button.png);
+  color: #fff;
+  text-shadow: 1px 1px 0px #254e74;
+	text-decoration: none;
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size-adjust:0.488;
+  font-weight:600;
+  font-style:normal;
+  font-size: 1.3em;
+  font-weight: normal;
+  line-height: 1.25em;
+  padding: 0.25em 0.7em;
+	text-align: center;
+  border-radius: 3px;
+  -webkit-border-radius: 3px; 
+  -moz-border-radius: 3px;
+}
+
+#guides-calculate {
+	position: absolute;
+	bottom: 3em;
+	right: 0;
+}
+
+.paginated {
+	border-bottom: solid 2px #E4E4E4;
+	margin: 1em 0;
+	padding-bottom: 0.25em;
+	position: relative;
+	height: 2em;
+}
+
+.paginated.bottom {
+	padding: 0.5em 0 0.75em 0;
+	border-top: solid 2px #E4E4E4;
+}
+.paginated p {
+	float: left;
+	vertical-align: middle;
+	position: absolute;
+	top: 0;
+	margin: 0;
+}
+.paginated.bottom p {
+  padding-top: 1em;
+}
+
+.paginated p.paginated-prev { 
+  z-index: 10;
+}
+.paginated p.paginated-pages { 
+	color: #9B9B9B;
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	z-index: 5;
+}
+
+.paginated p.paginated-next { 
+	right: 0px;
+  z-index: 10;
+}
+
+.paginated a {
+	color: #6086AD;
+	font-size: 0.75em;
+}
+
+p.guides-introduction {
+  font-size: 1.25em;
+  margin-bottom: 2em;
+}
+
+p.guides-question {
+	background: url(/images/guides-question.png) no-repeat 0 0.25em;
+	text-indent: 1.75em;
+}
+
+ol.helpers {
+	list-style: none;
+	margin: 0;
+}
+
+ol.helpers li {
+	background-color: #EDEDED;
+	font-size: 0.933em;
+	margin: 0;
+	margin-bottom: 2px;
+	position: relative;
+}
+
+ol.helpers li.active {
+  color: #fff;
+	background-color: #75ACA8;
+}
+
+ol.helpers li h3 {
+  font-size: 1.13em;
+  line-height: 1.11em;
+  margin-top: 0;
+  margin-bottom: 0.67em;
+}
+
+ol.helpers li a {
+  display: block;
+	padding: 1em 1em 1em 3em;
+}
+
+ol.helpers li a {
+  color: inherit;
+	text-decoration: none;
+}
+
+ol.helpers li a:hover {
+  background: #E4E4E4;
+}
+
+ol.helpers li.active a:hover {
+  background-color: inherit;
+	cursor: default;
+}
+
+ol.helpers li p.step-label {
+	display: block;
+	background: url(/images/guides-helpers-numbers-bg.png) no-repeat;
+	color: #fff;
+	height: 24px;
+	margin-left: 0;
+	position: absolute;
+	left: 0.75em;
+	top: 0.75em;
+	width: 24px;
+}
+
+ol.helpers li.active p.step-label {
+	background: url(/images/guides-helpers-numbers-bg-active.png) no-repeat;
+	color: #333;
+}
+
+ol.helpers li p.step-label span.step-number {
+	display: block;
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
+	font-size-adjust: 0.46;
+	line-height: 24px;
+	vertical-align: center;
+	text-align: center;
+}
+
+ol.helpers li a > p {
+  line-height: 1.5em;
+}
+
+ol.helpers li ul {
+	margin: 0 0 1em 1.4em;
+	padding: 0;
+}
+
+ol.helpers li li {
+	border-bottom: none;
+	margin: 0 1.66em;
+	padding: 0;
+}
+
+/*
+  body text styles used in articles, guides, answers, transactions
+*/
+
+.task-step, .answer-step {
+  position: relative;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  margin-left: 4em;
+}
+.task-step {
+  padding-bottom: 1.5em;
+  border-bottom: solid 2px #F0EDEB;
+}
+
+.task-step p.step-label, .answer-step p.step-label {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: -4em;
+}
+
+.task-step p.step-label .step-number, .answer-step p.step-label .step-number {
+  display: block;
+  width: 42px;
+  line-height: 42px;
+  font-size: 2em;
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: normal; 
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  background: url(/images/step-number-background-default.png) no-repeat;
+}
+
+.task-step p.step-label .steps-total, .answer-step p.step-label .steps-total {
+  display: block;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.task-step h3.step-instruction {
+  padding: 0.5em 0;
+}
+
+.task-step p.step-instruction {
+  padding: 0.75em 0;
+  margin-bottom: 0;
+}
+
+.task-step .step-expectation {
+  padding: 1em;
+  background: #F0EDEB;
+}
+
+/*
+  text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
+*/
+
+.article-text h1 {
+  background: red;
+}
+
+.article-text h2 {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin-top: 0.69em;
+  margin-bottom: 0.46em;
+}
+
+.article-text h3 {
+  font-size: 1.38em;
+  line-height: 1.18em;
+  margin-top: 0.82em;
+  margin-bottom: 0.55em;
+}
+
+.article-text h4 {
+  font-size: 1.13em;
+  line-height: 1.11em;
+  margin-top: 1em;
+  margin-bottom: 0.67em;
+}
+
+.article-text p, .article-text ul, .article-text ol {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0.75em 0;
+}
+
+.article-text p.large-text {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin: 0.46em 0;
+}
+
+.article-text p.small-text {
+  font-size: 0.75em;
+  line-height: 1.5em;
+  margin: 1em 0;
+}
+
+.article-text ul, .article-text ol {
+  padding-left: 1.5em;
+}
+
+.article-text ul {
+  list-style-image: url(/images/bullet-point-default.png)
+}
+
+.article-text .application-notice p {
+  font-size: 0.88em;
+}
+
+.article-text table {
+  margin: 0em 0;
+  margin-left: -0.38em;
+  padding: 0;
+  width: 80%;
+  border-collapse: separate;
+  border-spacing: 0.38em;
+}
+
+.article-text th, .article-text td {
+  vertical-align: top;
+  line-height: 1em;
+}
+
+.article-text th {
+  padding: 0.75em 1em;
+}
+
+.article-text td {
+  padding: 0.69em 1em 0.69em 1em;
+}
+
+.article-text th {
+  text-align: left;
+  background: rgba(62,62,62,0.07);
+}
+
+.article-text td {
+  background: #fff;
+  border: solid 1px #E9E8E7;
+}
+
+.article-text table ul {
+  padding-left: 0.75em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.article-text table ul li:last-child {
+  margin-bottom: 0;
+}
+
+.article-text dl {
+  margin-top: 1.5em;
+  margin-bottom: 1.88em;
+}
+
+.article-text dt {
+  margin-bottom: 0.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.article-text dd {
+  margin-bottom: 0.75em;
+}
+
+.article-text .advisory {
+  padding: 0 4.5em;
+  text-align: center;
+  font-size: 2em;
+  line-height: 1.45em;
+  background: url(/images/answers-advisory-highlight.png) center top repeat-y;
+}
+
+.article-text .help-notice, .article-text .info-notice {
+
+}
+
+.article-text .help-notice p, .article-text .info-notice p {
+  margin-top: 0;
+}
+
+.article-text .help-notice {
+
+}
+
+.article-text .info-notice {
+  background-image: url(/images/application-info-icon-default.png);
+}
+
+/* feedback form */
+.alpha-feedback {
+	background-color: #fff;
+	border: solid 1px #333;
+	border-right: none;
+	-webkit-border-top-left-radius: 1em;
+	-webkit-border-bottom-left-radius: 1em;
+	-moz-border-radius-topleft: 1em;
+	-moz-border-radius-bottomleft: 1em;
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+	position: fixed;
+	right: 0;
+	padding: 0.5em 1em;
+	width: 150px;
+}
+
+.alpha-feedback a.close {
+	background: #4C4C4C url(../images/alpha-feedback-close.png) no-repeat;
+	height: 16px;
+	width: 16px;
+	text-indent: -999em;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.alpha-feedback h3 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.alpha-feedback p {
+	font-size: 0.88em;
+	margin-bottom: 1em;
+}
+
+.alpha-feedback a.yes, .alpha-feedback a.no, .alpha-feedback h4 {
+  font-family: "Alternate Gothic No.3", 'Arial Narrow', Futura, sans-serif;
+  font-size-adjust: 0.5;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+	font-size: 1.6em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.alpha-feedback a.yes {
+	background: url(/images/alpha-feedback-yes.png) no-repeat;
+	color: #090;
+	padding-left: 1em;
+	margin-right: 0.5em;
+}
+
+.alpha-feedback a.yes:hover {
+	border-bottom: solid 2px #090;
+}
+
+.alpha-feedback a.no {
+	background: url(/images/alpha-feedback-no.png) no-repeat;
+	color: #c00;
+	padding-left: 1em;
+}
+
+.alpha-feedback a.no:hover {
+	border-bottom: solid 2px #c00;
+}
+
+.alpha-feedback h4 {
+	margin: 0;
+}
+.alpha-feedback.submitted h3, .alpha-feedback.submitted p {
+	opacity: .3;
+}
+
+
+
+
+
+/**
+ * Grid
+ */
+#grid{
+
+    /* Dimensions - same width as your grid with gutters */
+    width: 1050px;
+
+    /* Grid (left-aligned)
+    position: absolute;
+    top: 0;
+    left: 0;
+    */
+
+    /* Grid (centered) */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -525px;
+
+}
+
+/**
+ * Vertical grid lines
+ *
+ * Set the column width taking the borders into consideration,
+ * and use margins to set column gutters.
+ */
+#grid div.vert{
+
+    width: 139px;
+    border: solid darkturquoise;
+    border-width: 0 1px;
+    margin-right: 19px;
+
+}
+
+#grid div.vert.first-line{
+
+    margin-left: 19px;
+
+}
+
+
+/**
+ * Horizontal grid lines, defined by your base line height
+ *
+ * Remember, the CSS properties that define the box model:
+ * visible height = height + borders + margins + padding
+ */
+#grid div.horiz{
+
+    /* 24px line height */
+    height: 23px;
+    border-bottom: 1px dotted darkgray;
+    margin: 0;
+    padding: 0;
+
+}
+
+/**
+* Classes for multiple grids
+*
+* When using more than one grid, remember to set the numberOfGrids 
+* option in the hashgrid.js file.
+*/
+#grid.grid-1 div.vert{
+
+    /* Vertical grid line colour for grid 1 */
+    border-color: darkturquoise;
+
+}
+#grid.grid-2{
+
+    /* Adjustments */
+    padding: 0 160px;
+    width: 660px;
+
+}
+#grid.grid-2 div.vert{
+
+    /* Vertical grid line colour for grid 2 */
+    border-color: crimson;
+
+}
