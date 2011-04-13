@@ -1,0 +1,390 @@
+/* core overrides */
+
+body {
+	text-rendering: optimizeLegibility;
+}
+
+#container {
+	width: 100%;
+}
+
+#header {
+	background: url(../images/index/discover-bg.png) repeat-x;
+  position: relative;
+  z-index: 500;
+  float: left;
+  width: 100%;
+}
+
+#discover {
+	width: 100%;
+}
+
+#logo {
+	border-top: none;
+	background-color: transparent;
+	margin-top: -26px;
+}
+
+#strapline {
+	clear: both;
+	position: relative;
+	left: 6.5em;
+} 
+
+#strapline h1 {
+	font-family :"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+	font-size-adjust: 0.488; 
+	font-weight: 200; 
+	font-style: normal; 
+  font-size: 1.8em; 
+	position: absolute;
+  text-shadow: 0 2px 0 #fff;
+	bottom: 1em;
+	left: 25%;
+}
+
+#global-user-location {
+	background: url(../images/index/global-user-location-icon.png) no-repeat;
+	position: absolute;
+	left: 16px;
+	height: 35px;
+	top: 105px;
+}
+
+#global-user-location p {
+	color: #393939;
+	font-size: 0.75em;
+	left: 2em;
+	position: relative;
+	top: 15px;
+	width: 220px;
+}
+
+#discover-search {
+	clear: both;
+	margin: 1em auto;
+	left: 6em;
+	width: 960px;
+}
+
+#discover form {
+	width: 75%;
+}
+
+#page-container {
+	clear: both;
+	margin: 0 auto;
+	position: relative;
+	top: 10em;
+	min-width: 1015px;
+	width: 100%;
+}
+
+#content-container {
+}
+
+.page_heading {
+	border-bottom: none;
+}
+
+/* prototype bar */
+
+#alpha_intro {
+	background: #fff url(../images/index/header-bg-top.png) repeat-x 0 100%;
+	border-bottom: none;
+	height: 90px;
+	position: relative;
+	min-width: 1015px;
+}
+
+#alpha_intro .wrapper {
+	margin: 1em auto;
+	width: 1015px;
+}
+
+#alpha_intro p {
+	color: #393939;
+	opacity: 0.75;
+	text-align: left;
+	width: 440px;
+}
+
+#alpha_intro span {
+	color: #f00;
+	display: block;
+	font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size-adjust: 0.488;
+  font-weight: 600;
+  font-style: bold;
+  font-size: 1.5em; 
+	opacity: 1;
+}
+
+#alpha_intro a {
+	color: #369;
+}
+
+#alpha_intro ul {
+	float: right;
+	position: relative;
+	right: 0;
+	top: -1.25em;
+}
+
+#alpha_intro li {
+	display: inline;
+	margin-left: 1.5em;
+}
+
+#alpha_intro li:last-child {
+	background: url(../images/welcome/twitter.png) no-repeat 0 50%;
+	padding-left: 1.7em;
+}
+
+#alpha_intro li a {
+	color: #369;
+	opacity: 0.75;
+}
+
+
+/* Popular stuff section */
+
+#popular {
+	background: #fff;
+	background: rgba(255,255,255,.5);
+	border: solid 1px #fff;
+	clear: both;
+	margin: 0 auto;
+	padding: 0.5em 1em;
+	position: relative;
+	width: 100%;
+}
+
+#popular h2 {
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: normal;
+	font-size: 1.8em; 
+  font-style: normal;
+	margin: 1em auto;
+	text-align: center;
+  text-shadow: 0 2px 0 #fff;
+}
+
+#popular ul {
+	padding: 1em 0;
+	margin: 0 auto;
+	width: 960px;
+}
+
+#popular li {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;	
+	float: left;
+	font-size: 1em;
+	line-height: 1.33;
+	list-style: none;
+	min-height: 3em;
+	padding: 9px 10px 10px 55px;
+	width: 33%;
+}
+
+#popular li a {
+	color: #369;
+	display: block;
+	font-weight: bold;
+	line-height: 1.33;
+	min-height: 3em;
+}
+
+#popular li:nth-of-type(3n-1) {
+	border-right: solid 1px #e6e6e6;
+	border-left: solid 1px #e6e6e6;
+	margin-right: 10px;
+}
+
+
+#popular li.q-and-a {
+	background: url(../images/index/icon-guide-36.png) no-repeat 10px 10px;
+}
+
+#popular li.answer {
+	background: url(../images/index/icon-answer-36.png) no-repeat 10px 10px;
+}
+
+#popular li.tool {
+	background: url(../images/index/icon-tool-36.png) no-repeat 10px 10px;
+}
+
+/* Latest news section */
+
+#news-container {
+	background-color: #323232;
+	float: left;
+	margin: 1em 0;
+	padding: 1em 0;
+	position: relative;
+	width: 100%;
+}
+
+#news {
+	background: #323232;
+	border-radius: 8px;
+	margin: 0 auto;
+	padding: 2em 1em 0;
+	width: 960px;
+}
+
+#news h2 {
+	color: #AEAEAE;
+	font-family: "Stub Serif FS Bold", serif;
+  font-size-adjust: 0.465;
+  font-weight: bold;
+	font-size: 2em;
+  font-style: normal;
+	padding: 0 0.55em;
+}
+
+/* Latest News section styles */
+
+.latest-news {
+	font-size: inherit;
+	margin: 2em 0 0;
+	width: 680px;
+}
+
+.latest-news li {
+	box-sizing: 50%;
+	-moz-box-sizing: 50%;
+	color: #AEAEAE;
+	clear: right;
+	font-size: 1em;
+	float: left;
+	line-height: 1.4;
+	list-style: none;
+	margin-bottom: 30px;
+	min-height: 8em;
+	width: 320px;
+}
+
+.latest-news li:nth-child(even) {
+	margin-right: 20px;
+}
+
+.latest-news li a {
+	color: #fff;
+	font-weight: bold;
+}
+
+.latest-news li p {
+	display: block;
+	line-height: 1.4;
+	margin: 0;
+	padding: 1em 1em 0 10px;
+}
+
+.latest-news li p.posted {
+	font-size: 0.77em;
+	font-weight: normal;
+	margin: 0;
+	padding: 0.5em 1em 0.5em 10px;
+}
+
+.latest-news li#featured {
+	clear: both;
+	display: block;
+	height: 220px;
+	margin-bottom: 20px;
+	padding: 0;
+	width: 680px;
+}
+
+.latest-news li#featured p {
+	background: #252525;
+	display: block;
+	line-height: 1.4;
+	margin: 0;
+	padding: 1em 1em 0 10px;
+	width: 286px;
+}
+
+.latest-news li#featured a {
+	background: #252525;
+	padding: 0;
+	margin: 0;
+	width: 286px;
+}
+
+.latest-news li#featured p.posted {
+	padding-bottom: 1em;
+}
+
+.latest-news li#featured img {
+	xborder: solid 10px rgba(0,0,0,.25);
+	outline: 10px solid rgba(0,0,0,.25);
+	float: right;
+	margin: 10px 0 1em 1em;
+}
+
+
+/* right hand navigation in Latest News */
+
+.one-third-col.right {
+	margin: 0 auto;
+	width: 255px;
+}
+
+.latest-news-depts {
+}
+
+.latest-news-depts li {
+	background: url(../images/index/news-navigation-default.png) no-repeat 5px 50%;	
+	background-color: #000;
+	background-color: rgba(0,0,0,.08);
+	border-radius: 3px;
+	font-size: 1.275em;
+	line-height: 50px;
+	list-style: none;
+	margin-bottom: 5px;
+	padding: 0 0 0 50px;
+	width: 175px;
+}
+
+.latest-news-depts li a {
+	color: #fff;
+	line-height: 50px;
+}
+
+
+#footer {
+	background: #FDFCFB url(../images/index/footer-bg.png) no-repeat 50% 0%;
+	color: #333;
+	margin: 2em auto;
+	min-height: 10em;
+  padding: 1em 3%;
+	position: relative;
+	top: 5em;
+	text-align: center;
+	width: 100%;
+}
+
+#footer strong {
+	background: url(../images/index/footer-crown.png) no-repeat 49.66% 0;
+	display: block;
+	height: 80px;
+	line-height: 80px;
+	padding-top: 35px;
+}
+
+#footer p + p {
+	position: relative;
+	top: -1em;
+}
+
+
+
+.clear:before, .clear:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clear:after { clear: both; }
+.clear { zoom: 1; }
