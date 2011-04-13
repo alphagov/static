@@ -174,7 +174,7 @@ p.error-response {
   border: none;
 }
 
-#discover form input[type="q"] {
+#discover form input[type="text"] {
   padding: 0 10px;
   width: 88%;
   height: 36px;
@@ -478,7 +478,7 @@ div.task fieldset {
 
 /* Task form elements */
 
-.task-step span.input-box {
+span.input-box {
   display: block;
   float: left;
   padding: 0.5em 1em;
@@ -490,11 +490,11 @@ div.task fieldset {
   -moz-border-radius: 10px;
 }
 
-.task-step span.input-box input[type="radio"] {
-  margin-right: 1em;
+span.input-box input[type="radio"] {
+  margin-right: 0.5em;
 }
 
-.task-step span.input-box label {
+span.input-box label {
   font-weight: bold;
 }
   
@@ -642,7 +642,7 @@ ul.helpers li#helper-offline-steps {
   }
   .indexcard .indexcard_heading {
     border-bottom: solid 2px #ffcccc;
-    padding: 2em 1.5em 0.5em 1.5em;
+    padding: 2em 1.5em 1em 1.5em;
     background: url(/images/indexcard.png) center 0 no-repeat; 
     position: relative; 
     top: -1px;
@@ -803,7 +803,7 @@ ul.ui-autocomplete li {
 }
 
 ul.ui-autocomplete li a em {
-  padding: 0 0,25em;
+  padding: 0 0.25em;
   background-color: #F7E086;
   font-style: normal;
   font-weight: bold;
@@ -892,7 +892,6 @@ a.action-button {
 }
 .paginated p {
 	float: left;
-	vertical-align: middle;
 	position: absolute;
 	top: 0;
 	margin: 0;
@@ -998,7 +997,6 @@ ol.helpers li p.step-label span.step-number {
   font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
 	font-size-adjust: 0.46;
 	line-height: 24px;
-	vertical-align: center;
 	text-align: center;
 }
 
@@ -1211,6 +1209,204 @@ ol.helpers li li {
 
 .article-text .info-notice {
   background-image: url(/images/application-info-icon-default.png);
+}
+
+/*
+  search
+*/
+
+#search-head {
+  padding: 2em 0;
+}
+
+#search-head label#search-results-label {
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: normal; 
+  font-style: normal;
+  font-size: 1.38em;
+}
+
+#search-head form input {
+  font-family: inherit;
+  font-size: 1.38em;
+}
+
+#search-head input[type="text"] {
+  margin-left: 0.75em;
+  margin-right: 0.5em;
+  padding: 0.31em;
+  width: 15.99em;
+  font-weight: bold;
+  border: 1px solid #8F8F8F;
+  background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
+}
+
+#search-head input[type="submit"] {
+  padding: 0 0.91em;
+  line-height: 1.73em;
+  text-shadow: 0 2px 0 #fff;
+  border: solid 1px #CCCCCC;
+  border-bottom: solid 1px #999999;
+  background: url(/images/search-button-background.png) repeat-x 0 0;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+#search-gov-uk, #search-everything {
+  margin-top: 1em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+#search-gov-uk {
+  float: left;
+  padding-right: 2em;
+  width: 55%;
+  border-right: solid 1px #E1E0DF;
+}
+
+#search-everything {
+  float: left;
+  padding-left: 2em;
+  width: 45%;
+  xborder-left: solid 1px #fff;
+}
+
+#search-gov-uk h2, #search-everything h2 {
+  font-size: 1.13em;
+  margin-bottom: 0.89em;
+}
+
+#search-choices {
+  padding-top: 1em;
+  padding-left: 12.75em;
+}
+
+p.search-results-count {
+  font-size: 0.75em;
+  color: #969695;
+}
+
+.search-head form span.input-box input {
+  font-size: inherit;
+}
+
+.search-results {
+  padding-top: 0.63em;
+  border-top: solid 2px rgba(0,0,0,0.1);
+}
+
+.search-results ol {
+  padding-top: 2.25em;
+  list-style: none;
+  border-bottom: solid 2px rgba(0,0,0,0.1);
+}
+
+.search-results ol li {
+  position: relative;
+  padding-left: 4em;
+  margin-bottom: 2.25em;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.search-results ol li p.result-label {
+  position: absolute;
+  margin-top: 2.81em;
+  left: 0;
+  width: 3em;
+}
+
+.search-results ol li p.result-label span {
+  display: block;
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size-adjust:0.488;
+  font-weight:600;
+  font-style:normal;
+  font-size: 0.63em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #7B7B7A;
+}
+
+.search-results ol li h3 {
+  font-size: 1.13em;
+  line-height: 1.11em;
+  margin-top: 0;
+  margin-bottom: 0.67em;
+}
+
+.search-results ol li p {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0.75em 0;
+}
+
+li.guide {
+  background-image: url(/images/icon-guide-48.png);
+}
+
+.search-pagination {
+  position: relative;
+  padding: 1.25em 0;
+}
+
+.search-pagination ol {
+  list-style: none;
+}
+
+.search-pagination ol li {
+  float: left;
+  margin-right: 0.63em;
+}
+
+.search-pagination ol li a, .search-pagination ol li.current, .search-pagination ol li.disabled {
+  display: block;
+  padding: 0.31em 0.63em;
+  font-weight: bold;
+  color: #fff;
+  background: #858A87;
+}
+
+.search-pagination ol li.current, .search-pagination ol li.disabled {
+  color: #5B5A5A;
+  background: #DCDBDA;
+}
+
+.search-pagination .previous-next {
+  position: absolute;
+  top: 1.25em;
+  right: 0;
+}
+
+.search-pagination ol.previous-next li {
+  margin-right: 0;
+  margin-left: 0.63em;
+  background-repeat: no-repeat;
+}
+
+.search-pagination ol.previous-next li a {
+  background-repeat: no-repeat;
+}
+
+ol.previous-next li.previous a, ol.previous-next li.previous.disabled {
+  padding-left: 1.88em;
+  background-position: 0.63em center;
+  background-image: url(/images/pagination-prev.png);
+}
+
+ol.previous-next li.next a, ol.previous-next li.next.disabled {
+  padding-right: 1.88em;
+  background-position: 85% center;
+  background-image: url(/images/pagination-next.png);
+}
+
+ol.previous-next li.previous.disabled {
+  background-image: url(/images/pagination-prev-disabled.png);
+}
+
+ol.previous-next li.next.disabled {
+  background-image: url(/images/pagination-next-disabled.png);
 }
 
 /* feedback form */
