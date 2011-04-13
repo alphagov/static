@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Alphagov</title>
+  <!-- use dev core.css and apps stylesheets -->
+  <link href="http://assets0.dev.alphagov.co.uk/stylesheets/core.css/1" rel="stylesheet" type="text/css"> 
+  <link href="http://assets0.dev.alphagov.co.uk/stylesheets/application.css/1" rel="stylesheet" type="text/css"> 
+  <link href="http://assets0.dev.alphagov.co.uk/stylesheets/jquery-ui-1.8.10.custom.css/1" rel="stylesheet" type="text/css"> 
+  <link rel="shortcut icon" href="http://assets0.dev.alphagov.co.uk/favicon.ico/1" type="image/x-icon">     
+</head>
+
+<body> 
+    <div id="alpha_intro"> 
+      <div class="wrapper">
+        <p><span>PROTOTYPE</span> There are errors, inconsistencies and inaccuracies. Please to not rely on any of the information given. Here be dragons. <a href="mailto:feedback@alphagov.co.uk">Please send us feedback</a>.</p>
+        <ul>
+          <li><a href="tour.html">Take the tour</a></li>
+          <li><a href="about.html">About the project</a></li>
+          <li><a href="making-of.html">The making of</a></li>
+          <li><a href="http://blog.alphagov.co.uk">Team Blog</a></li>
+          <li><a href="http://twitter.com/#!/Alphagov" class="twitter">@Alphagov on Twitter</a></li>
+        </ul>
+      </div>
+    </div> 
+    <div id="container"> 
+      <div id="header"> 
+        <div id="discover"> 
+          <div id="logo">
+            <img src="http://assets0.dev.alphagov.co.uk/images/index/gov.uk-logo.png" alt="UK.gov.uk">
+          </div> 
+          <div id="strapline">
+            <h1>Project &lsquo;Alphagov&rsquo; – Revolution, not Evolution</h1>
+          </div>
+          <div id="discover-search"> 
+            <form action="/search"> 
+              <!-- <label>What are you looking for?</label>--> 
+              <input type="q" id="main_autocomplete" name="q" value="I'm looking for..."><input type="submit" value="Go"><small id="search_hint">Search questions, problems or subjects</small> 
+            </form> 
+ 
+          </div> 
+          <div id="global-user-location"> 
+            <p>Location not set. <a href="#">Set it now.</a> (<a href="#">why?</a>)</p>
+          </div> 
+        </div> 
+        <!--end discover--> 
+      </div> 
+      <!--end header--> 
+
+      <div id="page-container" class="clear"> 
+
+          <div id="popular" class="clear"> 
+            <h2>Popular useful stuff</h2> 
+
+            <ul class="clear">
+              <li class="q-and-a"><a href="#">PAYE online</a></li>
+              <li class="q-and-a"><a href="#">What is the minimum wage?</a></li>
+              <li class="q-and-a"><a href="#">What is National Service?</a></li>
+              <li class="q-and-a"><a href="#">Become a Volunteer</a></li>
+              <li class="tool"><a href="#">Report a tax dodger</a></li>
+              <li class="q-and-a"><a href="#">When are UK Bank Holidays?</a></li>
+              <li class="answer"><a href="#">An Employees Guide to Redundancy</a></li>
+              <li class="tool"><a href="#">Find your nearest Registrar</a></li>
+              <li class="answer"><a href="#">Guide to Paternity Leave</a></li>
+            </ul>
+            
+          </div>
+            
+          <div id="news-container">
+            <div id="news" class="clear">
+
+              <div class="text-content"> 
+
+                <div class="two-third-col left"> 
+                  <h2>Latest news from Government</h2>
+              
+                  <ul class="latest-news">
+                    <li id="featured">
+                      <img src="http://assets0.dev.alphagov.co.uk/images/index/news-featured-image.png" width="360" height="200" alt="News Featured Image">
+                      <p><a href="#">Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh</a><p>
+                      <p class="posted">Posted by <a href="#">FCO</a> on <time datetime="2011-04-12" pubdate>12 April 2011</time></p>
+                    </li>
+                    <li>
+                      <p><a href="#">Lorem ipsum dolor sit amet, consec tetuer adipiscing elit</a></p>
+                      <p class="posted">Posted by <a href="#">DEFRA</a> on <time datetime="2011-04-12" pubdate>12 April 2011</time></p>
+                    </li>
+                    <li>
+                      <p><a href="#">Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh</a></p>
+                      <p class="posted">Posted by <a href="#">FCO</a> on <time datetime="2011-04-12" pubdate>12 April 2011</time></p>
+                    </li>
+                    <li>
+                      <p><a href="#">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</a></p>
+                      <p class="posted">Posted by <a href="#">DH</a> on <time datetime="2011-04-12" pubdate>12 April 2011</time></p>
+                    </li>
+                    <li>
+                      <p><a href="#">Vivamus vestibulum nulla nec ante</a></p>
+                      <p class="posted">Posted by <a href="#">CO</a> on <time datetime="2011-04-12" pubdate>12 April 2011</time></p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="one-third-col right"> 
+                  <ul class="latest-news-depts">
+                    <li><a href="/departments/">Departments</a></li>
+                    <li><a href="/ministers/">Ministers</a></li>
+                    <li><a href="/policies/">Policies</a></li>
+                    <li><a href="/consultations/">Consultations</a></li>
+                    <li><a href="/publications/">Publications</a></li>
+                    <li><a href="/bills/">Legislation</a></li>
+                    <li><a href="/transparency/">Transparency</a></li>
+                  </ul>
+                </div>
+                
+              </div>
+
+            </div> <!-- end news -->
+          </div> <!-- end news-container -->
+
+      </div> <!--end page-container--> 
+
+      <div id="footer" class="clear"> 
+
+        <p><strong>HM Government</strong></p>
+        <p>&copy; Crown Copyright</p>
+
+      </div> <!--end footer--> 
+    </div> <!--end container--> 
+
+<!--
+  and now for our baseline grid
+-->
+<script src="http://assets0.dev.alphagov.co.uk/javascript/jquery-1.5.1.min.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/jquery-link-annotator.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/jquery-ui-1.8.10.custom.min.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/jquery.base64.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/core.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/search.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/geo.js/1" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/fonts.js/1?1234" type="text/javascript" charset="utf-8"></script>
+<script src="http://assets0.dev.alphagov.co.uk/javascript/promote.js/1" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"> 
+(function () {
+  var ma = document.createElement('script');
+  ma.type = 'text/javascript';
+  ma.src = 'http://stats.alphagov.co.uk/?js';
+  ma.async = true;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ma, s);
+})();
+</script>
+<script src="/javascript/hashgrid.js/1" type="text/javascript" charset="utf-8"></script>
+</body></html>
