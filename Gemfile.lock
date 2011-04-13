@@ -1,12 +1,45 @@
+GIT
+  remote: git@github.com:alphagov/cdn_helpers.git
+  revision: 98c1dc22b1706f3ef12b864a478368563ee0dabb
+  specs:
+    cdn_helpers (0.1.1)
+      actionpack (~> 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    abstract (1.0.0)
+    actionpack (3.0.6)
+      activemodel (= 3.0.6)
+      activesupport (= 3.0.6)
+      builder (~> 2.1.2)
+      erubis (~> 2.6.6)
+      i18n (~> 0.5.0)
+      rack (~> 1.2.1)
+      rack-mount (~> 0.6.14)
+      rack-test (~> 0.5.7)
+      tzinfo (~> 0.3.23)
+    activemodel (3.0.6)
+      activesupport (= 3.0.6)
+      builder (~> 2.1.2)
+      i18n (~> 0.5.0)
+    activesupport (3.0.6)
+    builder (2.1.2)
+    erubis (2.6.6)
+      abstract (>= 1.0.0)
+    i18n (0.5.0)
     rack (1.2.2)
+    rack-mount (0.6.14)
+      rack (>= 1.0.0)
+    rack-test (0.5.7)
+      rack (>= 1.0)
     rake (0.8.7)
+    tzinfo (0.3.26)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  cdn_helpers!
   rack
   rake
