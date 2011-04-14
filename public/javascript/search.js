@@ -46,7 +46,6 @@ jQuery(document).ready(function() {
                   var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
                   if (clean_term != "") {
                     var regex = new RegExp("("+clean_term+")","ig");
-                    console.log(regex);
                     html_safe = html_safe.replace(regex,'<em>$1</em>');
                   }
                 }
@@ -80,7 +79,7 @@ jQuery(document).ready(function() {
           location.href = ui.item.url
         },
         open: function(event, ui){
-          console.debug(event);
+          // console.debug(event);
         }
     });
 
