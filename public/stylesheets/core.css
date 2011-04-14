@@ -51,13 +51,18 @@ p.error-response {
   layout
 */
 
+#container {
+  background: url(/images/page-strip-homepage.png) repeat-x center top;
+}
+
 #header {
   position: relative;
   z-index: 500;
   float: left;
   width: 100%;
-  height: 7.25em;
+  height: 8.125em;
   margin-bottom: 2em;
+  background: url(/images/header-background.png) repeat-x 0 10px;
 }
 
 #page-container {
@@ -72,10 +77,12 @@ p.error-response {
 
 #footer {
   clear: both;
-  padding: 1em 3%;
+  background: #E8EAE9;
 }
-#evel-ke-spaceiel {
-  clear: both;
+
+#footer .wrapper {
+  margin: 0 auto;
+  max-width: 1050px;
 }
 
 /*
@@ -141,6 +148,45 @@ p.error-response {
   height: 100%;
   max-width: 1050px;
   clear: both;
+}
+
+#discover-search {
+  position: absolute;
+  top: 3.4375em;
+  left: 15.625em;
+}
+
+#discover-search form input {
+  font-family: inherit;
+  font-size: 1.38em;
+}
+
+#discover-search input[type="text"] {
+  margin-right: 0.5em;
+  padding: 0.31em;
+  width: 25.68em;
+  font-weight: bold;
+  border: 1px solid #8F8F8F;
+  background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
+}
+
+#discover-search input[type="submit"] {
+  padding: 0 0.91em;
+  line-height: 1.73em;
+  text-shadow: 0 2px 0 #fff;
+  border: solid 1px #CCCCCC;
+  border-bottom: solid 1px #999999;
+  background: url(/images/search-button-background.png) repeat-x 0 0;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+#search_hint {
+  position: absolute;
+  bottom: -2em;
+  left: 0;
+  padding: 0.5em;
+  line-height: 1em;
+  background: #F2F2F2;
 }
 
 /*#logo {
@@ -372,14 +418,65 @@ ul.downloads {padding-left:0; margin-left:0;}
 ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; background:url(/images/download.png) 0 4px no-repeat;}
 
 /* alpha intro */
+
 #alpha_intro {
-  background:url(/images/alphastripe.png);
-  padding:6px;
-  border-bottom: solid 5px #999;
-  text-align:center;
+	border-bottom: none;
+	height: 90px;
+	position: relative;
+	background: #F7F7F7;
+}
+
+#alpha_intro .wrapper {
+  margin: 0 auto;
+  padding: 1em 0;
+  max-width: 1050px;
   font-size:0.8em;
 }
-#alpha_intro span {color:#cf2322; font-weight:bold;}
+
+#alpha_intro p {
+	color: #393939;
+	opacity: 0.75;
+	text-align: left;
+	width: 440px;
+}
+
+#alpha_intro span {
+	color: #f00;
+	display: block;
+	font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size-adjust: 0.488;
+  font-weight: 600;
+  font-style: bold;
+  font-size: 1.5em; 
+	opacity: 1;
+}
+
+#alpha_intro a {
+	color: #369;
+}
+
+#alpha_intro ul {
+	float: right;
+	position: relative;
+	right: 0;
+	top: -1.25em;
+}
+
+#alpha_intro li {
+	display: inline;
+	margin-left: 1.5em;
+}
+
+#alpha_intro li:last-child {
+	background: url(../images/welcome/twitter.png) no-repeat 0 50%;
+	padding-left: 1.7em;
+}
+
+#alpha_intro li a {
+	color: #369;
+	opacity: 0.75;
+}
+
 
 /* GROUP: Task components */
 #task-name {
@@ -1517,8 +1614,6 @@ ol.previous-next li.next.disabled {
 .alpha-feedback.submitted h3, .alpha-feedback.submitted p {
 	opacity: .3;
 }
-
-
 
 
 

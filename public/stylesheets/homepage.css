@@ -30,9 +30,9 @@
 #global-user-location {
 	background: url(../images/index/global-user-location-icon.png) no-repeat;
 	position: absolute;
-	left: 16px;
+	left: 0;
 	height: 35px;
-	top: 105px;
+	top: 120px;
 }
 
 #global-user-location p {
@@ -46,60 +46,60 @@
 
 /* prototype bar */
 
-#alpha_intro {
-	background: #fff url(../images/index/header-bg-top.png) repeat-x 0 100%;
-	border-bottom: none;
-	height: 90px;
-	position: relative;
+/*#alpha_intro {
+  background: #fff url(../images/index/header-bg-top.png) repeat-x 0 100%;
+  border-bottom: none;
+  height: 90px;
+  position: relative;
 }
 
 #alpha_intro .wrapper {
-	margin: 1em auto;
+  margin: 1em auto;
 }
 
 #alpha_intro p {
-	color: #393939;
-	opacity: 0.75;
-	text-align: left;
-	width: 440px;
+  color: #393939;
+  opacity: 0.75;
+  text-align: left;
+  width: 440px;
 }
 
 #alpha_intro span {
-	color: #f00;
-	display: block;
-	font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #f00;
+  display: block;
+  font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size-adjust: 0.488;
   font-weight: 600;
   font-style: bold;
   font-size: 1.5em; 
-	opacity: 1;
+  opacity: 1;
 }
 
 #alpha_intro a {
-	color: #369;
+  color: #369;
 }
 
 #alpha_intro ul {
-	float: right;
-	position: relative;
-	right: 0;
-	top: -1.25em;
+  float: right;
+  position: relative;
+  right: 0;
+  top: -1.25em;
 }
 
 #alpha_intro li {
-	display: inline;
-	margin-left: 1.5em;
+  display: inline;
+  margin-left: 1.5em;
 }
 
 #alpha_intro li:last-child {
-	background: url(../images/welcome/twitter.png) no-repeat 0 50%;
-	padding-left: 1.7em;
+  background: url(../images/welcome/twitter.png) no-repeat 0 50%;
+  padding-left: 1.7em;
 }
 
 #alpha_intro li a {
-	color: #369;
-	opacity: 0.75;
-}
+  color: #369;
+  opacity: 0.75;
+}*/
 
 
 /* Popular stuff section */
@@ -112,7 +112,6 @@
 	margin: 0 auto;
 	padding: 0.5em 1em;
 	position: relative;
-	xwidth: 100%;
 }
 
 #popular h2 {
@@ -141,8 +140,8 @@
 	line-height: 1.33;
 	list-style: none;
 	min-height: 3em;
-	padding: 9px 10px 10px 55px;
-	width: 33%;
+	padding: 9px 1.5em 10px 5.63em;
+	width: 33.3%;
 }
 
 #popular li a {
@@ -153,24 +152,29 @@
 	min-height: 3em;
 }
 
+#popular li a small {
+  display: inline-block;
+  padding: 0 0.25em;
+  background: #E0E7ED;
+}
+
 #popular li:nth-of-type(3n-1) {
 	border-right: solid 1px #e6e6e6;
 	border-left: solid 1px #e6e6e6;
-	margin-right: 10px;
 }
 
-
-#popular li.q-and-a {
-	background: url(../images/index/icon-guide-36.png) no-repeat 10px 10px;
+#popular li.guide {
+	background: url(../images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.answer {
-	background: url(../images/index/icon-answer-36.png) no-repeat 10px 10px;
+	background: url(../images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.tool {
-	background: url(../images/index/icon-tool-36.png) no-repeat 10px 10px;
+	background: url(../images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
 }
+
 
 /* Latest news section */
 
@@ -281,7 +285,7 @@
 .latest-news li#featured img {
   border: solid 10px rgba(0,0,0,.25);
 	float: right;
-	margin: 10px 0 1em 1em;
+	margin: 0 0 1em 1em;
 }
 
 

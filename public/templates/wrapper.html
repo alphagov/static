@@ -27,17 +27,25 @@
     </script>
   </head>
   <body>
-    <div id="alpha_intro">
-      <span>PROTOTYPE</span> - this site is a proof-of-concept and will contain inaccuracies and omissions. We'd love to hear your feedback, <a href="mailto:feedback@alphagov.co.uk">email us</a>.
-    </div>
+    <div id="alpha_intro"> 
+      <div class="wrapper">
+        <p><span>PROTOTYPE</span> There are errors, inconsistencies and inaccuracies. Please do not rely on any of the information given. Here be dragons. <a href="mailto:feedback@alphagov.co.uk">Please send us feedback</a>.</p>
+        <ul>
+          <li><a href="tour.html">Take the tour</a></li>
+          <li><a href="about.html">About the project</a></li>
+          <li><a href="making-of.html">The making of</a></li>
+          <li><a href="http://blog.alphagov.co.uk">Team Blog</a></li>
+          <li><a href="http://twitter.com/#!/Alphagov" class="twitter">@Alphagov on Twitter</a></li>
+        </ul>
+      </div>
+    </div> 
     <div id="container">
       <div id="header">
         <div id="discover">
           <div id="logo"><img src="http://assets0.dev.alphagov.co.uk/images/index/gov.uk-logo.png" alt="gov.uk"></div>
           <div id="discover-search">
             <form action="/search">
-              <!-- <label>What are you looking for?</label>-->
-              <input type="q" id="main_autocomplete" name="q" value="I'm looking for...">
+              <input type="text" id="main_autocomplete" name="q" value="I'm looking for...">
               <input type="submit" value="Go">
               <small id="search_hint">Search questions, problems or subjects</small>
             </form>
@@ -49,9 +57,25 @@
       </div><!--end header-->
       <div id="page-container">
         <article></article>
-        <div id="evel-ke-spaceiel"></div>
       </div><!--end page-container-->
       <div id="footer">
+        <div class="wrapper">
+          <div class="explore-elsewhere">
+            <h4>Useful stuff</h4>
+            <ul>
+              <li><a href="#">Foreign &amp; Commonwealth Office</a></li>
+              <li><a href="#">Foreign &amp; Commonwealth Office</a></li>
+              <li><a href="#">Foreign &amp; Commonwealth Office</a></li>
+              <li><a href="#">Foreign &amp; Commonwealth Office</a></li>
+              <li><a href="#">Foreign &amp; Commonwealth Office</a></li>
+              <li><a href="#">Foreign &amp; Commonwealth Office</a></li>
+            </ul>
+          </div>
+          <div class="explore-elsewhere government">
+            <h4>About the Government</h4>
+            <p>Hello I'm in the footer</p>
+          </div>
+        </div>
       </div><!--end footer-->
     </div><!--end container-->
   </body>
