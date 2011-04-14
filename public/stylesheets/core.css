@@ -12,6 +12,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 100%;
   color: #333;
+	text-rendering: optimizeLegibility;
 }
 
 img {
@@ -142,7 +143,7 @@ p.error-response {
   clear: both;
 }
 
-#logo {
+/*#logo {
   float: left;
   margin-top: -5px;
   padding: 1em;
@@ -219,7 +220,7 @@ p.error-response {
   background: url(/images/global-user-locator-icon.png) no-repeat center center #BDC0C0;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-}
+}*/
 
 /*
   common elements
@@ -1342,8 +1343,40 @@ p.search-results-count {
   margin: 0.75em 0;
 }
 
-li.guide {
+.search-results li.guide {
   background-image: url(/images/icon-guide-48.png);
+}
+
+.search-results li.answer {
+  background-image: url(/images/icon-answer-48.png);
+}
+
+.search-results li.tool {
+  background-image: url(/images/icon-tool-48.png);
+}
+
+.search-results li.government {
+  background-image: url(/images/icon-govt-48.png);
+}
+
+#search-everything .search-results li {
+  background-image: url(/images/icon-default-search-result-48.png);
+}
+
+#search-everything .search-results li.www_justice_gov_uk {
+  background-image: url(/images/icon-justice-48.png);
+}
+
+#search-everything .search-results li.www_direct_gov_uk {
+  background-image: url(/images/icon-dgov-48.png);
+}
+
+#search-everything .search-results li.www_hmrc_gov_uk {
+  background-image: url(/images/icon-hmrc-48.png);
+}
+
+#search-everything .search-results li.www_businesslink_gov_uk {
+  background-image: url(/images/icon-bizlink-48.png);
 }
 
 .search-pagination {
