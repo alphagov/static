@@ -48,7 +48,7 @@ var AlphaGeo = {
 
 jQuery(document).ready(function() {
   $(document).bind('location-changed', function(e, data) {
-    $("#global-user-location").text("I think you're in " +  data.current_location.locality + ".");
+    $("#global-user-location").html("<p>I think you're in " +  data.current_location.locality + ".</p>");
   });
   $(document).bind('location-removed', function(e, message) {
     $("#global-user-location").text("");
