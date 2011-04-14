@@ -101,6 +101,42 @@
   opacity: 0.75;
 }*/
 
+/* search */
+
+#homepage-search {
+  margin: 0 auto;
+  padding: 4em;
+  max-width: 1050px;
+}
+
+#homepage-search form {
+  margin: 0 auto;
+  width: 43.5em;
+}
+
+#homepage-search form input {
+  font-family: inherit;
+  font-size: 1.38em;
+}
+
+#homepage-search input[type="text"] {
+  margin-right: 0.5em;
+  padding: 0.31em;
+  width: 25.68em;
+  font-weight: bold;
+  border: 1px solid #8F8F8F;
+  background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
+}
+
+#homepage-search input[type="submit"] {
+  padding: 0 0.91em;
+  line-height: 1.73em;
+  text-shadow: 0 2px 0 #fff;
+  border: solid 1px #CCCCCC;
+  border-bottom: solid 1px #999999;
+  background: url(/images/search-button-background.png) repeat-x 0 0;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
 
 /* Popular stuff section */
 
@@ -175,6 +211,17 @@
 	background: url(../images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
 }
 
+#popular li.disabled {
+	background: url(../images/index/icon-default-36.png) no-repeat 1.88em 0.75em;
+}
+
+#popular li.disabled a {
+  color: #ccc;
+  cursor: default;
+}
+#popular li.disabled a:hover {
+  text-decoration: none;
+}
 
 /* Latest news section */
 
@@ -283,9 +330,9 @@
 }
 
 .latest-news li#featured img {
-  border: solid 10px rgba(0,0,0,.25);
+  outline: solid 10px rgba(0,0,0,0.25);
 	float: right;
-	margin: 0 0 1em 1em;
+	margin: 10px 0 1em 1em;
 }
 
 
