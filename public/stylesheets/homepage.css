@@ -23,7 +23,8 @@
   font-size: 1.8em; 
 	position: absolute;
   text-shadow: 0 2px 0 #fff;
-	bottom: 0.72em;
+	/*bottom: 0.72em;*/
+	top: 1.95em;
 	left: 35%;
 }
 
