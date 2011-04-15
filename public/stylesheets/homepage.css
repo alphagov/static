@@ -28,7 +28,7 @@
 }
 
 #global-user-location {
-	background: url(../images/index/global-user-location-icon.png) no-repeat;
+	background: url(/images/index/global-user-location-icon.png) no-repeat;
 	position: absolute;
 	left: 0;
 	height: 35px;
@@ -143,19 +143,19 @@
 }
 
 #popular li.guide {
-	background: url(../images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.answer {
-	background: url(../images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.tool {
-	background: url(../images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.disabled {
-	background: url(../images/index/icon-default-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-default-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.disabled a {
@@ -178,8 +178,6 @@
 }
 
 #news {
-	background: #323232;
-	border-radius: 8px;
 	margin: 0 auto;
 	padding: 2em 1em 0;
 	width: 960px;
@@ -290,7 +288,7 @@
 }
 
 .latest-news-depts li {
-	background: url(../images/index/news-navigation-default.png) no-repeat 5px 50%;	
+	background: url(/images/index/news-navigation-default.png) no-repeat 5px 50%;	
 	background-color: #000;
 	background-color: rgba(0,0,0,.08);
 	border-radius: 3px;
@@ -309,7 +307,7 @@
 
 
 #footer {
-	background: #FDFCFB url(../images/index/footer-bg.png) no-repeat 50% 0%;
+	background: #FDFCFB url(/images/index/footer-bg.png) no-repeat 50% 0%;
 	color: #333;
 	min-height: 10em;
   padding: 0;
@@ -319,7 +317,7 @@
 }
 
 #footer strong {
-	background: url(../images/index/footer-crown.png) no-repeat 49.66% 20px;
+	background: url(/images/index/footer-crown.png) no-repeat 49.66% 20px;
 	display: block;
 	height: 80px;
 	line-height: 80px;
