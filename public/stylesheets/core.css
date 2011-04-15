@@ -164,6 +164,7 @@ p.error-response {
 /*  position: absolute;
   top: 3.4375em;
   left: 15.625em;*/
+  position: relative;
   float: right;
   width: 100%;
 }
@@ -179,7 +180,7 @@ p.error-response {
 
 #discover-search input[type="text"] {
   padding: 0.31em;
-  xwidth: 25.68em;
+  /*width: 25.68em;*/
   margin-left: 26%;
   width: 64%;
   font-weight: bold;
@@ -201,7 +202,7 @@ p.error-response {
 #search_hint {
   position: absolute;
   bottom: -2em;
-  left: 0;
+  left: 26%;
   padding: 0.5em;
   line-height: 1em;
   background: #F2F2F2;
