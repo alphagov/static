@@ -59,7 +59,7 @@ p.error-response {
 
 #header {
   position: relative;
-  z-index: 500;
+/*  z-index: 500;*/
   float: left;
   width: 100%;
   height: 8.125em;
