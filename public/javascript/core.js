@@ -64,6 +64,7 @@ jQuery(document).ready(function() {
 
   var close_tour = function() {
     $('#splash-back').fadeOut().remove();
+    return false;
   }
 
   $('#tour-launcher').click(launch_tour);
