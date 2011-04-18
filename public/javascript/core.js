@@ -44,8 +44,8 @@ jQuery(document).ready(function() {
 
   var launch_tour = function() {
     $('<div id="splash-back"></div>').appendTo($('body'));
+    $('#splash-back').hide();
     $('#splash-back').load('/tour.html #splash', function() {
-      $('#splash-back').hide();
       $.each(
         ["/javascript/jquery.scrollTo-1.3.3.js", "/javascript/jquery.localscroll-1.2.5.js", "/javascript/jquery.serialScroll-1.2.1.js", "/javascript/jquery.slider.js"],
         function(i, url) {
