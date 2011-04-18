@@ -1005,7 +1005,7 @@ ol.helpers li a {
 }
 
 ol.helpers li a:hover {
-  background: #E4E4E4;
+  background: #D8D8D8;
 }
 
 ol.helpers li.active a:hover {
@@ -1025,7 +1025,7 @@ ol.helpers li p.step-label {
 	width: 24px;
 }
 
-ol.helpers li.active p.step-label {
+ol.helpers li.active p.step-label, ol.helpers li a:hover p.step-label {
 	background: url(/images/guides-helpers-numbers-bg-active.png) no-repeat;
 	color: #333;
 }
