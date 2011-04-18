@@ -396,7 +396,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #alpha_intro ul {
 	float: right;
 	position: relative;
-	padding-top: 1.2em;
+	margin-top: 1.25em;
 	width: 35em;
 	text-align: right;
 }
@@ -404,6 +404,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #alpha_intro li {
 	display: inline;
 	margin-left: 1.5em;
+	padding-top: 0.1em;
 }
 
 #alpha_intro li:last-child {
