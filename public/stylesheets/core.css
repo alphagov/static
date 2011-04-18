@@ -396,7 +396,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #alpha_intro ul {
 	float: right;
 	position: relative;
-	padding-top: 1.2em;
+	margin-top: 1.25em;
 	width: 35em;
 	text-align: right;
 }
@@ -404,6 +404,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #alpha_intro li {
 	display: inline;
 	margin-left: 1.5em;
+	padding-top: 0.1em;
 }
 
 #alpha_intro li:last-child {
@@ -1378,20 +1379,37 @@ p.search-results-count, .search-results p.result-url {
 
 .search-results ol li p.result-label {
 	font-size: 0.75em;
+	font-size: 0.8em;
 	line-height: 1;
 	margin: 0;
+	text-align: left;
 }
 
 .search-results ol li p.result-label span {
+	display: block;
   font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size-adjust:0.488;
   font-weight:600;
   font-style:normal;
 	font-size: 0.75em;
+ 	text-align: center;
   text-transform: uppercase;
   color: #7B7B7A;
 }
 
+#search-gov-uk .search-results ol li p.result-label span {
+  position: absolute;
+	top: 5.5em;
+  left: 0;
+  width: 48px;
+}
+
+#search-everything .search-results ol li p.result-label span {
+	display: inline;
+	top: 0;
+	text-align: left;
+	width: auto;
+}
 .search-results ol li h3 {
   font-size: 1.13em;
   line-height: 1.11em;
