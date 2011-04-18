@@ -59,7 +59,7 @@ p.error-response {
 
 #header {
   position: relative;
-  z-index: 500;
+/*  z-index: 500;*/
   float: left;
   width: 100%;
   height: 8.125em;
@@ -164,6 +164,7 @@ p.error-response {
 /*  position: absolute;
   top: 3.4375em;
   left: 15.625em;*/
+  position: relative;
   float: right;
   width: 100%;
 }
@@ -179,7 +180,7 @@ p.error-response {
 
 #discover-search input[type="text"] {
   padding: 0.31em;
-  xwidth: 25.68em;
+  /*width: 25.68em;*/
   margin-left: 26%;
   width: 64%;
   font-weight: bold;
@@ -201,7 +202,7 @@ p.error-response {
 #search_hint {
   position: absolute;
   bottom: -2em;
-  left: 0;
+  left: 26%;
   padding: 0.5em;
   line-height: 1em;
   background: #F2F2F2;
@@ -1288,6 +1289,25 @@ ol.helpers li li {
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
+.search-links .search-results {
+  background-color: rgba(249,249,197,0.5);
+  border: solid 1px #fc0;
+  border-radius: 8px;
+  margin-top: 1em;
+  min-height: 2em;
+  padding: 0 1em; 
+  width: 48.5%; 
+}
+
+.search-links {
+	margin-top: 1em;
+}
+
+.search-links h2 {
+	color: #D80000;
+	font-size: 1em;
+}
+
 #search-gov-uk, #search-everything {
   margin-top: 1em;
   box-sizing: border-box;
@@ -1305,7 +1325,6 @@ ol.helpers li li {
   float: left;
   padding-left: 2em;
   width: 45%;
-  xborder-left: solid 1px #fff;
 }
 
 #search-gov-uk h2, #search-everything h2 {
@@ -1318,9 +1337,14 @@ ol.helpers li li {
   padding-left: 12.75em;
 }
 
-p.search-results-count {
+p.search-results-count, .search-results p.result-url {
   font-size: 0.75em;
   color: #969695;
+}
+
+.search-results p.result-url {
+  color: #969695;
+	font-size: 0.75em;
 }
 
 .search-head form span.input-box input {
@@ -1338,6 +1362,12 @@ p.search-results-count {
   border-bottom: solid 2px rgba(0,0,0,0.1);
 }
 
+.search-links .search-results ol {
+	border: none;
+	margin: 0;
+	padding-top: 1em;
+}
+
 .search-results ol li {
   position: relative;
   padding-left: 4em;
@@ -1347,20 +1377,17 @@ p.search-results-count {
 }
 
 .search-results ol li p.result-label {
-  position: absolute;
-  margin-top: 2.81em;
-  left: 0;
-  width: 3em;
+	font-size: 0.75em;
+	line-height: 1;
+	margin: 0;
 }
 
 .search-results ol li p.result-label span {
-  display: block;
   font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size-adjust:0.488;
   font-weight:600;
   font-style:normal;
-  font-size: 0.63em;
-  text-align: center;
+	font-size: 0.75em;
   text-transform: uppercase;
   color: #7B7B7A;
 }
@@ -1372,10 +1399,19 @@ p.search-results-count {
   margin-bottom: 0.67em;
 }
 
+.search-links .search-results ol li h3 {
+	margin-bottom: 0;
+	padding-top: 0.25em;
+}
+
 .search-results ol li p {
   font-size: 1em;
   line-height: 1.5em;
   margin: 0.75em 0;
+}
+
+.search-links .search-results ol li p {
+	margin-top: 0.5em;
 }
 
 .search-results li.guide {
@@ -1394,7 +1430,7 @@ p.search-results-count {
   background-image: url(/images/icon-govt-48.png);
 }
 
-#search-everything .search-results li {
+#search-everything .search-results li, .search-didyoumean.search-results li {
   background-image: url(/images/icon-default-search-result-48.png);
 }
 
@@ -1412,6 +1448,10 @@ p.search-results-count {
 
 #search-everything .search-results li.www_businesslink_gov_uk {
   background-image: url(/images/icon-bizlink-48.png);
+}
+
+.search-links .search-results li.www_ucas_ac_uk {
+  background: url(/images/icon-ucas-48.png) no-repeat;
 }
 
 .search-pagination {
@@ -1476,6 +1516,9 @@ ol.previous-next li.previous.disabled {
 ol.previous-next li.next.disabled {
   background-image: url(/images/pagination-next-disabled.png);
 }
+
+br { display: none; }
+
 
 /* feedback form */
 .alpha-feedback {

@@ -56,7 +56,7 @@ jQuery(document).ready(function() {
                   return {
                     label: html_escape(item.label),
                     html:  highlight_term(item.label,search_term),
-                    url:   item.url
+                    url:   item.url + "?q=" + encodeURIComponent(item.label)
                   }
                 });
               };
