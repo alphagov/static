@@ -21,10 +21,8 @@ var Alphagov = {
     }
   },
   write_permanent_cookie: function(name, value) {
-    if (document.cookie) {
-      var date = new Date(2021, 12, 31);
-      document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=.alphagov.co.uk; path=/";
-    }
+    var date = new Date(2021, 12, 31);
+    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=.alphagov.co.uk; path=/";
   }
 }
 
