@@ -1,21 +1,6 @@
 var AlphaGeo = {
-  readCookie: function(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
-      var cookies = document.cookie.split(';');
-      for (var i = 0; i < cookies.length; i++) {
-        var cookie = jQuery.trim(cookies[i]);
-        if (cookie.substring(0, name.length + 1) == (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  },
-
   readAndParseJSONCookie: function(name) {
-    var cookie = AlphaGeo.readCookie(name);
+    var cookie = Alphagov.read_cookie(name);
     if (cookie) {
       var json_cookie = $.base64Decode(cookie);
       var geo_json = jQuery.parseJSON(json_cookie);
@@ -33,16 +18,8 @@ var AlphaGeo = {
     }
   },
 
-  deleteCookie: function(name) {
-    if (document.cookie && document.cookie != '') {
-      var date = new Date();
-      date.setTime(date.getTime()-(24*60*60*1000)); // 1 day ago
-      document.cookie = name + "=; expires=" + date.toGMTString() + "; domain=.alphagov.co.uk; path=/";
-    }
-  },
-
   deleteGeoCookie: function() {
-    AlphaGeo.deleteCookie('geo');
+    Alphagov.delete_cookie('geo');
   }
 };
 
