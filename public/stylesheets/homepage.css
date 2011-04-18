@@ -23,12 +23,13 @@
   font-size: 1.8em; 
 	position: absolute;
   text-shadow: 0 2px 0 #fff;
-	bottom: 1em;
+	/*bottom: 0.72em;*/
+	top: 1.95em;
 	left: 35%;
 }
 
 #global-user-location {
-	background: url(../images/index/global-user-location-icon.png) no-repeat;
+	background: url(/images/index/global-user-location-icon.png) no-repeat;
 	position: absolute;
 	left: 0;
 	height: 35px;
@@ -43,63 +44,6 @@
 	top: 15px;
 	width: 220px;
 }
-
-/* prototype bar */
-
-/*#alpha_intro {
-  background: #fff url(../images/index/header-bg-top.png) repeat-x 0 100%;
-  border-bottom: none;
-  height: 90px;
-  position: relative;
-}
-
-#alpha_intro .wrapper {
-  margin: 1em auto;
-}
-
-#alpha_intro p {
-  color: #393939;
-  opacity: 0.75;
-  text-align: left;
-  width: 440px;
-}
-
-#alpha_intro span {
-  color: #f00;
-  display: block;
-  font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size-adjust: 0.488;
-  font-weight: 600;
-  font-style: bold;
-  font-size: 1.5em; 
-  opacity: 1;
-}
-
-#alpha_intro a {
-  color: #369;
-}
-
-#alpha_intro ul {
-  float: right;
-  position: relative;
-  right: 0;
-  top: -1.25em;
-}
-
-#alpha_intro li {
-  display: inline;
-  margin-left: 1.5em;
-}
-
-#alpha_intro li:last-child {
-  background: url(../images/welcome/twitter.png) no-repeat 0 50%;
-  padding-left: 1.7em;
-}
-
-#alpha_intro li a {
-  color: #369;
-  opacity: 0.75;
-}*/
 
 /* search */
 
@@ -200,19 +144,19 @@
 }
 
 #popular li.guide {
-	background: url(../images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.answer {
-	background: url(../images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.tool {
-	background: url(../images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.disabled {
-	background: url(../images/index/icon-default-36.png) no-repeat 1.88em 0.75em;
+	background: url(/images/index/icon-default-36.png) no-repeat 1.88em 0.75em;
 }
 
 #popular li.disabled a {
@@ -235,8 +179,6 @@
 }
 
 #news {
-	background: #323232;
-	border-radius: 8px;
 	margin: 0 auto;
 	padding: 2em 1em 0;
 	width: 960px;
@@ -347,7 +289,7 @@
 }
 
 .latest-news-depts li {
-	background: url(../images/index/news-navigation-default.png) no-repeat 5px 50%;	
+	background: url(/images/index/news-navigation-default.png) no-repeat 5px 50%;	
 	background-color: #000;
 	background-color: rgba(0,0,0,.08);
 	border-radius: 3px;
@@ -366,7 +308,7 @@
 
 
 #footer {
-	background: #FDFCFB url(../images/index/footer-bg.png) no-repeat 50% 0%;
+	background: #FDFCFB url(/images/index/footer-bg.png) no-repeat 50% 0%;
 	color: #333;
 	min-height: 10em;
   padding: 0;
@@ -376,7 +318,7 @@
 }
 
 #footer strong {
-	background: url(../images/index/footer-crown.png) no-repeat 49.66% 20px;
+	background: url(/images/index/footer-crown.png) no-repeat 49.66% 20px;
 	display: block;
 	height: 80px;
 	line-height: 80px;
