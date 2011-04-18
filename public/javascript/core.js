@@ -44,17 +44,8 @@ jQuery(document).ready(function() {
     $('<div id="splash-back"></div>').appendTo($('body'));
     $('#splash-back').hide();
     $('#splash-back').load('/tour.html #splash', function() {
-      $.each(
-        ["/javascript/jquery.scrollTo-1.3.3.js", "/javascript/jquery.localscroll-1.2.5.js", "/javascript/jquery.serialScroll-1.2.1.js", "/javascript/jquery.slider.js"],
-        function(i, url) {
-          var script_tag = document.createElement("script");
-          script_tag.type = "text/javascript";
-          script_tag.src = url;
-          $('head')[0].appendChild(script_tag);
-        }
-      );
+      $(document).trigger('tour-ready');
       $('#tour-close').click(close_tour);
-      write_tour_coookie();
       $('#splash-back').fadeIn();
     });
     return false
@@ -67,6 +58,7 @@ jQuery(document).ready(function() {
 
   $('#tour-launcher').click(launch_tour);
   if (has_no_tour_cookie()) {
+    write_tour_coookie();
     launch_tour();
   }
 });

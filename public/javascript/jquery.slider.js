@@ -1,5 +1,5 @@
 // when the DOM is ready...
-$(document).ready(function () {
+$(document).bind('tour-ready', function () {
 
     var $panels = $('#slider .scrollContainer > div');
     var $container = $('#slider .scrollContainer');
