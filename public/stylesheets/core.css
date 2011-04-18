@@ -959,9 +959,9 @@ a.action-button {
 	font-size: 0.75em;
 }
 
-p.guides-introduction {
-  font-size: 1.25em;
+.article-text.guides-introduction {
   margin-bottom: 2em;
+  border-bottom: solid 2px #E4E4E4;
 }
 
 p.guides-question {
