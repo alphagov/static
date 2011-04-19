@@ -1627,6 +1627,7 @@ div.next, div.subscribe {
 	background: #fff;
 	border: solid 1px #E9E8E7;
 	float: right;
+	font-size: inherit;
 	margin-bottom: 1.6em;
 	position: relative;
 	padding: 1em;
@@ -1644,7 +1645,7 @@ div.next h3, div.subscribe h3 {
   font-size-adjust: 0.488;
   font-weight: 600;
   font-style: bold;
-  font-size: 1.5em; 
+  font-size: 1.3em; 
 	margin-bottom: 0.5em;
 	text-align: center;
 	text-transform: uppercase;
@@ -1655,12 +1656,12 @@ div.next h4 {
   font-size-adjust: 0.46; 
   font-weight: normal; 
   font-style: normal;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	margin-bottom: 0.5em;
 }
 
 div.next p {
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
 
 div.subscribe {
@@ -1673,6 +1674,7 @@ div.subscribe a {
   background: url(../images/ics-icon.png) no-repeat;
 	color: #369;
 	display: block;
+	font-size: 0.88em;
 	margin: 1em 0;
 	padding-left: 25px;
 }
@@ -1776,12 +1778,9 @@ table.calendar-bank-holidays td.calendar-year span.year {
 	background: url(/images/ew-flag-icon.png) no-repeat 10px 50% !important;
 	padding-left: 90px !important;
 }
+
 .ui-tabs .ui-tabs-nav li a.scotland {
 	background: url(/images/sc-flag-icon.png) no-repeat 10px 50% !important;
-	padding-left: 50px !important;
-}
-.ui-tabs .ui-tabs-nav li a.ni {
-	background: url(/images/ni-flag-icon.png) no-repeat 10px 50% !important;
 	padding-left: 50px !important;
 }
 
