@@ -47,6 +47,18 @@ p.error-response {
   padding-bottom: 0.25em;
 }
 
+div.app-error {
+  clear: both;
+  margin-bottom: 1em;
+  padding: 0 1em;
+  border: solid 1px #FF1000;
+  background: #FFEBEB;
+}
+
+div.app-error p {
+  margin: 0.5em 0;
+}
+
 /*
   layout
 */
