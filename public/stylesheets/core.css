@@ -744,12 +744,15 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 /*
   Information box
 */
+
 .additional-information {
-  padding: 0.75em 1em 0.5em 3em;
-  background: url(/images/info-icon.png) 0.75em 0.75em no-repeat;
+  padding: 0.25em 1em 0.25em 3em;
+  background: url(/images/info-icon.png) 0.75em 0.75em no-repeat #fff;
   border: solid 1px #E7E0DE;
 }
+
 .additional-information p {
+  margin: 0.75em 0;
   font-size: 0.85em;
 }
 
@@ -800,6 +803,7 @@ div.ask_location p.locate-me {
 }
 div.finding_location {
   padding-top: 1.25em;
+  padding-bottom: 1.25em;
 }
 div.finding_location p {
   padding-left: 1.5em;
@@ -809,6 +813,7 @@ div.found_location {
   padding-top: 1.25em;
 }
 div.found_location h3 {
+  margin-top: 0;
   font-size: 1.25em;
   line-height: 1em;
   color: #FF0031;
