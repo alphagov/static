@@ -229,10 +229,6 @@ ul.navigation li a {
   forms
 */
 
-form.app-form {
-  
-}
-
 fieldset {
   border: none;
 }
@@ -244,10 +240,6 @@ form.app-form fieldset {
 form.app-form fieldset input, form.app-form fieldset select {
   font-family: inherit;
   font-size: inherit;
-}
-
-form.app-form fieldset select {
-
 }
 
 form.app-form fieldset input[type="text"] {
@@ -302,6 +294,13 @@ form.app-form li.inline-elements li, form.app-form li.inline-elements p {
 
 form.app-form .strong-label {
   font-weight: bold;
+}
+
+h3.legend {
+  font-size: 1.38em;
+  line-height: 1.18em;
+  margin-top: 0.82em;
+  margin-bottom: 0.55em;
 }
 
 /* Popular and related */
@@ -450,10 +449,6 @@ div.task.overview {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
-}
-
-div.task ul li {
-  
 }
 
 div.task.overview ul li {
@@ -760,7 +755,7 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 
 /* Ask Location */
 div.ask_location, div.finding_location, div.found_location {
-  background: #fff url(/images/locator-icon.png) 15px 18px no-repeat; 
+  background: #fff url(/images/locator-icon.png) 0.85em 1em no-repeat; 
   padding: 0.75em 1.25em 0.75em 2.75em; 
   position: relative; 
   float: left;
