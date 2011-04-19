@@ -2094,3 +2094,12 @@ table.calendar-bank-holidays td.calendar-year span.year {
 }
 
 /* End tour splash box */
+
+/* alpha advisory notes */
+
+.alpha-note {
+  margin-bottom: 1em;
+  padding: 1em;
+  background: #FFF2BF;
+  border: solid 1px #FFCD3D;
+}
