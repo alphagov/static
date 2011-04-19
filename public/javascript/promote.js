@@ -2,15 +2,14 @@ jQuery(document).ready(function() {
 
     //leaderboards
     var leaderboards = [
-            {"title": "Working Smoke Alarms Save Lives", "image_url": "/promos/working-smoke-alarms.jpg", "target_url": "http://www.direct.gov.uk/en/HomeAndCommunity/InYourHome/FireSafety/DG_071751"},  
-            //{"title": "My first advert", "image_url": "https://www.google.com/adsense/static/en/images/exampleLeaderboard.gif", "target_url": "http://bbc.co.uk"},
-            //{"title": "My Second Advert", "image_url": "https://www.google.com/adsense/static/en/images/leaderboard_img.jpg", "target_url": "http://google.com"}                        
+            {"title": "Working Smoke Alarms Save Lives", "image_url": "/promos/fire-banner.png", "target_url": "http://www.direct.gov.uk/en/HomeAndCommunity/InYourHome/FireSafety/DG_071751"},  
+            {"title": "Red Tape Challenge", "image_url": "/promos/red-tape-banner.png", "target_url": "http://www.redtapechallenge.cabinetoffice.gov.uk/home/index/"},
         ];
     
     //mpu
     var mpus = [
-            {"title": "My first advert", "image_url": "https://www.google.com/adsense/static/en/images/300x250_img.jpg", "target_url": "http://bbc.co.uk"},
-            {"title": "My Second Advert", "image_url": "https://www.google.com/adsense/static/en/images/inline_rectangle.gif", "target_url": "http://google.com"}                        
+            {"title": "Working Smoke Alarms Save Lives", "image_url": "/promos/fire-mpu.png", "target_url": "http://www.direct.gov.uk/en/HomeAndCommunity/InYourHome/FireSafety/DG_071751"},
+            {"title": "Red Tape Challenge", "image_url": "/promos/red-tape-mpu.png", "target_url": "http://www.redtapechallenge.cabinetoffice.gov.uk/home/index/"},
         ];
 
     //setup each type
