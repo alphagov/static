@@ -32,48 +32,68 @@ jQuery(document).ready(function() {
     $("#main_autocomplete").autocomplete({
         delay: 0,
         source: function( request, response ) {
-          $.ajax({
-            url: "/search/autocomplete",
-            dataType: "jsonp",
-            data: {
-              term: request.term
-            },
-            success: function( data ) {
-              var highlight_term = function(string,term) {
-                html_safe = html_escape(string);
-                var terms = term.split(' ');
-                for (var i in terms)  {
-                  var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
-                  if (clean_term != "") {
-                    var regex = new RegExp("("+clean_term+")","ig");
-                    html_safe = html_safe.replace(regex,'<em>$1</em>');
-                  }
-                }
-                return html_safe;
-              };
-              var filter = function(search_term,data) {
-                return $.map(data, function(item) {
-                  return {
-                    label: html_escape(item.label),
-                    html:  highlight_term(item.label,search_term),
-                    url:   item.url + "?q=" + encodeURIComponent(item.label)
-                  }
-                });
-              };
-              var html_escape = function( string) {
+          var html_escape = function( string) {
                 return $('<div/>').text(string).html();
-              }
-              var search_term = request.term;
-						  last_item = {
+          };
+          
+          var search_site = function(search_term) {
+            return {
                 label: "search the site for "+html_escape(search_term),
                 html:  "search the site for <em>"+html_escape(search_term)+"</em>",
                 url:   "/search?q="+encodeURIComponent(search_term)
               };
-              data = filter(search_term,data.slice(0,10));
-              data.push(last_item);
-              response( data );       
-            }
-          });
+          };
+          
+          var loading = function() {
+            var data = [];
+            data.push(search_site(request.term));
+            response(data);
+          };
+
+          var ajax = function() {
+            $.ajax({
+              url: "/search/autocomplete",
+              dataType: "jsonp",
+              data: { term: request.term },
+              success: function( data ) {
+                var highlight_term = function(string,term) {
+                  html_safe = html_escape(string);
+                  var terms = term.split(' ');
+                  for (var i in terms)  {
+                    var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
+                    if (clean_term != "") {
+                      var regex = new RegExp("("+clean_term+")","ig");
+                      html_safe = html_safe.replace(regex,'<em>$1</em>');
+                    }
+                  }
+                  return html_safe;
+                };
+                var filter = function(search_term,data) {
+                  return $.map(data, function(item) {
+                    return {
+                      label: html_escape(item.label),
+                      html:  highlight_term(item.label,search_term),
+                      url:   item.url + "?q=" + encodeURIComponent(item.label)
+                    }
+                  });
+                };
+                var search_term = request.term;
+                data = filter(search_term,data.slice(0,10));
+                data.push(search_site(search_term));
+                response( data );       
+              }
+            });
+          };
+
+          term = request.term;
+          if (term.length == 0) {
+            response([]);
+          } else if (term.length == 1) {
+            loading();
+          } else {
+            ajax();
+          }
+
         },
         select: function(event, ui) {
           location.href = ui.item.url
