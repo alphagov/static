@@ -157,8 +157,10 @@ p.error-response {
   position: absolute;
   top: 0;
   left: 0;
+  z-index:30;
   /*display: inline-block;*/
 }
+
 
 #discover-search {
 /*  position: absolute;
