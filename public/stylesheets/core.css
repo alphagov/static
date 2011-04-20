@@ -79,6 +79,7 @@ div.app-error p {
   background: url(/images/header-background.png) repeat-x 0 10px;
 }
 
+
 #page-container {
   margin: 0 3%;
 }
@@ -221,6 +222,25 @@ div.app-error p {
   line-height: 1em;
   background: #F2F2F2;
 }
+
+/* Geo */
+#global-user-location {
+	background: url(/images/index/global-user-location-icon.png) no-repeat;
+	position: absolute;
+	left: 0;
+	height: 35px;
+	top: 120px;
+}
+
+#global-user-location p {
+	color: #393939;
+	font-size: 0.75em;
+	left: 2em;
+	position: relative;
+	top: 15px;
+	width: 220px;
+}
+
 
 /*
   common elements
