@@ -370,3 +370,49 @@
   width: 820px;
 }
 
+/* about pages override styles */
+
+.about-alpha .welcome.about {
+  background: #F6F5F1 url(/images/welcome/sunburst.jpg) no-repeat;
+	height: auto;
+}
+
+.about-alpha .welcome.about h1 {
+  font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif; 
+  font-size: 1.8em;
+  font-size-adjust: 0.488;
+  font-weight: 600; 
+  font-style: normal;
+  margin-bottom: 1em;
+  position: relative;
+	padding: 0.88em 0 0.88em;
+  text-shadow: 0 2px 0 #fff;
+  width: 820px;
+}
+
+.about-alpha .welcome.about .panel {
+	border-top: solid 2px #D6D6D6;
+	margin: 0 auto 2em;
+	width: 820px;
+}
+
+.about-alpha .welcome.about h2, .about-alpha .welcome.about p {
+	line-height: 1.3em;
+	margin: 0 0 1em;
+	width: 70%;
+}
+
+.about-alpha .welcome.about h2 {
+  font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif; 
+  font-size: 1.5em;
+  font-size-adjust: 0.488;
+  font-weight: 600; 
+  font-style: normal;
+	margin-bottom: 0.25em;
+  position: relative;
+  text-shadow: 0 2px 0 #fff;
+}
+
+.about-alpha .welcome.about p + h2 {
+	margin-top: 1.5em;
+}
