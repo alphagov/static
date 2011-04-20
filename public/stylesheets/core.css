@@ -205,7 +205,7 @@ div.app-error p {
 
 #discover-search input[type="submit"] {
   float: right;
-  padding: 0.25em 0.91em;
+  padding: 0 0.91em;
   line-height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
@@ -230,12 +230,16 @@ div.app-error p {
 	background-position:0 0;
 	position: absolute;
 	left: 0;
-	height: 35px;
+	height: 45px;
 	top: 120px;
+	padding-top:3px;
 }
 
 #global-user-location.set {
   background-position:0 -76px;
+}
+#global-user-location.set-intro {
+  background-position:0 -246px;
 }
 
 #location-set-message {
@@ -245,7 +249,7 @@ div.app-error p {
 #global-user-location p {
 	color: #393939;
 	font-size: 0.75em;
-	left: 2em;
+	left: 2.5em;
 	position: relative;
 	top: 15px;
 }

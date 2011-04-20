@@ -24,9 +24,33 @@ var AlphaGeo = {
 };
 
 jQuery(document).ready(function() {
+
+  
+
+  function chooseLocation(){
+      $('<div id="splash-back"></div>').appendTo($('body'));
+      $('#splash-back').hide();
+      $('#splash-back').load('/tour.html #splash', function() {
+        $(document).trigger('tour-ready');
+        $('#tour-close').click(close_tour);
+        $('#splash-back').fadeIn();
+      });
+      return false;
+    }
+
+    
+ //old    
   $(document).bind('location-changed', function(e, data) {
-     //set class on geo element
-    $("#global-user-location").addClass('set');      
+
+     //set class on geo element 
+     $("#global-user-location").addClass('set-intro');
+     setTimeout(
+         function(){
+             $("#global-user-location").removeClass('set-intro');
+             $("#global-user-location").addClass('set');
+         },
+         1000
+    );
     
     //show correct message
     $('#location-set-message').show();
@@ -36,7 +60,7 @@ jQuery(document).ready(function() {
     $("#location-name").html(data.current_location.locality);
   });
   $(document).bind('location-removed', function(e, message) {
-    //set class on teh geo elements
+    //set class on the geo elements
     $("#global-user-location").removeClass('set');    
     
     //show correct message
