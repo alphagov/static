@@ -84,13 +84,9 @@ $(document).bind('tour-ready', function () {
 
     // handle nav selection
     function selectNav() {
-        $(this)
-            .parents('ul:first')
-                .find('a')
-                    .removeClass('selected')
-                .end()
-            .end()
-            .addClass('selected');
+        var nav_li = $(this);
+        nav_li.parents('ul:first').find('a').removeClass('selected');
+        nav_li.addClass('selected');
     }
 
     $('#slider .navigation').find('a').click(selectNav);
@@ -113,7 +109,7 @@ $(document).bind('tour-ready', function () {
     };
 
     //set first item selected and then setup scroll
-    $('ul.navigation a:first').click();    
+    $('ul.navigation a:first').click();
     $.localScroll(scrollOptions);
 
 });
