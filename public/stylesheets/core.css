@@ -225,11 +225,21 @@ div.app-error p {
 
 /* Geo */
 #global-user-location {
-	background: url(/images/index/global-user-location-icon.png) no-repeat;
+	background-image: url(/images/index/global-user-location-icon.png);
+	background-repeat:no-repeat;
+	background-position:0 0;
 	position: absolute;
 	left: 0;
 	height: 35px;
 	top: 120px;
+}
+
+#global-user-location.set {
+  background-position:0 -36px;
+}
+
+#location-set-message {
+  display:none;
 }
 
 #global-user-location p {
@@ -238,7 +248,6 @@ div.app-error p {
 	left: 2em;
 	position: relative;
 	top: 15px;
-	width: 220px;
 }
 
 

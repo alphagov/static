@@ -25,10 +25,25 @@ var AlphaGeo = {
 
 jQuery(document).ready(function() {
   $(document).bind('location-changed', function(e, data) {
-    $("#global-user-location").html("<p>I think you're in " +  data.current_location.locality + ".</p>");
+     //set class on geo element
+    $("#global-user-location").addClass('set');      
+    
+    //show correct message
+    $('#location-set-message').show();
+    $('#location-unset-message').hide();
+    
+    //set the name of the place
+    $("#location-name").html(data.current_location.locality);
   });
   $(document).bind('location-removed', function(e, message) {
-    $("#global-user-location").text("");
+    //set class on teh geo elements
+    $("#global-user-location").removeClass('set');    
+    
+    //show correct message
+    $('#location-set-message').show();
+    $('#location-unset-message').hide();
+    
+    //delete cookie
     AlphaGeo.deleteGeoCookie();
   });
   var located = AlphaGeo.locationName();
