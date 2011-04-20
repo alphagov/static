@@ -204,7 +204,7 @@ div.app-error p {
 
 #discover-search input[type="submit"] {
   float: right;
-  padding: 0 0.91em;
+  padding: 0.25em 0.91em;
   line-height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
