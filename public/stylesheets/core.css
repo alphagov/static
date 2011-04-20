@@ -1716,8 +1716,25 @@ br { display: none; }
 /* alpha advisory notes */
 
 .alpha-note {
+  float: right;
   margin-bottom: 1em;
+  padding-bottom: 1em;
+  width: 11.25em;
+  background: rgb(250,250,223);
+}
+
+.alpha-note h4 {
   padding: 1em;
-  background: #FFF2BF;
-  border: solid 1px #FFCD3D;
+  height: 2.167em;
+  line-height: 2.167em;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  color: #FC0000;
+  background: url(/images/alpha-note-background.png) repeat-x 0 0;
+}
+
+.alpha-note p {
+  padding: 1em;
+  font-size: 0.75em;
+  line-height: 1.5em;
 }
