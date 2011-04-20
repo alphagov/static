@@ -235,7 +235,7 @@ div.app-error p {
 }
 
 #global-user-location.set {
-  background-position:0 -36px;
+  background-position:0 -76px;
 }
 
 #location-set-message {
@@ -801,7 +801,10 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 
 /* Ask Location */
 div.ask_location, div.finding_location, div.found_location {
-  background: #fff url(/images/locator-icon.png) 0.85em 1em no-repeat; 
+  background-color:#fff;
+  background-repeat:no-repeat;
+  background-image:url(/images/index/global-user-location-icon.png); 
+  background-position:0.85em 16px;
   padding: 0.75em 1.25em 0.75em 2.75em; 
   position: relative; 
   float: left;
@@ -854,6 +857,7 @@ div.finding_location p {
 }
 div.found_location {
   padding-top: 1.25em;
+  background-position:0.85em -60px;
 }
 div.found_location h3 {
   margin-top: 0;
