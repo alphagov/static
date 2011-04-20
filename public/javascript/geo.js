@@ -25,21 +25,7 @@ var AlphaGeo = {
 
 jQuery(document).ready(function() {
 
-  
 
-  function chooseLocation(){
-      $('<div id="splash-back"></div>').appendTo($('body'));
-      $('#splash-back').hide();
-      $('#splash-back').load('/tour.html #splash', function() {
-        $(document).trigger('tour-ready');
-        $('#tour-close').click(close_tour);
-        $('#splash-back').fadeIn();
-      });
-      return false;
-    }
-
-    
- //old    
   $(document).bind('location-changed', function(e, data) {
 
      //set class on geo element 
