@@ -23,39 +23,69 @@ var AlphaGeo = {
   }
 };
 
-jQuery(document).ready(function() {
-
-
-  $(document).bind('location-changed', function(e, data) {
-
-     //set class on geo element 
-     $("#global-user-location").addClass('set-intro');
-     setTimeout(
-         function(){
-             $("#global-user-location").removeClass('set-intro');
-             $("#global-user-location").addClass('set');
-         },
-         1000
-    );
-    
+$(document).ready(function() {
+  var set_location_known = function(current_location, highlight_func) {
+    if (highlight_func != undefined) {
+      highlight_func();
+    }
+    $("#global-user-location").addClass('set');
     //show correct message
     $('#location-set-message').show();
     $('#location-unset-message').hide();
-    
     //set the name of the place
-    $("#location-name").html(data.current_location.locality);
-  });
-  $(document).bind('location-removed', function(e, message) {
+    $("#location-name").html(current_location.locality);
+  };
+  var set_location_unknown = function(highlight_func) {
+    if (highlight_func != undefined) {
+      highlight_func();
+    }
     //set class on the geo elements
-    $("#global-user-location").removeClass('set');    
-    
+    $("#global-user-location").removeClass('set');
+
     //show correct message
-    $('#location-set-message').show();
-    $('#location-unset-message').hide();
-    
+    $('#location-set-message').hide();
+    $('#location-unset-message').show();
+
     //delete cookie
     AlphaGeo.deleteGeoCookie();
+  }
+
+  $(document).bind('location-known', function(e, data) {
+    set_location_known(data.current_location)
+  });
+  $(document).bind('location-changed', function(e, data) {
+    set_location_known(data.current_location, function() {
+      $("#global-user-location").addClass('set-intro');
+      setTimeout(
+        function(){
+          $("#global-user-location").removeClass('set-intro');
+          $("#global-user-location").addClass('set');
+        },
+        1000
+      );
+    });
+  });
+  $(document).bind('location-removed', function(e, message) {
+    set_location_unknown();
   });
   var located = AlphaGeo.locationName();
-  if (located) $(document).trigger('location-changed', {current_location: {locality: located}});
+  if (located) $(document).trigger('location-known', {current_location: {locality: located}});
+  $('#global-locator').append('<p class="close"><a href="#">Close</a></p>');
+  $('#global-locator .close').click(function() {
+    $('#global-locator').hide();
+    return false;
+  });
+  $('#change-location').click(function() {
+    $('#global-locator').show();
+    $('#global-locator-form').trigger('reset-locator-form');
+    return false;
+  });
+  $('#explain-location').click(function() {
+    $('#global-locator').show();
+    $('#global-locator-form').trigger('reset-locator-form');
+    return false;
+  });
+  $(document).bind('location-changed', function() {
+    $('#global-locator').hide();
+  });
 });
