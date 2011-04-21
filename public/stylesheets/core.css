@@ -1168,6 +1168,8 @@ ol.helpers li li {
 .task-step .step-expectation {
   padding: 1em;
   background: #F0EDEB;
+  color:#87827f;
+  font-size:0.8em;
 }
 
 /*
