@@ -47,7 +47,7 @@ jQuery(document).ready(function() {
               for (var i in terms)  {
                 var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
                 if (clean_term != "") {
-                  var regex = new RegExp("("+clean_term+")","ig");
+                  var regex = new RegExp("\\b("+clean_term+")","ig");
                   html_safe = html_safe.replace(regex,'<em>$1</em>');
                 }
               }
