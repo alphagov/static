@@ -10,6 +10,17 @@ jQuery(document).ready(function() {
       }
     });
     
+    var precooked = null;
+
+    $.ajax( {
+      url: "/search/precooked",
+      dataType: "jsonp",
+      jsonpCallback: "precookedf",
+      cache: true,
+      success: function(data) {
+        precooked = data;
+      }
+    });
 
     //hide instructions
      $('#search_hint').hide();  
@@ -29,12 +40,37 @@ jQuery(document).ready(function() {
       }
     );
 
+    var filter_terms = function(search_term,data) {
+       var highlight_term = function(string,term) {
+              html_safe = html_escape(string);
+              var terms = term.split(' ');
+              for (var i in terms)  {
+                var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
+                if (clean_term != "") {
+                  var regex = new RegExp("("+clean_term+")","ig");
+                  html_safe = html_safe.replace(regex,'<em>$1</em>');
+                }
+              }
+              return html_safe;
+        };
+
+
+       return $.map(data, function(item) {
+          return {
+              label: html_escape(item.label),
+              html:  highlight_term(item.label,search_term),
+              url:   item.url + "?q=" + encodeURIComponent(item.label)
+          };
+       });
+    }
+
+    var html_escape = function( string) {
+        return $('<div/>').text(string).html();
+    };
+
     $("#main_autocomplete").autocomplete({
         delay: 0,
         source: function( request, response ) {
-          var html_escape = function( string) {
-                return $('<div/>').text(string).html();
-          };
           
           var search_site = function(search_term) {
             return {
@@ -44,8 +80,13 @@ jQuery(document).ready(function() {
               };
           };
           
-          var loading = function() {
+          var loading = function(term) {
             var data = [];
+            if (precooked) {
+              if (precooked[term]) {
+                data = filter_terms(term,precooked[term]);
+              }
+            } 
             data.push(search_site(request.term));
             response(data);
           };
@@ -54,31 +95,12 @@ jQuery(document).ready(function() {
             $.ajax({
               url: "/search/autocomplete",
               dataType: "jsonp",
+              jsonpCallback: "search_received",
               data: { term: request.term },
+              cache: true,
               success: function( data ) {
-                var highlight_term = function(string,term) {
-                  html_safe = html_escape(string);
-                  var terms = term.split(' ');
-                  for (var i in terms)  {
-                    var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
-                    if (clean_term != "") {
-                      var regex = new RegExp("("+clean_term+")","ig");
-                      html_safe = html_safe.replace(regex,'<em>$1</em>');
-                    }
-                  }
-                  return html_safe;
-                };
-                var filter = function(search_term,data) {
-                  return $.map(data, function(item) {
-                    return {
-                      label: html_escape(item.label),
-                      html:  highlight_term(item.label,search_term),
-                      url:   item.url + "?q=" + encodeURIComponent(item.label)
-                    }
-                  });
-                };
                 var search_term = request.term;
-                data = filter(search_term,data.slice(0,10));
+                data = filter_terms(search_term,data.slice(0,10));
                 data.push(search_site(search_term));
                 response( data );       
               }
@@ -89,7 +111,7 @@ jQuery(document).ready(function() {
           if (term.length == 0) {
             response([]);
           } else if (term.length == 1) {
-            loading();
+            loading(term);
           } else {
             ajax();
           }
