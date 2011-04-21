@@ -87,7 +87,7 @@
       });
     }
     locator_form.submit(function(e) {
-      $.getJSON(this.action, $(this).serialize(), dispatch_location);  
+      $.post(this.action, $(this).serialize(), dispatch_location, 'json');
       show_ui(locating_ui);
       e.preventDefault();
     });
