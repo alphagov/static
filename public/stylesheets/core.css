@@ -240,6 +240,7 @@ div.app-error p {
 }
 #global-user-location.set-intro {
   background-position:0 -246px;
+  color:red;
 }
 
 #location-set-message {
