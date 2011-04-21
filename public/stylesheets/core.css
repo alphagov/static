@@ -496,8 +496,9 @@ div.task.article-text {
 }
 
 .task-intro {
-  padding-bottom: 1em;
-  border-top: solid 2px #F0EDEB;
+  padding-bottom: 0.6em;
+  margin-bottom:1em;
+  border-bottom: solid 2px #F0EDEB;
 }
 
 div.task.overview {
