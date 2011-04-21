@@ -233,6 +233,11 @@ div.app-error p {
   background-position:0 -246px;
 }
 
+#global-user-location.set-intro p{
+/* text-shadow:0 0 5px #6be619;*/
+  background:#ffffaa;
+}
+
 #location-set-message {
   display:none;
 }
@@ -482,8 +487,9 @@ div.task.article-text {
 }
 
 .task-intro {
-  padding-bottom: 1em;
-  border-top: solid 2px #F0EDEB;
+  padding-bottom: 0.6em;
+  margin-bottom:1em;
+  border-bottom: solid 2px #F0EDEB;
 }
 
 div.task.overview {
@@ -1186,6 +1192,8 @@ ol.helpers li li {
 .task-step .step-expectation {
   padding: 1em;
   background: #F0EDEB;
+  color:#87827f;
+  font-size:0.8em;
 }
 
 /*
@@ -1804,3 +1812,16 @@ br { display: none; }
   font-size: 0.75em;
   line-height: 1.5em;
 }
+
+/* BEGIN: global locate-me box */
+#global-locator {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+/* END: global locate-me box */

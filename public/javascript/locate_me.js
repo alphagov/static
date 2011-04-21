@@ -31,11 +31,14 @@
       found_ui.find('a').text('Not in ' + geo_data.locality + '?');
     }
     var dispatch_location = function(response_data) {
-      if (response_data.current_location.lat != '0.0') {
-        update_geo_labels(response_data.current_location);
+      $(document).trigger('location-changed', response_data);
+    }
+    var changed_location = function(data) {
+      if (data.current_location.lat != '0.0') {
+        update_geo_labels(data.current_location);
         show_ui(found_ui);
-        $(document).trigger('location-changed', response_data);
-      } else {
+      } 
+      else {
         if (ask_ui.find('.error-response').length == 0) {
           ask_ui.prepend('<p class="error-response"></p>');
         }
@@ -43,13 +46,15 @@
         show_ui(ask_ui);
       }
     }
-
-    /* Locator setup */
-    found_ui.find('a').click(function (e) {
+    var reset_location = function() {
       locator_form.find('input[name=lat]').val('');
       locator_form.find('input[name=lon]').val('');
       found_ui.find('h3').text('');
       show_ui(ask_ui);
+    }
+
+    /* Locator setup */
+    found_ui.find('a').click(function (e) {
       $(document).trigger('location-removed');
       e.preventDefault();
     });
@@ -85,9 +90,18 @@
         e.preventDefault();
         // return false;
       });
+      $(document).bind('location-changed', function(e, data) {
+        changed_location(data);
+      });
+      $(document).bind('location-removed', function() {
+        reset_location();
+      });
     }
+    locator_form.bind('reset-locator-form', function() {
+      reset_location();
+    })
     locator_form.submit(function(e) {
-      $.post(this.action, $(this).serialize(), dispatch_location, 'json');
+      $.post(this.action, locator_form.serialize(), dispatch_location, 'json');
       show_ui(locating_ui);
       e.preventDefault();
     });
@@ -96,4 +110,5 @@
 
 $(function() {
   $('#large-locator-form').locator();
+  $('#global-locator-form').locator();
 });
