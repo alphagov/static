@@ -3,7 +3,11 @@ jQuery(document).ready(function() {
     $.extend( $.ui.autocomplete.prototype, {
 
     	_renderItem: function( ul, item) {
-        return $( "<li></li>" )
+    	  var list = "<li></li>"
+    	  if (item.clazz) {
+    	    list = "<li class=\""+item.clazz+"\"></li>"
+    	  }
+        return $( list )
           .data( "item.autocomplete", item )
           .append( $( "<a></a>" ).html( item.html || item.label ) )
           .appendTo( ul );
@@ -74,9 +78,10 @@ jQuery(document).ready(function() {
           
           var search_site = function(search_term) {
             return {
-                label: "search the site for "+html_escape(search_term),
-                html:  "search the site for <em>"+html_escape(search_term)+"</em>",
-                url:   "/search?q="+encodeURIComponent(search_term)
+                label: "Search for "+html_escape(search_term),
+                html:  "Search for <em>"+html_escape(search_term)+"</em>",
+                url:   "/search?q="+encodeURIComponent(search_term),
+                clazz: "search-site"
               };
           };
           
