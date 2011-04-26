@@ -1643,6 +1643,7 @@ br { display: none; }
 	right: 0;
 	padding: 0.5em 1em;
 	width: 150px;
+	z-index: 500;
 }
 
 .alpha-feedback a.close {
@@ -1656,13 +1657,19 @@ br { display: none; }
 }
 
 .alpha-feedback h3 {
+  margin-bottom: 0.5em;
 	font-size: 1em;
 	font-weight: bold;
 }
 
 .alpha-feedback p {
-	font-size: 0.88em;
 	margin-bottom: 1em;
+	font-size: 0.88em;
+}
+
+.alpha-feedback #feedback-options {
+	margin-left: 0;
+	margin-bottom: 0;
 }
 
 .alpha-feedback a.yes, .alpha-feedback a.no, .alpha-feedback h4 {
