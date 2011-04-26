@@ -655,6 +655,7 @@ span.input-box label {
 /* Helpers */
 ul.helpers {
   padding: 0;
+  margin-bottom: 1em;
   list-style-type: none;
   text-shadow: 0 1px 0px rgba(255,255,255,0.6);
 }
