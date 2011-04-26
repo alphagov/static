@@ -17,7 +17,7 @@ var Alphagov = {
   delete_cookie: function(name) {
     if (document.cookie && document.cookie != '') {
       var date = new Date();
-      date.setTime(date.g8etTime()-(24*60*60*1000)); // 1 day ago
+      date.setTime(date.getTime()-(24*60*60*1000)); // 1 day ago
       document.cookie = name + "=; expires=" + date.toGMTString() + "; domain=.alphagov.co.uk; path=/";
     }
   },

@@ -68,21 +68,29 @@ $(document).ready(function() {
   $(document).bind('location-removed', function(e, message) {
     set_location_unknown();
   });
+  // setup extra HTML
   var located = AlphaGeo.locationName();
   if (located) $(document).trigger('location-known', {current_location: {locality: located}});
-  $('#global-locator').append('<p class="close"><a href="#">Close</a></p>');
+  $('#global-locator-box').append('<p class="close"><a href="#"><img src="/images/welcome/close.png" alt="close"></a></p>');
   $('#global-locator .close').click(function() {
     $('#global-locator').hide();
     return false;
   });
-  $('#change-location').click(function() {
+  
+  // Event handlers
+  $('#global-user-location .change-location').click(function() {
     $('#global-locator').show();
     $('#global-locator-form').trigger('reset-locator-form');
     return false;
   });
-  $('#explain-location').click(function() {
+  $('#global-user-location .explain-location').click(function() {
     $('#global-locator').show();
     $('#global-locator-form').trigger('reset-locator-form');
+    return false;
+  });
+  $('#forget-location').click(function() {
+    $(document).trigger('location-removed');
+    $('#global-locator').hide();
     return false;
   });
   $(document).bind('location-changed', function() {
