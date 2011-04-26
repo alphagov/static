@@ -820,7 +820,7 @@ div.ask_location, div.finding_location, div.found_location {
   -moz-border-radius: 10px; 
 }
 div.ask_location, div.finding_location {
-  width: 27.25em;
+/*  width: 27.25em;*/
 }
 div.ask_location.set div {
   background-position: 15px -115px;
@@ -840,7 +840,6 @@ div.ask_location.set div p {
   padding-top: 0;
 }
 div.ask_location input[type='text'] {
-  width: 20em; 
   padding: 5px;
 }
 div.ask_location input[type='submit'] {
@@ -1822,6 +1821,24 @@ br { display: none; }
   top: 0;
   left: 0;
   background: rgba(0,0,0,0.6);
+  z-index:40;
+}
+
+
+#global-locator-box {
+  position: relative;
+  top:10%;
+  background-color: #fff;
+  width: 80%;
+  height: 250px;
+  margin: 0 auto;
+  border:solid 20px #808080;	
+  padding:20px;
+}
+
+#global-set-location, #global-explain-location {
+  float:left;
+  width:50%;
 }
 
 /* END: global locate-me box */
