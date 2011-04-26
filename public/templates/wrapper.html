@@ -116,5 +116,12 @@
           <p>Some text here</p>
         </div>
     </div>
+    <script src="/javascript/add_feedback_box.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var no_auto_feedback_box;
+      if (!no_auto_feedback_box) {
+        $(function () { $('.one-third-col').addFeedbackBox(); });
+      }
+    </script>
   </body>
 </html>
