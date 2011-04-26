@@ -943,6 +943,10 @@ ul.ui-autocomplete.ui-menu .ui-menu-item.search-site a {
   background-position: 0.85em 52%;
 }
 
+ul.ui-autocomplete.ui-menu .ui-menu-item.search-site em {
+  font-style: italic;
+}
+
 ul.ui-corner-all, ul li a.ui-corner-all {
     border-radius: 0;
     -moz-border-radius: 0;
