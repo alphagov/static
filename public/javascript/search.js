@@ -31,6 +31,9 @@ jQuery(document).ready(function() {
      
     var search_box_default_text="I’m looking for…";
     //search hint
+    //
+    $('#main_autocomplete').val(search_box_default_text);
+
     $('#main_autocomplete').blur(
       function(){
         if ($('#main_autocomplete').val() == "") {
@@ -76,6 +79,11 @@ jQuery(document).ready(function() {
     var html_escape = function( string) {
         return $('<div/>').text(string).html();
     };
+
+    $("#main_autocomplete").parent("form").submit(function() {
+      $('li.search-site a').addClass("ui-state-hover");
+      return true;
+    });
 
     $("#main_autocomplete").autocomplete({
         delay: 0,
