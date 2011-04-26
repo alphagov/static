@@ -25,22 +25,32 @@ var AlphaGeo = {
 
 $(document).ready(function() {
   var set_location_known = function(current_location, highlight_func) {
-    if (highlight_func != undefined) {
-      highlight_func();
-    }
-    $("#global-user-location").addClass('set');
+    highlight_func();
     //show correct message
     $('#location-set-message').show();
     $('#location-unset-message').hide();
     //set the name of the place
     $("#location-name").html(current_location.locality);
   };
+  var setup_location_change_highlight = function() {
+    if ($("#global-user-location .highlight-change-icon").length == 0) {
+      $('<div class="highlight-change-icon"></div>').appendTo("#global-user-location").hide();
+      $('<span class="text-highlight"></span>').prependTo("#global-user-location p").hide();
+    }
+  }
+  var flash_location_change_state = function(class_to_flash) {
+    $("#global-user-location .highlight-change-icon").fadeIn(750).fadeOut(750, function() { $("#global-user-location").removeClass(class_to_flash); });
+    $('#global-user-location p span.text-highlight').fadeIn(750).fadeOut(750);
+  }
   var set_location_unknown = function(highlight_func) {
     if (highlight_func != undefined) {
       highlight_func();
     }
     //set class on the geo elements
+    $("#global-user-location").addClass('removing');
+    setup_location_change_highlight();
     $("#global-user-location").removeClass('set');
+    flash_location_change_state('removing');
 
     //show correct message
     $('#location-set-message').hide();
@@ -49,20 +59,17 @@ $(document).ready(function() {
     //delete cookie
     AlphaGeo.deleteGeoCookie();
   }
-
   $(document).bind('location-known', function(e, data) {
-    set_location_known(data.current_location)
+    set_location_known(data.current_location, function() {
+      $("#global-user-location").addClass('set');
+    })
   });
   $(document).bind('location-changed', function(e, data) {
     set_location_known(data.current_location, function() {
-      $("#global-user-location").addClass('set-intro');
-      setTimeout(
-        function(){
-          $("#global-user-location").removeClass('set-intro');
-          $("#global-user-location").addClass('set');
-        },
-        1000
-      );
+      $("#global-user-location").addClass('setting');
+      setup_location_change_highlight();
+      $("#global-user-location").addClass('set');
+      flash_location_change_state('setting');
     });
   });
   $(document).bind('location-removed', function(e, message) {
