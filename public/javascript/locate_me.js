@@ -101,9 +101,9 @@
       reset_location();
     })
     locator_form.submit(function(e) {
+      e.preventDefault();
       $.post(this.action, locator_form.serialize(), dispatch_location, 'json');
       show_ui(locating_ui);
-      e.preventDefault();
     });
   }
 })(jQuery);

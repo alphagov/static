@@ -1839,6 +1839,12 @@ br { display: none; }
   padding:20px;
 }
 
+#global-locator-box .close {
+  position: absolute;
+  top: -19px;
+  right: -19px;
+}
+
 #global-set-location, #global-explain-location {
   float:left;
   width:50%;
