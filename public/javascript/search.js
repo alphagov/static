@@ -29,17 +29,22 @@ jQuery(document).ready(function() {
     //hide instructions
      $('#search_hint').hide();  
      
+    var search_box_default_text="I’m looking for…";
     //search hint
     $('#main_autocomplete').blur(
       function(){
-        $('#main_autocomplete').val("I'm looking for...");
+        if ($('#main_autocomplete').val() == "") {
+          $('#main_autocomplete').val(search_box_default_text);
+        }
         $('#search_hint').hide();        
       }
     );
 
     $('#main_autocomplete').focus(
       function(){
-        $('#main_autocomplete').val("");
+        if ($('#main_autocomplete').val() == search_box_default_text) {
+          $('#main_autocomplete').val("");
+        }
         $('#search_hint').show();
       }
     );
