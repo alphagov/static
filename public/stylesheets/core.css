@@ -171,14 +171,10 @@ div.app-error p {
   top: 0;
   left: 0;
   z-index:30;
-  /*display: inline-block;*/
 }
 
 
 #discover-search {
-/*  position: absolute;
-  top: 3.4375em;
-  left: 15.625em;*/
   position: relative;
   float: right;
   width: 100%;
@@ -195,10 +191,9 @@ div.app-error p {
 
 #discover-search input[type="text"] {
   padding: 0.31em;
-  /*width: 25.68em;*/
   margin-left: 26%;
   width: 64%;
-  font-weight: bold;
+  font-weight: normal;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
@@ -378,10 +373,11 @@ h3.legend {
 
 /* Popular and related */
 #related-items {
+  clear: both;
   background: #FFC3F9;
   border: solid 1px #FA5DFF;
   padding: 1em;
-  margin-top: 2em;
+  margin: 2em 0;
 }
 
 #related-items h3 {
@@ -512,10 +508,9 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 
 /* GROUP: Task components */
 #task-name {
-  /*min-height: 11em;*/
   padding-right: 35%;
   border-bottom: 2px solid #333;
-  margin-bottom: 2px;
+  margin-bottom: 2em;
 }
 #task-name h1 {
   margin-bottom: 0.5em;
