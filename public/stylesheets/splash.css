@@ -344,10 +344,23 @@
   width: 136px;
 }
 
-#splash .scrollContainer div.panel a.button.play {
+/*#splash .scrollContainer div.panel a.button.play {
   background: url(/images/welcome/button-play.png) no-repeat;
   height: 41px;
   width: 209px;
+}
+*/
+
+#splash .scrollContainer div.panel.get-started p {
+  margin: 0 auto;
+  width: 30em;
+}
+
+#splash .scrollContainer div.panel.get-started p.button {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  margin-top: 3em;
 }
 
 #splash .hide {
