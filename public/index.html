@@ -46,17 +46,6 @@
               <img src="/images/gov.uk-logo.png" alt="UK.gov.uk">
             </a>
           </div> 
-          <div id="strapline">
-            <h1>Project &lsquo;Alphagov&rsquo; – Revolution, not Evolution</h1>
-          </div>
-          <div id="global-user-location">
-            <p id="location-set-message">
-              Your location is set to <strong id="location-name"></strong>. <a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)
-            </p>
-            <p id="location-unset-message">
-              Location not set. <a class="change-location" href="#">Set it now</a> (<a class="explain-location" href="#">why?</a>)
-            </p>
-          </div>
         </div> 
         <!--end discover--> 
       </div> 
@@ -64,12 +53,32 @@
 
       <div id="page-container" class="clear">
         
-          <div id="homepage-search"> 
-            <form action="/search"> 
-              <input type="text" id="main_autocomplete" name="q" value="" placeholder="I&rsquo;m looking for&hellip;"><input type="submit" value="Go">
-              <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a></p>
-            </form> 
-          </div> 
+          <div id="headline">
+            
+            
+            <div id="global-user-location">
+              <div id="location-set-message">
+                <p>
+                  Your location is set to <strong id="location-name"></strong>. <a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)
+                </p>
+              </div>
+              <div id="location-unset-message" class="article-text">
+                <h4>Location not set</h4>
+                <p>If we know your location we can give you details of services local to you.</p>
+                <p>
+                  <a class="change-location" href="#">Set it now</a> (<a class="explain-location" href="#">why?</a>)
+                </p>
+              </div>
+            </div>
+        
+            <div id="homepage-search"> 
+              <form action="/search"> 
+                <input type="text" id="main_autocomplete" name="q" value="" placeholder="I&rsquo;m looking for&hellip;"><input type="submit" value="Go">
+                <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a> etc</p>
+              </form> 
+            </div> 
+            
+          </div>
 
           <div id="popular" class="clear"> 
             <h2>Useful tools and topics</h2> 
