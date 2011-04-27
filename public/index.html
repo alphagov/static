@@ -17,6 +17,7 @@
   <script src="/javascript/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
   <script src="/javascript/core.js" type="text/javascript" charset="utf-8"></script>
   <script src="/javascript/search.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/javascript/locate_me.js" type="text/javascript" charset="utf-8"></script>
   <script src="/javascript/geo.js" type="text/javascript" charset="utf-8"></script>
   <script src="/javascript/fonts.js" type="text/javascript" charset="utf-8"></script>
   <script src="/javascript/promote.js" type="text/javascript" charset="utf-8"></script>
@@ -50,10 +51,10 @@
           </div>
           <div id="global-user-location">
             <p id="location-set-message">
-              Your location is set to <strong id="location-name"></strong>. <a href="#">Change location</a> (<a href="#">what is this?</a>)
+              Your location is set to <strong id="location-name"></strong>. <a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)
             </p>
             <p id="location-unset-message">
-              Location not set. <a href="#">Set it now</a> (<a href="#">why?</a>)
+              Location not set. <a class="change-location" href="#">Set it now</a> (<a class="explain-location" href="#">why?</a>)
             </p>
           </div>
         </div> 
@@ -146,6 +147,35 @@
 
       </div> <!--end footer--> 
     </div> <!--end container--> 
+    <div id="global-locator">
+      <div id="global-locator-box">
+        <div id="global-set-location">
+          <h2>Set your location</h2>
+          <form id="global-locator-form" class="app-form" action="/locator.json">
+            <fieldset class="postcode">
+              <div class="ask_location">
+                <div>
+                  <input name="postcode" type="text" value="" placeholder="type your postcode">
+                  <input type="submit" name="find_me" value="Go &rarr;">
+                </div>
+              </div>
+              <div class="finding_location hidden">
+                <p>Locating you&hellip;
+                  <input type="hidden" name="lon" value="">
+                  <input type="hidden" name="lat" value="">
+                </p>
+              </div>
+            </fieldset>
+          </form>
+          <p>
+            <a id="forget-location" href="#">Forget my location</a>
+          </p>
+        </div>
+        <div id="global-explain-location">
+          <h2>Why?</h2>
+          <p>Some text here</p>
+        </div>
+    </div>
     <script type="text/javascript"> 
     (function () {
       var ma = document.createElement('script');

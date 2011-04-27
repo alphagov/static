@@ -225,17 +225,47 @@ div.app-error p {
 	top: 120px;
 	padding-top:3px;
 }
-
+#global-user-location .highlight-change-icon {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-image: url(/images/index/global-user-location-icon.png);
+  background-repeat:no-repeat;
+  background-position:0 0;
+  position: absolute;
+  left: 0;
+  height: 48px;
+  width: 50px;
+  top: -6px;
+}
 #global-user-location.set {
   background-position:0 -76px;
 }
-#global-user-location.set-intro {
-  background-position:0 -246px;
+#global-user-location.setting, #global-user-location.removing {
+  background-image: none;
 }
-
-#global-user-location.set-intro p{
+#global-user-location.setting .highlight-change-icon {
+  background-position:0 -245px;
+}
+#global-user-location.removing .highlight-change-icon {
+  background-position:0 -151px;
+}
+#global-user-location.set-intro p {
+  position: relative;
+}
+#global-user-location p span.text-highlight {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  background: #ffffaa;
+  z-index: -150;
 /* text-shadow:0 0 5px #6be619;*/
-  background:#ffffaa;
+/*  background: #ffffaa;*/
 }
 
 #location-set-message {
@@ -1643,6 +1673,7 @@ br { display: none; }
 	right: 0;
 	padding: 0.5em 1em;
 	width: 150px;
+	z-index: 500;
 }
 
 .alpha-feedback a.close {
@@ -1656,13 +1687,19 @@ br { display: none; }
 }
 
 .alpha-feedback h3 {
+  margin-bottom: 0.5em;
 	font-size: 1em;
 	font-weight: bold;
 }
 
 .alpha-feedback p {
-	font-size: 0.88em;
 	margin-bottom: 1em;
+	font-size: 0.88em;
+}
+
+.alpha-feedback #feedback-options {
+	margin-left: 0;
+	margin-bottom: 0;
 }
 
 .alpha-feedback a.yes, .alpha-feedback a.no, .alpha-feedback h4 {
