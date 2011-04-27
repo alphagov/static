@@ -42,8 +42,10 @@
       $('#feedback-options').addClass('hidden');
       feedback_box.find('h4').removeClass('hidden');
       feedback_box.addClass('submitted');
+      $('.alpha-feedback').delay(1600).hide('slow');
 
       $.getJSON(url, params, function (data) {});
+
       return false;
     }); 
 
