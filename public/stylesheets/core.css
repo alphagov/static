@@ -377,8 +377,28 @@ h3.legend {
 }
 
 /* Popular and related */
-.related-content {background:#ffffaa; padding:1em; margin-top:2em; min-height:8em;}
+#related-items {
+  background: #FFC3F9;
+  border: solid 1px #FA5DFF;
+  padding: 1em;
+  margin-top: 2em;
+}
 
+#related-items h3 {
+  font-size: 1.13em;
+  line-height: 1.11em;
+  margin-bottom: 0.67em;
+}
+
+#related-items ul {
+  padding-left: 1em;
+}
+
+#related-items ul li {
+  list-style-image: url(/images/bullet-point-default.png);
+  margin-bottom: 0.5em;
+}
+  
 /* jquery annotator */
 #jquery-overlay {
 	position: absolute;
