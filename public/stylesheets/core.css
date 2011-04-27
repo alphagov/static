@@ -958,6 +958,10 @@ ul.ui-autocomplete li, #search_hint {
   font-size:0.8em;
 }
 
+ul.ui-autocomplete li {
+  border-top: solid 1px #DBDAD9;
+}
+
 #homepage-search #search_hint {
   margin:0 0 0 0.4em;
 }
