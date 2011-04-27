@@ -769,8 +769,9 @@ ul.helpers li#helper-offline-steps {
 */
 
 .postal-address {
-  padding: 2em 1em 3em 6em;
-  width: 18em;
+  padding: 3em 7em 3em 6em;
+  width: 12em;
+  min-height: 4em;
   background: url(/images/stamp.png) 21em 1em no-repeat #fff;
   border: solid 1px #D3D3D3;
 }
