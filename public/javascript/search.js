@@ -25,10 +25,14 @@ jQuery(document).ready(function() {
         precooked = data;
       }
     });
-
-    //hide instructions
-     $('#search_hint').hide();  
-     
+    
+    // //setup search hint items
+    // $('.search_hint_item').click(
+    //     function(item){
+    //         $('#main_autocomplete').val($(this).text());
+    //     }
+    // );
+    
     var search_box_default_text="I’m looking for…";
     //search hint
     //
@@ -39,7 +43,6 @@ jQuery(document).ready(function() {
         if ($('#main_autocomplete').val() == "") {
           $('#main_autocomplete').val(search_box_default_text);
         }
-        $('#search_hint').hide();        
       }
     );
 
@@ -48,7 +51,6 @@ jQuery(document).ready(function() {
         if ($('#main_autocomplete').val() == search_box_default_text) {
           $('#main_autocomplete').val("");
         }
-        $('#search_hint').show();
       }
     );
 
@@ -82,6 +84,7 @@ jQuery(document).ready(function() {
 
     $("#main_autocomplete").parent("form").submit(function() {
       $('li.search-site a').addClass("ui-state-hover");
+      $('li.search-site a').css('color', '#000')
       return true;
     });
 
@@ -120,7 +123,7 @@ jQuery(document).ready(function() {
                 var search_term = request.term;
                 data = filter_terms(search_term,data.slice(0,10));
                 data.push(search_site(search_term));
-                response( data );       
+                response( data );
               }
             });
           };
@@ -138,9 +141,9 @@ jQuery(document).ready(function() {
         select: function(event, ui) {
           location.href = ui.item.url
         },
-        open: function(event, ui){
-          // console.debug(event);
-        }
+        // open: function(event, ui){
+        //    console.debug(event);
+        // }
     });
 
 });

@@ -8,24 +8,59 @@
 	border-bottom: none;
 }
 
+#header {
+  background-image: none;
+}
+
 /* header bit */
 
-#strapline {
-	clear: both;
-	position: relative;
+/*#strapline {
+  clear: both;
+  position: relative;
 }
 
 #strapline h1 {
-	font-family :"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
-	font-size-adjust: 0.488; 
-	font-weight: 200; 
-	font-style: normal; 
+  font-family :"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  font-size-adjust: 0.488; 
+  font-weight: 200; 
+  font-style: normal; 
   font-size: 1.8em; 
-	position: absolute;
+  position: absolute;
   text-shadow: 0 2px 0 #fff;
-	/*bottom: 0.72em;*/
-	top: 1.95em;
-	left: 35%;
+  top: 1.95em;
+  left: 35%;
+}*/
+
+/* location stuff */
+
+#global-user-location {
+  background-image: none;
+}
+
+#global-user-location p {
+  top: 0;
+  left: 0;
+}
+
+#location-unset-message, #location-set-message {
+  padding: 1.875em;
+  width: 10em;
+  background: rgba(255,255,255,0.85);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+#location-unset-message h4, #location-unset-message p {
+  text-shadow: 0 1px 0 #fff;
+}
+
+#location-unset-message h4 {
+  margin-top: 0;
+}
+
+#location-unset-message p:last-child {
+  margin-bottom: 0;
 }
 
 /* search */
@@ -50,13 +85,12 @@
   margin-right: 0.5em;
   padding: 0.31em;
   width: 25.68em;
-  font-weight: bold;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
 
 #homepage-search input[type="submit"] {
-  padding: 0.25em 0.91em;
+  padding: 0 0.91em;
   line-height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;

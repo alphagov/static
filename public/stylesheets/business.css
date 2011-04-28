@@ -1,0 +1,45 @@
+html {
+	background: url('/images/application-background-business.gif');
+}
+
+#container {
+  background: url(/images/page-strip-business.png) repeat-x center top;
+}
+
+.page_heading h1 {
+	color: #333;
+	font-family: "Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size-adjust: 0.488;
+	font-weight: 600;
+	font-style: normal;
+	font-weight: normal;
+}
+
+ul.helpers li {
+	background-color: #fff;
+	color: #3E3E3E;
+}
+
+.task-step {
+	border-bottom: solid 2px #ddd;
+}
+
+span.input-box {
+	line-height: 100%;
+	margin-bottom: 0.5em;
+  vertical-align: middle;
+	margin-right: 0;
+}
+
+span.input-box.alt {
+	margin-left: 1.5em;
+}
+
+form.app-form fieldset {
+	margin-bottom: 0;
+}
+
+fieldset.period-choice label.part {
+	margin-top: 0;
+	margin-right: .25em;
+}
