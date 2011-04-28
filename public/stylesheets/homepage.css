@@ -1,44 +1,138 @@
 /* core overrides */
 
 #page-container {
+  position: relative;
+  top: -5em;
   margin: 0;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
 }
 
 .page_heading {
 	border-bottom: none;
 }
 
+#header {
+  background-image: none;
+}
+
 /* header bit */
 
-#strapline {
-	clear: both;
-	position: relative;
+/*#strapline {
+  clear: both;
+  position: relative;
 }
 
 #strapline h1 {
-	font-family :"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
-	font-size-adjust: 0.488; 
-	font-weight: 200; 
-	font-style: normal; 
+  font-family :"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  font-size-adjust: 0.488; 
+  font-weight: 200; 
+  font-style: normal; 
   font-size: 1.8em; 
-	position: absolute;
+  position: absolute;
   text-shadow: 0 2px 0 #fff;
-	/*bottom: 0.72em;*/
-	top: 1.95em;
-	left: 35%;
+  top: 1.95em;
+  left: 35%;
+}*/
+
+#headline {
+  position: relative;
+  margin: 0 auto;
+  width: 94%;
+  height: 26em;
+  max-width: 1050px;
+  clear: both;
+}
+
+/* location stuff */
+
+#global-user-location {
+  z-index: 40;
+  top: 2.25em;
+  padding-top: 1em;
+}
+
+#global-user-location p {
+  top: 0;
+  left: 0;
+}
+
+#location-unset-message {
+  padding: 1.5em 1.875em;
+  width: 10em;
+  background: rgba(255,255,255,0.85);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+#location-set-message {
+  position: relative;
+  top: -1em;
+  left: -1.5em;
+  padding-left: 1.5em;
+  padding-right: 1em;
+  height: 2.8em;
+  background: url(/images/index/homepage-location-pin.png) no-repeat 1.5em 0.45em rgba(0,0,0,0.75);
+	-webkit-border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	-moz-border-radius-topright: 2px;
+	-moz-border-radius-bottomright: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+#location-set-message p, #location-set-message p a {
+  color: #fff;
+}
+
+#location-unset-message p {
+  font-size: 0.88em;
+}
+
+#location-set-message p {
+  padding-top: 1.75em;
+  padding-left: 2em;
+}
+
+#location-set-message p a {
+  text-decoration: underline;
+}
+
+#location-unset-message h4, #location-unset-message p {
+  text-shadow: 0 1px 0 #fff;
+}
+
+#location-unset-message h4 {
+  margin-top: 0;
+}
+
+#location-unset-message p:last-child, #location-set-message p:last-child {
+  margin: 0;
+}
+
+#location-unset-message.popover a.button {
+  margin-top: 1em;
 }
 
 /* search */
 
 #homepage-search {
+  position: relative;
+  top: 10.875em;
   margin: 0 auto;
-  padding: 4em;
   max-width: 1050px;
 }
 
 #homepage-search form {
   margin: 0 auto;
-  width: 43.5em;
+  width: 80%;
+  padding-left: 15%;
+}
+
+#homepage-search.location-not-set form {
+  padding-left: 16em;
+  width: auto;
 }
 
 #homepage-search form input {
@@ -46,23 +140,48 @@
   font-size: 1.38em;
 }
 
+#homepage-search.location-not-set form input {
+  display: block;
+  float: left;
+}
+
 #homepage-search input[type="text"] {
+  margin: 0;
   margin-right: 0.5em;
-  padding: 0.31em;
-  width: 25.68em;
-  font-weight: bold;
+  padding: 0 0.31em;
+  line-height: 1.65em;
+  height: 1.65em;
+  width: 70%;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
 
 #homepage-search input[type="submit"] {
+  position: relative;
+  top: 1px;
   padding: 0 0.91em;
   line-height: 1.73em;
+  height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
   border-bottom: solid 1px #999999;
   background: url(/images/search-button-background.png) repeat-x 0 0;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+#homepage-search #search_hint {
+  display: inline-block;
+  margin: 0;
+  margin-left: 1px;
+  padding: 0.4em;
+  width: auto;
+  background: rgba(255,255,255,0.85);
+	-webkit-border-bottom-right-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
 }
 
 /* Popular stuff section */
@@ -291,6 +410,7 @@
 
 
 #footer {
+  margin-top: -5em;
 	background: #FDFCFB url(/images/index/footer-bg.png) no-repeat 50% 0%;
 	color: #333;
 	min-height: 10em;

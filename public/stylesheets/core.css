@@ -1,3 +1,7 @@
+/* @override 
+	http://local.alphagov.co.uk:3000/stylesheets/core.css
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -171,14 +175,10 @@ div.app-error p {
   top: 0;
   left: 0;
   z-index:30;
-  /*display: inline-block;*/
 }
 
 
 #discover-search {
-/*  position: absolute;
-  top: 3.4375em;
-  left: 15.625em;*/
   position: relative;
   float: right;
   width: 100%;
@@ -194,11 +194,11 @@ div.app-error p {
 }
 
 #discover-search input[type="text"] {
-  padding: 0.31em;
-  /*width: 25.68em;*/
+  padding: 0 0.31em;
   margin-left: 26%;
   width: 64%;
-  font-weight: bold;
+  line-height: 1.6em;
+  height: 1.6em;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
@@ -207,6 +207,7 @@ div.app-error p {
   float: right;
   padding: 0 0.91em;
   line-height: 1.73em;
+  height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
   border-bottom: solid 1px #999999;
@@ -216,39 +217,36 @@ div.app-error p {
 
 /* Geo */
 #global-user-location {
-	background-image: url(/images/index/global-user-location-icon.png);
-	background-repeat:no-repeat;
-	background-position:0 0;
-	position: absolute;
-	left: 0;
-	height: 45px;
-	top: 120px;
-	padding-top:3px;
+  position: absolute;
+  left: 0;
+  height: 45px;
+  top: 120px;
+  padding-top:3px;
 }
-#global-user-location .highlight-change-icon {
+#global-user-location span.pin img {
+  position: absolute;
   display: block;
   padding: 0;
   margin: 0;
-  background-image: url(/images/index/global-user-location-icon.png);
-  background-repeat:no-repeat;
-  background-position:0 0;
-  position: absolute;
-  left: 0;
-  height: 48px;
-  width: 50px;
-  top: -6px;
+  left: -2.5em;
+  top: -45px;
+  -webkit-transform: scale(0.7);
+  -moz-transform:    scale(0.7);
+  -o-transform:      scale(0.7);
+  -ms-transform:     scale(0.7);
+  transform:         scale(0.7);
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition:    all 0.6s ease-in-out;
+  -o-transition:      all 0.6s ease-in-out;
+  -ms-transition:     all 0.6s ease-in-out;
+  transition:         all 0.6s ease-in-out;
 }
-#global-user-location.set {
-  background-position:0 -76px;
-}
-#global-user-location.setting, #global-user-location.removing {
-  background-image: none;
-}
-#global-user-location.setting .highlight-change-icon {
-  background-position:0 -245px;
-}
-#global-user-location.removing .highlight-change-icon {
-  background-position:0 -151px;
+#global-user-location.changing span.pin img {
+  -webkit-transform: scale(1);
+  -moz-transform:    scale(1);
+  -o-transform:      scale(1);
+  -ms-transform:     scale(1);
+  transform:         scale(1);
 }
 #global-user-location.set-intro p {
   position: relative;
@@ -323,7 +321,7 @@ form.app-form fieldset input[type="radio"] {
   margin-right: 0.5em;
 }
 
-form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type="button"] {
+form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type="button"], form.app-form a.form-button {
   border: solid 2px #3e79b7;
   background: url(/images/button.png);
   color: #fff;
@@ -378,10 +376,11 @@ h3.legend {
 
 /* Popular and related */
 #related-items {
+  clear: both;
   background: #FFC3F9;
   border: solid 1px #FA5DFF;
   padding: 1em;
-  margin-top: 2em;
+  margin: 2em 0;
 }
 
 #related-items h3 {
@@ -512,10 +511,9 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 
 /* GROUP: Task components */
 #task-name {
-  /*min-height: 11em;*/
   padding-right: 35%;
   border-bottom: 2px solid #333;
-  margin-bottom: 2px;
+  margin-bottom: 2em;
 }
 #task-name h1 {
   margin-bottom: 0.5em;
@@ -859,10 +857,10 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 
 /* Ask Location */
 div.ask_location, div.finding_location, div.found_location {
-  background-color:#fff;
+  background-color: #fafafa;
   background-repeat:no-repeat;
-  background-image:url(/images/index/global-user-location-icon.png); 
-  background-position:0.85em 16px;
+  background-image:url(/images/location-pin_outline-on-white_small.png); 
+  background-position:0.85em 12px;
   padding: 0.75em 1.25em 0.75em 2.75em; 
   position: relative; 
   float: left;
@@ -955,15 +953,11 @@ ul.ui-autocomplete li, #search_hint {
   padding:0.5em 0.75em 0 0;
   margin:0 0 0 26%;
   width: 64%;
-  font-size:0.8em;
+  font-size:0.75em;
 }
 
 ul.ui-autocomplete li {
   border-top: solid 1px #DBDAD9;
-}
-
-#homepage-search #search_hint {
-  margin:0 0 0 0.4em;
 }
 
 ul.ui-autocomplete.ui-menu .ui-menu-item a {
@@ -1050,9 +1044,9 @@ a.action-button {
   line-height: 1.25em;
   padding: 0.25em 0.7em;
 	text-align: center;
-  border-radius: 3px;
   -webkit-border-radius: 3px; 
   -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #guides-calculate {
@@ -1084,19 +1078,19 @@ a.action-button {
 }
 
 .paginated p.paginated-prev { 
-  z-index: 10;
+  /*z-index: 10;*/
 }
 .paginated p.paginated-pages { 
 	color: #9B9B9B;
 	display: inline-block;
 	text-align: center;
 	width: 100%;
-	z-index: 5;
+/*  z-index: 5;*/
 }
 
 .paginated p.paginated-next { 
 	right: 0px;
-  z-index: 10;
+/*  z-index: 10;*/
 }
 
 .paginated a {
@@ -1429,6 +1423,7 @@ ol.helpers li li {
 #search-head input[type="submit"] {
   padding: 0 0.91em;
   line-height: 1.73em;
+  height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
   border-bottom: solid 1px #999999;
@@ -1439,6 +1434,8 @@ ol.helpers li li {
 .search-links .search-results {
   background-color: rgba(249,249,197,0.5);
   border: solid 1px #fc0;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   border-radius: 8px;
   margin-top: 1em;
   min-height: 2em;
@@ -1793,39 +1790,84 @@ br { display: none; }
   line-height: 1.5em;
 }
 
-/* BEGIN: global locate-me box */
-#global-locator {
+/* BEGIN: modal popovers */
+
+.popover-mask {
   display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.6);
-  z-index:40;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index:60;
 }
 
-
-#global-locator-box {
+.popover-mask .popover {
+  background: #f6f5f1;
+  border: solid 1px #D6D6D6;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  margin: 4em auto 0 auto;
+  padding: 0 2.5em 2em 2.5em;
   position: relative;
-  top:10%;
-  background-color: #fff;
-  width: 80%;
-  height: 250px;
-  margin: 0 auto;
-  border:solid 20px #808080;	
-  padding:20px;
+  width: 50%;
+  min-width: 25em;
 }
-
-#global-locator-box .close {
+.popover .header img.logo {
+  display: block;
+  position: relative;
+  top: -0.25em;
+}
+.popover .close {
   position: absolute;
   top: -19px;
   right: -19px;
 }
-
-#global-set-location, #global-explain-location {
-  float:left;
-  width:50%;
+.popover h2 {
+  border-bottom: solid 2px #D6D6D6;
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  font-size-adjust: 0.488;
+  font-weight: 600; 
+  font-style: normal;
+  margin: 1em 0 1.3em 0;
+  position: relative;
+  padding-bottom: 0.88em;
+  text-shadow: 0 2px 0 #fff;
 }
+.popover a.button {
+  background: url(/images/welcome/button.png) no-repeat;
+  border: none;
+  color: #333;
+  display: block;
+  font-size: 1.2em;
+  height: 42px;
+  line-height: 42px;
+  margin: 1.75em 0 0;
+  text-align: center;
+  text-decoration: none;
+  width: 136px;
+}
+/* END: modal popovers */
 
-/* END: global locate-me box */
+
+/* BEGIN: global locate-me box */
+#global-locator-box.popover {
+  width: 60%;
+  max-width: 40em;
+}
+#global-set-location form {
+  position: relative;
+}
+#global-locator-box #forget-location {
+  float: left;
+  margin: 1.2em 2.5em;
+}
+/*#global-locator-box #forget-location {
+  position: absolute;
+  top: 1.5em;
+  right: 2em;
+}*/
+/* END: global locate-me box */ 

@@ -24,6 +24,7 @@
   <script type="text/javascript" charset="utf-8">
     var no_auto_feedback_box = true;
   </script>
+  <style>#page-container {background-image: url(/images/index/bunting.jpg)}</style>
 </head>
 <body>
     <div id="alpha_intro">
@@ -46,17 +47,6 @@
               <img src="/images/gov.uk-logo.png" alt="UK.gov.uk">
             </a>
           </div> 
-          <div id="strapline">
-            <h1>Project &lsquo;Alphagov&rsquo; – Revolution, not Evolution</h1>
-          </div>
-          <div id="global-user-location">
-            <p id="location-set-message">
-              Your location is set to <strong id="location-name"></strong>. <a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)
-            </p>
-            <p id="location-unset-message">
-              Location not set. <a class="change-location" href="#">Set it now</a> (<a class="explain-location" href="#">why?</a>)
-            </p>
-          </div>
         </div> 
         <!--end discover--> 
       </div> 
@@ -64,26 +54,44 @@
 
       <div id="page-container" class="clear">
         
-          <div id="homepage-search"> 
-            <form action="/search"> 
-              <input type="text" id="main_autocomplete" name="q" value="" placeholder="I&rsquo;m looking for&hellip;"><input type="submit" value="Go">
-              <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a></p>
-            </form> 
-          </div> 
+          <div id="headline">
+            <div id="global-user-location">
+              <div id="location-set-message">
+                <p>
+                  Your location is set to <strong id="location-name"></strong> (<a class="change-location" href="#">Change location</a>)
+                </p>
+              </div>
+              <div id="location-unset-message" class="article-text popover">
+                <h4>Location not set</h4>
+                <p>If we know your location we can give you details of services local to you.</p>
+                <p>
+                  <a class="change-location button" href="#">Set location</a>
+                </p>
+              </div>
+            </div>
+        
+            <div id="homepage-search" class="location-not-set"> 
+              <form action="/search"> 
+                <input type="text" id="main_autocomplete" name="q" value="" placeholder="I&rsquo;m looking for&hellip;"><input type="submit" value="Go">
+                <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a> etc</p>
+              </form> 
+            </div> 
+            
+          </div>
 
           <div id="popular" class="clear"> 
             <h2>Useful tools and topics</h2> 
 
             <ul class="clear">
-              <li class="tool"><a href="/calculate-holiday-pay">Calculate holiday pay <small>Business Link</small></a></li>
-              <li class="tool"><a href="/report-lost-passport">Report lost or stolen passport</a></li>
-              <li class="answer"><a href="/calendars/uk-bank-holidays">UK Bank Holidays</a></li>
               <li class="answer"><a href="/answers/how-much-minimum-wage/">How much is the minimum wage?</a></li>
-              <li class="guide"><a href="/guides/guide-housing-benefit/">Guide to housing benefit</a></li>
-              <li class="disabled"><a href="#">What is National Service?</a></li>
-              <li class="disabled"><a href="#">Become a Volunteer</a></li>
-              <li class="disabled"><a href="#">An Employees Guide to Redundancy</a></li>
-              <li class="disabled"><a href="#">An Employees Guide to Redundancy</a></li>
+              <li class="tool"><a href="/calculate-holiday-pay/">Calculate holiday pay <small>Business Link</small></a></li>
+              <li class="guide"><a href="/choose/redundancy/">Guide to Redundancy</a></li>
+              <li class="tool"><a href="/should-i-register-for-vat/">Should I register for VAT? <small>Business Link</small></a></li>
+              <li class="tool"><a href="/report-lost-passport/">Report lost or stolen passport</a></li>
+              <li class="tool"><a href="/test-centres/">Book a driving test</a></li>
+              <li class="tool"><a href="/pay-your-council-tax/">Pay your Council Tax</a></li>
+              <li class="answer"><a href="/what-does-my-tax-code-mean/">What does my tax code mean?</a></li>
+              <li class="guide"><a href="/guide-childcare/childcare-options-0-5-year-olds/">Guide to Childcare</a></li>
             </ul>
             
           </div>
@@ -147,8 +155,12 @@
 
       </div> <!--end footer--> 
     </div> <!--end container--> 
-    <div id="global-locator">
-      <div id="global-locator-box">
+    <div id="global-locator" class="popover-mask">
+      <div id="global-locator-box" class="popover">
+        <div class="header">
+          <img class="logo" src="images/welcome/logo.png" width="110" height="50" alt="">
+          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close"></a>
+        </div>
         <div id="global-set-location">
           <h2>Set your location</h2>
           <form id="global-locator-form" class="app-form" action="/locator.json">
@@ -156,7 +168,7 @@
               <div class="ask_location">
                 <div>
                   <input name="postcode" type="text" value="" placeholder="type your postcode">
-                  <input type="submit" name="find_me" value="Go &rarr;">
+                  <input type="submit" name="find_me" value="Go">
                 </div>
               </div>
               <div class="finding_location hidden">
@@ -165,18 +177,30 @@
                   <input type="hidden" name="lat" value="">
                 </p>
               </div>
+              <p id="forget-location">
+                <a class="form-button" href="#">Forget my location</a>
+              </p>
             </fieldset>
           </form>
-          <p>
-            <a id="forget-location" href="#">Forget my location</a>
-          </p>
+          <div class="article-text">
+            <h4>Why?</h4>
+            <p>When you set your location we can give you details of services local to you, such as Passport offices, driving test centres or police stations, so you can complete any tasks and be away from your computer as quickly as possible.</p>
+            <p>Your approximate location is stored in a cookie on your machine, but we do not save your postcode or precise location on our servers.</p>
+          </div>
         </div>
-        <div id="global-explain-location">
-          <h2>Why?</h2>
-          <p>Some text here</p>
-        </div>
+      </div>
     </div>
-    <script type="text/javascript"> 
+    <script type="text/javascript">
+    var no_location_change_animation = true;
+    $(document).bind('location-known', function() {
+      $('#homepage-search').removeClass('location-not-set');
+    });
+    $(document).bind('location-changed', function() {
+      $('#homepage-search').removeClass('location-not-set');
+    });
+    $(document).bind('location-removed', function() {
+      $('#homepage-search').addClass('location-not-set');
+    });
     (function () {
       var ma = document.createElement('script');
       ma.type = 'text/javascript';
