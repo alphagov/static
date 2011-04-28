@@ -1,5 +1,4 @@
 /* @override 
-	http://local.alphagov.co.uk:9292/stylesheets/core.css
 	http://local.alphagov.co.uk:3000/stylesheets/core.css
 */
 
@@ -218,39 +217,36 @@ div.app-error p {
 
 /* Geo */
 #global-user-location {
-	background-image: url(/images/index/global-user-location-icon.png);
-	background-repeat:no-repeat;
-	background-position:0 0;
-	position: absolute;
-	left: 0;
-	height: 45px;
-	top: 120px;
-	padding-top:3px;
+  position: absolute;
+  left: 0;
+  height: 45px;
+  top: 120px;
+  padding-top:3px;
 }
-#global-user-location .highlight-change-icon {
+#global-user-location span.pin img {
+  position: absolute;
   display: block;
   padding: 0;
   margin: 0;
-  background-image: url(/images/index/global-user-location-icon.png);
-  background-repeat:no-repeat;
-  background-position:0 0;
-  position: absolute;
-  left: 0;
-  height: 48px;
-  width: 50px;
-  top: -6px;
+  left: -2.5em;
+  top: -45px;
+  -webkit-transform: scale(0.7);
+  -moz-transform:    scale(0.7);
+  -o-transform:      scale(0.7);
+  -ms-transform:     scale(0.7);
+  transform:         scale(0.7);
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition:    all 0.6s ease-in-out;
+  -o-transition:      all 0.6s ease-in-out;
+  -ms-transition:     all 0.6s ease-in-out;
+  transition:         all 0.6s ease-in-out;
 }
-#global-user-location.set {
-  background-position:0 -76px;
-}
-#global-user-location.setting, #global-user-location.removing {
-  background-image: none;
-}
-#global-user-location.setting .highlight-change-icon {
-  background-position:0 -245px;
-}
-#global-user-location.removing .highlight-change-icon {
-  background-position:0 -151px;
+#global-user-location.changing span.pin img {
+  -webkit-transform: scale(1);
+  -moz-transform:    scale(1);
+  -o-transform:      scale(1);
+  -ms-transform:     scale(1);
+  transform:         scale(1);
 }
 #global-user-location.set-intro p {
   position: relative;
