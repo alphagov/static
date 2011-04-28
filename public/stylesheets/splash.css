@@ -1,3 +1,8 @@
+/* @override 
+	http://matt.alphagov.co.uk:3000/stylesheets/splash.css
+	http://local.alphagov.co.uk:9292/stylesheets/splash.css
+*/
+
 /* Begin general about the alpha styles */
 .about-alpha .wrapper {
   background: #F6F5F1 url(/images/welcome/sunburst.jpg) no-repeat;
@@ -58,13 +63,6 @@
   text-align: center;
   padding: 1em 0;
   width: 820px;
-}
-
-
-.about-alpha .header img {
-  position: absolute;
-  top: -0.25em;
-  left: 2.5em;
 }
 
 .about-alpha #nav ul {
@@ -152,19 +150,9 @@
   margin: 0.75em auto;
   width: 820px;
 }
-
-.about-alpha .header img {
+.about-alpha .popover .header img.logo {
   position: absolute;
-  top: -0.25em;
   left: 2.5em;
-}
-
-.about-alpha .header a.close {
-  height: 39px;
-  position: absolute;
-  top: -15px;
-  right: 20px;
-  width: 39px;
 }
 
 .about-alpha .header ul {
@@ -231,7 +219,7 @@
 
 /* Begin tour splash box */
 
-#splash-back {
+/*#splash-back {
   position: fixed;
   top: 0;
   left: 0;
@@ -240,7 +228,7 @@
   padding: 0;
   background-color: rgba(0,0,0,0.6);
   z-index:60;
-}
+}*/
 
 #splash ul.navigation {
   list-style: none;  

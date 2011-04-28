@@ -1,3 +1,8 @@
+/* @override 
+	http://local.alphagov.co.uk:9292/stylesheets/core.css
+	http://local.alphagov.co.uk:3000/stylesheets/core.css
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -318,7 +323,7 @@ form.app-form fieldset input[type="radio"] {
   margin-right: 0.5em;
 }
 
-form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type="button"] {
+form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type="button"], form.app-form a.form-button {
   border: solid 2px #3e79b7;
   background: url(/images/button.png);
   color: #fff;
@@ -854,10 +859,10 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 
 /* Ask Location */
 div.ask_location, div.finding_location, div.found_location {
-  background-color:#fff;
+  background-color: #fafafa;
   background-repeat:no-repeat;
-  background-image:url(/images/index/global-user-location-icon.png); 
-  background-position:0.85em 16px;
+  background-image:url(/images/location-pin_outline-on-white_small.png); 
+  background-position:0.85em 12px;
   padding: 0.75em 1.25em 0.75em 2.75em; 
   position: relative; 
   float: left;
@@ -1788,39 +1793,83 @@ br { display: none; }
   line-height: 1.5em;
 }
 
-/* BEGIN: global locate-me box */
-#global-locator {
+/* BEGIN: modal popovers */
+
+.popover-mask {
   display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.6);
-  z-index:40;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index:60;
 }
 
-
-#global-locator-box {
+.popover-mask .popover {
+  background: #f6f5f1;
+  border: solid 1px #D6D6D6;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  margin: 4em auto 0 auto;
+  padding: 0 2.5em 2em 2.5em;
   position: relative;
-  top:10%;
-  background-color: #fff;
-  width: 80%;
-  height: 250px;
-  margin: 0 auto;
-  border:solid 20px #808080;	
-  padding:20px;
+  width: 50%;
+  min-width: 25em;
 }
-
-#global-locator-box .close {
+.popover .header img.logo {
+  display: block;
+  position: relative;
+  top: -0.25em;
+}
+.popover .close {
   position: absolute;
   top: -19px;
   right: -19px;
 }
-
-#global-set-location, #global-explain-location {
-  float:left;
-  width:50%;
+.popover h2 {
+  border-bottom: solid 2px #D6D6D6;
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  font-size-adjust: 0.488;
+  font-weight: 600; 
+  font-style: normal;
+  margin: 1em 0 1.3em 0;
+  position: relative;
+  padding-bottom: 0.88em;
+  text-shadow: 0 2px 0 #fff;
 }
+.popover a.button {
+  background: url(/images/welcome/button.png) no-repeat;
+  border: none;
+  color: #333;
+  display: block;
+  font-size: 1.2em;
+  height: 42px;
+  line-height: 42px;
+  margin: 1.75em 0 0;
+  text-align: center;
+  text-decoration: none;
+  width: 136px;
+}
+/* END: modal popovers */
 
-/* END: global locate-me box */
+
+/* BEGIN: global locate-me box */
+#global-locator-box.popover {
+  width: 60%;
+}
+#global-set-location form {
+  position: relative;
+}
+#global-locator-box #forget-location {
+  float: left;
+  margin: 1.5em 2.5em;
+}
+/*#global-locator-box #forget-location {
+  position: absolute;
+  top: 1.5em;
+  right: 2em;
+}*/
+/* END: global locate-me box */ 

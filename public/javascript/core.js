@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
   }
 
   var launch_tour = function() {
-    $('<div id="splash-back"></div>').appendTo($('body'));
+    $('<div id="splash-back" class="popover-mask"></div>').appendTo($('body'));
     $('#splash-back').hide();
     $('#splash-back').load('/tour.html #splash', function() {
       $(document).trigger('tour-ready');
