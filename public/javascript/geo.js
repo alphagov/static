@@ -1,3 +1,4 @@
+var no_location_change_animation;
 var AlphaGeo = {
   readAndParseJSONCookie: function(name) {
     var cookie = Alphagov.read_cookie(name);
@@ -38,17 +39,15 @@ $(document).ready(function() {
     }
   }
   var flash_location_change_state = function() {
-    var pins = $("#global-user-location");
-    // pins.addClass('changing');
-    var scale_back = function() {
-      pins.removeClass('changing');
+    if (!no_location_change_animation && no_location_change_animation != true) {
+      var pins = $("#global-user-location");
+      // pins.addClass('changing');
+      var scale_back = function() { pins.removeClass('changing'); }
+      var scale_up = function() { pins.addClass('changing'); }
+      window.setTimeout(scale_up, 200);
+      window.setTimeout(scale_back, 850);
+      $('#global-user-location p span.text-highlight').fadeIn(750).fadeOut(750);
     }
-    var scale_up = function() {
-      pins.addClass('changing');
-    }
-    window.setTimeout(scale_up, 200);
-    window.setTimeout(scale_back, 850);
-    $('#global-user-location p span.text-highlight').fadeIn(750).fadeOut(750);
   }
   var set_location_unknown = function(highlight_func) {
     if (highlight_func != undefined) {
