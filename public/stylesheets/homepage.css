@@ -44,6 +44,24 @@
   clear: both;
 }
 
+#headline-link {
+  position: absolute;
+  bottom: 1.625em;
+  right: 0;
+  padding: 0.625em 0.625em 0.4em 0.625em;
+  background: rgba(255,255,255,0.85);
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#headline-link a {
+  font-weight: bold;
+}
+
 /* location stuff */
 
 #global-user-location {
