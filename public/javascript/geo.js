@@ -91,15 +91,18 @@ $(document).ready(function() {
     return false;
   });
 
-  // Event handlers
-  $('#global-user-location .change-location').click(function() {
+  var open_location_dialog = function() {
     $('#global-locator').show();
     $('#global-locator-form').trigger('reset-locator-form');
+  };
+  // Event handlers
+  $(document).bind('request-location', open_location_dialog);
+  $('#global-user-location .change-location').click(function() {
+    $(document).trigger('request-location');
     return false;
   });
   $('#global-user-location .explain-location').click(function() {
-    $('#global-locator').show();
-    $('#global-locator-form').trigger('reset-locator-form');
+    $(document).trigger('request-location');
     return false;
   });
   $('#forget-location').click(function() {
