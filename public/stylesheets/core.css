@@ -1078,7 +1078,7 @@ a.action-button {
 }
 
 .paginated p.paginated-prev { 
-  z-index: 10;
+  /*z-index: 10;*/
 }
 .paginated p.paginated-pages { 
 	color: #9B9B9B;
