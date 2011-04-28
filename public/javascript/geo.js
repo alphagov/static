@@ -78,13 +78,16 @@ $(document).ready(function() {
   // setup extra HTML
   var located = AlphaGeo.locationName();
   if (located) $(document).trigger('location-known', {current_location: {locality: located}});
-  $('#global-locator-box').append('<p class="close"><a href="#"><img src="/images/welcome/close.png" alt="close"></a></p>');
   $('#global-locator .close').click(function() {
     $('#global-locator').hide();
     return false;
   });
-  
+
   // Event handlers
+  $('#global-locator h2').click(function() {
+    $('#global-set-location, #global-explain-location').removeClass('selected');
+    $(this).closest('div').addClass('selected');
+  });
   $('#global-user-location .change-location').click(function() {
     $('#global-locator').show();
     $('#global-locator-form').trigger('reset-locator-form');
