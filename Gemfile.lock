@@ -1,17 +1,34 @@
 GIT
   remote: git@github.com:alphagov/cdn_helpers.git
-  revision: 98c1dc22b1706f3ef12b864a478368563ee0dabb
+  revision: cbeac534cc79b8f420286bbe38cd8fb12e291570
+  tag: v0.7.1
   specs:
-    cdn_helpers (0.1.1)
+    cdn_helpers (0.7.1)
       actionpack (~> 3.0.0)
+
+GIT
+  remote: git@github.com:alphagov/geolib.git
+  revision: 40bfd3f36e85966ccd97f040e96439eec3162607
+  tag: v0.8
+  specs:
+    geolib (0.0.1)
+
+GIT
+  remote: git@github.com:alphagov/rack-geo.git
+  revision: c73dc569c246b582cd13336932d2c6c81b7a47ea
+  tag: v0.5
+  specs:
+    rack-geo (0.0.1)
+      json
+      rack (~> 1.2.0)
 
 GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
-    actionpack (3.0.6)
-      activemodel (= 3.0.6)
-      activesupport (= 3.0.6)
+    actionpack (3.0.7)
+      activemodel (= 3.0.7)
+      activesupport (= 3.0.7)
       builder (~> 2.1.2)
       erubis (~> 2.6.6)
       i18n (~> 0.5.0)
@@ -19,27 +36,30 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    activemodel (3.0.6)
-      activesupport (= 3.0.6)
+    activemodel (3.0.7)
+      activesupport (= 3.0.7)
       builder (~> 2.1.2)
       i18n (~> 0.5.0)
-    activesupport (3.0.6)
+    activesupport (3.0.7)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
+    json (1.5.1)
     rack (1.2.2)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
     rake (0.8.7)
-    tzinfo (0.3.26)
+    tzinfo (0.3.27)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cdn_helpers!
+  geolib!
   rack
+  rack-geo!
   rake
