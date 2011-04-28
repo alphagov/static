@@ -2,6 +2,8 @@
 
 #page-container {
   margin: 0;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
 }
 
 .page_heading {
@@ -30,6 +32,10 @@
   top: 1.95em;
   left: 35%;
 }*/
+
+#headline {
+
+}
 
 /* location stuff */
 
