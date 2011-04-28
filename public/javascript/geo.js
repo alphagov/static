@@ -33,13 +33,21 @@ $(document).ready(function() {
     $("#location-name").html(current_location.locality);
   };
   var setup_location_change_highlight = function() {
-    if ($("#global-user-location .highlight-change-icon").length == 0) {
-      $('<div class="highlight-change-icon"></div>').appendTo("#global-user-location").hide();
+    if ($("#global-user-location span.text-highlight").length == 0) {
       $('<span class="text-highlight"></span>').prependTo("#global-user-location p").hide();
     }
   }
-  var flash_location_change_state = function(class_to_flash) {
-    $("#global-user-location .highlight-change-icon").fadeIn(750).fadeOut(750, function() { $("#global-user-location").removeClass(class_to_flash); });
+  var flash_location_change_state = function() {
+    var pins = $("#global-user-location");
+    // pins.addClass('changing');
+    var scale_back = function() {
+      pins.removeClass('changing');
+    }
+    var scale_up = function() {
+      pins.addClass('changing');
+    }
+    window.setTimeout(scale_up, 200);
+    window.setTimeout(scale_back, 850);
     $('#global-user-location p span.text-highlight').fadeIn(750).fadeOut(750);
   }
   var set_location_unknown = function(highlight_func) {
@@ -50,7 +58,7 @@ $(document).ready(function() {
     $("#global-user-location").addClass('removing');
     setup_location_change_highlight();
     $("#global-user-location").removeClass('set');
-    flash_location_change_state('removing');
+    flash_location_change_state();
 
     //show correct message
     $('#location-set-message').hide();
@@ -69,7 +77,7 @@ $(document).ready(function() {
       $("#global-user-location").addClass('setting');
       setup_location_change_highlight();
       $("#global-user-location").addClass('set');
-      flash_location_change_state('setting');
+      flash_location_change_state();
     });
   });
   $(document).bind('location-removed', function(e, message) {
@@ -84,10 +92,6 @@ $(document).ready(function() {
   });
 
   // Event handlers
-  $('#global-locator h2').click(function() {
-    $('#global-set-location, #global-explain-location').removeClass('selected');
-    $(this).closest('div').addClass('selected');
-  });
   $('#global-user-location .change-location').click(function() {
     $('#global-locator').show();
     $('#global-locator-form').trigger('reset-locator-form');
