@@ -1077,20 +1077,16 @@ a.action-button {
   padding-top: 1em;
 }
 
-.paginated p.paginated-prev { 
-  /*z-index: 10;*/
-}
 .paginated p.paginated-pages { 
 	color: #9B9B9B;
 	display: inline-block;
 	text-align: center;
-	width: 100%;
-/*  z-index: 5;*/
+  width: 60%;
+  margin: 0 20%;
 }
 
 .paginated p.paginated-next { 
 	right: 0px;
-/*  z-index: 10;*/
 }
 
 .paginated a {
