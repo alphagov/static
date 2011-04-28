@@ -1085,12 +1085,12 @@ a.action-button {
 	display: inline-block;
 	text-align: center;
 	width: 100%;
-	z-index: 5;
+/*  z-index: 5;*/
 }
 
 .paginated p.paginated-next { 
 	right: 0px;
-  z-index: 10;
+/*  z-index: 10;*/
 }
 
 .paginated a {
