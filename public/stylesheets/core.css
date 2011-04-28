@@ -194,10 +194,11 @@ div.app-error p {
 }
 
 #discover-search input[type="text"] {
-  padding: 0.31em;
+  padding: 0 0.31em;
   margin-left: 26%;
   width: 64%;
-  font-weight: normal;
+  line-height: 1.6em;
+  height: 1.6em;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
@@ -206,6 +207,7 @@ div.app-error p {
   float: right;
   padding: 0 0.91em;
   line-height: 1.73em;
+  height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
   border-bottom: solid 1px #999999;
@@ -951,15 +953,11 @@ ul.ui-autocomplete li, #search_hint {
   padding:0.5em 0.75em 0 0;
   margin:0 0 0 26%;
   width: 64%;
-  font-size:0.8em;
+  font-size:0.75em;
 }
 
 ul.ui-autocomplete li {
   border-top: solid 1px #DBDAD9;
-}
-
-#homepage-search #search_hint {
-  margin:0 0 0 0.4em;
 }
 
 ul.ui-autocomplete.ui-menu .ui-menu-item a {
@@ -1046,9 +1044,9 @@ a.action-button {
   line-height: 1.25em;
   padding: 0.25em 0.7em;
 	text-align: center;
-  border-radius: 3px;
   -webkit-border-radius: 3px; 
   -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #guides-calculate {
@@ -1425,6 +1423,7 @@ ol.helpers li li {
 #search-head input[type="submit"] {
   padding: 0 0.91em;
   line-height: 1.73em;
+  height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
   border-bottom: solid 1px #999999;
@@ -1435,6 +1434,8 @@ ol.helpers li li {
 .search-links .search-results {
   background-color: rgba(249,249,197,0.5);
   border: solid 1px #fc0;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   border-radius: 8px;
   margin-top: 1em;
   min-height: 2em;
@@ -1861,7 +1862,7 @@ br { display: none; }
 }
 #global-locator-box #forget-location {
   float: left;
-  margin: 1.5em 2.5em;
+  margin: 1.2em 2.5em;
 }
 /*#global-locator-box #forget-location {
   position: absolute;

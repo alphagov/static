@@ -1,7 +1,11 @@
 /* core overrides */
 
 #page-container {
+  position: relative;
+  top: -5em;
   margin: 0;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
 }
 
 .page_heading {
@@ -31,10 +35,24 @@
   left: 35%;
 }*/
 
+#headline {
+  position: relative;
+  margin: 0 auto;
+  width: 94%;
+  height: 26em;
+  max-width: 1050px;
+  clear: both;
+}
+
 /* location stuff */
 
 #global-user-location {
-  background-image: none;
+  z-index: 40;
+  top: 2.25em;
+  padding-top: 1em;
+/* just hiding this until we sort out the behaviour for the animated location pin on homepage */
+  background-image: none; 
+	background-position:0 -1em;
 }
 
 #global-user-location p {
@@ -42,13 +60,46 @@
   left: 0;
 }
 
-#location-unset-message, #location-set-message {
-  padding: 1.875em;
+#location-unset-message {
+  padding: 1.5em 1.875em;
   width: 10em;
   background: rgba(255,255,255,0.85);
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+}
+
+#location-set-message {
+  position: relative;
+  top: -1em;
+  left: -1.5em;
+  padding-left: 1.5em;
+  padding-right: 1em;
+  height: 2.8em;
+  background: url(/images/homepage/homepage-location-pin.png) no-repeat 1.5em 0.45em rgba(0,0,0,0.75);
+	-webkit-border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	-moz-border-radius-topright: 2px;
+	-moz-border-radius-bottomright: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+#location-set-message p, #location-set-message p a {
+  color: #fff;
+}
+
+#location-unset-message p {
+  font-size: 0.88em;
+}
+
+#location-set-message p {
+  padding-top: 1.75em;
+  padding-left: 2em;
+}
+
+#location-set-message p a {
+  text-decoration: underline;
 }
 
 #location-unset-message h4, #location-unset-message p {
@@ -59,44 +110,76 @@
   margin-top: 0;
 }
 
-#location-unset-message p:last-child {
-  margin-bottom: 0;
+#location-unset-message p:last-child, #location-set-message p:last-child {
+  margin: 0;
+}
+
+#location-unset-message.popover a.button {
+  margin-top: 1em;
 }
 
 /* search */
 
 #homepage-search {
+  position: relative;
+  top: 10.875em;
   margin: 0 auto;
-  padding: 4em;
   max-width: 1050px;
 }
 
 #homepage-search form {
   margin: 0 auto;
-  width: 43.5em;
+/*  width: 43.5em;*/
+}
+
+#homepage-search.location-not-set form {
+  padding-left: 16em;
 }
 
 #homepage-search form input {
+  display: block;
+  float: left;
   font-family: inherit;
   font-size: 1.38em;
 }
 
 #homepage-search input[type="text"] {
+  margin: 0;
   margin-right: 0.5em;
-  padding: 0.31em;
-  width: 25.68em;
+  padding: 0 0.31em;
+  line-height: 1.65em;
+  height: 1.65em;
+  width: 70%;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
 
 #homepage-search input[type="submit"] {
+  position: relative;
+  top: 1px;
   padding: 0 0.91em;
   line-height: 1.73em;
+  height: 1.73em;
   text-shadow: 0 2px 0 #fff;
   border: solid 1px #CCCCCC;
   border-bottom: solid 1px #999999;
   background: url(/images/search-button-background.png) repeat-x 0 0;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+#homepage-search #search_hint {
+  display: inline-block;
+  margin: 0;
+  margin-left: 1px;
+  padding: 0.4em;
+  width: auto;
+  background: rgba(255,255,255,0.85);
+	-webkit-border-bottom-right-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
 }
 
 /* Popular stuff section */
