@@ -1856,6 +1856,7 @@ br { display: none; }
 /* BEGIN: global locate-me box */
 #global-locator-box.popover {
   width: 60%;
+  max-width: 40em;
 }
 #global-set-location form {
   position: relative;
