@@ -10,9 +10,10 @@
   /**
    * $ is an alias to jQuery object
    */
-  $.fn.locator = function(settings) {
+  $.fn.locator = function(ignore_location_known_on_page_load) {
     var locator_form = this.closest('form'),
         locator_box = this,
+        ignore_location_known_on_page_load = ignore_location_known_on_page_load || false,
         ask_ui = locator_box.find('.ask_location'),
         locating_ui = locator_box.find('.finding_location'),
         found_ui = locator_box.find('.found_location'),
@@ -40,6 +41,7 @@
       if (data.current_location.lat != '0.0') {
         update_geo_labels(data.current_location);
         show_ui(found_ui);
+        locator_box.data('located', true);
       } 
       else {
         if (ask_ui.find('.error-response').length == 0) {
@@ -97,16 +99,18 @@
         e.preventDefault();
         // return false;
       });
+    }
+    if (!ignore_location_known_on_page_load) {
       $(document).bind('location-known', function(e, data) {
         changed_location(data);
       });
-      $(document).bind('location-changed', function(e, data) {
-        changed_location(data);
-      });
-      $(document).bind('location-removed', function() {
-        reset_location();
-      });
     }
+    $(document).bind('location-changed', function(e, data) {
+      changed_location(data);
+    });
+    $(document).bind('location-removed', function() {
+      reset_location();
+    });
     locator_box.bind('reset-locator-form', function() {
       reset_location();
     });
@@ -123,5 +127,4 @@
 
 $(function() {
   $('#large-locator-form').locator();
-  $('#global-locator-form').locator();
 });
