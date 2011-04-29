@@ -1,5 +1,9 @@
 //Reusable functions
 var Alphagov = {
+  cookie_domain: function() {
+    host_parts = document.location.host.split('.');
+    return '.' + host_parts.slice(-3, 3).join('.');
+  },
   read_cookie: function(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
@@ -18,12 +22,12 @@ var Alphagov = {
     if (document.cookie && document.cookie != '') {
       var date = new Date();
       date.setTime(date.getTime()-(24*60*60*1000)); // 1 day ago
-      document.cookie = name + "=; expires=" + date.toGMTString() + "; domain=.alphagov.co.uk; path=/";
+      document.cookie = name + "=; expires=" + date.toGMTString() + "; domain=" + Alphagov.cookie_domain() + "; path=/";
     }
   },
   write_permanent_cookie: function(name, value) {
     var date = new Date(2021, 12, 31);
-    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=.alphagov.co.uk; path=/";
+    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=" +  Alphagov.cookie_domain() + "; path=/";
   }
 }
 

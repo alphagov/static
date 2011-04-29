@@ -11,15 +11,18 @@
    * $ is an alias to jQuery object
    */
   $.fn.locator = function(settings) {
-    var locator_form = this,
-        ask_ui = locator_form.find('.ask_location'),
-        locating_ui = locator_form.find('.finding_location'),
-        found_ui = locator_form.find('.found_location'),
+    var locator_form = this.closest('form'),
+        locator_box = this,
+        ask_ui = locator_box.find('.ask_location'),
+        locating_ui = locator_box.find('.finding_location'),
+        found_ui = locator_box.find('.found_location'),
         all_ui = ask_ui.add(locating_ui).add(found_ui),
         geolocate_ui;
         
     /* Helper functions */
     var setup_geolocation_api_ui = function() {
+      var geolocation_ui_node = ask_ui.find('.locate-me');
+      if (geolocation_ui_node.length > 0) return geolocation_ui_node;
       return $('<p class="locate-me">or <a href="#">locate me automatically</a></p>').appendTo(ask_ui);
     }
     var show_ui = function(ui_to_show) {
@@ -44,16 +47,20 @@
         }
         ask_ui.find('.error-response').text("Sorry, we couldn't find a match for that postcode. Please check you entered it correctly.  If the postcode was correct, try the Automatically Locate Me button.");
         show_ui(ask_ui);
+        locator_box.data('located', false);
       }
     }
     var reset_location = function() {
-      locator_form.find('input[name=lat]').val('');
-      locator_form.find('input[name=lon]').val('');
+      locator_box.find('input[name=lat]').val('');
+      locator_box.find('input[name=lon]').val('');
       found_ui.find('h3').text('');
       show_ui(ask_ui);
+      locator_box.data('located', false);
     }
 
-    /* Locator setup */
+    // Check to see if we're starting located
+    locator_box.data('located', !found_ui.hasClass('hidden'))
+    // Locator setup
     found_ui.find('a').click(function (e) {
       $(document).trigger('location-removed');
       e.preventDefault();
@@ -68,8 +75,8 @@
         show_ui(ask_ui);
       });
       geolocate_ui.bind('location-completed', function (event, details) {
-        locator_form.find('input[name=lat]').val(details.lat);
-        locator_form.find('input[name=lon]').val(details.lon);
+        locator_box.find('input[name=lat]').val(details.lat);
+        locator_box.find('input[name=lon]').val(details.lon);
         locator_form.trigger('submit');
       });
       geolocate_ui.find('a').click(function (e) {
@@ -80,15 +87,18 @@
         navigator.geolocation.getCurrentPosition(
           function(position) {
             var new_location = {lat: position.coords.latitude, lon: position.coords.longitude};
-            geolocate_ui.trigger('location-completed', new_location)
+            geolocate_ui.trigger('location-completed', new_location);
           },
           function() {
-            geolocate_ui.trigger('location-failed')
+            geolocate_ui.trigger('location-failed');
           }
         );
         
         e.preventDefault();
         // return false;
+      });
+      $(document).bind('location-known', function(e, data) {
+        changed_location(data);
       });
       $(document).bind('location-changed', function(e, data) {
         changed_location(data);
@@ -97,9 +107,12 @@
         reset_location();
       });
     }
-    locator_form.bind('reset-locator-form', function() {
+    locator_box.bind('reset-locator-form', function() {
       reset_location();
-    })
+    });
+    locator_box.bind('check-locator-form-state', function() {
+      show_ui(locator_box.data('located') ? found_ui : ask_ui);
+    });
     locator_form.submit(function(e) {
       e.preventDefault();
       $.post(this.action, locator_form.serialize(), dispatch_location, 'json');

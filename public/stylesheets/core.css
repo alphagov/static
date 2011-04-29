@@ -1077,20 +1077,16 @@ a.action-button {
   padding-top: 1em;
 }
 
-.paginated p.paginated-prev { 
-  /*z-index: 10;*/
-}
 .paginated p.paginated-pages { 
 	color: #9B9B9B;
 	display: inline-block;
 	text-align: center;
-	width: 100%;
-/*  z-index: 5;*/
+  width: 60%;
+  margin: 0 20%;
 }
 
 .paginated p.paginated-next { 
 	right: 0px;
-/*  z-index: 10;*/
 }
 
 .paginated a {
@@ -1118,6 +1114,7 @@ ol.helpers li {
 	margin: 0;
 	margin-bottom: 2px;
 	position: relative;
+	padding: 1em 1em 1em 3em;
 }
 
 ol.helpers li.active {
@@ -1808,6 +1805,8 @@ br { display: none; }
 .popover-mask .popover {
   background: #f6f5f1;
   border: solid 1px #D6D6D6;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   border-radius: 8px;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   margin: 4em auto 0 auto;

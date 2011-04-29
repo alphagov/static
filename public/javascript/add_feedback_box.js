@@ -20,7 +20,7 @@
 (function($) {
   $.fn.addFeedbackBox = function(options) {
     var settings = {
-      feedback_url: "http://stats.alphagov.co.uk/pepper/tonytrupp/behavior/api.php",
+      feedback_url: "http://stats.alpha.gov.uk/pepper/tonytrupp/behavior/api.php",
       delay_before_showing: 1800,
       time_for_animation: 900
     }
