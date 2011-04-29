@@ -1,9 +1,9 @@
 /**
  * Alphagov Locator jQuery plugin
- * @name locator-0.1.js
+ * @name locator-0.4.js
  * @author Matt Patterson
- * @version 0.1
- * @date March 23, 2011
+ * @version 0.4
+ * @date April 29, 2011
  * @category jQuery plugin
  */
 (function($) {
@@ -19,7 +19,7 @@
         found_ui = locator_box.find('.found_location'),
         all_ui = ask_ui.add(locating_ui).add(found_ui),
         geolocate_ui;
-        
+
     /* Helper functions */
     var setup_geolocation_api_ui = function() {
       var geolocation_ui_node = ask_ui.find('.locate-me');
@@ -34,15 +34,21 @@
       found_ui.find('h3').text(geo_data.locality);
       found_ui.find('a').text('Not in ' + geo_data.locality + '?');
     }
+    var update_geo_fields = function(geo_data) {
+      locator_box.find('input[name=lat]').val(geo_data.lat);
+      locator_box.find('input[name=lon]').val(geo_data.lon);
+
+    }
     var dispatch_location = function(response_data) {
       $(document).trigger('location-changed', response_data);
     }
     var changed_location = function(data) {
       if (data.current_location.lat != '0.0') {
         update_geo_labels(data.current_location);
+        update_geo_fields(data.current_location);
         show_ui(found_ui);
         locator_box.data('located', true);
-      } 
+      }
       else {
         if (ask_ui.find('.error-response').length == 0) {
           ask_ui.prepend('<p class="error-response"></p>');
@@ -77,8 +83,7 @@
         show_ui(ask_ui);
       });
       geolocate_ui.bind('location-completed', function (event, details) {
-        locator_box.find('input[name=lat]').val(details.lat);
-        locator_box.find('input[name=lon]').val(details.lon);
+        update_geo_fields(details);
         locator_form.trigger('submit');
       });
       geolocate_ui.find('a').click(function (e) {
@@ -95,7 +100,7 @@
             geolocate_ui.trigger('location-failed');
           }
         );
-        
+
         e.preventDefault();
         // return false;
       });
