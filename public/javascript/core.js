@@ -1,8 +1,8 @@
 //Reusable functions
 var Alphagov = {
   cookie_domain: function() {
-    host_parts = document.location.host.split('.').reverse();
-    return '.' + host_parts.slice(0, 3).reverse().join('.');
+    var host_parts = document.location.host.split(':')[0].split('.').slice(-3);
+    return '.' + host_parts.join('.');
   },
   read_cookie: function(name) {
     var cookieValue = null;
