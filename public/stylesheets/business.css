@@ -23,23 +23,3 @@ ul.helpers li {
 .task-step {
 	border-bottom: solid 2px #ddd;
 }
-
-span.input-box {
-	line-height: 100%;
-	margin-bottom: 0.5em;
-  vertical-align: middle;
-	margin-right: 0;
-}
-
-span.input-box.alt {
-	margin-left: 1.5em;
-}
-
-form.app-form fieldset {
-	margin-bottom: 0;
-}
-
-fieldset.period-choice label.part {
-	margin-top: 0;
-	margin-right: .25em;
-}

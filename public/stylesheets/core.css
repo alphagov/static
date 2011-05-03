@@ -513,7 +513,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #task-name {
   padding-right: 35%;
   border-bottom: 2px solid #333;
-  margin-bottom: 2em;
+/*  margin-bottom: 2em; experimenting with getting rid of this */
 }
 #task-name h1 {
   margin-bottom: 0.5em;
