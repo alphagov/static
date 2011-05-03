@@ -1771,6 +1771,11 @@ br { display: none; }
   background: rgb(250,250,223);
 }
 
+.alpha-note.large {
+  float:none;
+  width: 100%;  
+}
+
 .alpha-note h4 {
   padding: 1em;
   height: 2.167em;
@@ -1781,10 +1786,19 @@ br { display: none; }
   background: url(/images/alpha-note-background.png) repeat-x 0 0;
 }
 
-.alpha-note p {
+.alpha-note p, .alpha-note form {
   padding: 1em;
   font-size: 0.75em;
   line-height: 1.5em;
+}
+
+.alpha-note form {
+  padding:0 1em;
+}
+
+.alpha-note form label {
+  font-weight:bold;
+  padding-right:1em;
 }
 
 /* BEGIN: modal popovers */
