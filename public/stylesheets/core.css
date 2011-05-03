@@ -1049,15 +1049,31 @@ a.action-button {
   border-radius: 3px;
 }
 
-#guides-calculate {
-	position: absolute;
-	bottom: 3em;
-	right: 0;
+.video_version_message {
+  float: left;
+  clear: both;
+  margin-top: -2em;
+  margin-bottom: 2em;
+  padding: 1em 0;
+  width: 100%;
+  border-bottom: solid 2px #E4E4E4;
+}
+
+.video_version_message a {
+  float: right;
+}
+
+.fake_video {
+  padding: 1.5em;
+  background: #EEEFEF;
+  font-size: 0.88em;
+  color: #808080;
+  margin-bottom: 1em;
 }
 
 .paginated {
 	border-bottom: solid 2px #E4E4E4;
-	margin: 1em 0;
+  margin-bottom: 1em;
 	padding-bottom: 0.25em;
 	position: relative;
 	height: 2em;
@@ -1114,7 +1130,6 @@ ol.helpers li {
 	margin: 0;
 	margin-bottom: 2px;
 	position: relative;
-	padding: 1em 1em 1em 3em;
 }
 
 ol.helpers li.active {
@@ -1132,9 +1147,6 @@ ol.helpers li h3 {
 ol.helpers li a {
   display: block;
 	padding: 1em 1em 1em 3em;
-}
-
-ol.helpers li a {
   color: inherit;
 	text-decoration: none;
 }
