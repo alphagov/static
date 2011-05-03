@@ -1063,6 +1063,14 @@ a.action-button {
   float: right;
 }
 
+.fake_video {
+  padding: 1.5em;
+  background: #EEEFEF;
+  font-size: 0.88em;
+  color: #808080;
+  margin-bottom: 1em;
+}
+
 .paginated {
 	border-bottom: solid 2px #E4E4E4;
   margin-bottom: 1em;
