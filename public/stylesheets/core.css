@@ -521,7 +521,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #task-name {
   padding-right: 35%;
   border-bottom: 2px solid #333;
-  margin-bottom: 2em;
+/*  margin-bottom: 2em; experimenting with getting rid of this */
 }
 #task-name h1 {
   margin-bottom: 0.5em;
@@ -1057,15 +1057,31 @@ a.action-button {
   border-radius: 3px;
 }
 
-#guides-calculate {
-	position: absolute;
-	bottom: 3em;
-	right: 0;
+.video_version_message {
+  float: left;
+  clear: both;
+  margin-top: -2em;
+  margin-bottom: 2em;
+  padding: 1em 0;
+  width: 100%;
+  border-bottom: solid 2px #E4E4E4;
+}
+
+.video_version_message a {
+  float: right;
+}
+
+.fake_video {
+  padding: 1.5em;
+  background: #EEEFEF;
+  font-size: 0.88em;
+  color: #808080;
+  margin-bottom: 1em;
 }
 
 .paginated {
 	border-bottom: solid 2px #E4E4E4;
-	margin: 1em 0;
+  margin-bottom: 1em;
 	padding-bottom: 0.25em;
 	position: relative;
 	height: 2em;
@@ -1122,7 +1138,6 @@ ol.helpers li {
 	margin: 0;
 	margin-bottom: 2px;
 	position: relative;
-	padding: 1em 1em 1em 3em;
 }
 
 ol.helpers li.active {
@@ -1140,9 +1155,6 @@ ol.helpers li h3 {
 ol.helpers li a {
   display: block;
 	padding: 1em 1em 1em 3em;
-}
-
-ol.helpers li a {
   color: inherit;
 	text-decoration: none;
 }
@@ -1779,6 +1791,11 @@ br { display: none; }
   background: rgb(250,250,223);
 }
 
+.alpha-note.large {
+  float:none;
+  width: 100%;  
+}
+
 .alpha-note h4 {
   padding: 1em;
   height: 2.167em;
@@ -1789,10 +1806,19 @@ br { display: none; }
   background: url(/images/alpha-note-background.png) repeat-x 0 0;
 }
 
-.alpha-note p {
+.alpha-note p, .alpha-note form {
   padding: 1em;
   font-size: 0.75em;
   line-height: 1.5em;
+}
+
+.alpha-note form {
+  padding:0 1em;
+}
+
+.alpha-note form label {
+  font-weight:bold;
+  padding-right:1em;
 }
 
 /* BEGIN: modal popovers */
