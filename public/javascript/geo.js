@@ -25,6 +25,7 @@ var AlphaGeo = {
 };
 
 $(document).ready(function() {
+  $('#global-locator-form').locator(true);
   var set_location_known = function(current_location, highlight_func) {
     highlight_func();
     //show correct message
