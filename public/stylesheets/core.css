@@ -785,6 +785,14 @@ ul.helpers li#helper-offline-steps {
   border-top: 2px solid #333;
 }
 
+.decision-outcome {
+  text-align: center;
+}
+
+.decision-outcome.article-text h2 {
+  font-size: 3em;
+}
+
 /*
   application notices
 */
