@@ -367,6 +367,13 @@ form.app-form .strong-label {
   font-weight: bold;
 }
 
+h2.legend {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin-top: 0.69em;
+  margin-bottom: 0.46em;
+}
+
 h3.legend {
   font-size: 1.38em;
   line-height: 1.18em;
@@ -540,7 +547,7 @@ div.task.article-text {
   border-bottom: solid 2px #F0EDEB;
 }
 
-div.task.overview {
+div.task.overview, div.decision-answers {
   float: right;
   width: 31%;
   margin-left: 0;
@@ -732,6 +739,12 @@ ul.helpers li#helper-time {
 ul.helpers li#helper-offline-steps {
   background-image: url(/images/helper-offline-icon.png);
 }
+
+/*
+  decision tree stuff
+*/
+
+
 
 /*
   application notices
@@ -1686,8 +1699,6 @@ ol.previous-next li.previous.disabled {
 ol.previous-next li.next.disabled {
   background-image: url(/images/pagination-next-disabled.png);
 }
-
-br { display: none; }
 
 
 /* feedback form */
