@@ -1,6 +1,4 @@
-/* @override 
-	http://local.alphagov.co.uk:3000/stylesheets/core.css
-*/
+/* @override http://local.alphagov.co.uk:3000/stylesheets/core.css */
 
 * {
   margin: 0;
@@ -50,22 +48,32 @@ p.error-response {
   font-size: small;
   padding-bottom: 0.25em;
 }
-
-div.app-error {
-  clear: both;
-  margin: 1em 0;
-  padding: 0 1em;
-  border: solid 1px #FF1000;
+div#global-app-error {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 150;
+  border: solid 2px #FF1000;
+  border-style: solid none;
   background: #FFEBEB;
+  margin: 0;
+  padding: 1em 0;
 }
-
-div.app-error p {
+div#global-app-error p, div.app-error {
+  margin: 0 auto;
+  width: 45em;
+  padding: 0;
+}
+div#global-app-error p + p {
+  margin-top: 0.5em;
+}
+/*div.app-error p {
   margin: 0.5em 0;
-}
+}*/
 
-/*
+
   layout
-*/
+
 
 #container {
   float: left;
@@ -872,7 +880,7 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 div.ask_location, div.finding_location, div.found_location {
   background-color: #fafafa;
   background-repeat:no-repeat;
-  background-image:url(/images/location-pin_outline-on-white_small.png); 
+  background-image:url(/images/location-pin_outline-on-white_stacked_small.png); 
   background-position:0.85em 12px;
   padding: 0.75em 1.25em 0.75em 2.75em; 
   position: relative; 
@@ -924,17 +932,17 @@ div.finding_location p {
   background: url(/images/loading-spinner.gif) 0 center no-repeat;
 }
 div.found_location {
-  padding-top: 1.25em;
-  background-position:0.85em -60px;
+  background-position:0.85em -124px;
 }
 div.found_location h3 {
-  margin-top: 0;
-  font-size: 1.25em;
+  margin: 8px 0 4px 0;
+  font-size: 1em;
+  font-weight: bold;
   line-height: 1em;
-  color: #FF0031;
+  color: black;
 }
 div.found_location p {
-  margin-bottom: 0;
+  margin: 0 0 6px 0;
 }
 div.found_location a {
   font-size: 0.85em;

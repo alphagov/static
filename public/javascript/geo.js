@@ -25,7 +25,7 @@ var AlphaGeo = {
 };
 
 $(document).ready(function() {
-  $('#global-locator-form').locator(true);
+  $('#global-locator-form').locator(true, '#global-locator-error');
   var set_location_known = function(current_location, highlight_func) {
     highlight_func();
     //show correct message
@@ -42,7 +42,6 @@ $(document).ready(function() {
   var flash_location_change_state = function() {
     if (!no_location_change_animation && no_location_change_animation != true) {
       var pins = $("#global-user-location");
-      // pins.addClass('changing');
       var scale_back = function() { pins.removeClass('changing'); }
       var scale_up = function() { pins.addClass('changing'); }
       window.setTimeout(scale_up, 200);
