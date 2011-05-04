@@ -341,9 +341,9 @@ form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type=
   font-size: 1em;
   font-weight: normal;
   padding: 0.25em 0.7em;
-  border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 form.app-form fieldset ul {
@@ -373,6 +373,13 @@ form.app-form li.inline-elements li, form.app-form li.inline-elements p {
 
 form.app-form .strong-label {
   font-weight: bold;
+}
+
+h2.legend {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin-top: 0.69em;
+  margin-bottom: 0.46em;
 }
 
 h3.legend {
@@ -548,7 +555,7 @@ div.task.article-text {
   border-bottom: solid 2px #F0EDEB;
 }
 
-div.task.overview {
+div.task.overview, div.decision-answers {
   float: right;
   width: 31%;
   margin-left: 0;
@@ -623,9 +630,9 @@ span.input-box {
   margin: 0 1em 0 0;
   background: #fff;
   border: 1px solid #e5e0de;
-  border-radius: 10px; 
   -webkit-border-radius: 10px; 
   -moz-border-radius: 10px;
+  border-radius: 10px; 
 }
 
 span.input-box input[type="radio"] {
@@ -646,9 +653,9 @@ span.input-box label {
     padding: 0.5em 1em 0.5em 3.75em;
     margin: 0 1em 0 0;
     border: 1px solid #e5e0de;
-    border-radius: 10px; 
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
+    border-radius: 10px; 
     background-repeat: no-repeat;
     background-color: #fff;
   }
@@ -742,6 +749,63 @@ ul.helpers li#helper-offline-steps {
 }
 
 /*
+  decision tree stuff
+*/
+
+.decision-question .article-text.guides-introduction {
+  margin-bottom: 0;
+  padding-bottom: 1em;
+  border-bottom: solid 2px #333;
+}
+
+form.decision-question fieldset input[type="submit"] {
+  padding: 0;
+  background: none;
+  border: none;
+  text-shadow: none;
+  color: #0092F3;
+  font-family: inherit;
+}
+form.decision-question fieldset input[type="submit"]:hover {
+  text-decoration: underline;
+}
+
+.decision-answers {
+  padding-top: 2em;
+}
+
+.decision-answers .input-box {
+  margin: 0;
+  margin-bottom: 1em;
+  float: none;
+}
+
+.decision-answers .input-box input {
+  float: left;
+}
+
+.decision-answers .input-box label {
+  display: block;
+  width: 100%;
+}
+
+.decision-navigation {
+  float: left;
+  margin-top: 1em;
+  padding-top: 1em;
+  width: 100%;
+  border-top: 2px solid #333;
+}
+
+.decision-outcome {
+  text-align: center;
+}
+
+.decision-outcome.article-text h2 {
+  font-size: 3em;
+}
+
+/*
   application notices
 */
 
@@ -754,9 +818,9 @@ ul.helpers li#helper-offline-steps {
   background-repeat: no-repeat;
   background-image: url(/images/application-notice-icon-default.png);
   border: solid 1px #999;
-  border-radius: 1.3em;
   -webkit-border-radius: 1.3em;
   -moz-border-radius: 1.3em;
+  border-radius: 1.3em;
 }
 
 .application-notice p {
@@ -873,9 +937,9 @@ div.ask_location, div.finding_location, div.found_location {
   position: relative; 
   float: left;
   border: solid 1px #e5e0de;
-  border-radius: 10px; 
   -webkit-border-radius: 10px; 
   -moz-border-radius: 10px; 
+  border-radius: 10px; 
 }
 div.ask_location, div.finding_location {
 /*  width: 27.25em;*/
@@ -1060,7 +1124,6 @@ a.action-button {
 .video_version_message {
   float: left;
   clear: both;
-  margin-top: -2em;
   margin-bottom: 2em;
   padding: 1em 0;
   width: 100%;
@@ -1694,8 +1757,6 @@ ol.previous-next li.previous.disabled {
 ol.previous-next li.next.disabled {
   background-image: url(/images/pagination-next-disabled.png);
 }
-
-br { display: none; }
 
 
 /* feedback form */
