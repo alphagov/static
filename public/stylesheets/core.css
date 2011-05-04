@@ -341,9 +341,9 @@ form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type=
   font-size: 1em;
   font-weight: normal;
   padding: 0.25em 0.7em;
-  border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 form.app-form fieldset ul {
@@ -630,9 +630,9 @@ span.input-box {
   margin: 0 1em 0 0;
   background: #fff;
   border: 1px solid #e5e0de;
-  border-radius: 10px; 
   -webkit-border-radius: 10px; 
   -moz-border-radius: 10px;
+  border-radius: 10px; 
 }
 
 span.input-box input[type="radio"] {
@@ -653,9 +653,9 @@ span.input-box label {
     padding: 0.5em 1em 0.5em 3.75em;
     margin: 0 1em 0 0;
     border: 1px solid #e5e0de;
-    border-radius: 10px; 
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
+    border-radius: 10px; 
     background-repeat: no-repeat;
     background-color: #fff;
   }
@@ -779,7 +779,7 @@ ul.helpers li#helper-offline-steps {
 
 .decision-navigation {
   float: left;
-  margin-top: 0.5em;
+  margin-top: 1em;
   padding-top: 1em;
   width: 100%;
   border-top: 2px solid #333;
@@ -798,9 +798,9 @@ ul.helpers li#helper-offline-steps {
   background-repeat: no-repeat;
   background-image: url(/images/application-notice-icon-default.png);
   border: solid 1px #999;
-  border-radius: 1.3em;
   -webkit-border-radius: 1.3em;
   -moz-border-radius: 1.3em;
+  border-radius: 1.3em;
 }
 
 .application-notice p {
@@ -917,9 +917,9 @@ div.ask_location, div.finding_location, div.found_location {
   position: relative; 
   float: left;
   border: solid 1px #e5e0de;
-  border-radius: 10px; 
   -webkit-border-radius: 10px; 
   -moz-border-radius: 10px; 
+  border-radius: 10px; 
 }
 div.ask_location, div.finding_location {
 /*  width: 27.25em;*/
