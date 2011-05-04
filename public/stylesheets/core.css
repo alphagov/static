@@ -758,6 +758,18 @@ ul.helpers li#helper-offline-steps {
   border-bottom: solid 2px #333;
 }
 
+form.decision-question fieldset input[type="submit"] {
+  padding: 0;
+  background: none;
+  border: none;
+  text-shadow: none;
+  color: #0092F3;
+  font-family: inherit;
+}
+form.decision-question fieldset input[type="submit"]:hover {
+  text-decoration: underline;
+}
+
 .decision-answers {
   padding-top: 2em;
 }
