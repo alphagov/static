@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/geolib.git
-  revision: 40bfd3f36e85966ccd97f040e96439eec3162607
-  tag: v0.8
+  revision: 60457d53940852f6e3e85125e3bb4a72a49917a9
+  tag: v0.8.2
   specs:
-    geolib (0.0.1)
+    geolib (0.8.2)
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
