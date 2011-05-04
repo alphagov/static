@@ -752,7 +752,38 @@ ul.helpers li#helper-offline-steps {
   decision tree stuff
 */
 
+.decision-question .article-text.guides-introduction {
+  margin-bottom: 0;
+  padding-bottom: 1em;
+  border-bottom: solid 2px #333;
+}
 
+.decision-answers {
+  padding-top: 2em;
+}
+
+.decision-answers .input-box {
+  margin: 0;
+  margin-bottom: 1em;
+  float: none;
+}
+
+.decision-answers .input-box input {
+  float: left;
+}
+
+.decision-answers .input-box label {
+  display: block;
+  width: 100%;
+}
+
+.decision-navigation {
+  float: left;
+  margin-top: 0.5em;
+  padding-top: 1em;
+  width: 100%;
+  border-top: 2px solid #333;
+}
 
 /*
   application notices
