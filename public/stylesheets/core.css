@@ -396,11 +396,8 @@ h3.legend {
 }
 
 #related-items h3 {
-/*  font-size: 1.13em;
-  line-height: 1.11em;
-  margin-bottom: 0.67em;*/
   padding-bottom: 0.5em;
-  text-align: center;
+  margin-bottom: 0.5em;
   text-transform: uppercase;
   font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size-adjust:0.488;
