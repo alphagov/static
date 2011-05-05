@@ -23,3 +23,7 @@ ul.helpers li {
 .task-step {
 	border-bottom: solid 2px #ddd;
 }
+
+#related-items h3 {
+  border-bottom: solid 2px #B2B9BE;
+}
