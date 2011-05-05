@@ -2015,8 +2015,14 @@ ol.previous-next li.next.disabled {
 
 #footer .explore-elsewhere.government {
   width: 35%;
-  height: 28em;
+  height: 24.5em;
 	background-color: #323232;
+/*  -webkit-border-bottom-left-radius: 3px;*/
+	-webkit-border-bottom-right-radius: 3px;
+/*  -moz-border-radius-bottomleft: 3px;*/
+	-moz-border-radius-bottomright: 3px;
+/*  border-bottom-left-radius: 3px;*/
+	border-bottom-right-radius: 3px;
 }
 
 #footer .popular-global {
@@ -2045,11 +2051,9 @@ ol.previous-next li.next.disabled {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;	
-/*  float: left;*/
   display: inline-block;
   vertical-align: top;
 	font-size: 0.88em;
-/*  line-height: 1.45em;*/
 	list-style: none;
 	min-height: 5.5em;
 	padding: 0.5em 1.5em 0.5em 5em;
@@ -2092,7 +2096,35 @@ ol.previous-next li.next.disabled {
   background: yellow;
 }
 
+#footer .government-global ul {
+  position: relative;
+}
+
+#footer .government-global ul li {
+  position: relative;
+	margin-bottom: 0.25em;
+  height: 3em;
+	font-size: 0.88em;
+	line-height: 1.33em;
+	list-style: none;
+}
+
+#footer .government-global ul li a {
+  display: block;
+  padding-left: 3.5em;
+  line-height: 3em;
+  height: 100%;
+	color: #fff;
+	background: url(/images/index/news-navigation-default.png) no-repeat 3px 50%;	
+	background-color: #191919;
+	background-color: rgba(0,0,0,.08);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
 #footer .copyright {
   clear: both;
-  background: red;
+  padding: 2em 0;
+  text-align: center;
 }
