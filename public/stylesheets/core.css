@@ -1968,3 +1968,20 @@ ol.previous-next li.next.disabled {
   right: 2em;
 }*/
 /* END: global locate-me box */ 
+
+
+/* BEGIN: syndications api */
+.syndication_api {
+  margin-top:1em;
+  font-size:0.8em;
+  padding:0.7em;
+  background:#ddd;
+  color:#808080;
+}
+
+.syndication_api h4 {
+  font-size:1em;
+  padding-bottom:0.5em;
+}
+
+/* END syndication api */
