@@ -1,4 +1,7 @@
-/* @override http://local.alphagov.co.uk:3000/stylesheets/core.css */
+/* @override 
+	http://local.alphagov.co.uk:3000/stylesheets/core.css
+	http://local.alphagov.co.uk:9292/stylesheets/core.css
+*/
 
 * {
   margin: 0;
@@ -1704,6 +1707,12 @@ p.search-results-count, .search-results p.result-url {
 
 .search-links .search-results li.www_ucas_ac_uk {
   background: url(/images/icon-ucas-48.png) no-repeat;
+}
+
+.more-results-container {
+  clear: both;
+  text-align: center;
+  padding: 4em 0 2em 0;
 }
 
 .search-pagination {
