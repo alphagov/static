@@ -103,8 +103,11 @@ div#global-app-error p + p {
 }
 
 #footer {
+  float: left;
   clear: both;
-  background: #E8EAE9;
+  width: 100%;
+  padding: 1em 0;
+/*  background: #E8EAE9;*/
 }
 
 .wrapper {
@@ -205,8 +208,8 @@ div#global-app-error p + p {
   padding: 0 0.31em;
   margin-left: 26%;
   width: 64%;
-  line-height: 1.6em;
-  height: 1.6em;
+  line-height: 1.65em;
+  height: 1.65em;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
 }
@@ -2002,3 +2005,94 @@ ol.previous-next li.next.disabled {
 }
 
 /* END syndication api */
+
+/* footer */
+
+#footer .explore-elsewhere {
+  float: left;
+  width: 65%;
+}
+
+#footer .explore-elsewhere.government {
+  width: 35%;
+  height: 28em;
+	background-color: #323232;
+}
+
+#footer .popular-global {
+  margin-bottom: 1em;
+}
+
+#footer .government-global {
+  padding: 4em 1em 1em 1em;
+	background-image: url(/images/welcome/logo.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+
+#footer .popular-global h4 {
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
+  font-size-adjust: 0.46; 
+  font-weight: normal;
+  font-size: 1.13em;
+  font-style: normal;
+	margin: 0 auto 1em auto;
+	text-align: center;
+  text-shadow: 0 2px 0 #fff;
+}
+
+#footer .popular-global ul li {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;	
+/*  float: left;*/
+  display: inline-block;
+  vertical-align: top;
+	font-size: 0.88em;
+/*  line-height: 1.45em;*/
+	list-style: none;
+	min-height: 5.5em;
+	padding: 0.5em 1.5em 0.5em 5em;
+	width: 33.3%;
+}
+
+#footer .popular-global ul li a {
+	color: #369;
+	display: block;
+	font-weight: bold;
+  line-height: 1.33em;
+	min-height: 3em;
+}
+
+#footer .popular-global ul li a small {
+  display: inline-block;
+  padding: 0 0.25em;
+  background: #E0E7ED;
+}
+
+#footer .popular-global ul li:nth-of-type(3n-1) {
+	border-right: solid 1px #e6e6e6;
+	border-left: solid 1px #e6e6e6;
+}
+
+#footer .popular-global ul li.guide {
+	background: url(/images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
+}
+
+#footer .popular-global ul li.answer {
+	background: url(/images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
+}
+
+#footer .popular-global ul li.tool {
+	background: url(/images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
+}
+
+#footer .promo-global {
+  clear: both;
+  background: yellow;
+}
+
+#footer .copyright {
+  clear: both;
+  background: red;
+}
