@@ -1538,6 +1538,7 @@ ol.helpers li li {
 #search-gov-uk, #search-everything {
   margin-top: 1em;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
