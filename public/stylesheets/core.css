@@ -72,8 +72,7 @@ div#global-app-error p + p {
 }*/
 
 
-  layout
-
+/* layout */
 
 #container {
   float: left;
@@ -83,14 +82,12 @@ div#global-app-error p + p {
 
 #header {
   position: relative;
-/*  z-index: 500;*/
   float: left;
   width: 100%;
   height: 8.125em;
   margin-bottom: 2em;
   background: url(/images/header-background.png) repeat-x 0 10px;
 }
-
 
 #page-container {
   margin: 0 3%;
@@ -530,8 +527,14 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
   border-bottom: 2px solid #333;
 /*  margin-bottom: 2em; experimenting with getting rid of this */
 }
+#task-name figure {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 10em;
+  padding-bottom: 1em;
+}
 #task-name h1 {
-  margin-bottom: 0.5em;
+/*  margin-bottom: 1em;*/
 }
 #task-name h2 {
   margin-top: -1em;
@@ -880,7 +883,7 @@ form.decision-question fieldset input[type="submit"]:hover {
   line-height: 1.15em;
 }
 .page_heading h2 {
-  font-size: 2.0em;
+  font-size: 2em;
 }
 .page_heading h1, .page_heading h2 {
   font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
