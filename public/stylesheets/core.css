@@ -805,7 +805,7 @@ form.decision-question fieldset input[type="submit"]:hover {
 .decision-navigation {
   float: left;
   margin-top: 1em;
-  padding: 1.5em 0;
+  padding-top: 1.5em;
   width: 100%;
   border-top: 2px solid #333;
 }
