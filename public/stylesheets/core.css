@@ -106,8 +106,9 @@ div#global-app-error p + p {
   float: left;
   clear: both;
   width: 100%;
-  padding: 1em 0;
-/*  background: #E8EAE9;*/
+/*  padding: 1.5em 0;*/
+  background: #EDEDED;
+  background: rgba(0,0,0,0.05);
 }
 
 .wrapper {
@@ -2010,41 +2011,53 @@ ol.previous-next li.next.disabled {
 
 #footer .explore-elsewhere {
   float: left;
-  width: 65%;
+  width: 82%;
+  padding-bottom: 1em;
 }
 
 #footer .explore-elsewhere.government {
-  width: 35%;
-  height: 24.5em;
+  width: 18%;
+  height: 28.5em;
 	background-color: #323232;
-/*  -webkit-border-bottom-left-radius: 3px;*/
+  -webkit-border-top-right-radius: 3px;
 	-webkit-border-bottom-right-radius: 3px;
-/*  -moz-border-radius-bottomleft: 3px;*/
+  -moz-border-radius-topright: 3px;
 	-moz-border-radius-bottomright: 3px;
-/*  border-bottom-left-radius: 3px;*/
+  border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
 
 #footer .popular-global {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 #footer .government-global {
-  padding: 4em 1em 1em 1em;
-	background-image: url(/images/welcome/logo.png);
-	background-position: 0 0;
-	background-repeat: no-repeat;
+  padding: 0 1em 1em 1em;
 }
 
-#footer .popular-global h4 {
+#footer h4 {
+  margin-top: 1em;
+  margin-bottom: 0.67em;
   font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
   font-size-adjust: 0.46; 
   font-weight: normal;
   font-size: 1.13em;
   font-style: normal;
-	margin: 0 auto 1em auto;
-	text-align: center;
-  text-shadow: 0 2px 0 #fff;
+  text-shadow: 0 2px 0 #F2F2F2;
+}
+
+#footer .government-global h4 {
+	font-family: "Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size-adjust: 0.488;
+	font-weight: 600;
+	font-style: normal;
+	font-weight: normal;
+  color: #fff;
+  text-shadow: none;
+}
+
+#footer .popular-global ul {
+  margin-left: -1.5em;
 }
 
 #footer .popular-global ul li {
@@ -2055,7 +2068,7 @@ ol.previous-next li.next.disabled {
   vertical-align: top;
 	font-size: 0.88em;
 	list-style: none;
-	min-height: 5.5em;
+	min-height: 6.5em;
 	padding: 0.5em 1.5em 0.5em 5em;
 	width: 33.3%;
 }
@@ -2075,8 +2088,8 @@ ol.previous-next li.next.disabled {
 }
 
 #footer .popular-global ul li:nth-of-type(3n-1) {
-	border-right: solid 1px #e6e6e6;
-	border-left: solid 1px #e6e6e6;
+	border-right: solid 1px #D3D3D3;
+	border-left: solid 1px #D3D3D3;
 }
 
 #footer .popular-global ul li.guide {
@@ -2089,11 +2102,6 @@ ol.previous-next li.next.disabled {
 
 #footer .popular-global ul li.tool {
 	background: url(/images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
-}
-
-#footer .promo-global {
-  clear: both;
-  background: yellow;
 }
 
 #footer .government-global ul {
@@ -2123,7 +2131,13 @@ ol.previous-next li.next.disabled {
 	border-radius: 3px;
 }
 
-#footer .copyright {
+#promo-global {
+/*  padding-top: 1em;*/
+  clear: both;
+  text-align: center;
+}
+
+#copyright-global {
   clear: both;
   padding: 2em 0;
   text-align: center;
