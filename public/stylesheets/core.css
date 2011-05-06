@@ -51,7 +51,7 @@ p.error-response {
   font-size: small;
   padding-bottom: 0.25em;
 }
-div#global-app-error {
+div.app-error {
   position: fixed;
   top: 0;
   width: 100%;
@@ -62,7 +62,7 @@ div#global-app-error {
   margin: 0;
   padding: 1em 0;
 }
-div#global-app-error p, div.app-error {
+div.app-error p {
   margin: 0 auto;
   width: 45em;
   padding: 0;
