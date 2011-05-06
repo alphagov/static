@@ -3,3 +3,14 @@
   border: solid 2px #ff0000;
   background: #FFE2E4;
 }
+/*
+#news-container {
+  display: inline;
+  background-color: red;
+}*/
+
+.latest-news li {
+  float: none;
+  display: inline-block;
+  height: 8em;
+}
