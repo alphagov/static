@@ -59,9 +59,10 @@ div.app-error {
   border: solid 2px #FF1000;
   border-style: solid none;
   background: #FFEBEB;
-  margin: 0;
+  margin: 0 auto;
   padding: 1em 0;
 }
+
 div.app-error p {
   margin: 0 auto;
   width: 45em;
