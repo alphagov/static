@@ -19,12 +19,24 @@
   display: none;
 }
 
-#logo {
+#header {
   position: relative;
   z-index: 50;
+}
+
+#logo {
+  position: relative;
 }
 
 #page-container {
   position: relative;
   z-index: 0;
+}
+
+#homepage-search #search_hint {
+  display: none;
+}
+
+#headline-link {
+  background: #fff;
 }
