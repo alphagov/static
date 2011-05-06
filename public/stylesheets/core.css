@@ -111,7 +111,7 @@ div#global-app-error p + p {
 /*  padding: 1.5em 0;*/
   background: #EDEDED;
   background: rgba(0,0,0,0.05);
-  background: url(/images/footer-background.png) repeat-y top center;
+  background: url(/images/footer-background.png) repeat-y top 52%;
 }
 
 .wrapper {
@@ -2021,7 +2021,7 @@ ol.previous-next li.next.disabled {
 #footer .explore-elsewhere.government {
   width: 18%;
   height: 27em;
-	background-color: #323232;
+/*  background-color: #323232;*/
   -webkit-border-top-right-radius: 3px;
 	-webkit-border-bottom-right-radius: 3px;
   -moz-border-radius-topright: 3px;
