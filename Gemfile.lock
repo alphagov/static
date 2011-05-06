@@ -1,10 +1,11 @@
 GIT
   remote: git@github.com:alphagov/cdn_helpers.git
-  revision: cbeac534cc79b8f420286bbe38cd8fb12e291570
-  tag: v0.7.1
+  revision: b8649d49c0b0505c0b13c5661d13e40533fc5987
+  tag: v0.8.0
   specs:
     cdn_helpers (0.7.1)
       actionpack (~> 3.0.0)
+      nokogiri
 
 GIT
   remote: git@github.com:alphagov/geolib.git
@@ -47,6 +48,7 @@ GEM
       abstract (>= 1.0.0)
     i18n (0.5.0)
     json (1.5.1)
+    nokogiri (1.4.4)
     rack (1.2.2)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
