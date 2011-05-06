@@ -171,7 +171,7 @@
 
 #homepage-search input[type="submit"] {
   position: relative;
-  top: 1px;
+/*  top: 1px;*/
   padding: 0 0.91em;
   line-height: 1.73em;
   height: 1.73em;
@@ -243,7 +243,7 @@
 	color: #369;
 	display: block;
 	font-weight: bold;
-	line-height: 1.33;
+	line-height: 1.33em;
 	min-height: 3em;
 }
 

@@ -7,16 +7,8 @@
 <link href="/stylesheets/core.css" rel="stylesheet" type="text/css"> 
 <link href="/stylesheets/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css"> 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
-<script src="/javascript/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/jquery-link-annotator.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/jquery-ui-1.8.10.custom.min.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/jquery.base64.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/core.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/search.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/geo.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/fonts.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/promote.js" type="text/javascript" charset="utf-8"></script><script type="text/javascript"> 
-    (function () {
-        var ma = document.createElement('script');
-        ma.type = 'text/javascript';
-        ma.src = 'http://stats.alpha.gov.uk/?js';
-        ma.async = true;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ma, s);
-    })();
-    </script><link rel="stylesheet" type="text/css" href="http://article.dev.alphagov.co.uk/site-media//css/main.css"> 
+<script src="/javascript/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/jquery-link-annotator.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/jquery-ui-1.8.10.custom.min.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/jquery.base64.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/core.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/search.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/geo.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/fonts.js" type="text/javascript" charset="utf-8"></script><script src="/javascript/promote.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/articles/css/main.css"> 
     
 </head>
 <body>
@@ -29,7 +21,7 @@
         <div id="discover">
           <div id="logo"><img src="./index_files/ukgov-logo.png" alt="UK.gov.uk"></div>
           <div id="discover-search">
-            <form action="http://dev.alphagov.co.uk/search">
+            <form action="/search">
               <!-- <label>What are you looking for?</label>-->
               <input type="q" id="main_autocomplete" name="q" value="I&#39;m looking for..." class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"><input type="submit" value="Go"><small id="search_hint" style="display: none; ">Search questions, problems or subjects</small>
             </form>
@@ -135,13 +127,13 @@
 				        <div>
 				          <input name="postcode" id="user-postcode" type="text" value="" placeholder="type your postcode"><input type="submit" name="submit" value="Find me">
 				        </div>
-				        <p class="locate-me">or <a href="http://dev.alphagov.co.uk/test-centres#">locate me automatically</a></p></div>
+				        <p class="locate-me">or <a href="/test-centres#">locate me automatically</a></p></div>
 				        <div class="finding_location hidden">
 				          <p>Locating you…<input type="hidden" name="longitude" value=""><input type="hidden" name="latitude" value=""></p>
 				        </div>
 				        <div class="found_location hidden">
 				          <h3></h3>
-				          <p><a href="http://dev.alphagov.co.uk/test-centres#"></a></p>
+				          <p><a href="/test-centres#"></a></p>
 				        </div>
 				      </fieldset>
 				    </form>
@@ -159,10 +151,10 @@
 				    <fieldset class="filter-choice">
 				      <h3 class="legend">I want to take a…</h3>
 				      <ul>
-				        <li data-icon-id="1" style="background-image: url(http://dev.alphagov.co.uk/images/sprite-driving-test-centre.png); background-position: 0px -300px; " class="toggle-button toggle-button-single">
+				        <li data-icon-id="1" style="background-image: url(/images/sprite-driving-test-centre.png); background-position: 0px -300px; " class="toggle-button toggle-button-single">
 				          <input type="radio" name="activity" value="2" id="activity_2"><label for="activity_2">Theory test</label>
 				        </li>
-				        <li data-icon-id="0" style="background-image: url(http://dev.alphagov.co.uk/images/sprite-driving-test-centre.png); background-position: 0px 0px; " class="toggle-button toggle-button-single">
+				        <li data-icon-id="0" style="background-image: url(/images/sprite-driving-test-centre.png); background-position: 0px 0px; " class="toggle-button toggle-button-single">
 				          <input type="radio" name="activity" value="1" id="activity_1"><label for="activity_1">Driving test</label>
 				        </li>
 				        <li class="other-options toggle-button toggle-others">
@@ -186,7 +178,7 @@
 				          
 				          <p>Other</p>
 				          <ul class="other-options-ui">
-				            <li data-icon-id="2" style="background-image: url(http://dev.alphagov.co.uk/images/sprite-driving-test-centre.png); background-position: 0px -600px; ">Motorcycle driving module 1</li><li data-icon-id="2" style="background-image: url(http://dev.alphagov.co.uk/images/sprite-driving-test-centre.png); background-position: 0px -600px; ">Motorcycle driving module 2</li><li data-icon-id="3" style="background-image: url(http://dev.alphagov.co.uk/images/sprite-driving-test-centre.png); background-position: 0px -900px; ">Vocational driving</li><li data-icon-id="4" style="background-image: url(http://dev.alphagov.co.uk/images/sprite-driving-test-centre.png); background-position: 0px -1200px; ">Taxi driving</li>
+				            <li data-icon-id="2" style="background-image: url(/images/sprite-driving-test-centre.png); background-position: 0px -600px; ">Motorcycle driving module 1</li><li data-icon-id="2" style="background-image: url(/images/sprite-driving-test-centre.png); background-position: 0px -600px; ">Motorcycle driving module 2</li><li data-icon-id="3" style="background-image: url(/images/sprite-driving-test-centre.png); background-position: 0px -900px; ">Vocational driving</li><li data-icon-id="4" style="background-image: url(/images/sprite-driving-test-centre.png); background-position: 0px -1200px; ">Taxi driving</li>
 				          </ul>
 				        </li>
 				      </ul>

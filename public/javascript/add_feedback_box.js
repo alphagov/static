@@ -39,6 +39,9 @@
         sourceURL: window.decodeURI(document.URL)
       };
 
+      var _gaq = _gaq || [];
+      _gaq.push( ['_trackEvent', 'Feedback', params.eventName, params.sourceURL]); 
+
       $('#feedback-options').addClass('hidden');
       feedback_box.find('h4').removeClass('hidden');
       feedback_box.addClass('submitted');
