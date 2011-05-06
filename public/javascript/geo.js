@@ -90,7 +90,7 @@
       });
       geolocate_ui.bind('location-completed', function (event, details) {
         update_geo_fields(details);
-        $.post(this.action, locator_form.serialize(), dispatch_location, 'json');
+        $.post(locator_form.attr('action'), locator_form.serialize(), dispatch_location, 'json');
       });
       geolocate_ui.find('a').click(function (e) {
         var parent_element = $(this).closest('.locate-me');
