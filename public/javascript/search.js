@@ -73,10 +73,15 @@ jQuery(document).ready(function() {
           return {
               label: html_escape(item.label),
               html:  highlight_term(item.label,search_term),
-              url:   item.url + "?q=" + encodeURIComponent(item.label)
+              url:   item.url
           };
        });
     }
+
+    var track_search = function(type,label) {
+       var _gaq = _gaq || [];
+       _gaq.push( ['_trackEvent', 'Search', type, label]);
+    };
 
     var html_escape = function( string) {
         return $('<div/>').text(string).html();
@@ -84,7 +89,8 @@ jQuery(document).ready(function() {
 
     $("#main_autocomplete").parent("form").submit(function() {
       $('li.search-site a').addClass("ui-state-hover");
-      $('li.search-site a').css('color', '#000')
+      $('li.search-site a').css('color', '#000');
+      track_search("query", $("#main_autocomplete").val());      
       return true;
     });
 
@@ -139,6 +145,7 @@ jQuery(document).ready(function() {
 
         },
         select: function(event, ui) {
+          track_search("select",ui.item.label);
           location.href = ui.item.url
         },
         // open: function(event, ui){
