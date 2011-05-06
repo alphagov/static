@@ -136,7 +136,6 @@
       show_ui(locator_box.data('located') ? found_ui : ask_ui);
     });
     locator_form.submit(function(e) {
-      if (settings.)
       clear_geo_fields();
       if (!settings.submit_form_without_ajax) {
         e.preventDefault();
