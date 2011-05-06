@@ -483,9 +483,8 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
   float: left;
   width: 100%;
 	position: relative;
-	background: #F7F7F7;
-  padding: 1em 0;
-  height: 2em;
+  padding: 0.42em 0;
+	background: url(/images/alpha-background.png);
 }
 
 #alpha_intro .wrapper {
@@ -494,10 +493,13 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 
 #alpha_intro p {
   float: left;
+  padding: 0.5em 0.6em;
 	color: #393939;
-	opacity: 0.75;
+  color: rgba(57,57,57,0.75);
 	text-align: left;
-	width: 440px;
+	width: 30em;
+	line-height: 1.2em;
+	background: #fafadf;
 }
 
 #alpha_intro span {
@@ -506,7 +508,6 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
   font-size-adjust: 0.488;
   font-weight: 600;
   font-style: bold;
-	opacity: 1;
 }
 
 #alpha_intro a {
@@ -516,20 +517,28 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 #alpha_intro ul {
 	float: right;
 	position: relative;
-	margin-top: 1.25em;
-	width: 35em;
+  padding: 0.5em 0 0.6em 0;
+	min-width: 36em;
 	text-align: right;
+  background-color: #fafadf
 }
 
 #alpha_intro li {
-	display: inline;
-	margin-left: 1.5em;
-	padding-top: 0.1em;
+  float: left;
+  list-style: none;
+  padding: 0 0.65em;
+  border-right: solid 1px #f0f0f0;
+  border-left: solid 1px #fff;
+}
+
+#alpha_intro li:first-child {
+  border-left: none;
 }
 
 #alpha_intro li:last-child {
-	background: url(../images/welcome/twitter.png) no-repeat 0 50%;
-	padding-left: 1.7em;
+	background: url(../images/welcome/twitter.png) no-repeat 0.6em 50% #fafadf;
+	padding-left: 2.3em;
+	border-right: none;
 }
 
 #alpha_intro li a {
