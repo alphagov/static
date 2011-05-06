@@ -403,6 +403,10 @@
 	width: 70%;
 }
 
+.about-alpha .welcome.about .panel ol , .about-alpha .welcome.about .panel ul {
+  width: 65%;
+}
+
 .about-alpha .welcome.about h2 {
   font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif; 
   font-size: 1.5em;
