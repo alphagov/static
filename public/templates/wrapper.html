@@ -8,6 +8,7 @@
     <link href="/stylesheets/splash.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!--[if !IE 6]>-->  
     <script src="/javascript/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/jquery-link-annotator.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/jquery-ui-1.8.10.custom.min.js" type="text/javascript" charset="utf-8"></script>
@@ -18,8 +19,19 @@
     <script src="/javascript/geo.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/fonts.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/promote.js" type="text/javascript" charset="utf-8"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/javascript/IE9.js"></script>
+    <link href="/stylesheets/ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
   </head>
   <body>
+    <!--[if lte IE 6]>
+      <div id="outdated-browser-message">
+        <div class="wrapper article-text"><p>Hello. This site has not been designed with your web browser, Internet Explorer 6, in mind. A very small percentage of web users around the world use this browser and Microsoft are discouraging its use.</p>
+        <p>To experience this site as intended may we suggest you try returning with a modern browser such as <a href="http://windows.microsoft.com/en-GB/internet-explorer/downloads/ie-9/worldwide-languages">Internet Explorer 9</a>, <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com/download/">Opera</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>.</p></div>
+      </div>
+    <![endif]-->
     <div id="alpha_intro"> 
       <div class="wrapper">
         <p><span>PROTOTYPE</span> There are errors, inconsistencies and inaccuracies.</p>
