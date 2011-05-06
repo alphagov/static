@@ -15,10 +15,11 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
-  revision: 92042cc9e644a6200158279857317f4fbce2a1fd
-  tag: v0.6
+  revision: 7a8db960dfd0257194a24c7ee2f33edcc57638ba
+  tag: v0.7
   specs:
     rack-geo (0.6.0)
+      geolib (~> 0.8.0)
       json
       rack (~> 1.2.0)
 
