@@ -10,11 +10,13 @@
   /**
    * $ is an alias to jQuery object
    */
-  $.fn.locator = function(ignore_location_known_on_page_load, error_area_selector) {
+  $.fn.locator = function(settings) {
     var locator_form = this.closest('form'),
         locator_box = this,
-        ignore_location_known_on_page_load = ignore_location_known_on_page_load || false,
-        error_area_selector = error_area_selector || '#global-app-error',
+        settings = settings || {},
+        ignore_location_known_on_page_load = settings.ignore_location_known_on_page_load || false,
+        error_area_selector = settings.error_area_selector || '#global-app-error',
+        submit_form_without_ajax = settings.submit_form_without_ajax || false,
         ask_ui = locator_box.find('.ask_location'),
         locating_ui = locator_box.find('.finding_location'),
         found_ui = locator_box.find('.found_location'),
@@ -90,7 +92,12 @@
       });
       geolocate_ui.bind('location-completed', function (event, details) {
         update_geo_fields(details);
-        $.post(locator_form.attr('action'), locator_form.serialize(), dispatch_location, 'json');
+        if (settings.submit_form_without_ajax) {
+          locator_form.submit();
+        }
+        else {
+          $.post(locator_form[0].action, locator_form.serialize(), dispatch_location, 'json');
+        }
       });
       geolocate_ui.find('a').click(function (e) {
         var parent_element = $(this).closest('.locate-me');
@@ -129,9 +136,12 @@
       show_ui(locator_box.data('located') ? found_ui : ask_ui);
     });
     locator_form.submit(function(e) {
-      e.preventDefault();
+      if (settings.)
       clear_geo_fields();
-      $.post(this.action, locator_form.serialize(), dispatch_location, 'json');
+      if (!settings.submit_form_without_ajax) {
+        e.preventDefault();
+        $.post(locator_form[0].action, locator_form.serialize(), dispatch_location, 'json');
+      }
       show_ui(locating_ui);
     });
   }
@@ -182,7 +192,10 @@ var AlphaGeo = {
 
 $(document).ready(function() {
   $('#large-locator-form').locator();
-  $('#global-locator-form').locator(true, '#global-locator-error');
+  $('#global-locator-form').locator({
+    ignore_location_known_on_page_load: true, 
+    error_area_selector: '#global-locator-error'
+  });
   var set_location_known = function(current_location, highlight_func) {
     highlight_func();
     //show correct message
