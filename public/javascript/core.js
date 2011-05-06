@@ -109,7 +109,7 @@ $(document).bind('tour-ready', function () {
         axis: 'xy',
         onAfter: trigger, // our final callback
         offset: 0,
-        duration: 500,
+        duration: 500
     };
 
     //set first item selected and then setup scroll
