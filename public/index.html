@@ -202,14 +202,6 @@
     $(document).bind('location-removed', function() {
       $('#homepage-search').addClass('location-not-set');
     });
-    (function () {
-      var ma = document.createElement('script');
-      ma.type = 'text/javascript';
-      ma.src = 'http://stats.alpha.gov.uk/?js';
-      ma.async = true;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ma, s);
-    })();
     </script>
   </body>
 </html>
