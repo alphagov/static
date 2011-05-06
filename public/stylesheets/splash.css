@@ -129,8 +129,10 @@
 }
 
 .about-alpha .welcome {
-  background: #F6F5F1 url(/images/welcome/window-bg.png) no-repeat 50% 50%;
+  background: #F6F5F1 url(/images/welcome/sunburst.jpg) no-repeat 50% 50%;
   border: solid 1px #D6D6D6;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   border-radius: 8px;
   box-shadow: 4px 4px 10px rgba(0,0,0,.3);
   height: 550px;
