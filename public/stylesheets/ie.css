@@ -3,3 +3,40 @@
   border: solid 2px #ff0000;
   background: #FFE2E4;
 }
+/*
+#news-container {
+  display: inline;
+  background-color: red;
+}*/
+
+.latest-news li {
+  float: none;
+  display: inline-block;
+  height: 8em;
+}
+
+#global-user-location {
+  display: none;
+}
+
+#header {
+  position: relative;
+  z-index: 50;
+}
+
+#logo {
+  position: relative;
+}
+
+#page-container {
+  position: relative;
+  z-index: 0;
+}
+
+#homepage-search #search_hint {
+  display: none;
+}
+
+#headline-link {
+  background: #fff;
+}
