@@ -1,7 +1,7 @@
 GIT
   remote: git@github.com:alphagov/cdn_helpers.git
-  revision: b8649d49c0b0505c0b13c5661d13e40533fc5987
-  tag: v0.8.0
+  revision: 97bfea567cb24e0377421b3a1910722b1db2f0da
+  tag: v0.8.1
   specs:
     cdn_helpers (0.7.1)
       actionpack (~> 3.0.0)
