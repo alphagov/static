@@ -11,6 +11,7 @@ task :environment do
 end
 
 namespace :cdn do
+  desc "Iterate over each html file in public and process for cache busting and asset host URLs"
   task :process_html do
     require 'logger'
 
