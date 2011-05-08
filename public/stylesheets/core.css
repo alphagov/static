@@ -537,9 +537,11 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 }
 
 #alpha_intro li:last-child {
-	background: url(../images/welcome/twitter.png) no-repeat 0.6em 50% #fafadf;
+  margin-top: -0.1em;
+	padding-top: 0.1em;
 	padding-left: 2.3em;
 	border-right: none;
+	background: url(../images/welcome/twitter.png) no-repeat 0.6em 50% #fafadf;
 }
 
 #alpha_intro li a {
