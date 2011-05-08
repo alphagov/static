@@ -1370,10 +1370,6 @@ ol.helpers li li {
   text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
 */
 
-.article-text h1 {
-
-}
-
 .article-text h2 {
   font-size: 1.63em;
   line-height: 1.15em;
