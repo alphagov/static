@@ -337,6 +337,7 @@ div#global-app-error p + p {
 #local-info-box #council-logo {
   position:relative;
   top:10px;
+  padding-right:8px;
 }
 #local-info-box h3 {
   color: #868686;
