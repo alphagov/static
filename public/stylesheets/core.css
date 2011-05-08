@@ -322,11 +322,7 @@ div#global-app-error p + p {
 }
 
 #location-notifications img {
-  position:relative;top:7px;
-}
-
-.alt-version #location-notifications img {
-  position:relative;top:5px;  
+  position:relative;top:5px;
 }
 
 #local-info-box {
