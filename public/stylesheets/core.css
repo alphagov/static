@@ -325,6 +325,10 @@ div#global-app-error p + p {
   position:relative;top:7px;
 }
 
+.alt-version #location-notifications img {
+  position:relative;top:5px;  
+}
+
 #local-info-box {
   position:relative;
 }
