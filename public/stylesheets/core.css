@@ -46,6 +46,13 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+/* Accessibility */
+.make-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 p.error-response {
   color: red;
   font-size: small;

@@ -40,6 +40,8 @@
     <div id="alpha_intro">
       <div class="wrapper">
         <p><span>PROTOTYPE</span> There are errors, inconsistencies and inaccuracies.</p>
+        <a href="#main_auto_complete" class="make-invisible">Skip to search</a>
+        <a href="#popular" class="make-invisible">Skip to popular tools and topics</a>        
         <ul>
           <li><a id="tour-launcher" href="/tour.html">Tour</a></li>
           <li><a href="/about.html">The project</a></li>
@@ -55,7 +57,7 @@
         <div id="discover">
           <div id="logo">
             <a href="/">
-              <img src="/images/gov.uk-logo.png" alt="UK.gov.uk">
+              <img src="/images/gov.uk-logo.png" alt="alpha.gov.uk" title="Go to alpha.gov.uk home">
             </a>
           </div> 
         </div> 
@@ -82,7 +84,8 @@
             </div>
         
             <div id="homepage-search" class="location-not-set"> 
-              <form action="/search"> 
+              <form action="/search">
+                <label class="make-invisible" for="main_autocomplete">Search</label>
                 <input type="text" id="main_autocomplete" name="q" value="" placeholder="I&rsquo;m looking for&hellip;"><input type="submit" value="Go">
                 <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a></p>
               </form> 
@@ -172,8 +175,8 @@
     <div id="global-locator" class="popover-mask">
       <div id="global-locator-box" class="popover">
         <div class="header">
-          <img class="logo" src="/images/welcome/logo.png" width="110" height="50" alt="">
-          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close"></a>
+          <img class="logo" src="/images/welcome/logo.png" width="110" height="50" alt="alpha.gov.uk" title="alpha.gov.uk logo">
+          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close" title="close"></a>
         </div>
         <div id="global-set-location">
           <h2>Set your location</h2>
@@ -181,6 +184,7 @@
             <fieldset class="postcode">
               <div class="ask_location">
                 <div>
+                  <label class="make-invisible" for="postcode_box">Enter your postcode</label>                  
                   <input name="postcode" type="text" value="" placeholder="type your postcode">
                   <input type="submit" name="find_me" value="Go">
                 </div>
