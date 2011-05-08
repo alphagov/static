@@ -63,11 +63,11 @@
           <div id="global-user-location">
             <p id="location-set-message">
               <span class="pin"><img src="/images/index/global-user-location-icon_set-highlight.png" alt="Location set" title="Location icon (set)"></span>
-              Your location is set to <strong id="location-name"></strong>. <a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)
+              <span id="location-set-info">Your location is set to <a href="#" id="location-notifications"><strong id="location-name"></strong> <img src="/images/notify.png" alt="4" title="4 notifications"/></a>&nbsp;|&nbsp;<a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)</span>
             </p>
             <p id="location-unset-message">
               <span class="pin"><img src="/images/index/global-user-location-icon_unset-highlight.png" alt="Location not set" title="Location icon (not set)"></span>
-              Location not set. <a class="change-location" href="#">Tell us where you are</a> (<a class="explain-location" href="#">why?</a>)
+              Location not set. <a class="change-location" href="#">Set location</a> (<a class="explain-location" href="#">why?</a>)
             </p>
           </div>
         </div><!--end discover-->
@@ -147,6 +147,36 @@
         </div>
       </div>
     </div>
+    
+    <!--local -->
+    <div id="local-info" class="popover-mask">
+      <div id="local-info-box" class="popover">
+        <div class="header">
+          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close"></a>
+        </div>
+        <div>
+            <div class="alpha-note absolute">
+              <h4>Prototype</h4>
+              <p>This is for demonstration only, <strong>the information is not live.</strong></p>
+            </div>
+            <h3><img id="council-logo" src="/images/council-logo.png" alt="example council logo" title="example council logo"/>Local notifications</h3>
+            <dl>
+              <dt>Local council petitions</dt>
+              <dd>
+                <p>More cycle parking at Byfleet and New Haw train station <a href="#">more info...</a></p>
+              </dd>
+              <dt>Parking suspensions</dt>
+              <dd><strong>Berkshire Road 28 June 2011</strong> - Closed for summer Fête</dd>
+              <dt>Planning applications</dt>
+              <dd>
+                <p><strong>Woodfield Avenue</strong> - Erection of a single storey rear/side extension to existing takeaway.<a href="#">more information...</a><br/><br/></p>
+                <p><strong>Fenmans Lane</strong> - Replacement of existing outbuildings and the erection of a two storey side extension. <a href="#">more information...</a></p>
+              </dd>
+            </dl>
+        </div>
+      </div>
+    </div>
+    <!-- end local -->
     <script src="/javascript/add_feedback_box.js" type="text/javascript"></script>
     <script type="text/javascript">
 

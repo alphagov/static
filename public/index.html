@@ -72,7 +72,7 @@
             <div id="global-user-location">
               <div id="location-set-message">
                 <p>
-                  Your location is set to <strong id="location-name"></strong> (<a class="change-location" href="#">Change location</a>)
+                  <span id="location-set-info">Your location is set to <a href="#" id="location-notifications"><strong id="location-name"></strong> <img src="/images/notify.png" alt="4" title="4 notifications"/></a>&nbsp;|&nbsp;<a class="change-location" href="#">Change location</a> (<a class="explain-location" href="#">what is this?</a>)</span>                  
                 </p>
               </div>
               <div id="location-unset-message" class="article-text popover">
@@ -209,6 +209,37 @@
         </div>
       </div>
     </div>
+    
+    <!--local -->
+    <div id="local-info" class="popover-mask">
+      <div id="local-info-box" class="popover">
+        <div class="header">
+          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close"></a>
+        </div>
+        <div>
+            <div class="alpha-note absolute">
+              <h4>Prototype</h4>
+              <p>This is for demonstration only, <strong>the information is not live.</strong></p>
+            </div>
+            <h3><img id="council-logo" src="/images/council-logo.png" alt="example council logo" title="example council logo"/>Local notifications</h3>
+            <dl>
+              <dt>Local council petitions</dt>
+              <dd>
+                <p>More cycle parking at Byfleet and New Haw train station <a href="#">more info...</a></p>
+              </dd>
+              <dt>Parking suspensions</dt>
+              <dd><strong>Berkshire Road 28 June 2011</strong> - Closed for summer Fête</dd>
+              <dt>Planning applications</dt>
+              <dd>
+                <p><strong>Woodfield Avenue</strong> - Erection of a single storey rear/side extension to existing takeaway.<a href="#">more information...</a><br/><br/></p>
+                <p><strong>Fenmans Lane</strong> - Replacement of existing outbuildings and the erection of a two storey side extension. <a href="#">more information...</a></p>
+              </dd>
+            </dl>
+        </div>
+      </div>
+    </div>
+    <!-- end local -->
+    
     <script type="text/javascript">
     var no_location_change_animation = true;
     $(document).bind('location-known', function() {

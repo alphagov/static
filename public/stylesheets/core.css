@@ -308,6 +308,11 @@ div#global-app-error p + p {
   display:none;
 }
 
+#location-set-info {
+  position:relative;
+  top:-10px;
+}
+
 #global-user-location p {
 	color: #393939;
 	font-size: 0.75em;
@@ -316,6 +321,46 @@ div#global-app-error p + p {
 	top: 15px;
 }
 
+#location-notifications img {
+  position:relative;top:7px;
+}
+
+#local-info-box {
+  position:relative;
+}
+
+#local-info-box .alpha-note {
+  top:40px;
+  right:55px;
+}
+
+#local-info-box #council-logo {
+  position:relative;
+  top:10px;
+}
+#local-info-box h3 {
+  color: #868686;
+}
+
+#local-info-box h3{
+  padding:1.5em 0 0.7em 0;
+  font-size:1.5em;
+}
+
+#local-info-box dl{
+  border-top:solid 1px #ccc;
+}
+
+#local-info-box dt{
+  padding-top:1em;  
+  font-weight:bold;
+  padding-bottom:1em;
+}
+
+#local-info-box dd{
+  border-bottom:solid 1px #ccc;
+  padding-bottom:1em;
+}
 
 /*
   common elements

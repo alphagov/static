@@ -197,11 +197,26 @@ $(document).ready(function() {
   });
   var set_location_known = function(current_location, highlight_func) {
     highlight_func();
+    
     //show correct message
     $('#location-set-message').show();
     $('#location-unset-message').hide();
+    
     //set the name of the place
     $("#location-name").html(current_location.locality);
+    
+    //set local info
+    $('#location-notifications').click(
+      function(){
+        $('#local-info').show();
+        $('#local-info-box .close').click(
+          function(){
+            $('#local-info').hide();
+          }
+        );
+        return false;        
+      }
+    );
   };
   var setup_location_change_highlight = function() {
     if ($("#global-user-location span.text-highlight").length == 0) {
