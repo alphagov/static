@@ -308,6 +308,11 @@ div#global-app-error p + p {
   display:none;
 }
 
+#location-set-info {
+  position:relative;
+  top:-10px;
+}
+
 #global-user-location p {
 	color: #393939;
 	font-size: 0.75em;
@@ -316,6 +321,47 @@ div#global-app-error p + p {
 	top: 15px;
 }
 
+#location-notifications img {
+  position:relative;top:5px;
+}
+
+#local-info-box {
+  position:relative;
+}
+
+#local-info-box .alpha-note {
+  top:40px;
+  right:55px;
+}
+
+#local-info-box #council-logo {
+  position:relative;
+  top:10px;
+  padding-right:8px;
+}
+#local-info-box h3 {
+  color: #868686;
+}
+
+#local-info-box h3{
+  padding:1.5em 0 0.7em 0;
+  font-size:1.5em;
+}
+
+#local-info-box dl{
+  border-top:solid 1px #ccc;
+}
+
+#local-info-box dt{
+  padding-top:1em;  
+  font-weight:bold;
+  padding-bottom:1em;
+}
+
+#local-info-box dd{
+  border-bottom:solid 1px #ccc;
+  padding-bottom:1em;
+}
 
 /*
   common elements
@@ -1914,6 +1960,12 @@ ol.previous-next li.next.disabled {
   width: 100%;  
 }
 
+.alpha-note.absolute {
+  position:absolute;
+  right:3em; top:22em;
+}
+
+
 .alpha-note h4 {
   padding: 1em;
   height: 2.167em;
@@ -2177,3 +2229,40 @@ ol.previous-next li.next.disabled {
   padding: 2em 0;
   text-align: center;
 }
+
+/* BEGIN: Help and access */
+.access-info {
+  border:double 3px #ccc;
+  padding:0.8em;
+}
+.access-info h3 {
+  font-size:1.3em;
+}
+.access-info h4 {
+  padding-bottom:0.8em;
+  padding-top:1em;
+}
+.access-info h5 {
+  font-size:1em;
+  font-weight:normal;
+}
+
+.access-info ul {
+  padding-left:1em;
+}
+
+.access-info ul li {
+  padding-bottom:0.8em;
+}
+
+.access-info form {
+  padding:0.5em 0;
+}
+.access-info p {
+  padding:0.5em 0;
+}
+
+div.faqs {
+  padding-right:2em;
+}
+/* END: Help and access */
