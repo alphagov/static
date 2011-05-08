@@ -1897,6 +1897,12 @@ ol.previous-next li.next.disabled {
   width: 100%;  
 }
 
+.alpha-note.absolute {
+  position:absolute;
+  right:3em; top:22em;
+}
+
+
 .alpha-note h4 {
   padding: 1em;
   height: 2.167em;
