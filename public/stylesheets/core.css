@@ -116,7 +116,7 @@ div#global-app-error p + p {
   clear: both;
   width: 100%;
   margin-top: 2em;
-/*  padding: 1.5em 0;*/
+  border-top: solid 1px rgba(0,0,0,0.025);
   background: #EDEDED;
   background: rgba(0,0,0,0.05);
   background: url(/images/footer-background.png) repeat-y top 52%;
@@ -200,6 +200,21 @@ div#global-app-error p + p {
   z-index:30;
 }
 
+#get-help {
+  position: absolute;
+  top: 0.85em;
+  right: 0;
+  padding: 0.25em;
+  display: block;
+  width: 4.5em;
+  z-index: 1;
+  font-size: 0.88em;
+  text-align: center;
+  color: #D37F3C;
+  background: #F7F7F7;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
 
 #discover-search {
   position: relative;
