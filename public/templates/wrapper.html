@@ -8,7 +8,7 @@
     <link href="/stylesheets/splash.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <!--[if !IE 6]>-->  
+    <!--[if !IE 6]>-->
     <script src="/javascript/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/jquery-link-annotator.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/jquery-ui-1.8.10.custom.min.js" type="text/javascript" charset="utf-8"></script>
@@ -32,9 +32,11 @@
         <p>To experience this site as intended may we suggest you try returning with a modern standards-compliant browser such as <a href="http://windows.microsoft.com/en-GB/internet-explorer/downloads/ie-9/worldwide-languages">Internet Explorer 9</a>, <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com/download/">Opera</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>.</p></div>
       </div>
     <![endif]-->
-    <div id="alpha_intro"> 
+    <div id="alpha_intro">
       <div class="wrapper">
         <p><span>PROTOTYPE</span> There are errors, inconsistencies and inaccuracies.</p>
+        <a href="#container" class="make-invisible">Skip navigation</a>
+        <a href="#main_auto_complete" class="make-invisible">Skip to search</a>
         <ul>
           <li><a id="tour-launcher" href="/tour.html">Tour</a></li>
           <li><a href="/about.html">The project</a></li>
@@ -51,6 +53,7 @@
           <div id="logo"><a href="/"><img src="/images/gov.uk-logo.png" alt="gov.uk"></a></div>
           <div id="discover-search">
             <form action="/search">
+              <label class="make-invisible" for="main_autocomplete">Search</label>
               <input type="text" id="main_autocomplete" name="q" value="I'm looking for...">
               <input type="submit" value="Go">
               <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a></p>
@@ -119,7 +122,8 @@
             <fieldset class="postcode">
               <div class="ask_location">
                 <div>
-                  <input name="postcode" type="text" value="" placeholder="type your postcode">
+                  <label class="make-invisible" for="postcode_box">Enter your postcode</label>
+                  <input name="postcode" id="postcode_box" type="text" value="" placeholder="type your postcode">
                   <input type="submit" name="find_me" value="Go">
                 </div>
               </div>
