@@ -2183,3 +2183,40 @@ ol.previous-next li.next.disabled {
   padding: 2em 0;
   text-align: center;
 }
+
+/* BEGIN: Help and access */
+.access-info {
+  border:double 3px #ccc;
+  padding:0.8em;
+}
+.access-info h3 {
+  font-size:1.3em;
+}
+.access-info h4 {
+  padding-bottom:0.8em;
+  padding-top:1em;
+}
+.access-info h5 {
+  font-size:1em;
+  font-weight:normal;
+}
+
+.access-info ul {
+  padding-left:1em;
+}
+
+.access-info ul li {
+  padding-bottom:0.8em;
+}
+
+.access-info form {
+  padding:0.5em 0;
+}
+.access-info p {
+  padding:0.5em 0;
+}
+
+div.faqs {
+  padding-right:2em;
+}
+/* END: Help and access */
