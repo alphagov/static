@@ -46,13 +46,15 @@
       locator_box.find('input[name=lon]').val('');
     };
     var dispatch_location = function(response_data) {
-      if (response_data.current_location != undefined) {
+      if (response_data.current_location === undefined) {
+        $(error_area_selector).empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
+        show_ui(ask_ui);
+      } else if (! response_data.current_location.locality) {
+        $(error_area_selector).empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');
+        show_ui(ask_ui);
+      } else {
         $(error_area_selector).empty().addClass("hidden");
         $(document).trigger('location-changed', response_data);
-      }
-      else {
-        $(error_area_selector).empty().append("<p>Sorry, we couldn't find a match for that postcode. Please check you entered it correctly. If the postcode was correct, try the Automatically Locate Me button.</p>").removeClass('hidden');
-        show_ui(ask_ui);
       }
     }
     var changed_location = function(data) {

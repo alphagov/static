@@ -3,6 +3,7 @@
   border: solid 2px #ff0000;
   background: #FFE2E4;
 }
+
 /*
 #news-container {
   display: inline;
@@ -21,7 +22,12 @@
 
 #header {
   position: relative;
-  z-index: 50;
+  z-index: 50;  
+  background: url(/images/header-background.png) repeat-x 0 10px;
+}
+
+.home-page #header {
+  background: none;
 }
 
 #page-container {
@@ -30,7 +36,7 @@
 }
 
 #homepage-search #search_hint {
-  display: none;
+  background: #fff;
 }
 
 #headline-link {
