@@ -33,7 +33,7 @@ jQuery(document).ready(function() {
           a.append(img)
           $('.' + class_name).html(a)
         } catch (e) {
-          if (console && console.log) {
+          if (typeof(console) != 'undefined' && console.log) {
             console.log("Failed to load promo for " + iRandom);
           }
         }
