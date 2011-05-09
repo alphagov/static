@@ -109,6 +109,7 @@ div#global-app-error p + p {
   clear: both;
   max-width: 1050px;
   min-height: 28em;
+  position: relative;
 }
 
 #footer {
@@ -457,11 +458,13 @@ h2.legend {
   margin-bottom: 0.46em;
 }
 
-h3.legend {
+label.legend {
   font-size: 1.38em;
   line-height: 1.18em;
   margin-top: 0.82em;
   margin-bottom: 0.55em;
+  display: block;
+  font-weight: bold;
 }
 
 /* Popular and related */
