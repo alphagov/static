@@ -1,3 +1,7 @@
 #logo {
   position: relative;
 }
+
+#homepage-search #search_hint {
+  display: none;
+}
