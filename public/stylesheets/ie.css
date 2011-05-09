@@ -24,10 +24,6 @@
   z-index: 50;
 }
 
-#logo {
-  position: relative;
-}
-
 #page-container {
   position: relative;
   z-index: 0;
