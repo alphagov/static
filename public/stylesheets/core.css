@@ -204,18 +204,15 @@ div#global-app-error p + p {
 
 #get-help {
   position: absolute;
-  top: 0.85em;
-  right: 0;
+  top: 1.25em;
+  right: 1.25em;
   padding: 0.25em;
   display: block;
-  width: 4.5em;
   z-index: 1;
   font-size: 0.88em;
   text-align: center;
-  color: #D37F3C;
-  background: #F7F7F7;
-	border-bottom-right-radius: 3px;
-	border-bottom-left-radius: 3px;
+  color: #fff;
+  background: #0092F3;
 }
 
 #discover-search {

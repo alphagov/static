@@ -21,7 +21,8 @@
 
 #header {
   position: relative;
-  z-index: 50;
+  z-index: 50;  
+  background: url(/images/header-background.png) repeat-x 0 10px;
 }
 
 #page-container {
