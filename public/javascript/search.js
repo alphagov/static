@@ -79,8 +79,9 @@ jQuery(document).ready(function() {
     }
 
     var track_search = function(type,label) {
-       var _gaq = _gaq || [];
-       _gaq.push( ['_trackEvent', 'Search', type, label]);
+       if (_gaq != undefined) {
+        _gaq.push( ['_trackEvent', 'Search', type, label]);
+       }
     };
 
     var html_escape = function( string) {
