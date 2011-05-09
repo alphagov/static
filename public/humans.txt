@@ -13,7 +13,7 @@ Twitter: jimmytleach
 
 Project Manager: Jamie Arnold
 Twitter: itsallgonewrong
-Location, Tring, UK
+Location: Tring, UK
 
 Tech Lead: James Stewart
 Twitter: jystewart
@@ -23,7 +23,7 @@ Design Lead: Paul Annett
 Twitter: nicepaul
 Location: Wokingham, UK
 
-Content Strategist: Relly Annett-Baker, content strategist
+Content Strategist: Relly Annett-Baker
 Twitter: RellyAB
 Location: Wokingham, UK
 
@@ -43,7 +43,7 @@ Developer: Russ Garner
 Twitter: rgarner
 Location: Leeds, UK
 
-Developer: Josh 
+Developer (Front End): Joshua Marshall
 Twitter: partiallyblind
 Location: London, UK
 
