@@ -126,15 +126,15 @@
           <div id="global-locator-error" class="app-error hidden"></div>
           <form id="global-locator-form" class="app-form" action="/locator.json">
             <fieldset class="postcode">
+              <label class="legend" for="postcode_box">Enter your postcode</label>
               <div class="ask_location">
-                <div>
-                  <label class="make-invisible" for="postcode_box">Enter your postcode</label>
-                  <input name="postcode" id="postcode_box" type="text" value="" placeholder="type your postcode">
+                <div>                  
+                  <input name="postcode" type="text" value="" placeholder="e.g. SW1A 2AA">
                   <input type="submit" name="find_me" value="Go">
                 </div>
               </div>
               <div class="finding_location hidden">
-                <p>Locating you&#8230;
+                <p>Locating you&hellip;
                   <input type="hidden" name="lon" value="">
                   <input type="hidden" name="lat" value="">
                 </p>
