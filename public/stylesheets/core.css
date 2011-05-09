@@ -460,7 +460,7 @@ h2.legend {
   margin-bottom: 0.46em;
 }
 
-label.legend {
+h3.legend, label.legend {
   font-size: 1.38em;
   line-height: 1.18em;
   margin-top: 0.82em;
@@ -1084,6 +1084,7 @@ div.finding_location {
 }
 div.finding_location p {
   padding-left: 1.5em;
+  margin: 0;
   background: url(/images/loading-spinner.gif) 0 center no-repeat;
 }
 div.found_location {
