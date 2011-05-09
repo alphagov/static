@@ -1,7 +1,4 @@
-/* @override 
-	http://local.alphagov.co.uk:3000/stylesheets/core.css
-	http://local.alphagov.co.uk:9292/stylesheets/core.css
-*/
+/* @override http://local.alphagov.co.uk:9292/stylesheets/core.css */
 
 * {
   margin: 0;
@@ -1574,26 +1571,44 @@ ol.helpers li li {
 
 #search-head {
   padding: 2em 0;
+  width:  75%;
 }
 
 #search-head label#search-results-label {
+  display: block;
+  float: left;
   font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
   font-size-adjust: 0.46; 
   font-weight: normal; 
   font-style: normal;
   font-size: 1.38em;
+  width: 26.75%;
+  padding-top: 0.35em
 }
 
 #search-head form input {
   font-family: inherit;
   font-size: 1.38em;
 }
+#search-head fieldset {
+  padding-left: 0.75em;
+  width: 71.5%
+}
+#search-head fieldset p {
+  margin-top: 0.75em
+}
 
+#search-head fieldset p label {
+  margin: 0 0.75em 0 0.5em;
+}
+
+#search-head fieldset p label input[type="radio"] {
+  margin-right: 0.25em;
+}
 #search-head input[type="text"] {
-  margin-left: 0.75em;
   margin-right: 0.5em;
   padding: 0.31em;
-  width: 15.99em;
+  width: 83.75%;
   font-weight: bold;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
@@ -1608,6 +1623,7 @@ ol.helpers li li {
   border-bottom: solid 1px #999999;
   background: url(/images/search-button-background.png) repeat-x 0 0;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  width: 12%;
 }
 
 .search-links .search-results {
@@ -1619,9 +1635,10 @@ ol.helpers li li {
   margin-top: 1em;
   min-height: 2em;
   padding: 0 1em; 
-  width: 48.5%; 
 }
-
+.search-links .search-results ol li {
+  padding-left: 0;
+}
 .search-links {
 	margin-top: 1em;
 }
@@ -1636,24 +1653,23 @@ ol.helpers li li {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-#search-gov-uk {
+  width: 75%;
   float: left;
-  padding-right: 2em;
-  width: 55%;
-  border-right: solid 1px #E1E0DF;
-}
-
-#search-everything {
-  float: left;
-  padding-left: 2em;
-  width: 45%;
 }
 
 #search-gov-uk h2, #search-everything h2 {
   font-size: 1.13em;
   margin-bottom: 0.89em;
+}
+
+#no-alpha-search-results {
+  width: 75%;
+  border: 2px dashed black;
+  background-color: yellow;
+}
+
+#no-alpha-search-results p {
+  margin: 1em;
 }
 
 #search-choices {
@@ -1789,10 +1805,6 @@ p.search-results-count, .search-results p.result-url {
 
 #search-everything .search-results li.www_businesslink_gov_uk {
   background-image: url(/images/icon-bizlink-48.png);
-}
-
-.search-links .search-results li.www_ucas_ac_uk {
-  background: url(/images/icon-ucas-48.png) no-repeat;
 }
 
 .more-results-container {
