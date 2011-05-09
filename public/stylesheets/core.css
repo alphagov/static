@@ -117,9 +117,11 @@ div#global-app-error p + p {
   width: 100%;
   margin-top: 2em;
   border-top: solid 1px rgba(0,0,0,0.025);
-  background: #EDEDED;
-  background: rgba(0,0,0,0.05);
-  background: url(/images/footer-background.png) repeat-y top 52%;
+  background-color: #EDEDED;
+  background-color: rgba(0,0,0,0.05);
+  background-image: url(/images/footer-background.png);
+  background-position: 52% top;
+  background-repeat: repeat-y;
 }
 
 .wrapper {
