@@ -570,7 +570,7 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 	color: #393939;
   color: rgba(57,57,57,0.75);
 	text-align: left;
-	width: 31.25em;
+	width: 39.5em;
 	line-height: 1.2em;
 	background: #fafadf;
 }
@@ -584,14 +584,14 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 }
 
 #alpha_intro a {
-	color: #369;
+/*  color: #369;*/
 }
 
 #alpha_intro ul {
 	float: right;
 	position: relative;
   padding: 0.5em 0 0.6em 0;
-	min-width: 36em;
+	min-width: 28em;
 	text-align: right;
   background-color: #fafadf
 }
@@ -609,11 +609,8 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 }
 
 #alpha_intro li:last-child {
-  margin-top: -0.1em;
-	padding-top: 0.1em;
-	padding-left: 2.3em;
 	border-right: none;
-	background: url(../images/welcome/twitter.png) no-repeat 0.6em 50% #fafadf;
+	font-weight: bold;
 }
 
 #alpha_intro li a {
@@ -1957,7 +1954,7 @@ ol.previous-next li.next.disabled {
   float: right;
   margin-bottom: 1em;
   padding-bottom: 1em;
-  width: 11.25em;
+  width: 12.25em;
   background: rgb(250,250,223);
 }
 
