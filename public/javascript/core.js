@@ -46,16 +46,16 @@ jQuery(document).ready(function() {
     Alphagov.write_permanent_cookie('been_on_tour', 'true');
   }
 
-  var launch_tour = function() {
-    $('<div id="splash-back" class="popover-mask"></div>').appendTo($('body'));
-    $('#splash-back').hide();
-    $('#splash-back').load('/tour.html #splash', function() {
-      $(document).trigger('tour-ready');
-      $('#tour-close').click(close_tour);
-      $('#splash-back').fadeIn();
-    });
-    return false;
-  }
+  // var launch_tour = function() {
+  //   $('<div id="splash-back" class="popover-mask"></div>').appendTo($('body'));
+  //   $('#splash-back').hide();
+  //   $('#splash-back').load('/tour.html #splash', function() {
+  //     $(document).trigger('tour-ready');
+  //     $('#tour-close').click(close_tour);
+  //     $('#splash-back').fadeIn();
+  //   });
+  //   return false;
+  // }
 
   var close_tour = function() {
     $('#splash-back').fadeOut().remove();
@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
   }
 
   //setup tour click event
-  $('#tour-launcher').click(launch_tour);
+  // $('#tour-launcher').click(launch_tour);
   
   //set initial cookie ?
   if (has_no_tour_cookie()) {

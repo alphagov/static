@@ -19,17 +19,24 @@ jQuery(document).ready(function() {
     //apply
     function apply_promotion(class_name, width, height, assets){
         //apply a random one to placeholder on the page
-        iRandom = Math.floor(Math.random() * assets.length)
-        var a = $('<a/>');
-        var img = $('<img/>');
-        a.attr('href', assets[iRandom].target_url);
-        img.attr('src', assets[iRandom].image_url);
-        img.attr('title', assets[iRandom].title);
-        img.attr('alt', assets[iRandom].title);
-        img.attr('width', width);
-        img.attr('height', height);
-        a.append(img)
-        $('.' + class_name).html(a)
+        iRandom = Math.floor(Math.random() * assets.length - 1);
+        try {
+          var a = $('<a/>');
+          var img = $('<img/>');
+
+          a.attr('href', assets[iRandom].target_url);
+          img.attr('src', assets[iRandom].image_url);
+          img.attr('title', assets[iRandom].title);
+          img.attr('alt', assets[iRandom].title);
+          img.attr('width', width);
+          img.attr('height', height);
+          a.append(img)
+          $('.' + class_name).html(a)
+        } catch (e) {
+          if (typeof(console) != 'undefined' && console.log) {
+            console.log("Failed to load promo for " + iRandom);
+          }
+        }
     }
     
 });

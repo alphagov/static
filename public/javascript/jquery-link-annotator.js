@@ -43,7 +43,6 @@
 		 * @param object jQueryMatchedObj The jQuery object with all elements matched
 		 */
 		function _start(objClicked,jQueryMatchedObj) {
-      console.log("HELLO?!")
 			// Hide some elements to avoid conflict with overlay in IE. These elements appear above the overlay.
 			$('embed, object, select').css({ 'visibility' : 'hidden' });
 			// Call the function to create the markup structure; style some elements; assign events in some elements.
