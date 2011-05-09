@@ -56,6 +56,7 @@ p.error-response {
 div.app-error {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 150;
   border: solid 2px #FF1000;
@@ -67,8 +68,9 @@ div.app-error {
 
 div.app-error p {
   margin: 0 auto;
-  width: 45em;
+  width: 50%;
   padding: 0;
+  text-align: center;
 }
 div#global-app-error p + p {
   margin-top: 0.5em;
@@ -104,6 +106,7 @@ div#global-app-error p + p {
   clear: both;
   max-width: 1050px;
   min-height: 28em;
+  position: relative;
 }
 
 #footer {
@@ -111,7 +114,7 @@ div#global-app-error p + p {
   clear: both;
   width: 100%;
   margin-top: 2em;
-  border-top: solid 1px rgba(0,0,0,0.025);
+  border-top: solid 1px #242424;
   background-color: #EDEDED;
   background-color: rgba(0,0,0,0.05);
   background-image: url(/images/footer-background.png);
@@ -452,11 +455,13 @@ h2.legend {
   margin-bottom: 0.46em;
 }
 
-h3.legend {
+label.legend {
   font-size: 1.38em;
   line-height: 1.18em;
   margin-top: 0.82em;
   margin-bottom: 0.55em;
+  display: block;
+  font-weight: bold;
 }
 
 /* Popular and related */
