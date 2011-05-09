@@ -1861,7 +1861,6 @@ ol.previous-next li.next.disabled {
   background-image: url(/images/pagination-next-disabled.png);
 }
 
-
 /* feedback form */
 .alpha-feedback {
 	background-color: #fff;
@@ -1875,9 +1874,10 @@ ol.previous-next li.next.disabled {
 	border-bottom-left-radius: 1em;
 	position: fixed;
 	right: 0;
+	top:200px;
 	padding: 0.5em 1em;
 	width: 150px;
-	z-index: 500;
+	z-index: 50;
 }
 
 .alpha-feedback a.close {

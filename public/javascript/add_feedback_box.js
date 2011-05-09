@@ -19,8 +19,16 @@
  */
 (function($) {
   $.fn.addFeedbackBox = function(options) {
+    
+    if(Alphagov.read_cookie('feedback_shown') != null){
+      return false;
+    }
+    
+    Alphagov.write_permanent_cookie('feedback_shown', 'true');
+    
+    
     var settings = {
-      feedback_url: "http://stats.alpha.gov.uk/pepper/tonytrupp/behavior/api.php",
+      // feedback_url: "http://stats.alpha.gov.uk/pepper/tonytrupp/behavior/api.php",
       delay_before_showing: 1800,
       time_for_animation: 900
     }
@@ -28,26 +36,26 @@
     $.extend(settings, options);
 
     var feedback_box_html = '<div class="alpha-feedback"> <a href="#close" class="close">x</a><h3>Did you find what you were looking for?</h3><p id="feedback-options"><a href="#yes" title="yes" class="yes">Yes</a> <a href="#no" title="no" class="no">No</a></p><h4 class="hidden">Thanks!</h4></div>';
-     
+
     $(this).append(feedback_box_html);
     var feedback_box = $('.alpha-feedback');
     feedback_box.find('.close').click(function () { feedback_box.remove(); return false; });
     $('#feedback-options a').click(function () {
-      var url = settings.feedback_url + "?jsoncallback=?";
-      params = {
-        eventName: $(this).attr('title'),
-        sourceURL: window.decodeURI(document.URL)
-      };
-
-      var _gaq = _gaq || [];
-      _gaq.push( ['_trackEvent', 'Feedback', params.eventName, params.sourceURL]); 
+      // var url = settings.feedback_url + "?jsoncallback=?";
+      // params = {
+      //   eventName: $(this).attr('title'),
+      //   sourceURL: window.decodeURI(document.URL)
+      // };
+      // 
+      // var _gaq = _gaq || [];
+      // _gaq.push( ['_trackEvent', 'Feedback', params.eventName, params.sourceURL]); 
 
       $('#feedback-options').addClass('hidden');
       feedback_box.find('h4').removeClass('hidden');
       feedback_box.addClass('submitted');
       $('.alpha-feedback').delay(1600).hide('slow');
 
-      $.getJSON(url, params, function (data) {});
+      // $.getJSON(url, params, function (data) {});
 
       return false;
     }); 
