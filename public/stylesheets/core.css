@@ -61,6 +61,7 @@ p.error-response {
 div.app-error {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 150;
   border: solid 2px #FF1000;
@@ -72,8 +73,9 @@ div.app-error {
 
 div.app-error p {
   margin: 0 auto;
-  width: 45em;
+  width: 50%;
   padding: 0;
+  text-align: center;
 }
 div#global-app-error p + p {
   margin-top: 0.5em;
