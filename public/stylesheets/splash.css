@@ -243,10 +243,14 @@
   top:5px;
 }
 
-#splash #video{
+#splash #video {
   float:left;
   padding-right:20px;
   padding-bottom:35px;
+}
+
+#splash #video img {
+  border:solid 1px #d6d6d6;
 }
 
 #splash #video div {
