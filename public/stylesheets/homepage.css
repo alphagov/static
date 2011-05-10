@@ -212,26 +212,13 @@
 }
 
 #popular li {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;	
-	float: left;
 	font-size: 1em;
-	line-height: 1.33;
-	list-style: none;
+	line-height: 1.33em;
 	min-height: 3em;
-/*  padding: 9px 1.5em 10px 5.63em;*/
-	width: 33.3%;
 }
 
 #popular li a {
-	color: #369;
-	display: block;
-  padding: 9px 1.5em 10px 5.63em;
-	font-weight: bold;
-	line-height: 1.33em;
-	min-height: 3em;
-	background: url(/images/index/homepage-topicons.gif) no-repeat;
+/*  background: url(/images/index/homepage-topicons.gif) no-repeat;*/
 }
 
 #popular li a small {
@@ -243,18 +230,6 @@
 #popular li:nth-of-type(3n-1) {
 	border-right: solid 1px #e6e6e6;
 	border-left: solid 1px #e6e6e6;
-}
-
-#popular li.guide a {
-  background-position: 40px -240px;
-}
-
-#popular li.answer a {
-  background-position: 40px -120px;
-}
-
-#popular li.tool a, #popular li.transaction a {
-  background-position: 40px 4px;
 }
 
 /* Latest news section */

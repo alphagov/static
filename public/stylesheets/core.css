@@ -101,6 +101,8 @@ div#global-app-error p + p {
 
 #page-container {
   margin: 0 3%;
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
 #page {
@@ -469,9 +471,6 @@ h3.legend, label.legend {
 /* Popular and related */
 #related-items {
   clear: both;
-/*  background: #FFC3F9;
-  border: solid 1px #FA5DFF;
-  padding: 1em;*/
   margin: 2em 0;
 }
 
@@ -2168,32 +2167,45 @@ ol.previous-next li.next.disabled {
   margin-left: -1.5em;
 }
 
-#footer .popular-global ul li {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;	
-/*  display: inline-block;*/
-/*  vertical-align: top;*/
+#footer .popular-global ul li, #popular li {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   float: left;
 	font-size: 0.88em;
 	list-style: none;
 	min-height: 6.5em;
-	padding: 0.5em 1.5em 0.5em 5em;
+/*  padding: 0.5em 1.5em 0.5em 5em;*/
 	width: 33.3%;
 }
 
-#footer .popular-global ul li a {
-	color: #369;
+#footer .popular-global ul li a, #popular li a {
 	display: block;
+  padding: 9px 1.5em 10px 5.63em;
 	font-weight: bold;
   line-height: 1.33em;
+	color: #369;
 	min-height: 3em;
+	background-image: url(/images/index/homepage-topicons.gif);
+	background-repeat: no-repeat;
+}
+
+#footer .popular-global ul li.guide a, #popular li.guide a {
+  background-position: 2.5em -240px;
+}
+
+#footer .popular-global ul li.answer a, #popular li.answer a {
+  background-position: 2.25em -120px;
+}
+
+#footer .popular-global ul li.tool a, #footer .popular-global ul li.transaction a, #popular li.tool a, #popular li.transaction a {
+  background-position: 2.25em 4px;
 }
 
 #footer .popular-global ul li a small {
   display: inline-block;
   padding: 0 0.25em;
-  background: #E0E7ED;
+  background-color: #E0E7ED;
 }
 
 #footer .popular-global ul li:nth-of-type(3n-1) {
@@ -2201,17 +2213,6 @@ ol.previous-next li.next.disabled {
 	border-left: solid 1px #D3D3D3;
 }
 
-#footer .popular-global ul li.guide {
-	background: url(/images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
-}
-
-#footer .popular-global ul li.answer {
-	background: url(/images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
-}
-
-#footer .popular-global ul li.tool {
-	background: url(/images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
-}
 
 #footer .government-global ul {
   position: relative;
@@ -2227,17 +2228,45 @@ ol.previous-next li.next.disabled {
 }
 
 #footer .government-global ul li a {
-  display: block;
-  padding-left: 3.5em;
-  line-height: 3em;
-  height: 100%;
-	color: #fff;
-	background: url(/images/index/news-navigation-default.png) no-repeat 3px 50%;	
-	background-color: #191919;
-	background-color: rgba(0,0,0,.08);
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+}
+
+.latest-news-depts li a {
+  display: block;
+  padding-left: 50px;
+	color: #fff;
+	line-height: 42px;
+	background-color: #191919;
+	background-color: rgba(0,0,0,.08);
+	background-image: url(/images/index/homepage-govicons.gif);
+	background-repeat: no-repeat;
+}
+
+.latest-news-depts li#gov-news a {
+  background-position: 0 0;
+}
+.latest-news-depts li#gov-depts a {
+  background-position: 0 -120px;
+}
+.latest-news-depts li#gov-speeches a {
+  background-position: 0 -600px;
+}
+.latest-news-depts li#gov-policies a {
+  background-position: 0 -360px;
+}
+.latest-news-depts li#gov-pubs a {
+  background-position: 0 -720px;
+}
+.latest-news-depts li#gov-consuls a {
+  background-position: 0 -480px;
+}
+.latest-news-depts li#gov-bills a {
+  background-position: 0 -840px;
+}
+.latest-news-depts li#gov-mins a {
+  background-position: 0 -240px;
 }
 
 #reuse-license {
