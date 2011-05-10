@@ -2239,6 +2239,13 @@ ol.previous-next li.next.disabled {
 	border-radius: 3px;
 }
 
+#reuse-license {
+  font-size:0.7em;
+  color:#808080;
+  padding-top:0.5em;
+}
+
+
 #promo-global {
   padding-top: 1em;
   clear: both;
