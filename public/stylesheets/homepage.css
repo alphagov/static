@@ -172,6 +172,7 @@
   margin-left: 1px;
   padding: 0.4em;
   width: auto;
+  background: #ebebeb;
   background: rgba(255,255,255,0.85);
 	-webkit-border-bottom-right-radius: 2px;
 	-webkit-border-bottom-left-radius: 2px;
@@ -194,10 +195,10 @@
 }
 
 #popular h2 {
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
-  font-size-adjust: 0.46; 
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
+  font-size-adjust: 0.46;
   font-weight: normal;
-	font-size: 1.8em; 
+	font-size: 1.8em;
   font-style: normal;
 	margin: 0.5em auto;
 	margin-top: 0;
