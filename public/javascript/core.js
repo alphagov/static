@@ -34,10 +34,21 @@ var Alphagov = {
 //General page setup
 jQuery(document).ready(function() {
 
+    
   //Setup annotator links 
   $('a.annotation').each(function(index) {
     $(this).linkAnnotator();
   });
+
+  //feedback
+  $('#send_feedback').click(
+    function(){
+      feedback_widget.show();
+      return false;
+    }
+  );
+
+  //tour
 
   var has_no_tour_cookie = function() {
     return Alphagov.read_cookie('been_on_tour') == null;
