@@ -32,6 +32,7 @@
   bottom: 1.625em;
   right: 0;
   padding: 0.625em 0.625em 0.4em 0.625em;
+  background: #ebebeb;
   background: rgba(255,255,255,0.85);
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
