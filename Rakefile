@@ -21,7 +21,8 @@ namespace :cdn do
     asset_hosts = case ENV['RACK_ENV']
     when 'dev' then %W(http://assets0.dev.alphagov.co.uk http://assets1.dev.alphagov.co.uk)
     when 'staging' then %W(http://assets0.staging.alphagov.co.uk http://assets1.staging.alphagov.co.uk)
-    when 'production' then %W(http://alpha.gov.uk http://alpha.gov.uk)
+    when 'production' then %W(http://alpha.gov.uk)
+    when 'admin' then %W(https://admin.alphagov.co.uk)
     end
     
     CdnHelpers::AssetPath.set_hash_salt(ENV['CDN_HASH_SALT']) if ENV['CDN_HASH_SALT']
