@@ -4,4 +4,3 @@ require "bundler/setup"
 Bundler.require(:default, ENV['RACK_ENV'])
 use Rack::Geo
 run Rack::Directory.new("#{root}")
-

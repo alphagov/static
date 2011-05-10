@@ -21,7 +21,7 @@ namespace :cdn do
     asset_hosts = case ENV['RACK_ENV']
     when 'dev' then %W(http://assets0.dev.alphagov.co.uk http://assets1.dev.alphagov.co.uk)
     when 'staging' then %W(http://assets0.staging.alphagov.co.uk http://assets1.staging.alphagov.co.uk)
-    when 'production' then %W(http://assets0.alpha.gov.uk http://assets1.alpha.gov.uk)
+    when 'production' then %W(http://alpha.gov.uk http://alpha.gov.uk)
     end
 
     Dir.glob(public_root_path.join("**/*.html")).each do |file_path|
