@@ -2123,7 +2123,7 @@ ol.previous-next li.next.disabled {
 
 #footer .explore-elsewhere.government {
   width: 18%;
-  height: 27em;
+/*  height: 27em;*/
 /*  background-color: #323232;*/
   -webkit-border-top-right-radius: 3px;
 	-webkit-border-bottom-right-radius: 3px;
