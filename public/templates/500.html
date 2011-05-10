@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>We seem to be having a problem | alpha.gov.uk</title>
+    <title>We can&rsquo;t find what you searched for | alpha.gov.uk</title>
     <link href="/stylesheets/core.css" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />    
+    <link href="/stylesheets/jquery-ui-1.8.10.custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <script src="/javascript/jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/jquery-link-annotator.js" type="text/javascript" charset="utf-8"></script>
@@ -22,20 +22,20 @@
     <!--<![endif]-->
   </head>
   <body>
-    <div id="alpha_intro"> 
+    <div id="alpha_intro">
       <div class="wrapper">
         <p><span>EXPERIMENTAL PROTOTYPE</span> There may be errors, inconsistencies and inaccuracies.</p>
         <ul>
-          
+
           <li><a href="http://blog.alpha.gov.uk/about" target="_new" title="opens in new window">About the prototype</a></li>
-          
+
           <li><a href="http://blog.alpha.gov.uk">Project Blog</a></li>
           <li><a href="http://getsatisfaction.com/alphagov/">Tell us what you think</a></li>
 
         </ul>
       </div>
-    </div> 
-    <div id="container">
+    </div>
+    <div id="container" class="error-page">
       <div id="header">
         <div id="discover">
           <div id="logo"><a href="/"><img src="/images/gov.uk-logo.png" alt="gov.uk"></a></div>
@@ -59,40 +59,41 @@
           </div>
         </div><!--end discover-->
       </div><!--end header-->
-      
-      <div id="page-container"> 
-        <article><div id="page"> 
-        <div id="content-container">        
-            <div id="content"> 
-                <div class="text-content">
 
-                    <div id="task-name" class="page_heading article-heading">
-                      <figure><h1>
-                         We seem to be having a problem.
-                      </h1></figure>
-                    </div>
-                  
-                    <div class="article-text two-third-col">
-                      <p>
-                        We&rsquo;re sorry but something seems to be not right with our site.</p>
-                      </p>
-                      <p>
-                        We will automatically get a note telling us that there is a problem and we will set about fixing it straight away.
-                      </p>
+      <div id="page-container">
+        <div id="page">
+          <div id="content-container">
+            <div id="content">
+              <div class="text-content article-text">
 
-                    </div>
-                    
-                  </div> 
-                </div>                    
-              </div>   
-            </div>     
-          </article>
+                  <div id="task-name" class="page_heading">
+                    <h1>
+                      We seem to be having a problem.
+                    </h1>
+                  </div>
+
+                  <div class="one-third-col">
+                    <p>
+                      We&rsquo;re sorry but something seems to be not right with our site.
+                    </p>
+                    <p>
+                      We will automatically get a note telling us that there is a problem and we will set about fixing it straight away.
+                    </p>
+                    <p>
+                      Send us feedback and bug reports through our <a href="http://getsatisfaction.com/alphagov/">Get Satisfaction feedback forum</a>.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
       </div><!--end page-container-->
 <div id="footer">
         <div class="wrapper">
           <div class="explore-elsewhere">
-            <div class="popular-global"> 
-              <h4>Popular tools and topics</h4> 
+            <div class="popular-global">
+              <h4>Popular tools and topics</h4>
               <ul>
                 <li class="answer"><a href="/how-much-minimum-wage/">How much is the minimum wage?</a></li><li class="tool"><a href="/calculate-holiday-pay/">Calculate holiday pay <small>Business Link</small></a></li><li class="guide"><a href="/choose/redundancy/">Guide to Redundancy</a></li><li class="tool"><a href="/should-i-register-for-vat/">Should I register for VAT? <small>Business Link</small></a></li><li class="tool"><a href="/report-lost-passport/">Report lost or stolen passport</a></li><li class="tool"><a href="/test-centres/">Book a driving test</a></li><li class="tool"><a href="/pay-your-council-tax/">Pay your Council Tax</a></li><li class="answer"><a href="/where-can-i-use-my-bus-pass/">Where can I use my bus pass?</a></li><li class="guide"><a href="/guide-childcare/childcare-options-0-5-year-olds/">Guide to Childcare</a></li>
               </ul>
@@ -103,7 +104,7 @@
           </div>
           <div class="explore-elsewhere government">
             <div class="government-global">
-              <h4>UK Government</h4> 
+              <h4>UK Government</h4>
               <ul>
                 <li><a href="/government/news/">News</a></li>
                 <li><a href="/government/departments/">Departments</a></li>
@@ -131,7 +132,7 @@
             <fieldset class="postcode">
               <label class="legend" for="postcode_box">Enter your postcode</label>
               <div class="ask_location">
-                <div>                  
+                <div>
                   <input name="postcode" id="postcode_box" type="text" value="" placeholder="e.g. SW1A 2AA">
                   <input type="submit" name="find_me" value="Go">
                 </div>
@@ -155,7 +156,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--local -->
     <div id="local-info" class="popover-mask">
       <div id="local-info-box" class="popover alt-version">
@@ -196,14 +197,14 @@
     <script type="text/javascript" charset="utf-8">
       var feedback_widget_options = {};
 
-      feedback_widget_options.display = "overlay";  
+      feedback_widget_options.display = "overlay";
       feedback_widget_options.company = "alphagov";
       feedback_widget_options.placement = "hidden";
       feedback_widget_options.color = "#222";
       feedback_widget_options.style = "idea";
       var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
     </script>
-    
+
     <script type="text/javascript">
     var no_location_change_animation = true;
     $(document).bind('location-known', function() {
