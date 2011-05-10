@@ -169,6 +169,18 @@ var AlphaGeo = {
     }
   },
 
+  councils: function() {
+    var geo_json = AlphaGeo.readAndParseJSONCookie('geo');
+    var councils = [];
+    if (geo_json && geo_json["ward"]) {
+      councils = councils.concat(geo_json["ward"]);
+    } 
+    if (geo_json && geo_json["council"]) {
+      councils = councils.concat(geo_json["council"]);
+    } 
+    return councils;
+  },
+
   locationCoords: function() {
     var geo_json = AlphaGeo.readAndParseJSONCookie('geo');
     if (geo_json && geo_json["fuzzy_point"]) {
@@ -182,7 +194,8 @@ var AlphaGeo = {
     return {
       locality: AlphaGeo.locationName(),
       lat: AlphaGeo.locationCoords().lat,
-      lon: AlphaGeo.locationCoords().lon
+      lon: AlphaGeo.locationCoords().lon,
+      councils: AlphaGeo.councils()
     }
   },
 
