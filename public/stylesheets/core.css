@@ -1968,6 +1968,12 @@ ol.previous-next li.next.disabled {
   padding-bottom: 1em;
   width: 12.25em;
   background: rgb(250,250,223);
+  font-size:1.2em;
+  color:#000;
+}
+
+.alpha-note p {
+  padding:0 10em;
 }
 
 .alpha-note.large {
