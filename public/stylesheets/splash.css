@@ -238,10 +238,21 @@
   top:-12px;
 }
 
+#splash #tour-close {
+  position:relative;
+  top:5px;
+}
+
+#splash #video{
+  float:left;
+  padding-right:20px;
+  padding-bottom:35px;
+}
+
 #splash #video div {
   text-align:center;
-  width:640px;
-  height:330px;
+  width:480px;
+  height:270px;
   padding-top:30px;
   background:#ccc;
   color:#808080;
