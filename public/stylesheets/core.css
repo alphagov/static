@@ -468,6 +468,10 @@ h3.legend, label.legend {
   font-weight: bold;
 }
 
+.ask_location label.legend {
+  margin-top:0.25em;
+}
+
 /* Popular and related */
 #related-items {
   clear: both;
