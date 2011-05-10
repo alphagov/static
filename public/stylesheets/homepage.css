@@ -384,15 +384,13 @@
 
 .latest-news-depts li {
   position: relative;
-	background: url(/images/index/news-navigation-default.png) no-repeat 5px 50%;	
-	background-color: #000;
+	background-color: #232323;
 	background-color: rgba(0,0,0,.08);
 	border-radius: 3px;
 	font-size: 1.275em;
 	line-height: 42px;
 	list-style: none;
 	margin-bottom: 5px;
-/*  padding: 0 0 0 50px;*/
   padding: 4px;
 	width: 100%;
 }
