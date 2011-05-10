@@ -1,9 +1,9 @@
 GIT
   remote: git@github.com:alphagov/cdn_helpers.git
-  revision: 9ca7f7684174746b6d8e5182abb135fb4ed1d1ff
-  tag: v0.8.2
+  revision: 82a30e7b0d30d82d89bb0e75df6b2e811f9c0e1a
+  tag: v0.8.3
   specs:
-    cdn_helpers (0.7.1)
+    cdn_helpers (0.8.3)
       actionpack (~> 3.0.0)
       nokogiri
 
