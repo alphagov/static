@@ -1,5 +1,5 @@
 WebFontConfig = {
-  custom: { families: ['Alternate Gothic No.3', 'Clarendon FS Medium', 'Proxima Nova Light', 'Proxima Nova Semibold', 'Stub Serif FS', 'Stub Serif FS'],
+  custom: { families: ['Alternate Gothic No.3', 'Clarendon FS Medium', 'Proxima Nova Light', 'Proxima Nova Semibold', 'Stub Serif FS', 'Stub Serif FS', 'Reminder Pro Bold'],
   urls: [ 'http://f.fontdeck.com/s/css/tEGvGvL6JlBfPjTgf2p9URd+sJ0/' + window.location.hostname + '/5502.css' ] }
 };
 
