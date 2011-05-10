@@ -219,16 +219,18 @@
 	line-height: 1.33;
 	list-style: none;
 	min-height: 3em;
-	padding: 9px 1.5em 10px 5.63em;
+/*  padding: 9px 1.5em 10px 5.63em;*/
 	width: 33.3%;
 }
 
 #popular li a {
 	color: #369;
 	display: block;
+  padding: 9px 1.5em 10px 5.63em;
 	font-weight: bold;
 	line-height: 1.33em;
 	min-height: 3em;
+	background: url(/images/index/homepage-topicons.gif) no-repeat;
 }
 
 #popular li a small {
@@ -242,28 +244,16 @@
 	border-left: solid 1px #e6e6e6;
 }
 
-#popular li.guide {
-	background: url(/images/index/icon-guide-36.png) no-repeat 1.88em 0.75em;
+#popular li.guide a {
+  background-position: 40px -240px;
 }
 
-#popular li.answer {
-	background: url(/images/index/icon-answer-36.png) no-repeat 1.88em 0.75em;
+#popular li.answer a {
+  background-position: 40px -120px;
 }
 
-#popular li.tool {
-	background: url(/images/index/icon-tool-36.png) no-repeat 1.88em 0.75em;
-}
-
-#popular li.disabled {
-	background: url(/images/index/icon-default-36.png) no-repeat 1.88em 0.75em;
-}
-
-#popular li.disabled a {
-  color: #ccc;
-  cursor: default;
-}
-#popular li.disabled a:hover {
-  text-decoration: none;
+#popular li.tool a, #popular li.transaction a {
+  background-position: 40px 4px;
 }
 
 /* Latest news section */
@@ -393,23 +383,53 @@
 }
 
 .latest-news-depts li {
+  position: relative;
 	background: url(/images/index/news-navigation-default.png) no-repeat 5px 50%;	
 	background-color: #000;
 	background-color: rgba(0,0,0,.08);
 	border-radius: 3px;
 	font-size: 1.275em;
-	line-height: 50px;
+	line-height: 42px;
 	list-style: none;
 	margin-bottom: 5px;
-	padding: 0 0 0 50px;
-	width: 175px;
+/*  padding: 0 0 0 50px;*/
+  padding: 4px;
+	width: 100%;
 }
 
 .latest-news-depts li a {
+  display: block;
+  padding-left: 50px;
 	color: #fff;
-	line-height: 50px;
+	line-height: 42px;
+	background-image: url(/images/index/homepage-govicons.gif);
+	background-repeat: no-repeat;
 }
 
+.latest-news-depts li#gov-news a {
+  background-position: 0 0;
+}
+.latest-news-depts li#gov-depts a {
+  background-position: 0 -120px;
+}
+.latest-news-depts li#gov-speeches a {
+  background-position: 0 -600px;
+}
+.latest-news-depts li#gov-policies a {
+  background-position: 0 -360px;
+}
+.latest-news-depts li#gov-pubs a {
+  background-position: 0 -720px;
+}
+.latest-news-depts li#gov-consuls a {
+  background-position: 0 -480px;
+}
+.latest-news-depts li#gov-bills a {
+  background-position: 0 -840px;
+}
+.latest-news-depts li#gov-mins a {
+  background-position: 0 -240px;
+}
 
 #footer {
   margin-top: -5em;
