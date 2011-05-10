@@ -61,6 +61,7 @@
 #location-unset-message {
   padding: 1.5em 1.875em;
   width: 10em;
+  background: #F7F7F7;
   background: rgba(255,255,255,0.85);
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -384,49 +385,12 @@
 
 .latest-news-depts li {
   position: relative;
-	background-color: #232323;
-	background-color: rgba(0,0,0,.08);
-	border-radius: 3px;
 	font-size: 1.275em;
 	line-height: 42px;
 	list-style: none;
 	margin-bottom: 5px;
-  padding: 4px;
+  padding: 0 4px;
 	width: 100%;
-}
-
-.latest-news-depts li a {
-  display: block;
-  padding-left: 50px;
-	color: #fff;
-	line-height: 42px;
-	background-image: url(/images/index/homepage-govicons.gif);
-	background-repeat: no-repeat;
-}
-
-.latest-news-depts li#gov-news a {
-  background-position: 0 0;
-}
-.latest-news-depts li#gov-depts a {
-  background-position: 0 -120px;
-}
-.latest-news-depts li#gov-speeches a {
-  background-position: 0 -600px;
-}
-.latest-news-depts li#gov-policies a {
-  background-position: 0 -360px;
-}
-.latest-news-depts li#gov-pubs a {
-  background-position: 0 -720px;
-}
-.latest-news-depts li#gov-consuls a {
-  background-position: 0 -480px;
-}
-.latest-news-depts li#gov-bills a {
-  background-position: 0 -840px;
-}
-.latest-news-depts li#gov-mins a {
-  background-position: 0 -240px;
 }
 
 #footer {
