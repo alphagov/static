@@ -22,7 +22,7 @@
 
 #header {
   position: relative;
-  z-index: 50;  
+  z-index: 50;
   background: url(/images/header-background.png) repeat-x 0 10px;
 }
 
@@ -41,4 +41,12 @@
 
 #headline-link {
   background: #fff;
+}
+
+#latest-feed li {
+	list-style: none;
+}
+
+.full-width.article-text ul.government li.featured {
+	list-style: none;
 }
