@@ -2281,3 +2281,12 @@ div.faqs {
   padding-right:2em;
 }
 /* END: Help and access */
+
+/* Error pages */
+
+#page.error-page #task-name {
+  padding-right: 65%;
+  border-bottom: none;
+}
+
+#page.error-page
