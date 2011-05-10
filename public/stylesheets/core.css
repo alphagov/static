@@ -1573,8 +1573,7 @@ ol.helpers li li {
 */
 
 #search-head {
-  padding: 2em 0;
-  width:  75%;
+  padding: 2em 0 0 0;
 }
 
 #search-head label#search-results-label {
@@ -1585,8 +1584,9 @@ ol.helpers li li {
   font-weight: normal; 
   font-style: normal;
   font-size: 1.38em;
-  width: 26.75%;
-  padding-top: 0.35em
+  width: 18%;
+  padding-top: 0.35em;
+  padding-left:0.45em;
 }
 
 #search-head form input {
@@ -1595,14 +1595,13 @@ ol.helpers li li {
 }
 #search-head fieldset {
   padding-left: 0.75em;
-  width: 71.5%
 }
 #search-head fieldset p {
   margin-top: 0.75em
 }
 
 #search-head fieldset p label {
-  margin: 0 0.75em 0 0.5em;
+  margin: 0 0.75em 0 0;
 }
 
 #search-head fieldset p label input[type="radio"] {
@@ -1611,7 +1610,7 @@ ol.helpers li li {
 #search-head input[type="text"] {
   margin-right: 0.5em;
   padding: 0.31em;
-  width: 83.75%;
+  width: 60%;
   font-weight: bold;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
@@ -1656,7 +1655,7 @@ ol.helpers li li {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 75%;
+  width: 100%;
   float: left;
 }
 
@@ -1665,15 +1664,19 @@ ol.helpers li li {
   margin-bottom: 0.89em;
 }
 
-#no-alpha-search-results {
-  width: 75%;
-  border: 2px dashed black;
-  background-color: yellow;
+#no-alpha-search-results, #empty-search {
+  width: 100%;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  font-weight:bold;
+  font-size:1.4em;
 }
 
-#no-alpha-search-results p {
-  margin: 1em;
+#no-alpha-search-results p, #empty-search p {
+  padding:0;
+  width:75%;
+  margin: 1em 0;  
 }
+
 
 #search-choices {
   padding-top: 1em;
@@ -1702,7 +1705,6 @@ p.search-results-count, .search-results p.result-url {
 .search-results ol {
   padding-top: 2.25em;
   list-style: none;
-  border-bottom: solid 2px rgba(0,0,0,0.1);
 }
 
 .search-links .search-results ol {
@@ -1774,6 +1776,11 @@ p.search-results-count, .search-results p.result-url {
 	margin-top: 0.5em;
 }
 
+.search-results img.search_icon {
+  float:left;
+  margin:0 5px 5px 0;
+}
+/*
 .search-results li.guide {
   background-image: url(/images/icon-guide-48.png);
 }
@@ -1792,7 +1799,7 @@ p.search-results-count, .search-results p.result-url {
 
 #search-everything .search-results li, .search-didyoumean.search-results li {
   background-image: url(/images/icon-default-search-result-48.png);
-}
+}*/
 
 #search-everything .search-results li.www_justice_gov_uk {
   background-image: url(/images/icon-justice-48.png);
@@ -1813,7 +1820,9 @@ p.search-results-count, .search-results p.result-url {
 .more-results-container {
   clear: both;
   text-align: center;
-  padding: 4em 0 2em 0;
+  padding: 2em 0 2em 0;
+  margin:0;
+  width:70%;
 }
 
 .search-pagination {
