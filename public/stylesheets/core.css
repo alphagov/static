@@ -1974,6 +1974,7 @@ ol.previous-next li.next.disabled {
 
 .alpha-note p {
   padding:0 10em;
+  font-family:"Reminder Pro Bold", sans-serif; font-size-adjust:0.46; font-weight:bold; font-style:normal;
 }
 
 .alpha-note.large {
