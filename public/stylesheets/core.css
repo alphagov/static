@@ -1242,15 +1242,15 @@ a.action-button {
 }
 
 .video_version_message a.text-version {
-  background-position: 0 -120px;
-}
-
-.video_version_message a.video-version {
   background-position: 0 0;
 }
 
+.video_version_message a.video-version {
+  background-position: 0 -120px;
+}
+
 .video_version_message a.print-this {
-  background-position: 0 -130px;
+  background-position: 0 -250px;
 }
 
 .fake_video {
