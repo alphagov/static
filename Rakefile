@@ -23,6 +23,8 @@ namespace :cdn do
     when 'staging' then %W(http://assets0.staging.alphagov.co.uk http://assets1.staging.alphagov.co.uk)
     when 'production' then %W(http://alpha.gov.uk http://alpha.gov.uk)
     end
+    
+    CdnHelpers::AssetPath.set_hash_salt(ENV['CDN_HASH_SALT']) if ENV['CDN_HASH_SALT']
 
     Dir.glob(public_root_path.join("**/*.html")).each do |file_path|
       logger.warn "Processing file #{file_path}"
