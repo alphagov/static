@@ -303,9 +303,13 @@
 	padding: 0.5em 1em 0.5em 10px;
 }
 
-.latest-news li p.posted span {
-	font-size: 0.77em;
+.latest-news li p.posted {
 	font-weight: normal;
+	font-size:0.8em;
+}
+
+.latest-news li p.posted a {
+  font-weight:normal;
 }
 
 .latest-news li#featured {
@@ -313,8 +317,9 @@
 	display: block;
 	height: 220px;
 	margin-bottom: 20px;
-	padding: 0;
+	padding: 0 0 1em 0;
 	width: 680px;
+	border-bottom:solid 1px #5c5c5c;
 }
 
 .latest-news li#featured p {
