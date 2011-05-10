@@ -618,12 +618,11 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
 	opacity: 0.75;
 }
 
-
 /* GROUP: Task components */
 #task-name {
   padding-right: 35%;
   border-bottom: 2px solid #333;
-/*  margin-bottom: 2em; experimenting with getting rid of this */
+  margin-bottom: 1em; /*experimenting with getting rid of this */
 }
 #task-name figure {
   display: table-cell;
@@ -1224,16 +1223,34 @@ a.action-button {
 }
 
 .video_version_message {
-  float: left;
-  clear: both;
-  margin-bottom: 2em;
-  padding: 1em 0;
+  margin-bottom: 1.25em;
+  padding: 0.75em 0;
   width: 100%;
-  border-bottom: solid 2px #E4E4E4;
 }
 
 .video_version_message a {
-  float: right;
+  float: left;
+  margin-right: 1em;
+  padding: 0.5em 1em 0.5em 3em;
+  line-height: 1.75em;
+  font-size: 0.88em;
+  font-weight: bold;
+  border: solid 1px #D8D8D8;
+  background-color: #FFF;
+  background-image: url(/images/icons-guides.gif);
+  background-repeat: no-repeat;
+}
+
+.video_version_message a.text-version {
+  background-position: 0 -120px;
+}
+
+.video_version_message a.video-version {
+  background-position: 0 0;
+}
+
+.video_version_message a.print-this {
+  background-position: 0 -130px;
 }
 
 .fake_video {
@@ -1371,6 +1388,14 @@ ol.helpers li li {
 	border-bottom: none;
 	margin: 0 1.66em;
 	padding: 0;
+}
+
+small.modified-date {
+  float: right;
+  margin-left: 2em;
+  margin-bottom: 1em;
+  font-size: 0.65em;
+  color: #9B9B9B;
 }
 
 /*
@@ -1973,6 +1998,7 @@ ol.previous-next li.next.disabled {
   background: rgb(250,250,223);
   font-size:1.2em;
   color:#000;
+  z-index: 1;
 }
 
 .alpha-note p {
@@ -1987,7 +2013,9 @@ ol.previous-next li.next.disabled {
 
 .alpha-note.absolute {
   position:absolute;
-  right:3em; top:22em;
+  right:3em;
+  top:22em;
+  z-index: 1;
 }
 
 
@@ -2095,7 +2123,7 @@ ol.previous-next li.next.disabled {
 }
 /*#global-locator-box #forget-location {
   position: absolute;
-  top: 1.5em;
+  top: 1.5em
   right: 2em;
 }*/
 /* END: global locate-me box */ 
@@ -2103,16 +2131,24 @@ ol.previous-next li.next.disabled {
 
 /* BEGIN: syndications api */
 .syndication_api {
-  margin-top:1em;
-  font-size:0.8em;
-  padding:0.7em;
-  background:#ddd;
-  color:#808080;
+  margin: 2em 0;
+  padding: 1em;
+  background: #fff;
+  border: 1px solid #9F9A99;
+}
+
+.syndication_api h4, .syndication_api p {
+  font-size: 0.88em;
+  line-height: 1.5em;
+  margin: 0.75em 0;
+  color: #666;
 }
 
 .syndication_api h4 {
-  font-size:1em;
-  padding-bottom:0.5em;
+  margin-top: 0;
+  margin-left: -0.75em;
+  padding-left: 3em;
+  background: url(/images/icons-guides.gif) 0 -260px no-repeat;
 }
 
 /* END syndication api */
