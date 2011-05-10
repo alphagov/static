@@ -2287,3 +2287,32 @@ div.faqs {
   padding-right:2em;
 }
 /* END: Help and access */
+
+/* Error pages */
+
+.error-page #page {
+  min-height: 25em;
+}
+
+.error-page #page #content-container {
+  float: left;
+  padding-bottom: 2em;
+  background: url(/images/404-flat.gif) no-repeat bottom right;
+}
+
+.error-page #page #task-name {
+  padding-right: 65%;
+  padding-top: 2em;
+  border-bottom: none;
+}
+
+.error-page #page h1 {
+  font-size: 2.25em;
+  line-height: 1.15em;
+  margin-top: 0.69em;
+  margin-bottom: 0.46em;
+}
+
+.error-page #footer {
+  margin-top: 0;
+}
