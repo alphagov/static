@@ -196,12 +196,12 @@
 }
 
 #popular #browse-more-popular {
-  width:920px;
-  font-size:0.9em;
-  margin:0 auto;
-  padding:0;
-  text-align:center;
-  position:relative;
+  font-size: 0.9em;
+  margin: 0 auto 1em;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: auto;
 }
 
 #popular h2 {
