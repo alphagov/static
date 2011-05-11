@@ -34,6 +34,7 @@
       ui_to_show.removeClass('hidden');
     };
     var update_geo_labels = function(geo_data) {
+
       display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
       found_ui.find('h3').text(display_name);
       found_ui.find('a').text('Not in ' + geo_data.locality + '?');
