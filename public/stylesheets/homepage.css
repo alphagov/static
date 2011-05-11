@@ -195,6 +195,15 @@
 	position: relative;
 }
 
+#popular #browse-more-popular {
+  width:920px;
+  font-size:0.9em;
+  margin:0 auto;
+  padding:0;
+  text-align:center;
+  position:relative;
+}
+
 #popular h2 {
   font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
   font-size-adjust: 0.46;

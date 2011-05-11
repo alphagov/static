@@ -32,9 +32,9 @@ var Alphagov = {
   
   get_display_place_name: function(locality_name, council_name){
     result = '';
-    
+
     //get long/short version of council name
-    council_short_name =  council_name.replace(' Borough Council', '').replace(' County Council', '');
+    council_short_name =  council_name.replace(' Borough Council', '').replace(' County Council', '').replace(' District Council', '');
 
     if(council_short_name != '' && council_short_name != undefined){
       result = locality_name + ', ' + council_short_name;

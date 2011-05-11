@@ -2401,3 +2401,46 @@ div.faqs {
 .error-page #footer {
   margin-top: 0;
 }
+
+
+/* BEGIN: Browse */
+#browse-all {
+  padding-top:2em;
+}
+#browse-all div {
+  float:left;
+  width:28%;
+  padding-right:2%;
+}
+
+#browse-all h3, #browse-all h4 {
+  padding-bottom:0.5em;
+  border-bottom:solid 2px #ebebeb;
+  margin-bottom:0.6em;
+  color:#3f3f3f;
+}
+#browse-all ul {
+  padding-bottom:1em;
+  padding-left:1em;
+  line-height:1.4em;
+}
+
+#browse-all h4{
+  font-size:0.9em;
+}
+
+#browse-all h3.tools, #browse-all h3.answers, #browse-all h3.guides {
+  background:url(/images/index/homepage-topicons.gif) no-repeat;
+  padding-left:50px;
+}
+#browse-all h3.tools {
+  background-position:0 -8px;
+}
+#browse-all h3.answers {
+  background-position:0 -128px;
+}
+#browse-all h3.guides {
+  background-position:0 -248px;
+}
+
+/* END: Browse */
