@@ -27,7 +27,7 @@ namespace :cdn do
     
     CdnHelpers::AssetPath.set_hash_salt(ENV['CDN_HASH_SALT']) if ENV['CDN_HASH_SALT']
 
-    Dir.glob(public_root_path.join("**/*.html")).each do |file_path|
+    FileList.new(public_root_path.join("**/*.html").to_s).exclude("google5edcc5ea3311ac5f.html").each do |file_path|
       logger.warn "Processing file #{file_path}"
       CdnHelpers::HtmlRewriter.rewrite_file(logger, file_path, public_root_path, asset_hosts)
     end
