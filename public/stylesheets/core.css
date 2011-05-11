@@ -25,7 +25,7 @@ a {
   color: #0092F3;
   text-decoration: none;
 }
-a:hover {
+a:hover, :focus {
   text-decoration: underline;
 }
 a:visited {
@@ -581,10 +581,6 @@ ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; backgrou
   font-size-adjust: 0.488;
   font-weight: 600;
   font-style: bold;
-}
-
-#alpha_intro a {
-/*  color: #369;*/
 }
 
 #alpha_intro ul {
@@ -1221,6 +1217,15 @@ a.action-button {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+
+a.action-button:hover, a.action-button:focus {
+  text-decoration:underline;
+}
+
+a.action-button:focus {
+  text-decoration:underline!important;
+}
+
 
 .video_version_message {
   margin-bottom: 1.25em;
