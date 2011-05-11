@@ -50,7 +50,7 @@
       if (response_data.current_location === undefined) {
         $(error_area_selector).empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
         show_ui(ask_ui);
-      } else if (! response_data.current_location.locality) {
+      } else if (! response_data.current_location.ward) {
         $(error_area_selector).empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');
         show_ui(ask_ui);
       } else {
