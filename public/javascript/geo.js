@@ -34,8 +34,9 @@
       ui_to_show.removeClass('hidden');
     };
     var update_geo_labels = function(geo_data) {
-      found_ui.find('h3').text(geo_data.locality);
-      found_ui.find('a').text('Not in ' + geo_data.locality + '?');
+      display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
+      found_ui.find('h3').text(display_name);
+      found_ui.find('a').text('Not in ' + display_name + '?');
     };
     var update_geo_fields = function(geo_data) {
       locator_box.find('input[name=lat]').val(geo_data.lat);
@@ -216,9 +217,10 @@ $(document).ready(function() {
     //show correct message
     $('#location-set-message').show();
     $('#location-unset-message').hide();
-    
+
     //set the name of the place
-    $("#location-name").html(current_location.locality);
+    display_name = Alphagov.get_display_place_name(current_location.locality, AlphaGeo.councils()[AlphaGeo.councils().length - 1].name);
+    $("#location-name").html(display_name);
     
     //set local info
     $('#location-notifications').click(

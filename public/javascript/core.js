@@ -28,7 +28,24 @@ var Alphagov = {
   write_permanent_cookie: function(name, value) {
     var date = new Date(2021, 12, 31);
     document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=" +  Alphagov.cookie_domain() + "; path=/";
+  },
+  
+  get_display_place_name: function(locality_name, council_name){
+    result = '';
+    
+    //get long/short version of council name
+    council_short_name =  council_name.replace(' Borough Council', '').replace(' County Council', '');
+
+    if(council_short_name != '' && council_short_name != undefined){
+      result = locality_name + ', ' + council_short_name;
+    }else{
+      result = locality_name;
+    }
+    
+    return result;
   }
+  
+  
 }
 
 //General page setup
