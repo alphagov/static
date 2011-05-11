@@ -354,7 +354,7 @@ div#global-app-error p + p {
 }
 
 #local-info-box dt{
-  padding-top:1em;  
+  padding-top:1em;
   font-weight:bold;
   padding-bottom:1em;
 }
@@ -499,7 +499,7 @@ h3.legend, label.legend {
   list-style-image: url(/images/bullet-point-default.png);
   margin-bottom: 0.5em;
 }
-  
+
 /* jquery annotator */
 #jquery-overlay {
 	position: absolute;
@@ -530,7 +530,7 @@ h3.legend, label.legend {
 	width: 80%;
 	height: 250px;
 	margin: 0 auto;
-	border:solid 20px #808080;	
+	border:solid 20px #808080;
 	padding:20px;
 }
 
@@ -730,9 +730,9 @@ span.input-box {
   margin: 0 1em 0 0;
   background: #fff;
   border: 1px solid #e5e0de;
-  -webkit-border-radius: 10px; 
+  -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 span.input-box input[type="radio"] {
@@ -742,7 +742,7 @@ span.input-box input[type="radio"] {
 span.input-box label {
   font-weight: bold;
 }
-  
+
   /* GROUP: toggle-buttons */
   div.task fieldset ul {
     padding: 0;
@@ -755,7 +755,7 @@ span.input-box label {
     border: 1px solid #e5e0de;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
     background-repeat: no-repeat;
     background-color: #fff;
   }
@@ -811,8 +811,8 @@ span.input-box label {
 */    color: #336699;
       cursor: pointer;
   }
-  div.task fieldset ul.other-options-ui li.selected { 
-    display: none; 
+  div.task fieldset ul.other-options-ui li.selected {
+    display: none;
   }
 
 /* Helpers */
@@ -946,14 +946,14 @@ form.decision-question fieldset input[type="submit"]:hover {
   .indexcard .indexcard_heading {
     border-bottom: solid 2px #ffcccc;
     padding: 2em 1.5em 1em 1.5em;
-    background: url(/images/indexcard.png) center 0 no-repeat; 
-    position: relative; 
+    background: url(/images/indexcard.png) center 0 no-repeat;
+    position: relative;
     top: -1px;
   }
   .indexcard .indexcard_body {
     padding: 1.5em;
   }
-  
+
 /*
   Postal address enevelope
 */
@@ -983,9 +983,9 @@ form.decision-question fieldset input[type="submit"]:hover {
   font-size: 2em;
 }
 .page_heading h1, .page_heading h2 {
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
-  font-size-adjust: 0.46; 
-  font-weight: normal; 
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
+  font-size-adjust: 0.46;
+  font-weight: normal;
   font-style: normal;
   text-shadow: 0 2px 0 #fff;
 }
@@ -995,12 +995,12 @@ form.decision-question fieldset input[type="submit"]:hover {
   bottom: 0;
   right: 1%;
 }
-  
+
 /* Maps */
 .map_small {border:solid 1px #747451;width:220px; height:200px;}
 
 /* Phone number */
-a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:active { 
+a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:active {
   color: #404040;
   font-size: 2em;
   background: url(/images/phone.png) center left no-repeat;
@@ -1031,15 +1031,15 @@ a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:act
 div.ask_location, div.finding_location, div.found_location {
   background-color: #fafafa;
   background-repeat:no-repeat;
-  background-image:url(/images/location-pin_outline-on-white_stacked_small.png); 
+  background-image:url(/images/location-pin_outline-on-white_stacked_small.png);
   background-position:0.85em 12px;
-  padding: 0.75em 1.25em 0.75em 2.75em; 
-  position: relative; 
+  padding: 0.75em 1.25em 0.75em 2.75em;
+  position: relative;
   float: left;
   border: solid 1px #e5e0de;
-  -webkit-border-radius: 10px; 
-  -moz-border-radius: 10px; 
-  border-radius: 10px; 
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 div.ask_location, div.finding_location {
 /*  width: 27.25em;*/
@@ -1055,7 +1055,7 @@ div.ask_location.set p {
 }
 div.ask_location.set p a {
   color: #6c6c6c;
-  padding-left: 17px; 
+  padding-left: 17px;
   font-size: 0.8em;
 }
 div.ask_location.set div p {
@@ -1217,7 +1217,7 @@ a.action-button {
   line-height: 1.25em;
   padding: 0.25em 0.7em;
 	text-align: center;
-  -webkit-border-radius: 3px; 
+  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
@@ -1283,7 +1283,7 @@ a.action-button {
   padding-top: 1em;
 }
 
-.paginated p.paginated-pages { 
+.paginated p.paginated-pages {
 	color: #9B9B9B;
 	display: inline-block;
 	text-align: center;
@@ -1291,7 +1291,7 @@ a.action-button {
   margin: 0 20%;
 }
 
-.paginated p.paginated-next { 
+.paginated p.paginated-next {
 	right: 0px;
 }
 
@@ -1426,9 +1426,9 @@ small.modified-date {
   width: 42px;
   line-height: 42px;
   font-size: 2em;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
-  font-size-adjust: 0.46; 
-  font-weight: normal; 
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
+  font-size-adjust: 0.46;
+  font-weight: normal;
   font-style: normal;
   color: #fff;
   text-align: center;
@@ -1604,9 +1604,9 @@ small.modified-date {
 #search-head label#search-results-label {
   display: block;
   float: left;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
-  font-size-adjust: 0.46; 
-  font-weight: normal; 
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
+  font-size-adjust: 0.46;
+  font-weight: normal;
   font-style: normal;
   font-size: 1.38em;
   width: 19%;
@@ -1661,7 +1661,7 @@ small.modified-date {
   border-radius: 8px;
   margin-top: 1em;
   min-height: 2em;
-  padding: 0 1em; 
+  padding: 0 1em;
 }
 .search-links .search-results ol li {
   padding-left: 0;
@@ -1699,7 +1699,7 @@ small.modified-date {
 #no-alpha-search-results p, #empty-search p {
   padding:0;
   width:75%;
-  margin: 1em 0;  
+  margin: 1em 0;
 }
 
 
@@ -2017,7 +2017,7 @@ ol.previous-next li.next.disabled {
 
 .alpha-note.large {
   float:none;
-  width: 100%;  
+  width: 100%;
 }
 
 .alpha-note.absolute {
@@ -2093,9 +2093,9 @@ ol.previous-next li.next.disabled {
 }
 .popover h2 {
   border-bottom: solid 2px #D6D6D6;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif; 
+  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size-adjust: 0.488;
-  font-weight: 600; 
+  font-weight: 600;
   font-style: normal;
   margin: 1em 0 1.3em 0;
   position: relative;
@@ -2135,7 +2135,7 @@ ol.previous-next li.next.disabled {
   top: 1.5em
   right: 2em;
 }*/
-/* END: global locate-me box */ 
+/* END: global locate-me box */
 
 
 /* BEGIN: syndications api */
@@ -2193,8 +2193,8 @@ ol.previous-next li.next.disabled {
 #footer h4 {
   margin-top: 1.25em;
   margin-bottom: 1em;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif; 
-  font-size-adjust: 0.46; 
+  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
+  font-size-adjust: 0.46;
   font-weight: normal;
   font-size: 1.38em;
   line-height: 1.18em;
@@ -2405,42 +2405,43 @@ div.faqs {
 
 /* BEGIN: Browse */
 #browse-all {
-  padding-top:2em;
+  padding-top: 2em;
 }
 #browse-all div {
-  float:left;
-  width:28%;
-  padding-right:2%;
+  float: left;
+  width: 28%;
+  padding-right: 4%;
 }
 
 #browse-all h3, #browse-all h4 {
-  padding-bottom:0.5em;
-  border-bottom:solid 2px #ebebeb;
-  margin-bottom:0.6em;
-  color:#3f3f3f;
+  padding-bottom: 0.5em;
+  border-bottom: solid 2px #ebebeb;
+  margin-bottom: 0.6em;
+  color: #3f3f3f;
 }
 #browse-all ul {
-  padding-bottom:1em;
-  padding-left:1em;
-  line-height:1.4em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  line-height: 1.4em;
 }
 
-#browse-all h4{
-  font-size:0.9em;
+#browse-all h4 {
+  font-size: 0.9em;
+	margin-top: 1em;
 }
 
 #browse-all h3.tools, #browse-all h3.answers, #browse-all h3.guides {
-  background:url(/images/index/homepage-topicons.gif) no-repeat;
-  padding-left:50px;
+  background: url(/images/index/homepage-topicons.gif) no-repeat;
+  padding-left: 50px;
 }
 #browse-all h3.tools {
-  background-position:0 -8px;
+  background-position: 0 -8px;
 }
 #browse-all h3.answers {
-  background-position:0 -128px;
+  background-position: 0 -128px;
 }
 #browse-all h3.guides {
-  background-position:0 -248px;
+  background-position: 0 -248px;
 }
 
 /* END: Browse */
