@@ -80,6 +80,7 @@ jQuery(document).ready(function() {
     $('#splash-back').load('/tour.html #splash', function() {
       $(document).trigger('tour-ready');
       $('#tour-close').click(close_tour);
+      $('#tour-close-top').click(close_tour);
       $('#splash-back').fadeIn();
     });
     return false;
