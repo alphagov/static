@@ -25,7 +25,7 @@ a {
   color: #0092F3;
   text-decoration: none;
 }
-a:hover, :focus {
+a:hover, a:focus {
   text-decoration: underline;
 }
 a:visited {
