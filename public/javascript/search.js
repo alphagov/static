@@ -1,7 +1,6 @@
-jQuery(document).ready(function() {
+$(document).ready(function() {
 
   $.extend( $.ui.autocomplete.prototype, {
-
     _renderItem: function( ul, item) {
       var list = "<li></li>"
       if (item.clazz) {
@@ -15,8 +14,7 @@ jQuery(document).ready(function() {
   });
 
   var precooked = null;
-
-  $.ajax( {
+  $.ajax({
     url: "/search/precooked",
     dataType: "jsonp",
     jsonpCallback: "precookedf",
@@ -33,7 +31,7 @@ jQuery(document).ready(function() {
   //     }
   // );
 
-  var search_box_default_text="I’m looking for…";
+  var search_box_default_text = "I’m looking for…";
   //search hint
   //
   $('#main_autocomplete').val(search_box_default_text);
@@ -55,33 +53,32 @@ jQuery(document).ready(function() {
   );
 
   var filter_terms = function(search_term,data) {
-     var highlight_term = function(string,term) {
-            html_safe = html_escape(string);
-            var terms = term.split(' ');
-            for (var i in terms)  {
-              var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
-              if (clean_term != "") {
-                var regex = new RegExp("\\b("+clean_term+")","ig");
-                html_safe = html_safe.replace(regex,'<em>$1</em>');
-              }
-            }
-            return html_safe;
+    var highlight_term = function(string,term) {
+      html_safe = html_escape(string);
+      var terms = term.split(' ');
+      for (var i in terms)  {
+        var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
+        if (clean_term != "") {
+          var regex = new RegExp("\\b("+clean_term+")","ig");
+          html_safe = html_safe.replace(regex,'<em>$1</em>');
+        }
+      }
+      return html_safe;
+    };
+
+    return $.map(data, function(item) {
+      return {
+        label: html_escape(item.label),
+        html:  highlight_term(item.label,search_term),
+        url:   item.url
       };
-
-
-     return $.map(data, function(item) {
-        return {
-            label: html_escape(item.label),
-            html:  highlight_term(item.label,search_term),
-            url:   item.url
-        };
-     });
-  }
+    });
+  };
 
   var track_search = function(type,label) {
-     if (_gaq != undefined) {
+    if (_gaq != undefined) {
       _gaq.push( ['_trackEvent', 'Search', type, label]);
-     }
+    }
   };
 
   var html_escape = function( string) {
@@ -143,15 +140,13 @@ jQuery(document).ready(function() {
       } else {
         ajax();
       }
-
     },
     select: function(event, ui) {
       track_search("select",ui.item.label);
-      location.href = ui.item.url
+      location.href = ui.item.url;
     }
     // open: function(event, ui){
     //    console.debug(event);
     // }
   });
-
 });
