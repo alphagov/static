@@ -1808,7 +1808,7 @@ p.search-results-count, .search-results p.result-url {
 
 .search-results img.search_icon {
   float:left;
-  margin:0 5px 5px 0;
+  margin:3px 24px 20px 0;
 }
 /*
 .search-results li.guide {
