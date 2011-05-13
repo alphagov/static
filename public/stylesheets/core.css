@@ -831,17 +831,32 @@ ul.helpers li.active, ul.helpers li.active h3 a {
   color: #fff;
 }
 
-ul.helpers li#helper-steps-in-page {
-  background-image: url(/images/helper-steps-in-page-icon.png);
+ul.helpers li#helper-cash {
+  background-image: url(/images/helper-cash-icon.png);
+}
+ul.helpers li#helper-creditcard {
+  background-image: url(/images/helper-creditcard-icon.png);
+}
+ul.helpers li#helper-govgateway {
+  background-image: url(/images/helper-govgateway-icon.png);
+}
+ul.helpers li#helper-offline-steps {
+  background-image: url(/images/helper-offline-icon.png);
+}
+ul.helpers li#helper-passport {
+  background-image: url(/images/helper-passport-icon.png);
+}
+ul.helpers li#helper-proof-of-id {
+  background-image: url(/images/helper-proofofid-icon.png);
 }
 ul.helpers li#helper-multiple-pages {
   background-image: url(/images/helper-steps-icon.png);
 }
+ul.helpers li#helper-steps-in-page {
+  background-image: url(/images/helper-steps-in-page-icon.png);
+}
 ul.helpers li#helper-time {
   background-image: url(/images/helper-time-icon.png);
-}
-ul.helpers li#helper-offline-steps {
-  background-image: url(/images/helper-offline-icon.png);
 }
 
 /*
