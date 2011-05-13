@@ -91,3 +91,11 @@ html {
   padding-top: 4.5em;
   background: url(/images/fail/coat-of-arms.jpg) no-repeat top center;
 }
+
+#fail-footer p#credit {
+	background-image: none;
+	color: #A0A0A0;
+	font-size: 0.7em;
+	margin: 1em auto 0;
+	padding: 0;
+}
