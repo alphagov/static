@@ -152,6 +152,8 @@
   width: 70%;
   border: 1px solid #8F8F8F;
   background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
+	position: relative;
+	z-index: 10;
 }
 
 #homepage-search input[type="submit"] {
