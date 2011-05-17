@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/geolib.git
-  revision: 60457d53940852f6e3e85125e3bb4a72a49917a9
-  tag: v0.8.2
+  revision: dd3753eaad9aa6777af14c81e96f0ff5edfdf58b
+  tag: v0.8.4
   specs:
     geolib (0.8.2)
 
