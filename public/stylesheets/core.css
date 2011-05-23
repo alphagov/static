@@ -2157,6 +2157,27 @@ ol.previous-next li.next.disabled {
 }*/
 /* END: global locate-me box */
 
+/* BEGIN: get satisfaction feedback box */
+#feedback-router-box.popover {
+  width: 60%;
+  max-width: 40em;
+}
+#feedback-choose .feedback-choice {
+  float: left;
+  padding: 2em;
+  height: 5em;
+  width: 45%;
+  border: solid 1px #E5E0DE;
+  background: #fff;
+}
+#feedback-choice-separator {
+  float: left;
+  padding: 1em;
+  width: 10%;
+}
+
+/* END: get satisfaction feedback box */
+
 
 /* BEGIN: syndications api */
 .syndication_api {
