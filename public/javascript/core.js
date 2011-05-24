@@ -58,12 +58,13 @@ jQuery(document).ready(function() {
   });
 
   //feedback
-  $('#send_feedback').click(
-    function(){
-      feedback_widget.show();
-      return false;
-    }
-  );
+  $('#send_feedback').click(function () {
+    $('#feedback-router').show();
+    return false;
+  });
+  $('a.close').click(function () {
+    $(this).closest('div.popover').hide();
+  });
 
   //tour
 
