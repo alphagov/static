@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
     return false;
   });
   $('a.close').click(function () {
-    $(this).closest('div.popover').hide();
+    $(this).closest('.popover-mask').hide();
   });
 
   //tour
