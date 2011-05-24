@@ -474,11 +474,16 @@ h3.legend, label.legend {
 
 /* Popular and related */
 #related-items {
+  background:#fff;
+  border:solid 4px #3c92f2;
   clear: both;
   margin: 2em 0;
 }
 
 #related-items h3 {
+  background:#3c92f2;
+  text-align:center;
+  color:#fff;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
   text-transform: uppercase;
@@ -488,7 +493,6 @@ h3.legend, label.legend {
   font-style:normal;
   font-size: 1.25em;
   font-weight: normal;
-  border-bottom: solid 2px #cacac9;
 }
 
 #related-items ul {
