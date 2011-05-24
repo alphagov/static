@@ -19,7 +19,7 @@
     <script src="/javascript/geo.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/fonts.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/promote.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript">
       var no_auto_feedback_box = true;
     </script>
     <!--<![endif]-->
@@ -35,14 +35,15 @@
     <!--[if lte IE 6]>
       <div class="outdated-browser-message">
         <div class="wrapper article-text"><p>Hello. This site has not been designed with your web browser, Internet Explorer 6, in mind. A very small percentage of web users in the UK (2.9%) use this browser and Microsoft are actively discouraging its use (see <a href="http://www.theie6countdown.com/">The Internet Explorer 6 Countdown</a>).</p>
-        <p>To experience this site as intended may we suggest you try returning with a modern standards-compliant browser such as <a href="http://windows.microsoft.com/en-GB/internet-explorer/downloads/ie-9/worldwide-languages">Internet Explorer 9</a>, <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com/download/">Opera</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>.</p></div>
+        <p>To experience this site as intended may we suggest you try returning with a modern standards-compliant browser such as <a href="http://windows.microsoft.com/en-GB/internet-explorer/downloads/ie-9/worldwide-languages">Internet Explorer 9</a>, <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com/download/">Opera</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>. If that’s not possible, you can install the <a href="http://www.google.com/chromeframe">Google Chrome Frame plugin</a> for IE 6 and 7 (if your setup allows plugins to be installed).</p>
+        </div>
       </div>
     <![endif]-->
     <!--[if IE 7]>
       <div class="outdated-browser-message">
         <div class="wrapper article-text">
           <p>Hello, you seem to be using Internet Explorer 7. We're sorry, but we ran out of time and haven't yet optimised the site to work with your browser. We shall be fixing this as soon as possible.</p>
-          <p>In the meantime may we suggest you try using a more modern standards-compliant browser, if you can, such as <a href="http://windows.microsoft.com/en-GB/internet-explorer/downloads/ie-9/worldwide-languages">Internet Explorer 9</a>, <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com/download/">Opera</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>.</p>
+          <p>In the meantime may we suggest you try using a more modern standards-compliant browser, if you can, such as <a href="http://windows.microsoft.com/en-GB/internet-explorer/downloads/ie-9/worldwide-languages">Internet Explorer 9</a>, <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com/download/">Opera</a>, or <a href="http://www.apple.com/safari/download/">Safari</a>. If that’s not possible, you can install the <a href="http://www.google.com/chromeframe">Google Chrome Frame plugin</a> for IE 6 and 7 (if your setup allows plugins to be installed).</p>
         </div>
       </div>
     <![endif]-->
@@ -290,7 +291,36 @@
       </div>
     </div>
     <!-- end local -->
-    
+
+    <!-- feedback router -->
+    <div id="feedback-router" class="popover-mask">
+      <div id="feedback-router-box" class="popover">
+        <div class="header">
+          <img class="logo" src="/images/welcome/logo.png" width="110" height="50" alt="alpha.gov.uk" title="alpha.gov.uk logo">
+          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close" title="close"></a>
+        </div>
+        <div id="global-set-location">
+          <h2>Tell us what you think</h2>
+          <div id="feedback-choose">
+            <div class="feedback-choice facebook">
+              <p><a href="http://www.facebook.com/alphagov">On Facebook</a></p>
+            </div>
+            <p id="feedback-choice-separator">or</p>
+            <div class="feedback-choice article-text">
+              <p>Login with your <strong>Google</strong>, <strong>Twitter</strong>, or <strong>Microsoft Windows Live</strong> ID</p>
+              <p><strong><a href="http://getsatisfaction.com/alphagov">Log into our feedback forum</a></strong></p>
+            </div>
+          </div>
+          <div class="article-text">
+            <p>Our feedback page page is available to everybody who has a Facebook, Twitter, Google, Microsoft Windows Live, or Get Satisfaction account. We prefer you to leave feedback with those accounts because your message and our response is visible publicly. If you don't have or want an account with any of these services, please <a href="mailto:feedback@alphagov.co.uk">click here to email us</a> (although we cannot guarantee a reply).</p>
+          </div>
+        </div>
+            
+        </div>
+      </div>
+    </div>
+    <!-- end feedback router -->
+
     <script src="/javascript/add_feedback_box.js" type="text/javascript"></script>
     <script type="text/javascript">
 

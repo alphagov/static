@@ -15,7 +15,7 @@
     <script src="/javascript/geo.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/fonts.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/promote.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript">
       var no_auto_feedback_box = true;
     </script>
   </head>
@@ -187,24 +187,35 @@
     </div>
     <!-- end local -->
 
-    <!--Get satisfaction-->
-    <script type="text/javascript" charset="utf-8">
-      var is_ssl = ("https:" == document.location.protocol);
-      var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-      document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
+    <!-- feedback router -->
+    <div id="feedback-router" class="popover-mask">
+      <div id="feedback-router-box" class="popover">
+        <div class="header">
+          <img class="logo" src="/images/welcome/logo.png" width="110" height="50" alt="alpha.gov.uk" title="alpha.gov.uk logo">
+          <a class="close" href="#"><img src="/images/welcome/close.png" alt="close" title="close"></a>
+        </div>
+        <div id="global-set-location">
+          <h2>Tell us what you think</h2>
+          <div id="feedback-choose">
+            <div class="feedback-choice facebook">
+              <p><a href="http://www.facebook.com/alphagov">On Facebook</a></p>
+            </div>
+            <p id="feedback-choice-separator">or</p>
+            <div class="feedback-choice article-text">
+              <p>Login with your <strong>Google</strong>, <strong>Twitter</strong>, or <strong>Microsoft Windows Live</strong> ID</p>
+              <p><strong><a href="http://getsatisfaction.com/alphagov">Log into our feedback forum</a></strong></p>
+            </div>
+          </div>
+          <div class="article-text">
+            <p>Our feedback page page is available to everybody who has a Facebook, Twitter, Google, Microsoft Windows Live, or Get Satisfaction account. We prefer you to leave feedback with those accounts because your message and our response is visible publicly. If you don't have or want an account with any of these services, please <a href="mailto:feedback@alphagov.co.uk">click here to email us</a> (although we cannot guarantee a reply).</p>
+          </div>
+        </div>
+            
+        </div>
+      </div>
+    </div>
+    <!-- end feedback router -->
 
-    <script type="text/javascript" charset="utf-8">
-      var feedback_widget_options = {};
-
-      feedback_widget_options.display = "overlay";  
-      feedback_widget_options.company = "alphagov";
-      feedback_widget_options.placement = "hidden";
-      feedback_widget_options.color = "#222";
-      feedback_widget_options.style = "idea";
-      var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-    </script>
-    
     <script type="text/javascript">
     var no_location_change_animation = true;
     $(document).bind('location-known', function() {
