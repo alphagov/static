@@ -2509,3 +2509,31 @@ div.faqs {
 }
 
 /* END: Browse */
+
+
+.devolved-content {
+  background:#fff;
+  padding:0 0.5em 0.5em 0.5em;
+  margin:1em 0;
+  border:dotted 1px #ccc;
+}
+
+p.devolved-header {
+  font-size:0.7em;
+  border-bottom:solid 1px #ccc;
+  text-align:left;
+  position:relative;
+}
+
+.devolved-content.scotland  p.devolved-header{
+  padding:0 0 0 20px;  
+  background:url(/images/scotland.png) no-repeat 0 0;
+}
+.devolved-content.england  p.devolved-header{
+  padding:0 0 0 20px;  
+  background:url(/images/england.png) no-repeat 0 0;
+}
+.devolved-content.england-wales  p.devolved-header{
+  padding:0 0 0 41px;  
+  background:url(/images/england-wales.png) no-repeat 0 0;
+}
