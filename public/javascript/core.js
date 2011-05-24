@@ -31,7 +31,7 @@ var Alphagov = {
   },
   
   get_display_place_name: function(locality_name, council_name){
-    result = '';
+    var result = '';
 
     //get long/short version of council name
     council_short_name =  council_name.replace(' Borough Council', '').replace(' County Council', '').replace(' District Council', '').replace(' Council', '');
@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
     return false;
   });
   $('a.close').click(function () {
-    $(this).closest('div.popover').hide();
+    $(this).closest('.popover-mask').hide();
   });
 
   //tour
