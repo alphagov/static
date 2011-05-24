@@ -2158,22 +2158,45 @@ ol.previous-next li.next.disabled {
 /* END: global locate-me box */
 
 /* BEGIN: get satisfaction feedback box */
+
 #feedback-router-box.popover {
   width: 60%;
   max-width: 40em;
 }
+
+#feedback-choose {
+  float: left;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
 #feedback-choose .feedback-choice {
   float: left;
-  padding: 2em;
-  height: 5em;
-  width: 45%;
+  padding: 0 2em;
+  height: 6em;
+  width: 34.75%;
   border: solid 1px #E5E0DE;
   background: #fff;
 }
+
+#feedback-choose .feedback-choice p {
+  font-size: 0.88em;
+}
+
+#feedback-choose .feedback-choice.facebook a {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2.25em;
+  text-indent: -9999px;
+  height: 35px;
+  width: 174px;
+  background: url(/images/on-facebook.png) 0 0 no-repeat;
+}
+
 #feedback-choice-separator {
   float: left;
-  padding: 1em;
-  width: 10%;
+  padding: 2.5em 1em;
+  width: 5%;
 }
 
 /* END: get satisfaction feedback box */
