@@ -2537,6 +2537,10 @@ p.devolved-header {
   padding:0 0 0 20px;  
   background:url(/images/england.png) no-repeat 0 0;
 }
+.devolved-content.wales  p.devolved-header{
+  padding:0 0 0 20px;  
+  background:url(/images/wales.png) no-repeat 0 0;
+}
 .devolved-content.england-wales  p.devolved-header{
   padding:0 0 0 41px;  
   background:url(/images/england-wales.png) no-repeat 0 0;
