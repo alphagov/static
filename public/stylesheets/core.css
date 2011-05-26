@@ -2385,12 +2385,11 @@ ol.previous-next li.next.disabled {
   background-position: 0 -240px;
 }
 
-#reuse-license {
+#reuse-license, #cookie-declaration {
   font-size:0.7em;
   color:#808080;
   padding-top:0.5em;
 }
-
 
 #promo-global {
   padding-top: 1em;
