@@ -474,11 +474,16 @@ h3.legend, label.legend {
 
 /* Popular and related */
 #related-items {
+  background:#fff;
+  border:solid 4px #3c92f2;
   clear: both;
   margin: 2em 0;
 }
 
 #related-items h3 {
+  background:#3c92f2;
+  text-align:center;
+  color:#fff;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
   text-transform: uppercase;
@@ -488,7 +493,6 @@ h3.legend, label.legend {
   font-style:normal;
   font-size: 1.25em;
   font-weight: normal;
-  border-bottom: solid 2px #cacac9;
 }
 
 #related-items ul {
@@ -2448,12 +2452,11 @@ ol.previous-next li.next.disabled {
   background-position: 0 -240px;
 }
 
-#reuse-license {
+#reuse-license, #cookie-declaration {
   font-size:0.7em;
   color:#808080;
   padding-top:0.5em;
 }
-
 
 #promo-global {
   padding-top: 1em;
@@ -2576,3 +2579,35 @@ div.faqs {
 }
 
 /* END: Browse */
+
+
+.devolved-content {
+  background:#fff;
+  padding:0 0.5em 0.5em 0.5em;
+  margin:1em 0;
+  border:dotted 1px #ccc;
+}
+
+p.devolved-header {
+  font-size:0.7em;
+  border-bottom:solid 1px #ccc;
+  text-align:left;
+  position:relative;
+}
+
+.devolved-content.scotland  p.devolved-header{
+  padding:0 0 0 20px;  
+  background:url(/images/scotland.png) no-repeat 0 0;
+}
+.devolved-content.england  p.devolved-header{
+  padding:0 0 0 20px;  
+  background:url(/images/england.png) no-repeat 0 0;
+}
+.devolved-content.wales  p.devolved-header{
+  padding:0 0 0 20px;  
+  background:url(/images/wales.png) no-repeat 0 0;
+}
+.devolved-content.england-wales  p.devolved-header{
+  padding:0 0 0 41px;  
+  background:url(/images/england-wales.png) no-repeat 0 0;
+}

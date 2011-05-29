@@ -218,8 +218,9 @@
   
 #splash #intro p {
   color: #3E3E3E;
-  font-size: 0.9em;
-  margin: 1em 3em;
+  font-size: 0.85em;
+  margin: 0.85em 3em;
+  padding-left: 37em
 }
 
 #splash #intro {
@@ -227,7 +228,9 @@
 }
 
 #splash #video {
-  padding:0 0 0.5em 2.8em;
+  float: left;
+  padding-left: 2.5em;
+  padding-right: 1em;
 }
 
 #splash h2 {
@@ -241,12 +244,6 @@
 #splash #tour-close {
   position:relative;
   top:5px;
-}
-
-#splash #video {
-  float:left;
-  padding-right:20px;
-  padding-bottom:35px;
 }
 
 #splash #video img {
