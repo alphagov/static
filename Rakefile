@@ -33,3 +33,23 @@ namespace :cdn do
     end
   end
 end
+
+namespace :css do
+  def public_root_path
+    Pathname.new(File.join(File.dirname(__FILE__), 'public'))
+  end
+
+  namespace :icons do
+    task :search do
+      puts "/* Search results icons */"
+      FileList.new(public_root_path.join("images/search/*.gif").to_s).each do |path|
+        filename = File.basename(path)
+        class_name = File.basename(path, '.gif')
+        puts "#search-everything .search-results li.#{class_name} {"
+        puts "  background-image: url(/images/search/#{filename});"
+        puts "}"
+      end
+      puts "/* END: Search results icons */"
+    end
+  end
+end

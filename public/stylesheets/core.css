@@ -1845,22 +1845,89 @@ p.search-results-count, .search-results p.result-url {
 #search-everything .search-results li, .search-didyoumean.search-results li {
   background-image: url(/images/icon-default-search-result-48.png);
 }*/
-
-#search-everything .search-results li.www_justice_gov_uk {
-  background-image: url(/images/icon-justice-48.png);
+/* Search results icons */
+#search-everything .search-results li.www_advocategeneral_gov_uk {
+  background-image: url(/images/search/www_advocategeneral_gov_uk.gif);
 }
-
-#search-everything .search-results li.www_direct_gov_uk {
-  background-image: url(/images/icon-dgov-48.png);
+#search-everything .search-results li.www_attorneygeneral_gov_uk {
+  background-image: url(/images/search/www_attorneygeneral_gov_uk.gif);
 }
-
-#search-everything .search-results li.www_hmrc_gov_uk {
-  background-image: url(/images/icon-hmrc-48.png);
+#search-everything .search-results li.www_bis_gov_uk {
+  background-image: url(/images/search/www_bis_gov_uk.gif);
 }
-
 #search-everything .search-results li.www_businesslink_gov_uk {
-  background-image: url(/images/icon-bizlink-48.png);
+  background-image: url(/images/search/www_businesslink_gov_uk.gif);
 }
+#search-everything .search-results li.www_commonsleader_gov_uk {
+  background-image: url(/images/search/www_commonsleader_gov_uk.gif);
+}
+#search-everything .search-results li.www_communities_gov_uk {
+  background-image: url(/images/search/www_communities_gov_uk.gif);
+}
+#search-everything .search-results li.www_culture_gov_uk {
+  background-image: url(/images/search/www_culture_gov_uk.gif);
+}
+#search-everything .search-results li.www_decc_gov_uk {
+  background-image: url(/images/search/www_decc_gov_uk.gif);
+}
+#search-everything .search-results li.www_defra_gov_uk {
+  background-image: url(/images/search/www_defra_gov_uk.gif);
+}
+#search-everything .search-results li.www_dfid_gov_uk {
+  background-image: url(/images/search/www_dfid_gov_uk.gif);
+}
+#search-everything .search-results li.www_dft_gov_uk-dvla {
+  background-image: url(/images/search/www_dft_gov_uk-dvla.gif);
+}
+#search-everything .search-results li.www_dft_gov_uk {
+  background-image: url(/images/search/www_dft_gov_uk.gif);
+}
+#search-everything .search-results li.www_dh_gov_uk {
+  background-image: url(/images/search/www_dh_gov_uk.gif);
+}
+#search-everything .search-results li.www_direct_gov_uk {
+  background-image: url(/images/search/www_direct_gov_uk.gif);
+}
+#search-everything .search-results li.www_dwp_gov_uk {
+  background-image: url(/images/search/www_dwp_gov_uk.gif);
+}
+#search-everything .search-results li.www_education_gov_uk {
+  background-image: url(/images/search/www_education_gov_uk.gif);
+}
+#search-everything .search-results li.www_equalities_gov_uk {
+  background-image: url(/images/search/www_equalities_gov_uk.gif);
+}
+#search-everything .search-results li.www_fco_gov_uk {
+  background-image: url(/images/search/www_fco_gov_uk.gif);
+}
+#search-everything .search-results li.www_highways_gov_uk {
+  background-image: url(/images/search/www_highways_gov_uk.gif);
+}
+#search-everything .search-results li.www_hm-treasury_gov_uk {
+  background-image: url(/images/search/www_hm-treasury_gov_uk.gif);
+}
+#search-everything .search-results li.www_hmrc_gov_uk {
+  background-image: url(/images/search/www_hmrc_gov_uk.gif);
+}
+#search-everything .search-results li.www_homeoffice_gov_uk {
+  background-image: url(/images/search/www_homeoffice_gov_uk.gif);
+}
+#search-everything .search-results li.www_justice_gov_uk {
+  background-image: url(/images/search/www_justice_gov_uk.gif);
+}
+#search-everything .search-results li.www_nio_gov_uk {
+  background-image: url(/images/search/www_nio_gov_uk.gif);
+}
+#search-everything .search-results li.www_privy-council_org_uk {
+  background-image: url(/images/search/www_privy-council_org_uk.gif);
+}
+#search-everything .search-results li.www_scotlandoffice_gov_uk {
+  background-image: url(/images/search/www_scotlandoffice_gov_uk.gif);
+}
+#search-everything .search-results li.www_walesoffice_gov_uk {
+  background-image: url(/images/search/www_walesoffice_gov_uk.gif);
+}
+/* END: Search results icons */
 
 .more-results-container {
   clear: both;
