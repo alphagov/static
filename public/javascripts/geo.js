@@ -34,8 +34,11 @@
       ui_to_show.removeClass('hidden');
     };
     var update_geo_labels = function(geo_data) {
-
-      display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
+      if (geo_data.councils && geo_data.councils.length > 0) {  
+        display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
+      } else {
+        display_name = geo_data.locality
+      }
       found_ui.find('h3').text(display_name);
       found_ui.find('a').text('Not in ' + geo_data.locality + '?');
     };
@@ -48,7 +51,7 @@
       locator_box.find('input[name=lon]').val('');
     };
     var dispatch_location = function(response_data) {
-      if (response_data.current_location === undefined) {
+      if (response_data.current_location === undefined || !response_data.current_location) {
         $(error_area_selector).empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
         show_ui(ask_ui);
       } else if (! response_data.current_location.ward) {
@@ -220,7 +223,11 @@ $(document).ready(function() {
     $('#location-unset-message').hide();
 
     //set the name of the place
-    display_name = Alphagov.get_display_place_name(current_location.locality, AlphaGeo.councils()[AlphaGeo.councils().length - 1].name);
+    if (AlphaGeo.councils() && AlphaGeo.councils().length > 0) {
+        display_name = Alphagov.get_display_place_name(current_location.locality, AlphaGeo.councils()[AlphaGeo.councils().length - 1].name);
+    } else {
+        display_name = current_location.locality
+    }
     $("#location-name").html(display_name);
     
     //set local info
