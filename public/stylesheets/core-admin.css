@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #333;
+}
+
+#app-container {
+	position: relative;
+	z-index: 1;
+	height: 100em;
+}
+
+/* Admin header */
+
+#gds-header {
+	position: relative;
+	width: 100%;
+	min-width: 960px;
+	min-height: 1.75em;
+  background: #C3EEC8;
+}
+
+#gds-header .gds-header-part {
+	margin: 0.5em 0;
+	display: inline-block;
+	position: relative;
+	min-height: 1.75em;
+	vertical-align: top;
+}
+
+#gds-header #gds-logo-type {
+	margin-left: 2%;
+	width: 16%;
+}
+
+#gds-logo  {
+	float: left;
+	width: 2.5em;
+	height: 2.25em;
+	font-size: 0.75em;
+	text-align: center;
+	color: #fff;
+	background: #333;
+}
+
+#gds-logo-type h4, #gds-logo-type p {
+	margin-left: 3.5em;
+	font-size: 0.75em;
+}
+
+#gds-current-app {
+	width: 60%;
+}
+
+#gds-current-app h3 {
+	margin: 0 5%;
+	padding-left: 0.5em;
+	font-size: 1.75em;
+	line-height: 1em;
+	border-left: solid 1px #333;
+}
+
+#gds-menu {
+	margin-right: 2%;
+	width: 20%;
+	text-align: right;
+}
+
+#gds-menu div.gds-menu-parent {
+	display: inline;
+	position: relative;
+	text-align: left;
+}
+#gds-menu div.gds-menu-parent a.primary {
+	display: inline-block;
+	padding: 0 0.5em;
+	width: 11em;
+	line-height: 1.75em;
+	color: #333;
+	background-color: #fff;
+	text-decoration: none;
+}
+#gds-menu div.gds-menu-parent:hover a.primary {
+	background: #E5E5E5;
+}
+#gds-menu div.gds-menu-parent a:focus,
+#gds-menu div.gds-menu-parent a:hover {
+	background-color: #CCC;
+}
+#gds-menu div.gds-menu-items {
+	left: 0;
+	opacity: 0;
+	margin: 0 0 0 -1em;
+	padding: 0 1em 1em 1em;
+	position: absolute;
+}
+#gds-menu div.gds-menu-parent:hover .gds-menu-items {
+	opacity: 1;
+	z-index: 10;
+}
+#gds-menu div.gds-menu-parent ol {
+	padding-top: 1.75em;
+	margin-top: -1.75em;
+	list-style: none;
+	box-shadow: 0 1px 1px rgba(50,50,50,0.55);
+}
+#gds-menu ol li a {
+	background-color: #E5E5E5;
+	display: block;
+	padding: 0.25em 0.5em;
+	width: 11em;
+}
+
+div.arrow-down {
+	position: absolute;
+	right: 5%;
+	top: 35%;
+	border-top: 6px solid #333;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	font-size: 0;
+	line-height: 0;
+	z-index: 1;
+}
+
+/* END admin header */
+
+/* Sign on template */
+
+#halberd {
+  position: relative;
+  left: -12em;
+  margin-top: 15%;
+  margin-left: 50%;
+  padding: 1em;
+  width: 22em;
+  background: #C3EEC8;
+}
+
+#halberd #gds-logo-type {
+	margin-bottom: 1em;
+}
+
+#halberd h1 {
+	padding-top: 0.5em;
+	font-size: 1.75em;
+  border-top: solid 1px #333;
+}
+
+#sign-in {
+  margin-top: 0.5em;
+  padding: 1em 0;
+}
+
+#sign-in-link {
+  margin-top: 1em;
+  text-align: center;
+}
+
+#sign-in-link a {
+  padding: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: #fff;
+}
+
+#sign-in-link a:hover, #sign-in-link a:focus {
+  color: #fff;
+  background: #333;
+}
+
+/* END sign on template */
