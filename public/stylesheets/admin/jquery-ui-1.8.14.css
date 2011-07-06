@@ -56,13 +56,13 @@
 
 /* Component containers
 ----------------------------------*/
-.ui-widget { font-size: 1.1em; }
+.ui-widget { font-size: 1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-size: 1em; }
-.ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url(images/ui-bg_glass_75_ffffff_1x400.png) 50% 50% repeat-x; color: #222222; }
-.ui-widget-content a { color: #222222; }
-.ui-widget-header { border: 1px solid #aaaaaa; background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
-.ui-widget-header a { color: #222222; }
+.ui-widget-content { background: #fff; color: #444; }
+.ui-widget-content a { color: #444; }
+.ui-widget-header { border-bottom: 1px solid #aaaaaa; color: #444; font-weight: bold; }
+.ui-widget-header a { color: #444; }
 
 /* Interaction states
 ----------------------------------*/
@@ -280,14 +280,14 @@
 ----------------------------------*/
 
 /* Corner radius */
-.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
-.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }
-.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -khtml-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
-.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+.ui-corner-top, .ui-corner-left, .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
+.ui-corner-top, .ui-corner-right, .ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+.ui-corner-bottom, .ui-corner-left, .ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -khtml-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+.ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
 
 /* Overlays */
-.ui-widget-overlay { background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); }
-.ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 8px; -khtml-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }/*
+.ui-widget-overlay { opacity: .30;filter:Alpha(Opacity=30); }
+.ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 8px; -khtml-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }/*
  * jQuery UI Accordion 1.8.14
  *
  * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
@@ -315,12 +315,12 @@
  *
  * http://docs.jquery.com/UI/Tabs#theming
  */
-.ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-.ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
+.ui-tabs { position: relative; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav { background: #efece0; margin: 0; padding: 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
 .ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-.ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
+.ui-tabs .ui-tabs-panel { display: block; border: solid 1px #aaa; border-top: none; padding: 1em 1.4em; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
