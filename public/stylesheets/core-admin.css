@@ -435,70 +435,61 @@ body {
 
 /* Admin header */
 
-#gds-header {
+.gds-header {
   background: #C3EEC8;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	box-shadow: 0 1px 3px rgba(0,0,0,.25);
-	min-height: 1.75em;
+	min-height: 3.5em;
 	min-width: 960px;
-	padding: 0.5em 0;
+	padding: 0.3em 0;
 	position: relative;
+	vertical-align: top;
 	width: 100%;
 }
 
-#gds-header .gds-header-part {
-	margin: 0.5em 0;
+.gds-logo {
 	display: inline-block;
-	position: relative;
-	min-height: 1.75em;
-	vertical-align: top;
-}
-
-#gds-header #gds-logo-type {
-	margin-left: 2%;
+	font-size: 0.7em;
 	width: 16%;
 }
 
-#gds-logo  {
-	float: left;
-	width: 2.5em;
-	height: 2.25em;
-	font-size: 0.75em;
-	text-align: center;
-	color: #fff;
+.gds-logo small {
 	background: #333;
+	color: #fff;
+	display: inline-block;
+	float: left;
+	height: 2.25em;
+	line-height: 2.25em;
+	margin: 0.75em;
+	text-align: center;
+	width: 2.5em;
 }
 
-#gds-logo-type h4, #gds-logo-type p {
-	margin-left: 3.5em;
-	font-size: 0.75em;
-}
-
-#gds-current-app {
-	width: 60%;
-}
-
-#gds-current-app h3 {
-	margin: 0 5%;
-	padding-left: 0.5em;
-	font-size: 1.75em;
-	line-height: 1em;
+.gds-current-app {
 	border-left: solid 1px #333;
+	display: inline-block;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0.3em 0;
+	padding-left: 0.5em;
+	width: 55%;
 }
 
-#gds-menu {
-	margin-right: 2%;
+.gds-menu {
+	display: inline-block;
+	float: right;
+	margin-top: 0.35em;
 	width: 20%;
 	text-align: right;
 }
 
-#gds-menu div.gds-menu-parent {
+.gds-menu-parent {
 	display: inline;
 	position: relative;
 	text-align: left;
 }
-#gds-menu div.gds-menu-parent a.primary {
+.gds-menu-parent a.primary {
 	display: inline-block;
 	padding: 0 0.5em;
 	width: 11em;
@@ -507,38 +498,37 @@ body {
 	background-color: #fff;
 	text-decoration: none;
 }
-#gds-menu div.gds-menu-parent:hover a.primary {
+.gds-menu-parent:hover a.primary {
 	background: #E5E5E5;
 }
-#gds-menu div.gds-menu-parent a:focus,
-#gds-menu div.gds-menu-parent a:hover {
-	background-color: #CCC;
+.gds-menu-parent a:focus,
+.gds-menu-parent a:hover {
+	background-color: #ccc;
 }
-#gds-menu div.gds-menu-items {
+.gds-menu .gds-menu-items {
 	left: 0;
 	opacity: 0;
-	margin: 0 0 0 -1em;
+	margin: 0 0 0 -3.5em;
 	padding: 0 1em 1em 1em;
 	position: absolute;
 }
-#gds-menu div.gds-menu-parent:hover .gds-menu-items {
+.gds-menu div.gds-menu-parent:hover .gds-menu-items {
 	opacity: 1;
 	z-index: 10;
 }
-#gds-menu div.gds-menu-parent ol {
+.gds-menu div.gds-menu-parent ol {
 	padding-top: 1.75em;
 	margin-top: -1.75em;
 	list-style: none;
-	box-shadow: 0 1px 1px rgba(50,50,50,0.55);
 }
-#gds-menu ol li a {
+.gds-menu ol li a {
 	background-color: #E5E5E5;
 	display: block;
 	padding: 0.25em 0.5em;
 	width: 11em;
 }
 
-div.arrow-down {
+.arrow-down {
 	position: absolute;
 	right: 5%;
 	top: 35%;
@@ -666,10 +656,18 @@ body {
 }
 
 table {
-	border: solid 1px #444;
+	margin-bottom: 1em;
+	text-align: left;
 	width: 100%;
 }
 
 th, td {
 	padding: 0.5em 0.75em;
 }
+	th {
+		border-bottom: 2px solid #E5E5E5;
+	}
+	tr {
+		border-bottom: 1px solid #E5E5E5;
+	}
+
