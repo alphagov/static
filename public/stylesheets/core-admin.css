@@ -294,7 +294,7 @@ form {
  */
 
 fieldset {
-    margin: 0 2px;
+    margin: 0 0;
     padding: 0.35em 0.625em 0.75em;
 }
 
@@ -424,7 +424,7 @@ table {
 body {
   font-family: sans-serif;
   font-size: 100%;
-  color: #444;
+  color: #525252;
 }
 
 #app-container {
@@ -436,7 +436,8 @@ body {
 /* Admin header */
 
 .gds-header {
-  background: #C3EEC8;
+  background: #333;
+	border-bottom: solid 1px #303030;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -450,38 +451,20 @@ body {
 
 .gds-logo {
 	display: inline-block;
-	font-size: 0.7em;
-	width: 16%;
+	margin: 0.7em 0;
 }
 
 .gds-logo small {
-	background: #333;
 	color: #fff;
-	display: inline-block;
-	float: left;
-	height: 2.25em;
-	line-height: 2.25em;
-	margin: 0.75em;
-	text-align: center;
-	width: 2.5em;
-}
-
-.gds-current-app {
-	border-left: solid 1px #333;
-	display: inline-block;
-	font-size: 1.5em;
+	font-size: 1.7em;
 	font-weight: bold;
-	margin: 0.3em 0;
-	padding-left: 0.5em;
-	width: 55%;
 }
 
 .gds-menu {
 	display: inline-block;
-	float: right;
 	margin-top: 0.35em;
-	width: 20%;
-	text-align: right;
+	margin-left: 1em;
+	width: auto;
 }
 
 .gds-menu-parent {
@@ -490,20 +473,21 @@ body {
 	text-align: left;
 }
 .gds-menu-parent a.primary {
+	background-color: #333;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+	box-shadow: 0 1px 3px rgba(0,0,0,.5);
+	color: #fff;
 	display: inline-block;
-	padding: 0 0.5em;
-	width: 11em;
 	line-height: 1.75em;
-	color: #333;
-	background-color: #fff;
+	padding: 0 0.5em;
 	text-decoration: none;
+	width: 11em;
 }
-.gds-menu-parent:hover a.primary {
-	background: #E5E5E5;
-}
+.gds-menu-parent:hover a.primary,
 .gds-menu-parent a:focus,
 .gds-menu-parent a:hover {
-	background-color: #ccc;
+	background-color: #000;
 }
 .gds-menu .gds-menu-items {
 	left: 0;
@@ -522,21 +506,21 @@ body {
 	list-style: none;
 }
 .gds-menu ol li a {
-	background-color: #E5E5E5;
+	background-color: #333;
 	display: block;
-	padding: 0.25em 0.5em;
+	padding: 0.5em;
 	width: 11em;
 }
 
 .arrow-down {
-	position: absolute;
-	right: 5%;
-	top: 35%;
-	border-top: 6px solid #333;
+	border-top: 6px solid #fff;
 	border-left: 6px solid transparent;
 	border-right: 6px solid transparent;
 	font-size: 0;
 	line-height: 0;
+	position: absolute;
+	right: 5%;
+	top: 35%;
 	z-index: 1;
 }
 
@@ -552,6 +536,7 @@ body {
   padding: 1em;
   width: 22em;
   background: #C3EEC8;
+  background: #d3d1c9
 }
 
 #halberd #gds-logo-type {
@@ -596,7 +581,6 @@ body {
 body {
 	background-color: #efece0;
 	color: #444;
-	font-family: 'Droid Sans', sans-serif;
 }
 
 #wrapper {
@@ -605,7 +589,8 @@ body {
 
 .wrapper { /* generic wrapper for centering elements */
 	margin: 0 auto;
-	width: 960px;
+	max-width: 960px;
+	xwidth: 95%;
 }
 
 .content {
@@ -624,16 +609,14 @@ body {
 * html .group { height: 1%; } /* IE6 */
 .group { min-height: 1px; } /*IE7 */
 
+.float { float: left; }
 
-.button, input[type=submit] {
+
+.button, input[type=submit], .formtastic input[type="submit"] {
 	background: rgb(42,89,207);
-	background: -moz-linear-gradient(top, rgb(42,89,207) 0%, rgb(32,67,154) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(42,89,207)), color-stop(100%,rgb(32,67,154)));
-	background: -webkit-linear-gradient(top, rgb(42,89,207) 0%,rgb(32,67,154) 100%);
-	background: -o-linear-gradient(top, rgb(42,89,207) 0%,rgb(32,67,154) 100%);
-	background: -ms-linear-gradient(top, rgb(42,89,207) 0%,rgb(32,67,154) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a59cf', endColorstr='#20439a',GradientType=0 );
-	background: linear-gradient(top, rgb(42,89,207) 0%,rgb(32,67,154) 100%);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.5);
+	box-shadow: 0 1px 3px rgba(0,0,0,.5);
 	border: none;
 	display: inline-block;
   -webkit-border-radius: 4px;
@@ -644,26 +627,43 @@ body {
   font-size: 1.2em;
   font-weight: bold;
   margin-right: 3px;
-  padding: 0.6em 1em;
+	margin-bottom: .5em;
+	min-width: 9em;
+  padding: 0.6em 0;
+	text-indent: 0.5em;
+	text-align: left;
   text-shadow: #000 0 1px 0;
 	width: auto;
 }
 
-.button a {
+.button a  {
 	color: #fff;
-  padding: 1em 1.3em;
+	padding: 1.3em 1.6em;
   text-decoration: none;
 }
 
+input[type=submit].update, input[type=submit].create {
+	/* green button */
+	background: rgb(0,149,44) url('../images/active_admin/icon-save.png') 6% 50% no-repeat;
+	text-indent: 1.5em;
+	padding: 0.6em 1em;
+}
+
 table {
-	margin-bottom: 1em;
+	background-color: #fff;
+	margin: 0 auto;
 	text-align: left;
-	width: 100%;
+	width: 95%;
 }
 
 th, td {
 	padding: 0.5em 0.75em;
 }
+	td:nth-child(even) {
+		text-align: right;
+	}
+	td a { padding-left: 0.5em; }
+
 	th {
 		border-bottom: 2px solid #E5E5E5;
 	}
@@ -708,3 +708,15 @@ th, td {
     }
 
 
+#parts { /* give parts tab groups a little breathing room */
+	margin-bottom: 1em;
+}
+
+.part {
+	background-color: #d3d1c9;
+	margin: 0 auto 3px;
+	padding: 0;
+	width: 100%;
+}
+
+form.button_to { display: inline-block; padding-left: 1.4em; width: auto; }
