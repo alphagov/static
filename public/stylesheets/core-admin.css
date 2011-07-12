@@ -414,7 +414,23 @@ table {
 
 
 
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
 
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
 
 
 
@@ -536,7 +552,6 @@ body {
   padding: 1em;
   width: 22em;
   background: #C3EEC8;
-  background: #d3d1c9
 }
 
 #halberd #gds-logo-type {
@@ -628,7 +643,6 @@ body {
   font-weight: bold;
   margin-right: 3px;
 	margin-bottom: .5em;
-	min-width: 9em;
   padding: 0.6em 0;
 	text-indent: 0.5em;
 	text-align: left;
@@ -671,41 +685,38 @@ th, td {
 		border-bottom: 1px solid #E5E5E5;
 	}
 
-    .edition h3 {
-        float: left;
-        margin-right: 30px;
-    }
+.edition {
+	padding: 0 1.4em;
+}
 
-    .edition .history li {
-        border-bottom: 1px solid #E5E5E5;
-        list-style: none;
-        clear: left;
-    }
+.edition h3 {
+	display: inline-block;
+	min-width: 25%;
+	width: 25%;
+}
 
-    .edition .history .comment:before {
-        content: '\201C';
-    }
+.edition .buttons {
+	display: inline-block;
+	width: 70%;
+}
 
-    .edition .history .comment:after {
-        content: '\201D';
-    }
+.edition .history li {
+	border-bottom: 1px solid #666;
+	list-style: none;
+}
 
-    .edition .buttons a {
-        display: block;
-        float: left;
-        width: 80px;
-    }
+.edition .comment:before {
+	content: '\201C';
+}
 
-    .edition .buttons form div {
-        float: left;
-        width: 80px;
-    }
-    .edition .history li h4 {
-        font-size: 1.2em;
-        font-weight: normal;
-        padding: 0;
-        margin: 0;
-    }
+.edition .comment:after {
+	content: '\201D';
+}
+
+.edition .history li h4 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
 
 
 #parts { /* give parts tab groups a little breathing room */
@@ -719,4 +730,8 @@ th, td {
 	width: 100%;
 }
 
-form.button_to { display: inline-block; padding-left: 1.4em; width: auto; }
+.button_to {
+	display: inline-block;
+	float: none;
+	width: auto;
+}
