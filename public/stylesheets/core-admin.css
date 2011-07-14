@@ -608,7 +608,7 @@ body {
 }
 
 .content {
-	margin: 2em auto;
+	margin: 2em auto 100px;
 }
 
 #guide-nav,
@@ -623,23 +623,25 @@ body {
 }
 
 #guide-controls {
-	background: #D3D1C9;
-	border: 1px solid #999;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	background: #666;
+	border-top: 1px solid #000;
 	position: absolute;
-	right: 5px;
-	bottom: 1%;
-	padding: 1em 1em 0;
+	left: 0%;
+	bottom: 0%;
+	padding: 0 1em;
 	position: fixed;
 	z-index: 100;
+
+	height: 60px;
+	margin: 0 auto;
+	padding-top: 1em;
+	width: 100%;
+	text-align: center;
 }
 
 #guide-controls .button_to {
-	display: block;
-	margin: 0 0 1em 0;
-	width: 100%;
+	display: inline-block;
+	margin: 0 1em 1em 0;
 }
 
 /* self-clearing floats */
@@ -706,6 +708,12 @@ input[type=submit].create {
 	padding: 0.6em 1em;
 	text-align: center;
 	width: 100%;
+}
+
+input[disabled] {
+	background: gray;
+	color: #eee;
+	cursor: default;
 }
 
 table {
