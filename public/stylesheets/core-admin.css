@@ -621,6 +621,26 @@ body {
 	padding: 1.5em 0;
 }
 
+#guide-controls {
+	background: #D3D1C9;
+	border: 1px solid #999;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	position: absolute;
+	right: 5px;
+	bottom: 1%;
+	padding: 1em 1em 0;
+	position: fixed;
+	z-index: 100;
+}
+
+#guide-controls .button_to {
+	display: block;
+	margin: 0 0 1em 0;
+	width: 100%;
+}
+
 /* self-clearing floats */
 .group:after {
   content: ".";
@@ -668,8 +688,8 @@ body {
 input[type=submit].update,
 input[type=submit].create {
 	/* green button */
-	background: rgb(0,149,44) url('../images/active_admin/icon-save.png') 6% 50% no-repeat;
-	text-indent: 1.5em;
+	background: rgb(0,149,44);
+/*	background: rgb(0,149,44) url('../images/active_admin/icon-save.png') 6% 50% no-repeat;*/
 	padding: 0.6em 1em;
 }
 
@@ -683,13 +703,16 @@ input[type=submit].create {
 
 .button_to input[type="submit"] {
 	padding: 0.6em 1em;
+	text-align: center;
+	width: 100%;
 }
 
 table {
 	background-color: #fff;
+	border: 1px solid #E5E5E5;
 	margin: 0 auto;
 	text-align: left;
-	width: 95%;
+	width: 97%;
 }
 
 th, td {
