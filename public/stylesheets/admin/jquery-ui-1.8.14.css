@@ -297,15 +297,13 @@
  */
 /* IE/Win - Fix animation bug - #4615 */
 .ui-accordion { width: 100%; }
-.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; left: 1em; margin-top: 1px; zoom: 1; width: auto; }
-
-.ui-accordion h3.ui-accordion-header:before { content: url('../../images/active_admin/icon-reorder-16.png'); position: absolute; top: 25%; left: -2%; }
-
+.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; width: auto; }
+.ui-accordion h3.ui-accordion-header:before { content: url('../../images/active_admin/icon-reorder-16.png'); position: absolute; top: 25%; left: 1em; }
 .ui-accordion .ui-accordion-li-fix { display: inline; }
 .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
 .ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }
-.ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
-.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: 1em; top: 50%; margin-top: -8px; }
+.ui-accordion-icons .ui-accordion-header a { padding-left: 3.5em; }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: 2.25em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 0; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; background: #d3d1c9; }
 .ui-accordion .ui-accordion-content-active { display: block; }
 /*

@@ -611,7 +611,8 @@ body {
 	margin: 2em auto;
 }
 
-#guide-nav {
+#guide-nav,
+#answer-nav {
 	margin: 1em 0;
 }
 
