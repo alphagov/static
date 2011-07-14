@@ -605,11 +605,20 @@ body {
 .wrapper { /* generic wrapper for centering elements */
 	margin: 0 auto;
 	max-width: 960px;
-	xwidth: 95%;
 }
 
 .content {
 	margin: 2em auto;
+}
+
+#guide-nav {
+	margin: 1em 0;
+}
+
+#guide-nav .intro {
+	font-weight: bold;
+	margin: 0 1em;
+	padding: 1.5em 0;
 }
 
 /* self-clearing floats */
@@ -623,8 +632,6 @@ body {
 
 * html .group { height: 1%; } /* IE6 */
 .group { min-height: 1px; } /*IE7 */
-
-.float { float: left; }
 
 
 .button, input[type=submit], .formtastic input[type="submit"] {
@@ -650,16 +657,31 @@ body {
 	width: auto;
 }
 
+.button { margin-left: 1em; }
+
 .button a  {
 	color: #fff;
 	padding: 1.3em 1.6em;
   text-decoration: none;
 }
 
-input[type=submit].update, input[type=submit].create {
+input[type=submit].update,
+input[type=submit].create {
 	/* green button */
 	background: rgb(0,149,44) url('../images/active_admin/icon-save.png') 6% 50% no-repeat;
 	text-indent: 1.5em;
+	padding: 0.6em 1em;
+}
+
+
+.button_to {
+	display: inline-block;
+	float: none;
+	margin-left: 1em;
+	width: auto;
+}
+
+.button_to input[type="submit"] {
 	padding: 0.6em 1em;
 }
 
@@ -686,18 +708,28 @@ th, td {
 	}
 
 .edition {
-	padding: 0 1.4em;
+}
+
+.edition .buttons {
+	display: inline-block;
+	width: 100%;
 }
 
 .edition h3 {
 	display: inline-block;
 	min-width: 25%;
+	padding-left: 1em;
 	width: 25%;
 }
 
-.edition .buttons {
+
+.check {
 	display: inline-block;
-	width: 70%;
+	text-align: right;
+	width: 72%;
+
+	/* temporarily commenting out diff buttons for first sprint */
+	display: none;
 }
 
 .edition .history li {
@@ -718,7 +750,6 @@ th, td {
 	font-weight: normal;
 }
 
-
 #parts { /* give parts tab groups a little breathing room */
 	margin-bottom: 1em;
 }
@@ -730,8 +761,18 @@ th, td {
 	width: 100%;
 }
 
-.button_to {
-	display: inline-block;
-	float: none;
-	width: auto;
+.flash-notice {
+	background-color: green;
+	color: #fff;
+	font-weight: bold;
+	padding: 1em;
+	text-align: center;
+}
+
+.flash-error {
+	background-color: #c00;
+	color: #fff;
+	font-weight: bold;
+	padding: 1em;
+	text-align: center;
 }
