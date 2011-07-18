@@ -808,3 +808,10 @@ th, td {
 	padding: 1em;
 	text-align: center;
 }
+
+.notification {
+	background-color: #FFFBBC;
+	font-weight: bold;
+	padding: 1em;
+	text-align: center;
+}
