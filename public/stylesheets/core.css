@@ -1,2613 +1,468 @@
-/* @override http://local.alphagov.co.uk:9292/stylesheets/core.css */
+/*! normalize.css 2011-06-27T20:08 UTC · http://github.com/necolas/normalize.css */
 
-* {
-  margin: 0;
-  padding: 0;
+/* =============================================================================
+   HTML5 element display
+   ========================================================================== */
+
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
 }
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ * Known limitation: IE6 will not apply style for 'audio[controls]'
+ */
+
+audio[controls],
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Removes Android and iOS tap highlight color to prevent entire container being highlighted
+ *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 4. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
 
 html {
-  min-width: 960px;
-  background: url(/images/application-background.gif) #f7f7f7;
+    font-size: 100%; /* 1 */
+    overflow-y: scroll; /* 2 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
 }
+
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
 
 body {
-  font-family: Arial, sans-serif;
-  font-size: 100%;
-  color: #333;
-	text-rendering: optimizeLegibility;
+    margin: 0;
 }
 
-img {
-  border: none;
+/*
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
 }
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
 
 a {
-  color: #0092F3;
-  text-decoration: none;
+    color: #1D97FF;
 }
-a:hover, a:focus {
-  text-decoration: underline;
-}
+
 a:visited {
-  color: #336699;
+    color: #551a8b;
 }
+
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+
+a:hover,
 a:active {
-  color: #CC0000;
+    outline: 0;
 }
 
-.clear {
-  clear: both;
-}
 
-input[type="submit"]:hover {
-  cursor: pointer;
-}
+/* =============================================================================
+   Typography
+   ========================================================================== */
 
-/* Accessibility */
-.make-invisible {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-}
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
 
-p.error-response {
-  color: red;
-  font-size: small;
-  padding-bottom: 0.25em;
-}
-div.app-error {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 150;
-  border: solid 2px #FF1000;
-  border-style: solid none;
-  background: #FFEBEB;
-  margin: 0 auto;
-  padding: 1em 0;
-}
-
-div.app-error p {
-  margin: 0 auto;
-  width: 50%;
-  padding: 0;
-  text-align: center;
-}
-div#global-app-error p + p {
-  margin-top: 0.5em;
-}
-/*div.app-error p {
-  margin: 0.5em 0;
-}*/
-
-
-/* layout */
-
-#container {
-  float: left;
-  width: 100%;
-  background: url(/images/page-strip-homepage.png) repeat-x center top;
-}
-
-#header {
-  position: relative;
-  float: left;
-  width: 100%;
-  height: 8.125em;
-  margin-bottom: 2em;
-  background: url(/images/header-background.png) repeat-x 0 10px;
-}
-
-#page-container {
-  margin: 0 3%;
-  background-repeat: no-repeat;
-  background-position: center top;
-}
-
-#page {
-  margin: 0 auto;
-  clear: both;
-  max-width: 1050px;
-  min-height: 28em;
-  position: relative;
-}
-
-#footer {
-  float: left;
-  clear: both;
-  width: 100%;
-  margin-top: 2em;
-  border-top: solid 1px #242424;
-  background-color: #EDEDED;
-  background-color: rgba(0,0,0,0.05);
-  background-image: url(/images/footer-background.png);
-  background-position: 52% top;
-  background-repeat: repeat-y;
-}
-
-.wrapper {
-  margin: 0 auto;
-  width: 94%;
-  max-width: 1050px;
+abbr[title] {
+    border-bottom: 1px dotted;
 }
 
 /*
-  basic columns
+ * Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
 */
 
-.text-content .section {
-  float: left;
-  margin-top: 1em;
-  clear: left;
-  width: 100%;
+b,
+strong {
+    font-weight: bold;
 }
 
-.text-content .full-width {
-  float: left;
-  margin-bottom: 1em;
-  width: 100%;
-}
-
-.text-content .one-third-col {
-  float: left;
-  margin-bottom: 1em;
-  width: 31%;
-}
-.text-content .one-third-col.left {
-  margin-right: 1.75%;
-}
-.text-content .one-third-col.right {
-  margin-left: 1.75%;
-}
-
-.text-content .two-third-col {
-  float: left;
-  margin-bottom: 1em;
-  width: 65.5%;
-}
-.text-content .two-third-col.left {
-  margin-right: 1.75%;
-}
-.text-content .two-third-col.right {
-  margin-left: 1.75%;
-}
-
-.text-content .one-quarter-col {
-  float: left;
-  margin-bottom: 1em;
-  width: 22.4%;
-}
-
-.text-content .right {
-  float: right;
-  clear: right;
+blockquote {
+    margin: 1em 40px;
 }
 
 /*
-  header
-*/
+ * Addresses styling not present in S5, Chrome
+ */
 
-#discover {
-  position: relative;
-  margin: 0 auto;
-  width: 94%;
-  height: 100%;
-  max-width: 1050px;
-  clear: both;
-}
-
-#logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index:30;
-}
-
-#get-help {
-  position: absolute;
-  top: 1.25em;
-  right: 1.25em;
-  padding: 0.25em;
-  display: block;
-  z-index: 1;
-  font-size: 0.88em;
-  text-align: center;
-  color: #fff;
-  background: #0092F3;
-}
-
-#discover-search {
-  position: relative;
-  float: right;
-  width: 100%;
-}
-
-#discover-search form {
-  margin-top: 3.4375em;
-}
-
-#discover-search form input {
-  font-family: inherit;
-  font-size: 1.38em;
-}
-
-#discover-search input[type="text"] {
-  padding: 0 0.31em;
-  margin-left: 26%;
-  width: 64%;
-  line-height: 1.65em;
-  height: 1.65em;
-  border: 1px solid #8F8F8F;
-  background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
-}
-
-#discover-search input[type="submit"] {
-  float: right;
-  padding: 0 0.91em;
-  line-height: 1.73em;
-  height: 1.73em;
-  text-shadow: 0 2px 0 #fff;
-  border: solid 1px #CCCCCC;
-  border-bottom: solid 1px #999999;
-  background: url(/images/search-button-background.png) repeat-x 0 0;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-}
-
-/* Geo */
-#global-user-location {
-  position: absolute;
-  left: 0;
-  height: 45px;
-  top: 120px;
-  padding-top:3px;
-}
-#global-user-location span.pin img {
-  position: absolute;
-  display: block;
-  padding: 0;
-  margin: 0;
-  left: -2.5em;
-  top: -45px;
-  -webkit-transform: scale(0.7);
-  -moz-transform:    scale(0.7);
-  -o-transform:      scale(0.7);
-  -ms-transform:     scale(0.7);
-  transform:         scale(0.7);
-  -webkit-transition: all 0.6s ease-in-out;
-  -moz-transition:    all 0.6s ease-in-out;
-  -o-transition:      all 0.6s ease-in-out;
-  -ms-transition:     all 0.6s ease-in-out;
-  transition:         all 0.6s ease-in-out;
-}
-#global-user-location.changing span.pin img {
-  -webkit-transform: scale(1);
-  -moz-transform:    scale(1);
-  -o-transform:      scale(1);
-  -ms-transform:     scale(1);
-  transform:         scale(1);
-}
-#global-user-location.set-intro p {
-  position: relative;
-}
-#global-user-location p span.text-highlight {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
-  background: #ffffaa;
-  z-index: -150;
-/* text-shadow:0 0 5px #6be619;*/
-/*  background: #ffffaa;*/
-}
-
-#location-set-message {
-  display:none;
-}
-
-#location-set-info {
-  position:relative;
-  top:-10px;
-}
-
-#global-user-location p {
-	color: #393939;
-	font-size: 0.75em;
-	left: 2.5em;
-	position: relative;
-	top: 15px;
-}
-
-#location-notifications img {
-  position:relative;top:5px;
-}
-
-#local-info-box {
-  position:relative;
-}
-
-#local-info-box .alpha-note {
-  top:40px;
-  right:55px;
-}
-
-#local-info-box #council-logo {
-  position:relative;
-  top:10px;
-  padding-right:8px;
-}
-#local-info-box h3 {
-  color: #868686;
-}
-
-#local-info-box h3{
-  padding:1.5em 0 0.7em 0;
-  font-size:1.5em;
-}
-
-#local-info-box dl{
-  border-top:solid 1px #ccc;
-}
-
-#local-info-box dt{
-  padding-top:1em;
-  font-weight:bold;
-  padding-bottom:1em;
-}
-
-#local-info-box dd{
-  border-bottom:solid 1px #ccc;
-  padding-bottom:1em;
+dfn {
+    font-style: italic;
 }
 
 /*
-  common elements
-*/
+ * Addresses styling not present in IE6/7/8/9
+ */
 
-ul.navigation {
-  list-style: none;
-}
-
-ul.navigation li {
-  margin: 0 0.5em;
-  display: inline;
-}
-
-ul.navigation li a {
-  font-size: 0.75em;
+mark {
+    background: #ff0;
+    color: #000;
 }
 
 /*
-  forms
-*/
+ * Corrects font family set oddly in IE6, S5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+
+/* 1 */
+
+q {
+    quotes: none;
+}
+
+/* 2 */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+small {
+    font-size: 75%;
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul,
+ol {
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+nav ul,
+nav ol {
+    list-style: none;
+}
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/*
+ * Corrects overflow displayed oddly in IE9
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+
+figure {
+    margin: 0;
+}
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+
+form {
+    margin: 0;
+}
+
+/*
+ * Define consistent margin and padding
+ */
 
 fieldset {
-  border: none;
+    margin: 0 0;
+    padding: 0.35em 0.625em 0.75em;
 }
 
-form.app-form fieldset {
-  margin-bottom: 1em;
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+
+legend {
+    border: 0; /* 1 */
+    *margin-left: -7px; /* 2 */
 }
 
-form.app-form fieldset input, form.app-form fieldset select {
-  font-family: inherit;
-  font-size: inherit;
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, F3/4, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
 }
 
-form.app-form fieldset input[type="text"] {
-  padding: 0.25em;
+/*
+ * 1. Addresses FF3/4 setting line-height using !important in the UA stylesheet
+ * 2. Corrects inner spacing displayed oddly in IE6/7
+ */
+
+button,
+input {
+    line-height: normal; /* 1 */
+    *overflow: visible;  /* 2 */
 }
 
-form.app-form fieldset input[type="radio"] {
-  margin-right: 0.5em;
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ */
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer; /* 1 */
+    -webkit-appearance: button; /* 2 */
 }
 
-form.app-form fieldset input[type="submit"],  form.app-form fieldset input[type="button"], form.app-form a.form-button {
-  border: solid 2px #3e79b7;
-  background: url(/images/button.png);
-  color: #fff;
-  text-shadow: 1px 1px 0px #254e74;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size-adjust:0.488;
-  font-weight:600;
-  font-style:normal;
-  font-size: 1em;
-  font-weight: normal;
-  padding: 0.25em 0.7em;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+/*
+ * Addresses box sizing set to content-box in IE8/9
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
 }
 
-form.app-form fieldset ul {
-  list-style: none;
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
 }
 
-form.app-form fieldset ul li {
-  margin-bottom: 0.5em;
-  line-height: 1.5em;
+/*
+ * Corrects inner padding displayed oddly in S5, Chrome on OSX
+ */
+
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
 }
 
-form.app-form fieldset ul li label {
-  margin-right: 0.5em;
+/*
+ * Corrects inner padding and border displayed oddly in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
 }
 
-form.app-form fieldset ul li label, form.app-form fieldset ul li input {
-  line-height: 100%;
-  vertical-align: middle;
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
 }
 
-form.app-form li.inline-elements li, form.app-form li.inline-elements p {
-  display: inline-block;
-  margin-right: 2em;
-  line-height: 100%;
-  vertical-align: middle;
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+/*
+ * Remove most spacing between table cells
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-form.app-form .strong-label {
-  font-weight: bold;
-}
 
-h2.legend {
-  font-size: 1.63em;
-  line-height: 1.15em;
-  margin-top: 0.69em;
-  margin-bottom: 0.46em;
-}
 
-h3.legend, label.legend {
-  font-size: 1.38em;
-  line-height: 1.18em;
-  margin-top: 0.82em;
-  margin-bottom: 0.55em;
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+
+/* self-clearing floats */
+.group:after {
+  content: ".";
   display: block;
-  font-weight: bold;
-}
-
-.ask_location label.legend {
-  margin-top:0.25em;
-}
-
-/* Popular and related */
-#related-items {
-  background:#fff;
-  border:solid 4px #3c92f2;
+  height: 0;
   clear: both;
-  margin: 2em 0;
+  visibility: hidden;
 }
 
-#related-items h3 {
-  background:#3c92f2;
-  text-align:center;
-  color:#fff;
-  padding-bottom: 0.5em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size-adjust:0.488;
-  font-weight:600;
-  font-style:normal;
-  font-size: 1.25em;
-  font-weight: normal;
-}
+* html .group { height: 1%; } /* IE6 */
+.group { min-height: 1px; } /*IE7 */
 
-#related-items ul {
-  padding-left: 1em;
-}
 
-#related-items ul li {
-  list-style-image: url(/images/bullet-point-default.png);
-  margin-bottom: 0.5em;
-}
+/*
+ * Core global styles
+ */
 
-/* jquery annotator */
-#jquery-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 90;
-	width: 100%;
-	height: 500px;
-}
-
-#jquery-link-annotator {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-	text-align: center;
-/*  line-height: 0;*/
-}
-
-#jquery-link-annotator h3, #jquery-link-annotator p {
-    margin:18px;
-}
-
-#jquery-link-annotator-container {
-	position: relative;
-	background-color: #fff;
-	width: 80%;
-	height: 250px;
+#wrapper,
+.inner {
 	margin: 0 auto;
-	border:solid 20px #808080;
-	padding:20px;
+	max-width: 960px;
+	width: 95%;
 }
 
-.annotate-description {
-    display:none;
-}
-
-/* Infoboxes */
-.infobox {background:#f8f8f8 url(/images/infobox-border.png) repeat-x top left;
-    padding:1em 15px; color:#939393; margin-bottom:1em;}
-.infobox img {border:solid 1px #565040}
-
-.infobox.alt {background:#fff url(/images/infobox-border.png) repeat-x top left;
-    padding:1em 0; color:#939393;}
-
-/* Download lists */
-ul.downloads {padding-left:0; margin-left:0;}
-ul.downloads li {list-style-type:none;padding-left:25px; margin-left:0; background:url(/images/download.png) 0 4px no-repeat;}
-
-/* alpha intro */
-
-#alpha_intro {
-  float: left;
-  width: 100%;
-	position: relative;
-  padding: 0.42em 0;
-	background: url(/images/alpha-background.png);
-}
-
-#alpha_intro .wrapper {
-  font-size: 0.8em;
-}
-
-#alpha_intro p {
-  float: left;
-  padding: 0.5em 0.6em;
-	color: #393939;
-  color: rgba(57,57,57,0.75);
-	text-align: left;
-	width: 39.5em;
-	line-height: 1.2em;
-	background: #fafadf;
-}
-
-#alpha_intro span {
-	color: #f00;
-  font-family: "Proxima Nova Semibold", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size-adjust: 0.488;
-  font-weight: 600;
-  font-style: bold;
-}
-
-#alpha_intro ul {
-	float: right;
-	position: relative;
-  padding: 0.5em 0 0.6em 0;
-	min-width: 28em;
-	text-align: right;
-  background-color: #fafadf
-}
-
-#alpha_intro li {
-  float: left;
-  list-style: none;
-  padding: 0 0.65em;
-  border-right: solid 1px #f0f0f0;
-  border-left: solid 1px #fff;
-}
-
-#alpha_intro li:first-child {
-  border-left: none;
-}
-
-#alpha_intro li:last-child {
-	border-right: none;
-	font-weight: bold;
-}
-
-#alpha_intro li a {
-	color: #369;
-	opacity: 0.75;
-}
-
-/* GROUP: Task components */
-#task-name {
-  padding-right: 35%;
-  border-bottom: 2px solid #333;
-  margin-bottom: 1em; /*experimenting with getting rid of this */
-}
-#task-name figure {
-  display: table-cell;
-  vertical-align: middle;
-  height: 10em;
-  padding-bottom: 1em;
-}
-#task-name h1 {
-/*  margin-bottom: 1em;*/
-}
-#task-name h2 {
-/*  margin-top: -1em;*/
-}
-
-div.task {
-  float:  left;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  width: 65.5%;
-  margin-right: 1.75%;
-}
-
-div.task.article-text {
-  margin-top: 0;
-}
-
-.task-intro {
-  padding-bottom: 0.6em;
-  margin-bottom:1em;
-  border-bottom: solid 2px #F0EDEB;
-}
-
-div.task.overview, div.decision-answers {
-  float: right;
-  width: 31%;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-}
-
-div.task.overview ul li {
-  list-style-image: none;
-}
-
-div.task-guidance {
-  margin: 2em 0;
-  padding: 1em;
-  background: #fff;
-  border: 1px solid #BAAA91; /* this colour is actually the colour originally used in passports app, there is no default */
-}
-
-div.task-guidance h4 {
-  margin-bottom: 0.5em;
-  text-align: center;
-  text-transform: uppercase;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size-adjust:0.488;
-  font-weight:600;
-  font-style:normal;
-  font-size: 1.25em;
-  font-weight: normal;
-  color: #6B1210; /* this colour is actually the colour originally used in passports app, there is no default */
-}
-
-div.task-guidance ul {
-  padding-left: 1.5em
-}
-
-div.task.overview div.task-guidance ul li {
-  margin-bottom: 0.5em;
-  list-style-image: url(/images/bullet-point-default.png)
-}
-
-div.task.overview div.task-guidance p {
-  margin-bottom: 0.5em;
-}
-
-.task-guidance h5 {
-	color: #000;
-	font-size: 1em;
-	margin: 1em auto;
-	text-align: center;
-}
-
-.task-guidance p.definition {
-	color: #75ACA8;
-	margin-bottom: 0;
-}
-
-.task-guidance a {
-	color: #336699;
-}
-
-div.task fieldset {
-  clear: both;
-  position: relative;
-}
-
-/* Task form elements */
-
-span.input-box {
-  display: block;
-  float: left;
-  padding: 0.5em 1em;
-  margin: 0 1em 0 0;
-  background: #fff;
-  border: 1px solid #e5e0de;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
-span.input-box input[type="radio"] {
-  margin-right: 0.5em;
-}
-
-span.input-box label {
-  font-weight: bold;
-}
-
-  /* GROUP: toggle-buttons */
-  div.task fieldset ul {
-    padding: 0;
-  }
-  li.toggle-button {
-    float: left;
-    display: block;
-    padding: 0.5em 1em 0.5em 3.75em;
-    margin: 0 1em 0 0;
-    border: 1px solid #e5e0de;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    background-color: #fff;
-  }
-  li.toggle-others {
-    padding: 0;
-  }
-  li.toggle-others p {
-    line-height: 1.5em;
-    padding: 0.5em 1em 0.5em 2.5em;
-    background: url(/images/option-down-arrow.png) 1em center no-repeat;
-    margin: 0;
-    cursor: pointer;
-  }
-  li.toggle-others.selected p {
-    padding-left: 3.75em;
-  }
-  li.toggle-button input {
-    position: absolute;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-  }
-  div.task fieldset ul li.toggle-button label {
-    margin: 0;
-    padding: 0;
-  }
-  div.task fieldset ul li.toggle-button-single.selected, div.task fieldset ul li.toggle-button-single.selected:hover, div.task fieldset ul li.toggle-button-single.selected label:hover, div.task fieldset ul li.toggle-others.selected p, div.task fieldset ul li.toggle-others li.selected {
-      color: #FF3300;
-  }
-  div.task fieldset ul li.toggle-button-single:hover, div.task fieldset ul li.toggle-button-single label:hover {
-      color: #336699;
-      cursor: pointer;
-  }
-  li.toggle-button ul.other-options-data {
-    height: 0;
-    width: 0;
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-  }
-  li.toggle-others ul.other-options-ui {
-    margin: 0;
-    display: none;
-  }
-  li.toggle-others ul.other-options-ui li {
-    margin:0;
-    padding: 0.5em 1em 0.5em 3.75em;
-    border-top: 1px solid #e5e0de;
-    background-repeat: no-repeat;
-  }
-  li.toggle-others ul.other-options-ui li:hover, li.toggle-others ul.other-options-ui li label:hover {
-/*    background-color: rgba(0,0,255,0.1);
-*/    color: #336699;
-      cursor: pointer;
-  }
-  div.task fieldset ul.other-options-ui li.selected {
-    display: none;
-  }
-
-/* Helpers */
-ul.helpers {
-  padding: 0;
-  margin-bottom: 1em;
-  list-style-type: none;
-  text-shadow: 0 1px 0px rgba(255,255,255,0.6);
-}
-
-ul.helpers li {
-  padding: 1.25em 7em 1.25em 1em;
-  margin-bottom: 2px;
-  color: #706e6e; /* this colour is actually the colour originally used in passports app, there is no default */
-  background-color: #e5e0de; /* this colour is actually the colour originally used in passports app, there is no default */
-  background-position: 87% center;
-  background-repeat: no-repeat;
-}
-ul.helpers li.active, ul.helpers li.active h3 a {
-  color: #fff;
-}
-
-ul.helpers li#helper-cash {
-  background-image: url(/images/helper-cash-icon.png);
-}
-ul.helpers li#helper-creditcard {
-  background-image: url(/images/helper-creditcard-icon.png);
-}
-ul.helpers li#helper-govgateway {
-  background-image: url(/images/helper-govgateway-icon.png);
-}
-ul.helpers li#helper-offline-steps {
-  background-image: url(/images/helper-offline-icon.png);
-}
-ul.helpers li#helper-passport {
-  background-image: url(/images/helper-passport-icon.png);
-}
-ul.helpers li#helper-proof-of-id {
-  background-image: url(/images/helper-proofofid-icon.png);
-}
-ul.helpers li#helper-multiple-pages {
-  background-image: url(/images/helper-steps-icon.png);
-}
-ul.helpers li#helper-steps-in-page {
-  background-image: url(/images/helper-steps-in-page-icon.png);
-}
-ul.helpers li#helper-time {
-  background-image: url(/images/helper-time-icon.png);
-}
 
 /*
-  decision tree stuff
-*/
+ * Core global header styles
+ */
 
-.decision-question .article-text.guides-introduction {
-  margin-bottom: 0;
-  padding-bottom: 1em;
-  border-bottom: solid 2px #333;
-}
+nav { float: left; }
+nav li { display: inline; }
 
-form.decision-question fieldset input[type="submit"] {
-  padding: 0;
-  background: none;
-  border: none;
-  text-shadow: none;
-  color: #0092F3;
-  font-family: inherit;
-}
-form.decision-question fieldset input[type="submit"]:hover {
-  text-decoration: underline;
-}
-
-.decision-answers {
-  padding-top: 2em;
-}
-
-.decision-answers .input-box {
-  margin: 0;
-  margin-bottom: 1em;
-  float: none;
-}
-
-.decision-answers .input-box input {
-  float: left;
-}
-
-.decision-answers .input-box label {
-  display: block;
-  width: 100%;
-}
-
-.decision-navigation {
-  float: left;
-  margin-top: 1em;
-  padding-top: 1.5em;
-  width: 100%;
-  border-top: 2px solid #333;
-}
-
-.decision-outcome {
-  text-align: center;
-}
-
-.decision-outcome.article-text h2 {
-  font-size: 3em;
-}
-
-/*
-  application notices
-*/
-
-.application-notice {
-  display: inline-block;
-  margin: 1em 0;
-  padding: 0.69em 1em 0.69em 3em;
-  background-color: #F7F7F7;
-  background-position: 0.6em 0.6em;
-  background-repeat: no-repeat;
-  background-image: url(/images/application-notice-icon-default.png);
-  border: solid 1px #999;
-  -webkit-border-radius: 1.3em;
-  -moz-border-radius: 1.3em;
-  border-radius: 1.3em;
-}
-
-.application-notice p {
-  font-size: 0.88em;
-  line-height: 1.43em;
-  font-weight: bold;
-}
-.application-notice p:last-child {
-  margin-bottom: 0;
-}
-
-.application-notice.passports {
-  background-image: url(/images/application-notice-icon-passports.png);
-  background-color: #F6F4F0;
-  border-color: #BCA990;
-}
-
-  /* Punchcard */
-  .indexcard {
-    border: solid 1px #e5e0de;
-    background: #fff;
-  }
-  .indexcard .indexcard_heading {
-    border-bottom: solid 2px #ffcccc;
-    padding: 2em 1.5em 1em 1.5em;
-    background: url(/images/indexcard.png) center 0 no-repeat;
-    position: relative;
-    top: -1px;
-  }
-  .indexcard .indexcard_body {
-    padding: 1.5em;
-  }
-
-/*
-  Postal address enevelope
-*/
-
-.postal-address {
-  padding: 3em 7em 3em 6em;
-  width: 12em;
-  min-height: 4em;
-  background: url(/images/stamp.png) 21em 1em no-repeat #fff;
-  border: solid 1px #D3D3D3;
-}
-
-.postal-address p {
-  font-size: 0.85em;
-}
-
-  /*  Page heading */
-.page_heading {
-  position: relative;
-  border-bottom: solid 2px #3e3e3e;
-}
-.page_heading h1 {
-  font-size: 3.5em;
-  line-height: 1.15em;
-}
-.page_heading h2 {
-  font-size: 2em;
-}
-.page_heading h1, .page_heading h2 {
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
-  font-size-adjust: 0.46;
-  font-weight: normal;
-  font-style: normal;
-  text-shadow: 0 2px 0 #fff;
-}
-
-.page_heading img {
-  position: absolute;
-  bottom: 0;
-  right: 1%;
-}
-
-/* Maps */
-.map_small {border:solid 1px #747451;width:220px; height:200px;}
-
-/* Phone number */
-a.phone_number, a.phone_number:hover, a.phone_number:visited, a.phone_number:active {
-  color: #404040;
-  font-size: 2em;
-  background: url(/images/phone.png) center left no-repeat;
-  padding-left: 1em;
-  text-decoration: none;
-  font-family: "Alternate Gothic No.3", 'Arial Narrow', Futura, sans-serif;
-  font-size-adjust: 0.5;
-  font-weight: bold;
-  font-style: normal;
-}
-
-/*
-  Information box
-*/
-
-.additional-information {
-  padding: 0.25em 1em 0.25em 3em;
-  background: url(/images/info-icon.png) 0.75em 0.75em no-repeat #fff;
-  border: solid 1px #E7E0DE;
-}
-
-.additional-information p {
-  margin: 0.75em 0;
-  font-size: 0.85em;
-}
-
-/* Ask Location */
-div.ask_location, div.finding_location, div.found_location {
-  background-color: #fafafa;
-  background-repeat:no-repeat;
-  background-image:url(/images/location-pin_outline-on-white_stacked_small.png);
-  background-position:0.85em 12px;
-  padding: 0.75em 1.25em 0.75em 2.75em;
-  position: relative;
-  float: left;
-  border: solid 1px #e5e0de;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-div.ask_location, div.finding_location {
-/*  width: 27.25em;*/
-}
-div.ask_location.set div {
-  background-position: 15px -115px;
-}
-div.ask_location.set div strong {
-  color: #ff3300;
-}
-div.ask_location.set p {
-  padding-top: 0.3em;
-}
-div.ask_location.set p a {
-  color: #6c6c6c;
-  padding-left: 17px;
-  font-size: 0.8em;
-}
-div.ask_location.set div p {
-  padding-top: 0;
-}
-div.ask_location input[type='text'] {
-  padding: 5px;
-}
-div.ask_location input[type='submit'] {
-  margin-left: 0.75em;
-}
-div.ask_location p.locate-me {
-  clear: left;
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0;
-  font-size: 0.85em;
-}
-div.finding_location {
-  padding-top: 1.25em;
-  padding-bottom: 1.25em;
-}
-div.finding_location p {
-  padding-left: 1.5em;
-  margin: 0;
-  background: url(/images/loading-spinner.gif) 0 center no-repeat;
-}
-div.found_location {
-  background-position:0.85em -124px;
-}
-div.found_location h3 {
-  margin: 8px 0 4px 0;
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 1em;
-  color: black;
-}
-div.found_location p {
-  margin: 0 0 6px 0;
-}
-div.found_location a {
-  font-size: 0.85em;
-}
-
-/* END GROUP: Task components */
-
-/* Autocomplete */
-
-#main_autocomplete {
-  color: inherit;
-}
-
-ul.ui-menu {
-  padding: 0;
-}
-
-ul.ui-widget {
-  font-size: 1em;
-}
-
-ul.ui-autocomplete {
-  font-family: Arial, sans-serif;
-  border: solid 1px #8F8F8F;
-  background: #fff;
-}
-
-ul.ui-autocomplete li, #search_hint {
-  padding:0.5em 0.75em 0 0;
-  margin:0 0 0 26%;
-  width: 64%;
-  font-size:0.75em;
-}
-
-ul.ui-autocomplete li {
-  border-top: solid 1px #DBDAD9;
-}
-
-ul.ui-autocomplete.ui-menu .ui-menu-item a {
-  padding: 0.625em;
-  font-size: 1.25em;
-  line-height: 1em;
-  text-shadow: 0 2px 0 #ffffff;
-}
-
-ul.ui-autocomplete li a em {
-  padding: 0.125em;
-  background-color: #FFE9A5;
-  font-style: normal;
-  font-weight: bold;
-}
-
-ul.ui-menu .ui-menu-item a.ui-state-hover, ul.ui-menu .ui-menu-item a.ui-state-active {
-  margin: 0;
-}
-
-ul.ui-autocomplete li a.ui-state-hover {
-  background-color: #E5FFFF;
-  border: none;
-  color: inherit;
-  background-image: none;
-  cursor: pointer;
-}
-
-ul.ui-autocomplete.ui-menu .ui-menu-item.search-site a {
-  padding-left: 2.25em;
-  color: #848585;
-  background-image: url(/images/search-site-magnifying-glass.png);
-  background-repeat: no-repeat;
-  background-position: 0.85em 52%;
-}
-
-ul.ui-autocomplete.ui-menu .ui-menu-item.search-site em {
-  font-style: italic;
-}
-
-ul.ui-corner-all, ul li a.ui-corner-all {
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-/*
-  stuff used for the articles app
-*/
-
-.article-heading h1 {
-  font-size: 2em;
-}
-
-.article-heading h1 span {
-  display: block;
-  font-size: 1.67em;
-  line-height: 1.1em;
-}
-
-p.action {
-	margin: 2em auto;
-	text-align: center;
-}
-
-a.action-button {
-  border: solid 2px #3e79b7;
-  border-bottom: solid 3px #3e79b7;
-  border-right: solid 3px #3e79b7;
-  background: url(/images/button.png);
-  color: #fff;
-  text-shadow: 1px 1px 0px #254e74;
-	text-decoration: none;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size-adjust:0.488;
-  font-weight:600;
-  font-style:normal;
-  font-size: 1.3em;
-  font-weight: normal;
-  line-height: 1.25em;
-  padding: 0.25em 0.7em;
-	text-align: center;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-a.action-button:hover, a.action-button:focus {
-  text-decoration:underline;
-}
-
-a.action-button:focus {
-  text-decoration:underline!important;
-}
-
-
-.video_version_message {
-  margin-bottom: 1.25em;
-  padding: 0.75em 0;
-  width: 100%;
-}
-
-.video_version_message a {
-  float: left;
-  margin-right: 1em;
-  padding: 0.5em 1em 0.5em 3em;
-  line-height: 1.75em;
-  font-size: 0.88em;
-  font-weight: bold;
-  border: solid 1px #D8D8D8;
-  background-color: #FFF;
-  background-image: url(/images/icons-guides.gif);
-  background-repeat: no-repeat;
-}
-
-.video_version_message a.text-version {
-  background-position: 0 0;
-}
-
-.video_version_message a.video-version {
-  background-position: 0 -120px;
-}
-
-.video_version_message a.print-this {
-  background-position: 0 -250px;
-}
-
-.fake_video {
-  padding: 1.5em;
-  background: #EEEFEF;
-  font-size: 0.88em;
-  color: #808080;
-  margin-bottom: 1em;
-}
-
-.paginated {
-	border-bottom: solid 2px #E4E4E4;
-  margin-bottom: 1em;
-	padding-bottom: 0.25em;
-	position: relative;
-	height: 2em;
-}
-
-.paginated.bottom {
-	padding: 0.5em 0 0.75em 0;
-	border-top: solid 2px #E4E4E4;
-}
-.paginated p {
-	float: left;
-	position: absolute;
-	top: 0;
-	margin: 0;
-}
-.paginated.bottom p {
-  padding-top: 1em;
-}
-
-.paginated p.paginated-pages {
-	color: #9B9B9B;
-	display: inline-block;
-	text-align: center;
-  width: 60%;
-  margin: 0 20%;
-}
-
-.paginated p.paginated-next {
-	right: 0px;
-}
-
-.paginated a {
-	font-size: 0.75em;
-}
-
-.article-text.guides-introduction {
-  margin-bottom: 2em;
-  border-bottom: solid 2px #E4E4E4;
-}
-
-p.guides-question {
-	background: url(/images/guides-question.png) no-repeat 0 0.25em;
-	text-indent: 1.75em;
-}
-
-ol.helpers {
-	list-style: none;
-	margin: 0;
-}
-
-ol.helpers li {
-	background-color: #EDEDED;
-	font-size: 0.933em;
-	margin: 0;
-	margin-bottom: 2px;
-	position: relative;
-}
-
-ol.helpers li.active {
-  color: #fff;
-	background-color: #75ACA8;
-}
-
-ol.helpers li h3 {
-  font-size: 1.13em;
-  line-height: 1.11em;
-  margin-top: 0;
-  margin-bottom: 0.67em;
-}
-
-ol.helpers li a {
-  display: block;
-	padding: 1em 1em 1em 3em;
-  color: inherit;
-	text-decoration: none;
-}
-
-ol.helpers li a:hover {
-  background: #D8D8D8;
-}
-
-ol.helpers li.active a:hover {
-  background-color: inherit;
-	cursor: default;
-}
-
-ol.helpers li p.step-label {
-	display: block;
-	background: url(/images/guides-helpers-numbers-bg.png) no-repeat;
-	color: #fff;
-	height: 24px;
-	margin-left: 0;
-	position: absolute;
-	left: 0.75em;
-	top: 0.75em;
-	width: 24px;
-}
-
-ol.helpers li.active p.step-label, ol.helpers li a:hover p.step-label {
-	background: url(/images/guides-helpers-numbers-bg-active.png) no-repeat;
-	color: #333;
-}
-
-ol.helpers li p.step-label span.step-number {
-	display: block;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
-	font-size-adjust: 0.46;
-	line-height: 24px;
-	text-align: center;
-}
-
-ol.helpers li a > p {
-  line-height: 1.5em;
-}
-
-ol.helpers li ul {
-	margin: 0 0 1em 1.4em;
-	padding: 0;
-}
-
-ol.helpers li li {
-	border-bottom: none;
-	margin: 0 1.66em;
-	padding: 0;
-}
-
-small.modified-date {
-  float: right;
-  margin-left: 2em;
-  margin-bottom: 1em;
-  font-size: 0.65em;
-  color: #9B9B9B;
-}
-
-/*
-  body text styles used in articles, guides, answers, transactions
-*/
-
-.task-step, .answer-step {
-  position: relative;
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-  margin-left: 4em;
-  min-height: 4em;
-}
-.task-step {
-  padding-bottom: 1.5em;
-  border-bottom: solid 2px #F0EDEB;
-}
-
-.task-step p.step-label, .answer-step p.step-label {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: -4em;
-}
-
-.task-step p.step-label .step-number, .answer-step p.step-label .step-number {
-  display: block;
-  width: 42px;
-  line-height: 42px;
-  font-size: 2em;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
-  font-size-adjust: 0.46;
-  font-weight: normal;
-  font-style: normal;
-  color: #fff;
-  text-align: center;
-  background: url(/images/step-number-background-default.png) no-repeat;
-}
-
-.task-step p.step-label .steps-total, .answer-step p.step-label .steps-total {
-  display: block;
-  font-size: 0.75em;
-  text-align: center;
-}
-
-.task-step h3.step-instruction {
-  padding: 0.5em 0;
-}
-
-.task-step p.step-instruction {
-  padding: 0.75em 0;
-  margin-bottom: 0;
-}
-
-.task-step .step-expectation {
-  padding: 1em;
-  background: #F0EDEB;
-  color:#87827f;
-  font-size:0.8em;
-}
-
-/*
-  text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
-*/
-
-.article-text h2 {
-  font-size: 1.63em;
-  line-height: 1.15em;
-  margin-top: 0.69em;
-  margin-bottom: 0.46em;
-}
-
-.article-text h3 {
-  font-size: 1.38em;
-  line-height: 1.18em;
-  margin-top: 0.82em;
-  margin-bottom: 0.55em;
-}
-
-.article-text h4 {
-  font-size: 1.13em;
-  line-height: 1.11em;
-  margin-top: 1em;
-  margin-bottom: 0.67em;
-}
-
-.article-text p, .article-text ul, .article-text ol {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin: 0.75em 0;
-}
-
-.article-text p.large-text {
-  font-size: 1.63em;
-  line-height: 1.15em;
-  margin: 0.46em 0;
-}
-
-.article-text p.small-text {
-  font-size: 0.75em;
-  line-height: 1.5em;
-  margin: 1em 0;
-}
-
-.article-text ul, .article-text ol {
-  padding-left: 1.5em;
-}
-
-.article-text ul {
-  list-style-image: url(/images/bullet-point-default.png)
-}
-
-.article-text .application-notice p {
-  font-size: 0.88em;
-}
-
-.article-text table {
-  margin: 0em 0;
-  margin-left: -0.38em;
-  padding: 0;
-  width: 80%;
-  border-collapse: separate;
-  border-spacing: 0.38em;
-}
-
-.article-text th, .article-text td {
-  vertical-align: top;
-  line-height: 1em;
-}
-
-.article-text th {
-  padding: 0.75em 1em;
-}
-
-.article-text td {
-  padding: 0.69em 1em 0.69em 1em;
-}
-
-.article-text th {
-  text-align: left;
-  background: rgba(62,62,62,0.07);
-}
-
-.article-text td {
-  background: #fff;
-  border: solid 1px #E9E8E7;
-}
-
-.article-text table ul {
-  padding-left: 0.75em;
-  margin: 0;
-  font-weight: bold;
-}
-
-.article-text table ul li:last-child {
-  margin-bottom: 0;
-}
-
-.article-text dl {
-  margin-top: 1.5em;
-  margin-bottom: 1.88em;
-}
-
-.article-text dt {
-  margin-bottom: 0.25em;
-  font-size: 1.25em;
-  font-weight: bold;
-}
-
-.article-text dd {
-  margin-bottom: 0.75em;
-}
-
-.article-text .advisory {
-  padding: 0 4.5em;
-  text-align: center;
-  font-size: 2em;
-  line-height: 1.45em;
-  background: url(/images/answers-advisory-highlight.png) center top repeat-y;
-}
-
-.article-text .help-notice, .article-text .info-notice {
-
-}
-
-.article-text .help-notice p, .article-text .info-notice p {
-  margin-top: 0;
-}
-
-.article-text .help-notice {
-
-}
-
-.article-text .info-notice {
-  background-image: url(/images/application-info-icon-default.png);
-}
-
-/*
-  search
-*/
-
-#search-head {
-  padding: 2em 0 0 0;
-}
-
-#search-head label#search-results-label {
-  display: block;
-  float: left;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
-  font-size-adjust: 0.46;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.38em;
-  width: 19%;
-  padding-top: 0.35em;
-  padding-left:0.45em;
-}
-
-#search-head form input {
-  font-family: inherit;
-  font-size: 1.38em;
-}
-#search-head fieldset {
-  padding-left: 0.75em;
-}
-#search-head fieldset p {
-  margin-top: 0.75em
-}
-
-#search-head fieldset p label {
-  margin: 0 0.75em 0 0;
-}
-
-#search-head fieldset p label input[type="radio"] {
-  margin-right: 0.25em;
-}
-#search-head input[type="text"] {
-  margin-right: 0.5em;
-  padding: 0.31em;
-  width: 60%;
-  font-weight: bold;
-  border: 1px solid #8F8F8F;
-  background: url(/images/search-box-inner-shadow.png) no-repeat 0 0;
-}
-
-#search-head input[type="submit"] {
-  padding: 0 0.91em;
-  line-height: 1.73em;
-  height: 1.73em;
-  text-shadow: 0 2px 0 #fff;
-  border: solid 1px #CCCCCC;
-  border-bottom: solid 1px #999999;
-  background: url(/images/search-button-background.png) repeat-x 0 0;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-  width: 12%;
-}
-
-.search-links .search-results {
-  background-color: rgba(249,249,197,0.5);
-  border: solid 1px #fc0;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  margin-top: 1em;
-  min-height: 2em;
-  padding: 0 1em;
-}
-.search-links .search-results ol li {
-  padding-left: 0;
-}
-.search-links {
-	margin-top: 1em;
-}
-
-.search-links h2 {
-	color: #D80000;
-	font-size: 1em;
-}
-
-#search-gov-uk, #search-everything {
-  margin-top: 1em;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  float: left;
-}
-
-#search-gov-uk h2, #search-everything h2 {
-  font-size: 1.13em;
-  margin-bottom: 0.89em;
-}
-
-#no-alpha-search-results, #empty-search {
-  width: 100%;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-  font-weight:bold;
-  font-size:1.4em;
-}
-
-#no-alpha-search-results p, #empty-search p {
-  padding:0;
-  width:75%;
-  margin: 1em 0;
-}
-
-
-#search-choices {
-  padding-top: 1em;
-  padding-left: 12.75em;
-}
-
-p.search-results-count, .search-results p.result-url {
-  font-size: 0.75em;
-  color: #969695;
-}
-
-.search-results p.result-url {
-  color: #969695;
-	font-size: 0.75em;
-}
-
-.search-head form span.input-box input {
-  font-size: inherit;
-}
-
-.search-results {
-  padding-top: 0.63em;
-  border-top: solid 2px rgba(0,0,0,0.1);
-}
-
-.search-results ol {
-  padding-top: 2.25em;
-  list-style: none;
-}
-
-.search-links .search-results ol {
-	border: none;
-	margin: 0;
-	padding-top: 1em;
-}
-
-.search-results ol li {
-  position: relative;
-  padding-left: 4em;
-  margin-bottom: 2.25em;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.search-results ol li p.result-label {
-	font-size: 0.75em;
-	font-size: 0.8em;
-	line-height: 1;
-	margin: 0;
-	text-align: left;
-}
-
-.search-results ol li p.result-label span {
-	display: block;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size-adjust:0.488;
-  font-weight:600;
-  font-style:normal;
-	font-size: 0.75em;
- 	text-align: center;
-  text-transform: uppercase;
-  color: #7B7B7A;
-}
-
-#search-gov-uk .search-results ol li p.result-label span {
-  position: absolute;
-	top: 5.5em;
-  left: 0;
-  width: 48px;
-}
-
-#search-everything .search-results ol li p.result-label span {
-	display: inline;
-	top: 0;
-	text-align: left;
-	width: auto;
-}
-.search-results ol li h3 {
-  font-size: 1.13em;
-  line-height: 1.11em;
-  margin-top: 0;
-  margin-bottom: 0.67em;
-}
-
-.search-links .search-results ol li h3 {
-	margin-bottom: 0;
-	padding-top: 0.25em;
-}
-
-.search-results ol li p {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin: 0.75em 0;
-}
-
-.search-links .search-results ol li p {
-	margin-top: 0.5em;
-}
-
-.search-results img.search_icon {
-  float:left;
-  margin:3px 24px 20px 0;
-}
-/*
-.search-results li.guide {
-  background-image: url(/images/icon-guide-48.png);
-}
-
-.search-results li.answer {
-  background-image: url(/images/icon-answer-48.png);
-}
-
-.search-results li.tool {
-  background-image: url(/images/icon-tool-48.png);
-}
-
-.search-results li.government {
-  background-image: url(/images/icon-govt-48.png);
-}
-
-#search-everything .search-results li, .search-didyoumean.search-results li {
-  background-image: url(/images/icon-default-search-result-48.png);
-}*/
-/* Search results icons */
-#search-everything .search-results li.www_advocategeneral_gov_uk {
-  background-image: url(/images/search/www_advocategeneral_gov_uk.gif);
-}
-#search-everything .search-results li.www_attorneygeneral_gov_uk {
-  background-image: url(/images/search/www_attorneygeneral_gov_uk.gif);
-}
-#search-everything .search-results li.www_bis_gov_uk {
-  background-image: url(/images/search/www_bis_gov_uk.gif);
-}
-#search-everything .search-results li.www_businesslink_gov_uk {
-  background-image: url(/images/search/www_businesslink_gov_uk.gif);
-}
-#search-everything .search-results li.www_commonsleader_gov_uk {
-  background-image: url(/images/search/www_commonsleader_gov_uk.gif);
-}
-#search-everything .search-results li.www_communities_gov_uk {
-  background-image: url(/images/search/www_communities_gov_uk.gif);
-}
-#search-everything .search-results li.www_culture_gov_uk {
-  background-image: url(/images/search/www_culture_gov_uk.gif);
-}
-#search-everything .search-results li.www_decc_gov_uk {
-  background-image: url(/images/search/www_decc_gov_uk.gif);
-}
-#search-everything .search-results li.www_defra_gov_uk {
-  background-image: url(/images/search/www_defra_gov_uk.gif);
-}
-#search-everything .search-results li.www_dfid_gov_uk {
-  background-image: url(/images/search/www_dfid_gov_uk.gif);
-}
-#search-everything .search-results li.www_dft_gov_uk-dvla {
-  background-image: url(/images/search/www_dft_gov_uk-dvla.gif);
-}
-#search-everything .search-results li.www_dft_gov_uk {
-  background-image: url(/images/search/www_dft_gov_uk.gif);
-}
-#search-everything .search-results li.www_dh_gov_uk {
-  background-image: url(/images/search/www_dh_gov_uk.gif);
-}
-#search-everything .search-results li.www_direct_gov_uk {
-  background-image: url(/images/search/www_direct_gov_uk.gif);
-}
-#search-everything .search-results li.www_dwp_gov_uk {
-  background-image: url(/images/search/www_dwp_gov_uk.gif);
-}
-#search-everything .search-results li.www_education_gov_uk {
-  background-image: url(/images/search/www_education_gov_uk.gif);
-}
-#search-everything .search-results li.www_equalities_gov_uk {
-  background-image: url(/images/search/www_equalities_gov_uk.gif);
-}
-#search-everything .search-results li.www_fco_gov_uk {
-  background-image: url(/images/search/www_fco_gov_uk.gif);
-}
-#search-everything .search-results li.www_highways_gov_uk {
-  background-image: url(/images/search/www_highways_gov_uk.gif);
-}
-#search-everything .search-results li.www_hm-treasury_gov_uk {
-  background-image: url(/images/search/www_hm-treasury_gov_uk.gif);
-}
-#search-everything .search-results li.www_hmrc_gov_uk {
-  background-image: url(/images/search/www_hmrc_gov_uk.gif);
-}
-#search-everything .search-results li.www_homeoffice_gov_uk {
-  background-image: url(/images/search/www_homeoffice_gov_uk.gif);
-}
-#search-everything .search-results li.www_justice_gov_uk {
-  background-image: url(/images/search/www_justice_gov_uk.gif);
-}
-#search-everything .search-results li.www_nio_gov_uk {
-  background-image: url(/images/search/www_nio_gov_uk.gif);
-}
-#search-everything .search-results li.www_privy-council_org_uk {
-  background-image: url(/images/search/www_privy-council_org_uk.gif);
-}
-#search-everything .search-results li.www_scotlandoffice_gov_uk {
-  background-image: url(/images/search/www_scotlandoffice_gov_uk.gif);
-}
-#search-everything .search-results li.www_walesoffice_gov_uk {
-  background-image: url(/images/search/www_walesoffice_gov_uk.gif);
-}
-/* END: Search results icons */
-
-.more-results-container {
-  clear: both;
-  text-align: center;
-  padding: 2em 0 2em 0;
-  margin:0;
-  width:70%;
-}
-
-.search-pagination {
-  position: relative;
-  padding: 1.25em 0;
-}
-
-.search-pagination ol {
-  list-style: none;
-}
-
-.search-pagination ol li {
-  float: left;
-  margin-right: 0.63em;
-}
-
-.search-pagination ol li a, .search-pagination ol li.current, .search-pagination ol li.disabled {
-  display: block;
-  padding: 0.31em 0.63em;
-  font-weight: bold;
-  color: #fff;
-  background: #858A87;
-}
-
-.search-pagination ol li.current, .search-pagination ol li.disabled {
-  color: #5B5A5A;
-  background: #DCDBDA;
-}
-
-.search-pagination .previous-next {
-  position: absolute;
-  top: 1.25em;
-  right: 0;
-}
-
-.search-pagination ol.previous-next li {
-  margin-right: 0;
-  margin-left: 0.63em;
-  background-repeat: no-repeat;
-}
-
-.search-pagination ol.previous-next li a {
-  background-repeat: no-repeat;
-}
-
-ol.previous-next li.previous a, ol.previous-next li.previous.disabled {
-  padding-left: 1.88em;
-  background-position: 0.63em center;
-  background-image: url(/images/pagination-prev.png);
-}
-
-ol.previous-next li.next a, ol.previous-next li.next.disabled {
-  padding-right: 1.88em;
-  background-position: 85% center;
-  background-image: url(/images/pagination-next.png);
-}
-
-ol.previous-next li.previous.disabled {
-  background-image: url(/images/pagination-prev-disabled.png);
-}
-
-ol.previous-next li.next.disabled {
-  background-image: url(/images/pagination-next-disabled.png);
-}
-
-/* feedback form */
-.alpha-feedback {
-	background-color: #fff;
-	border: solid 1px #333;
-	border-right: none;
-	-webkit-border-top-left-radius: 1em;
-	-webkit-border-bottom-left-radius: 1em;
-	-moz-border-radius-topleft: 1em;
-	-moz-border-radius-bottomleft: 1em;
-	border-top-left-radius: 1em;
-	border-bottom-left-radius: 1em;
-	position: fixed;
-	right: 0;
-	top:200px;
-	padding: 0.5em 1em;
-	width: 150px;
-	z-index: 50;
-}
-
-.alpha-feedback a.close {
-	background: #4C4C4C url(../images/alpha-feedback-close.png) no-repeat;
-	height: 16px;
-	width: 16px;
-	text-indent: -999em;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.alpha-feedback h3 {
-  margin-bottom: 0.5em;
-	font-size: 1em;
-	font-weight: bold;
-}
-
-.alpha-feedback p {
-	margin-bottom: 1em;
-	font-size: 0.88em;
-}
-
-.alpha-feedback #feedback-options {
-	margin-left: 0;
-	margin-bottom: 0;
-}
-
-.alpha-feedback a.yes, .alpha-feedback a.no, .alpha-feedback h4 {
-  font-family: "Alternate Gothic No.3", 'Arial Narrow', Futura, sans-serif;
-  font-size-adjust: 0.5;
-  font-weight: normal;
-  font-style: normal;
-  text-transform: uppercase;
-	font-size: 1.6em;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-
-.alpha-feedback a.yes {
-	background: url(/images/alpha-feedback-yes.png) no-repeat;
-	color: #090;
-	padding-left: 1em;
-	margin-right: 0.5em;
-}
-
-.alpha-feedback a.yes:hover {
-	border-bottom: solid 2px #090;
-}
-
-.alpha-feedback a.no {
-	background: url(/images/alpha-feedback-no.png) no-repeat;
-	color: #c00;
-	padding-left: 1em;
-}
-
-.alpha-feedback a.no:hover {
-	border-bottom: solid 2px #c00;
-}
-
-.alpha-feedback h4 {
-	margin: 0;
-}
-.alpha-feedback.submitted h3, .alpha-feedback.submitted p {
-	opacity: .3;
-}
-
-/* alpha advisory notes */
-
-.alpha-note {
-  float: right;
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-  width: 12.25em;
-  background: rgb(250,250,223);
-  font-size:1.2em;
-  color:#000;
-  z-index: 1;
-}
-
-.alpha-note p {
-  padding:0 10em;
-  font-family:"Reminder Pro Bold", sans-serif; font-size-adjust:0.46; font-weight:bold; font-style:normal;
-}
-
-.alpha-note.large {
-  float:none;
-  width: 100%;
-}
-
-.alpha-note.absolute {
-  position:absolute;
-  right:3em;
-  top:22em;
-  z-index: 1;
-}
-
-
-.alpha-note h4 {
-  padding: 1em;
-  height: 2.167em;
-  line-height: 2.167em;
-  font-size: 0.75em;
-  text-transform: uppercase;
-  color: #FC0000;
-  background: url(/images/alpha-note-background.png) repeat-x 0 0;
-}
-
-.alpha-note p, .alpha-note form {
-  padding: 1em;
-  font-size: 0.75em;
-  line-height: 1.5em;
-}
-
-.alpha-note form {
-  padding:0 1em;
-}
-
-.alpha-note form label {
-  font-weight:bold;
-  padding-right:1em;
-}
-
-/* BEGIN: modal popovers */
-
-.popover-mask {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  background-color: rgba(0,0,0,0.6);
-  z-index:60;
-}
-
-.popover-mask .popover {
-  background: #f6f5f1;
-  border: solid 1px #D6D6D6;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-  margin: 4em auto 0 auto;
-  padding: 0 2.5em 2em 2.5em;
-  position: relative;
-  width: 50%;
-  min-width: 25em;
-}
-.popover .header img.logo {
-  display: block;
-  position: relative;
-  top: -0.25em;
-}
-.popover .close {
-  position: absolute;
-  top: -19px;
-  right: -19px;
-}
-.popover h2 {
-  border-bottom: solid 2px #D6D6D6;
-  font-family:"Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size-adjust: 0.488;
-  font-weight: 600;
-  font-style: normal;
-  margin: 1em 0 1.3em 0;
-  position: relative;
-  padding-bottom: 0.88em;
-  text-shadow: 0 2px 0 #fff;
-}
-.popover a.button {
-  background: url(/images/welcome/button.png) no-repeat;
-  border: none;
-  color: #333;
-  display: block;
-  font-size: 1.2em;
-  height: 42px;
-  line-height: 42px;
-  margin: 1.75em 0 0;
-  text-align: center;
-  text-decoration: none;
-  width: 136px;
-}
-/* END: modal popovers */
-
-
-/* BEGIN: global locate-me box */
-#global-locator-box.popover {
-  width: 60%;
-  max-width: 40em;
-}
-#global-set-location form {
-  position: relative;
-}
-#global-locator-box #forget-location {
-  float: left;
-  margin: 1.2em 2.5em;
-}
-/*#global-locator-box #forget-location {
-  position: absolute;
-  top: 1.5em
-  right: 2em;
-}*/
-/* END: global locate-me box */
-
-/* BEGIN: get satisfaction feedback box */
-
-#feedback-router-box.popover {
-  width: 60%;
-  max-width: 40em;
-}
-
-#feedback-choose {
-  float: left;
-  margin-bottom: 1em;
-  text-align: center;
-}
-
-#feedback-choose .feedback-choice {
-  float: left;
-  padding: 0 2em;
-  height: 6em;
-  width: 34.75%;
-  border: solid 1px #E5E0DE;
-  background: #fff;
-}
-
-#feedback-choose .feedback-choice p {
-  font-size: 0.88em;
-}
-
-#feedback-choose .feedback-choice.facebook a {
-  display: block;
-  margin: 0 auto;
-  margin-top: 2.25em;
-  text-indent: -9999px;
-  height: 35px;
-  width: 174px;
-  background: url(/images/on-facebook.png) 0 0 no-repeat;
-}
-
-#feedback-choice-separator {
-  float: left;
-  padding: 2.5em 1em;
-  width: 5%;
-}
-
-/* END: get satisfaction feedback box */
-
-
-/* BEGIN: syndications api */
-.syndication_api {
-  margin: 2em 0;
-  padding: 1em;
-  background: #fff;
-  border: 1px solid #9F9A99;
-}
-
-.syndication_api h4, .syndication_api p {
-  font-size: 0.88em;
-  line-height: 1.5em;
-  margin: 0.75em 0;
-  color: #666;
-}
-
-.syndication_api h4 {
-  margin-top: 0;
-  margin-left: -0.75em;
-  padding-left: 3em;
-  background: url(/images/icons-guides.gif) 0 -380px no-repeat;
-}
-
-/* END syndication api */
-
-/* footer */
-
-#footer .explore-elsewhere {
-  float: left;
-  width: 82%;
-  padding-bottom: 1em;
-}
-
-#footer .explore-elsewhere.government {
-  width: 18%;
-/*  height: 27em;*/
-/*  background-color: #323232;*/
-  -webkit-border-top-right-radius: 3px;
-	-webkit-border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-	-moz-border-radius-bottomright: 3px;
-  border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
-}
-
-#footer .popular-global {
-  margin-bottom: 2em;
-}
-
-#footer .government-global {
-  padding: 0 0 1em 1em;
-}
-
-#footer h4 {
-  margin-top: 1.25em;
-  margin-bottom: 1em;
-  font-family: "Clarendon FS Medium", Georgia, 'Times New Roman', Times, serif;
-  font-size-adjust: 0.46;
-  font-weight: normal;
-  font-size: 1.38em;
-  line-height: 1.18em;
-  font-style: normal;
-  text-shadow: 0 2px 0 #F2F2F2;
-}
-
-#footer .government-global h4 {
-	font-family: "Proxima Nova Semibold", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size-adjust: 0.488;
-	font-weight: 600;
-	font-style: normal;
-	font-weight: normal;
-  color: #fff;
-  text-shadow: none;
-}
-
-#footer .popular-global ul {
-  margin-left: -1.5em;
-}
-
-#footer .popular-global ul li, #popular li {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-	font-size: 0.88em;
-	list-style: none;
-	min-height: 6.5em;
-/*  padding: 0.5em 1.5em 0.5em 5em;*/
-	width: 33.3%;
-}
-
-#footer .popular-global ul li a, #popular li a {
-	display: block;
-  padding: 9px 1.5em 10px 5.63em;
-	font-weight: bold;
-  line-height: 1.33em;
-	color: #369;
-	min-height: 3em;
-	background-image: url(/images/index/homepage-topicons.gif);
-	background-repeat: no-repeat;
-}
-
-#footer .popular-global ul li.guide a, #popular li.guide a {
-  background-position: 2.5em -240px;
-}
-
-#footer .popular-global ul li.answer a, #popular li.answer a {
-  background-position: 2.25em -120px;
-}
-
-#footer .popular-global ul li.tool a, #footer .popular-global ul li.transaction a, #popular li.tool a, #popular li.transaction a {
-  background-position: 2.25em 4px;
-}
-
-#footer .popular-global ul li a small {
-  display: inline-block;
-  padding: 0 0.25em;
-  background-color: #E0E7ED;
-}
-
-#footer .popular-global ul li:nth-of-type(3n-1) {
-	border-right: solid 1px #D3D3D3;
-	border-left: solid 1px #D3D3D3;
-}
-
-#footer .government-global ul {
-  position: relative;
-}
-
-#footer .government-global ul li {
-  position: relative;
-	margin-bottom: 0.25em;
-  height: 3em;
-	font-size: 0.88em;
-	line-height: 1.33em;
-	list-style: none;
-}
-
-#footer .government-global ul li a {
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-}
-
-.latest-news-depts li a {
-  display: block;
-  padding-left: 50px;
-	color: #fff;
-	line-height: 42px;
-	background-color: #191919;
-	background-color: rgba(0,0,0,.08);
-	background-image: url(/images/index/homepage-govicons.gif);
-	background-repeat: no-repeat;
-}
-
-.latest-news-depts li#gov-news a {
-  background-position: 0 0;
-}
-.latest-news-depts li#gov-depts a {
-  background-position: 0 -120px;
-}
-.latest-news-depts li#gov-speeches a {
-  background-position: 0 -600px;
-}
-.latest-news-depts li#gov-policies a {
-  background-position: 0 -360px;
-}
-.latest-news-depts li#gov-pubs a {
-  background-position: 0 -720px;
-}
-.latest-news-depts li#gov-consuls a {
-  background-position: 0 -480px;
-}
-.latest-news-depts li#gov-bills a {
-  background-position: 0 -840px;
-}
-.latest-news-depts li#gov-mins a {
-  background-position: 0 -240px;
-}
-
-#reuse-license, #cookie-declaration {
-  font-size:0.7em;
-  color:#808080;
-  padding-top:0.5em;
-}
-
-#promo-global {
-  padding-top: 1em;
-  clear: both;
-  text-align: center;
-}
-
-#copyright-global {
-  clear: both;
-  padding: 2em 0;
-  text-align: center;
-}
-
-/* BEGIN: Help and access */
-.access-info {
-  border:double 3px #ccc;
-  padding:0.8em;
-}
-.access-info h3 {
-  font-size:1.3em;
-}
-.access-info h4 {
-  padding-bottom:0.8em;
-  padding-top:1em;
-}
-.access-info h5 {
-  font-size:1em;
-  font-weight:normal;
-}
-
-.access-info ul {
-  padding-left:1em;
-}
-
-.access-info ul li {
-  padding-bottom:0.8em;
-}
-
-.access-info form {
-  padding:0.5em 0;
-}
-.access-info p {
-  padding:0.5em 0;
-}
-
-div.faqs {
-  padding-right:2em;
-}
-/* END: Help and access */
-
-/* Error pages */
-
-.error-page #page {
-  min-height: 25em;
-}
-
-.error-page #page #content-container {
-  float: left;
-  padding-bottom: 2em;
-  background: url(/images/404-flat.gif) no-repeat bottom right;
-}
-
-.error-page #page #task-name {
-  padding-right: 65%;
-  padding-top: 2em;
-  border-bottom: none;
-}
-
-.error-page #page h1 {
-  font-size: 2.25em;
-  line-height: 1.15em;
-  margin-top: 0.69em;
-  margin-bottom: 0.46em;
-}
-
-.error-page #footer {
-  margin-top: 0;
-}
-
-
-/* BEGIN: Browse */
-#browse-all {
-  padding-top: 2em;
-}
-#browse-all div {
-  float: left;
-  width: 28%;
-  padding-right: 4%;
-}
-
-#browse-all h3, #browse-all h4 {
-  padding-bottom: 0.5em;
-  border-bottom: solid 2px #ebebeb;
-  margin-bottom: 0.6em;
-  color: #3f3f3f;
-}
-#browse-all ul {
-  padding-bottom: 1em;
-  padding-left: 1em;
-  line-height: 1.4em;
-}
-
-#browse-all h4 {
-  font-size: 0.9em;
-	margin-top: 1em;
-}
-
-#browse-all h3.tools, #browse-all h3.answers, #browse-all h3.guides {
-  background: url(/images/index/homepage-topicons.gif) no-repeat;
-  padding-left: 50px;
-}
-#browse-all h3.tools {
-  background-position: 0 -8px;
-}
-#browse-all h3.answers {
-  background-position: 0 -128px;
-}
-#browse-all h3.guides {
-  background-position: 0 -248px;
-}
-
-/* END: Browse */
-
-
-.devolved-content {
-  background:#fff;
-  padding:0 0.5em 0.5em 0.5em;
-  margin:1em 0;
-  border:dotted 1px #ccc;
-}
-
-p.devolved-header {
-  font-size:0.7em;
-  border-bottom:solid 1px #ccc;
-  text-align:left;
-  position:relative;
-}
-
-.devolved-content.scotland  p.devolved-header{
-  padding:0 0 0 20px;  
-  background:url(/images/scotland.png) no-repeat 0 0;
-}
-.devolved-content.england  p.devolved-header{
-  padding:0 0 0 20px;  
-  background:url(/images/england.png) no-repeat 0 0;
-}
-.devolved-content.wales  p.devolved-header{
-  padding:0 0 0 20px;  
-  background:url(/images/wales.png) no-repeat 0 0;
-}
-.devolved-content.england-wales  p.devolved-header{
-  padding:0 0 0 41px;  
-  background:url(/images/england-wales.png) no-repeat 0 0;
-}
+.site-search { float: right; }
