@@ -9,16 +9,24 @@ header {
 
 section {
 	background: #ddd;
-	margin: 0 auto;
+	margin: 1em auto;
 	width: 100%;
+}
+
+header hgroup {
+	display: inline-block;
+	float: left;
+	width: 70%;
 }
 
 article {
 	background: #fff;
+	border-right: 1px solid #ddd;
 	float: right;
-	margin: 0 auto;
+	margin: 1em 0 1em -1px;
   width: 70%;
 }
+
 	article header {
 		background: none;
 		width: 100%;
@@ -41,16 +49,35 @@ aside nav {
 aside li.active {
 	background: #fff;
 	display: block;
+	padding: 0.5em 0;
 }
 
 
 .related {
+	border: 1px solid #333;
+	display: inline-block;
 	float: right;
+	padding: 0 1em;
+	width: 25%;
+}
+
+.related li {
+	list-style-type: disc;
+	display: block;
 }
 
 .pagination {
+	border-top: 1px dashed #ddd;
+	border-bottom: 1px dashed #ddd;
 	display: block;
+	margin-bottom: 1em;
+	padding: 0.5em 0;
 	width: 100%;
+}
+
+.pagination p {
+	display: inline-block;
+	width: 33%;
 }
 
 /*
