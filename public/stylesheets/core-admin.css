@@ -801,7 +801,7 @@ th, td {
 	text-align: center;
 }
 
-.flash-error {
+.flash-alert {
 	background-color: #c00;
 	color: #fff;
 	font-weight: bold;
