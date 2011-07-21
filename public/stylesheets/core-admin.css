@@ -622,7 +622,7 @@ body {
 	padding: 1.5em 0;
 }
 
-#guide-controls {
+#guide-controls, .format-controls {
 	background: #666;
 	border-top: 1px solid #000;
 	position: absolute;
@@ -639,10 +639,11 @@ body {
 	text-align: center;
 }
 
-#guide-controls .button_to {
+#guide-controls .button_to, .format-controls .button_to, .format-controls p.button {
 	display: inline-block;
 	margin: 0 1em 1em 0;
 }
+
 
 /* self-clearing floats */
 .group:after {
@@ -792,6 +793,28 @@ th, td {
 	padding: 0;
 	width: 100%;
 }
+
+/*
+ * icons for format types
+ */
+
+.formats td.transaction, .formats td.answer, .formats td.guide {
+  background: url(/images/index/homepage-topicons.gif) no-repeat;
+  padding-left: 45px;
+}
+
+.formats td.transaction {
+  background-position: 0 10px;
+}
+
+.formats td.answer {
+  background-position: 0 -110px;
+}
+
+.formats td.guide {
+  background-position: 0 -232px;
+}
+
 
 .flash-notice {
 	background-color: green;

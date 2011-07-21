@@ -45,11 +45,8 @@ header {
 }
 
 	body>header>div>h1 {
-		width: 47%;
-	}
-
-	header h1 {
 		font-size: 150%;
+		width: 47%;
 	}
 
 section {
