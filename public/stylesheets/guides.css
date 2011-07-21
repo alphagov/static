@@ -2,16 +2,67 @@
  * Guides app specific css
  */
 
+#wrapper {
+	-webkit-box-shadow: 0 1px 3px 1px rgba(0,0,0,.25);
+	-moz-box-shadow: 0 1px 3px 1px rgba(0,0,0,.25);
+	box-shadow: 0 1px 3px 1px rgba(0,0,0,.25);
+	margin: 0 auto;
+	max-width: 960px;
+	width: 95%;
+}
+
+.inner {
+	margin: 0 auto;
+	max-width: 960px;
+	padding: 1em;
+	position: relative;
+}
+
+aside .inner { padding: 0; }
+
+/*
+ * Core global header styles
+ */
+
+nav { float: left; }
+nav li { display: inline; }
+
+.site-search {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
+.site-search input[type="submit"] {
+	margin-left: 0.5em;
+}
+
+
 header {
-	background: #eee;
+	background: #222;
+	color: #fff;
 	width: 100%;
 }
+
+	body>header>div>h1 {
+		width: 47%;
+	}
+
+	header h1 {
+		font-size: 150%;
+	}
 
 section {
 	background: #ddd;
 	margin: 1em auto;
 	width: 100%;
 }
+
+	section header {
+		background: #ddd;
+		clear: both;
+		color: #444;
+	}
 
 header hgroup {
 	display: inline-block;
@@ -21,15 +72,23 @@ header hgroup {
 
 article {
 	background: #fff;
-	border-right: 1px solid #ddd;
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
 	float: right;
-	margin: 1em 0 1em -1px;
+	margin: 1em 0;
   width: 70%;
 }
 
+	.answer article {
+		float: none;
+		margin: 1em auto;
+		width: 70%;
+	}
+
 	article header {
 		background: none;
-		width: 100%;
+		font-size: 120%;
+		margin-bottom: 1em;
 	}
 
 	article footer {
@@ -46,23 +105,33 @@ aside nav {
 	width: 100%;
 }
 
+aside ol {
+	padding: 0;
+}
+
+aside li {
+	display: block;
+	font-size: 1.3em;
+	padding: 0.5em 1em;
+}
+
 aside li.active {
 	background: #fff;
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
 	display: block;
-	padding: 0.5em 0;
 }
 
 
 .related {
-	border: 1px solid #333;
-	display: inline-block;
+	background: #fff;
+	border: 1px solid #bbb;
 	float: right;
-	padding: 0 1em;
+	font-size: 80%;
 	width: 25%;
 }
 
 .related li {
-	list-style-type: disc;
 	display: block;
 }
 
@@ -71,11 +140,11 @@ aside li.active {
 	border-bottom: 1px dashed #ddd;
 	display: block;
 	margin-bottom: 1em;
-	padding: 0.5em 0;
-	width: 100%;
+	padding: 0.25em 0;
+	width: 99%;
 }
 
-.pagination p {
+.pagination li {
 	display: inline-block;
 	width: 33%;
 }
@@ -128,7 +197,7 @@ article ul, article ol {
 }
 
 article ul {
-  /*list-style-image: url(/images/bullet-point-default.png);*/
+  list-style-type: square;
 }
 
 article .application-notice p {

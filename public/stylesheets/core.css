@@ -1,3 +1,9 @@
+html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup, nav, section {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
 /* For image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
@@ -18,37 +24,11 @@
 
 
 /* self-clearing floats */
-header:after,
-section:after,
-footer:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-* html .group { height: 1%; } /* IE6 */
-.group { min-height: 1px; } /*IE7 */
-
+.group:before, .group:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.group:after { clear: both; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.group { zoom: 1; }
 
 /*
  * Core global styles
  */
-
-#wrapper,
-.inner {
-	margin: 0 auto;
-	max-width: 960px;
-	width: 95%;
-}
-
-
-/*
- * Core global header styles
- */
-
-nav { float: left; }
-nav li { display: inline; }
-
-.site-search { float: right; }
