@@ -24,9 +24,6 @@ aside .inner { padding: 0; }
  * Core global header styles
  */
 
-nav { float: left; }
-nav li { display: inline; }
-
 .site-search {
 	position: absolute;
 	right: 1em;
@@ -77,8 +74,11 @@ section {
 
 	section header {
 		background: #ddd;
+		border-bottom: 1px solid #bbb;
 		clear: both;
 		color: #444;
+		margin-bottom: 1em;
+		padding-bottom: 1em;
 	}
 
 header hgroup {
@@ -92,7 +92,7 @@ article {
 	border-top: 1px solid #bbb;
 	border-bottom: 1px solid #bbb;
 	float: right;
-	margin: 1em 0;
+	margin-bottom: 1em;
   width: 70%;
 }
 
@@ -100,6 +100,10 @@ article {
 		float: none;
 		margin: 1em auto;
 		width: 70%;
+	}
+
+	.transaction article {
+		float: left;
 	}
 
 	article header {
@@ -158,12 +162,40 @@ aside li.active {
 	display: block;
 	margin-bottom: 1em;
 	padding: 0.25em 0;
+	text-align: right;
 	width: 99%;
+}
+
+.pagination ul {
+	padding-left: 0;
 }
 
 .pagination li {
 	display: inline-block;
 	width: 33%;
+}
+
+.pagination .previous {
+	text-align: left;
+}
+
+.pagination .pages {
+	text-align: center;
+}
+
+.pagination .next {
+	text-align: right;
+}
+
+#wrapper.transaction .intro {
+	background: #c0f2f9;
+	border: 1px solid #bbb;
+	padding: 0.5em 1em;
+}
+
+#wrapper.transaction .continue {
+	background: rgba(255,0,0,0.65);
+	margin-top: 0;
 }
 
 /*

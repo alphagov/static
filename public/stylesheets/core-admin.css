@@ -804,15 +804,15 @@ th, td {
 }
 
 .formats td.transaction {
-  background-position: 0 10px;
+  background-position: 0 5px;
 }
 
 .formats td.answer {
-  background-position: 0 -110px;
+  background-position: 0 -115px;
 }
 
 .formats td.guide {
-  background-position: 0 -232px;
+  background-position: 0 -233px;
 }
 
 
@@ -820,6 +820,7 @@ th, td {
 	background-color: green;
 	color: #fff;
 	font-weight: bold;
+	margin-bottom: 1em;
 	padding: 1em;
 	text-align: center;
 }
@@ -828,6 +829,7 @@ th, td {
 	background-color: #c00;
 	color: #fff;
 	font-weight: bold;
+	margin-bottom: 1em;
 	padding: 1em;
 	text-align: center;
 }
@@ -835,6 +837,7 @@ th, td {
 .notification {
 	background-color: #FFFBBC;
 	font-weight: bold;
+	margin-bottom: 1em;
 	padding: 1em;
 	text-align: center;
 }
