@@ -3,9 +3,9 @@
  */
 
 #wrapper {
-	-webkit-box-shadow: 0 1px 3px 1px rgba(0,0,0,.25);
-	-moz-box-shadow: 0 1px 3px 1px rgba(0,0,0,.25);
-	box-shadow: 0 1px 3px 1px rgba(0,0,0,.25);
+	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+	-moz-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+	box-shadow: 0 0 0 1px rgba(0,0,0,.25);
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
@@ -47,6 +47,26 @@ header {
 	body>header>div>h1 {
 		font-size: 150%;
 		width: 47%;
+	}
+
+	#wrapper.answer hgroup h1,
+	#wrapper.guide hgroup h1,
+	#wrapper.transaction hgroup h1 {
+		font-size: 160%;
+		line-height: 1.5;
+		text-indent: 55px;
+	}
+
+	#wrapper.answer hgroup h1 {
+		background: url('/images/icon-answer-48.png') 0% 50% no-repeat;
+	}
+
+	#wrapper.guide hgroup h1 {
+		background: url('/images/icon-guide-48.png') 0% 50% no-repeat;
+	}
+
+	#wrapper.transaction hgroup h1 {
+		background: url('/images/icon-tool-48.png') 0% 50% no-repeat;
 	}
 
 section {
@@ -263,6 +283,7 @@ article .advisory {
   text-align: center;
   font-size: 2em;
   line-height: 1.45em;
+	background: yellow;
   /*background: url(/images/answers-advisory-highlight.png) center top repeat-y;*/
 }
 
