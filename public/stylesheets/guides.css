@@ -190,13 +190,21 @@ aside li.active {
 #wrapper.transaction .intro {
 	background: #c0f2f9;
 	border: 1px solid #bbb;
-	padding: 0.5em 1em;
+	margin-bottom: 0;
+	padding: 0.25em 1em;
+}
+
+#wrapper.transaction .intro h2 {
+	font-size: 175%;
 }
 
 #wrapper.transaction .continue {
-	background: rgba(255,0,0,0.65);
-	margin-top: 0;
+	padding: 0.1em 1em;
+	background: rgba(255,0,0,0.35) url('/images/info-icon.png') no-repeat 2% 48%;
+	text-indent: 30px;
 }
+
+
 
 /*
   text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
