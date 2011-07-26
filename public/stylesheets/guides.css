@@ -319,16 +319,17 @@ article dd {
 }
 
 article .advisory {
-  padding: 0 4.5em;
+  padding: 0 2.5em;
   text-align: center;
   font-size: 2em;
-  line-height: 1.45em;
-	background: yellow;
-  /*background: url(/images/answers-advisory-highlight.png) center top repeat-y;*/
+  line-height: 1.3em;
+  background: yellow url(/images/answers-advisory-highlight.png) center top repeat-y;
 }
 
 article .help-notice, article .info-notice {
-
+	border-radius: 3em;
+	border: 1px solid #bbb;
+	padding: 0.75em 1em 0 2.5em;
 }
 
 article .help-notice p, article .info-notice p {
@@ -336,9 +337,9 @@ article .help-notice p, article .info-notice p {
 }
 
 article .help-notice {
-
+  background: url(/images/application-notice-icon-default.png) 2% 50% no-repeat;
 }
 
 article .info-notice {
-  /*background-image: url(/images/application-info-icon-default.png);*/
+  background: url(/images/application-info-icon-default.png) 2% 50% no-repeat;
 }
