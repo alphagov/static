@@ -2,29 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Guides and Answers</title>
+    <title>Gov.uk Admin</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/core-admin.css" />
   </head>
   <body>
-		<header class="gds-header">
-		  <div class="wrapper group">
+		<header class="gds-header" role="banner">
+		  <div class="wrapper">
 
-				<div class="gds-logo">
-					<small>Gov.UK admin</small>
-				</div>
+				<hgroup>
+				  <h1>Gov.UK admin</h1>
+				  <h2>Publisher</h2>
+			  </hgroup>
 
-  			<nav class="gds-menu" role="navigation">
-  				<div class="gds-menu-parent"><a href="#" class="primary">Guides and Answers <div class="arrow-down"></div></a>
-  					<div class="gds-menu-items">
-  						<ol>
-  							<li><a href="#">Guides and Answers</a></li>
-  							<li><a href="#">Meet-o-tron</a></li>
-  							<li><a href="#">Need-o-tron</a></li>
-  							<li><a href="#">Wiki</a></li>
-  						</ol>
-  					</div>
-  				</div>
-  			</nav>
+				  <nav class="gds-menu" role="navigation">
+    				<form>
+  				    <label for="applications" title="Applications" class="visuallyhidden">Applications</label>
+      				  <select name="applications">
+      				    <option value="" disabled="disabled" title="Select application">Select application</option>
+      				    <option value="/admin/" title="launch Publisher application">Publisher</option>
+      				    <option value="http://needotron.alpha.gov.uk/" title="launch Need-o-tron application">Need-o-tron</option>
+      				    <option value="http://meetingotron.alpha.gov.uk/" title="launch Meeting-o-tron application">Meeting-o-tron</option>
+      				    <option value="http://team.alpha.gov.uk/" title="launch Gov.uk team wiki">Wiki</option>
+      			    </select>
+            </form>
+  			  </nav>
 			</div>
 		</header><!-- gds-header -->
 		<div id="wrapper">
