@@ -57,64 +57,6 @@ body {
 	margin-top: -2.5em;
 }
 
-/*.gds-menu-parent {
-	display: inline;
-	position: relative;
-	text-align: left;
-}
-.gds-menu-parent a.primary {
-	background-color: #333;
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.5);
-	box-shadow: 0 1px 3px rgba(0,0,0,.5);
-	color: #fff;
-	display: inline-block;
-	line-height: 1.75em;
-	padding: 0 0.5em;
-	text-decoration: none;
-	width: 11em;
-}
-.gds-menu-parent:hover a.primary,
-.gds-menu-parent a:focus,
-.gds-menu-parent a:hover {
-	background-color: #000;
-}
-.gds-menu .gds-menu-items {
-	left: 0;
-	opacity: 0;
-	margin: 0 0 0 -3.5em;
-	padding: 0 1em 1em 1em;
-	position: absolute;
-}
-.gds-menu div.gds-menu-parent:hover .gds-menu-items {
-	opacity: 1;
-	z-index: 10;
-}
-.gds-menu div.gds-menu-parent ol {
-	padding-top: 1.75em;
-	margin-top: -1.75em;
-	list-style: none;
-}
-.gds-menu ol li a {
-	background-color: #333;
-	display: block;
-	padding: 0.5em;
-	width: 11em;
-}
-
-.arrow-down {
-	border-top: 6px solid #fff;
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	font-size: 0;
-	line-height: 0;
-	position: absolute;
-	right: 5%;
-	top: 35%;
-	z-index: 1;
-}
-*/
-
 /* END admin header */
 
 /* Sign on template */
@@ -217,6 +159,10 @@ body {
 #guide-controls .button_to, .format-controls .button_to, .format-controls p.button {
 	display: inline-block;
 	margin: 0 1em 1em 0;
+}
+
+#guide-controls input.guide {
+	color: red !important;
 }
 
 
@@ -399,11 +345,11 @@ table {
 
 .formats img,
 .formats input {
-	opacity: 0.5;
+	opacity: 1;
 }
 	.formats img:hover, .formats img:focus,
 	.formats input:hover, .formats input:focus {
-		opacity: 1;
+		/*opacity: 0.5;*/
 	}
 
 .formats .preview {
