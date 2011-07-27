@@ -294,29 +294,23 @@ input[disabled] {
 
 table {
 	background-color: #fff;
-	border: 1px solid #bbb;
 	margin: 0 auto;
 	text-align: left;
 	width: 97%;
 }
 
-th, td {
-	padding: 0.5em 0.75em;
-}
-	td:nth-child(even) {
+	th, td {
 		border: 1px solid #bbb;
+		padding: 0.5em 0.75em;
+	}
+
+	td:nth-child(even) {
 		text-align: right;
-		width: 35%;
-	}
-	td a { padding-left: 0.5em; }
-
-	th:nth-child(even) {
-		text-align: center;
+		width: 20%;
 	}
 
-	tr {
-		border-bottom: 1px solid #bbb;
-	}
+	td a { padding: 0.5em; }
+
 
 .edition {
 }
@@ -376,6 +370,10 @@ th, td {
  * icons for format types
  */
 
+.formats td {
+	vertical-align: middle;
+}
+
 .formats td.transaction, .formats td.answer, .formats td.guide {
   background: url(/images/index/homepage-topicons.gif) no-repeat;
   padding-left: 45px;
@@ -391,6 +389,26 @@ th, td {
 
 .formats td.guide {
   background-position: 0 -233px;
+}
+
+.formats td form {
+	/* create new edition form */
+	display: inline;
+	margin-right: 3em;
+}
+
+.formats img,
+.formats input {
+	opacity: 0.5;
+}
+	.formats img:hover, .formats img:focus,
+	.formats input:hover, .formats input:focus {
+		opacity: 1;
+	}
+
+.formats .preview {
+	position: relative;
+	top: -0.15em;
 }
 
 
