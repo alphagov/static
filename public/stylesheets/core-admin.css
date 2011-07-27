@@ -31,8 +31,8 @@ body {
 /* Admin header */
 
 .gds-header {
-  background-color: #333;
-	border-bottom: solid 1px #3f3f3f;
+	background: #333 url('/images/gov.uk-crest.png') no-repeat 7% 12%;
+	border-bottom: solid 1px #efefef;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -50,6 +50,7 @@ body {
 	font-size: 1.3em;
 	font-weight: bold;
 	margin-right: 2em;
+	text-shadow: 1px 1px 1px rgba(0,0,0,1);
 }
 
 .gds-menu {
@@ -356,6 +357,12 @@ table {
 	position: relative;
 	top: -0.15em;
 }
+
+.formats .version {
+	font-size: 75%;
+	margin-left: 0.5em;
+}
+
 
 
 .flash-notice {
