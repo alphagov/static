@@ -322,20 +322,19 @@ table {
 }
 
 .formats td.transaction, .formats td.answer, .formats td.guide {
-  background: url(/images/index/homepage-topicons.gif) no-repeat;
-  padding-left: 45px;
+  padding-left: 50px;
 }
 
 .formats td.transaction {
-  background-position: 0 5px;
+  background: #fff url(/images/icon-publisher-transaction.png) no-repeat 2% 50%;
 }
 
 .formats td.answer {
-  background-position: 0 -115px;
+  background: #fff url(/images/icon-publisher-answer.png) no-repeat 2% 50%;
 }
 
 .formats td.guide {
-  background-position: 0 -233px;
+  background: #fff url(/images/icon-publisher-guide.png) no-repeat 2% 50%;
 }
 
 .formats td form {
