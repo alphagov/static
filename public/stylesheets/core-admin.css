@@ -163,7 +163,7 @@ body {
 }
 
 #guide-controls input.guide {
-	color: red !important;
+/*	color: red !important; */
 }
 
 
@@ -339,17 +339,22 @@ table {
 
 .formats td form {
 	/* create new edition form */
-	display: inline;
-	margin-right: 3em;
+	display: inline-block;
+	float: left;
 }
 
 .formats img,
 .formats input {
-	opacity: 1;
+	opacity: 0.5;
 }
 	.formats img:hover, .formats img:focus,
 	.formats input:hover, .formats input:focus {
-		/*opacity: 0.5;*/
+		opacity: 1;
+	}
+
+	.formats .disabled {
+		opacity: 0.25;
+		cursor: default;
 	}
 
 .formats .preview {

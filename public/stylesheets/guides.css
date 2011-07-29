@@ -13,9 +13,9 @@
 
 .inner {
 	margin: 0 auto;
-	max-width: 960px;
 	padding: 1em;
 	position: relative;
+	width: 95%;
 }
 
 aside .inner { padding: 0; }
@@ -27,23 +27,47 @@ aside .inner { padding: 0; }
 .site-search {
 	position: absolute;
 	right: 1em;
-	top: 1em;
+	top: 0.5em;
 }
 
+.site-search fieldset { border: none; }
 .site-search input[type="submit"] {
 	margin-left: 0.5em;
 }
 
 
-header {
-	background: #222;
+header[role="banner"] {
+	background: #333 url('/images/gov.uk-crest.png') no-repeat -2% 12%;
+	border-bottom: solid 1px #efefef;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
+	box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	color: #fff;
+	min-height: 1.5em;
+	padding: 0.3em 0;
+	position: fixed;
+	top: 0;
+	vertical-align: top;
 	width: 100%;
+	z-index: 99999;
 }
 
-	body>header>div>h1 {
-		font-size: 150%;
-		width: 47%;
+	header[role="banner"] hgroup {
+		margin: -0.75em 0 0.5em 1.5em;
+		text-shadow: 1px 1px 1px #000;
+		max-width: 50%;
+	}
+
+	header[role="banner"] hgroup h1 {
+		font-size: 130%;
+		line-height: 1.3em;
+	}
+
+	header[role="banner"] hgroup h2 {
+		font-family: Georgia, sans-serif;
+		font-size: 90%;
+		font-weight: normal;
+		font-style: italic;
 	}
 
 	#wrapper.answer hgroup h1,
@@ -67,30 +91,38 @@ header {
 	}
 
 section {
-	background: #ddd;
-	margin: 1em auto;
+	background: #fff;
+	margin: 5em auto 1em;
 	width: 100%;
 }
 
 	section header {
 		background: #ddd;
-		border-bottom: 1px solid #bbb;
+		border-bottom: 10px solid #bbb;
 		clear: both;
 		color: #444;
 		margin-bottom: 1em;
 		padding-bottom: 1em;
 	}
 
-header hgroup {
-	display: inline-block;
-	float: left;
-	width: 70%;
-}
+		header hgroup {
+			display: inline-block;
+			float: left;
+			width: 70%;
+		}
+
+		header hgroup h1 {
+			font-size: 175%
+		}
+
+		.modified-date {
+			font-size: 75%;
+		}
+
+
 
 article {
 	background: #fff;
-	border-top: 1px solid #bbb;
-	border-bottom: 1px solid #bbb;
 	float: right;
 	margin-bottom: 1em;
   width: 70%;
@@ -99,7 +131,7 @@ article {
 	.answer article {
 		float: none;
 		margin: 1em auto;
-		width: 70%;
+		width: 80%;
 	}
 
 	.transaction article {
@@ -108,6 +140,7 @@ article {
 
 	article header {
 		background: none;
+		border-bottom: none;
 		font-size: 120%;
 		margin-bottom: 1em;
 	}
@@ -117,8 +150,13 @@ article {
 	}
 
 aside {
+	background: #ddd;
 	float: left;
   width: 30%;
+}
+
+aside .inner {
+	width: 100%;
 }
 
 aside nav {
@@ -148,13 +186,16 @@ aside li.active {
 	background: #fff;
 	border: 1px solid #bbb;
 	float: right;
-	font-size: 80%;
+	font-size: 75%;
 	width: 25%;
 }
 
-.related li {
-	display: block;
+.related ul {
+	padding-left: 1.25em;
 }
+	.related li {
+		line-height: 1.5em;
+	}
 
 .pagination {
 	border-top: 1px dashed #ddd;
