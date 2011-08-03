@@ -2,10 +2,16 @@
  * Guides app specific css
  */
 
+body {
+	background: #efece0;
+}
+
 #wrapper {
+/*
 	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
 	box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+*/
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
@@ -43,7 +49,7 @@ header[role="banner"] {
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	color: #fff;
-	min-height: 1.5em;
+	min-height: 1em;
 	padding: 0.3em 0;
 	position: fixed;
 	top: 0;
@@ -59,78 +65,96 @@ header[role="banner"] {
 	}
 
 	header[role="banner"] hgroup h1 {
-		font-size: 130%;
+		display: inline-block;
+		font-size: 120%;
 		line-height: 1.3em;
+		margin-right: 1em;
 	}
 
 	header[role="banner"] hgroup h2 {
+		display: inline-block;
 		font-family: Georgia, sans-serif;
 		font-size: 90%;
 		font-weight: normal;
 		font-style: italic;
 	}
 
+	#wrapper hgroup {
+		background: #ddd;
+		border: solid 1px #bbb;
+		border-bottom: none;
+		-webkit-border-radius: 1em 1em 0 0;
+		-moz-border-radius: 1em 1em 0 0;
+		border-radius: 1em 1em 0 0;
+		padding: 1em 1em 0.5em 1em;
+	}
+
 	#wrapper.answer hgroup h1,
 	#wrapper.guide hgroup h1,
 	#wrapper.transaction hgroup h1 {
-		font-size: 160%;
-		line-height: 1.5;
-		text-indent: 55px;
+		background-repeat: no-repeat;
+		font-size: 2.5em;
+		line-height: 48px;
+		padding-left: 60px;
 	}
 
 	#wrapper.answer hgroup h1 {
-		background: url('/images/icon-answer-48.png') 0% 50% no-repeat;
+		background-image: url('/images/icon-publisher-answer-48.png');
 	}
 
 	#wrapper.guide hgroup h1 {
-		background: url('/images/icon-guide-48.png') 0% 50% no-repeat;
+		background-image: url('/images/icon-publisher-guide-48.png');
 	}
 
 	#wrapper.transaction hgroup h1 {
-		background: url('/images/icon-tool-48.png') 0% 50% no-repeat;
+		background-image: url('/images/icon-publisher-transaction-48.png');
 	}
 
 section {
-	background: #fff;
-	margin: 5em auto 1em;
+/*
+	background: #ddd;
+  -moz-box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
+  box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
+*/
+	margin: 5em auto 0;
 	width: 100%;
 }
 
 	section header {
-		background: #ddd;
-		border-bottom: 10px solid #bbb;
+/*		border-bottom: 10px solid #ddd;*/
 		clear: both;
 		color: #444;
-		margin-bottom: 1em;
-		padding-bottom: 1em;
+		margin-top: 2em;
+/*		padding-bottom: 1em;*/
 	}
 
-		header hgroup {
+		section header hgroup {
 			display: inline-block;
-			float: left;
-			width: 70%;
+/*			float: left;*/
+/*			width: 70%;*/
 		}
 
-		header hgroup h1 {
-			font-size: 175%
+		section header hgroup h1 {
+			font-size: 175%;
 		}
 
 		.modified-date {
-			font-size: 75%;
+			font-size: 0.8em;
+			margin-bottom: 0;
 		}
 
 
 
 article {
 	background: #fff;
-	float: right;
-	margin-bottom: 1em;
-  width: 70%;
+	float: left;
+  width: 60%;
 }
 
 	.answer article {
 		float: none;
-		margin: 1em auto;
+		margin: 0 auto 1em;
 		width: 80%;
 	}
 
@@ -142,7 +166,7 @@ article {
 		background: none;
 		border-bottom: none;
 		font-size: 120%;
-		margin-bottom: 1em;
+		margin: 0.25em 0 1em;
 	}
 
 	article footer {
@@ -150,9 +174,8 @@ article {
 	}
 
 aside {
-	background: #ddd;
 	float: left;
-  width: 30%;
+  width: 25%;
 }
 
 aside .inner {
@@ -161,14 +184,19 @@ aside .inner {
 
 aside nav {
 	display: block;
-	width: 100%;
+	float: right;
+	width: 95%;
 }
 
 aside ol {
+	font-size: 0.8em;
 	padding: 0;
 }
 
 aside li {
+	-webkit-border-radius: 2em 0 0 2em;
+	-moz-border-radius: 2em 0 0 2em;
+	border-radius: 2em 0 0 2em;
 	display: block;
 	font-size: 1.3em;
 	padding: 0.5em 1em;
@@ -176,25 +204,55 @@ aside li {
 
 aside li.active {
 	background: #fff;
-	border-top: 1px solid #bbb;
-	border-bottom: 1px solid #bbb;
+	border: 2px solid #bbb;
+	border-right: none;
 	display: block;
+	margin-top: -4px;
 }
 
+aside li:hover,
+aside li:focus {
+	background: #bbb;
+}
+
+	aside li.active:hover {
+		background: #fff;
+	}
 
 .related {
-	background: #fff;
-	border: 1px solid #bbb;
 	float: right;
 	font-size: 75%;
-	width: 25%;
+	padding-left: 2em;
+	position: absolute;
+	right: -6em;
+	top: 10.7em;
+	width: 20%;
+}
+
+.related .inner {
+	background: #fff;
+	border: 1px solid red;
+	border-radius: 0 1em 1em 0;
+}
+
+.related h2 {
+	background: #fff;
+	margin-left: -2em;
+}
+	.related h2:before {
+		content: url('/images/rss-icon.png');
+	}
+
+.related nav {
+	background: #fff;
 }
 
 .related ul {
-	padding-left: 1.25em;
+		padding-left: 1.25em;
 }
 	.related li {
 		line-height: 1.5em;
+		list-style-type: disc;
 	}
 
 .pagination {
@@ -229,7 +287,7 @@ aside li.active {
 }
 
 #wrapper.transaction .intro {
-	background: #c0f2f9;
+	background: #ffc;
 	border: 1px solid #bbb;
 	margin-bottom: 0;
 	padding: 0.25em 1em;
@@ -241,11 +299,24 @@ aside li.active {
 
 #wrapper.transaction .continue {
 	padding: 0.1em 1em;
-	background: rgba(255,0,0,0.35) url('/images/info-icon.png') no-repeat 2% 48%;
+	background: #bbb url('/images/info-icon.png') no-repeat 2% 48%;
+	font-size: 0.8em;
+	margin-bottom: 1em;
 	text-indent: 30px;
 }
 
+#wrapper.transaction .more {
+	border: 1px solid #bbb;
+	font-size: 75%;
+	padding: 0.5em 1em;
+}
 
+footer.group {
+	font-size: 75%;
+	margin: 0 auto;
+	max-width: 960px;
+	width: 95%;
+}
 
 /*
   text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
@@ -295,7 +366,7 @@ article ul, article ol {
 }
 
 article ul {
-  list-style-type: square;
+  list-style-type: inherit;
 }
 
 article .application-notice p {
@@ -370,6 +441,7 @@ article .advisory {
 article .help-notice, article .info-notice {
 	border-radius: 3em;
 	border: 1px solid #bbb;
+	margin-bottom: 1em;
 	padding: 0.75em 1em 0 2.5em;
 }
 
