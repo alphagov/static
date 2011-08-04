@@ -3,7 +3,9 @@
  */
 
 body {
-	background: #efece0;
+/*	background: #efece0;*/
+	background: #D2D1CB;
+	color: #3F3F3F;
 }
 
 #wrapper {
@@ -23,8 +25,6 @@ body {
 	position: relative;
 	width: 95%;
 }
-
-aside .inner { padding: 0; }
 
 /*
  * Core global header styles
@@ -80,22 +80,28 @@ header[role="banner"] {
 	}
 
 	#wrapper hgroup {
-		background: #ddd;
-		border: solid 1px #bbb;
+		background: #efece0;
+/*		border: solid 1px #bbb;*/
 		border-bottom: none;
 		-webkit-border-radius: 1em 1em 0 0;
 		-moz-border-radius: 1em 1em 0 0;
-		border-radius: 1em 1em 0 0;
-		padding: 1em 1em 0.5em 1em;
+		border-radius: 0.75em 0.75em 0 0;
+/*		max-width: 65%;*/
+		padding: 1em;
+/*		position: relative;*/
+		width: 71%;
+/*		z-index: 1;*/
 	}
 
 	#wrapper.answer hgroup h1,
 	#wrapper.guide hgroup h1,
 	#wrapper.transaction hgroup h1 {
 		background-repeat: no-repeat;
-		font-size: 2.5em;
-		line-height: 48px;
-		padding-left: 60px;
+/*		font-size: 2.5em;*/
+		font-size: 1.7em;
+/*		line-height: 48px;*/
+		line-height: 1.2em;
+		padding: 0 0 0.6em 60px;
 	}
 
 	#wrapper.answer hgroup h1 {
@@ -141,15 +147,35 @@ section {
 
 		.modified-date {
 			font-size: 0.8em;
-			margin-bottom: 0;
+			margin: 0;
+			margin-left: 60px;
+			margin-top: -0.3em;
 		}
 
-
+.article-and-navigation {
+	background: #efece0;
+/*	border: solid 1px #bbb;*/
+	border-top: none;
+	margin-right: 12em;
+/*	overflow: hidden;*/
+/*	margin-top: -1px;*/
+/*	position: relative;*/
+}
 
 article {
 	background: #fff;
+	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);	
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	float: left;
-  width: 60%;
+	position: relative;
+  width: 75%;
+	z-index: 1;
+}
+
+article .inner {
+	padding: 2em 3em;
+	width: auto;
 }
 
 	.answer article {
@@ -179,6 +205,7 @@ aside {
 }
 
 aside .inner {
+	padding: 0;
 	width: 100%;
 }
 
@@ -190,70 +217,139 @@ aside nav {
 
 aside ol {
 	font-size: 0.8em;
+	margin: 0;
 	padding: 0;
 }
 
 aside li {
-	-webkit-border-radius: 2em 0 0 2em;
-	-moz-border-radius: 2em 0 0 2em;
-	border-radius: 2em 0 0 2em;
+	list-style: none;
+}
+
+aside li a {
+	-webkit-border-radius: 1.25em 0 0 1.25em;
+	-moz-border-radius: 1.25em 0 0 1.25em;
+	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
-	padding: 0.5em 1em;
+	padding: 0.75em 0.75em;
 }
 
-aside li.active {
+aside li.active a {
 	background: #fff;
-	border: 2px solid #bbb;
+/*	border: 1px solid #bbb;*/
+	-webkit-box-shadow: -2px 0px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: -2px 0px 4px rgba(0,0,0,0.3);
+	box-shadow: -2px 0px 4px rgba(0,0,0,0.3);
 	border-right: none;
 	display: block;
-	margin-top: -4px;
+/*	margin-top: -4px;*/
+	position: relative;
+	z-index: 2;
 }
 
-aside li:hover,
-aside li:focus {
-	background: #bbb;
+aside li a:hover,
+aside li a:focus {
+	background: rgba(0,0,0,0.1);
 }
 
-	aside li.active:hover {
+	aside li.active a:hover {
 		background: #fff;
 	}
 
 .related {
-	float: right;
-	font-size: 75%;
-	padding-left: 2em;
-	position: absolute;
-	right: -6em;
-	top: 10.7em;
-	width: 20%;
+/*	position: absolute;
+	right: -12em;
+	top: -1px;*/
+	margin-right: 5em;
+	position: fixed;
+	right: 2%;
+	top: 171px;
+	width: 12em;
+	z-index: 5;
 }
 
 .related .inner {
-	background: #fff;
-	border: 1px solid red;
+	background: #FFD1BE;
+	border: 1px solid #bbb;
 	border-radius: 0 1em 1em 0;
+	padding: 0 1em 1em 1em;
+	width: auto;
+}
+
+.related h2 span.arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -28px;
+  width:0px; 
+  height:0px; 
+  border-bottom: 28px solid transparent;
+  border-top: 28px solid transparent;
+  border-left: 28px solid #fff;
+  font-size:0px;
+  line-height:0px;
+  z-index: 1;
+}
+
+.related h2, .related li {
+	font-size: 0.8em;
 }
 
 .related h2 {
-	background: #fff;
-	margin-left: -2em;
+	background: #FFD1BE;
+	line-height: 56px;
+	margin-left: -4em;
+	margin-top: 0;
+/*	padding: 1em;*/
+	padding-left: 3em;
+	position: relative;
 }
-	.related h2:before {
+/*	.related h2:before {
 		content: url('/images/rss-icon.png');
-	}
+	}*/
 
 .related nav {
-	background: #fff;
+/*	background: #fff;*/
 }
 
 .related ul {
-		padding-left: 1.25em;
+	margin: 0;
+	padding-left: 1.25em;
 }
 	.related li {
 		line-height: 1.5em;
 		list-style-type: disc;
+		margin-bottom: 0.75em;
 	}
+
+.related li.related-topic {
+	background: #DC946D;
+	line-height: 32px;
+	list-style: none;
+	margin-left: -1.25em;
+	margin-right: 16px;
+	padding-left: 1.25em;
+	position: relative;
+}
+
+.related li.related-topic a {
+	color: #fff;
+}
+
+.related li.related-topic span.arrow {
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  margin-top: -16px;
+  width:0px; 
+  height:0px; 
+  border-bottom: 16px solid transparent;
+  border-top: 16px solid transparent;
+  border-left: 16px solid #DC946D;
+  font-size:0px;
+  line-height:0px;
+  z-index: 1;
+}
 
 .pagination {
 	border-top: 1px dashed #ddd;
@@ -271,7 +367,7 @@ aside li:focus {
 
 .pagination li {
 	display: inline-block;
-	width: 33%;
+	width: 32.8%;
 }
 
 .pagination .previous {
@@ -322,7 +418,7 @@ footer.group {
   text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
 */
 
-article h2 {
+article h2, article header h1 {
   font-size: 1.63em;
   line-height: 1.15em;
   margin-top: 0.69em;
@@ -433,9 +529,9 @@ article dd {
 article .advisory {
   padding: 0 2.5em;
   text-align: center;
-  font-size: 2em;
+/*  font-size: 2em;*/
   line-height: 1.3em;
-  background: yellow url(/images/answers-advisory-highlight.png) center top repeat-y;
+  background: yellow /*url(/images/answers-advisory-highlight.png) center top repeat-y*/;
 }
 
 article .help-notice, article .info-notice {
