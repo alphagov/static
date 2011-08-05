@@ -87,8 +87,8 @@ header[role="banner"] {
 		background: #efece0;
 /*		border: solid 1px #bbb;*/
 		border-bottom: none;
-		-webkit-border-radius: 1em 1em 0 0;
-		-moz-border-radius: 1em 1em 0 0;
+		-webkit-border-radius: 0.75em 0.75em 0 0;
+		-moz-border-radius: 0.75em 0.75em 0 0;
 		border-radius: 0.75em 0.75em 0 0;
 /*		max-width: 65%;*/
 		padding: 1em;
@@ -230,8 +230,8 @@ aside li {
 }
 
 aside li a {
-	-webkit-border-radius: 1.25em 0 0 1.25em;
-	-moz-border-radius: 1.25em 0 0 1.25em;
+	-webkit-border-radius: 0.5em 0 0 0.5em;
+	-moz-border-radius: 0.5em 0 0 0.5em;
 	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
@@ -385,13 +385,14 @@ aside li a:focus {
 }
 
 .pagination {
-	border-top: 1px dashed #ddd;
-	border-bottom: 1px dashed #ddd;
+/*	border-top: 1px dashed #ddd;*/
+/*	border-bottom: 1px dashed #ddd;*/
 	display: block;
-	margin-bottom: 1em;
-	padding: 0.25em 0;
-	text-align: right;
-	width: 99%;
+/*	margin-bottom: 1em;*/
+	margin-top: 3em;
+/*	padding: 0.25em 0;*/
+/*	text-align: right;*/
+/*	width: 99%;*/
 }
 
 .pagination ul {
@@ -399,11 +400,61 @@ aside li a:focus {
 }
 
 .pagination li {
-	display: inline-block;
-	width: 32.8%;
+/*	display: inline-block;*/
+	list-style: none;
+/*	width: 33%;*/
 }
 
-.pagination .previous {
+.pagination .next {
+	margin-bottom: 2em;
+	text-align: right;
+}
+
+.pagination li a {
+	display: block;
+	position: relative;
+}
+
+.pagination .next a {
+/*	background: #EBF6E5;*/
+	background: #D7EDCE;
+	border: solid 1px #B1E1B0;
+	border-right: none;
+	-webkit-border-radius: 0.5em 0 0 0.5em;
+	-moz-border-radius: 0.5em 0 0 0.5em;
+	border-radius: 0.5em 0 0 0.5em;
+	font-weight: bold;
+	margin-left: 10em;
+	margin-right: -3em;
+	padding: 1.25em 1em;
+}
+
+.pagination .next a:hover, .pagination .next a:focus {
+	background: #CBE2C5;
+	border: solid 1px #A7D4A8;
+	border-right: none;
+}
+
+.pagination .previous a {
+/*	background: #D7EDCE;*/
+	background: #EFEFEF;
+	border: solid 1px #DCE1DC;
+	border-left: none;
+	-webkit-border-radius: 0 0.5em 0.5em 0;
+	-moz-border-radius: 0 0.5em 0.5em 0;
+	border-radius: 0 0.5em 0.5em 0;
+	margin-left: -3em;
+	margin-right: 10em;
+	padding: 0.5em 1em;
+}
+
+.pagination .previous a:hover, .pagination .previous a:focus {
+	background: #DFDFDF;
+	border: solid 1px #CDD3CF;
+	border-left: none;
+}
+
+/*.pagination .previous {
 	text-align: left;
 }
 
@@ -413,6 +464,11 @@ aside li a:focus {
 
 .pagination .next {
 	text-align: right;
+}*/
+
+.pagination .pagination-label {
+	font-size: 0.8em;
+	margin-bottom: 0.5em;
 }
 
 #wrapper.transaction .intro {
@@ -460,7 +516,7 @@ article header h1 {
   font-size: 1.43em;
   line-height: 1.15em;
   margin-top: 0.69em;
-  margin-bottom: 0.46em;
+/*  margin-bottom: 0.36em;*/
 }
 
 article h2 {
@@ -468,7 +524,11 @@ article h2 {
   font-size: 1.25em;
   line-height: 1.18em;
   margin-top: 0.82em;
-  margin-bottom: 0.55em;
+/*  margin-bottom: 0.25em;*/
+}
+
+article h2 + p {
+	margin-top: 0;
 }
 
 article h3 {
@@ -477,14 +537,14 @@ article h3 {
   font-size: 1.13em;
   line-height: 1.11em;
   margin-top: 0.82em;
-  margin-bottom: 0.55em;
+  margin-bottom: 0.45em;
 }
 
 article h4 {
 /*  font-size: 1.13em;*/
 /*  line-height: 1.11em;*/
   margin-top: 1em;
-  margin-bottom: 0.67em;
+  margin-bottom: 0.57em;
 }
 
 article p, article ul, article ol {
