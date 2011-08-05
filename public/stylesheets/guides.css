@@ -507,44 +507,36 @@ footer.group {
   text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
 */
 
-article header h1, article h2, article h3, article h4 {
-/*	font-family: Georgia, serif;*/
-}
-
 article header h1 {
-/*  font-size: 1.63em;*/
-  font-size: 1.43em;
+  font-size: 1.5em;
   line-height: 1.15em;
-  margin-top: 0.69em;
-/*  margin-bottom: 0.36em;*/
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 article h2 {
-/*  font-size: 1.38em;*/
   font-size: 1.25em;
   line-height: 1.18em;
-  margin-top: 0.82em;
-/*  margin-bottom: 0.25em;*/
-}
-
-article h2 + p {
-	margin-top: 0;
+  margin-top: 1.2em;
+  margin-bottom: 0;
 }
 
 article h3 {
-/*  font-size: 1.38em;*/
-/*  line-height: 1.18em;*/
-  font-size: 1.13em;
+  font-size: 1.15em;
   line-height: 1.11em;
-  margin-top: 0.82em;
-  margin-bottom: 0.45em;
+  margin-top: 1.304em;
+  margin-bottom: 0;
 }
 
 article h4 {
-/*  font-size: 1.13em;*/
-/*  line-height: 1.11em;*/
-  margin-top: 1em;
-  margin-bottom: 0.57em;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+article h2 + p,  article h3 + p,  article h4 + p, 
+article h2 + ol, article h3 + ol, article h4 + ol, 
+article h2 + ul, article h3 + ul, article h4 + ul {
+	margin-top: 0.2em;
 }
 
 article p, article ul, article ol {
