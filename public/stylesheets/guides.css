@@ -168,7 +168,7 @@ section {
 
 article {
 	background: #fff;
-	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);	
+	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	float: left;
@@ -312,8 +312,8 @@ aside li a:focus {
   left: 0;
   top: 50%;
   margin-top: -28px;
-  width:0px; 
-  height:0px; 
+  width:0px;
+  height:0px;
   border-bottom: 28px solid transparent;
   border-top: 28px solid transparent;
   border-left: 28px solid #fff;
@@ -372,8 +372,8 @@ aside li a:focus {
   right: -16px;
   top: 50%;
   margin-top: -16px;
-  width:0px; 
-  height:0px; 
+  width:0px;
+  height:0px;
   border-bottom: 16px solid transparent;
   border-top: 16px solid transparent;
   border-left: 16px solid #DC946D;
@@ -531,8 +531,8 @@ article h4 {
   margin-bottom: 0;
 }
 
-article h2 + p,  article h3 + p,  article h4 + p, 
-article h2 + ol, article h3 + ol, article h4 + ol, 
+article h2 + p,  article h3 + p,  article h4 + p,
+article h2 + ol, article h3 + ol, article h4 + ol,
 article h2 + ul, article h3 + ul, article h4 + ul {
 	margin-top: 0.2em;
 }
@@ -559,7 +559,7 @@ article ul, article ol {
   padding-left: 1.5em;
 }
 
-article ul {
+article ul, article ol {
   list-style-type: inherit;
 }
 
