@@ -240,13 +240,9 @@ aside li a {
 
 aside li.active a {
 	background: #fff;
-/*	border: 1px solid #bbb;*/
-	-webkit-box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
-	-moz-box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
-	box-shadow: -4px 0px 4px rgba(0,0,0,0.3);
+	border: 1px solid #ddd;
 	border-right: none;
 	display: block;
-/*	margin-top: -4px;*/
 	position: relative;
 	z-index: 2;
 }
