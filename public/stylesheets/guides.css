@@ -184,8 +184,9 @@ article .inner {
 
 	.answer article {
 		float: none;
-		margin: 0 auto 1em;
-		width: 80%;
+/*		margin: 0 auto 1em;*/
+		margin-left: 25%;
+		width: 75%;
 	}
 
 	.transaction article {
