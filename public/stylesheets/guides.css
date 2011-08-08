@@ -217,6 +217,7 @@ aside .inner {
 aside nav {
 	display: block;
 	float: right;
+	margin-top: 1em;
 	width: 95%;
 }
 
