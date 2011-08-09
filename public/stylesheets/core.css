@@ -37,3 +37,57 @@ ol, ul, nav ol, nav ul {
 	list-style: inherit;
 }
 
+/*
+ * Locate me styles
+ */
+
+.popover-mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index:60;
+}
+
+.popover-mask .popover {
+  background: #f6f5f1;
+  border: solid 1px #D6D6D6;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 0.5em;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  margin: 4em auto 0 auto;
+  padding: 0 2.5em 2em 2.5em;
+  position: relative;
+  width: 50%;
+  min-width: 25em;
+}
+
+.popover .header img.logo {
+  display: block;
+  position: relative;
+  top: -0.25em;
+}
+
+.popover .close {
+  position: absolute;
+  top: -19px;
+  right: -19px;
+}
+
+.popover h2 {
+	border-bottom: 2px solid #ddd;
+	margin: 1em 0;
+	padding-bottom: 0.5em;
+}
+
+#global-locator-box {
+	max-width: 40em;
+  width: 60%;
+}
+
