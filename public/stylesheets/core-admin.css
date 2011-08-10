@@ -171,10 +171,6 @@ body {
 	margin: 0 1em 1em 0;
 }
 
-#guide-controls input.guide {
-/*	color: red !important; */
-}
-
 
 /* self-clearing floats */
 .group:after {
@@ -201,7 +197,7 @@ body {
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 0.9em;
   font-weight: bold;
   margin-right: 3px;
 	margin-bottom: .5em;
@@ -224,7 +220,6 @@ input[type=submit].update,
 input[type=submit].create {
 	/* green button */
 	background: rgb(0,149,44);
-/*	background: rgb(0,149,44) url('../images/active_admin/icon-save.png') 6% 50% no-repeat;*/
 	padding: 0.6em 1em;
 }
 
