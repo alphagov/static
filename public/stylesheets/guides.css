@@ -347,7 +347,7 @@ aside li a .part-title {
 	width: auto;
 }
 
-.related h2, .related li {
+.related li {
 	font-size: 0.8em;
 }
 
@@ -358,11 +358,12 @@ aside li a .part-title {
 	background-position: 0 -1px;
 	background-repeat: no-repeat;
 	border-top: solid 1px #bbb;
+	font-size: 1em;
 	line-height: 53px;
 	margin-left: -52px;
 	margin-top: -1px;
 /*	padding: 1em;*/
-	padding-left: 50px;
+	padding-left: 36px;
 	position: relative;
 }
 /*	.related h2:before {
@@ -374,22 +375,39 @@ aside li a .part-title {
 }
 
 .related ul {
+	list-style: none;
 	margin: 0;
-	padding-left: 1.25em;
+/*	padding-left: 1.25em;*/
+	padding: 0;
 }
-	.related li {
-		line-height: 1.5em;
-		list-style-type: disc;
-		margin-bottom: 0.75em;
-	}
+
+.related li {
+	background-position: 0 0.25em;
+	background-repeat: no-repeat;
+	line-height: 1.25em;
+	margin-bottom: 0.75em;
+	padding-left: 2.5em;
+}
+
+.related li.answer {
+	background-image: url(../images/icon-answer-24.png);
+}
+
+.related li.guide {
+	background-image: url(../images/icon-guide-24.png);
+	background-position: 0.25em 0.25em;
+}
+
+.related li.tool {
+	background-image: url(../images/icon-tool-24-temp.png);
+}
 
 .related li.related-topic {
 	background: #1576FB;
 	line-height: 32px;
 	list-style: none;
-	margin-left: -1.25em;
 	margin-right: 16px;
-	padding-left: 1.25em;
+	padding-left: 1em;
 	position: relative;
 }
 
