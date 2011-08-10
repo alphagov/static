@@ -44,6 +44,7 @@ body {
 
 header[role="banner"] {
 	background: #333 url('/images/gov.uk-crest.png') no-repeat -2% 12%;
+	background: #F36211;
 	border-bottom: solid 1px #efefef;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -64,7 +65,7 @@ header[role="banner"] {
 
 	header[role="banner"] hgroup {
 /*		margin: -0.75em 0 0.5em 1.5em;*/
-		text-shadow: 1px 1px 1px #000;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 		max-width: 50%;
 	}
 
@@ -114,7 +115,10 @@ header[role="banner"] {
 	}
 
 	#wrapper.answer hgroup h1 {
-		background-image: url('/images/icon-publisher-answer-48.png');
+		background-image: url('/images/icon-answer-80.png');
+		color: #1C7000;
+		margin-left: 0.65em;
+		padding-left: 3.35em;
 	}
 
 	#wrapper.guide hgroup h1 {
