@@ -347,33 +347,22 @@ aside li a .part-title {
 	width: auto;
 }
 
-.related h2 span.arrow {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  margin-top: -28px;
-  width:0px;
-  height:0px;
-  border-bottom: 28px solid transparent;
-  border-top: 28px solid transparent;
-  border-left: 28px solid #fff;
-  font-size:0px;
-  line-height:0px;
-  z-index: 1;
-}
-
 .related h2, .related li {
 	font-size: 0.8em;
 }
 
 .related h2 {
 /*	background: #FEEFC5;*/
-	background: #ffffaa;
-	line-height: 56px;
-	margin-left: -4em;
-	margin-top: 0;
+	background-color: #ffffaa;
+	background-image: url(/images/related-arrow.png);
+	background-position: 0 -1px;
+	background-repeat: no-repeat;
+	border-top: solid 1px #bbb;
+	line-height: 53px;
+	margin-left: -52px;
+	margin-top: -1px;
 /*	padding: 1em;*/
-	padding-left: 3em;
+	padding-left: 50px;
 	position: relative;
 }
 /*	.related h2:before {
