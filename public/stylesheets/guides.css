@@ -4,7 +4,7 @@
 
 body {
 /*	background: #efece0;*/
-	background: #C9C8C3;
+	background: #D4D2CC;
 	color: #3F3F3F;
 }
 
@@ -85,27 +85,32 @@ header[role="banner"] {
 
 	#wrapper hgroup {
 		background: #efece0;
-/*		border: solid 1px #bbb;*/
 		border-bottom: none;
 		-webkit-border-radius: 0.75em 0.75em 0 0;
 		-moz-border-radius: 0.75em 0.75em 0 0;
 		border-radius: 0.75em 0.75em 0 0;
-/*		max-width: 65%;*/
 		padding: 1em;
-/*		position: relative;*/
 		width: 71%;
-/*		z-index: 1;*/
+	}
+
+	#wrapper hgroup span {
+		display: block;
+		font-size: 0.4em;
+		font-weight: normal;
+		line-height: 1em;
+		margin-bottom: 0.4em;
+		text-transform: uppercase;
 	}
 
 	#wrapper.answer hgroup h1,
 	#wrapper.guide hgroup h1,
 	#wrapper.transaction hgroup h1 {
+/*		background-position: 0 0.2em;*/
 		background-repeat: no-repeat;
-/*		font-size: 2.5em;*/
-		font-size: 1.7em;
-/*		line-height: 48px;*/
-		line-height: 1.2em;
-		padding: 0 0 0.6em 60px;
+		font-size: 1.8em;
+		min-height: 2.5em;
+		line-height: 1.05em;
+		padding: 0.2em 0 0.2em 2.75em;
 	}
 
 	#wrapper.answer hgroup h1 {
@@ -113,7 +118,8 @@ header[role="banner"] {
 	}
 
 	#wrapper.guide hgroup h1 {
-		background-image: url('/images/icon-publisher-guide-48.png');
+		background-image: url('/images/icon-guide-80.png');
+		color: #68009F;
 	}
 
 	#wrapper.transaction hgroup h1 {
@@ -121,22 +127,12 @@ header[role="banner"] {
 	}
 
 section {
-/*
-	background: #ddd;
-  -moz-box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
-  -webkit-box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
-  box-shadow: 0 0.5em 1em rgba(0,0,0,0.3);
-*/
 	margin: 5em auto 0;
 	width: 100%;
 }
 
 	section header {
-/*		border-bottom: 10px solid #ddd;*/
 		clear: both;
-/*		color: #444;*/
-/*		margin-top: 2em;*/
-/*		padding-bottom: 1em;*/
 	}
 
 		section header hgroup {
@@ -146,14 +142,7 @@ section {
 		}
 
 		section header hgroup h1 {
-			font-size: 175%;
-		}
-
-		.modified-date {
-			font-size: 0.8em;
-			margin: 0;
-			margin-left: 60px;
-			margin-top: -0.3em;
+/*			font-size: 175%;*/
 		}
 
 .article-and-navigation {
@@ -187,6 +176,10 @@ article .inner {
 /*		margin: 0 auto 1em;*/
 		margin-left: 10%;
 		width: auto;
+	}
+	
+	.guide article .inner {
+		padding-bottom: 0;
 	}
 
 	.transaction article {
@@ -237,7 +230,9 @@ aside li a {
 	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
+/*	font-weight: bold;*/
 	padding: 0.75em 0.75em;
+	text-decoration: none;
 }
 
 aside li.active a {
@@ -251,12 +246,56 @@ aside li.active a {
 
 aside li a:hover,
 aside li a:focus {
-	background: rgba(0,0,0,0.1);
+	background: #1576FB;
+	color: #fff;
 }
 
 	aside li.active a:hover {
 		background: #fff;
+		color: #1576FB;
 	}
+
+aside li a .part-label {
+/*	background: #BDBBAE;*/
+	background: rgba(0,0,0,0.4);
+/*	background: #999;*/
+	color: #fff;
+	font-size: 0.65em;
+	padding: 0.1em 0.35em;
+	position: relative;
+	text-transform: uppercase;
+	top: -0.2em;
+}
+
+aside li a:hover .part-label {
+	color: #1576FB;
+	background: #fff;
+}
+
+aside li.active a:hover .part-label {
+	background: rgba(0,0,0,0.4);
+	color: #fff;
+}
+
+aside li a .part-title {
+	text-decoration: underline;
+}
+
+.meta-data {
+	border-top: dotted 1px #bbb;
+/*	clear: both;*/
+	color: #7F7F7F;
+	float: left;
+	margin: 1em 1.25em;
+/*	padding: 0.25em;*/
+}
+
+.modified-date {
+	font-size: 0.65em;
+/*	margin: 0;*/
+/*	margin-left: 60px;*/
+/*	margin-top: -0.3em;*/
+}
 
 /*
 	very naughty position hacking we are going to use temporarily
@@ -300,7 +339,8 @@ aside li a:focus {
 }
 
 .related .inner {
-	background: #FFD1BE;
+/*	background: #FEEFC5;*/
+	background: #ffffaa;
 	border: 1px solid #bbb;
 	border-radius: 0 1em 1em 0;
 	padding: 0 1em 1em 1em;
@@ -327,7 +367,8 @@ aside li a:focus {
 }
 
 .related h2 {
-	background: #FFD1BE;
+/*	background: #FEEFC5;*/
+	background: #ffffaa;
 	line-height: 56px;
 	margin-left: -4em;
 	margin-top: 0;
@@ -354,7 +395,7 @@ aside li a:focus {
 	}
 
 .related li.related-topic {
-	background: #DC946D;
+	background: #1576FB;
 	line-height: 32px;
 	list-style: none;
 	margin-left: -1.25em;
@@ -376,96 +417,58 @@ aside li a:focus {
   height:0px; 
   border-bottom: 16px solid transparent;
   border-top: 16px solid transparent;
-  border-left: 16px solid #DC946D;
+  border-left: 16px solid #1576FB;
   font-size:0px;
   line-height:0px;
   z-index: 1;
 }
 
+
 .pagination {
-/*	border-top: 1px dashed #ddd;*/
-/*	border-bottom: 1px dashed #ddd;*/
+	background: #F2F2F2;
+	border-top: solid 1px #bbb;
 	display: block;
-/*	margin-bottom: 1em;*/
-	margin-top: 3em;
-/*	padding: 0.25em 0;*/
-/*	text-align: right;*/
-/*	width: 99%;*/
+	margin: 2em -2em 1em -2em;
+/*	padding: 0.25em 0 0 0;*/
 }
 
 .pagination ul {
-	padding-left: 0;
+	margin: 0;
+	padding: 0.5em 0;
 }
 
 .pagination li {
 /*	display: inline-block;*/
 	list-style: none;
-/*	width: 33%;*/
-}
-
-.pagination .next {
-	margin-bottom: 2em;
-	text-align: right;
 }
 
 .pagination li a {
 	display: block;
+	padding: 0.5em;
 	position: relative;
 }
 
-.pagination .next a {
-/*	background: #EBF6E5;*/
-	background: #D7EDCE;
-	border: solid 1px #B1E1B0;
-	border-right: none;
-	-webkit-border-radius: 0.5em 0 0 0.5em;
-	-moz-border-radius: 0.5em 0 0 0.5em;
-	border-radius: 0.5em 0 0 0.5em;
-	font-weight: bold;
-	margin-left: 10em;
-	margin-right: -3em;
-	padding: 1.25em 1em;
-}
-
-.pagination .next a:hover, .pagination .next a:focus {
-	background: #CBE2C5;
-	border: solid 1px #A7D4A8;
-	border-right: none;
+.pagination li a:hover {
+	background: #1576FB;
+	color: #fff;
 }
 
 .pagination .previous a {
-/*	background: #D7EDCE;*/
-	background: #EFEFEF;
-	border: solid 1px #DCE1DC;
-	border-left: none;
-	-webkit-border-radius: 0 0.5em 0.5em 0;
-	-moz-border-radius: 0 0.5em 0.5em 0;
-	border-radius: 0 0.5em 0.5em 0;
-	margin-left: -3em;
-	margin-right: 10em;
-	padding: 0.5em 1em;
+	border-right: solid 1px #bbb;
+	box-sizing: border-box;
+	float: left;
+	width: 11em;
 }
 
-.pagination .previous a:hover, .pagination .previous a:focus {
-	background: #DFDFDF;
-	border: solid 1px #CDD3CF;
-	border-left: none;
+.pagination .next a {
+	float: right;
+	width: 22em;
 }
-
-/*.pagination .previous {
-	text-align: left;
-}
-
-.pagination .pages {
-	text-align: center;
-}
-
-.pagination .next {
-	text-align: right;
-}*/
 
 .pagination .pagination-label {
+	display: block;
 	font-size: 0.8em;
+	line-height: 1em;
 	margin-bottom: 0.5em;
 }
 
@@ -506,17 +509,30 @@ footer.group {
 */
 
 article header h1 {
-  font-size: 1.5em;
+	border-bottom: solid 1px #ddd;
+  font-size: 1.35em;
   line-height: 1.15em;
   margin-top: 0;
   margin-bottom: 0;
+	padding-bottom: 0.75em;
+}
+
+article header h1 span {
+	color: #666;
+	display: block;
+	font-size: 0.6em;
+	font-weight: normal;
+	line-height: 1em;
+	margin-bottom: 0.4em;
+	text-transform: uppercase;
 }
 
 article h2 {
   font-size: 1.25em;
+	font-style: italic;
   line-height: 1.18em;
   margin-top: 1.2em;
-  margin-bottom: 0;
+  margin-bottom: 0.2em;
 }
 
 article h3 {
