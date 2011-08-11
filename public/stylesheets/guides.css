@@ -261,9 +261,9 @@ aside li a:focus {
 
 aside li a .part-label {
 /*	background: #BDBBAE;*/
-	background: rgba(0,0,0,0.4);
+/*	background: rgba(0,0,0,0.4);*/
 /*	background: #999;*/
-	color: #fff;
+/*	color: #fff;*/
 	font-size: 0.65em;
 	padding: 0.1em 0.35em;
 	position: relative;
