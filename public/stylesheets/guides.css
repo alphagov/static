@@ -60,7 +60,8 @@ header[role="banner"] {
 }
 
 	header[role="banner"] .inner {
-		padding: 0.5em 1em;
+/*		padding: 0.5em 1em;*/
+		padding: 0em 1em;
 	}
 
 	header[role="banner"] hgroup {
@@ -70,10 +71,13 @@ header[role="banner"] {
 	}
 
 	header[role="banner"] hgroup h1 {
+		background: url(../images/templogo.png) no-repeat 0 0;
 		display: inline-block;
 		font-size: 120%;
 		line-height: 1.3em;
 		margin-right: 1em;
+		padding: 0.5em 0;
+		padding-left: 2.5em;
 	}
 
 	header[role="banner"] hgroup h2 {
