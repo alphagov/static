@@ -169,6 +169,7 @@ article {
 	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	float: left;
+	min-height: 40em;
 	position: relative;
   width: 75%;
 	z-index: 1;
@@ -443,7 +444,6 @@ aside li a .part-title {
   line-height:0px;
   z-index: 1;
 }
-
 
 .pagination {
 	background: #F2F2F2;
