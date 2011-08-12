@@ -402,3 +402,19 @@ table {
 .return:before {
 	content: '\2190';
 }
+
+
+/*
+	imminence app
+*/
+
+td.imminence-actions {
+	width: 25%;
+}
+
+.sample-data {
+	background-color: #EFECE0;
+	border: dashed 1px #bbb;
+	color: #585858;
+	font-size: 0.8em;
+}
