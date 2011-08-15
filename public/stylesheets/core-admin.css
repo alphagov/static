@@ -131,6 +131,27 @@ body {
 	margin: 2em auto 100px;
 }
 
+/*
+	links
+*/
+
+a {
+    color: #2200C1;
+}
+
+a:hover {
+    color: #1D97FF;
+}
+
+a:visited {
+    color: #5800AE;
+}
+
+a:active {
+	color: #c11;
+}
+
+
 .ui-widget-content.new {
 	/* new guide/answer/transaction forms */
 
