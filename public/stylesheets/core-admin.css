@@ -291,6 +291,30 @@ input[disabled]:active {
 	width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+input[disabled] {
+	background: gray;
+	color: #eee;
+	cursor: default;
+}
+
+table {
+	background-color: #fff;
+	margin: 0 auto;
+	text-align: left;
+	width: 97%;
+}
+
+	th, td {
+		border: 1px solid #bbb;
+		padding: 0.5em 0.75em;
+	}
+
+	td:nth-child(even) {
+		text-align: right;
+		width: 20%;
+	}
 
 .edition {
 }
