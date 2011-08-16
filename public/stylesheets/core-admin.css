@@ -180,7 +180,7 @@ a:active {
 	position: fixed;
 	z-index: 100;
 
-	height: 60px;
+	height: 50px;
 	margin: 0 auto;
 	padding-top: 1em;
 	width: 100%;
@@ -220,16 +220,13 @@ a:active {
   cursor: pointer;
   font-size: 0.9em;
   font-weight: bold;
-  margin-right: 3px;
 	margin-bottom: .5em;
   padding: 0.6em 0;
-	text-indent: 0.5em;
-	text-align: left;
-  text-shadow: #000 0 1px 0;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
 	width: auto;
 }
 
-.button { margin-left: 1em; }
+/*.button { margin-left: 1em; }*/
 
 .button a  {
 	color: #fff;
@@ -266,6 +263,7 @@ input[disabled] {
 
 table {
 	background-color: #fff;
+	border-collapse: collapse;
 	margin: 0 auto;
 	text-align: left;
 	width: 97%;
@@ -273,15 +271,12 @@ table {
 
 	th, td {
 		border: 1px solid #bbb;
-		padding: 0.5em 0.75em;
+		padding: 0.5em 0.5em;
 	}
 
-	td:nth-child(even) {
-		text-align: right;
-		width: 20%;
-	}
-
-	td a { padding: 0.5em; }
+	td:nth-child(2), td:nth-child(3), td:nth-child(4) {
+		width: auto;
+}
 
 
 .edition {
