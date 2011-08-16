@@ -77,8 +77,8 @@ a:active {
 .popover-mask .popover {
   background: #f6f5f1;
   border: solid 1px #D6D6D6;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
   margin: 4em auto 0 auto;
