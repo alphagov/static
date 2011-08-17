@@ -23,6 +23,10 @@ form.formtastic fieldset > ol { padding: 0; }
 
 form.formtastic fieldset > ol > li label { display: block; width: auto; float: none; font-size: 1em; padding-top: 0; margin-bottom: 0.5em; }
 
+form.formtastic fieldset > ol > li.required label { font-weight: bold; }
+
+form.formtastic fieldset > ol > li label abbr { color: #c00; font-weight: bold; margin-left: 0.3em; }
+
 form.formtastic fieldset > ol > li p.inline-hints { color: #666; font-style: italic; margin: 0.5em 0 0 0; }
 
 
@@ -34,7 +38,7 @@ form.formtastic fieldset > ol > li.numeric input,
 form.formtastic fieldset > ol > li.email input,
 form.formtastic fieldset > ol > li.url input,
 form.formtastic fieldset > ol > li.phone input,
-form.formtastic fieldset > ol > li.search input { width:100%; }
+form.formtastic fieldset > ol > li.search input { width:99%; }
 
 form.formtastic fieldset > ol > li.string input[size],
 form.formtastic fieldset > ol > li.password input[size],
@@ -42,7 +46,7 @@ form.formtastic fieldset > ol > li.numeric input[size],
 form.formtastic fieldset > ol > li.email input[size],
 form.formtastic fieldset > ol > li.url input[size],
 form.formtastic fieldset > ol > li.phone input[size],
-form.formtastic fieldset > ol > li.search input[size] { width:auto; max-width:100%; }
+form.formtastic fieldset > ol > li.search input[size] { width:auto; max-width:99%; }
 
 /* TEXTAREA OVERRIDES
 --------------------------------------------------------------------------------------------------*/

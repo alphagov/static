@@ -164,6 +164,10 @@ a:active {
   box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
 }
 
+.ui-widget-content.new h1 {
+	font-size: 1.5em;
+}
+
 #guide-nav .intro {
 	font-weight: bold;
 	margin: 0 1em;
@@ -248,7 +252,8 @@ input[type=submit]:active,
 }
 
 input[type=submit].update,
-input[type=submit].create {
+input[type=submit].create,
+input[type=submit].activate {
 	/* green button */
 	background-color: rgb(0,109,24);
 	padding: 0.6em 1em;
@@ -256,7 +261,8 @@ input[type=submit].create {
 }
 
 input[type=submit].update:hover,
-input[type=submit].create:hover {
+input[type=submit].create:hover,
+input[type=submit].activate:hover {
 	background-color: rgb(0,79,14);
 	color: #fff;
 }
