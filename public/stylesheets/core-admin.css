@@ -267,7 +267,16 @@ input[type=submit].activate:hover {
 	color: #fff;
 }
 
+input[disabled],
+input[disabled]:hover {
+	background-color: rgb(61,61,61);
+	color: #eee;
+	cursor: default;
+}
 
+input[disabled]:active {
+	top: 0;
+}
 
 .button_to {
 	display: inline-block;
@@ -282,11 +291,6 @@ input[type=submit].activate:hover {
 	width: 100%;
 }
 
-input[disabled] {
-	background: gray;
-	color: #eee;
-	cursor: default;
-}
 
 .edition {
 }
