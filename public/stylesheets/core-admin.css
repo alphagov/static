@@ -291,8 +291,6 @@ input[disabled]:active {
 	width: 100%;
 }
 
-<<<<<<< HEAD
-=======
 input[disabled] {
 	background: gray;
 	color: #eee;
