@@ -291,19 +291,10 @@ input[disabled]:active {
 	width: 100%;
 }
 
-input[disabled] {
-	background: gray;
-	color: #eee;
-	cursor: default;
-}
-
-table {
-	background-color: #fff;
-	margin: 0 auto;
-	text-align: left;
-	width: 97%;
-}
-
+/*
+	Think Josh commented this out in a previous commit I broke (JW)
+*/
+/*
 	th, td {
 		border: 1px solid #bbb;
 		padding: 0.5em 0.75em;
@@ -312,7 +303,7 @@ table {
 	td:nth-child(even) {
 		text-align: right;
 		width: 20%;
-	}
+	}*/
 
 .edition {
 }
