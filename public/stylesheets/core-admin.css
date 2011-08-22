@@ -1,34 +1,40 @@
+/*
+ * Global helper styles
+ */
 
 /* For image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 
-/* Hide for both screenreaders and browsers:
-   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+/* Hide for both screenreaders and browsers: */
 .hidden { display: none; visibility: hidden; }
 
-/* Hide only visually, but have it available for screenreaders: by Jon Neal.
-  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+/* Hide only visually, but have it available for screenreaders */
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-
-
-
-
-
-body {
-  font-family: sans-serif;
-  font-size: 100%;
-  color: #525252;
+/* self-clearing floats */
+.group:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
-/* Admin header */
+* html .group { height: 1%; } /* IE6 */
+.group { min-height: 1px; } 	/* IE7 */
+
+
+
+/*
+ * Global Admin header
+ */
 
 .gds-header {
 	background-color: #333;
@@ -54,7 +60,7 @@ body {
 	font-size: 1.3em;
 	font-weight: bold;
 	margin-right: 2em;
-	text-shadow: 1px 1px 1px rgba(0,0,0,1);
+	text-shadow: 1px 1px 1px rgb(0,0,0);
 }
 
 .gds-menu {
@@ -62,65 +68,22 @@ body {
 	margin-top: -2.5em;
 }
 
-/* END admin header */
-
-/* Sign on template */
-
-#halberd {
-  position: relative;
-  left: -12em;
-  margin-top: 15%;
-  margin-left: 50%;
-  padding: 1em;
-  width: 22em;
-  background: #C3EEC8;
-}
-
-#halberd #gds-logo-type {
-	margin-bottom: 1em;
-}
-
-#halberd h1 {
-	padding-top: 0.5em;
-	font-size: 1.75em;
-  border-top: solid 1px #333;
-}
-
-#sign-in {
-  margin-top: 0.5em;
-  padding: 1em 0;
-}
-
-#sign-in-link {
-  margin-top: 1em;
-  text-align: center;
-}
-
-#sign-in-link a {
-  padding: 0.5em;
-  font-size: 1.5em;
-  font-weight: bold;
-  background: #fff;
-}
-
-#sign-in-link a:hover, #sign-in-link a:focus {
-  color: #fff;
-  background: #333;
-}
-
-/* END sign on template */
+/* END Global Admin header */
 
 
 /*
- * Admin-o-tron styles
+ * Admin styles
  */
 
 body {
 	background-color: #efece0;
+  font-family: sans-serif;
+  font-size: 100%;
 	color: #444;
 }
 
-.wrapper { /* generic wrapper for centering elements */
+.wrapper {
+	/* generic wrapper for centering elements */
 	margin: 0 auto;
 	max-width: 960px;
 }
@@ -131,34 +94,23 @@ body {
 	position: relative;
 	width: 95%;
 }
+
 .content {
 	margin: 2em auto 100px;
 }
 
 /*
-	links
-*/
+ * link styles
+ */
 
-a {
-    color: #2200C1;
-}
-
-a:hover {
-    color: #1D97FF;
-}
-
-a:visited {
-    color: #5800AE;
-}
-
-a:active {
-	color: #c11;
-}
+a 				{ color: #2200C1; }
+a:hover 	{ color: #1D97FF; }
+a:visited { color: #5800AE; }
+a:active 	{ color: #c11; }
 
 
 .ui-widget-content.new {
-	/* new guide/answer/transaction forms */
-
+	/* wrapper for new guide/answer/transaction forms */
 	border: 1px solid #bbb;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
@@ -170,6 +122,7 @@ a:active {
 
 .ui-widget-content.new h1 {
 	font-size: 1.5em;
+	margin: 0.75em 0.55em 0.55em;
 }
 
 #guide-nav .intro {
@@ -199,20 +152,6 @@ a:active {
 	display: inline-block;
 	margin: 0 1em 1em 0;
 }
-
-
-/* self-clearing floats */
-.group:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-* html .group { height: 1%; } /* IE6 */
-.group { min-height: 1px; } /*IE7 */
-
 
 /*
  * button styles - generic button, submit and formtastic submit
@@ -294,20 +233,6 @@ input[disabled]:active {
 	text-align: center;
 	width: 100%;
 }
-
-/*
-	Think Josh commented this out in a previous commit I broke (JW)
-*/
-/*
-	th, td {
-		border: 1px solid #bbb;
-		padding: 0.5em 0.75em;
-	}
-
-	td:nth-child(even) {
-		text-align: right;
-		width: 20%;
-	}*/
 
 .edition {
 }
