@@ -31,17 +31,21 @@ body {
 /* Admin header */
 
 .gds-header {
-	background: #333 url('/images/gov.uk-crest.png') no-repeat 7% 12%;
+	background-color: #333;
 	border-bottom: solid 1px #efefef;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	color: #fff;
 	min-height: 1.5em;
-	padding: 0.3em 0;
 	position: relative;
 	vertical-align: top;
 	width: 100%;
+}
+
+.gds-header .wrapper {
+	background: url('/images/gov.uk-crest.png') no-repeat 3% 12%;
+	padding: 0.3em 0;
 }
 
 .gds-header h1,
