@@ -1,19 +1,13 @@
 /*
- * Publisher app specific css
+ * Publisher front-end specific css
  */
 
 body {
-/*	background: #efece0;*/
 	background: #D4D2CC;
 	color: #3F3F3F;
 }
 
 #wrapper {
-/*
-	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-	-moz-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-	box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-*/
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
@@ -36,10 +30,11 @@ body {
 	top: 0.25em;
 }
 
-.site-search fieldset { border: none; }
-.site-search input[type="submit"] {
-	margin-left: 0.5em;
-}
+	.site-search fieldset { border: none; }
+
+	.site-search input[type="submit"] {
+		margin-left: 0.5em;
+	}
 
 
 header[role="banner"] {
@@ -60,12 +55,10 @@ header[role="banner"] {
 }
 
 	header[role="banner"] .inner {
-/*		padding: 0.5em 1em;*/
-		padding: 0em 1em;
+		padding: 0 1em;
 	}
 
 	header[role="banner"] hgroup {
-/*		margin: -0.75em 0 0.5em 1.5em;*/
 		text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 		max-width: 50%;
 	}
