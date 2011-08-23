@@ -415,6 +415,26 @@ table {
 
 
 /*
+ * Google insights popup
+ */
+
+a.insights {
+	margin-left: 0.5em;
+	margin-bottom: -2px;
+}
+
+#popup {
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	border: 3px solid #999;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -204px;
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+}
+
+/*
 	imminence app
 */
 
