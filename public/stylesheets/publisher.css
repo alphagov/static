@@ -64,7 +64,7 @@ header[role="banner"] {
 	}
 
 	header[role="banner"] hgroup h1 {
-		background: url(../images/templogo.png) no-repeat 0 0;
+		background: url('/images/templogo.png') no-repeat 0 0;
 		display: inline-block;
 		font-size: 120%;
 		line-height: 1.3em;
@@ -103,7 +103,6 @@ header[role="banner"] {
 	#wrapper.answer hgroup h1,
 	#wrapper.guide hgroup h1,
 	#wrapper.transaction hgroup h1 {
-/*		background-position: 0 0.2em;*/
 		background-repeat: no-repeat;
 		font-size: 1.8em;
 		min-height: 2.5em;
@@ -138,22 +137,13 @@ section {
 
 		section header hgroup {
 			display: inline-block;
-/*			float: left;*/
-/*			width: 70%;*/
 		}
 
-		section header hgroup h1 {
-/*			font-size: 175%;*/
-		}
 
 .article-and-navigation {
 	background: #efece0;
-/*	border: solid 1px #bbb;*/
 	border-top: none;
 	margin-right: 12em;
-/*	overflow: hidden;*/
-/*	margin-top: -1px;*/
-/*	position: relative;*/
 }
 
 article {
@@ -174,8 +164,6 @@ article .inner {
 }
 
 	.answer article {
-/*		float: none;*/
-/*		margin: 0 auto 1em;*/
 		margin-left: 10%;
 		width: auto;
 	}
@@ -232,7 +220,6 @@ aside li a {
 	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
-/*	font-weight: bold;*/
 	padding: 0.75em 0.75em;
 	text-decoration: none;
 }
@@ -258,10 +245,6 @@ aside li a:focus {
 	}
 
 aside li a .part-label {
-/*	background: #BDBBAE;*/
-/*	background: rgba(0,0,0,0.4);*/
-/*	background: #999;*/
-/*	color: #fff;*/
 	font-size: 0.65em;
 	padding: 0.1em 0.35em;
 	position: relative;
@@ -285,18 +268,13 @@ aside li a .part-title {
 
 .meta-data {
 	border-top: dotted 1px #bbb;
-/*	clear: both;*/
 	color: #7F7F7F;
 	float: left;
 	margin: 1em 1.25em;
-/*	padding: 0.25em;*/
 }
 
 .modified-date {
 	font-size: 0.65em;
-/*	margin: 0;*/
-/*	margin-left: 60px;*/
-/*	margin-top: -0.3em;*/
 }
 
 /*
@@ -330,10 +308,6 @@ aside li a .part-title {
 
 .related {
 	position: absolute;
-/*	right: -12em;*/
-/*	top: -1px;*/
-/*	margin-right: 5em;*/
-/*	position: fixed;*/
 	right: 0;
 	margin-top: 10em;
 	width: 12em;
@@ -341,7 +315,6 @@ aside li a .part-title {
 }
 
 .related .inner {
-/*	background: #FEEFC5;*/
 	background: #ffffaa;
 	border: 1px solid #bbb;
 	border-radius: 0 1em 1em 0;
@@ -354,32 +327,22 @@ aside li a .part-title {
 }
 
 .related h2 {
-/*	background: #FEEFC5;*/
-	background-color: #ffffaa;
-	background-image: url(/images/related-arrow.png);
-	background-position: 0 -1px;
-	background-repeat: no-repeat;
+	background: #ffa url('/images/related-arrow.png') no-repeat 0 -1px;
 	border-top: solid 1px #bbb;
 	font-size: 1em;
 	line-height: 53px;
 	margin-left: -52px;
 	margin-top: -1px;
-/*	padding: 1em;*/
 	padding-left: 36px;
 	position: relative;
 }
-/*	.related h2:before {
-		content: url('/images/rss-icon.png');
-	}*/
 
 .related nav {
-/*	background: #fff;*/
 }
 
 .related ul {
 	list-style: none;
 	margin: 0;
-/*	padding-left: 1.25em;*/
 	padding: 0;
 }
 
@@ -393,21 +356,20 @@ aside li a .part-title {
 }
 
 .related li.answer {
-	background-image: url(../images/icon-answer-24.png);
+	background-image: url('/images/icon-answer-24.png');
 }
 
 .related li.guide {
-	background-image: url(../images/icon-guide-24.png);
+	background-image: url('/images/icon-guide-24.png');
 	background-position: 0.25em 0.25em;
 }
 
 .related li.tool {
-	background-image: url(../images/icon-tool-24-temp.png);
+	background-image: url('/images/icon-tool-24-temp.png');
 }
 
 .related li.related-topic {
 	background: #1576FB;
-/*	line-height: 32px;*/
 	list-style: none;
 	margin-right: 16px;
 	padding: 0.5em 1em 0.5em 1em;
@@ -443,7 +405,6 @@ aside li a .part-title {
 	border-top: solid 1px #bbb;
 	display: block;
 	margin: 2em -2em 1em -2em;
-/*	padding: 0.25em 0 0 0;*/
 }
 
 .pagination ul {
@@ -452,7 +413,6 @@ aside li a .part-title {
 }
 
 .pagination li {
-/*	display: inline-block;*/
 	list-style: none;
 }
 
@@ -601,7 +561,6 @@ article table {
   margin: 0em 0;
   margin-left: -0.38em;
   padding: 0;
-/*  width: 80%;*/
   border-collapse: separate;
   border-spacing: 0.38em;
 }
@@ -655,11 +614,11 @@ article dd {
 }
 
 article .advisory {
+  background: yellow;
+  line-height: 1.3em;
+	margin-bottom: 1em;
   padding: 0 2.5em;
   text-align: center;
-/*  font-size: 2em;*/
-  line-height: 1.3em;
-  background: yellow /*url(/images/answers-advisory-highlight.png) center top repeat-y*/;
 }
 
 article .help-notice, article .info-notice {
@@ -674,9 +633,9 @@ article .help-notice p, article .info-notice p {
 }
 
 article .help-notice {
-  background: url(/images/application-notice-icon-default.png) 2% 50% no-repeat;
+  background: url('/images/application-notice-icon-default.png') 2% 50% no-repeat;
 }
 
 article .info-notice {
-  background: url(/images/application-info-icon-default.png) 2% 50% no-repeat;
+  background: url('/images/application-info-icon-default.png') 2% 50% no-repeat;
 }
