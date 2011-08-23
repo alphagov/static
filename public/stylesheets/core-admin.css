@@ -188,7 +188,7 @@ input[type=submit]:active,
 	top: 1px;
 }
 
-.button a  {
+.button a {
 	color: #fff;
 	padding: 5px 10px 6px;
   text-decoration: none;
@@ -215,6 +215,9 @@ input[disabled]:hover {
 	background-color: rgb(61,61,61);
 	color: #eee;
 	cursor: default;
+
+	background-color: #f5f5f5;
+	color: #777;
 }
 
 input[disabled]:active {
@@ -233,6 +236,12 @@ input[disabled]:active {
 	text-align: center;
 	width: 100%;
 }
+
+#edit .button {
+	margin-left: 1.3em;
+}
+
+
 
 .edition {
 }
@@ -320,7 +329,7 @@ table {
 	text-align: left;
 }
 
-.formats td.transaction, .formats td.answer, .formats td.guide {
+.formats td.localtransaction, .formats td.transaction, .formats td.answer, .formats td.guide {
   padding-left: 50px;
 }
 
@@ -334,6 +343,10 @@ table {
 
 .formats td.guide {
   background: #fff url(/images/icon-publisher-guide.png) no-repeat 2% 50%;
+}
+
+.formats td.localtransaction {
+  background: #fff url(/images/icon-publisher-local-transaction.png) no-repeat 2% 50%;
 }
 
 .formats td form {
