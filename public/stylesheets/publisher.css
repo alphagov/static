@@ -652,3 +652,97 @@ article .help-notice {
 article .info-notice {
   background: url('/images/application-info-icon-default.png') 2% 50% no-repeat;
 }
+
+/*
+	Programme format
+*/
+
+#wrapper.programme hgroup h1 {
+	background-repeat: no-repeat;
+	font-size: 1.8em;
+	min-height: 2.5em;
+	line-height: 1.05em;
+	padding: 0.2em 0 0.2em 2.75em;
+}
+
+#wrapper.programme hgroup h1 {
+	color: #295A80;
+}
+
+#wrapper.programme .article-and-navigation {
+	padding-top: 0.5em;
+	position: relative;
+}
+
+#wrapper.programme .programme-switcher ul, #wrapper.programme .programme-progression ul {
+	list-style: none;
+	margin: 0;
+}
+
+#wrapper.programme .programme-switcher ul li, #wrapper.programme .programme-progression ul li {
+	float: left;
+}
+
+#wrapper.programme .programme-switcher ul li a {
+	border: solid 1px #bbb;
+	border-bottom: none;
+	-webkit-border-radius: 0.5em 0.5em 0 0;
+	-moz-border-radius: 0.5em 0.5em 0 0;
+	border-radius: 0.5em 0.5em 0 0;
+	display: block;
+	padding: 0.5em 1em;
+	position: relative;
+}
+
+#wrapper.programme .programme-switcher ul li.active a {
+	background: #fff;
+	z-index: 5;
+}
+
+#wrapper.programme .programme-switcher ul li a:hover,
+#wrapper.programme .programme-switcher ul li a:focus, #wrapper.programme .programme-progression ul li a:hover, #wrapper.programme .programme-progression ul li a:focus {
+	background: #1576FB;
+	color: #fff;
+}
+
+#wrapper.programme .programme-switcher ul li.active a:hover {
+	background: #fff;
+	color: #1576FB;
+}
+
+#wrapper.programme .programme-progression ul {
+	background: #EFECE0;
+	border: solid #ddd;
+	border-width: 1px 0 1px 0;
+	padding: 0;
+	position: absolute;
+	top: 4.5em;
+	width: 100%;
+	z-index: 5;
+}
+
+#wrapper.programme .programme-progression ul li {
+	width: 25%;
+}
+
+#wrapper.programme .programme-progression ul li a {
+	display: block;
+	line-height: 2.25em;
+	text-align: center;
+	width: 100%;
+}
+
+#wrapper.programme .programme-progression ul li.active a {
+	background: #ffffaa;
+}
+
+#wrapper.programme .programme-progression ul li.active a:hover {
+	color: #1576FB;
+}
+
+#wrapper.programme article {
+	min-height: 10em;
+	padding-top: 3.5em;
+	width: auto;
+}
+
