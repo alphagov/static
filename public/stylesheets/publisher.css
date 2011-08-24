@@ -192,7 +192,6 @@ article .inner {
 	article header {
 		background: none;
 		border-bottom: none;
-		font-size: 120%;
 		margin: 0.25em 0 1em;
 	}
 
@@ -497,7 +496,7 @@ footer.group {
 
 article header h1 {
 	border-bottom: solid 1px #ddd;
-  font-size: 1.35em;
+  font-size: 1.65em;
   line-height: 1.15em;
   margin-top: 0;
   margin-bottom: 0;
