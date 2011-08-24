@@ -319,6 +319,10 @@ input[disabled]:active {
 	width: 97%;
 }
 
+	.formats tbody tr:nth-child(odd) td {
+		background-color: #F9F9F9;
+	}
+
 	.formats th, .formats td {
 		border: 1px solid #bbb;
 		border-right: 1px solid #eee;
