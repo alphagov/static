@@ -336,40 +336,58 @@ input[disabled]:active {
 			text-align: center;
 		}
 
-		.formats th:nth-child(1) {
+		.formats th:nth-child(2) {
 			font-size: 1em;
-		  padding-left: 45px;
+		  padding-left: 5px;
 			text-align: left;
 			width: 55%;
 		}
 
-		.formats td:nth-child(1) {
+		.formats td:nth-child(2) {
 			font-size: 1.3em;
-		  padding-left: 45px;
+		  padding-left: 5px;
 			text-align: left;
 			width: 55%;
 		}
 
-		/* set icons for different publication types */
+		.formats img,
+		.formats input {
+			opacity: 0.5;
+		}
+			.formats td:nth-child(1) img,
+			.formats img:hover, .formats img:focus,
+			.formats input:hover, .formats input:focus {
+				opacity: 1;
+			}
 
-		.formats td.transaction {
-		  background: #fff url(/images/icon-publisher-transaction.png) no-repeat 2% 50%;
+			.formats .disabled {
+				opacity: 0.25;
+				cursor: default;
+			}
+
+			.formats .version {
+				font-size: 0.7em;
+				font-style: italic;
+			}
+
+		/* tablesorter styles */
+		th.header {
+		    background-image: url(/images/bg.gif);
+		    background-repeat: no-repeat;
+		    background-position: center right;
+		    cursor: pointer;
+ 		    padding-right: 16px;
+		    border-right: 1px solid #ccc;
 		}
 
-		.formats td.answer {
-		  background: #fff url(/images/icon-publisher-answer.png) no-repeat 2% 50%;
+		th.headerSortUp {
+		    background-image: url(/images/asc.gif);
+		    background-color: #d7d7d7;
 		}
 
-		.formats td.guide {
-		  background: #fff url(/images/icon-publisher-guide.png) no-repeat 2% 50%;
-		}
-
-		.formats td.localtransaction {
-		  background: #fff url(/images/icon-publisher-local-transaction.png) no-repeat 2% 50%;
-		}
-
-		.formats td.place {
-		  background: #fff url(/images/icon-publisher-place-thing.png) no-repeat 2% 50%;
+		th.headerSortDown {
+		    background-image: url(/images/desc.gif);
+		    background-color: #d7d7d7;
 		}
 
 		.formats th:last-child,
@@ -381,26 +399,6 @@ input[disabled]:active {
 			/* create new edition form */
 			display: inline-block;
 		}
-
-		.formats img,
-		.formats input {
-			opacity: 0.5;
-		}
-			.formats img:hover, .formats img:focus,
-			.formats input:hover, .formats input:focus {
-				opacity: 1;
-			}
-
-			.formats .disabled {
-				opacity: 0.25;
-				cursor: default;
-			}
-
-		.formats .version {
-			font-size: 0.7em;
-			font-style: italic;
-		}
-
 
 
 .flash-notice {
