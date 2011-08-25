@@ -442,8 +442,17 @@ input[disabled]:active {
 
 a.insights {
 	margin-left: 0.5em;
-	margin-bottom: -2px;
+	width: auto;
 }
+
+a.insights img {
+	vertical-align: middle;
+}
+a.insights img:active {
+	margin-top: 1px;
+	margin-bottom: -1px;
+}
+
 
 #popup {
 	box-shadow: 0 0 15px rgba(0,0,0,0.4);
