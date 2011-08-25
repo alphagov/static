@@ -551,12 +551,12 @@ article .info-notice {
 	position: relative;
 }
 
-#wrapper.programme .programme-switcher ul, #wrapper.programme .programme-progression ul {
+#wrapper.programme .programme-switcher ul, #wrapper.programme .programme-progression ol {
 	list-style: none;
 	margin: 0;
 }
 
-#wrapper.programme .programme-switcher ul li, #wrapper.programme .programme-progression ul li {
+#wrapper.programme .programme-switcher ul li, #wrapper.programme .programme-progression ol li {
 	float: left;
 }
 
@@ -577,7 +577,7 @@ article .info-notice {
 }
 
 #wrapper.programme .programme-switcher ul li a:hover,
-#wrapper.programme .programme-switcher ul li a:focus, #wrapper.programme .programme-progression ul li a:hover, #wrapper.programme .programme-progression ul li a:focus {
+#wrapper.programme .programme-switcher ul li a:focus, #wrapper.programme .programme-progression ol li a:hover, #wrapper.programme .programme-progression ol li a:focus {
 	background: #1576FB;
 	color: #fff;
 }
@@ -587,7 +587,7 @@ article .info-notice {
 	color: #1576FB;
 }
 
-#wrapper.programme .programme-progression ul {
+#wrapper.programme .programme-progression ol {
 	background: #EFECE0;
 	border: solid #ddd;
 	border-width: 1px 0 1px 0;
@@ -598,11 +598,11 @@ article .info-notice {
 	z-index: 5;
 }
 
-#wrapper.programme .programme-progression ul li {
+#wrapper.programme .programme-progression ol li {
 	width: 25%;
 }
 
-#wrapper.programme .programme-progression ul li a {
+#wrapper.programme .programme-progression ol li a {
 	display: block;
 	line-height: 2.25em;
 	position: relative;
@@ -610,11 +610,11 @@ article .info-notice {
 	width: 100%;
 }
 
-#wrapper.programme .programme-progression ul li.active a {
+#wrapper.programme .programme-progression ol li.active a {
 	background-color: #ffffaa;
 }
 
-#wrapper.programme .programme-progression ul li.active a:hover {
+#wrapper.programme .programme-progression ol li.active a:hover {
 	color: #1576FB;
 }
 
