@@ -21,13 +21,15 @@ form.formtastic fieldset.buttons li { padding-right: 0; }
 
 form.formtastic fieldset > ol { padding: 0; }
 
-form.formtastic fieldset > ol > li label { display: block; width: auto; float: none; font-size: 1em; padding-top: 0; margin-bottom: 0.5em; }
+form.formtastic fieldset > ol > li label { display: inline-block; width: auto; float: none; font-size: 1em; padding-top: 0; margin-bottom: 0.5em; }
 
 form.formtastic fieldset > ol > li.required label { font-weight: bold; }
 
 form.formtastic fieldset > ol > li label abbr { color: #c00; font-weight: bold; margin-left: 0.3em; }
 
 form.formtastic fieldset > ol > li p.inline-hints { color: #666; font-style: italic; margin: 0.5em 0 0 0; }
+
+form.formtastic fieldset > ol > li p.inline-errors { margin: 0.5em 0 0 0; font-style: italic; }
 
 
 /* STRING, NUMERIC, PASSWORD, EMAIL, URL, PHONE & SEARCH OVERRIDES

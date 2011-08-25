@@ -189,6 +189,10 @@ article .inner {
 		float: left;
 	}
 
+	.local-transaction article {
+		float: left;
+	}
+
 	article header {
 		background: none;
 		border-bottom: none;
@@ -335,10 +339,15 @@ aside li a .part-title {
 	margin-bottom: 0.5em;
 }
 
+
+/*
+ * Transactions styles
+ */
+
 #wrapper.transaction .intro {
-	background: #ffc;
+/*	background: #ffc;
 	border: 1px solid #bbb;
-	margin-bottom: 0;
+*/	margin-bottom: 0;
 	padding: 0.25em 1em;
 }
 
