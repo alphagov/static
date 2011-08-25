@@ -26,8 +26,8 @@ jQuery.fn.tabs = function(settings){
 		//set app mode
 		if( !$('body').is('[role]') ){ $('body').attr('role','application'); }
 		
-		//nav is first ul
-		var tabsNav = tabs.find('ul:first');
+		//nav is first ul // ol for GovUK
+		var tabsNav = tabs.find('ol:first');
 		
 		//body is nav's next sibling
 		var tabsBody = $(tabsNav.find('a:eq(0)').attr('href')).parent();
