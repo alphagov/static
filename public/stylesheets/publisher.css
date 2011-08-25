@@ -598,11 +598,11 @@ article .info-notice {
 	z-index: 5;
 }
 
-#wrapper.programme .programme-progression ol li {
+#wrapper.programme .programme-progression li {
 	width: 25%;
 }
 
-#wrapper.programme .programme-progression ol li a {
+#wrapper.programme .programme-progression li a {
 	display: block;
 	line-height: 2.25em;
 	position: relative;
@@ -610,19 +610,20 @@ article .info-notice {
 	width: 100%;
 }
 
-#wrapper.programme .programme-progression ol li.active a {
-	background-color: #ffffaa;
-}
-
-#wrapper.programme .programme-progression ol li a:focus {
+#wrapper.programme .programme-progression li a:focus {
 	outline: none;
 }
 
-#wrapper.programme .programme-progression ol li.active a:hover, #wrapper.programme .programme-progression ol li.active a:focus {
+#wrapper.programme .programme-progression li.active a {
+	background-color: #ffffaa;
+}
+
+#wrapper.programme .programme-progression li.active a:hover, #wrapper.programme .programme-progression li.active a:focus {
+	background-color: #ffffaa;
 	color: #1576FB;
 }
 
-#wrapper.programme .programme-progression .progressor {
+#wrapper.programme .progressor {
 	background-image: url(/images/programme-progressor-arrows.png);
 	background-position: -1px 0;
 	background-repeat: no-repeat;
@@ -634,15 +635,15 @@ article .info-notice {
 	z-index: 1;
 }
 
-#wrapper.programme .programme-progression li.active a .progressor, #wrapper.programme .programme-progression li.active a:hover .progressor {
+#wrapper.programme li.active a .progressor, #wrapper.programme li.active a:hover .progressor {
 	background-position: -283px 0;
 }
 
-#wrapper.programme .programme-progression li a:hover .progressor {
+#wrapper.programme li a:hover .progressor {
 	background-position: -573px 0;
 }
 
-#wrapper.programme .programme-progression li:last-child .progressor {
+#wrapper.programme li:last-child .progressor {
 	display: none;
 }
 
@@ -655,11 +656,50 @@ article .info-notice {
 	padding-top: 3.5em;
 }
 
-.js-enabled #wrapper.programme article{
+.js-enabled #wrapper.programme article {
 	display:none;
 }
 
-#wrapper.programme article.tabs-panel-selected{
+#wrapper.programme article.tabs-panel-selected {
 	display:block;
 }
 
+#wrapper.programme .part-pagination {
+	border-top: solid 1px #bbb;
+	margin-top: 3em;
+	padding-top: 1em;
+}
+
+#wrapper.programme .part-pagination ul {
+	list-style: none;
+	padding: 0;
+}
+
+#wrapper.programme .part-pagination li {
+	float: left;
+}
+
+#wrapper.programme .part-pagination li a {
+	line-height: 2.25em;
+	position: relative;
+}
+
+#wrapper.programme .part-pagination li:first-child a {
+	background: #EFECE0;
+	border: solid 1px #ddd;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+	display: block;
+	margin-right: 4em;
+	padding: 0 1em;
+}
+
+#wrapper.programme .part-pagination li:first-child a:hover {
+	background: #1576FB;
+	color: #fff;
+}
+
+#wrapper.programme .part-pagination .progressor {
+	right: -19px;
+}
