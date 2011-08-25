@@ -648,8 +648,11 @@ article .info-notice {
 
 #wrapper.programme article {
 	min-height: 10em;
-	padding-top: 3.5em;
 	width: 100%;
+}
+
+#wrapper.programme article.with-parts-nav {
+	padding-top: 3.5em;
 }
 
 .js-enabled #wrapper.programme article{
