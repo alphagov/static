@@ -6,6 +6,10 @@
  * licensed under MIT (filamentgroup.com/examples/mit-license.txt)
  * --------------------------------------------------------------------
  */
+/* August 2011
+ * Frances Berriman
+ * Minor changes to support that we use article instead of div for tab sections
+*/
 jQuery.fn.tabs = function(settings){
 	//configurable options
 	var o = $.extend({
@@ -41,7 +45,7 @@ jQuery.fn.tabs = function(settings){
 			.addClass('tabs-body');
 		
 		//find tab panels, add class and aria
-		tabsBody.find('>div').each(function(){
+		tabsBody.find('>article').each(function(){
 			$(this)
 				.addClass('tabs-panel')
 				.attr('role','tabpanel')
