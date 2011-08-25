@@ -641,6 +641,6 @@ article .info-notice {
 #wrapper.programme article {
 	min-height: 10em;
 	padding-top: 3.5em;
-	width: auto;
+	width: 100%;
 }
 
