@@ -643,4 +643,10 @@ article .info-notice {
 	padding-top: 3.5em;
 	width: auto;
 }
+.js-enabled #wrapper.programme article{
+	display:none;
+}
+#wrapper.programme article.tabs-panel-selected{
+	display:block;
+}
 

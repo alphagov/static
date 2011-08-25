@@ -8,12 +8,12 @@
  */
 /* August 2011
  * Frances Berriman
- * Minor changes to support that we use article instead of div for tab sections
+ * Minor changes to support GovUK specific markup
 */
 jQuery.fn.tabs = function(settings){
 	//configurable options
 	var o = $.extend({
-		trackState: false, //track tabs in history, url hash, back button, page load
+		trackState: true, //track tabs in history, url hash, back button, page load
 		srcPath: 'jQuery.history.blank.html',
 		autoRotate: false,
 		alwaysScrollToTop: true
@@ -27,11 +27,11 @@ jQuery.fn.tabs = function(settings){
 		if( !$('body').is('[role]') ){ $('body').attr('role','application'); }
 		
 		//nav is first ul // ol for GovUK
-		var tabsNav = tabs.find('ol:first');
+		var tabsNav = tabs.find('.programme-progression ol:first');
 		
 		//body is nav's next sibling
-		var tabsBody = $(tabsNav.find('a:eq(0)').attr('href')).parent();
-		
+		var tabsBody = $(".article-and-navigation");
+
 		var tabIDprefix = 'tab-';
 
 		var tabIDsuffix = '-enhanced';
@@ -71,17 +71,17 @@ jQuery.fn.tabs = function(settings){
 			}
 			else{	
 				//unselect tabs
-				tabsNav.find('li.tabs-selected')
-					.removeClass('tabs-selected')
+				tabsNav.find('li.active')
+					.removeClass('active')
 					.find('a')
 						.attr('tabindex','-1');
 				//set selected tab item	
 				tab
 					.attr('tabindex','0')
 					.parent()
-					.addClass('tabs-selected');
+					.addClass('active');
 				//unselect  panels
-				tabsBody.find('div.tabs-panel-selected').attr('aria-hidden',true).removeClass('tabs-panel-selected');
+				tabsBody.find('article.tabs-panel-selected').attr('aria-hidden',true).removeClass('tabs-panel-selected');
 				//select active panel
 				$( tab.attr('href') + tabIDsuffix ).addClass('tabs-panel-selected').attr('aria-hidden',false);
 
@@ -158,7 +158,7 @@ jQuery.fn.tabs = function(settings){
 		//auto rotate tabs
 		if(o.autoRotate){
 			var tabRotator = setInterval(function(){
-				var currentTabLI = tabsNav.find('li.tabs-selected');
+				var currentTabLI = tabsNav.find('li.active');
 				var nextTab = currentTabLI.next();
 				if(nextTab.length){
 					selectTab(nextTab.find('a'),false );
@@ -175,4 +175,4 @@ jQuery.fn.tabs = function(settings){
 		
 
 	});
-};	
+};

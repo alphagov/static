@@ -1,3 +1,4 @@
 $(function(){
-	$('#main').tabs();
+	$('body').addClass("js-enabled");
+	$('#wrapper').tabs();
 });
