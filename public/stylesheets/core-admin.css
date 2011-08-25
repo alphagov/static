@@ -1,34 +1,40 @@
+/*
+ * Global helper styles
+ */
 
 /* For image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
 
-/* Hide for both screenreaders and browsers:
-   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+/* Hide for both screenreaders and browsers: */
 .hidden { display: none; visibility: hidden; }
 
-/* Hide only visually, but have it available for screenreaders: by Jon Neal.
-  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+/* Hide only visually, but have it available for screenreaders */
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-
-
-
-
-
-body {
-  font-family: sans-serif;
-  font-size: 100%;
-  color: #525252;
+/* self-clearing floats */
+.group:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
-/* Admin header */
+* html .group { height: 1%; } /* IE6 */
+.group { min-height: 1px; } 	/* IE7 */
+
+
+
+/*
+ * Global Admin header
+ */
 
 .gds-header {
 	background-color: #333;
@@ -54,7 +60,7 @@ body {
 	font-size: 1.3em;
 	font-weight: bold;
 	margin-right: 2em;
-	text-shadow: 1px 1px 1px rgba(0,0,0,1);
+	text-shadow: 1px 1px 1px rgb(0,0,0);
 }
 
 .gds-menu {
@@ -62,67 +68,25 @@ body {
 	margin-top: -2.5em;
 }
 
-/* END admin header */
-
-/* Sign on template */
-
-#halberd {
-  position: relative;
-  left: -12em;
-  margin-top: 15%;
-  margin-left: 50%;
-  padding: 1em;
-  width: 22em;
-  background: #C3EEC8;
-}
-
-#halberd #gds-logo-type {
-	margin-bottom: 1em;
-}
-
-#halberd h1 {
-	padding-top: 0.5em;
-	font-size: 1.75em;
-  border-top: solid 1px #333;
-}
-
-#sign-in {
-  margin-top: 0.5em;
-  padding: 1em 0;
-}
-
-#sign-in-link {
-  margin-top: 1em;
-  text-align: center;
-}
-
-#sign-in-link a {
-  padding: 0.5em;
-  font-size: 1.5em;
-  font-weight: bold;
-  background: #fff;
-}
-
-#sign-in-link a:hover, #sign-in-link a:focus {
-  color: #fff;
-  background: #333;
-}
-
-/* END sign on template */
+/* END Global Admin header */
 
 
 /*
- * Admin-o-tron styles
+ * Admin styles
  */
 
 body {
 	background-color: #efece0;
+  font-family: sans-serif;
+  font-size: 100%;
 	color: #444;
 }
 
-.wrapper { /* generic wrapper for centering elements */
+.wrapper {
+	/* generic wrapper for centering elements */
 	margin: 0 auto;
-	max-width: 960px;
+	max-width: 1260px;
+	width: 95%;
 }
 
 .inner {
@@ -131,34 +95,23 @@ body {
 	position: relative;
 	width: 95%;
 }
+
 .content {
 	margin: 2em auto 100px;
 }
 
 /*
-	links
-*/
+ * link styles
+ */
 
-a {
-    color: #2200C1;
-}
-
-a:hover {
-    color: #1D97FF;
-}
-
-a:visited {
-    color: #5800AE;
-}
-
-a:active {
-	color: #c11;
-}
+a 				{ color: #2200C1; }
+a:hover 	{ color: #1D97FF; }
+a:visited { color: #5800AE; }
+a:active 	{ color: #c11; }
 
 
 .ui-widget-content.new {
-	/* new guide/answer/transaction forms */
-
+	/* wrapper for new guide/answer/transaction forms */
 	border: 1px solid #bbb;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
@@ -170,6 +123,7 @@ a:active {
 
 .ui-widget-content.new h1 {
 	font-size: 1.5em;
+	margin: 0.75em 0.55em 0.55em;
 }
 
 #guide-nav .intro {
@@ -200,22 +154,10 @@ a:active {
 	margin: 0 1em 1em 0;
 }
 
-
-/* self-clearing floats */
-.group:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-* html .group { height: 1%; } /* IE6 */
-.group { min-height: 1px; } /*IE7 */
-
-
 /*
  * button styles - generic button, submit and formtastic submit
+ *
+ * these _REALLY_ need revisiting at some point to genericise them more...
  */
 
 .button, .button:visited,
@@ -249,7 +191,7 @@ input[type=submit]:active,
 	top: 1px;
 }
 
-.button a  {
+.button a {
 	color: #fff;
 	padding: 5px 10px 6px;
   text-decoration: none;
@@ -276,6 +218,15 @@ input[disabled]:hover {
 	background-color: rgb(61,61,61);
 	color: #eee;
 	cursor: default;
+
+	background-color: #f5f5f5;
+	color: #777;
+}
+
+input[type=submit]:disabled {
+	/* set disabled buttons to be a different colour than the text inputs */
+	background-color: rgb(61,61,61);
+	color: #eee;
 }
 
 input[disabled]:active {
@@ -295,19 +246,11 @@ input[disabled]:active {
 	width: 100%;
 }
 
-/*
-	Think Josh commented this out in a previous commit I broke (JW)
-*/
-/*
-	th, td {
-		border: 1px solid #bbb;
-		padding: 0.5em 0.75em;
-	}
+#edit .button {
+	margin-left: 1.3em;
+}
 
-	td:nth-child(even) {
-		text-align: right;
-		width: 20%;
-	}*/
+
 
 .edition {
 }
@@ -364,85 +307,102 @@ input[disabled]:active {
 }
 
 /*
- * icons for format types
+ * Publications listings table
  */
 
-table {
+.formats {
 	background-color: #fff;
 	border-collapse: collapse;
+	font-size: 0.8em;
 	margin: 0 auto;
-	text-align: left;
+	text-align: center;
 	width: 97%;
 }
 
-	th, td {
-		border-top: 1px solid #bbb;
-		border-bottom: 1px solid #bbb;
-		padding: 0.45em 0.25em;
-		width: auto;
+	.formats tbody tr:nth-child(odd) td {
+		background-color: #F9F9F9;
 	}
 
-	.formats td {
-		vertical-align: middle;
-		text-align: center;
+	.formats th, .formats td {
+		border: 1px solid #bbb;
+		border-right: 1px solid #eee;
+		border-width: 1px 1px 1px 0;
+		padding: 0.4em 0.25em;
 	}
-		.formats td:nth-child(1) {
-			width: 85%;
+
+		.formats th {
+			border-bottom: 2px solid #bbb;
+			font-weight: bold;
 		}
 
+		.formats td {
+			vertical-align: middle;
+			text-align: center;
+		}
 
-.formats td:nth-child(1) {
-	text-align: left;
-}
+		.formats th:nth-child(2) {
+			font-size: 1em;
+		  padding-left: 15px;
+			text-align: left;
+			width: 55%;
+		}
 
-.formats td.transaction, .formats td.answer, .formats td.guide {
-  padding-left: 50px;
-}
+		.formats td:nth-child(2) {
+			font-size: 1.3em;
+		  padding-left: 15px;
+			text-align: left;
+			width: 55%;
+		}
 
-.formats td.transaction {
-  background: #fff url(/images/icon-publisher-transaction.png) no-repeat 2% 50%;
-}
+		.formats img,
+		.formats input {
+			opacity: 0.5;
+		}
+			.formats td:nth-child(1) img,
+			.formats img:hover, .formats img:focus,
+			.formats input:hover, .formats input:focus {
+				opacity: 1;
+			}
 
-.formats td.answer {
-  background: #fff url(/images/icon-publisher-answer.png) no-repeat 2% 50%;
-}
+			.formats .disabled {
+				opacity: 0.25;
+				cursor: default;
+			}
 
-.formats td.guide {
-  background: #fff url(/images/icon-publisher-guide.png) no-repeat 2% 50%;
-}
+			.formats .version {
+				font-size: 0.7em;
+				font-style: italic;
+			}
 
-.formats td form {
-	/* create new edition form */
-	display: inline-block;
-	float: left;
-}
+		/* tablesorter styles */
+		th.header {
+		    background-image: url(/images/bg.gif);
+		    background-repeat: no-repeat;
+		    background-position: center right;
+		    cursor: pointer;
+ 		    padding-right: 16px;
+		    border-right: 1px solid #ccc;
+		}
 
-.formats img,
-.formats input {
-	opacity: 0.5;
-}
-	.formats img:hover, .formats img:focus,
-	.formats input:hover, .formats input:focus {
-		opacity: 1;
-	}
+		th.headerSortUp {
+		    background-image: url(/images/asc.gif);
+		    background-color: #d7d7d7;
+		}
 
-	.formats .disabled {
-		opacity: 0.25;
-		cursor: default;
-	}
+		th.headerSortDown {
+		    background-image: url(/images/desc.gif);
+		    background-color: #d7d7d7;
+		}
 
-/*
-.formats .preview {
-	position: relative;
-	top: -0.15em;
-}
-*/
+		.formats th:last-child,
+		.formats td:last-child {
+			border-right: none;
+		}
 
-.formats .version {
-	font-size: 75%;
-	margin-left: 0.5em;
-}
-
+		.formats td form {
+			/* create new edition form */
+			display: inline-block;
+		}
 
 
 .flash-notice {
@@ -475,6 +435,26 @@ table {
 	content: '\2190';
 }
 
+
+/*
+ * Google insights popup
+ */
+
+a.insights {
+	margin-left: 0.5em;
+	margin-bottom: -2px;
+}
+
+#popup {
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	border: 3px solid #999;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -204px;
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+}
 
 /*
 	imminence app

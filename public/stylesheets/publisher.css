@@ -1,19 +1,13 @@
 /*
- * Publisher app specific css
+ * Publisher front-end specific css
  */
 
 body {
-/*	background: #efece0;*/
 	background: #D4D2CC;
 	color: #3F3F3F;
 }
 
 #wrapper {
-/*
-	-webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-	-moz-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-	box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-*/
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
@@ -36,10 +30,11 @@ body {
 	top: 0.25em;
 }
 
-.site-search fieldset { border: none; }
-.site-search input[type="submit"] {
-	margin-left: 0.5em;
-}
+	.site-search fieldset { border: none; }
+
+	.site-search input[type="submit"] {
+		margin-left: 0.5em;
+	}
 
 
 header[role="banner"] {
@@ -60,18 +55,16 @@ header[role="banner"] {
 }
 
 	header[role="banner"] .inner {
-/*		padding: 0.5em 1em;*/
-		padding: 0em 1em;
+		padding: 0 1em;
 	}
 
 	header[role="banner"] hgroup {
-/*		margin: -0.75em 0 0.5em 1.5em;*/
-		text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 		max-width: 50%;
 	}
 
 	header[role="banner"] hgroup h1 {
-		background: url(../images/templogo.png) no-repeat 0 0;
+		background: url('/images/templogo.png') no-repeat 0 0;
 		display: inline-block;
 		font-size: 120%;
 		line-height: 1.3em;
@@ -79,6 +72,19 @@ header[role="banner"] {
 		padding: 0.5em 0;
 		padding-left: 2.5em;
 	}
+
+	header[role="banner"] a,
+	header[role="banner"] a:active {
+		color: #fff;
+		text-decoration: none;
+	}
+
+		header[role="banner"] a:focus,
+		header[role="banner"] a:hover {
+			color: #fff;
+			border-bottom: 1px solid #fff;
+			padding-bottom: 0.25em;
+		}
 
 	header[role="banner"] hgroup h2 {
 		display: inline-block;
@@ -110,7 +116,6 @@ header[role="banner"] {
 	#wrapper.answer hgroup h1,
 	#wrapper.guide hgroup h1,
 	#wrapper.transaction hgroup h1 {
-/*		background-position: 0 0.2em;*/
 		background-repeat: no-repeat;
 		font-size: 1.8em;
 		min-height: 2.5em;
@@ -145,22 +150,13 @@ section {
 
 		section header hgroup {
 			display: inline-block;
-/*			float: left;*/
-/*			width: 70%;*/
 		}
 
-		section header hgroup h1 {
-/*			font-size: 175%;*/
-		}
 
 .article-and-navigation {
 	background: #efece0;
-/*	border: solid 1px #bbb;*/
 	border-top: none;
 	margin-right: 12em;
-/*	overflow: hidden;*/
-/*	margin-top: -1px;*/
-/*	position: relative;*/
 }
 
 article {
@@ -181,8 +177,6 @@ article .inner {
 }
 
 	.answer article {
-/*		float: none;*/
-/*		margin: 0 auto 1em;*/
 		margin-left: 10%;
 		width: auto;
 	}
@@ -198,7 +192,6 @@ article .inner {
 	article header {
 		background: none;
 		border-bottom: none;
-		font-size: 120%;
 		margin: 0.25em 0 1em;
 	}
 
@@ -239,7 +232,6 @@ aside li a {
 	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
-/*	font-weight: bold;*/
 	padding: 0.75em 0.75em;
 	text-decoration: none;
 }
@@ -265,10 +257,6 @@ aside li a:focus {
 	}
 
 aside li a .part-label {
-/*	background: #BDBBAE;*/
-/*	background: rgba(0,0,0,0.4);*/
-/*	background: #999;*/
-/*	color: #fff;*/
 	font-size: 0.65em;
 	padding: 0.1em 0.35em;
 	position: relative;
@@ -292,157 +280,13 @@ aside li a .part-title {
 
 .meta-data {
 	border-top: dotted 1px #bbb;
-/*	clear: both;*/
 	color: #7F7F7F;
 	float: left;
 	margin: 1em 1.25em;
-/*	padding: 0.25em;*/
 }
 
 .modified-date {
 	font-size: 0.65em;
-/*	margin: 0;*/
-/*	margin-left: 60px;*/
-/*	margin-top: -0.3em;*/
-}
-
-/*
-	very naughty position hacking we are going to use temporarily
-*/
-
-.naughty {
-
-}
-
-.related-positioning {
-	height: 0;
-	left: 0;
-	position: fixed;
-	width: 100%;
-}
-
-.related-container {
-	height: 0;
-	margin: 0 auto;
-	max-width: 960px;
-	position: relative;
-	width: 95%;
-}
-
-.related-container-two {
-	float: left;
-	position: relative;
-	width: 100%;
-}
-
-.related {
-	position: absolute;
-/*	right: -12em;*/
-/*	top: -1px;*/
-/*	margin-right: 5em;*/
-/*	position: fixed;*/
-	right: 0;
-	margin-top: 10em;
-	width: 12em;
-	z-index: 5;
-}
-
-.related .inner {
-/*	background: #FEEFC5;*/
-	background: #ffffaa;
-	border: 1px solid #bbb;
-	border-radius: 0 1em 1em 0;
-	padding: 0 1em 1em 1em;
-	width: auto;
-}
-
-.related li {
-	font-size: 0.8em;
-}
-
-.related h2 {
-/*	background: #FEEFC5;*/
-	background-color: #ffffaa;
-	background-image: url(/images/related-arrow.png);
-	background-position: 0 -1px;
-	background-repeat: no-repeat;
-	border-top: solid 1px #bbb;
-	font-size: 1em;
-	line-height: 53px;
-	margin-left: -52px;
-	margin-top: -1px;
-/*	padding: 1em;*/
-	padding-left: 36px;
-	position: relative;
-}
-/*	.related h2:before {
-		content: url('/images/rss-icon.png');
-	}*/
-
-.related nav {
-/*	background: #fff;*/
-}
-
-.related ul {
-	list-style: none;
-	margin: 0;
-/*	padding-left: 1.25em;*/
-	padding: 0;
-}
-
-.related li {
-	background-position: 0 0.25em;
-	background-repeat: no-repeat;
-	line-height: 1.25em;
-	margin-bottom: 0.75em;
-	padding-bottom: 1em;
-	padding-left: 2.5em;
-}
-
-.related li.answer {
-	background-image: url(../images/icon-answer-24.png);
-}
-
-.related li.guide {
-	background-image: url(../images/icon-guide-24.png);
-	background-position: 0.25em 0.25em;
-}
-
-.related li.tool {
-	background-image: url(../images/icon-tool-24-temp.png);
-}
-
-.related li.related-topic {
-	background: #1576FB;
-/*	line-height: 32px;*/
-	list-style: none;
-	margin-right: 16px;
-	padding: 0.5em 1em 0.5em 1em;
-	padding-left: 1em;
-	position: relative;
-}
-
-.related li.related-topic span {
-	font-style: italic;
-}
-
-.related li.related-topic a {
-	color: #fff;
-}
-
-.related li.related-topic span.arrow {
-  position: absolute;
-  right: -16px;
-  top: 50%;
-  margin-top: -16px;
-  width:0px;
-  height:0px;
-  border-bottom: 16px solid transparent;
-  border-top: 16px solid transparent;
-  border-left: 16px solid #1576FB;
-  font-size:0px;
-  line-height:0px;
-  z-index: 1;
 }
 
 .pagination {
@@ -450,7 +294,6 @@ aside li a .part-title {
 	border-top: solid 1px #bbb;
 	display: block;
 	margin: 2em -2em 1em -2em;
-/*	padding: 0.25em 0 0 0;*/
 }
 
 .pagination ul {
@@ -459,7 +302,6 @@ aside li a .part-title {
 }
 
 .pagination li {
-/*	display: inline-block;*/
 	list-style: none;
 }
 
@@ -531,7 +373,7 @@ footer.group {
 
 article header h1 {
 	border-bottom: solid 1px #ddd;
-  font-size: 1.35em;
+  font-size: 1.65em;
   line-height: 1.15em;
   margin-top: 0;
   margin-bottom: 0;
@@ -550,7 +392,7 @@ article header h1 span {
 
 article h2 {
   font-size: 1.25em;
-	font-style: italic;
+	/*font-style: italic;*/
   line-height: 1.18em;
   margin-top: 1.2em;
   margin-bottom: 0.2em;
@@ -608,7 +450,6 @@ article table {
   margin: 0em 0;
   margin-left: -0.38em;
   padding: 0;
-/*  width: 80%;*/
   border-collapse: separate;
   border-spacing: 0.38em;
 }
@@ -662,11 +503,11 @@ article dd {
 }
 
 article .advisory {
+  background: yellow;
+  line-height: 1.3em;
+	margin-bottom: 1em;
   padding: 0 2.5em;
   text-align: center;
-/*  font-size: 2em;*/
-  line-height: 1.3em;
-  background: yellow /*url(/images/answers-advisory-highlight.png) center top repeat-y*/;
 }
 
 article .help-notice, article .info-notice {
@@ -681,9 +522,103 @@ article .help-notice p, article .info-notice p {
 }
 
 article .help-notice {
-  background: url(/images/application-notice-icon-default.png) 2% 50% no-repeat;
+  background: url('/images/application-notice-icon-default.png') 2% 50% no-repeat;
 }
 
 article .info-notice {
-  background: url(/images/application-info-icon-default.png) 2% 50% no-repeat;
+  background: url('/images/application-info-icon-default.png') 2% 50% no-repeat;
 }
+
+/*
+	Programme format
+*/
+
+#wrapper.programme hgroup h1 {
+	background-repeat: no-repeat;
+	font-size: 1.8em;
+	min-height: 2.5em;
+	line-height: 1.05em;
+	padding: 0.2em 0 0.2em 2.75em;
+}
+
+#wrapper.programme hgroup h1 {
+	color: #295A80;
+}
+
+#wrapper.programme .article-and-navigation {
+	padding-top: 0.5em;
+	position: relative;
+}
+
+#wrapper.programme .programme-switcher ul, #wrapper.programme .programme-progression ul {
+	list-style: none;
+	margin: 0;
+}
+
+#wrapper.programme .programme-switcher ul li, #wrapper.programme .programme-progression ul li {
+	float: left;
+}
+
+#wrapper.programme .programme-switcher ul li a {
+	border: solid 1px #bbb;
+	border-bottom: none;
+	-webkit-border-radius: 0.5em 0.5em 0 0;
+	-moz-border-radius: 0.5em 0.5em 0 0;
+	border-radius: 0.5em 0.5em 0 0;
+	display: block;
+	padding: 0.5em 1em;
+	position: relative;
+}
+
+#wrapper.programme .programme-switcher ul li.active a {
+	background: #fff;
+	z-index: 5;
+}
+
+#wrapper.programme .programme-switcher ul li a:hover,
+#wrapper.programme .programme-switcher ul li a:focus, #wrapper.programme .programme-progression ul li a:hover, #wrapper.programme .programme-progression ul li a:focus {
+	background: #1576FB;
+	color: #fff;
+}
+
+#wrapper.programme .programme-switcher ul li.active a:hover {
+	background: #fff;
+	color: #1576FB;
+}
+
+#wrapper.programme .programme-progression ul {
+	background: #EFECE0;
+	border: solid #ddd;
+	border-width: 1px 0 1px 0;
+	padding: 0;
+	position: absolute;
+	top: 4.5em;
+	width: 100%;
+	z-index: 5;
+}
+
+#wrapper.programme .programme-progression ul li {
+	width: 25%;
+}
+
+#wrapper.programme .programme-progression ul li a {
+	display: block;
+	line-height: 2.25em;
+	text-align: center;
+	width: 100%;
+}
+
+#wrapper.programme .programme-progression ul li.active a {
+	background: #ffffaa;
+}
+
+#wrapper.programme .programme-progression ul li.active a:hover {
+	color: #1576FB;
+}
+
+#wrapper.programme article {
+	min-height: 10em;
+	padding-top: 3.5em;
+	width: auto;
+}
+
