@@ -605,16 +605,37 @@ article .info-notice {
 #wrapper.programme .programme-progression ul li a {
 	display: block;
 	line-height: 2.25em;
+	position: relative;
 	text-align: center;
 	width: 100%;
 }
 
 #wrapper.programme .programme-progression ul li.active a {
-	background: #ffffaa;
+	background-color: #ffffaa;
 }
 
 #wrapper.programme .programme-progression ul li.active a:hover {
 	color: #1576FB;
+}
+
+#wrapper.programme .programme-progression .progressor {
+	background-image: url(/images/programme-progressor-arrows.png);
+	background-position: -1px 0;
+	background-repeat: no-repeat;
+	height: 36px;
+	position: absolute;
+	right: -20px;
+	top: 0;
+	width: 20px;
+	z-index: 1;
+}
+
+#wrapper.programme .programme-progression li.active a .progressor, #wrapper.programme .programme-progression li.active a:hover .progressor {
+	background-position: -283px 0;
+}
+
+#wrapper.programme .programme-progression li a:hover .progressor {
+	background-position: -573px 0;
 }
 
 #wrapper.programme article {
