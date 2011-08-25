@@ -59,7 +59,7 @@ header[role="banner"] {
 	}
 
 	header[role="banner"] hgroup {
-		text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 		max-width: 50%;
 	}
 
@@ -72,6 +72,19 @@ header[role="banner"] {
 		padding: 0.5em 0;
 		padding-left: 2.5em;
 	}
+
+	header[role="banner"] a,
+	header[role="banner"] a:active {
+		color: #fff;
+		text-decoration: none;
+	}
+
+		header[role="banner"] a:focus,
+		header[role="banner"] a:hover {
+			color: #fff;
+			border-bottom: 1px solid #fff;
+			padding-bottom: 0.25em;
+		}
 
 	header[role="banner"] hgroup h2 {
 		display: inline-block;
@@ -503,7 +516,7 @@ article header h1 span {
 
 article h2 {
   font-size: 1.25em;
-	font-style: italic;
+	/*font-style: italic;*/
   line-height: 1.18em;
   margin-top: 1.2em;
   margin-bottom: 0.2em;
