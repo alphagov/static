@@ -614,7 +614,11 @@ article .info-notice {
 	background-color: #ffffaa;
 }
 
-#wrapper.programme .programme-progression ol li.active a:hover {
+#wrapper.programme .programme-progression ol li a:focus {
+	outline: none;
+}
+
+#wrapper.programme .programme-progression ol li.active a:hover, #wrapper.programme .programme-progression ol li.active a:focus {
 	color: #1576FB;
 }
 
@@ -638,14 +642,20 @@ article .info-notice {
 	background-position: -573px 0;
 }
 
+#wrapper.programme .programme-progression li:last-child .progressor {
+	display: none;
+}
+
 #wrapper.programme article {
 	min-height: 10em;
 	padding-top: 3.5em;
 	width: 100%;
 }
+
 .js-enabled #wrapper.programme article{
 	display:none;
 }
+
 #wrapper.programme article.tabs-panel-selected{
 	display:block;
 }
