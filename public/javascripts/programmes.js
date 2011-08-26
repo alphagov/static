@@ -7,19 +7,23 @@ $(function(){
 	/* get all the sections */
 	var sections = $(".tabs-panel"),
 		i = sections.length,
+		last = $(".tabs-panel:last").attr("id").split("-enhanced")[0],
 		j, 
 		id;
+		
+		last = "<li><a href='#"+last+"'>No thanks, just tell me how to claim</a></li>"
 		
 	while(i--){
 		var j = i+1,
 		nav = $("<nav class='part-pagination group' role='navigation'></nav>"),
 		ul = $("<ul></ul>"),
-		id = $(sections[j]).attr("id");
+		id = $(sections[j]).attr("id"),
 		sectionTitle = $("#"+id+" h1").html();
 
 		if(sectionTitle != undefined){
 			sectionTitle = sectionTitle.toLowerCase();
 			id = id.split("-enhanced")[0];
+		
 			//var sectionTitle = $(this).next("h1").html();
 			switch(i){
 				case 3: //last step
@@ -29,10 +33,10 @@ $(function(){
 					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
 					break;
 				case 1://what you'll get
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li><li><a href='#'>No thanks, just tell me how to claim</a></li>")
+					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>"+last)
 					break;
 				case 0://overview
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li><li><a href='#'>No thanks, just tell me how to claim</a></li>")
+					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>"+last)
 					break;
 				}
 				nav.append(ul);
