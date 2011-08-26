@@ -141,7 +141,7 @@ a:active {
 	right: 0;
 	margin-top: 10em;
 	width: 12em;
-	z-index: 5;
+	z-index: 50;
 }
 
 .related .inner {
