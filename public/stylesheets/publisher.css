@@ -100,8 +100,9 @@ header[role="banner"] {
 		-webkit-border-radius: 0.75em 0.75em 0 0;
 		-moz-border-radius: 0.75em 0.75em 0 0;
 		border-radius: 0.75em 0.75em 0 0;
+		display: block;
+		margin-right: 12em;
 		padding: 1em;
-		width: 71%;
 	}
 
 	#wrapper hgroup span {
@@ -363,7 +364,7 @@ aside li a .part-title {
 }
 
 #wrapper.transaction .continue {
-	background: #F9F9F9 url('/images/info-icon.png') no-repeat 1% 20%;
+	background: #F9F9F9 url('/images/info-icon.png') no-repeat 1% 50%;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
