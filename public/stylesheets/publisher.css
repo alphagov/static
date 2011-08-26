@@ -576,6 +576,7 @@ article .info-notice {
 	-moz-border-radius: 0.5em 0.5em 0 0;
 	border-radius: 0.5em 0.5em 0 0;
 	display: block;
+	font-size: 0.8em;
 	padding: 0.5em 1em;
 	position: relative;
 }
@@ -598,7 +599,7 @@ article .info-notice {
 
 #wrapper.programme .programme-progression ol {
 	background: #EFECE0;
-	border: solid #ddd;
+	border: solid #bbb;
 	border-width: 1px 0 1px 0;
 	padding: 0;
 	position: absolute;
@@ -661,11 +662,11 @@ article .info-notice {
 	width: 100%;
 }
 
-#wrapper.programme article.with-parts-nav {
+.js-enabled #wrapper.programme article, #wrapper.programme #overview {
 	padding-top: 4em;
 }
 
-.js-enabled #wrapper.programme article {
+.js-enabled #wrapper.programme article, .js-enabled #wrapper.programme .part-pagination.return-to-top {
 	display:none;
 }
 
@@ -689,26 +690,33 @@ article .info-notice {
 }
 
 #wrapper.programme .part-pagination li a {
-	line-height: 2.25em;
+	line-height: 2.15em;
 	position: relative;
 }
 
 #wrapper.programme .part-pagination li:first-child a {
-	background: #EFECE0;
-	border: solid 1px #ddd;
-	-webkit-border-radius: 0.25em;
-	-moz-border-radius: 0.25em;
-	border-radius: 0.25em;
+	background-color: #EFECE0;
+	border: solid 1px #bbb;
+	border-bottom: solid 1px #666;
+	-webkit-border-radius: 0.5em 0.25em 0.25em 0.5em;
+	-moz-border-radius: 0.5em 0.25em 0.25em 0.5em;
+	border-radius: 0.5em 0 0 0.5em;
 	display: block;
-	margin-right: 4em;
+	margin-right: 3em;
 	padding: 0 1em;
 }
 
 #wrapper.programme .part-pagination li:first-child a:hover {
-	background: #1576FB;
+	background-color: #1576FB;
 	color: #fff;
 }
 
 #wrapper.programme .part-pagination .progressor {
-	right: -19px;
+	background-position: -767px 0;
+	right: -20px;
+	top: -1px;
+}
+
+#wrapper.programme .part-pagination a:hover .progressor {
+	background-position: -978px 0;
 }
