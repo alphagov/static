@@ -100,8 +100,9 @@ header[role="banner"] {
 		-webkit-border-radius: 0.75em 0.75em 0 0;
 		-moz-border-radius: 0.75em 0.75em 0 0;
 		border-radius: 0.75em 0.75em 0 0;
+		display: block;
+		margin-right: 12em;
 		padding: 1em;
-		width: 71%;
 	}
 
 	#wrapper hgroup span {
