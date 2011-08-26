@@ -188,10 +188,13 @@ article .inner {
 
 	.transaction article {
 		/*float: left;*/
+		top: -1em;
 		width: 80%;
+
 	}
 
-	.local-transaction article {
+	.transaction.local article {
+		top: -1em;
 		width: 80%;
 	}
 
@@ -347,34 +350,138 @@ aside li a .part-title {
  */
 
 #wrapper.transaction .intro {
-/*	background: #ffc;
-	border: 1px solid #bbb;
-*/	margin-bottom: 0;
-	padding: 0.25em 1em;
+	margin-bottom: 0;
+	padding: 0.25em 0.25em;
 }
 
-#wrapper.transaction .intro h2 {
-	font-size: 175%;
+#wrapper.transaction .intro p.get-started {
+	display: block;
+	font-size: 2.75em;
+	font-weight: bold;
+	margin: 0.75em auto;
+	text-align: center;
+	width: auto;
 }
 
 #wrapper.transaction .continue {
-	background: #fff url('/images/info-icon.png') no-repeat 1% 48%;
-	border: 1px solid #bbb;
-	-webkit-border-radius: 1em;
-	-moz-border-radius: 1em;
-	border-radius: 1em;
+	background: #F9F9F9 url('/images/info-icon.png') no-repeat 1% 20%;
+	border: 2px solid #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
 
-	font-size: 0.8em;
+	font-size: 0.9em;
 	margin-bottom: 1.2em;
-	padding: 0.1em 1em;
-	text-indent: 30px;
+	padding: 0.15em 1em;
+	text-indent: 25px;
+}
+
+#wrapper.transaction fieldset {
+	background-color: #F9F9F9;
+	border: 2px solid #bbb;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+	margin: 1.2em 0;
+	padding: 1.2em 0.75em;
+	text-align: center;
+}
+
+#wrapper.transaction fieldset input {
+	margin: 0 0.5em;
+}
+
+#wrapper.transaction fieldset input[type=submit],
+#wrapper.transaction fieldset input[type=submit]:visited {
+	background: #039 url(/images/button-overlay.png) repeat-x;
+	border: 1px solid rgba(0,0,0,0.25);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	position: relative;
+}
+
+#wrapper.transaction fieldset input[type=submit]:hover {
+	background-color: rgb(0,25,80);
+	color: #fff;
+}
+
+#wrapper.transaction fieldset input[type=submit]:active {
+	top: 1px;
 }
 
 #wrapper.transaction .more {
-	border: 1px solid #bbb;
-	font-size: 75%;
-	padding: 0.5em 1em;
+	font-size: 0.8em;
+	padding: 0.5em 0.5em;
 }
+
+#wrapper.transaction .more h2 {
+	border-bottom: none;
+}
+
+/*
+ * Helper icons
+ */
+
+ul.helpers {
+  list-style-type: none;
+	margin: 0.75em auto;
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+	width: 99%;
+}
+
+	ul.helpers li {
+	  color: #706e6e;
+		display: inline-block;
+	  margin-bottom: 2px;
+	  background-color: #e5e0de;
+	  background-position: 2% center;
+	  background-repeat: no-repeat;
+		margin-right: 2px;
+	  padding: 0.75em 0.25em 0.75em 3.5em;
+		width: 23.3333%;
+	}
+
+	ul.helpers li:first-child {
+		margin-left: 3px;
+	}
+
+	ul.helpers li.active, ul.helpers li.active h3 a {
+	  color: #fff;
+	}
+
+	ul.helpers li.need_cash {
+	  background-image: url(/images/helper-cash-icon.png);
+	}
+	ul.helpers li.card_payment {
+	  background-image: url(/images/helper-creditcard-icon.png);
+	}
+	ul.helpers li.gateway {
+	  background-image: url(/images/helper-govgateway-icon.png);
+	}
+	ul.helpers li.need_passport {
+	  background-image: url(/images/helper-passport-icon.png);
+	}
+	ul.helpers li.need_id {
+	  background-image: url(/images/helper-proofofid-icon.png);
+	}
+	ul.helpers li.less_than_10 {
+	  background-image: url(/images/helper-time-icon.png);
+	}
+
+
+
+
+
+
 
 footer.group {
 	font-size: 75%;
