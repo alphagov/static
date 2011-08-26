@@ -23,8 +23,7 @@ $(function(){
 		if(sectionTitle != undefined){
 			sectionTitle = sectionTitle.toLowerCase();
 			id = id.split("-enhanced")[0];
-		
-			//var sectionTitle = $(this).next("h1").html();
+
 			switch(i){
 				case 3: //last step
 					return false;
@@ -33,9 +32,7 @@ $(function(){
 					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
 					break;
 				case 1://what you'll get
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>"+last)
-					break;
-				case 0://overview
+				case 0:
 					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>"+last)
 					break;
 				}
