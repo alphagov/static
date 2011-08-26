@@ -479,3 +479,6 @@ td.imminence-actions {
 	color: #585858;
 	font-size: 0.8em;
 }
+#programme-nav .ui-accordion h3.ui-accordion-header:before { 
+	display:none;
+	}
