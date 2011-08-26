@@ -24,13 +24,13 @@ $(function(){
 					return false;
 					break;
 					case 2://eligibility
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+"</a></li>")
+					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
 					break;
 				case 1://what you'll get
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+"</a></li><li><a href='#'>No thanks, just tell me how to claim</a></li>")
+					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li><li><a href='#'>No thanks, just tell me how to claim</a></li>")
 					break;
 				case 0://overview
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+"</a></li><li><a href='#'>No thanks, just tell me how to claim</a></li>")
+					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li><li><a href='#'>No thanks, just tell me how to claim</a></li>")
 					break;
 				}
 				nav.append(ul);
