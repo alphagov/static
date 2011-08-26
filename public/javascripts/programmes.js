@@ -24,21 +24,16 @@ $(function(){
 			sectionTitle = sectionTitle.toLowerCase();
 			id = id.split("-enhanced")[0];
 			var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
-			switch(i){
-				case 3: //last step
-					return false;
-					break;
-				case 2://eligibility
-					ul.append(next)
-					break;
-				case 1://what you'll get
-				case 0://overview
-					ul.append(next+last)
-					break;
-				}
-				nav.append(ul);
-				$(sections[i]).find(".inner").append(nav);
+			if(i == 2){
+				ul.append(next)
 			}
+			else{
+				ul.append(next+last)
+			}
+			
+			nav.append(ul);
+			$(sections[i]).find(".inner").append(nav);
 		}
+	}
 	
 });
