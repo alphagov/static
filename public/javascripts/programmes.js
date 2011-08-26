@@ -23,17 +23,17 @@ $(function(){
 		if(sectionTitle != undefined){
 			sectionTitle = sectionTitle.toLowerCase();
 			id = id.split("-enhanced")[0];
-
+			var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
 			switch(i){
 				case 3: //last step
 					return false;
 					break;
 				case 2://eligibility
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
+					ul.append(next)
 					break;
 				case 1://what you'll get
 				case 0://overview
-					ul.append("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>"+last)
+					ul.append(next+last)
 					break;
 				}
 				nav.append(ul);
