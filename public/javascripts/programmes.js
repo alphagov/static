@@ -12,7 +12,7 @@ $(function(){
 		
 	while(i--){
 		var j = i+1,
-		nav = $("<nav class='part-pagination return-to-top' role='navigation'></nav>"),
+		nav = $("<nav class='part-pagination' role='navigation'></nav>"),
 		ul = $("<ul></ul>"),
 		id = $(sections[j]).attr("id");
 		sectionTitle = $("#"+id+" h1").html();
