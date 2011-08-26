@@ -659,7 +659,7 @@ article .info-notice {
 	background-position: -573px 0;
 }
 
-#wrapper.programme li:last-child .progressor {
+#wrapper.programme .programme-progression li:last-child .progressor {
 	display: none;
 }
 
