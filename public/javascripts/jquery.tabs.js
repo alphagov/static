@@ -100,7 +100,6 @@ jQuery.fn.tabs = function(settings){
 				var ret = true;
 				switch(event.keyCode){
 					case 37://left
-					case 38://up
 						if(currentTab.prev().size() > 0){
 							selectTab(currentTab.prev().find('a'));
 							currentTab.prev().find('a').eq(0).focus();
@@ -108,7 +107,6 @@ jQuery.fn.tabs = function(settings){
 						}
 					break;
 					case 39: //right
-					case 40://down
 						if(currentTab.next().size() > 0){
 							selectTab(currentTab.next().find('a'));
 							currentTab.next().find('a').eq(0).focus();
