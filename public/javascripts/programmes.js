@@ -16,8 +16,10 @@ $(function(){
 		ul = $("<ul></ul>"),
 		id = $(sections[j]).attr("id");
 		sectionTitle = $("#"+id+" h1").html();
+
 		if(sectionTitle != undefined){
 			sectionTitle = sectionTitle.toLowerCase();
+			id = id.split("-enhanced")[0];
 			//var sectionTitle = $(this).next("h1").html();
 			switch(i){
 				case 3: //last step
