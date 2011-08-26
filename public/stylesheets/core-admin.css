@@ -132,7 +132,7 @@ a:active 	{ color: #c11; }
 	padding: 1.5em 0;
 }
 
-#guide-controls, .format-controls {
+#guide-controls, .format-controls, #programme-controls {
 	background: #666;
 	border-top: 1px solid #000;
 	position: absolute;
