@@ -186,11 +186,12 @@ article .inner {
 	}
 
 	.transaction article {
-		float: left;
+		/*float: left;*/
+		width: 80%;
 	}
 
 	.local-transaction article {
-		float: left;
+		width: 80%;
 	}
 
 	article header {
@@ -356,10 +357,15 @@ aside li a .part-title {
 }
 
 #wrapper.transaction .continue {
-	padding: 0.1em 1em;
-	background: #bbb url('/images/info-icon.png') no-repeat 2% 48%;
+	background: #fff url('/images/info-icon.png') no-repeat 1% 48%;
+	border: 1px solid #bbb;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+
 	font-size: 0.8em;
-	margin-bottom: 1em;
+	margin-bottom: 1.2em;
+	padding: 0.1em 1em;
 	text-indent: 30px;
 }
 
@@ -662,7 +668,7 @@ article .info-notice {
 }
 
 #wrapper.programme article.with-parts-nav {
-	padding-top: 3.5em;
+	padding-top: 4em;
 }
 
 .js-enabled #wrapper.programme article {
