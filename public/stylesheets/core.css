@@ -33,6 +33,24 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  * Core global styles
  */
 
+body {
+	background: #D4D2CC;
+	color: #3F3F3F;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 960px;
+	width: 95%;
+}
+
+.inner {
+	margin: 0 auto;
+	padding: 1em;
+	position: relative;
+	width: 95%;
+}
+
 ol, ul, nav ol, nav ul {
 	list-style: inherit;
 }
@@ -139,7 +157,7 @@ a:active {
 .related {
 	position: absolute;
 	right: 0;
-	margin-top: 10em;
+	margin-top: 1em;
 	width: 12em;
 	z-index: 50;
 }
@@ -161,9 +179,10 @@ a:active {
 	border-top: solid 1px #bbb;
 	font-size: 1em;
 	line-height: 53px;
-	margin-left: -52px;
+/*	margin-left: -52px;*/
+	margin-left: -17px;
 	margin-top: -1px;
-	padding-left: 36px;
+/*	padding-left: 36px;*/
 	position: relative;
 }
 
