@@ -536,21 +536,23 @@ div[role="contentinfo"] .depts{
 
 
 /* homepage sections */
+.site-sections{
+	max-width:960px;
+}
 .site-sections ul{
-	width:100%;
 	clear:both;
 	overflow:auto;
+	margin:0;
+	padding:0;
 }
 .site-sections li{
 	background-color:#fff;
-	border:1px solid #333;
-	width:30%;
+	border:4px solid #9da549;
+	border-radius: 0.5em;
+	padding:0.5em;
+	margin:0 0.5em 0.5em 0;
+	width:26%;
 	display:block;
 	float:left
 }
-.site-sections li li{
-	display:block;
-	float:none;
-	width:100%;
-	border:none;
-}
+
