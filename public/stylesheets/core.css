@@ -274,7 +274,7 @@ div[role="contentinfo"]{
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
     color: #999;
     min-height: 1em;
-    padding: 2em 0;
+    padding: 1em 0;
     vertical-align: top;
     width: 100%;
 		overflow:auto;
@@ -292,9 +292,10 @@ div[role="contentinfo"] ul{
 }
 div[role="contentinfo"] .depts li{
 	display:inline;
+	background-color:#eee;
 }
 div[role="contentinfo"] .depts{
-	text-align:center;
+
 }
 /* Footer - homepage */
 .subsection{
