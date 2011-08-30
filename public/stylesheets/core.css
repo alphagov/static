@@ -229,12 +229,12 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .global-help {
-	border: solid 1px #8E3518;
+	border: solid 1px #A93D00;
   -moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
-	background: #C9723E;
-	bottom: -1.5em;
+	background: #FF5C00;
+	bottom: -1.75em;
 	position: absolute;
 	right: 1em;
 }
