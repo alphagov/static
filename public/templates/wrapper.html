@@ -14,15 +14,25 @@
   <header role="banner" class="group">
     <div class="inner">
       <div class="header-global">
-        <h1><a href="/" title="return to the www.gov.uk homepage">www.gov.uk</a></h1>
-				<nav>
+        <h1><a href="/" title="return to the beta.gov.uk homepage">beta.gov.uk</a></h1>
+				<nav role="navigation">
 					<ul>
 						<li><a href="#">Government Departments</a></li>
 						<li><a href="#">Business</a></li>
 					</ul>
 				</nav>
 			</div>
-			<div class="header-context citizen">
+		</div><!-- end inner -->
+		<div class="header-context citizen group">
+			<div class="inner">
+				<nav role="navigation">
+					<ol>
+						<li class="current-context"><a href="#">Services &amp; information</a></li>
+						<li><a href="#">Driving</a></li>
+					</ol>
+				</nav>
+			</div><!-- end inner -->
+			<div class="search-help">
 				<form class="site-search" action="/" method="get" role="search">
 				  <fieldset>
 				    <legend class="visuallyhidden">Site search for Gov.uk</legend>
@@ -33,18 +43,11 @@
 	  				<input type="submit" value="Go" />
 	  			</fieldset>
 				</form>
-				<nav>
-					<ol>
-						<li class="current-context"><a href="#">Services &amp; information</a></li>
-						<li><a href="#">Driving</a></li>
-					</ol>
-				</nav>
 				<div class="global-help">
 					<a href="#">Help</a>
 				</div>
 			</div>
-			
-    </div><!-- end inner -->
+    </div><!-- end header-context -->
   </header><!--end header-->
 
   <div id="wrapper" class="group">

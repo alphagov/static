@@ -79,18 +79,6 @@ a:active {
 	global header
 */
 
-.site-search {
-	position: absolute;
-	right: 1em;
-	top: 0.25em;
-}
-
-.site-search fieldset { border: none; }
-
-.site-search input[type="submit"] {
-	margin-left: 0.5em;
-}
-
 header[role="banner"] {
 	background: #333 url('/images/gov.uk-crest.png') no-repeat -2% 12%;
 	border-bottom: solid 1px #efefef;
@@ -99,10 +87,8 @@ header[role="banner"] {
 	box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	color: #fff;
 	min-height: 1em;
-	padding: 0.3em 0;
 	position: fixed;
 	top: 0;
-	vertical-align: top;
 	width: 100%;
 	z-index: 99999;
 }
@@ -116,11 +102,11 @@ header[role="banner"] hgroup {
 	max-width: 50%;
 }
 
-header[role="banner"] hgroup h1 {
+header[role="banner"] h1 {
 	background: url('/images/templogo.png') no-repeat 0 0;
 	display: inline-block;
 	font-size: 120%;
-	line-height: 1.3em;
+	line-height: 1.25em;
 	margin-right: 1em;
 	padding: 0.5em 0;
 	padding-left: 2.5em;
@@ -132,65 +118,127 @@ header[role="banner"] a:active {
 	text-decoration: none;
 }
 
-	header[role="banner"] a:focus,
-	header[role="banner"] a:hover {
-		color: #fff;
-		border-bottom: 1px solid #fff;
-		padding-bottom: 0.25em;
-	}
+header[role="banner"] a:focus,
+header[role="banner"] a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
 
-header[role="banner"] hgroup h2 {
+header[role="banner"] h1 a {
+	text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
+}
+
+header[role="banner"] h1 a:focus,
+header[role="banner"] h1 a:hover {
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	padding-bottom: 0.25em;
+	text-decoration: none;
+}
+
+header[role="banner"] nav ul,
+header[role="banner"] nav ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+header[role="banner"] nav li {
 	display: inline-block;
-	font-family: Georgia, sans-serif;
-	font-size: 90%;
-	font-weight: normal;
-	font-style: italic;
+	vertical-align: middle;
 }
 
-#wrapper hgroup {
-	background: #efece0;
-	border-bottom: none;
-	-webkit-border-radius: 0.75em 0.75em 0 0;
-	-moz-border-radius: 0.75em 0.75em 0 0;
-	border-radius: 0.75em 0.75em 0 0;
-	display: block;
-	margin-right: 12em;
-	padding: 1em;
+header[role="banner"] .header-global nav {
+	float: right;
+	margin-right: 18em;
+	padding: 0.75em;
 }
 
-#wrapper hgroup span {
-	display: block;
-	font-size: 0.4em;
-	font-weight: normal;
+header[role="banner"] .header-global nav ul {
 	line-height: 1em;
-	margin-bottom: 0.5em;
+}
+
+header[role="banner"] .header-global nav li {
+	border-right: solid 1px #595959;
+	font-size: 0.6em;
+	margin-left: 1em;
+	padding-right: 1.25em;
 	text-transform: uppercase;
 }
 
-#wrapper.answer hgroup h1,
-#wrapper.guide hgroup h1,
-#wrapper.transaction hgroup h1 {
-	background-repeat: no-repeat;
-	font-size: 1.8em;
-	min-height: 2.5em;
-	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.75em;
+header[role="banner"] .header-global nav li:last-child {
+	border-right: none;
+	padding-right: 0;
 }
 
-#wrapper.answer hgroup h1 {
-	background-image: url('/images/icon-answer-80.png');
-	color: #1C7000;
-	margin-left: 0.65em;
-	padding-left: 3.35em;
+header[role="banner"] .header-context nav li a {
+	background: url(/images/section-divider-arrow.png) no-repeat 0 50%;
+	display: block;
+	padding: 0.25em 0.25em 0.25em 1em;
 }
 
-#wrapper.guide hgroup h1 {
-	background-image: url('/images/icon-guide-80.png');
-	color: #68009F;
+header[role="banner"] .header-context nav li:first-child a {
+	background: none;
+	padding-left: 0.25em;
 }
 
-#wrapper.transaction hgroup h1 {
-	background-image: url('/images/icon-publisher-transaction-48.png');
+header[role="banner"] .header-context nav li:last-child a {
+	
+}
+
+header[role="banner"] .header-context {
+	padding: 0.25em 0;
+	position: relative;
+}
+
+header[role="banner"] .header-context.citizen {
+	border-top: solid 1px;
+	border-color: rgba(0,100,0,1);
+}
+
+header[role="banner"] .header-context.citizen,
+header[role="banner"] .header-context.citizen .search-help {
+	background-color: rgba(0,75,0,1);
+}
+
+.search-help {
+	height: 2em;
+	padding: 1em 1em 0 1em;
+	position: absolute;
+	right: 0;
+	top: -3em;
+	width: 16em;
+}
+
+.site-search {
+	float: right;
+}
+
+.site-search fieldset {
+	border: none;
+	font-size: 0.8em;
+	padding: 0;
+}
+
+.site-search input[type="submit"] {
+	margin-left: 0.5em;
+}
+
+.global-help {
+	border: solid 1px #8E3518;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+	background: #C9723E;
+	bottom: -1.5em;
+	position: absolute;
+	right: 1em;
+}
+
+.global-help a {
+	display: block;
+	font-size: 0.8em;
+	padding: 0.35em 0.75em;
 }
 
 /*
