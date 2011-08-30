@@ -229,3 +229,36 @@ a:active {
   line-height:0px;
   z-index: 1;
 }
+
+/* Footer - everywhere */
+footer#footer{
+	width:100%;
+	max-width:100%;
+	margin-top:20px;
+}
+div[role="contentinfo"]{
+    background: none repeat scroll 0 0 #333;
+    border-top: 1px solid #fff;
+		-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.25);
+		-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.25);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    min-height: 1em;
+    padding: 0.3em 0;
+    
+    vertical-align: top;
+    width: 100%;
+}
+/* Footer - homepage */
+#popular{
+	background-color:green;
+}
+.sections li{
+	background-color:#fff;
+	border:1px solid red;
+}
+.subsection{
+	width:50%;
+	float:left;
+	display:block;
+}
