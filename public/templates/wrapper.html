@@ -13,22 +13,38 @@
 
   <header role="banner" class="group">
     <div class="inner">
-      <hgroup>
+      <div class="header-global">
         <h1><a href="/" title="return to the www.gov.uk homepage">www.gov.uk</a></h1>
-        <h2>Tools and information from the UK Government</h2>
-      </hgroup>
-
-			<form class="site-search" action="/" method="get" role="search">
-			  <fieldset>
-			    <legend class="visuallyhidden">Site search for Gov.uk</legend>
-   				<label for="s">
- 						<span>Search</span>
- 					</label>
-					<input type="search" name="s" id="s" title="Search" placeholder="Search for..." />
-  				<input type="submit" value="Go" />
-  			</fieldset>
-			</form>
-    </div> <!-- end inner -->
+				<nav>
+					<ul>
+						<li><a href="#">Government Departments</a></li>
+						<li><a href="#">Business</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="header-context citizen">
+				<form class="site-search" action="/" method="get" role="search">
+				  <fieldset>
+				    <legend class="visuallyhidden">Site search for Gov.uk</legend>
+	   				<label for="s">
+	 						<span>Search</span>
+	 					</label>
+						<input type="search" name="s" id="s" title="Search" placeholder="Search for..." />
+	  				<input type="submit" value="Go" />
+	  			</fieldset>
+				</form>
+				<nav>
+					<ol>
+						<li class="current-context"><a href="#">Services &amp; information</a></li>
+						<li><a href="#">Driving</a></li>
+					</ol>
+				</nav>
+				<div class="global-help">
+					<a href="#">Help</a>
+				</div>
+			</div>
+			
+    </div><!-- end inner -->
   </header><!--end header-->
 
   <div id="wrapper" class="group">
