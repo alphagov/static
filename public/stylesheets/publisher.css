@@ -2,24 +2,6 @@
  * Publisher front-end specific css
  */
 
-body {
-	background: #D4D2CC;
-	color: #3F3F3F;
-}
-
-#wrapper {
-	margin: 0 auto;
-	max-width: 960px;
-	width: 95%;
-}
-
-.inner {
-	margin: 0 auto;
-	padding: 1em;
-	position: relative;
-	width: 95%;
-}
-
 /*
  * Core global header styles
  */
