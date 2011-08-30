@@ -17,7 +17,6 @@
 
 header[role="banner"] {
 	background: #333 url('/images/gov.uk-crest.png') no-repeat -2% 12%;
-	background: #F36211;
 	border-bottom: solid 1px #efefef;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
