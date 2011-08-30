@@ -333,9 +333,13 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .related .inner {
-	background: #ffffaa;
+/*	background: #ffffaa;*/
+	background: #EAE8E4;
 	border: 1px solid #bbb;
-	border-radius: 0 1em 1em 0;
+/*	border-left: none;*/
+  -moz-border-radius: 0 0.5em 1em 0;
+  -webkit-border-radius: 0 1em 1em 0;
+  border-radius: 0 0.5em 0.5em 0;
 	padding: 0 1em 1em 1em;
 	width: auto;
 }
@@ -345,14 +349,13 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .related h2 {
-	background: #ffa url('/images/related-arrow.png') no-repeat 0 -1px;
-	border-top: solid 1px #bbb;
+	background: url('/images/related-arrow.png') no-repeat 0 50%;
 	font-size: 1em;
-	line-height: 53px;
-/*	margin-left: -52px;*/
-	margin-left: -17px;
-	margin-top: -1px;
-/*	padding-left: 36px;*/
+	font-weight: normal;
+	line-height: 47px;
+	top: -1px;
+	margin: 0em -1em 1em -2em;
+	padding-left: 2em;
 	position: relative;
 }
 
@@ -388,9 +391,10 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .related li.related-topic {
-	background: #1576FB;
+	background: #92AD54;
 	list-style: none;
 	margin-right: 16px;
+	margin-bottom: 0;
 	padding: 0.5em 1em 0.5em 1em;
 	padding-left: 1em;
 	position: relative;
@@ -413,7 +417,7 @@ header[role="banner"] .header-context.citizen .search-help {
   height:0px;
   border-bottom: 16px solid transparent;
   border-top: 16px solid transparent;
-  border-left: 16px solid #1576FB;
+  border-left: 16px solid #92AD54;
   font-size:0px;
   line-height:0px;
   z-index: 1;
