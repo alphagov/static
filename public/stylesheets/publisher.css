@@ -1,26 +1,4 @@
 /*
- * Publisher front-end specific css
- */
-
-body {
-	background: #D4D2CC;
-	color: #3F3F3F;
-}
-
-#wrapper {
-	margin: 0 auto;
-	max-width: 960px;
-	width: 95%;
-}
-
-.inner {
-	margin: 0 auto;
-	padding: 1em;
-	position: relative;
-	width: 95%;
-}
-
-/*
  * Core global header styles
  */
 
@@ -658,11 +636,15 @@ article .info-notice {
 */
 
 #wrapper.programme hgroup h1 {
+	background-image: url(/images/icon-programme-80.png);
+}
+
+#wrapper.programme hgroup h1 {
 	background-repeat: no-repeat;
 	font-size: 1.8em;
 	min-height: 2.5em;
 	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.75em;
+	padding: 0.2em 0 0.2em 3.25em;
 }
 
 #wrapper.programme hgroup h1 {
@@ -702,12 +684,12 @@ article .info-notice {
 
 #wrapper.programme .programme-switcher ul li a:hover,
 #wrapper.programme .programme-switcher ul li a:focus, #wrapper.programme .programme-progression ol li a:hover, #wrapper.programme .programme-progression ol li a:focus {
-	background: #1576FB;
+	background-color: #1576FB;
 	color: #fff;
 }
 
 #wrapper.programme .programme-switcher ul li.active a:hover {
-	background: #fff;
+	background-color: #fff;
 	color: #1576FB;
 }
 
@@ -769,6 +751,10 @@ article .info-notice {
 
 #wrapper.programme .programme-progression li:last-child .progressor {
 	display: none;
+}
+
+#wrapper.programme .programme-progression li:last-child a {
+	background: url(/images/icon-programme-24.png) no-repeat 90% 50%;
 }
 
 #wrapper.programme article {
