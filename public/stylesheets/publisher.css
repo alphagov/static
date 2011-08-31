@@ -1,9 +1,9 @@
 #wrapper hgroup {
 	background: #efece0;
 	border-bottom: none;
-	-webkit-border-radius: 0.75em 0.75em 0 0;
+/*	-webkit-border-radius: 0.75em 0.75em 0 0;
 	-moz-border-radius: 0.75em 0.75em 0 0;
-	border-radius: 0.75em 0.75em 0 0;
+	border-radius: 0.75em 0.75em 0 0;*/
 	display: block;
 	margin-right: 12em;
 	padding: 1em;
@@ -592,7 +592,7 @@ article .info-notice {
 }
 
 #wrapper.programme .programme-switcher ul li a {
-	border: solid 1px #bbb;
+	border: solid 1px #ddd;
 	border-bottom: none;
 	-webkit-border-radius: 0.5em 0.5em 0 0;
 	-moz-border-radius: 0.5em 0.5em 0 0;
