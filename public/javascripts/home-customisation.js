@@ -68,7 +68,6 @@ $(function(){
 		});
 		
 		addClosers();
-		addRemovedSection("section-taxes");
 		getLocallyStored();
 		
 	}
