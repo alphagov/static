@@ -15,14 +15,15 @@ $(function(){
 		else{
 			var stored = "";
 		}
+	
 		var sections = $(".site-sections li");
 		//add something to our localStorage we want to delete from the main page
 		function addRemovedSection(toStore){
-			if(stored == null){
+			if(stored == ""){
 				var store = toStore;
 			}
 			else{
-				var store = stored+":"+toStore;
+				var store = stored+","+toStore;
 			}
 			localStorage.setItem("deleted-sections", store);
 			stored = localStorage.getItem("deleted-sections");
@@ -32,17 +33,21 @@ $(function(){
 		
 		//retrieve and hide hidden sections
 		function getLocallyStored(){
-			var toHide = stored.split(':');
-			var i = toHide.length;
-			while(i--){
-				$("."+toHide[i]).css("display","none")
+			if(stored != ""){
+				var toHide = stored.split(',');
+				var i = toHide.length;
+				while(i--){
+					var classToFind = "."+toHide[i];
+					$(classToFind).css("display","none")
+				}
 			}
+			else return false;
 		}
 		
 		//reset hidden sections
 		function resetSections(){
 			localStorage.removeItem("deleted-sections");
-			stored = localStorage.getItem("deleted-sections");
+			stored = "";
 			$(sections).css("display","block");
 		}
 		
@@ -66,12 +71,13 @@ $(function(){
 			resetSections();
 			return false;
 		});
-		
+
 		addClosers();
-		addRemovedSection("section-taxes");
 		getLocallyStored();
 		
 	}
-	
+	else{
+		return false;
+	}
 	
 });
