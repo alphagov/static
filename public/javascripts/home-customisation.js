@@ -15,10 +15,11 @@ $(function(){
 		else{
 			var stored = "";
 		}
+	
 		var sections = $(".site-sections li");
 		//add something to our localStorage we want to delete from the main page
 		function addRemovedSection(toStore){
-			if(stored == null){
+			if(stored == ""){
 				var store = toStore;
 			}
 			else{
@@ -32,7 +33,7 @@ $(function(){
 		
 		//retrieve and hide hidden sections
 		function getLocallyStored(){
-			if(stored != null){
+			if(stored != ""){
 				var toHide = stored.split(',');
 				var i = toHide.length;
 				while(i--){
@@ -40,12 +41,13 @@ $(function(){
 					$(classToFind).css("display","none")
 				}
 			}
+			else return false;
 		}
 		
 		//reset hidden sections
 		function resetSections(){
 			localStorage.removeItem("deleted-sections");
-			stored = localStorage.getItem("deleted-sections");
+			stored = "";
 			$(sections).css("display","block");
 		}
 		
