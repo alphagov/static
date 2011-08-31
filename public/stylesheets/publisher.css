@@ -45,7 +45,7 @@
 }
 
 section {
-	margin: 5.5em auto 0;
+	margin: 6em auto 2em;
 	width: 100%;
 }
 
@@ -248,6 +248,9 @@ aside li a .part-title {
 	margin-bottom: 0.5em;
 }
 
+.pagination li a .pagination-label {
+	text-decoration: none;
+}
 
 /*
  * Transactions styles
@@ -387,12 +390,12 @@ ul.helpers {
 
 
 
-footer.group {
+/*footer.group {
 	font-size: 75%;
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
-}
+}*/
 
 /*
   text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.

@@ -174,7 +174,8 @@ header[role="banner"] .header-global nav li:last-child {
 header[role="banner"] .header-context nav li a {
 	background: url(/images/section-divider-arrow.png) no-repeat 0 50%;
 	display: block;
-	padding: 0.25em 0.25em 0.25em 1em;
+	font-size: 0.8em;
+	padding: 0.25em 0.25em 0.25em 1.5em;
 }
 
 header[role="banner"] .header-context nav li:first-child a {
@@ -182,19 +183,12 @@ header[role="banner"] .header-context nav li:first-child a {
 	padding-left: 0.25em;
 }
 
-header[role="banner"] .header-context nav li:last-child a {
-	
-}
-
 header[role="banner"] .header-context {
+	border-top: solid 1px;
+	border-right: solid 1px;
 	margin-right: 0.4em;
 	padding: 0.25em 0;
 	position: relative;
-}
-
-header[role="banner"] .header-context.citizen {
-	border-top: solid 1px;
-	border-right: solid 1px;
 }
 
 header[role="banner"] .header-context.citizen,
@@ -234,7 +228,7 @@ header[role="banner"] .header-context.citizen .search-help {
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
 	background: #FF5C00;
-	bottom: -1.75em;
+	bottom: -1.5em;
 	position: absolute;
 	right: 1em;
 }
@@ -242,7 +236,7 @@ header[role="banner"] .header-context.citizen .search-help {
 .global-help a {
 	display: block;
 	font-size: 0.8em;
-	padding: 0.35em 0.75em;
+	padding: 0.2em 0.5em;
 }
 
 /*
@@ -448,7 +442,7 @@ div[role="contentinfo"] .depts{
 div[role="contentinfo"]{
  		/*background: #333 url('/images/gov.uk-crest.png') no-repeat 105% 12%;*/
 		background-color:#333;
-		font-size:85%;
+		font-size: 0.8em;
 		line-height:1.2em;
     border-top: 1px solid #fff;
 		-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.25);
@@ -494,8 +488,8 @@ div[role="contentinfo"] .depts{
 	display:block;
 }
 #popular{
-	background-color:#fff;
-	border-top:10px solid #9da549;
+	background-color: #92AD54;
+	border-top:1px solid #B4D66B;
 }
 #popular ul{
 	margin:0;
