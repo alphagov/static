@@ -22,7 +22,7 @@ $(function(){
 				var store = toStore;
 			}
 			else{
-				var store = stored+":"+toStore;
+				var store = stored+","+toStore;
 			}
 			localStorage.setItem("deleted-sections", store);
 			stored = localStorage.getItem("deleted-sections");
@@ -32,10 +32,13 @@ $(function(){
 		
 		//retrieve and hide hidden sections
 		function getLocallyStored(){
-			var toHide = stored.split(':');
-			var i = toHide.length;
-			while(i--){
-				$("."+toHide[i]).css("display","none")
+			if(stored != null){
+				var toHide = stored.split(',');
+				var i = toHide.length;
+				while(i--){
+					var classToFind = "."+toHide[i];
+					$(classToFind).css("display","none")
+				}
 			}
 		}
 		
@@ -66,11 +69,13 @@ $(function(){
 			resetSections();
 			return false;
 		});
-		
+
 		addClosers();
 		getLocallyStored();
 		
 	}
-	
+	else{
+		return false;
+	}
 	
 });
