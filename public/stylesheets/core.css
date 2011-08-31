@@ -488,8 +488,10 @@ div[role="contentinfo"] .depts{
 	display:block;
 }
 #popular{
-	background-color: #92AD54;
+/*	background-color: #92AD54;*/
+	background-color: #fff;
 	border-top:1px solid #B4D66B;
+/*	border-top:1px solid #fff;*/
 }
 #popular ul{
 	margin:0;
@@ -498,44 +500,45 @@ div[role="contentinfo"] .depts{
 }
 
 #popular h1{
-	color:#9da549;
+/*	color:#92AD54;*/
+  font-size: 1.25em;
+  line-height: 1.18em;
+  margin-top: 1.2em;
+  margin-bottom: 0.2em;
 }
 
 #popular h1 a{
-	font-size:50%;
+	font-size: 0.5em;
 }
 
-	/* popular links */	
-	.popular{
-		width:70%;
-	}
-	.popular ul{
-		max-height:200px;
-		width:570px;
-		border-right:1px solid #9da549;
-		overflow:auto;
-	}
-	.popular li{
-		padding:10px 0;
-		display:inline;
-		float:left;
-		width:45%;
-	}
+/* popular links */	
+.popular {
+	width:70%;
+}
+.popular ul{
+	background: yellow;
+	border-right:1px solid #9da549;
+	max-height:200px;
+	overflow:auto;
+	padding-right: 10%;
+}
+.popular li{
+	padding:10px 0;
+	display:inline;
+	float:left;
+	width:45%;
+}
 	
+/* sections of interest */
+.sections li{
+	background-color:#fff;
+	padding:10px;
+	margin:0.5em 0;
+}
 
-	/* sections of interest */
-	.sections li{
-		background-color:#fff;
-		
-		padding:10px;
-		margin:0.5em 0;
-	}
-
-	.sections{
-		width:30%;
-	}
-	
-
+.sections{
+	width:30%;
+}
 
 /* homepage sections */
 .site-sections{
