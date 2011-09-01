@@ -571,6 +571,17 @@ article .info-notice {
   background: url('/images/application-info-icon-default.png') 2% 50% no-repeat;
 }
 
+article .form-download {
+	border: solid 1px #bbb;
+	margin: 1em 0;
+	padding: 0.5em 1em 0.25em 1em;
+}
+
+article .form-download a {
+	background: url('/images/icon-file-download.png') 0 0 no-repeat;
+	padding: 0.5em 0 0.5em 2em;
+}
+
 article .address {
 	background: url('/images/stamp.png') 95% 1em no-repeat;
 	border: solid 1px #ddd;
