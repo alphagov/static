@@ -469,8 +469,12 @@ article ul, article ol {
   padding-left: 1.5em;
 }
 
-article ul, article ol {
-  list-style-type: inherit;
+article ul {
+  list-style-type: disc;
+}
+
+article ol {
+  list-style-type: decimal;
 }
 
 article .application-notice p {
@@ -534,10 +538,11 @@ article dd {
 }
 
 article .advisory {
-  background: yellow;
+  background: #ffa;
+	border: solid 2px #FFCD17;
   line-height: 1.3em;
 	margin-bottom: 1em;
-  padding: 0 2.5em;
+  padding: 1em 2.5em;
   text-align: center;
 }
 
@@ -558,6 +563,35 @@ article .help-notice {
 
 article .info-notice {
   background: url('/images/application-info-icon-default.png') 2% 50% no-repeat;
+}
+
+article .place {
+	border: solid 1px #bbb;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	padding: 1em;
+}
+
+article .place .map {
+	float: left;
+}
+
+article .place .information {
+	border-top: solid 2px #fcc;
+	margin-left: 13em;
+	min-height: 13em;
+	padding: 0 0.5em;
+}
+
+article .place .address {
+  font-size: 1.15em;
+  line-height: 1.11em;
+}
+
+article .place .additional-information {
+	border-top: dashed 1px #bbb;
+	margin-top: 1em;
 }
 
 /*
