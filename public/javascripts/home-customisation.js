@@ -66,7 +66,7 @@ $(function(){
 			
 		}
 		
-		$(".site-sections").prepend("<a href='#' class='resetAll'>reset sections</a>");
+		$(".site-sections").append("<a href='#' class='resetAll'>reset sections</a>");
 		$("a.resetAll").click(function(){
 			resetSections();
 			return false;
