@@ -541,7 +541,8 @@ section {
 }
 
 /* homepage sections */
-.site-sections{
+.site-sections,
+.popular-sections{
 	background-color:#fff;
 	padding:0 2em;
 }
@@ -558,7 +559,7 @@ section {
 	margin:0 0.5em 2em 0;
 	width:30%;
 	display:block;
-	min-height:250px;
+	min-height:200px;
 	float:left;
 }
 .site-sections li li{
@@ -575,7 +576,8 @@ section {
 	font-size:0.85em;
 	color:#92AD54;
 }
-.site-sections li h2 a{
+.site-sections li h2 a,
+.resetAll{
 	font-size:0.7em;
 	position:relative;
 	float:right;
@@ -583,18 +585,32 @@ section {
 	color:#fff;
 	display:block;
 	padding:0.3em;
-	border-radius:5px;
+	border-radius:3px;
+	text-decoration:none;
+}
+.resetAll,
+.resetAll:visited{
+	color:#fff;
+	float:none;
+	display:inline;
+}
+.site-sections li h2 a:hover,
+.site-sections li h2 a:active,
+.site-sections li h2 a:focus,
+.resetAll:hover,
+.resetAll:active,
+.resetAll:focus{
+	background-color: #FF5C00;
 }
 /* search on the homepage */
-.site-sections{
+.site-sections,
+.popular-sections{
 	padding-top:2em;
 }
 #homepage-search{
 	clear:both;
-	background-color:#fff;
-	height:200px;
-	background-color:#92AD54;
-	color:#fff;
+	min-height:200px;
+	background-color:#EFECE0;
 	border-radius:5px;
 	overflow:hidden;
 }
@@ -603,7 +619,7 @@ section {
 	border-radius:5px;
 	border:1px solid #b4d66b;
 	color:#92AD54;
-	margin:2em;
+	margin:0 2em 1em 2em;
 	padding:2em;
 	float:left;
 	width:60%;
@@ -615,4 +631,44 @@ section {
 #homepage-search .recently-visited ul{
 	font-size:0.85em;
 	list-style-type:none;
+}
+#homepage-search h1{
+	color:#333;
+	padding:1em 0 0 1.4em;
+	margin:0;
+}
+#homepage-search p{
+	padding:0 0 0.5em 2em;
+	margin:0;
+}
+#homepage-search form p{
+	padding:0.5em 0 0 0;
+	margin:0;
+	font-size:0.75em;
+}
+.site-sections h1,
+.popular-sections h1,
+.popular-sections h2{
+	color:#92AD54;
+}
+.popular-sections h2{
+	font-size:75%;
+	color:#fff;
+	padding:1em 1em 0.5em 1.4em;
+}
+.currently-popular{
+	width:66%;
+	float:left;
+}
+.recently-visited{
+	background-color:#92AD54;
+	width:28%;
+	border-radius:5px;
+	float:left;
+}
+.recently-visited ul{
+	margin:0;
+	padding:0 0 1em 1em;
+	list-style-type:none;
+	font-size:0.95em;
 }
