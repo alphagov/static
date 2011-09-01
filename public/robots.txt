@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-Disallow: /search/
-Sitemap: http://alpha.gov.uk/sitemap.xml
