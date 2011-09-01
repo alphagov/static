@@ -632,8 +632,37 @@ article .place .additional-information {
 	margin-top: 1em;
 }
 
+article ol.steps {
+	padding-left: 0;
+}
+
 article ol.steps li {
+	background-position: 0 0.75em;
+	background-repeat: no-repeat;
 	list-style-type: none;
+	padding: 0.25em 0 0.25em 2.75em;
+}
+
+article ol.steps li:nth-child(1) {
+	background-image: url('/images/icon-step-1.png');
+}
+article ol.steps li:nth-child(2) {
+	background-image: url('/images/icon-step-2.png');
+}
+article ol.steps li:nth-child(3) {
+	background-image: url('/images/icon-step-3.png');
+}
+article ol.steps li:nth-child(4) {
+	background-image: url('/images/icon-step-4.png');
+}
+article ol.steps li:nth-child(5) {
+	background-image: url('/images/icon-step-5.png');
+}
+article ol.steps li:nth-child(6) {
+	background-image: url('/images/icon-step-6.png');
+}
+article ol.steps li:nth-child(7) {
+	background-image: url('/images/icon-step-7.png');
 }
 
 /*
