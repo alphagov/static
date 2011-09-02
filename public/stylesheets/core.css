@@ -425,6 +425,7 @@ header[role="banner"] .header-context.citizen .search-help {
 	color: #7F7F7F;
 	float: left;
 	margin: 4em 1.25em 1em 1.25em;
+	clear:both;
 }
 
 .meta-data {
