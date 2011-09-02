@@ -59,6 +59,7 @@ $(function(){
 			var uri = location.pathname,
 				title = $("#wrapper.programme hgroup h1").text(),
 				type;
+				console.log(stored)
 				
 				addLink(uri+":"+title);
 		}
@@ -70,8 +71,8 @@ $(function(){
 			stored = "";
 		}
 
-
-	//	getPageData();
+		resetRecent();
+		getPageData();
 
 	}
 	

@@ -191,16 +191,7 @@ aside li a .part-title {
 	text-decoration: underline;
 }
 
-.meta-data {
-	border-top: dotted 1px #bbb;
-	color: #7F7F7F;
-	float: left;
-	margin: 1em 1.25em;
-}
 
-.modified-date {
-	font-size: 0.65em;
-}
 
 .pagination {
 	background: #F2F2F2;
