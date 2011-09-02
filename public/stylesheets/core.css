@@ -424,13 +424,33 @@ header[role="banner"] .header-context.citizen .search-help {
 	border-top: dotted 1px #bbb;
 	color: #7F7F7F;
 	float: left;
-	margin: 1em 1.25em;
+	margin: 4em 1.25em 1em 1.25em;
 }
 
-.modified-date {
+.meta-data {
 	font-size: 0.65em;
 }
 
+.meta-data ul, .meta-data li{
+	display:inline;
+}
+
+.meta-data li a {
+    border-radius:0;
+    display: inline;
+    font-size: inherit;
+    padding: 0;
+    text-decoration: underline;
+}
+.meta-data li a:focus,
+.meta-data li a:active,
+.meta-data li a:hover{
+	background-color:none;
+}
+.api-links{
+	margin:0;
+	padding:0;
+}
 /* Footer - everywhere */
 
 footer#footer{
