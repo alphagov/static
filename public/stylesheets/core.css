@@ -426,10 +426,10 @@ header[role="banner"] .header-context.citizen .search-help {
 	float: left;
 	margin: 4em 1.25em 1em 1.25em;
 	clear:both;
-}
-
-.meta-data {
 	font-size: 0.65em;
+}
+.answer .meta-data{
+	width:96%;
 }
 
 .meta-data ul, .meta-data li{
