@@ -428,7 +428,8 @@ header[role="banner"] .header-context.citizen .search-help {
 	clear:both;
 	font-size: 0.65em;
 }
-.answer .meta-data{
+.answer .meta-data,
+.transaction .meta-data{
 	width:96%;
 }
 
