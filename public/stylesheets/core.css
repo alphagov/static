@@ -786,6 +786,24 @@ section {
 .help .guide-header{
 	background: url('/images/icon-publisher-guide.png') no-repeat 0 0;
 }
+.help strong{
+	background: none repeat scroll 0 0 #FF5C00;
+  border: 1px solid #A93D00;
+  border-radius: 0.25em 0.25em 0.25em 0.25em;
+	color:#fff;
+	display:block;
+	padding:1em;
+}
+.help strong a,
+.help strong a:visited{
+	color:#fff;
+	font-weight:normal;
+}
+.help strong a:hover,
+.help strong a:active,
+.help strong a:focus{
+	color:#333;
+}
 .help .quick-header{
 	background: url('/images/icon-answer-24.png') no-repeat 0 0;
 }
