@@ -330,7 +330,8 @@ header[role="banner"] .header-context.citizen .search-help {
 
 .related .inner {
 /*	background: #ffffaa;*/
-	background: #EAE8E4;
+/*	background: #EAE8E4;*/
+	background: #F2F4B6;
 	border: 1px solid #bbb;
 /*	border-left: none;*/
   -moz-border-radius: 0 0.5em 1em 0;
