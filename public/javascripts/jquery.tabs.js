@@ -124,8 +124,8 @@ jQuery.fn.tabs = function(settings){
 						ret = false;
 					break;
 				}*/
-				return ret;
-			});
+			// 	return ret;
+			// });
 			
 		//if tabs are rotating, stop them upon user events	
 		tabs.bind('click keydown focus',function(){
