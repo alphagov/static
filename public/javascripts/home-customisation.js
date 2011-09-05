@@ -57,7 +57,7 @@ $(function(){
 		function addClosers(){
 			var i = sections.length;
 			while(i--){
-				$(sections[i]).children("h2").append(" <a href='#' class='hide'>hide this</a>");
+				$(sections[i]).children("h2").after("<div class='edit-control'><a href='#' class='hide'>hide this</a></div>");
 			}
 			
 			$("a.hide").click(function(){
@@ -69,7 +69,7 @@ $(function(){
 			
 		}
 		
-		$(".site-sections").append("<a href='#' class='resetAll'>show hidden sections</a>");
+		$(".site-sections").append("<div class='edit-control'><a href='#' class='resetAll'>show hidden sections</a></div>");
 		$("a.resetAll").click(function(){
 			resetSections();
 			return false;
