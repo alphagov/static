@@ -24,7 +24,7 @@ jQuery.fn.tabs = function(settings){
 		var tabs = $(this);
 
 		//set app mode
-		if( !$('body').is('[role]') ){ $('body').attr('role','application'); }
+		//if( !$('body').is('[role]') ){ $('body').attr('role','application'); }
 		
 		//nav is first ul // ol for GovUK
 		var tabsNav = tabs.find('.programme-progression ol:first');
@@ -94,8 +94,8 @@ jQuery.fn.tabs = function(settings){
 				selectTab($(this));
 				$(this).focus();
 				return false;
-			})
-			.keydown(function(event){
+			});
+			/*.keydown(function(event){
 				var currentTab = $(this).parent();
 				var ret = true;
 				switch(event.keyCode){
@@ -123,7 +123,7 @@ jQuery.fn.tabs = function(settings){
 						tabsNav.find('li:last a').eq(0).focus();
 						ret = false;
 					break;
-				}
+				}*/
 				return ret;
 			});
 			
