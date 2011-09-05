@@ -32,32 +32,32 @@ $(function(){
 		
 		
 		//retrieve and hide hidden sections
-		function getLocallyStored(){
-			if(stored != ""){
-				var toHide = stored.split(',');
-				var i = toHide.length;
-				while(i--){
-					if (toHide[i] && toHide[i] != '') {
-						var classToFind = "."+toHide[i];
-						$(classToFind).css("display","none")						
-					}
+    function getLocallyStored(){
+        if(stored != ""){
+            var toHide = stored.split(',');
+            var i = toHide.length;
+            while(i--){
+                if (toHide[i] && toHide[i] != '') {
+                    var classToFind = "."+toHide[i];
+                    $(classToFind).addClass("hidden")                        
+                }
 
-				}
-			}
-			else return false;
-		}
-		
-		//reset hidden sections
-		function resetSections(){
-			localStorage.removeItem("deleted-sections");
-			stored = "";
-			$(sections).css("display","block");
-		}
+            }
+        }
+        else return false;
+    }
+
+    //reset hidden sections
+    function resetSections(){
+        localStorage.removeItem("deleted-sections");
+        stored = "";
+        $(sections).removeClass("hidden");
+    }
 		
 		function addClosers(){
 			var i = sections.length;
 			while(i--){
-				$(sections[i]).children("h2").append(" <a href='#' class='hide'>hide</a>");
+				$(sections[i]).children("h2").append(" <a href='#' class='hide'>hide this</a>");
 			}
 			
 			$("a.hide").click(function(){
@@ -69,7 +69,7 @@ $(function(){
 			
 		}
 		
-		$(".site-sections").append("<a href='#' class='resetAll'>reset sections</a>");
+		$(".site-sections").append("<a href='#' class='resetAll'>show hidden sections</a>");
 		$("a.resetAll").click(function(){
 			resetSections();
 			return false;
