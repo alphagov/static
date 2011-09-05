@@ -37,8 +37,11 @@ $(function(){
 				var toHide = stored.split(',');
 				var i = toHide.length;
 				while(i--){
-					var classToFind = "."+toHide[i];
-					$(classToFind).css("display","none")
+					if (toHide[i] && toHide[i] != '') {
+						var classToFind = "."+toHide[i];
+						$(classToFind).css("display","none")						
+					}
+
 				}
 			}
 			else return false;
