@@ -873,3 +873,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	border-radius: 0 0 0 0;
 }
 
+
+/* Location */
+
+#location-set-message{
+	display:none;
+}
+#location-unset-message{
+	position:fixed;
+	top:45px;
+	left:200px;
+	z-index:100000;
+	margin:0;
+}
+
