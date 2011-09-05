@@ -670,11 +670,11 @@ section {
 	float:left;
 	width:60%;
 }
-#homepage-search .recently-visited h2{
+#homepage-search .user-favourites h2{
 	padding-top:3em;
 	font-size:0.85em;
 }
-#homepage-search .recently-visited ul{
+#homepage-search .user-favourites ul{
 	font-size:0.85em;
 	list-style-type:none;
 }
@@ -706,13 +706,13 @@ section {
 	width:66%;
 	float:left;
 }
-.recently-visited{
+.user-favourites{
 	background-color:#92AD54;
 	width:28%;
 	border-radius:5px;
 	float:left;
 }
-.recently-visited ul{
+.user-favourites ul{
 	margin:0;
 	padding:0 0 1em 1em;
 	list-style-type:none;
