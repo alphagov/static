@@ -534,6 +534,13 @@ article .summary {
 	margin: 0 0 1.25em 0;
 }
 
+article .example {
+  background: #F2F2F2;
+	border: solid 1px #bbb;
+ 	margin: 1em 0;
+  padding: 0 1em;
+}
+
 article .advisory {
   background: #ffa;
 	border: solid 2px #FFCD17;
