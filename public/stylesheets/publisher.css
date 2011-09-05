@@ -9,7 +9,11 @@
 	padding: 1em;
 }
 	#wrapper.transaction hgroup {
-		margin-right: 10.5em;
+		padding-bottom: 0;
+	}
+
+	#wrapper.transaction .related-positioning {
+		top: 14.25em;
 	}
 
 
