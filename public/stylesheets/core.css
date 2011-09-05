@@ -313,6 +313,7 @@ header[role="banner"] .header-context.citizen .search-help {
 	height: 0;
 	left: 0;
 	position: fixed;
+	top: 14.25em;
 	width: 100%;
 }
 
@@ -553,7 +554,7 @@ div[role="contentinfo"] .depts li a{
 	font-size: 0.5em;
 }
 
-/* popular links */	
+/* popular links */
 .popular {
 	width:70%;
 }
@@ -757,14 +758,14 @@ section {
 	padding:0;
 	margin:0 0 1em 0;
 }
-.help h1, 
+.help h1,
 .help h2,
 .help p{
 	padding:0;
 	margin:0;
 	line-height:1.4em;
 }
-.help h1, 
+.help h1,
 .help h2{
 	margin-top:0.5em;
 }
@@ -779,7 +780,7 @@ section {
 .help .benefits-header{
 	padding:0.5em 0 0.3em 2em;
 	margin-top:2em;
-	
+
 }
 .help .guide-header{
 	background: url('/images/icon-publisher-guide.png') no-repeat 0 0;
@@ -837,7 +838,7 @@ ul.ui-autocomplete {
 	padding:0;
 	margin:0;
 }
-ul.ui-autocomplete li, 
+ul.ui-autocomplete li,
 #search_hint {
 	font-size: 0.75em;
 	margin: 0 0 0 26%;
@@ -861,7 +862,7 @@ ul.ui-autocomplete li a em {
 	font-weight: bold;
 	padding: 0.125em;
 }
-ul.ui-menu .ui-menu-item a.ui-state-hover, 
+ul.ui-menu .ui-menu-item a.ui-state-hover,
 ul.ui-menu .ui-menu-item a.ui-state-active {
 	margin: 0;
 }

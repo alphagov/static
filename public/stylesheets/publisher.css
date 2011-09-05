@@ -8,14 +8,10 @@
 	margin-right: 12em;
 	padding: 1em;
 }
+
 	#wrapper.transaction hgroup {
 		padding-bottom: 0;
 	}
-
-	#wrapper.transaction .related-positioning {
-		top: 14.25em;
-	}
-
 
 #wrapper hgroup span {
 	display: block;
@@ -267,7 +263,7 @@ aside li a .part-title {
 }
 
 	#wrapper.transaction.local .intro {
-		background-color: #F9F9F9;
+		background-color: inherit;
 		border: none;
 		-webkit-border-radius: 0;
 		-moz-border-radius: 0;
