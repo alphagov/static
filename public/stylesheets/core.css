@@ -729,13 +729,7 @@ section {
 	overflow:hidden;
 	padding:1em;
 }
-.help-menu{
 
-}
-#help-internet{
-
-
-}
 .help-menu ul{
 	list-style-type:none;
 	margin:1em 0 0 0;
@@ -743,11 +737,6 @@ section {
 }
 .help-menu li{
 	list-style-type:none;
-	/*background-color:#fff;
-	border:1px solid #fff;
-	border-radius:5px;
-	margin:0 0 0.5em 0;
-	padding:0.5em;*/
 }
 .help #find,
 .help #tools,
@@ -775,6 +764,36 @@ section {
 	margin-top:0.5em;
 }
 
+.help .guide-header,
+.help .quick-header,
+.help .smart-header,
+.help .services-header,
+.help .local-header,
+.help .benefits-header{
+	padding-left:28px;
+	padding-bottom:5px;
+	padding-top:5px;
+	
+	
+}
+.help .guide-header{
+	background: url('/images/icon-publisher-guide.png') no-repeat 0 0;
+}
+.help .quick-header{
+	background: url('/images/icon-answer-24.png') no-repeat 0 0;
+}
+.help .smart-header{
+	background: url('/images/icon-publisher-answer.png') no-repeat 0 0;
+}
+.help .services-header{
+	background: url('/images/icon-tool-24-temp.png') no-repeat 0 0;
+}
+.help .local-header{
+	background: url('/images/icon-tool-24-temp.png') no-repeat 0 0;
+}
+.help .benefits-header{
+	background: url('/images/icon-guide-24.png') no-repeat 0 0;
+}
 /* auto complete */
 
 #main_autocomplete {
