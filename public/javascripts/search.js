@@ -28,6 +28,13 @@ $(document).ready(function() {
           location.href = ui.item.url;
         }
       });
+			$('#main_autocomplete').autocomplete({
+        delay: 0,
+        source: results, 
+        select: function(event, ui) {
+          location.href = ui.item.url;
+        }
+      });
     }
   });
 
