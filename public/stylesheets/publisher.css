@@ -247,7 +247,20 @@ aside li a .part-title {
 	float: right;
 	width: 20em;
 }
+.pagination .first {
+	border-right: solid 1px #bbb;
+	box-sizing: border-box;
+	float: left;
+	width: 11em;
+	color:#999;
+	padding-left:0.5em;
+}
 
+.pagination .last {
+	float: right;
+	width: 20em;
+	color:#999;
+}
 .pagination .pagination-label {
 	display: block;
 	font-size: 0.8em;
