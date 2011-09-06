@@ -51,6 +51,11 @@ body {
 	width: 95%;
 }
 
+section {
+  margin: 6em auto 2em;
+  width: 100%;
+}
+
 ol, ul, nav ol, nav ul {
 	list-style: inherit;
 }
@@ -536,6 +541,7 @@ div[role="contentinfo"] .depts li a{
 	display:block;
 }
 #popular{
+	display: none;
 	background-color: #fff;
 /*	border-top:1px solid #B4D66B;*/
 	padding: 0.25em 0 1em 0;
@@ -573,10 +579,7 @@ div[role="contentinfo"] .depts li a{
 	float:left;
 	width:45%;
 }
-section {
-    margin: 6em auto 2em;
-    width: 100%;
-}
+
 /* sections of interest */
 .sections li a{
 	background-color:#92AD54;
@@ -589,61 +592,220 @@ section {
 	width:30%;
 }
 
-/* homepage sections */
-.site-sections,
-.popular-sections{
-	background-color:#fff;
-	padding:0 2em;
+/* ============  Home page  =============== */
+
+.home {
+	background-color: #fff;
 }
-.site-sections ul{
+
+.home h1 {
+	margin-bottom: 1em;
+}
+
+.home h2 {
+	margin-bottom: 1em;
+}
+
+.home ul {
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.home ul li {
+	margin: 0.75em 0;
+}
+
+/* Home page - search and formats grid */
+
+.popular-sections{
+	padding: 2em 0 2em 2em;
+}
+
+#homepage-search{
+	background-color: #EFECE0;
+	border-bottom: solid 1px #ddd;
+	padding: 1.5em 2em 1.5em 2em;
+}
+
+#homepage-search header {
+	margin: 0 0 2em 0;
+}
+
+#homepage-search h1 {
+	font-size: 1.85em;
+	margin-bottom: 0.25em;
+}
+
+#homepage-search form { 
+	background-color:#fff;
+	margin: 1em 0 1em 24em;
+	padding: 2em;
+	min-height: 5em;
+}
+
+#homepage-search form fieldset {
+	border: none;
+	font-size: 1.25em;
+	margin: 0 auto;
+	width: 19em;
+}
+
+#homepage-search form label {
+	font-weight: bold;
+}
+
+#homepage-search form p {
+	font-size: 0.65em;	
+}
+
+#homepage-search form #search_hint {
+	margin: 1em 0 0 5.5em;
+}
+
+#homepage-search form #search_hint span {
+	font-style: italic;
+}
+
+#homepage-search .formats-grid {
+	background-color: #fff;
+	float: left;
+/*	height: 15em;*/
+	min-height: 7em;
+	padding: 0.25em;
+	width: 22em;
+}
+
+#homepage-search .formats-grid td {
+	background-color: #EFECE0;
+/*	border: solid 1px #ddd;*/
+	border: solid 0.5em #fff;
+	font-size: 0.8em;
+	padding: 1.5em 3% 1em 3%;
+	text-align: center;
+	vertical-align: top;
+	width: 24%;
+}
+
+#homepage-search .formats-grid td p {
+	margin: 0.5em 0 0.25em 0;
+}
+
+.home ul li a {
+	display: block;
+	padding: 0.25em 0 0.25em 2em;
+}
+
+.home ul li.answer a {
+	background: url(/images/icon-answer-24.png) no-repeat 0 0;
+}
+
+.home ul li.guide a {
+	background: url(/images/icon-guide-24.png) no-repeat 0.25em 0;
+}
+
+.currently-popular{
+	float:left;
+	width: 36em;
+}
+
+.currently-popular h2 {
+	margin-top: 0.5em;
+}
+
+.currently-popular ul li {
+	display: inline-block;
+	margin-right: 2.5%;
+	width: 47%;
+}
+
+.user-favourites{
+	background-color:#92AD54;
+	margin: 0 0 0 38em;
+	padding: 1em;
+}
+
+.user-favourites h2{
+	color:#fff;
+}
+
+.user-favourites ul{
+/*	margin:0;*/
+/*	padding:0 0 1em 1em;*/
+}
+
+/* Home page - browse by section */
+
+.site-sections {
+	padding: 2em;
+	position: relative;
+}
+
+.site-sections ul {
 	clear:both;
 	margin:1em 0;
 	padding:0;
 }
-.site-sections li{
-	background-color:#fff;
+
+.site-sections ul li{
 	border-top:1px solid #bbb;
 	padding:0.75em 0;
 	margin:0 1% 2em 1%;
 	width:31.333%;
 	display:inline-block;
-	min-height:100px;
 	vertical-align: top;
-/*	float:left;*/
 }
+
 .site-sections li.hidden {
 	display: none;
 }
-.site-sections li li{
-	background-color:#fff;
+
+.site-sections ul li li{
 	border-top:none;
-	margin:0.5em 0 0 0;
+	margin: 0.75em 0;
 	padding:0;
 	width:100%;
 	display:block;
-	min-height:20px;
-	float:none;
-/*	font-size:0.75em;*/
 }
+
 .site-sections li h2{
-	color:#92AD54;
 	font-size: 1.15em;
 	line-height: 1.11em;
+}
+
+.site-sections .edit-control {
+	position: absolute;
+	right: 0.25em;
+	top: 0.25em;
 }
 .site-sections .edit-control a {
 	font-size:0.85em;
 	position:relative;
-	float:right;
 	background-color:#92AD54;
 	color:#fff;
 	display:block;
-	padding:0em 0.5em;
+	padding: 0.25em 0.5em;
 	border-radius:3px;
 	text-decoration:none;
 }
-.view-all-section a {
-	font-size: 0.85em;
+
+.site-sections header {
+	position: relative;
 }
+
+.site-sections header .edit-control {
+/*	float: right;*/
+}
+
+.home p.view-all-section a {
+	font-size: 0.85em;
+	padding-left: 0;
+}
+
+.site-sections .edit-control.reset-control {
+	right: 6em;
+}
+
 .resetAll,
 .resetAll:visited{
 	color:#fff;
@@ -659,77 +821,8 @@ section {
 	background-color: #FF5C00;
 }
 
-/* search on the homepage */
-.site-sections,
-.popular-sections{
-	padding-top:2em;
-}
-#homepage-search{
-	clear:both;
-	min-height:200px;
-	background-color:#EFECE0;
-	overflow:hidden;
-}
-#homepage-search form{
-	background-color:#fff;
-	border-radius:5px;
-	border:1px solid #b4d66b;
-	color:#92AD54;
-	margin:0 2em 1em 2em;
-	padding:2em;
-	float:left;
-	width:60%;
-}
-#homepage-search .user-favourites h2{
-/*	padding-top:3em;*/
-/*	font-size:0.85em;*/
-}
-#homepage-search .user-favourites ul{
-/*	font-size:0.85em;*/
-	list-style-type:none;
-}
-#homepage-search h1{
-	color:#333;
-	padding:1em 0 0 1.4em;
-	margin:0;
-}
-#homepage-search p{
-	padding:0 0 0.5em 2em;
-	margin:0;
-}
-#homepage-search form p{
-	padding:0.5em 0 0 0;
-	margin:0;
-	font-size:0.75em;
-}
-.site-sections h1,
-.popular-sections h1,
-.popular-sections h2{
-/*	color:#92AD54;*/
-}
-.popular-sections h2{
-	color:#fff;
-	padding:1em 1em 0.5em 1.4em;
-}
-.currently-popular{
-	width:66%;
-	float:left;
-}
-.user-favourites{
-	background-color:#92AD54;
-	width:28%;
-	border-radius:5px;
-	float:left;
-}
-.user-favourites ul{
-	margin:0;
-	padding:0 0 1em 1em;
-	list-style-type:none;
-/*	font-size:0.95em;*/
-}
-
-
 /* Help page */
+
 #help{
 	clear:both;
 	min-height:200px;
@@ -840,18 +933,16 @@ ul.ui-widget {
 ul.ui-autocomplete {
 	background: none repeat scroll 0 0 #FFFFFF;
 	border: 1px solid #8F8F8F;
-	font-family: Arial,sans-serif;
 	width:100px;
 	list-style-type:none;
 	padding:0;
 	margin:0;
 }
-ul.ui-autocomplete li,
-#search_hint {
+ul.ui-autocomplete li {
 	font-size: 0.75em;
-	margin: 0 0 0 26%;
+/*	margin: 0 0 0 26%;
 	padding: 0.5em 0.75em 0 0;
-	width: 64%;
+	width: 64%;*/
 }
 ul.ui-autocomplete li {
 	border-top: 1px solid #DBDAD9;
