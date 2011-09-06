@@ -57,7 +57,7 @@ $(function(){
 		function addClosers(){
 			var i = sections.length;
 			while(i--){
-				$(sections[i]).children("h2").after("<div class='edit-control'><a href='#' class='hide'>Hide this</a></div>");
+				$(sections[i]).children("h3").after("<div class='edit-control'><a href='#' class='hide'>Hide this</a></div>");
 			}
 			
 			$("a.hide").click(function(){
