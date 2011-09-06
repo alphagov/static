@@ -999,3 +999,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #location-unset-message a{
 	color:#bbb;
 }
+
+
+/* devolved content */
+.devolved-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px dotted #CCCCCC;
+    margin: 1em 0;
+    padding: 0 0.5em 0.5em;
+}
