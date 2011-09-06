@@ -473,8 +473,8 @@ header[role="banner"] .header-context.citizen .search-help {
 footer#footer{
 	background-color:#333;
  	border-top: 1px solid #fff;
-	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.5);
-	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.25);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.7);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.7);
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
@@ -487,7 +487,7 @@ div[role="contentinfo"] .copyright{
 }
 
 div[role="contentinfo"] .copyright p {
-	font-size: 0.8em;
+/*	font-size: 0.8em;*/
 }
 
 div[role="contentinfo"] .project {
@@ -595,9 +595,6 @@ section {
 	background-color:#fff;
 	padding:0 2em;
 }
-.site-sections .edit-control {
-	font-size: 0.85em;
-}
 .site-sections ul{
 	clear:both;
 	margin:1em 0;
@@ -633,9 +630,8 @@ section {
 	font-size: 1.15em;
 	line-height: 1.11em;
 }
-.site-sections li h2 a,
-.resetAll{
-	font-size:0.6em;
+.site-sections .edit-control a {
+	font-size:0.85em;
 	position:relative;
 	float:right;
 	background-color:#92AD54;
