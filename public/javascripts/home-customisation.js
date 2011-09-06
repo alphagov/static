@@ -75,7 +75,31 @@ $(function(){
 			return false;
 		});
 
-		addClosers();
+		function customisationMode(){
+			$(".completed-customise a").click(function(){
+				addClosers()
+			
+				$(this).text("Hide customisation options");
+				$(this).parent().removeClass("completed-customise");
+				$(this).parent().addClass("currently-customising");
+			
+				$(".currently-customising a").click(function(){
+				
+					$(this).text("Customise which sections you see");
+					$(this).parent().addClass("completed-customise");
+					$(this).parent().removeClass("currently-customising");
+					$(".hide").remove();
+		
+					customisationMode()
+					return false
+				})
+				return false
+		});
+		}
+		
+		
+		$(".edit-control").removeClass("hidden");
+		customisationMode()
 		getLocallyStored();
 		
 	}
