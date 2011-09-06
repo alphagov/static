@@ -1,9 +1,6 @@
 #wrapper hgroup {
 	background: #efece0;
 	border-bottom: none;
-/*	-webkit-border-radius: 0.75em 0.75em 0 0;
-	-moz-border-radius: 0.75em 0.75em 0 0;
-	border-radius: 0.75em 0.75em 0 0;*/
 	display: block;
 	margin-right: 12em;
 	padding: 1em;
@@ -12,6 +9,17 @@
 	#wrapper.transaction hgroup {
 		padding-bottom: 0;
 	}
+
+#wrapper.answer hgroup h1,
+#wrapper.guide hgroup h1,
+#wrapper.transaction hgroup h1 {
+	background-repeat: no-repeat;
+	color: inherit;
+	font-size: 1.8em;
+	min-height: 2.5em;
+	line-height: 1.05em;
+	padding: 0.2em 0 0.2em 2.75em;
+}
 
 #wrapper hgroup span {
 	display: block;
@@ -22,31 +30,35 @@
 	text-transform: uppercase;
 }
 
-#wrapper.answer hgroup h1,
-#wrapper.guide hgroup h1,
-#wrapper.transaction hgroup h1 {
-	background-repeat: no-repeat;
-	font-size: 1.8em;
-	min-height: 2.5em;
-	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.75em;
-}
 
 #wrapper.answer hgroup h1 {
 	background-image: url('/images/icon-answer-80.png');
-	color: #1C7000;
 	margin-left: 0.65em;
 	padding-left: 3.35em;
 }
+	#wrapper.answer hgroup h1 span {
+		color: #1C7000;
+	}
 
 #wrapper.guide hgroup h1 {
 	background-image: url('/images/icon-guide-80.png');
-	color: #68009F;
 }
+	#wrapper.guide hgroup h1 span {
+		color: #68009F;
+	}
 
 #wrapper.transaction hgroup h1 {
 	background-image: url('/images/icon-publisher-transaction-48.png');
 }
+	#wrapper.transaction hgroup h1 span {
+	}
+
+#wrapper.transaction.local hgroup h1 {
+	background-image: url('/images/icon-publisher-transaction-48.png');
+}
+	#wrapper.transaction.local hgroup h1 span {
+		color: #c00;
+	}
 
 section {
 	margin: 6em auto 2em;
@@ -680,18 +692,14 @@ article ol.steps li:nth-child(7) {
 */
 
 #wrapper.programme hgroup h1 {
-	background-image: url(/images/icon-programme-80.png);
-}
-
-#wrapper.programme hgroup h1 {
-	background-repeat: no-repeat;
+	background: url(/images/icon-programme-48.png) 1% 15% no-repeat;
 	font-size: 1.8em;
 	min-height: 2.5em;
 	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 3.25em;
+	padding: 0.2em 0 0.2em 2.25em;
 }
 
-#wrapper.programme hgroup h1 {
+#wrapper.programme hgroup h1 span {
 	color: #295A80;
 }
 
