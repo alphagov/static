@@ -732,19 +732,18 @@ div[role="contentinfo"] .depts li a{
 }
 
 .site-sections ul {
-	clear:both;
 	margin:1em 0;
 	padding:0;
 }
 
 .site-sections ul li{
+	background-color: #EFECE0;
 	border-top:1px solid #bbb;
-	margin:0 1% 2em 1%;
-	padding: 0.5em 0;
+	margin:0 0.5% 1em 0.5%;
+	min-height: 18em;
+	padding: 0.5em 1% 0 1%;
 	position: relative;
-/*	display:inline-block;*/
-/*	vertical-align: top;*/
-	width:31%;
+	width: 30%;
 }
 
 .site-sections li.hidden {
@@ -752,11 +751,12 @@ div[role="contentinfo"] .depts li a{
 }
 
 .site-sections ul li li{
-	border-top:none;
+	border-top: none;
+	display: block;
 	margin: 0.5em 0;
+	min-height: 0;
 	padding:0;
 	width:100%;
-/*	display:block;*/
 }
 
 .site-sections li h3 {
@@ -767,7 +767,7 @@ div[role="contentinfo"] .depts li a{
 
 .site-sections .edit-control {
 	position: absolute;
-	right: 0;
+	right: 0.5em;
 	top: 0.5em;
 }
 .site-sections .edit-control a {
