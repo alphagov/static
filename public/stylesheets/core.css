@@ -589,7 +589,7 @@ div[role="contentinfo"] .depts li a{
 	width:30%;
 }
 
-/* ============  homepage  =============== */
+/* ============  Home page  =============== */
 
 .home {
 	background-color: #fff;
@@ -610,95 +610,13 @@ div[role="contentinfo"] .depts li a{
 }
 
 .home ul li {
-	margin: 0.5em 0;
+	margin: 0.75em 0;
 }
 
-.site-sections {
-	position: relative;
-}
+/* Home page - search and formats grid */
 
-.site-sections,
 .popular-sections{
-	padding:0 2em;
-}
-
-.site-sections ul {
-	clear:both;
-	margin:1em 0;
-	padding:0;
-}
-
-.site-sections ul li{
-	border-top:1px solid #bbb;
-	padding:0.75em 0;
-	margin:0 1% 2em 1%;
-	width:31.333%;
-	display:inline-block;
-	min-height:100px;
-	vertical-align: top;
-}
-
-.site-sections li.hidden {
-	display: none;
-}
-
-.site-sections ul li li{
-/*	background-color:#fff;*/
-	border-top:none;
-	margin:0.5em 0 0 0;
-	padding:0;
-	width:100%;
-	display:block;
-	min-height:20px;
-	float:none;
-/*	font-size:0.75em;*/
-}
-
-.site-sections li h2{
-/*	color:#92AD54;*/
-	font-size: 1.15em;
-	line-height: 1.11em;
-}
-.site-sections .edit-control {
-	position: absolute;
-	right: 0.25em;
-	top: 0.25em;
-}
-.site-sections .edit-control a {
-	font-size:0.85em;
-	position:relative;
-/*	float:right;*/
-	background-color:#92AD54;
-	color:#fff;
-	display:block;
-	padding:0em 0.5em;
-	border-radius:3px;
-	text-decoration:none;
-}
-.home p.view-all-section a {
-	font-size: 0.85em;
-	padding-left: 0;
-}
-.resetAll,
-.resetAll:visited{
-	color:#fff;
-	float:none;
-	display:inline;
-}
-.site-sections li h2 a:hover,
-.site-sections li h2 a:active,
-.site-sections li h2 a:focus,
-.resetAll:hover,
-.resetAll:active,
-.resetAll:focus{
-	background-color: #FF5C00;
-}
-
-/* search and formats grid on the homepage */
-
-.site-sections,
-.popular-sections{
-	padding-top:2em;
+	padding: 2em 0 2em 2em;
 }
 
 #homepage-search{
@@ -739,7 +657,7 @@ div[role="contentinfo"] .depts li a{
 }
 
 #homepage-search form #search_hint {
-	margin: 1em 0 0 0;
+	margin: 1em 0 0 5.5em;
 }
 
 #homepage-search form #search_hint span {
@@ -813,8 +731,95 @@ div[role="contentinfo"] .depts li a{
 /*	padding:0 0 1em 1em;*/
 }
 
+/* Home page - browse by section */
+
+.site-sections {
+	padding: 2em;
+	position: relative;
+}
+
+.site-sections ul {
+	clear:both;
+	margin:1em 0;
+	padding:0;
+}
+
+.site-sections ul li{
+	border-top:1px solid #bbb;
+	padding:0.75em 0;
+	margin:0 1% 2em 1%;
+	width:31.333%;
+	display:inline-block;
+	vertical-align: top;
+}
+
+.site-sections li.hidden {
+	display: none;
+}
+
+.site-sections ul li li{
+	border-top:none;
+	margin: 0.75em 0;
+	padding:0;
+	width:100%;
+	display:block;
+}
+
+.site-sections li h2{
+	font-size: 1.15em;
+	line-height: 1.11em;
+}
+
+.site-sections .edit-control {
+	position: absolute;
+	right: 0.25em;
+	top: 0.25em;
+}
+.site-sections .edit-control a {
+	font-size:0.85em;
+	position:relative;
+	background-color:#92AD54;
+	color:#fff;
+	display:block;
+	padding: 0.25em 0.5em;
+	border-radius:3px;
+	text-decoration:none;
+}
+
+.site-sections header {
+	position: relative;
+}
+
+.site-sections header .edit-control {
+/*	float: right;*/
+}
+
+.home p.view-all-section a {
+	font-size: 0.85em;
+	padding-left: 0;
+}
+
+.site-sections .edit-control.reset-control {
+	right: 6em;
+}
+
+.resetAll,
+.resetAll:visited{
+	color:#fff;
+	float:none;
+	display:inline;
+}
+.site-sections li h2 a:hover,
+.site-sections li h2 a:active,
+.site-sections li h2 a:focus,
+.resetAll:hover,
+.resetAll:active,
+.resetAll:focus{
+	background-color: #FF5C00;
+}
 
 /* Help page */
+
 #help{
 	clear:both;
 	min-height:200px;
