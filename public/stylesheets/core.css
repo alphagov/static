@@ -618,8 +618,8 @@ div[role="contentinfo"] .depts li a{
 
 /* Home page - search and formats grid */
 
-.popular-sections{
-	padding: 2em 0 2em 2em;
+.popular-sections {
+	padding: 2em;
 }
 
 #homepage-search{
@@ -670,7 +670,6 @@ div[role="contentinfo"] .depts li a{
 #homepage-search .formats-grid {
 	background-color: #fff;
 	float: left;
-/*	height: 15em;*/
 	min-height: 7em;
 	padding: 0.25em;
 	width: 22em;
@@ -678,7 +677,6 @@ div[role="contentinfo"] .depts li a{
 
 #homepage-search .formats-grid td {
 	background-color: #EFECE0;
-/*	border: solid 1px #ddd;*/
 	border: solid 0.5em #fff;
 	font-size: 0.8em;
 	padding: 1.5em 3% 1em 3%;
@@ -689,6 +687,11 @@ div[role="contentinfo"] .depts li a{
 
 #homepage-search .formats-grid td p {
 	margin: 0.5em 0 0.25em 0;
+}
+
+.home ul li {
+	display: inline-block;
+	vertical-align: top;
 }
 
 .home ul li a {
@@ -704,40 +707,26 @@ div[role="contentinfo"] .depts li a{
 	background: url(/images/icon-guide-24.png) no-repeat 0.25em 0;
 }
 
-.currently-popular{
+.currently-popular {
+	border-right: solid 1px #bbb;
 	float:left;
 	width: 36em;
 }
 
-.currently-popular h2 {
-	margin-top: 0.5em;
-}
-
 .currently-popular ul li {
-	display: inline-block;
+/*	display: inline-block;*/
 	margin-right: 2.5%;
 	width: 47%;
 }
 
 .user-favourites{
-	background-color:#92AD54;
 	margin: 0 0 0 38em;
-	padding: 1em;
-}
-
-.user-favourites h2{
-	color:#fff;
-}
-
-.user-favourites ul{
-/*	margin:0;*/
-/*	padding:0 0 1em 1em;*/
 }
 
 /* Home page - browse by section */
 
 .site-sections {
-	padding: 2em;
+	padding: 1em 2em;
 	position: relative;
 }
 
@@ -749,11 +738,11 @@ div[role="contentinfo"] .depts li a{
 
 .site-sections ul li{
 	border-top:1px solid #bbb;
-	padding:0.75em 0;
+	padding: 0.5em 0;
 	margin:0 1% 2em 1%;
+/*	display:inline-block;*/
+/*	vertical-align: top;*/
 	width:31.333%;
-	display:inline-block;
-	vertical-align: top;
 }
 
 .site-sections li.hidden {
@@ -762,15 +751,16 @@ div[role="contentinfo"] .depts li a{
 
 .site-sections ul li li{
 	border-top:none;
-	margin: 0.75em 0;
+	margin: 0.5em 0;
 	padding:0;
 	width:100%;
-	display:block;
+/*	display:block;*/
 }
 
-.site-sections li h2{
+.site-sections li h3 {
 	font-size: 1.15em;
 	line-height: 1.11em;
+	margin-bottom: 0;
 }
 
 .site-sections .edit-control {
