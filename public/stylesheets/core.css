@@ -933,17 +933,16 @@ ul.ui-widget {
 ul.ui-autocomplete {
 	background: none repeat scroll 0 0 #FFFFFF;
 	border: 1px solid #8F8F8F;
-	font-family: Arial,sans-serif;
 	width:100px;
 	list-style-type:none;
 	padding:0;
 	margin:0;
 }
-ul.ui-autocomplete li, {
+ul.ui-autocomplete li {
 	font-size: 0.75em;
-	margin: 0 0 0 26%;
+/*	margin: 0 0 0 26%;
 	padding: 0.5em 0.75em 0 0;
-	width: 64%;
+	width: 64%;*/
 }
 ul.ui-autocomplete li {
 	border-top: 1px solid #DBDAD9;
