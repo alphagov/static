@@ -738,8 +738,9 @@ div[role="contentinfo"] .depts li a{
 
 .site-sections ul li{
 	border-top:1px solid #bbb;
-	padding: 0.5em 0;
 	margin:0 1% 2em 1%;
+	padding: 0.5em 0;
+	position: relative;
 /*	display:inline-block;*/
 /*	vertical-align: top;*/
 	width:31.333%;
@@ -765,17 +766,19 @@ div[role="contentinfo"] .depts li a{
 
 .site-sections .edit-control {
 	position: absolute;
-	right: 0.25em;
-	top: 0.25em;
+	right: 0;
+	top: 0.5em;
 }
 .site-sections .edit-control a {
-	font-size:0.85em;
-	position:relative;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+	font-size: 0.75em;
+/*	position:relative;*/
 	background-color:#92AD54;
 	color:#fff;
 	display:block;
 	padding: 0.25em 0.5em;
-	border-radius:3px;
 	text-decoration:none;
 }
 
@@ -793,7 +796,7 @@ div[role="contentinfo"] .depts li a{
 }
 
 .site-sections .edit-control.reset-control {
-	right: 6em;
+	right: 13em;
 }
 
 .resetAll,
