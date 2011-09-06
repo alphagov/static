@@ -568,6 +568,10 @@ article .example {
 article .advisory {
   background: #ffa;
 	border: solid 2px #FFCD17;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+
   line-height: 1.3em;
  	margin: 1.25em 0;
   padding: 1em 2.5em;
@@ -575,8 +579,8 @@ article .advisory {
 }
 
 article .help-notice, article .info-notice {
-	border-radius: 3em;
-	border: 1px solid #bbb;
+	border-radius: 0.5em;
+	border: 2px solid #bbb;
 	margin: 1.25em 0;
 	padding: 0.75em 1em 0 2.75em;
 }
@@ -606,7 +610,6 @@ article .form-download a {
 
 article .address {
 	background: url('/images/stamp.png') 95% 1em no-repeat;
-	border: solid 1px #ddd;
 	border: solid 1px #bbb;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
