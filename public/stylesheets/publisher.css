@@ -680,7 +680,7 @@ article ol.steps li:nth-child(7) {
 */
 
 #wrapper.programme hgroup h1 {
-	background-image: url(/images/icon-programme-80.png);
+	background: url(/images/icon-programme-48.png) 1% 15%;
 }
 
 #wrapper.programme hgroup h1 {
@@ -688,7 +688,7 @@ article ol.steps li:nth-child(7) {
 	font-size: 1.8em;
 	min-height: 2.5em;
 	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 3.25em;
+	padding: 0.2em 0 0.2em 2.25em;
 }
 
 #wrapper.programme hgroup h1 {
