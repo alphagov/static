@@ -491,8 +491,8 @@ div[role="contentinfo"] .copyright{
 	width: 22%;
 }
 
-div[role="contentinfo"] .copyright p {
-/*	font-size: 0.8em;*/
+div[role="contentinfo"] .copyright a {
+	color: #999;
 }
 
 div[role="contentinfo"] .project {
@@ -514,7 +514,7 @@ div[role="contentinfo"]{
 	overflow:auto;
 }
 div[role="contentinfo"] a{
-	color:#999;
+
 }
 div[role="contentinfo"] ul{
 	margin:0;
@@ -527,9 +527,10 @@ div[role="contentinfo"] .depts ul {
 	list-style: none;
 }
 div[role="contentinfo"] .depts li {
-	display:inline;
+	display:inline-block;
 }
 div[role="contentinfo"] .depts li a{
+	display: block;
 	padding:0.5em;
 	z-index:99;
 	background-color:#fff;
@@ -743,7 +744,7 @@ div[role="contentinfo"] .depts li a{
 	position: relative;
 /*	display:inline-block;*/
 /*	vertical-align: top;*/
-	width:31.333%;
+	width:31%;
 }
 
 .site-sections li.hidden {
