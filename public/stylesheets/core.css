@@ -263,7 +263,7 @@ header[role="banner"] .header-context.citizen .search-help {
 .popover-mask {
   display: none;
   position: fixed;
-  top: 0;
+  top: 30px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -287,12 +287,6 @@ header[role="banner"] .header-context.citizen .search-help {
   min-width: 25em;
 }
 
-.popover .header img.logo {
-  display: block;
-  position: relative;
-  top: -0.25em;
-}
-
 .popover .close {
   position: absolute;
   top: -19px;
@@ -309,7 +303,16 @@ header[role="banner"] .header-context.citizen .search-help {
 	max-width: 40em;
   width: 60%;
 }
-
+#global-locator-form .postcode{
+	border:none;
+}
+#global-locator-form label,
+#global-locator-form .ask_location{
+	display:inline;
+}
+.article-text{
+	font-size:0.75em;
+}
 /*
 	this related stuff needs re-examining - might be a bit over the top
 */
@@ -971,3 +974,27 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	border-radius: 0 0 0 0;
 }
 
+
+/* Location in header bar */
+#location-set-message.removing,
+#location-unset-message.removing{
+	display:none;
+}
+
+#location-set-message,
+#location-unset-message{
+	background: url('/images/location-pin_outline_small.png') no-repeat 0 -3px;
+	position:fixed;
+	top:10px;
+	left:200px;
+	display:block;
+	z-index:100000;
+	padding:5px 0 9px 20px;
+	margin:0;
+	color:#bbb;
+	font-size:0.75em;
+}
+#location-set-message a,
+#location-unset-message a{
+	color:#bbb;
+}

@@ -262,14 +262,6 @@ aside li a .part-title {
 	padding: 0.15em 1em;
 }
 
-	#wrapper.transaction.local .intro {
-		background-color: inherit;
-		border: none;
-		-webkit-border-radius: 0;
-		-moz-border-radius: 0;
-		border-radius: 0;
-	}
-
 #wrapper.transaction .intro p.get-started {
 	display: block;
 	font-size: 2.25em;
