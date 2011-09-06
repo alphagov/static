@@ -10,7 +10,7 @@
   <script src="/javascripts/jquery-1.6.2.min.js" type="text/javascript"></script>
   <script src="/javascripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
   <script src="/javascripts/search.js" type="text/javascript"></script>
-	<script src="/javascripts/geo.js" type="text/javascript"></script>
+	
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="author" href="/humans.txt" />
@@ -21,6 +21,7 @@
     <div class="inner">
       <div class="header-global">
         <h1><a href="/" title="return to the beta.gov.uk homepage">beta.gov.uk</a></h1>
+				
 				<nav role="navigation">
 					<ul>
 						<li><a href="#">Government Departments</a></li>
@@ -114,5 +115,46 @@
 			</div>
     </div>
   </footer><!--end footer-->
+
+	<div id="global-app-error" class="app-error hidden">
+	    </div>
+	    <div id="global-locator" class="popover-mask">
+	      <div id="global-locator-box" class="popover">
+	        <div class="header">
+	        	<a class="close" href="#"><img src="http://assets0.alpha.gov.uk/images/welcome/close.png/140e18e4Y.png" alt="close"></a>
+	        </div>
+	        <div id="global-set-location">
+
+	          <h2>Set your location</h2>
+	          <div id="global-locator-error" class="app-error hidden"></div>
+	            <form id="global-locator-form" class="app-form" action="/locator.json">
+	              <fieldset class="postcode">
+	<label class="legend" for="postcode_box">Enter a UK postcode</label>
+	                <div class="ask_location">
+	                  <div>                  
+	                    <input name="postcode" type="text" value="" placeholder="e.g. SW1A 2AA"><input type="submit" name="find_me" value="Go">
+	</div>
+
+	                </div>
+	                <div class="finding_location hidden">
+	                  <p>Locating you…
+	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
+	                </div>
+	                <p id="forget-location">
+	                  <a class="form-button" href="#">Forget my location</a>
+	                </p>
+	              </fieldset>
+
+	</form>
+	          <div class="article-text">
+	            <h4>Why?</h4>
+	            <p>When you set your location we can give you details of services local to you, such as Passport offices, driving test centres or police stations, so you can complete any tasks and be away from your computer as quickly as possible.</p>
+	            <p>Your approximate location is stored in a cookie on your machine, but we do not save your postcode or precise location on our servers.</p>
+	          </div>
+	        </div>
+	      </div>
+
+	    </div>
+	
 </body>
 </html>
