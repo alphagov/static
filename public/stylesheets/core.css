@@ -886,22 +886,28 @@ div[role="contentinfo"] .depts li a{
 .help .guide-header{
 	background: url('/images/icon-publisher-guide.png') no-repeat 0 0;
 }
-.help strong{
+.help strong,
+.project li{
 	background: none repeat scroll 0 0 #FF5C00;
   border: 1px solid #A93D00;
   border-radius: 0.25em 0.25em 0.25em 0.25em;
 	color:#fff;
+	width:60%;
 	display:block;
 	padding:1em;
 }
 .help strong a,
-.help strong a:visited{
+.help strong a:visited,
+.project li a{
 	color:#fff;
 	font-weight:normal;
 }
 .help strong a:hover,
 .help strong a:active,
-.help strong a:focus{
+.help strong a:focus,
+.project li a:hover,
+.project li a:active,
+.project li a:focus{
 	color:#333;
 }
 .help .quick-header{
