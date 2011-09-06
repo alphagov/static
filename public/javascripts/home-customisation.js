@@ -11,6 +11,7 @@ $(function(){
 
 		if(localStorage.getItem("deleted-sections") != undefined){
 			var stored = localStorage.getItem("deleted-sections");
+			returnHidden();
 		}
 		else{
 			var stored = "";
@@ -30,7 +31,14 @@ $(function(){
 			getLocallyStored();
  		}
 		
-		
+		function returnHidden(){
+			$(".site-sections header").append("<div class='edit-control reset-control'><a href='#' class='resetAll'>Show hidden sections</a></div>");
+			$("a.resetAll").click(function(){
+				resetSections();
+				$(".reset-control").remove();
+				return false;
+			});
+		}
 		//retrieve and hide hidden sections
     function getLocallyStored(){
         if(stored != ""){
@@ -69,16 +77,12 @@ $(function(){
 			
 		}
 		
-		$(".site-sections header").append("<div class='edit-control reset-control'><a href='#' class='resetAll'>Show hidden sections</a></div>");
-		$("a.resetAll").click(function(){
-			resetSections();
-			return false;
-		});
+		
 
 		function customisationMode(){
 			$(".completed-customise a").click(function(){
 				addClosers()
-			
+				returnHidden();
 				$(this).text("Hide customisation options");
 				$(this).parent().removeClass("completed-customise");
 				$(this).parent().addClass("currently-customising");
