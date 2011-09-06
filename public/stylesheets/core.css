@@ -978,13 +978,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #location-set-message,
 #location-unset-message{
-	background: url('/images/location-pin_outline_small.png') no-repeat 0 -3px;
+	background: url('/images/location-pin_outline_tiny.png') no-repeat 0 0;
 	position:fixed;
 	top:10px;
 	left:200px;
 	display:block;
 	z-index:100000;
-	padding:5px 0 9px 20px;
+	padding:5px 0 9px 15px;
 	margin:0;
 	color:#bbb;
 	font-size:0.75em;
