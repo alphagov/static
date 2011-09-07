@@ -14,8 +14,8 @@ $(document).ready(function() {
   //});
 
   $.ajax({
-    url: "/publications",
-    dataType: "json",
+    url: "http://"+api_host+"/publications",
+    dataType: "jsonp",
     cache: true,
     success: function(data) {
       var results = $.map(data, function(e) {
