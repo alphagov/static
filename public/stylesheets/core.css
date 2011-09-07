@@ -700,11 +700,13 @@ div[role="contentinfo"] .depts li a{
 	padding: 0.25em 0 0.25em 2em;
 }
 
-.home ul li.answer a {
+.home ul li.answer a,
+.section ul li.answer a {
 	background: url(/images/icon-answer-24.png) no-repeat 0 0;
 }
 
-.home ul li.guide a {
+.home ul li.guide a,
+.section ul li.guide a {
 	background: url(/images/icon-guide-24.png) no-repeat 0.25em 0;
 }
 
@@ -1007,4 +1009,46 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     border: 1px dotted #CCCCCC;
     margin: 1em 0;
     padding: 0 0.5em 0.5em;
+}
+
+
+/* ============  Section page  =============== */
+
+.section {
+	background-color: #fff;
+}
+
+.section h1 {
+	margin-bottom: 1em;
+}
+
+.section h2 {
+	margin-bottom: 1em;
+}
+
+.section ul {
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.section ul li {
+	margin: 0.75em 0;
+	padding:0.5em 0;
+	width:46%;
+	float:left;
+}
+.section ul li h3{
+	border-bottom:1px solid #666;
+	padding-right:0.5em;
+}
+.section ul li li{
+	width:98%;
+	display:block;
+}
+.section ul li li a{
+	display:block;
+	padding-left:25px;
+	padding-bottom:5px;
+	padding-top:2px;
 }
