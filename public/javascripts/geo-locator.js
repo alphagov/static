@@ -447,11 +447,7 @@ var AlphaGeo = {
 $(document).ready(function() {
 
     AlphaGeo.locate("#global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
-
-    var remove_existing_location_data = function() {
-      $("#options").html('<li>Dependent on your location!</li>');
-    }
-
+  
     var show_known_location = function(current_location) {
       //show correct message
       $(".found_location").addClass('set').removeClass('removing').show();
@@ -468,21 +464,12 @@ $(document).ready(function() {
       //show correct message
       $('#location-set-message').hide();
       $('#location-unset-message').show();
-
-      //delete cookie
     }
 
     var open_location_dialog = function() {
       $('#global-locator').show();
       $('#global-locator-form').trigger('reset-locator-form');
     };
-
-    var load_new_locations = function() {
-      var the_href = window.location.origin + window.location.pathname + ".json"
-      $.getJSON(the_href, function (data) {
-        $('#options').html($.mustache($('#option-template').html(), {options: data}));
-      });
-    }
 
     $('#global-locator .close').click(function() {
       $('#global-locator').hide();
@@ -507,12 +494,10 @@ $(document).ready(function() {
 
     $(document).bind('location-removed', function(e, message) {
       show_unknown_location();
-      remove_existing_location_data();
       AlphaGeo.deleteGeoCookie();
     });
 
     $(document).bind('location-known', function(e, data) {
-      load_new_locations();
       show_known_location(data.current_location);
     });
 
@@ -520,7 +505,6 @@ $(document).ready(function() {
       $('#global-locator').hide();
       $("#global-user-location").addClass('set');
       show_known_location(data.current_location);
-      remove_existing_location_data();
     });
 		
     $("#global-locator-form").attr('action', '/locator.json');
