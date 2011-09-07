@@ -2,17 +2,22 @@
 	background: #efece0;
 	border-bottom: none;
 	display: block;
-	margin-right: 12em;
-	padding: 1em;
+	margin-right: 14em;
+	padding: 1em 1em 0;
 }
 
-	#wrapper.transaction hgroup {
-		padding-bottom: 0;
+	#wrapper.transaction hgroup,
+	#wrapper.local_transaction hgroup {
+		margin-top: -1em;
+		margin-right: 12.5em;
 	}
 
-#wrapper.answer hgroup h1,
-#wrapper.guide hgroup h1,
-#wrapper.transaction hgroup h1 {
+	#wrapper.programme hgroup {
+		margin-right: 14em;
+		margin-left: 1.5em;
+	}
+
+#wrapper hgroup h1 {
 	background-repeat: no-repeat;
 	color: inherit;
 	font-size: 1.8em;
@@ -30,16 +35,15 @@
 	text-transform: uppercase;
 }
 
-
+/* Answers */
 #wrapper.answer hgroup h1 {
-	background-image: url('/images/icon-answer-80.png');
-	margin-left: 0.65em;
-	padding-left: 3.35em;
+	background-image: url('/images/icon-answer.png');
 }
 	#wrapper.answer hgroup h1 span {
 		color: #1C7000;
 	}
 
+/* Guides */
 #wrapper.guide hgroup h1 {
 	background-image: url('/images/icon-guide-80.png');
 }
@@ -47,16 +51,19 @@
 		color: #68009F;
 	}
 
+/* Transactions */
 #wrapper.transaction hgroup h1 {
 	background-image: url('/images/icon-publisher-transaction-48.png');
 }
 	#wrapper.transaction hgroup h1 span {
+		color: #c00;
 	}
 
-#wrapper.transaction.local hgroup h1 {
+/* Local Transactions */
+#wrapper.local_transaction hgroup h1 {
 	background-image: url('/images/icon-publisher-transaction-48.png');
 }
-	#wrapper.transaction.local hgroup h1 span {
+	#wrapper.local_transaction hgroup h1 span {
 		color: #c00;
 	}
 
@@ -106,14 +113,8 @@ article .inner {
 		padding-bottom: 0;
 	}
 
-	.transaction article {
-		/*float: left;*/
-		top: -1em;
-		width: 80%;
-
-	}
-
-	.transaction.local article {
+	.transaction article,
+	#wrapper.local_transaction article {
 		top: -1em;
 		width: 80%;
 	}
@@ -186,21 +187,26 @@ aside li a:focus {
 	}
 
 aside li a .part-label {
-	font-size: 0.65em;
+	color: #3f3f3f;
+	display: block;
+	font-size: 0.6em;
+/*
 	padding: 0.1em 0.35em;
 	position: relative;
+*/
 	text-transform: uppercase;
-	top: -0.2em;
+/*	top: -0.2em;*/
 }
 
 aside li a:hover .part-label {
-	color: #1576FB;
-	background: #fff;
+/*	background: #fff;
+	color: #1576FB; */
+	color: #fff;
 }
 
 aside li.active a:hover .part-label {
-	background: rgba(0,0,0,0.4);
-	color: #fff;
+/*	background: rgba(0,0,0,0.4);*/
+	color: #1576FB;
 }
 
 aside li a .part-title {
@@ -273,10 +279,11 @@ aside li a .part-title {
 }
 
 /*
- * Transactions styles
+ * Transactions and local transactions styles
  */
 
-#wrapper.transaction .intro {
+#wrapper.transaction .intro,
+#wrapper.local_transaction .intro {
 	background-color: #F9F9F9;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.5em;
@@ -287,7 +294,8 @@ aside li a .part-title {
 	padding: 0.15em 1em;
 }
 
-#wrapper.transaction .intro p.get-started {
+#wrapper.transaction .intro p.get-started,
+#wrapper.local_transaction .intro p.get-started {
 	display: block;
 	font-size: 2.25em;
 	font-weight: bold;
@@ -295,7 +303,8 @@ aside li a .part-title {
 	width: auto;
 }
 
-#wrapper.transaction .continue {
+#wrapper.transaction .continue,
+#wrapper.local_transaction .continue {
 	background: #F9F9F9 url('/images/info-icon.png') no-repeat 1% 50%;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.5em;
@@ -308,7 +317,8 @@ aside li a .part-title {
 	text-indent: 25px;
 }
 
-#wrapper.transaction fieldset {
+#wrapper.transaction fieldset,
+#wrapper.local_transaction fieldset {
 	background-color: #F9F9F9;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.25em;
@@ -319,13 +329,17 @@ aside li a .part-title {
 	text-align: center;
 }
 
-#wrapper.transaction fieldset input {
+#wrapper.transaction fieldset input,
+#wrapper.local_transaction fieldset input {
 	margin: 0 0.5em;
 }
 
 #wrapper.transaction fieldset input[type=submit],
 #wrapper.transaction fieldset input[type=submit]:visited,
-#wrapper.transaction .button {
+#wrapper.transaction .button,
+#wrapper.local_transaction fieldset input[type=submit],
+#wrapper.local_transaction fieldset input[type=submit]:visited,
+#wrapper.local_transaction .button {
 	background: #039 url(/images/button-overlay.png) repeat-x;
 	border: 1px solid rgba(0,0,0,0.25);
 	-moz-border-radius: 4px;
@@ -342,22 +356,28 @@ aside li a .part-title {
 }
 
 #wrapper.transaction fieldset input[type=submit]:hover,
-#wrapper.transaction .button:hover {
+#wrapper.transaction .button:hover,
+#wrapper.local_transaction fieldset input[type=submit]:hover,
+#wrapper.local_transaction .button:hover {
 	background-color: rgb(0,25,80);
 	color: #fff;
 }
 
 #wrapper.transaction fieldset input[type=submit]:active,
-#wrapper.transaction .button:active {
+#wrapper.transaction .button:active,
+#wrapper.local_transaction fieldset input[type=submit]:active,
+#wrapper.local_transaction .button:active {
 	top: 1px;
 }
 
-#wrapper.transaction .more {
+#wrapper.transaction .more,
+#wrapper.local_transaction .more {
 	font-size: 0.8em;
 	padding: 0.5em 0;
 }
 
-#wrapper.transaction .more h2 {
+#wrapper.transaction .more h2,
+#wrapper.local_transaction .more h2 {
 	border-bottom: none;
 }
 
@@ -573,7 +593,10 @@ article .summary {
 
 article .example {
   background: #F2F2F2;
-	border: solid 1px #bbb;
+	border: solid 2px #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
  	margin: 1em 0;
   padding: 0 1em;
 }
@@ -708,28 +731,25 @@ article ol.steps li:nth-child(7) {
 */
 
 #wrapper.programme hgroup h1 {
-	background: url(/images/icon-programme-48.png) 1% 15% no-repeat;
-	font-size: 1.8em;
-	min-height: 2.5em;
-	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.25em;
+	background-image: url(/images/icon-programme-48.png);
 }
-
-#wrapper.programme hgroup h1 span {
-	color: #295A80;
-}
+	#wrapper.programme hgroup h1 span {
+		color: #295A80;
+	}
 
 #wrapper.programme .article-and-navigation {
 	padding-top: 0.5em;
 	position: relative;
 }
 
-#wrapper.programme .programme-switcher ul, #wrapper.programme .programme-progression ol {
+#wrapper.programme .programme-switcher ul,
+#wrapper.programme .programme-progression ol {
 	list-style: none;
 	margin: 0;
 }
 
-#wrapper.programme .programme-switcher ul li, #wrapper.programme .programme-progression ol li {
+#wrapper.programme .programme-switcher ul li,
+#wrapper.programme .programme-progression ol li {
 	float: left;
 }
 
@@ -751,7 +771,9 @@ article ol.steps li:nth-child(7) {
 }
 
 #wrapper.programme .programme-switcher ul li a:hover,
-#wrapper.programme .programme-switcher ul li a:focus, #wrapper.programme .programme-progression ol li a:hover, #wrapper.programme .programme-progression ol li a:focus {
+#wrapper.programme .programme-switcher ul li a:focus,
+#wrapper.programme .programme-progression ol li a:hover,
+#wrapper.programme .programme-progression ol li a:focus {
 	background-color: #1576FB;
 	color: #fff;
 }
@@ -792,15 +814,14 @@ article ol.steps li:nth-child(7) {
 	background-color: #ffffaa;
 }
 
-#wrapper.programme .programme-progression li.active a:hover, #wrapper.programme .programme-progression li.active a:focus {
+#wrapper.programme .programme-progression li.active a:hover,
+#wrapper.programme .programme-progression li.active a:focus {
 	background-color: #ffffaa;
 	color: #1576FB;
 }
 
 #wrapper.programme .progressor {
-	background-image: url(/images/programme-progressor-arrows.png);
-	background-position: -1px 0;
-	background-repeat: no-repeat;
+	background: url(/images/programme-progressor-arrows.png) no-repeat -1px 0;
 	height: 36px;
 	position: absolute;
 	right: -20px;
@@ -809,7 +830,8 @@ article ol.steps li:nth-child(7) {
 	z-index: 1;
 }
 
-#wrapper.programme li.active a .progressor, #wrapper.programme li.active a:hover .progressor {
+#wrapper.programme li.active a .progressor,
+#wrapper.programme li.active a:hover .progressor {
 	background-position: -283px 0;
 }
 
