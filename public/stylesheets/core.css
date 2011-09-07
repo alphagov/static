@@ -638,7 +638,7 @@ div[role="contentinfo"] .depts li a{
 	margin-bottom: 0.25em;
 }
 
-#homepage-search form { 
+#homepage-search form {
 	background-color:#fff;
 	margin: 1em 0 1em 24em;
 	padding: 2em;
@@ -657,7 +657,7 @@ div[role="contentinfo"] .depts li a{
 }
 
 #homepage-search form p {
-	font-size: 0.65em;	
+	font-size: 0.65em;
 }
 
 #homepage-search form #search_hint {
@@ -702,13 +702,19 @@ div[role="contentinfo"] .depts li a{
 
 .home ul li.answer a,
 .section ul li.answer a {
-	background: url(/images/icon-answer-24.png) no-repeat 0 0;
+	background: url(/images/icon-publisher-answer.png) no-repeat 0 0;
 }
 
 .home ul li.guide a,
 .section ul li.guide a {
-	background: url(/images/icon-guide-24.png) no-repeat 0.25em 0;
+	background: url(/images/icon-publisher-guide.png) no-repeat 0.25em 0;
 }
+
+.home ul li.transaction a,
+.section ul li.transaction a {
+	background: url(/images/icon-publisher-transaction.png) no-repeat 0 0;
+}
+
 
 .currently-popular {
 	border-right: solid 1px #bbb;
@@ -738,7 +744,7 @@ div[role="contentinfo"] .depts li a{
 	padding:0;
 }
 
-.site-sections ul li{
+.site-sections ul li {
 	background-color: #EFECE0;
 	border-top:1px solid #bbb;
 	margin:0 0.5% 1em 0.5%;
@@ -752,7 +758,7 @@ div[role="contentinfo"] .depts li a{
 	display: none;
 }
 
-.site-sections ul li li{
+.site-sections ul li li {
 	border-top: none;
 	display: block;
 	margin: 0.5em 0;
@@ -1072,7 +1078,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .search h2 span{
 	font-size:0.85em;
-	
+
 }
 .search .results ol{
 	list-style:decimal;
