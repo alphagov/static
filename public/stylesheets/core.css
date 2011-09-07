@@ -402,7 +402,8 @@ header[role="banner"] .header-context.citizen .search-help {
 	background-position: 0.25em 0.25em;
 }
 
-.related li.tool {
+.related li.tool,
+.related li.transaction {
 	/* TODO - should be renamed to transaction at some point */
 	background-image: url('/images/icon-transaction-s.png');
 }
