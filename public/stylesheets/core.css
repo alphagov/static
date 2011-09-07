@@ -394,16 +394,29 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .related li.answer {
-	background-image: url('/images/icon-answer-24.png');
+	background-image: url('/images/icon-answer-s.png');
 }
 
 .related li.guide {
-	background-image: url('/images/icon-guide-24.png');
+	background-image: url('/images/icon-guide-s.png');
 	background-position: 0.25em 0.25em;
 }
 
 .related li.tool {
-	background-image: url('/images/icon-tool-24-temp.png');
+	/* TODO - should be renamed to transaction at some point */
+	background-image: url('/images/icon-transaction-s.png');
+}
+
+.related li.localtransaction {
+	background-image: url('/images/icon-transaction-s.png');
+}
+
+.related li.programme {
+	background-image: url('/images/icon-programme-s.png');
+}
+
+.related li.place {
+	background-image: url('/images/icon-nearest-s.png');
 }
 
 .related li.related-topic {
