@@ -702,17 +702,27 @@ div[role="contentinfo"] .depts li a{
 
 .home ul li.answer a,
 .section ul li.answer a {
-	background: url(/images/icon-publisher-answer.png) no-repeat 0 0;
+	background: url(/images/icon-answer-s.png) no-repeat 0 40%;
 }
 
 .home ul li.guide a,
 .section ul li.guide a {
-	background: url(/images/icon-publisher-guide.png) no-repeat 0.25em 0;
+	background: url(/images/icon-guide-s.png) no-repeat 0 40%;
 }
 
 .home ul li.transaction a,
 .section ul li.transaction a {
-	background: url(/images/icon-publisher-transaction.png) no-repeat 0 0;
+	background: url(/images/icon-transaction-s.png) no-repeat 0 40%;
+}
+
+.home ul li.local_transaction a,
+.section ul li.local_transaction a {
+	background: url(/images/icon-localtransaction-s.png) no-repeat 0 40%;
+}
+
+.home ul li.programme a,
+.section ul li.programme a {
+	background: url(/images/icon-programme-s.png) no-repeat 0 40%;
 }
 
 

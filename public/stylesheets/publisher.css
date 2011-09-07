@@ -23,7 +23,7 @@
 	font-size: 1.8em;
 	min-height: 2.5em;
 	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.75em;
+	padding: 0.2em 0 0.2em 2.2em;
 }
 
 #wrapper hgroup span {
@@ -37,7 +37,7 @@
 
 /* Answers */
 #wrapper.answer hgroup h1 {
-	background-image: url('/images/icon-answer.png');
+	background-image: url('/images/icon-answer-l.png');
 }
 	#wrapper.answer hgroup h1 span {
 		color: #1C7000;
@@ -45,15 +45,16 @@
 
 /* Guides */
 #wrapper.guide hgroup h1 {
-	background-image: url('/images/icon-guide-80.png');
+	background-image: url('/images/icon-guide-l.png');
 }
 	#wrapper.guide hgroup h1 span {
 		color: #68009F;
+		color: #157eb8;
 	}
 
 /* Transactions */
 #wrapper.transaction hgroup h1 {
-	background-image: url('/images/icon-publisher-transaction-48.png');
+	background-image: url('/images/icon-transaction-l.png');
 }
 	#wrapper.transaction hgroup h1 span {
 		color: #c00;
@@ -61,11 +62,21 @@
 
 /* Local Transactions */
 #wrapper.local_transaction hgroup h1 {
-	background-image: url('/images/icon-publisher-transaction-48.png');
+	background-image: url('/images/icon-localtransaction-l.png');
 }
 	#wrapper.local_transaction hgroup h1 span {
-		color: #c00;
+		color: #A93D00;
 	}
+
+/* Programmes */
+#wrapper.programme hgroup h1 {
+	background-image: url('/images/icon-programme-l.png');
+}
+	#wrapper.programme hgroup h1 span {
+		color: #000;
+	}
+
+
 
 section {
 	margin: 6em auto 2em;
@@ -437,16 +448,9 @@ ul.helpers {
 
 
 
-
-/*footer.group {
-	font-size: 75%;
-	margin: 0 auto;
-	max-width: 960px;
-	width: 95%;
-}*/
-
 /*
-  text styles for articles, used in e.g. guides and answers apps. It's kind of like typography innit.
+ * Text styles for articles, used in example apps.
+ * It's kind of like typography innit.
 */
 
 article header h1 {
@@ -614,14 +618,16 @@ article .advisory {
   text-align: center;
 }
 
-article .help-notice, article .info-notice {
+article .help-notice,
+article .info-notice {
 	border-radius: 0.5em;
 	border: 2px solid #bbb;
 	margin: 1.25em 0;
 	padding: 0.75em 1em 0 2.75em;
 }
 
-article .help-notice p, article .info-notice p {
+article .help-notice p,
+article .info-notice p {
   margin-top: 0;
 }
 
@@ -729,13 +735,6 @@ article ol.steps li:nth-child(7) {
 /*
 	Programme format
 */
-
-#wrapper.programme hgroup h1 {
-	background-image: url(/images/icon-programme-48.png);
-}
-	#wrapper.programme hgroup h1 span {
-		color: #295A80;
-	}
 
 #wrapper.programme .article-and-navigation {
 	padding-top: 0.5em;
