@@ -1046,7 +1046,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	width:98%;
 	display:block;
 }
-.section ul li li a{
+.section ul li li a,
+.popular-in-section a{
 	display:block;
 	padding-left:25px;
 	padding-bottom:5px;
