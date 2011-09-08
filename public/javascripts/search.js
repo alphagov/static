@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   $.ajax({
     url: "/autocomplete",
-    dataType: "jsonp",
+    dataType: "json",
     cache: true,
     success: function(data) {
       var results = $.map(data, function(e) {
