@@ -468,8 +468,13 @@ ul.helpers {
 	ul.helpers li.need_id {
 	  background-image: url(/images/helper-proofofid-icon.png);
 	}
-	ul.helpers li.less_than_10 {
+	ul.helpers li.less_than_10,
+	ul.helpers li.less_than_20,
+	ul.helpers li.less_than_30 {
 	  background-image: url(/images/helper-time-icon.png);
+	}
+	ul.helpers li.offline_steps {
+	  background-image: url(/images/helper-offline-icon.png);
 	}
 
 
@@ -649,8 +654,10 @@ article .advisory {
 
 article .help-notice,
 article .info-notice {
-	border-radius: 0.5em;
 	border: 2px solid #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
 	margin: 1.25em 0;
 	padding: 0.75em 1em 0 2.75em;
 }
@@ -669,7 +676,10 @@ article .info-notice {
 }
 
 article .form-download {
-	border: solid 1px #bbb;
+	border: solid 2px #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
 	margin: 1em 0;
 	padding: 0.5em 1em 0.25em 1em;
 }
@@ -677,6 +687,16 @@ article .form-download {
 article .form-download a {
 	background: url('/images/icon-file-download.png') 0 0 no-repeat;
 	padding: 0.5em 0 0.5em 2em;
+}
+
+article .contact {
+  background: url('/images/icon-contact.png') 2% 50% no-repeat;
+	border: solid 2px #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	margin: 1em 0;
+	padding: 0.5em 1em 0.25em 2.75em;
 }
 
 article .address {
@@ -688,6 +708,10 @@ article .address {
 	margin: 1em 0;
 	padding: 2em 15% 2em 15%;
 	width: 30%;
+}
+
+ol#options {
+	padding-left: 0;
 }
 
 article .place {
@@ -723,10 +747,28 @@ article .place .address {
 	width: auto;
 }
 
+	article .place .address p {
+		font-size: 1em;
+		margin-bottom: 1em;
+	}
+
+	article .place .address span {
+		display: block;
+	}
+
+	article .place .url {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
 article .place .additional-information {
 	border-top: dashed 1px #bbb;
+	font-size: 0.8em;
 	margin-top: 1em;
 }
+	article .place .additional-information a {
+		display: block;
+	}
 
 article ol.steps {
 	padding-left: 0;
