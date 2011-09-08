@@ -940,6 +940,7 @@ div[role="contentinfo"] .depts li a{
 .help h1,
 .help h2{
 	margin-top:0.5em;
+	border:none;
 }
 .help h2{
 	font-size:0.95em;
