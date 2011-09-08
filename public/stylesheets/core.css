@@ -418,21 +418,12 @@ header[role="banner"] .header-context.citizen .search-help {
 
 .related li a[href*="#"] {
 	/* grey out stub links */
-	/* TODO: create grey icons ?? */
 	color: #888;
 	cursor: default;
 	text-decoration: none;
 }
 
 .related li.related-topic {
-/*
-	background: #92AD54;
-	margin-right: 16px;
-	margin-bottom: 0;
-	padding: 0.5em 1em 0.5em 1em;
-	padding-left: 1em;
-	position: relative;
-*/
 	border: dotted #bbb;
 	border-width: 1px 0 0 0;
 	list-style: none;
@@ -441,31 +432,15 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .related li.related-topic span {
-/*	font-style: italic;*/
 	display: block;
 	font-weight: bold;
 }
 
 .related li.related-topic a {
-/*	color: #fff;*/
 	color: inherit;
 }
 
 .related li.related-topic span.arrow {
-/*
-  position: absolute;
-  right: -16px;
-  top: 50%;
-  margin-top: -16px;
-  width:0px;
-  height:0px;
-  border-bottom: 16px solid transparent;
-  border-top: 16px solid transparent;
-  border-left: 16px solid #92AD54;
-  font-size:0px;
-  line-height:0px;
-  z-index: 1;
-*/
 	display: none;
 }
 
@@ -777,7 +752,7 @@ div[role="contentinfo"] .depts li a{
 }
 .user-favourites p{
 	color:#666;
-	
+
 }
 .user-favourites p span{
 	display:block;
