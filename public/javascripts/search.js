@@ -19,7 +19,7 @@ $(document).ready(function() {
     cache: true,
     success: function(data) {
       var results = $.map(data, function(e) {
-        return { 'label': e.title, 'url': e.url }
+        return { 'label': e.title, 'url': "/"+e.slug }
       });
       $('#s').autocomplete({
         delay: 0,
