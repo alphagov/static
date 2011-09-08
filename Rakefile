@@ -21,7 +21,7 @@ namespace :cdn do
     asset_hosts = case ENV['RACK_ENV']
     when 'dev' then %W(http://assets0.dev.alphagov.co.uk http://assets1.dev.alphagov.co.uk)
     # when 'staging' then %W(http://assets0.staging.alphagov.co.uk http://assets1.staging.alphagov.co.uk)
-    when 'staging' then %W(http://staging.alphagov.co.uk:8080)
+    when 'staging' then %W(http://demo.alphagov.co.uk)
     when 'production' then %W(http://assets0.alpha.gov.uk http://assets1.alpha.gov.uk)
     when 'admin' then %W(https://admin.alphagov.co.uk)
     end
