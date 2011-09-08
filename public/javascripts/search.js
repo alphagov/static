@@ -14,7 +14,7 @@ $(document).ready(function() {
   //});
 
   $.ajax({
-    url: "http://"+api_host+"/publications",
+    url: "/autocomplete",
     dataType: "jsonp",
     cache: true,
     success: function(data) {
