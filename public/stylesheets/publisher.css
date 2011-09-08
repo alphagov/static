@@ -35,6 +35,7 @@
 	line-height: 1em;
 	margin-bottom: 0.5em;
 	text-transform: uppercase;
+	text-shadow: none;
 }
 
 /* Answers */
@@ -80,7 +81,7 @@
 
 /* Places */
 #wrapper.place hgroup h1 {
-	background-image: url('/images/icon-place-l.png');
+	background-image: url('/images/icon-nearest-l.png');
 }
 	#wrapper.place hgroup h1 span {
 		color: #666;
@@ -134,14 +135,16 @@ article .inner {
 		padding-bottom: 0;
 	}
 
+	#wrapper.place article,
 	#wrapper.transaction article,
-	#wrapper.local_transaction article {
+	#wrapper.local_transaction article,
+	#wrapper.answer article {
 		top: -1em;
 		width: 80%;
 	}
 
 	#wrapper.answer article {
-		width: 80%;
+		top: 0;
 	}
 
 
