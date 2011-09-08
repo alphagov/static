@@ -879,16 +879,30 @@ div[role="contentinfo"] .depts li a{
 }
 
 /* Help page */
-
+#help article .inner{
+	padding:0;
+}
 #help{
 	clear:both;
-	min-height:200px;
 	background-color:#EFECE0;
 	border-radius:5px;
 	overflow:hidden;
 	padding:1em;
+	width:100%;
 }
-
+#main-help{
+	width:65%;
+	float:left;
+	padding:0;
+	margin:0;
+}
+#extra-help{
+	float:right;
+	width:30%;
+}
+#extra-help article{
+	padding:1em;
+}
 .help-menu ul{
 	list-style-type:none;
 	margin:1em 0 0 0;
@@ -901,10 +915,10 @@ div[role="contentinfo"] .depts li a{
 .help #find,
 .help #tools,
 .help #feedback{
-	width:65%;
+	width:100%;
+	
 	margin-right:1em;
 	margin-bottom:1em;
-	float:left;
 	background-color:#fff;
 	border:1px solid #fff;
 	padding:0.5em 1em 1em 1em;
@@ -940,9 +954,7 @@ div[role="contentinfo"] .depts li a{
 	margin-top:2em;
 
 }
-.help .guide-header{
-	background: url('/images/icon-publisher-guide.png') no-repeat 0 0;
-}
+
 .help strong,
 .project li{
 	background: none repeat scroll 0 0 #FF5C00;
@@ -967,20 +979,23 @@ div[role="contentinfo"] .depts li a{
 .project li a:focus{
 	color:#333;
 }
+.help .guide-header{
+	background: url('/images/icon-guide-s.png') no-repeat 0 0;
+}
 .help .quick-header{
-	background: url('/images/icon-answer-24.png') no-repeat 0 0;
+	background: url('/images/icon-answer-s.png') no-repeat 0 0;
 }
 .help .smart-header{
-	background: url('/images/icon-publisher-answer.png') no-repeat 0 0;
+	background: url('/images/icon-answer-s.png') no-repeat 0 0;
 }
 .help .services-header{
-	background: url('/images/icon-tool-24-temp.png') no-repeat 0 0;
+	background: url('/images/icon-transaction-s.png') no-repeat 0 0;
 }
 .help .local-header{
-	background: url('/images/icon-tool-24-temp.png') no-repeat 0 0;
+	background: url('/images/icon-localtransaction-s.png') no-repeat 0 0;
 }
 .help .benefits-header{
-	background: url('/images/icon-guide-24.png') no-repeat 0 0;
+	background: url('/images/icon-programme-s.png') no-repeat 0 0;
 }
 /* auto complete - borrowed from the alpha */
 
