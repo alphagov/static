@@ -1,5 +1,8 @@
+$(document).ready(function() {
 //events
-$(document).bind('location-known', function(e, data) {
+
+
+	function devolutionSetup(){
 	geo_data = AlphaGeo.readAndParseJSONCookie('geo');
 	var nation_name = geo_data.nation.toLowerCase();
 	//which countries should we hide?
@@ -24,7 +27,7 @@ $(document).bind('location-known', function(e, data) {
 		//create an expand/contract link
 		var expand_link = $('<a/>');
 		expand_link.attr('href', '#');
-		expand_link.text(' [Hide this]');
+		expand_link.text('Hide this');
 		//setup click event
 		expand_link.click(
 			function(){
@@ -40,7 +43,9 @@ $(document).bind('location-known', function(e, data) {
 	// $('.devolved-header a').text('[Hide this]');
 	for (var i=0; i < hide_nations.length; i++) {
 		$('.devolved-content.' + hide_nations[i]).find('.devolved-body').hide();
-		$('.devolved-content.' + hide_nations[i]).find('.devolved-header a').text(' [Show this]');
+		$('.devolved-content.' + hide_nations[i]).find('.devolved-header a').text('Show this');
+	};
+	
 	};
 	//toggle
 	function toggle_section(section){
@@ -54,11 +59,17 @@ $(document).bind('location-known', function(e, data) {
 	//show
 	function show_section(section){
 		section.find('.devolved-body').show();
-		section.find('.devolved-header a').text(' [Hide this]');
+		section.find('.devolved-header a').text('Hide this');
 	}
 	//hide
 	function hide_section(section){
 		section.find('.devolved-body').hide();
-		section.find('.devolved-header a').text(' [Show this]');
+		section.find('.devolved-header a').text('Show this');
 	}	
+	$(document).bind('location-changed', function(e, data) {
+		devolutionSetup();
 	});
+	if($('.found_location').css("display") == "block"){
+		devolutionSetup();
+	}
+});
