@@ -1125,7 +1125,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .section ul li h3{
 	border-bottom:1px solid #666;
-	padding-right:0.5em;
+	margin-right:0.5em;
 }
 .section ul li li{
 	width:98%;
