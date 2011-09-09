@@ -729,7 +729,10 @@ div[role="contentinfo"] .depts li a{
 .section ul li.programme a {
 	background: url(/images/icon-programme-s.png) no-repeat 0 40%;
 }
-
+.home ul li.placeholder a,
+.section ul li.placeholder a {
+	color:#c9c1a3;
+}
 
 .currently-popular {
 	border-right: solid 1px #bbb;
