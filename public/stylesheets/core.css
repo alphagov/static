@@ -80,7 +80,7 @@ a:active {
 
 a[rel="external"] {
 	background: url(/images/external-link.png) 100% 0 no-repeat;
-	padding-right: 1.25em;
+	padding-right: 1em;
 }
 
 /*
@@ -894,7 +894,7 @@ div[role="contentinfo"] .depts li a{
 .help #tools,
 .help #feedback{
 	width:100%;
-	
+
 	margin-right:1em;
 	margin-bottom:1em;
 	background-color:#fff;
