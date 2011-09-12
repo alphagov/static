@@ -659,9 +659,9 @@ div[role="contentinfo"] .depts li a{
 
 #homepage-search h1 {
 	display: inline;
-	font-size: 3.25em;
-	letter-spacing: -0.0475em;
-	text-shadow: 1px 1px 1px rgba(255,255,255,1);
+	font-size: 3.33em;
+	letter-spacing: -0.0333em;
+	text-shadow: -2px -2px 1px rgba(255,255,255,1), 2px 2px 1px rgba(0,0,0,0.2);
 	width: 40%;
 }
 
@@ -853,6 +853,10 @@ div[role="contentinfo"] .depts li a{
 .user-favourites {
 	margin: 0 0 0 38em;
 	border: 2px dashed #eee;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+
 	padding: 1em;
 	background-color: #fefefe;
 	text-align: center;
