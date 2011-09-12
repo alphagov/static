@@ -661,7 +661,7 @@ div[role="contentinfo"] .depts li a{
 	display: inline;
 	font-size: 3.33em;
 	letter-spacing: -0.0333em;
-	text-shadow: -2px -2px 1px rgba(255,255,255,1), 2px 2px 1px rgba(0,0,0,0.2);
+	text-shadow: -2px -1px 0 rgba(255,255,255,0.75), 2px 1px 0 rgba(66,66,66,0.35);
 	width: 40%;
 }
 
@@ -674,6 +674,11 @@ div[role="contentinfo"] .depts li a{
 
 #homepage-search form {
 	background-color: #fff;
+	border: solid 2px #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   display: -moz-box;
@@ -687,6 +692,10 @@ div[role="contentinfo"] .depts li a{
 #homepage-search fieldset {
 	background-color: #fafafa;
 	border: none;
+	-webkit-border-radius: 0.5em 0 0 0.5em;
+	-moz-border-radius: 0.5em 0 0 0.5em;
+	border-radius: 0.5em 0 0 0.5em;
+
 	-moz-box-flex: 0;
 	-webkit-box-flex: 0;
 	-ms-box-flex: 0;
@@ -748,13 +757,16 @@ div[role="contentinfo"] .depts li a{
 }
 
 #homepage-search .formats {
-	background-image: url() no-repeat 0 50%;
 	/* icon grid */
+	background-image: url() no-repeat 0 50%;
+	background-color: #ffa;
 	-moz-box-flex: 1;
 	-webkit-box-flex: 1;
 	-ms-box-flex: 1;
 	box-flex: 1;
-	background-color: #ffa;
+	-webkit-border-radius: 0 0.5em 0.5em 0;
+	-moz-border-radius: 0 0.5em 0.5em 0;
+	border-radius: 0 0.5em 0.5em 0;
 	min-height: 6.3em;
 	padding: 0.7em 0 0 1.75em;
 }
