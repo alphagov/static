@@ -1144,48 +1144,49 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 
-/* devolved content */
+/*
+ * Devolved content
+ */
+
 .devolved-content {
-    background: none repeat scroll 0 0 #fff;
-		/*background-color:#ccc;*/
-		margin: 1em 0;
-   /* border: 1px dotted #CCCCCC;
-    padding: 0 0.5em 0.5em;*/
+	background: none repeat scroll 0 0 #fff;
+	margin: 1em 0;
 }
-.devolved-header{
-	font-size:0.85em;
-	background-color:#fff;
-	border-bottom:1px solid #ccc;
+
+.devolved-header {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	font-size: 0.85em;
 }
-.devolved-header a{
+.devolved-header a {
 	-moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
 	font-size: 0.75em;
-/*	position:relative;*/
 	background-color:#92AD54;
 	color:#fff;
 	margin-left:0.5em;
 	padding: 0.25em 0.5em;
 	text-decoration:none;
-
 }
 
-.england .devolved-header{
+.england .devolved-header {
 	padding:0 0 0 18px;
 	background: url(/images/flags.png) no-repeat scroll 0 -17px #fff;
 }
-.scotland .devolved-header{
+.scotland .devolved-header {
 	padding:0 0 0 18px;
 	background: url(/images/flags.png) no-repeat scroll 0 -60px #fff;
 }
-.wales .devolved-header{
+
+.wales .devolved-header {
 	padding:0 0 0 18px;
 	background: url(/images/flags.png) no-repeat scroll 0 3px #fff;
 }
-.northern-ireland .devolved-header{
-	padding:0 0 0 18px;
-	background: url(/images/flags.png) no-repeat scroll 0 -38px #fff;
+.northern-ireland .devolved-header {
+	/* don't show a flag for NI */
+	padding: 0;
+	background: none;
 }
 /* ============  Section page  =============== */
 
