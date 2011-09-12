@@ -434,20 +434,22 @@ ul.helpers {
 }
 
 	ul.helpers li {
-	  color: #706e6e;
-		display: inline-block;
-	  margin-bottom: 2px;
 	  background-color: #e5e0de;
-	  background-position: 0% center;
+	  background-position: 0% 25%;
 	  background-repeat: no-repeat;
-		margin-right: 2px;
-	  padding: 0.95em 0.25em 0.95em 3.95em;
-		width: 23.3333%;
+		border-top: solid 1px #fafafa;
+		border-bottom: solid 1px #bbb;
+	  color: #706e6e;
+		float: left;
+	  margin-bottom: 6px;
+		margin-right: 6px;
+		min-height: 3em;
+	  padding: 0.45em 0.25em 0.45em 3.75em;
+		width: 24.8%;
 	}
-
-	ul.helpers li:first-child {
-		margin-left: 3px;
-	}
+		ul.helpers li:nth-child(3n+3) {
+			margin-right: 0;
+		}
 
 	ul.helpers li.active, ul.helpers li.active h3 a {
 	  color: #fff;
@@ -458,25 +460,42 @@ ul.helpers {
 	}
 	ul.helpers li.card_payment {
 	  background-image: url(/images/helper-creditcard-icon.png);
+		background-position: -2% 5%;
 	}
 	ul.helpers li.gateway {
 	  background-image: url(/images/helper-govgateway-icon.png);
+		background-position: -3% 10%;
 	}
 	ul.helpers li.need_passport {
 	  background-image: url(/images/helper-passport-icon.png);
+		background-position: -2% 15%;
+	}
+	ul.helpers li.need_address {
+	  background-image: url(/images/helper-address-icon.png);
+		background-position: 5% 45%;
 	}
 	ul.helpers li.need_id {
 	  background-image: url(/images/helper-proofofid-icon.png);
+		background-position: -2% 25%;
+	}
+	ul.helpers li.need_ni {
+	  background-image: url(/images/helper-ni-icon.png);
+		background-position: 4% 35%;
+	}
+	ul.helpers li.over_18 {
+	  background-image: url(/images/helper-over18-icon.png);
+		background-position: 5% 35%;
 	}
 	ul.helpers li.less_than_10,
 	ul.helpers li.less_than_20,
-	ul.helpers li.less_than_30 {
+	ul.helpers li.less_than_30,
+	ul.helpers li.less_than_40 {
 	  background-image: url(/images/helper-time-icon.png);
 	}
 	ul.helpers li.offline_steps {
 	  background-image: url(/images/helper-offline-icon.png);
+		background-position: -3% 35%;
 	}
-
 
 
 
