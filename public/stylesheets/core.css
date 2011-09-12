@@ -701,8 +701,9 @@ div[role="contentinfo"] .depts li a{
 	-ms-box-flex: 0;
 	box-flex: 0;
 	font-size: 1.25em;
+	position: relative;
 	text-align: center;
-	padding: 2em 1em 1em;
+	padding: 2em 0 1em 1em;
 }
 
 #homepage-search label {
@@ -758,8 +759,7 @@ div[role="contentinfo"] .depts li a{
 
 #homepage-search .formats {
 	/* icon grid */
-	background-image: url() no-repeat 0 50%;
-	background-color: #ffa;
+	background: #ffa url(/images/homepage-searchbox-arrow.png) no-repeat -1% 50%;
 	-moz-box-flex: 1;
 	-webkit-box-flex: 1;
 	-ms-box-flex: 1;
@@ -768,11 +768,11 @@ div[role="contentinfo"] .depts li a{
 	-moz-border-radius: 0 0.5em 0.5em 0;
 	border-radius: 0 0.5em 0.5em 0;
 	min-height: 6.3em;
-	padding: 0.7em 0 0 1.75em;
+	padding: 0.7em 0 0 3.75em;
 }
 
 	.formats ul {
-		padding: 1em 0 0 0;
+		padding: 0.75em 0 0 0;
 	}
 
 	#homepage-search .formats li {
@@ -811,42 +811,42 @@ div[role="contentinfo"] .depts li a{
 
 .home ul li a {
 	display: block;
-	padding: 0.25em 0 0.25em 2em;
+	padding: 0.45em 0 0.45em 2em;
 }
 
 .home ul li.answer a,
 .section ul li.answer a {
-	background: url(/images/icon-answer-s.png) no-repeat 0 40%;
+	background: url(/images/icon-answer-s.png) no-repeat 0 50%;
 }
 
 .home ul li.guide a,
 .section ul li.guide a {
-	background: url(/images/icon-guide-s.png) no-repeat 0 40%;
+	background: url(/images/icon-guide-s.png) no-repeat 0 50%;
 }
 
 .home ul li.transaction a,
 .section ul li.transaction a {
-	background: url(/images/icon-transaction-s.png) no-repeat 0 40%;
+	background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
 }
 
 .home ul li.local_transaction a,
 .section ul li.local_transaction a {
-	background: url(/images/icon-localtransaction-s.png) no-repeat 0 40%;
+	background: url(/images/icon-localtransaction-s.png) no-repeat 0 50%;
 }
 
 .home ul li.programme a,
 .section ul li.programme a {
-	background: url(/images/icon-programme-s.png) no-repeat 0 40%;
+	background: url(/images/icon-programme-s.png) no-repeat 0 50%;
 }
 
 .home ul li.nearest a,
 .section ul li.nearest a {
-	background: url(/images/icon-nearest-s.png) no-repeat 0 40%;
+	background: url(/images/icon-nearest-s.png) no-repeat 0 50%;
 }
 
 .home ul li.placeholder a,
 .section ul li.placeholder a {
-	color:#c9c1a3;
+	color: #c9c1a3;
 }
 
 
@@ -863,26 +863,27 @@ div[role="contentinfo"] .depts li a{
 }
 
 .user-favourites {
-	margin: 0 0 0 38em;
+	background-color: #fefefe;
 	border: 2px dashed #eee;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
-
+	margin: 0 0 0 38em;
 	padding: 1em;
-	background-color: #fefefe;
 	text-align: center;
 }
-.user-favourites p{
-	color:#666;
 
+.user-favourites p {
+	color:#666;
 }
-.user-favourites p span{
-	display:block;
-	color:#ccc;
-	font-size:0.85em;
-	padding-top:1em;
+
+.user-favourites p span {
+	display: block;
+	color: #ccc;
+	font-size: 0.85em;
+	padding-top: 1em;
 }
+
 /* Home page - browse by section */
 
 .site-sections {
@@ -897,9 +898,9 @@ div[role="contentinfo"] .depts li a{
 
 .site-sections ul li {
 	background-color: #EFECE0;
-	font-size: 1em;
-	margin: 0 0.5% 1em 0.5%;
-	min-height: 24em;
+	font-size: 0.9375em;
+	margin: 0.5em 0.5% 1em 0.5%;
+	min-height: 22em;
 	padding: 0.5em 1.5% 0 1.5%;
 	position: relative;
 	width: 29%;
@@ -928,6 +929,7 @@ div[role="contentinfo"] .depts li a{
 .site-sections ul li li {
 	border-top: none;
 	display: block;
+	font-size: 0.9375em;
 	margin: 0.5em 0;
 	min-height: 0;
 	padding: 0;
@@ -962,7 +964,9 @@ div[role="contentinfo"] .depts li a{
 
 .home p.view-all-section a {
 	font-size: 0.85em;
-	padding-left: 0;
+	padding-left: 0.25em;
+	position: absolute;
+	bottom: 1em;
 }
 
 .site-sections .edit-control.reset-control {
@@ -1254,29 +1258,31 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	width:46%;
 	float:left;
 }
-.section ul li h3{
-	border-bottom:1px solid #666;
-	margin-right:0.5em;
+.section ul li h3 {
+	border-bottom: 1px solid #666;
+	margin-right: 0.5em;
 }
-.section ul li li{
-	width:98%;
-	display:block;
+
+.section ul li li {
+	width: 98%;
+	display: block;
 }
+
 .section ul li li a,
-.popular-in-section a{
-	display:block;
-	padding-left:25px;
-	padding-bottom:5px;
-	padding-top:2px;
+.popular-in-section a {
+	display: block;
+	padding-left: 25px;
+	padding-bottom: 5px;
+	padding-top: 2px;
 }
 
 /* ----- search results page ----- */
 
 .search {
 	background-color: #fff;
-	border:1px solid #fff;
-	border-radius:5px;
-	padding:1em;
+	border: solid 1px #fff;
+	border-radius: 5px;
+	padding: 1em;
 }
 
 .search h1 {
