@@ -447,37 +447,58 @@ header[role="banner"] .header-context.citizen .search-help {
 /* Meta-data */
 .meta-data {
 	border-top: dotted 1px #bbb;
+	clear: both;
 	color: #7F7F7F;
 	float: left;
-	margin: 4em 1.25em 1em 1.25em;
-	clear:both;
-	font-size: 0.65em;
-}
-.answer .meta-data,
-.transaction .meta-data{
-	width:96%;
+	font-size: 0.75em;
+	margin: 2em 0 0 4em;
 }
 
-.meta-data ul, .meta-data li{
-	display:inline;
+.answer .meta-data,
+.transaction .meta-data,
+.local_transaction .meta-data {
+	margin: 0em 0 2em 4em;
+}
+
+.guide .meta-data {
+	margin: 2em 1.5em;
+}
+
+.place .meta-data {
+	margin: 2em 0;
+}
+
+.meta-data ul,
+.meta-data li {
+	display: inline;
 }
 
 .meta-data li a {
-    border-radius:0;
-    display: inline;
-    font-size: inherit;
-    padding: 0;
-    text-decoration: underline;
+	background-color: #bbb;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+	color: #fff;
+	display: inline;
+	font-size: inherit;
+	font-weight: bold;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
 }
 .meta-data li a:focus,
 .meta-data li a:active,
-.meta-data li a:hover{
-	background-color:none;
+.meta-data li a:hover {
+	background-color: #1D97FF;
+	text-decoration: underline;
 }
-.api-links{
-	margin:0;
-	padding:0;
+
+.api-links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
+
+
 /* Footer - everywhere */
 
 footer#footer{
@@ -732,11 +753,11 @@ div[role="contentinfo"] .depts li a{
 	box-flex: 1;
 	background-color: #ffa;
 	min-height: 6.3em;
-	padding: 0.7em 0 0 3em;
+	padding: 0.7em 0 0 1.75em;
 }
 
 	.formats ul {
-		padding: 1em 0 0 1em;
+		padding: 1em 0 0 0;
 	}
 
 	#homepage-search .formats li {
