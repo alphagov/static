@@ -322,9 +322,12 @@ header[role="banner"] .header-context.citizen .search-help {
 	height: 0;
 	left: 0;
 	position: fixed;
-	top: 14.25em;
+	top: 13.75em;
 	width: 100%;
 }
+	#wrapper.programme .related-positioning {
+		top: 12.1em;
+	}
 
 .related-container {
 	height: 0;
