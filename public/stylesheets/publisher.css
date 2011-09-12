@@ -441,10 +441,11 @@ ul.helpers {
 		border-bottom: solid 1px #bbb;
 	  color: #706e6e;
 		float: left;
-	  margin-bottom: 6px;
-		margin-right: 6px;
+	  margin-bottom: 0.6em;
+		margin-right: 0.6em;
 		min-height: 3em;
 	  padding: 0.75em 0.25em 0.75em 3.75em;
+		vertical-align: middle;
 		width: 24.8%;
 	}
 		ul.helpers li:nth-child(3n+3) {
@@ -901,12 +902,12 @@ article ol.steps li:nth-child(7) {
 }
 
 #wrapper.programme .programme-progression li.active a {
-	background-color: #ffffaa;
+	background-color: #ffa;
 }
 
 #wrapper.programme .programme-progression li.active a:hover,
 #wrapper.programme .programme-progression li.active a:focus {
-	background-color: #ffffaa;
+	background-color: #ffa;
 	color: #1576FB;
 }
 
