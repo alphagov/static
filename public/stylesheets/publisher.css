@@ -351,9 +351,9 @@ aside li a .part-title {
 #wrapper.local_transaction fieldset {
 	background-color: #F9F9F9;
 	border: 2px solid #bbb;
-	-webkit-border-radius: 0.25em;
-	-moz-border-radius: 0.25em;
-	border-radius: 0.25em;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
 	margin: 1.2em 0;
 	padding: 1.2em 0.75em;
 	text-align: center;
