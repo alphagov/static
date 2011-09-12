@@ -444,7 +444,7 @@ ul.helpers {
 	  margin-bottom: 6px;
 		margin-right: 6px;
 		min-height: 3em;
-	  padding: 0.45em 0.25em 0.45em 3.75em;
+	  padding: 0.75em 0.25em 0.75em 3.75em;
 		width: 24.8%;
 	}
 		ul.helpers li:nth-child(3n+3) {
@@ -460,7 +460,7 @@ ul.helpers {
 	}
 	ul.helpers li.card_payment {
 	  background-image: url(/images/helper-creditcard-icon.png);
-		background-position: -2% 5%;
+		background-position: -2% 0%;
 	}
 	ul.helpers li.gateway {
 	  background-image: url(/images/helper-govgateway-icon.png);
