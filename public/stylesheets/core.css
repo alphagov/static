@@ -901,7 +901,7 @@ div[role="contentinfo"] .depts li a{
 	font-size: 0.9375em;
 	margin: 0.5em 0.5% 1em 0.5%;
 	min-height: 22em;
-	padding: 0.5em 1.5% 0 1.5%;
+	padding: 0.5em 1.5% 0 1.25%;
 	position: relative;
 	width: 29%;
 }
@@ -918,7 +918,7 @@ div[role="contentinfo"] .depts li a{
 	top: 0;
 	right: 0;
 	line-height: 1.11em;
-	padding: 0.45em 7%;
+	padding: 0.45em 5%;
 	position: absolute;
 }
 
@@ -950,7 +950,7 @@ div[role="contentinfo"] .depts li a{
 	color: #fff;
 	display: block;
 	font-size: 0.75em;
-	padding: 0.25em 0.5em;
+	padding: 0.25em;
 	text-decoration: none;
 }
 
@@ -964,10 +964,14 @@ div[role="contentinfo"] .depts li a{
 
 .home p.view-all-section a {
 	font-size: 0.85em;
-	padding-left: 0.25em;
+	left: 3%;
 	position: absolute;
-	bottom: 1em;
+	padding-left: 0.25em;
+	bottom: 1.5em;
 }
+	.home p.view-all-section span {
+		font-style: italic;
+	}
 
 .site-sections .edit-control.reset-control {
 	right: 14em;
