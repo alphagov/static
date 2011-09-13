@@ -157,7 +157,7 @@ header[role="banner"] nav li {
 
 header[role="banner"] .header-global nav {
 	float: right;
-	margin-right: 16em;
+	margin-right: 17em;
 	padding: 0.7em;
 }
 
@@ -180,6 +180,7 @@ header[role="banner"] .header-global nav li:last-child {
 
 header[role="banner"] .header-global nav li a {
 	color: #bbb;
+	color: #d8d8d8;
 }
 
 header[role="banner"] .header-context nav li a {
@@ -505,7 +506,7 @@ header[role="banner"] .header-context.citizen .search-help {
 /* Footer - everywhere */
 
 footer#footer{
-	background-color:#333;
+	background-color: #333;
  	border-top: 1px solid #fff;
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.7);
 	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.7);
@@ -520,49 +521,54 @@ div[role="contentinfo"] .copyright{
 	width: 22%;
 }
 
+/*
 div[role="contentinfo"] .copyright a {
 	color: #999;
 }
-
+*/
 div[role="contentinfo"] .project {
 	padding-top: 1.5em;
 	width: 20%;
 }
 
-div[role="contentinfo"] .depts{
-/*	width:45%;*/
-}
-
-div[role="contentinfo"]{
+div[role="contentinfo"] {
+	color: #999;
+	color: #d8d8d8;
 	font-size: 0.8em;
 	line-height:1.2em;
-	color: #999;
 	min-height: 1em;
 	padding:0 0 1em 0;
 	vertical-align: top;
-	overflow:auto;
+	overflow: auto;
 }
-div[role="contentinfo"] a{
+div[role="contentinfo"] a {
+	color: #d8d8d8;
+}
 
+div[role="contentinfo"] ul {
+	margin: 0;
+	padding: 0;
 }
-div[role="contentinfo"] ul{
-	margin:0;
-	padding:0;
-}
-div[role="contentinfo"] .depts, div[role="contentinfo"] .depts ul {
+
+div[role="contentinfo"] .depts,
+div[role="contentinfo"] .depts ul {
 	float: right;
 }
+
 div[role="contentinfo"] .depts ul {
 	list-style: none;
 }
+
 div[role="contentinfo"] .depts li {
 	display:inline-block;
 }
-div[role="contentinfo"] .depts li a{
+
+div[role="contentinfo"] .depts li a {
+	background-color: #fff;
+	color: #313131;
 	display: block;
-	padding:0.5em;
-	z-index:99;
-	background-color:#fff;
+	padding: 0.5em;
+	z-index: 99;
 }
 
 /* Footer - mini homepage stuff */
@@ -865,6 +871,7 @@ div[role="contentinfo"] .depts li a{
 .user-favourites {
 	background-color: #fefefe;
 	border: 2px dashed #eee;
+	border: 2px dashed #ccc; /* preso */
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
@@ -914,6 +921,7 @@ div[role="contentinfo"] .depts li a{
 	background-color: #cfcfcf;
 	display: block;
 	font-size: 1.15em;
+	line-height: 1.11em;
 	left: 0;
 	top: 0;
 	right: 0;
@@ -942,6 +950,7 @@ div[role="contentinfo"] .depts li a{
 	right: 0.5em;
 	top: 0.5em;
 }
+
 .site-sections .edit-control a {
 	background-color: #92AD54;
   -moz-border-radius: 0.25em;
@@ -1176,21 +1185,25 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #location-set-message,
 #location-unset-message{
 	background: url('/images/location-pin_outline_tiny.png') no-repeat 0 0;
-	position:fixed;
-	top:10px;
-	left:200px;
-	display:block;
-	z-index:100000;
-	padding:5px 0 9px 15px;
-	margin:0;
-	color:#bbb;
-	font-size:0.75em;
+	position: fixed;
+	top: 10px;
+	left: 200px;
+	display: block;
+	z-index: 100000;
+	padding: 5px 0 9px 15px;
+	margin: 0;
+	color: #bbb;
+	font-size: 0.75em;
 }
 #location-set-message a,
-#location-unset-message a{
-	color:#bbb;
+#location-unset-message a {
+	color: #bbb;
+	color: #d8d8d8;
 }
-
+#location-set-message small,
+#location-unset-message small {
+	font-size: inherit;
+}
 
 /*
  * Devolved content
@@ -1211,11 +1224,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
 	font-size: 0.75em;
-	background-color:#92AD54;
-	color:#fff;
-	margin-left:0.5em;
+	background-color: #92AD54;
+	color: #fff;
+	margin-left: 0.5em;
 	padding: 0.25em 0.5em;
-	text-decoration:none;
+	text-decoration: none;
 }
 
 .england .devolved-header {
@@ -1236,7 +1249,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	padding: 0;
 	background: none;
 }
-/* ============  Section page  =============== */
+
+/*
+ * Section page
+ */
 
 .section {
 	background-color: #fff;
@@ -1251,16 +1267,16 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 .section ul {
-	list-style-type:none;
+	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
 .section ul li {
 	margin: 0.75em 0;
-	padding:0.5em 0;
-	width:46%;
-	float:left;
+	padding: 0.5em 0;
+	width: 46%;
+	float: left;
 }
 .section ul li h3 {
 	border-bottom: 1px solid #666;
@@ -1285,7 +1301,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .search {
 	background-color: #fff;
 	border: solid 1px #fff;
-	border-radius: 5px;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
 	padding: 1em;
 }
 
@@ -1296,10 +1314,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .search h2 {
 	margin-bottom: 1em;
 }
-.search h2 span{
-	font-size:0.85em;
+.search h2 span {
+	font-size: 0.85em;
 
 }
-.search .results ol{
-	list-style:decimal;
+.search .results ol {
+	list-style: decimal;
 }
