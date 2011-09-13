@@ -737,13 +737,14 @@ article .form-download a {
 }
 
 article .contact {
-  background: url('/images/icon-contact.png') 2% 50% no-repeat;
+  background: url('/images/icon-contact.png') 2% 20% no-repeat;
 	border: solid 2px #bbb;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
 	margin: 1em 0;
-	padding: 0.5em 1em 0.25em 2.75em;
+	padding: 0 1.25em 0 2.75em;
+	width: 50%;
 }
 
 article .address {
