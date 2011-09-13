@@ -113,8 +113,7 @@
     </div>
   </footer><!--end footer-->
 
-	<div id="global-app-error" class="app-error hidden">
-	    </div>
+	<div id="global-app-error" class="app-error hidden"></div>
 	    <div id="global-locator" class="popover-mask">
 	      <div id="global-locator-box" class="popover">
 	        <div class="header">
@@ -125,29 +124,29 @@
 	          <h2>Set your location</h2>
 	          <div id="global-locator-error" class="app-error hidden"></div>
 	            <form id="global-locator-form" class="app-form" action="/locator.json">
-	              <fieldset class="postcode">
-	<label class="legend" for="postcode_box">Enter a UK postcode</label>
+
+                <fieldset>
+                  <legend class="visuallyhidden">UK Postcode lookup</legend>
+
 	                <div class="ask_location">
-	                  <div>
-	                    <input name="postcode" type="text" value="" placeholder="e.g. SW1A 2AA"><input type="submit" name="find_me" value="Go">
-	</div>
+                    <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
+                    <input type="submit" value="Get started →">
 
-	                </div>
-	                <div class="finding_location hidden">
-	                  <p>Locating you…
-	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
-	                </div>
-	                <p id="forget-location">
-	                  <a class="form-button" href="#">Forget my location</a>
-	                </p>
-	              </fieldset>
+  	                <div class="finding_location hidden">
+  	                  <p>Locating you&hellip;
+  	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
+  	                </div>
+  	                <p id="forget-location">
+  	                  <a href="#">Forget my location</a>
+  	                </p>
+  	              </div>
+                </fieldset>
 
-	</form>
-	          <div class="article-text">
-	            <h4>Why?</h4>
-	            <p>When you set your location we can give you details of services local to you, such as Passport offices, driving test centres or police stations, so you can complete any tasks and be away from your computer as quickly as possible.</p>
-	            <p>Your approximate location is stored in a cookie on your machine, but we do not save your postcode or precise location on our servers.</p>
-	          </div>
+              </form>
+
+	            <h3>Why?</h3>
+	            <p>When you set your location we can give you details of services close to you, like Passport offices, driving test centres or police stations.</p>
+	            <p>Your approximate location is <a href="/cookies/">stored in a cookie</a> on your machine, but we do not save your postcode or precise location on our servers.</p>
 	        </div>
 	      </div>
 
