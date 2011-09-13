@@ -6,6 +6,7 @@
 	padding: 1em 1em 0;
 }
 
+	#wrapper.section hgroup,
 	#wrapper.place hgroup,
 	#wrapper.transaction hgroup,
 	#wrapper.local_transaction hgroup {
@@ -37,6 +38,14 @@
 	text-transform: uppercase;
 	text-shadow: none;
 }
+
+/* section pages */
+#wrapper.section hgroup h1 {
+	background-image: url('/images/icon-section-l.png');
+}
+	#wrapper.section hgroup h1 span {
+		color: #000;
+	}
 
 /* Answers */
 #wrapper.answer hgroup h1 {
@@ -125,16 +134,16 @@ article .inner {
 	width: auto;
 }
 
-	.answer article {
-		/*margin-left: 10%;*/
+	#wrapper.section article,
+	#wrapper.answer article {
 		margin-right: 12em;
-		/*width: auto;*/
 	}
 
 	.guide article .inner {
 		padding-bottom: 0;
 	}
 
+	#wrapper.section article,
 	#wrapper.place article,
 	#wrapper.transaction article,
 	#wrapper.local_transaction article,

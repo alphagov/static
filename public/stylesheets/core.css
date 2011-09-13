@@ -1001,44 +1001,54 @@ div[role="contentinfo"] .depts li a {
 	background-color: #FF5C00;
 }
 
-/* Help page */
-#help article .inner{
-	padding:0;
+/*
+ * Help page
+ */
+
+#help article .inner {
+	padding: 0;
 }
-#help{
-	clear:both;
-	background-color:#EFECE0;
-	border-radius:5px;
-	overflow:hidden;
-	padding:1em;
-	width:100%;
+
+#help {
+	clear: both;
+	background-color: #EFECE0;
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 1em;
+	width: 100%;
 }
-#main-help{
-	width:65%;
-	float:left;
-	padding:0;
-	margin:0;
+
+#main-help {
+	width: 65%;
+	float: left;
+	padding: 0;
+	margin: 0;
 }
-#extra-help{
-	float:right;
-	width:30%;
+
+#extra-help {
+	float: right;
+	width: 30%;
 }
-#extra-help article{
-	padding:1em;
+
+#extra-help article {
+	padding: 1em;
 }
-.help-menu ul{
-	list-style-type:none;
-	margin:1em 0 0 0;
-	padding:0;
+
+.help-menu ul {
+	list-style-type: none;
+	margin: 1em 0 0 0;
+	padding: 0;
 }
-.help-menu li{
-	list-style-type:none;
-	padding:0 0 1em 1em;
+
+.help-menu li {
+	list-style-type: none;
+	padding: 0 0 1em 1em;
 }
+
 .help #find,
 .help #tools,
-.help #feedback{
-	width:100%;
+.help #feedback {
+	width: 100%;
 
 	margin-right:1em;
 	margin-bottom:1em;
@@ -1047,6 +1057,7 @@ div[role="contentinfo"] .depts li a {
 	padding:0.5em 1em 1em 1em;
 	border-radius:5px;
 }
+
 #help-internet ul,
 #help-internet li{
 	list-style-type:none;
@@ -1121,7 +1132,11 @@ div[role="contentinfo"] .depts li a {
 .help .benefits-header{
 	background: url('/images/icon-programme-s.png') no-repeat 0 0;
 }
-/* auto complete - borrowed from the alpha */
+
+/*
+ * auto complete
+ * borrowed from the alpha
+ */
 
 #main_autocomplete {
 	color: inherit;
@@ -1254,42 +1269,39 @@ ul.ui-corner-all, ul li a.ui-corner-all {
  * Section page
  */
 
-.section {
-	background-color: #fff;
+#wrapper.section .popular-sections {
+	border: solid 2px #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	padding-top: 0;
+
 }
 
-.section h1 {
-	margin-bottom: 1em;
-}
-
-.section h2 {
-	margin-bottom: 1em;
-}
-
-.section ul {
+#wrapper.section article ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.section ul li {
+#wrapper.section article ul li {
 	margin: 0.75em 0;
 	padding: 0.5em 0;
-	width: 46%;
+	width: 50%;
 	float: left;
 }
-.section ul li h3 {
+#wrapper.section article ul li h3 {
 	border-bottom: 1px solid #666;
 	margin-right: 0.5em;
 }
 
-.section ul li li {
+#wrapper.section article ul li li {
 	width: 98%;
 	display: block;
 }
 
-.section ul li li a,
-.popular-in-section a {
+#wrapper.section article ul li li a,
+#wrapper.section .popular-sections a {
 	display: block;
 	padding-left: 25px;
 	padding-bottom: 5px;
