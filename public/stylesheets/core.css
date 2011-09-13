@@ -1062,34 +1062,66 @@ div[role="contentinfo"] .depts li a {
 	padding:0;
 	margin:0 0 1em 0;
 }
+
 .help h1,
 .help h2,
-.help p{
-	padding:0;
-	margin:0;
-	line-height:1.4em;
+.help p {
+	padding: 0;
+	margin: 0;
+	line-height: 1.4em;
 }
 .help h1,
-.help h2{
+.help h2 {
+	border: none;
 	margin-top:0.5em;
-	border:none;
 }
-.help h2{
-	font-size:0.95em;
-}
-.help .guide-header,
-.help .quick-header,
-.help .smart-header,
-.help .services-header,
-.help .local-header,
-.help .benefits-header{
-	padding:0.5em 0 0.3em 2em;
-	margin-top:2em;
 
+.help h2 {
+	font-size: 0.95em;
 }
+
+.help dl {
+	margin: 0 1em 1.4em 0;
+}
+
+	.help dl dd {
+		border-bottom: solid 1px #bbb;
+		margin-bottom: 1.4em;
+	}
+		.help dl dd:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+
+	.help dt h2 {
+		padding: 0 0 0.2em 2em;
+	}
+
+	.help h2.guides {
+		background: url('/images/icon-guide-s.png') no-repeat 1% 0;
+	}
+	.help h2.answers {
+		background: url('/images/icon-answer-s.png') no-repeat 1% 0;
+	}
+	.help h2.smart-answers {
+		background: url('/images/icon-answer-s.png') no-repeat 1% 0;
+	}
+	.help h2.services {
+		background: url('/images/icon-transaction-s.png') no-repeat 1% 0;
+	}
+	.help h2.local-services {
+		background: url('/images/icon-localtransaction-s.png') no-repeat 1% 0;
+	}
+	.help h2.benefits {
+		background: url('/images/icon-programme-s.png') no-repeat 1% 0;
+	}
+
+	.help dl dd p {
+		margin: 0 0 1em;
+	}
 
 .help strong,
-.project li{
+.project li {
 	background: none repeat scroll 0 0 #FF5C00;
   border: 1px solid #A93D00;
   border-radius: 0.25em 0.25em 0.25em 0.25em;
@@ -1098,37 +1130,20 @@ div[role="contentinfo"] .depts li a {
 	display:block;
 	padding:1em;
 }
+
 .help strong a,
 .help strong a:visited,
-.project li a{
-	color:#fff;
-	font-weight:normal;
+.project li a {
+	color: #fff;
+	font-weight: normal;
 }
 .help strong a:hover,
 .help strong a:active,
 .help strong a:focus,
 .project li a:hover,
 .project li a:active,
-.project li a:focus{
+.project li a:focus {
 	color:#333;
-}
-.help .guide-header{
-	background: url('/images/icon-guide-s.png') no-repeat 0 0;
-}
-.help .quick-header{
-	background: url('/images/icon-answer-s.png') no-repeat 0 0;
-}
-.help .smart-header{
-	background: url('/images/icon-answer-s.png') no-repeat 0 0;
-}
-.help .services-header{
-	background: url('/images/icon-transaction-s.png') no-repeat 0 0;
-}
-.help .local-header{
-	background: url('/images/icon-localtransaction-s.png') no-repeat 0 0;
-}
-.help .benefits-header{
-	background: url('/images/icon-programme-s.png') no-repeat 0 0;
 }
 
 /*
