@@ -534,6 +534,13 @@ article h2 {
   margin-bottom: 0.2em;
 	padding-bottom: 0.2em;
 }
+	#wrapper.answer article h2 {
+		border-bottom: none;
+	  font-size: 1.15em;
+	  line-height: 1.11em;
+	  margin-top: 1.304em;
+	  margin-bottom: 0;
+	}
 
 article h3 {
   font-size: 1.15em;
@@ -648,6 +655,13 @@ article .summary {
 	font-weight: bold;
 	margin: 0 0 1.25em 0;
 }
+	#wrapper.answer article .summary {
+		border-left: solid 5px #bbb;
+		font-size: 1.25em;
+		font-weight: bold;
+		margin: 0 0 1.25em 0.75em;
+		padding-left: 1em;
+	}
 
 article .example {
   background: #F2F2F2;
@@ -679,7 +693,7 @@ article .info-notice {
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
 	margin: 1.25em 0;
-	padding: 0.75em 1em 0 2.90em;
+	padding: 0.75em 1em 0 3.5em;
 }
 
 article .help-notice p,
