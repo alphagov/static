@@ -656,10 +656,11 @@ article .summary {
 	margin: 0 0 1.25em 0;
 }
 	#wrapper.answer article .summary {
-		border-left: solid 5px #bbb;
-		font-size: 1.25em;
+		border-left: solid 4px #bbb;
+	  font-size: 1.15em;
+	  line-height: 1.11em;
 		font-weight: bold;
-		margin: 0 0 1.25em 0.75em;
+		margin: 0 0.75em 1.25em 0.75em;
 		padding-left: 1em;
 	}
 
