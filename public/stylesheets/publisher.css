@@ -357,7 +357,8 @@ aside li a .part-title {
 
 #wrapper.place fieldset,
 #wrapper.transaction fieldset,
-#wrapper.local_transaction fieldset {
+#wrapper.local_transaction fieldset,
+.popover fieldset {
 	background-color: #F9F9F9;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.5em;
@@ -382,7 +383,9 @@ aside li a .part-title {
 #wrapper.transaction .button,
 #wrapper.local_transaction fieldset input[type=submit],
 #wrapper.local_transaction fieldset input[type=submit]:visited,
-#wrapper.local_transaction .button {
+#wrapper.local_transaction .button,
+.popover fieldset input[type=submit],
+.popover fieldset input[type=submit]:visited {
 	background: #039 url(/images/button-overlay.png) repeat-x;
 	border: 1px solid rgba(0,0,0,0.25);
 	-moz-border-radius: 4px;
