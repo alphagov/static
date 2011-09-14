@@ -676,7 +676,8 @@ div[role="contentinfo"] .depts li a {
 #homepage-search p {
 	display: inline;
 	float: right;
-	width: 55%;
+	line-height: 1.4em;
+	width: 50%;
 }
 
 
@@ -850,6 +851,11 @@ div[role="contentinfo"] .depts li a {
 .home ul li.nearest a,
 .section ul li.nearest a {
 	background: url(/images/icon-nearest-s.png) no-repeat 0 50%;
+}
+
+.home ul li.smart-answer a,
+.section ul li.smart-answer a {
+	background: url(/images/icon-smart-answer-s.png) no-repeat 0 50%;
 }
 
 .home ul li.placeholder a,
