@@ -418,6 +418,10 @@ header[role="banner"] .header-context.citizen .search-help {
 	background-image: url('/images/icon-nearest-s.png');
 }
 
+.related li.smart-answer {
+	background-image: url('/images/icon-smart-answer-s.png');
+}
+
 .related li a[href*="#"] {
 	/* grey out stub links */
 	color: #888;

@@ -96,6 +96,14 @@
 		color: #666;
 	}
 
+/* Smart Answers */
+#wrapper.smartanswer hgroup h1 {
+	background-image: url('/images/icon-smart-answer-l.png');
+}
+	#wrapper.place hgroup h1 span {
+		color: #2929a3;
+	}
+
 
 
 section {
