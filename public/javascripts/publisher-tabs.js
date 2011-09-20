@@ -11,7 +11,20 @@ var myTextExtraction = function(node) {
 }
 
 $(document).ready(function() {
-  $(".formats").tablesorter({
+  var published_tab = $('#published .formats');
+  published_tab.tablesorter({
+    textExtraction: myTextExtraction,
+    headers: {
+      // disable sorting for last three columns
+      5: { sorter: false },
+      6: { sorter: false },
+      7: { sorter: false },
+      8: { sorter: false },
+      9: { sorter: false }
+     }
+   });
+   
+  $(".formats").not(published_tab).tablesorter({
     textExtraction: myTextExtraction,
     headers: {
       // disable sorting for last three columns
