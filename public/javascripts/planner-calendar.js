@@ -89,7 +89,7 @@ var AlphaCal = {
 		@param {Object} opts Options object
 			@param {Number} [opts.scope=12] Size of the calendar
 			@param {Number} [opts.month=01] First month to display calendar from
-			@param {Number} [opts.year=Date.getYear()] First year to display the calendar from
+			@param {Number} [opts.year=current year] First year to display the calendar from
 		
 		@example
 			// will append a calendar of 13 months length, starting in February, to the element #calendar
