@@ -1368,6 +1368,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	float:left;
 	margin:0 0.8em 0.8em 0.8em;
 	border:2px solid #eee;
+	height: 13em;
 }
 .planner table th{
 	background-color:#eee;
@@ -1395,8 +1396,4 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .key-dates{
 	clear:both;
-}
-
-#calendar{
-	border:1px solid red;
 }

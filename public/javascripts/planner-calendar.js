@@ -93,7 +93,11 @@ var AlphaCal = {
 		
 		@example
 			// will append a calendar of 13 months length, starting in February, to the element #calendar
-			AlphaCal.show("#calendar", 13, 02, 2011);
+			AlphaCal.show("#calendar", {
+				scope: 13, 
+				month: 02, 
+				year: 2011
+				});
 			
 		
  	*/
