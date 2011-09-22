@@ -1361,3 +1361,42 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .search .results ol {
 	list-style: decimal;
 }
+
+
+/* planner calendars e.g. maternity leave */
+.planner table{
+	float:left;
+	margin:0 0.8em 0.8em 0.8em;
+	border:2px solid #eee;
+}
+.planner table th{
+	background-color:#eee;
+}
+.planner table th,
+.planner table td{
+	padding:0.3em;
+}
+.mat-leave{
+	background-color:yellow;
+
+}
+.mat-leave-post{
+	background-color:green;
+
+}
+.key-date{
+	background-color:red;
+
+}
+.mat-start{
+	background-color:blue;
+
+}
+
+.key-dates{
+	clear:both;
+}
+
+#calendar{
+	border:1px solid red;
+}

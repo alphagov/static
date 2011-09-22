@@ -1,0 +1,54 @@
+/* Print stylesheets for stuff defined in core.css */
+body header[role="banner"],
+body footer,
+body #global-user-location,
+body .related-positioning,
+body .key-dates ul,
+body div.date-planner p{
+	display:none;
+}
+div#wrapper hgroup span,
+div#wrapper hgroup,
+div#wrapper h1{
+	margin:0;
+	padding:0;
+}
+div#wrapper{
+	margin:0;
+	width:100%;
+	float:none;
+}
+td.mat-leave{
+
+	color:yellow;
+	font-weight:bold;
+}
+td.mat-leave-post{
+
+	color:green;
+	font-weight:bold;
+}
+td.key-date{
+
+	color:red;
+	font-weight:bold;
+}
+td.mat-start{
+
+	color:blue;
+	font-weight:bold;
+}
+
+body section {
+    margin: 0;
+		padding: 0;
+    width: 100%;
+}
+div.date-planner table{
+	margin:0 0.5em 0.5em 0;
+	min-height:15em;
+}
+div.date-planner{
+	overflow:auto;
+	page-break-after: always;
+}
