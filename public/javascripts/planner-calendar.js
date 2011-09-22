@@ -1,6 +1,6 @@
 var AlphaCal = {
 	/**
-		@name AlphaCal.getDates
+		@name AlphaCal.show
 		@function
 		@description Returns the JSON for a set of dates associated with a fixed date
 
@@ -98,9 +98,9 @@ var AlphaCal = {
 		
 		// defined for use
 		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+			created = 0;
 			
-		
 		// number of months we need
 		var calendarScope = data.scope.scope;
 
@@ -110,15 +110,11 @@ var AlphaCal = {
 		// intital iterators
 		var year = data.scope.firstYear;
 		
-		// get the first day of the week for our view (day of week for 1st of the month)
+		// get the first Day Of the Week for our view (day of week for 1st of the month)
 		var dow = new Date(year, month, "01").getDay();
 
-		var created = 0;
-		
-	
-		
 		for(; created != calendarScope; created++){
-			
+			var row;
 			
 			// output a table for each
 			var newMonth = $("<table></table>")
@@ -126,8 +122,8 @@ var AlphaCal = {
 			
 			// check for february and leap year fun
 			if(month == 1){
-				var isLeap = new Date(year,1,29).getDate();
-					if(isLeap == 29){
+				var leapCheck = new Date(year,1,29).getDate();
+					if(leapCheck == 29){
 						var i = 29;
 					}
 					else{
@@ -137,22 +133,17 @@ var AlphaCal = {
 			else{
 				var i = monthLengths[month];
 			}
-			var row;
 			
 			// check how many extra empty cells we need at the start of a month and append those first
 			var emptyDays = 7 - (6 - (dow-1)),
-				paddingCells;
-			
-			var paddingCells = $("");
-		
-		 	row = $("<tr></tr>");
+				paddingCells = $(""),
+				row = $("<tr></tr>");
 		
 		 	while(emptyDays--){
 				$(row).append("<td>&nbsp</td>")
 			}
 			
-			
-			
+			// now start printing out the days
 			for(j = 0; i != j; j++){
 				
 				var day = j+1;
@@ -163,7 +154,6 @@ var AlphaCal = {
 					// means we're on a saturday! time to start a new one...
 					$(newMonth).append(row);
 					row = $("<tr></tr>");
-					//console.log("modulus:"+dow%6+" new row!:"+dow)
 				}
 				
 				// set DOW
@@ -192,31 +182,33 @@ var AlphaCal = {
 			}
 			
 			
-		} // end month appending
+		}; // end month appending
+		
+	},
+
+	// think it might be tidiest to split out the date printing. might turn out to be handy if we want to regen dates without regening the cals
+	applyDates: function(){
 		
 
-		// if adding month position 1, check if leap year and modify days to 29
-		
-		
-		
-	/* unicode chars 
-	&#x2606; WHITE STAR
-	&#x2605; BLACK STAR
-	&#x2660; SPADE
-	&#x2663; CLUB
-	&#x2666; DIAMOND
-	&#x2665; HEART
-	&#x20DD; CIRCLE OUTLinER
-	&#x20E3; SQUARE OUTLINER
-	&#x25C8; B&W STARTER MARKER
-	&#x0333; double below
-	
- */
-		// apply data
-		// check how many dates
-		// for each of the DATES:  data.dates[1].summary
-		// if duration is 1, apply class once
-		// if duration larger than 1, apply class to all cells from dstart until dtend
-		
+		/* unicode chars that we're probably going to need for printing
+		&#x2606; WHITE STAR
+		&#x2605; BLACK STAR
+		&#x2660; SPADE
+		&#x2663; CLUB
+		&#x2666; DIAMOND
+		&#x2665; HEART
+		&#x20DD; CIRCLE OUTLinER
+		&#x20E3; SQUARE OUTLINER
+		&#x25C8; B&W STARTER MARKER
+		&#x0333; double below
+
+	 */
+			// apply data
+			// check how many dates
+			// for each of the DATES:  data.dates[1].summary
+			// if duration is 1, apply class once
+			// if duration larger than 1, apply class to all cells from dstart until dtend
 	}
+	
+	
 }
