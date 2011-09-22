@@ -1,6 +1,6 @@
 var AlphaCal = {
 	/**
-		@name AlphaCal.show
+		@name AlphaCal.getDates
 		@function
 		@description Returns the JSON for a set of dates associated with a fixed date
 
@@ -55,65 +55,33 @@ var AlphaCal = {
 		@name AlphaCal.show
 		@function
 		
-		@description Generates a calendar with a set of dates defined in a JSON object
+		@description Generates a calendar view of any number of months starting at any month or year.
 		
 		@param String id Selector ID for the element in which to append the calendar
-		@param JSON data A JSON object defining the dates (generally obtained from AlphaCal.getDates())
+		@param String scope Size of the calendar
+		@param String month First month to display calendar from
+		@param String year First year to display the calendar from
+		
+		@example
+			// will append a calendar of 13 months length, starting in February, to the element #calendar
+			AlphaCal.show("#calendar", 13, 02, 2011);
+			
 		
  	*/
-	show: function(id, data){
-		// passed in. dummy until we've got a service.
-		var data = {
-			scope: {
-				"scope": 13,
-				"firstMonth": "02",
-				"firstYear": "2011"
-				},
-			dates: [
-				{"summary": "Maternity starts",
-				"dstart": "12-04-2011",
-				"dtend": "13-09-2011",
-				"duration": 105, // number of days segment lasts
-				"id": "mat-start" // identifier for use as classname
-				},
-				{
-				"summary": "Extended maternity",
-				"dstart": "12-04-2011",
-				"dtend": "14-02-2012",
-				"duration": 105,
-				"id": "ext-mat" 
-				},
-				{
-				"summary": "Last date to inform employer of leave",
-				"dstart": "12-05-2011",
-				"dtend": "12-05-2011",
-				"duration": 1,
-				"id": "mat-inform" 
-				}	
-			]
-		},
-			id = "#calendar";
-		
+	show: function(id, scope, month, year){
 
-		
 		// defined for use
 		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 			created = 0;
-			
-		// number of months we need
-		var calendarScope = data.scope.scope;
 
 		// this is just a pointer to the arrays of month info
-		var month = data.scope.firstMonth - 1;
-		
-		// intital iterators
-		var year = data.scope.firstYear;
+		var month = month - 1;
 		
 		// get the first Day Of the Week for our view (day of week for 1st of the month)
 		var dow = new Date(year, month, "01").getDay();
 
-		for(; created != calendarScope; created++){
+		for(; created != scope; created++){
 			var row;
 			
 			// output a table for each

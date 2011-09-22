@@ -1,3 +1,7 @@
 $(document).ready(function() {
-	AlphaCal.show();
+	
+	// AlphaCal.getData();
+	
+	AlphaCal.show("#calendar", 12, 1, 2011);
+	
 });
