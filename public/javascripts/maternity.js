@@ -1,7 +1,13 @@
 $(document).ready(function() {
 	
-	// AlphaCal.getData();
+	var data = AlphaCal.getDates();
 	
-	AlphaCal.show("#calendar", 12, 1, 2011);
+	AlphaCal.show("#calendar", {
+		scope: data.scope.scope, 
+		month: data.scope.firstMonth, 
+		year: data.scope.firstYear
+		});
+	
+	AlphaCal.applyDates("#calendar", data.dates);
 	
 });

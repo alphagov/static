@@ -47,6 +47,34 @@ var AlphaCal = {
 			
 	*/
 	getDates: function(opts){
+		var data = {
+			scope: {
+				"scope": 12, // the number of months to display for data set 
+				"firstMonth": "06", // the first month to display from
+				"firstYear": "2011" // the first year to display from
+				},
+			dates: [
+				{"summary": "Maternity starts",
+				"dstart": "12-01-2011",
+				"dtend": "13-09-2011",
+				"duration": 105 // number of days segment lasts
+				},
+				{
+				"summary": "Extended maternity",
+				"dstart": "12-01-2011",
+				"dtend": "14-02-2012",
+				"duration": 105
+				},
+				{
+				"summary": "Last date to inform employer of leave",
+				"dstart": "12-01-2011",
+				"dtend": "12-01-2011",
+				"duration": 1
+				}	
+			]
+		}
+		
+		return data;
 		// this will be for calling to the service
 	},
 
@@ -57,10 +85,11 @@ var AlphaCal = {
 		
 		@description Generates a calendar view of any number of months starting at any month or year.
 		
-		@param String id Selector ID for the element in which to append the calendar
-		@param String scope Size of the calendar
-		@param String month First month to display calendar from
-		@param String year First year to display the calendar from
+		@param String id Selector for the element in which to append the calendar
+		@param {Object} opts Options object
+			@param {Number} [opts.scope=12] Size of the calendar
+			@param {Number} [opts.month=01] First month to display calendar from
+			@param {Number} [opts.year=Date.getYear()] First year to display the calendar from
 		
 		@example
 			// will append a calendar of 13 months length, starting in February, to the element #calendar
@@ -68,8 +97,13 @@ var AlphaCal = {
 			
 		
  	*/
-	show: function(id, scope, month, year){
-
+	show: function(id, opts){
+		// set defaults
+		var opts = opts || {}, 
+			scope = opts.scope || 12,
+			month = opts.month || 01,
+			year = opts.year || new Date().getYear();
+		
 		// defined for use
 		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
@@ -108,14 +142,15 @@ var AlphaCal = {
 				row = $("<tr></tr>");
 		
 		 	while(emptyDays--){
-				$(row).append("<td>&nbsp</td>")
+				$(row).append("<td class='blank'>&nbsp</td>")
 			}
 			
 			// now start printing out the days
 			for(j = 0; i != j; j++){
 				
-				var day = j+1;
-				$(row).append("<td>"+day+"</td>")
+				var day = j+1,
+					ISOmonth = month+1;
+				$(row).append("<td class='"+day+"-"+ISOmonth+"-"+year+"'>"+day+"</td>")
 				
 				// when to append a row and when to start a new one.
 				if(dow == 6){
@@ -155,7 +190,22 @@ var AlphaCal = {
 	},
 
 	// think it might be tidiest to split out the date printing. might turn out to be handy if we want to regen dates without regening the cals
-	applyDates: function(){
+	/** 
+		@name AlphaCal.applyDates
+		@function
+		
+		@description Applies classes for dates to a calendar with specified information
+		
+		@param String id A container selector where the calendar you wish to apply dates to will be found
+		@param JSON dates A JSON object defining the dates you wish to display
+		
+		@example
+			// will append a calendar of 13 months length, starting in February, to the element #calendar
+			AlphaCal.show("#calendar", 13, 02, 2011);
+			
+		
+ 	*/
+	applyDates: function(id, dates){
 		
 
 		/* unicode chars that we're probably going to need for printing
