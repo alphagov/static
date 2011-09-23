@@ -22,11 +22,11 @@ div#wrapper{
 	float:none;
 }
 td.ordinary-mat{
-	color:yellow;
+	color:#d9e7fb;
 }
 
 td.additional-mat{
-	color:blue;
+	color:#a8a9ff;
 }
 td.expecting-week{
 	color:cyan;

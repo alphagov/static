@@ -1387,31 +1387,49 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 
 .ordinary-mat{
-	background-color:yellow;
+	background-color:#d9e7fb;
 }
 
 .additional-mat{
-	background-color:blue;
+	background-color:#ffc0cb;
 }
 .expecting-week{
-	background-color:cyan;
+	background-color:#d4c8df;
 }
 
 /* single days, more important */
 .mat-leave{
-	background-color:orange;
+	background-color:#dfffaf;
 }
 .notify-employer{
-	background-color:red;
+	background-color:#5fc0b7;
 }
 .due-date{
-	background-color:magenta;
+	background-color:#ffffcb;
 }
-
+#calendar td{
+	text-align:center;
+}
 
 .key-dates{
 	clear:both;
 	margin-top:0;
+	list-style-type:none;
+}
+.key-dates ol{
+	padding:0;
+	margin:0.5em 0 0 0;
+}
+.key-dates li{
+	padding:0.2em 0.5em;
+	list-style-type:none;
+}
+article .key-dates .summary{
+	font-weight:normal;
+	font-size:1em;
+}
+article .key-dates time{
+	font-weight:bold;
 }
 /* needs replacing when format is a real format i.e. ".wrapper" to ".planner" */
 #wrapper.wrapper article{
@@ -1440,4 +1458,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     border-radius: 0.5em 0.5em 0.5em 0.5em;
     margin-bottom: 1.5em;
     padding: 0.15em 1em;
+}
+#wrapper.wrapper hgroup {
+    margin-right: 12.5em;
+    margin-top: -1em;
 }
