@@ -24,19 +24,19 @@ var AlphaCal = {
 						},
 					dates: [
 						{"summary": "Maternity starts",
-						"dstart": "12-01-2011",
+						"dtstart": "12-01-2011",
 						"dtend": "13-09-2011",
 						"duration": 105 // number of days segment lasts
 						},
 						{
 						"summary": "Extended maternity",
-						"dstart": "12-01-2011",
+						"dtstart": "12-01-2011",
 						"dtend": "14-02-2012",
 						"duration": 105
 						},
 						{
 						"summary": "Last date to inform employer of leave",
-						"dstart": "12-01-2011",
+						"dtstart": "12-01-2011",
 						"dtend": "12-01-2011",
 						"duration": 1
 						}	
@@ -49,31 +49,61 @@ var AlphaCal = {
 	getDates: function(opts){
 		var data = {
 			scope: {
-				"scope": 12, // the number of months to display for data set 
-				"firstMonth": "06", // the first month to display from
+				"scope": 27, // the number of months to display for data set 
+				"firstMonth": "1", // the first month to display from
 				"firstYear": "2011" // the first year to display from
 				},
 			dates: [
-				{"summary": "Maternity starts",
-				"dstart": "12-01-2011",
-				"dtend": "13-09-2011",
-				"duration": 105 // number of days segment lasts
+				{"summary": "Date you must tell your employer",
+				"dtstart": "5-11-2011",
+				"dtend": "5-11-2011",
+				"duration": 1, // number of days segment lasts
+				"id": "notify-employer"
 				},
 				{
-				"summary": "Extended maternity",
-				"dstart": "12-01-2011",
-				"dtend": "14-02-2012",
-				"duration": 105
+				"summary": "Earliest you may start maternity",
+				"dtstart": "27-11-2011",
+				"dtend": "27-11-2011",
+				"duration": 1,
+				"id": "mat-leave"
 				},
 				{
-				"summary": "Last date to inform employer of leave",
-				"dstart": "12-01-2011",
-				"dtend": "12-01-2011",
-				"duration": 1
-				}	
+				"summary": "Period of Ordinary Maternity Leave",
+				"dtstart": "16-1-2011",
+				"dtend": "15-7-2012",
+				"duration": 105,
+				"id": "ordinary-mat"
+				},
+				{
+				"summary": "Period of Additional Maternity Leave",
+				"dtstart": "16-7-2012",
+				"dtend": "12-1-2013",
+				"duration": 105,
+				"id": "additional-mat"
+				},
+				{
+				"summary": "Expected week of childbirth",
+				"dtstart": "12-2-2012",
+				"dtend": "18-2-2012",
+				"duration": 7,
+				"id": "expecting-week"
+				},
+				{
+				"summary": "Baby's due date",
+				"dtstart": "17-2-2012",
+				"dtend": "17-2-2012",
+				"duration": 1,
+				"id": "due-date"
+				}
 			]
 		}
-		
+		/*Date you must tell your employer 05 November 2011
+    Earliest you may start maternity leave 27 November 2011
+    Period of Ordinary Maternity Leave January 16 2011 – July 15 2012
+    Period of Additional Maternity Leave July 16 2012 – January 12 2013
+    Expected week of childbirth February 12 2012 – February 18 2012
+    Baby's due date 17 February 2012
+    */
 		return data;
 		// this will be for calling to the service
 	},
@@ -124,7 +154,7 @@ var AlphaCal = {
 			
 			// output a table for each
 			var newMonth = $("<table></table>")
-			$(newMonth).append("<tr><th colspan='7'>"+months[month]+"</th></tr><tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr>");
+			$(newMonth).append("<tr><th colspan='7'>"+months[month]+" "+year+"</th></tr><tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr>");
 			
 			// check for february and leap year fun
 			if(month == 1){
@@ -193,7 +223,6 @@ var AlphaCal = {
 		
 	},
 
-	// think it might be tidiest to split out the date printing. might turn out to be handy if we want to regen dates without regening the cals
 	/** 
 		@name AlphaCal.applyDates
 		@function
@@ -204,12 +233,52 @@ var AlphaCal = {
 		@param JSON dates A JSON object defining the dates you wish to display
 		
 		@example
-			// will append a calendar of 13 months length, starting in February, to the element #calendar
-			AlphaCal.show("#calendar", 13, 02, 2011);
+			// will apply dates to a calendar that resides in #calendar.  The data should be of the form, with expected values of summary, dtstart, dtend, duration and id:
+			var data = {
+				dates: [
+					{"summary": "Date you must tell your employer",
+					"dtstart": "5-11-2011",
+					"dtend": "5-11-2011",
+					"duration": 1, // number of days segment lasts
+					"id": "notify-employer"
+					}
+				]
+			AlphaCal.applyDates("#calendar", data);
 			
 		
  	*/
 	applyDates: function(id, dates){
+		var l = dates.length;
+		
+		// the calendar cells that we need to process
+		var cells = $(id+" td:not(.blank)"),
+			j = cells.length,
+			found = false;
+	
+		
+		
+		while(l--){
+			
+			$(cells).each(function(){
+				
+				if($(this).hasClass(dates[l].dtstart)){
+					$(this).addClass(dates[l].id)
+					if(dates[l].duration != 1){
+						found = true;
+					}
+				}
+				else if($(this).hasClass(dates[l].dtend)){
+					$(this).addClass(dates[l].id)
+					found = false;
+				}
+				else if(found === true){
+					
+					$(this).addClass(dates[l].id)
+				}
+			})
+			found = false;
+	
+		}
 		
 
 		/* unicode chars that we're probably going to need for printing
@@ -225,11 +294,6 @@ var AlphaCal = {
 		&#x0333; double below
 
 	 */
-			// apply data
-			// check how many dates
-			// for each of the DATES:  data.dates[1].summary
-			// if duration is 1, apply class once
-			// if duration larger than 1, apply class to all cells from dstart until dtend
 	}
 	
 	

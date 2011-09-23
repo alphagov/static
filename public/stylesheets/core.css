@@ -1368,7 +1368,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	float:left;
 	margin:0 0.8em 0.8em 0.8em;
 	border:2px solid #eee;
-	height: 13em;
+	height: 14em;
 }
 .planner table th{
 	background-color:#eee;
@@ -1377,22 +1377,29 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .planner table td{
 	padding:0.3em;
 }
-.mat-leave{
+
+
+.ordinary-mat{
 	background-color:yellow;
-
 }
-.mat-leave-post{
-	background-color:green;
-
-}
-.key-date{
-	background-color:red;
-
-}
-.mat-start{
+.additional-mat{
 	background-color:blue;
-
 }
+.expecting-week{
+	background-color:cyan;
+}
+
+/* single days, more important */
+.mat-leave{
+	background-color:orange;
+}
+.notify-employer{
+	background-color:red;
+}
+.due-date{
+	background-color:magenta;
+}
+
 
 .key-dates{
 	clear:both;
