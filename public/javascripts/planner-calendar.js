@@ -7,39 +7,65 @@ var AlphaCal = {
 		@param {Object} [opts] Options.
 			Options
 			@param String keyDate Set this to the date we're setting the view around (e.g. due date for a maternity calendar)
-
+			@param String dataSet Set for the data set around given keydate that we're interested in
+			
 		@returns false
 
 		@example
 			AlphaCal.getDates({ 
-				keyDate: "12/10/2011"
+				keyDate: "17-2-2012",
+				dataSet: "maternity"
 				}")
 				
 				// returns:
 				{
 					scope: {
-						"scope": 12, // the number of months to display for data set 
-						"firstMonth": "01", // the first month to display from
+						"scope": 27, // the number of months to display for data set 
+						"firstMonth": "1", // the first month to display from
 						"firstYear": "2011" // the first year to display from
 						},
 					dates: [
-						{"summary": "Maternity starts",
-						"dtstart": "12-01-2011",
-						"dtend": "13-09-2011",
-						"duration": 105 // number of days segment lasts
+						{"summary": "Date you must tell your employer",
+						"dtstart": "5-11-2011",
+						"dtend": "5-11-2011",
+						"duration": 1, // number of days segment lasts
+						"id": "notify-employer"
 						},
 						{
-						"summary": "Extended maternity",
-						"dtstart": "12-01-2011",
-						"dtend": "14-02-2012",
-						"duration": 105
+						"summary": "Earliest you may start maternity",
+						"dtstart": "27-11-2011",
+						"dtend": "27-11-2011",
+						"duration": 1,
+						"id": "mat-leave"
 						},
 						{
-						"summary": "Last date to inform employer of leave",
-						"dtstart": "12-01-2011",
-						"dtend": "12-01-2011",
-						"duration": 1
-						}	
+						"summary": "Period of Ordinary Maternity Leave",
+						"dtstart": "16-1-2011",
+						"dtend": "15-7-2012",
+						"duration": 105,
+						"id": "ordinary-mat"
+						},
+						{
+						"summary": "Period of Additional Maternity Leave",
+						"dtstart": "16-7-2012",
+						"dtend": "12-1-2013",
+						"duration": 105,
+						"id": "additional-mat"
+						},
+						{
+						"summary": "Expected week of childbirth",
+						"dtstart": "12-2-2012",
+						"dtend": "18-2-2012",
+						"duration": 7,
+						"id": "expecting-week"
+						},
+						{
+						"summary": "Baby's due date",
+						"dtstart": "17-2-2012",
+						"dtend": "17-2-2012",
+						"duration": 1,
+						"id": "due-date"
+						}
 					]
 				}
 				
