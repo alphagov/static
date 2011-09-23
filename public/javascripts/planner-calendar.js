@@ -75,8 +75,8 @@ var AlphaCal = {
 	getDates: function(opts){
 		var data = {
 			scope: {
-				"scope": 27, // the number of months to display for data set 
-				"firstMonth": "1", // the first month to display from
+				"scope": 14, // the number of months to display for data set 
+				"firstMonth": "11", // the first month to display from
 				"firstYear": "2011" // the first year to display from
 				},
 			dates: [
@@ -95,15 +95,15 @@ var AlphaCal = {
 				},
 				{
 				"summary": "Period of Ordinary Maternity Leave",
-				"dtstart": "16-1-2011",
-				"dtend": "15-7-2012",
+				"dtstart": "28-11-2011",
+				"dtend": "27-5-2012",
 				"duration": 105,
 				"id": "ordinary-mat"
 				},
 				{
 				"summary": "Period of Additional Maternity Leave",
-				"dtstart": "16-7-2012",
-				"dtend": "12-1-2013",
+				"dtstart": "28-5-2012",
+				"dtend": "24-11-2012",
 				"duration": 105,
 				"id": "additional-mat"
 				},
@@ -123,12 +123,13 @@ var AlphaCal = {
 				}
 			]
 		}
-		/*Date you must tell your employer 05 November 2011
-    Earliest you may start maternity leave 27 November 2011
-    Period of Ordinary Maternity Leave January 16 2011 – July 15 2012
-    Period of Additional Maternity Leave July 16 2012 – January 12 2013
-    Expected week of childbirth February 12 2012 – February 18 2012
+		/*Date you must tell your employer 05 November, 2011
+    Earliest you may start maternity leave 27 November, 2011
+    Period of Ordinary Maternity Leave Monday, November 28, 2011 to Sunday, May 27, 2012
+    Period of Additional Maternity Leave Monday, May 28, 2012 to Saturday, November 24, 2012
+    Expected week of childbirth 12 February, 2012 to 18 February, 2012
     Baby's due date 17 February 2012
+
     */
 		return data;
 		// this will be for calling to the service

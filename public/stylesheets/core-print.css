@@ -4,7 +4,10 @@ body footer,
 body #global-user-location,
 body .related-positioning,
 body .key-dates ul,
-body div.date-planner p{
+body div.date-planner p,
+body .intro,
+body #wrapper.wrapper hgroup h1,
+body header{
 	display:none;
 }
 div#wrapper hgroup span,
@@ -18,28 +21,36 @@ div#wrapper{
 	width:100%;
 	float:none;
 }
-td.mat-leave{
-
+td.ordinary-mat{
 	color:yellow;
-	font-weight:bold;
 }
-td.mat-leave-post{
 
-	color:green;
-	font-weight:bold;
-}
-td.key-date{
-
-	color:red;
-	font-weight:bold;
-}
-td.mat-start{
-
+td.additional-mat{
 	color:blue;
-	font-weight:bold;
+}
+td.expecting-week{
+	color:cyan;
 }
 
-body section {
+/* single days, more important */
+td.mat-leave{
+	color:orange;
+}
+td.notify-employer{
+	color:red;
+}
+td.due-date{
+	color:magenta;
+}
+
+/* planner calendars e.g. maternity leave */
+.planner table{
+
+	height: 16em;
+}
+
+body section,
+body #wrapper.wrapper article {
     margin: 0;
 		padding: 0;
     width: 100%;
@@ -50,5 +61,8 @@ div.date-planner table{
 }
 div.date-planner{
 	overflow:auto;
+
+}
+.key-dates{
 	page-break-after: always;
 }
