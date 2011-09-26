@@ -1,0 +1,68 @@
+/* Print stylesheets for stuff defined in core.css */
+body header[role="banner"],
+body footer,
+body #global-user-location,
+body .related-positioning,
+body .key-dates ul,
+body div.date-planner p,
+body .intro,
+body #wrapper.wrapper hgroup h1,
+body header{
+	display:none;
+}
+div#wrapper hgroup span,
+div#wrapper hgroup,
+div#wrapper h1{
+	margin:0;
+	padding:0;
+}
+div#wrapper{
+	margin:0;
+	width:100%;
+	float:none;
+}
+td.ordinary-mat{
+	color:#d9e7fb;
+}
+
+td.additional-mat{
+	color:#a8a9ff;
+}
+td.expecting-week{
+	color:cyan;
+}
+
+/* single days, more important */
+td.mat-leave{
+	color:orange;
+}
+td.notify-employer{
+	color:red;
+}
+td.due-date{
+	color:magenta;
+}
+
+/* planner calendars e.g. maternity leave */
+.planner table{
+
+	height: 16em;
+}
+
+body section,
+body #wrapper.wrapper article {
+    margin: 0;
+		padding: 0;
+    width: 100%;
+}
+div.date-planner table{
+	margin:0 0.5em 0.5em 0;
+	min-height:15em;
+}
+div.date-planner{
+	overflow:auto;
+
+}
+.key-dates{
+	page-break-after: always;
+}
