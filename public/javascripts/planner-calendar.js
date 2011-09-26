@@ -1,3 +1,8 @@
+/**
+	@name AlphaCal
+	@namespace
+	@description A set of methods for showing calendars and applying dates to them
+*/
 var AlphaCal = {
 	/**
 		@name AlphaCal.getDates
@@ -260,7 +265,8 @@ var AlphaCal = {
 		@param JSON dates A JSON object defining the dates you wish to display
 		
 		@example
-			// will apply dates to a calendar that resides in #calendar.  The data should be of the form, with expected values of summary, dtstart, dtend, duration and id:
+			// will apply dates to a calendar that resides in #calendar.  
+			// The data should be of the form, with expected values of summary, dtstart, dtend, duration and id:
 			var data = {
 				dates: [
 					{"summary": "Date you must tell your employer",
@@ -322,6 +328,5 @@ var AlphaCal = {
 
 	 */
 	}
-	
 	
 }
