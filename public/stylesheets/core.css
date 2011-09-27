@@ -49,7 +49,6 @@ body {
 	margin: 0 auto;
 	padding: 1em;
 	position: relative;
-	width: 95%;
 }
 
 section {
@@ -90,7 +89,7 @@ a[rel="external"] {
  * Global header
  */
 
-header#global-header {
+#global-header {
 	background-color: #333;
 	border-bottom: solid 1px #E5E5E5;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -104,16 +103,16 @@ header#global-header {
 	z-index: 99999;
 }
 
-header#global-header .inner {
+#global-header .inner {
 	padding: 0 1em;
 }
 
-header#global-header hgroup {
+#global-header hgroup {
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	max-width: 50%;
 }
 
-header#global-header h1 {
+#global-header h1 {
 	background: url('/images/templogo.png') no-repeat 0 0;
 	display: inline-block;
 	font-size: 120%;
@@ -123,80 +122,80 @@ header#global-header h1 {
 	padding-left: 2.5em;
 }
 
-header#global-header a,
-header#global-header a:active {
+#global-header a,
+#global-header a:active {
 	color: #fff;
 }
 
-header#global-header a:focus,
-header#global-header a:hover {
+#global-header a:focus,
+#global-header a:hover {
 	color: #fff;
 }
 
-header#global-header h1 a {
+#global-header h1 a {
 	text-decoration: none;
 	text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
 }
 
-header#global-header h1 a:focus,
-header#global-header h1 a:hover {
+#global-header h1 a:focus,
+#global-header h1 a:hover {
 	color: #fff;
 	border-bottom: 1px solid #fff;
 	padding-bottom: 0.25em;
 	text-decoration: none;
 }
 
-header#global-header nav ul,
-header#global-header nav ol {
+#global-header nav ul,
+#global-header nav ol {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-header#global-header nav li {
+#global-header nav li {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-header#global-header .header-global nav {
+#global-header .header-global nav {
 	float: right;
 	margin-right: 17em;
 	padding: 0.7em;
 }
 
-header#global-header .header-global nav ul {
+#global-header .header-global nav ul {
 	line-height: 1em;
 }
 
-header#global-header .header-global nav li {
+#global-header .header-global nav li {
 	border-right: solid 1px #595959;
 	font-size: 0.75em;
 	margin-left: 1em;
 	padding-right: 1.25em;
 }
 
-header#global-header .header-global nav li:last-child {
+#global-header .header-global nav li:last-child {
 	border-right: none;
 	padding-right: 0;
 }
 
-header#global-header .header-global nav li a {
+#global-header .header-global nav li a {
 	color: #d8d8d8;
 }
 
-header#global-header .header-context nav li a {
+#global-header .header-context nav li a {
 	background: url(/images/section-divider-arrow.png) no-repeat 0 50%;
 	display: block;
 	font-size: 0.8em;
 	padding: 0.25em 0.25em 0.25em 1.5em;
 }
 
-header#global-header .header-context nav li:first-child a {
+#global-header .header-context nav li:first-child a {
 	background: none;
 	padding-left: 0.25em;
 }
 
-header#global-header .header-context {
+#global-header .header-context {
 	border-top: solid 1px;
 	border-right: solid 1px;
 	margin-right: 0.4em;
