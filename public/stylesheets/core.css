@@ -90,7 +90,7 @@ a[rel="external"] {
  * Global header
  */
 
-header[role="banner"] {
+header#global-header {
 	background-color: #333;
 	border-bottom: solid 1px #E5E5E5;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -104,16 +104,16 @@ header[role="banner"] {
 	z-index: 99999;
 }
 
-header[role="banner"] .inner {
+header#global-header .inner {
 	padding: 0 1em;
 }
 
-header[role="banner"] hgroup {
+header#global-header hgroup {
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	max-width: 50%;
 }
 
-header[role="banner"] h1 {
+header#global-header h1 {
 	background: url('/images/templogo.png') no-repeat 0 0;
 	display: inline-block;
 	font-size: 120%;
@@ -123,82 +123,80 @@ header[role="banner"] h1 {
 	padding-left: 2.5em;
 }
 
-header[role="banner"] a,
-header[role="banner"] a:active {
+header#global-header a,
+header#global-header a:active {
 	color: #fff;
 }
 
-header[role="banner"] a:focus,
-header[role="banner"] a:hover {
+header#global-header a:focus,
+header#global-header a:hover {
 	color: #fff;
 }
 
-header[role="banner"] h1 a {
+header#global-header h1 a {
 	text-decoration: none;
 	text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
 }
 
-header[role="banner"] h1 a:focus,
-header[role="banner"] h1 a:hover {
+header#global-header h1 a:focus,
+header#global-header h1 a:hover {
 	color: #fff;
 	border-bottom: 1px solid #fff;
 	padding-bottom: 0.25em;
 	text-decoration: none;
 }
 
-header[role="banner"] nav ul,
-header[role="banner"] nav ol {
+header#global-header nav ul,
+header#global-header nav ol {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-header[role="banner"] nav li {
+header#global-header nav li {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-header[role="banner"] .header-global nav {
+header#global-header .header-global nav {
 	float: right;
 	margin-right: 17em;
 	padding: 0.7em;
 }
 
-header[role="banner"] .header-global nav ul {
+header#global-header .header-global nav ul {
 	line-height: 1em;
 }
 
-header[role="banner"] .header-global nav li {
+header#global-header .header-global nav li {
 	border-right: solid 1px #595959;
 	font-size: 0.75em;
 	margin-left: 1em;
 	padding-right: 1.25em;
-/*	text-transform: uppercase;*/
 }
 
-header[role="banner"] .header-global nav li:last-child {
+header#global-header .header-global nav li:last-child {
 	border-right: none;
 	padding-right: 0;
 }
 
-header[role="banner"] .header-global nav li a {
-	color: #bbb;
+header#global-header .header-global nav li a {
 	color: #d8d8d8;
 }
 
-header[role="banner"] .header-context nav li a {
+header#global-header .header-context nav li a {
 	background: url(/images/section-divider-arrow.png) no-repeat 0 50%;
 	display: block;
 	font-size: 0.8em;
 	padding: 0.25em 0.25em 0.25em 1.5em;
 }
 
-header[role="banner"] .header-context nav li:first-child a {
+header#global-header .header-context nav li:first-child a {
 	background: none;
 	padding-left: 0.25em;
 }
 
-header[role="banner"] .header-context {
+header#global-header .header-context {
 	border-top: solid 1px;
 	border-right: solid 1px;
 	margin-right: 0.4em;
@@ -206,8 +204,8 @@ header[role="banner"] .header-context {
 	position: relative;
 }
 
-header[role="banner"] .header-context.citizen,
-header[role="banner"] .header-context.citizen .search-help {
+#global-header .header-context.citizen,
+#global-header .header-context.citizen .search-help {
 	background-color: #92AD54;
 	border-color: #B4D66B;
 }
