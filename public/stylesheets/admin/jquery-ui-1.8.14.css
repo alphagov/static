@@ -298,7 +298,7 @@
 /* IE/Win - Fix animation bug - #4615 */
 .ui-accordion { width: 100%; }
 .ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; width: auto; }
-.ui-accordion h3.ui-accordion-header:before { content: url('../../images/active_admin/icon-reorder-16.png'); position: absolute; top: 25%; left: 1em; }
+.ui-accordion h3.ui-accordion-header:before { content: url('/images/icon-publisher-reorder.png'); position: absolute; top: 25%; left: 1em; }
 .ui-accordion .ui-accordion-li-fix { display: inline; }
 .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
 .ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }

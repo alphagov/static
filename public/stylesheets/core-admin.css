@@ -38,10 +38,10 @@
 
 .gds-header {
 	background-color: #333;
-	border-bottom: solid 1px #efefef;
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
-	box-shadow: 0 1px 3px rgba(0,0,0,.25);
+	border-bottom: solid 0.063em #efefef;
+	-webkit-box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
+	-moz-box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
+	box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
 	color: #fff;
 	min-height: 1.5em;
 	position: relative;
@@ -60,7 +60,7 @@
 	font-size: 1.3em;
 	font-weight: bold;
 	margin-right: 2em;
-	text-shadow: 1px 1px 1px rgb(0,0,0);
+	text-shadow: 0.063em 0.063em 0.063em rgb(0,0,0);
 }
 
 .gds-menu {
@@ -108,7 +108,7 @@ a 				{ color: #2200C1; }
 a:hover 	{ color: #1D97FF; }
 a:visited { color: #5800AE; }
 a:active 	{ color: #c11; }
-
+a:focus 	{ border-width: 0.063em; color: #c11; }
 
 .ui-widget-content.new {
 	/* wrapper for new guide/answer/transaction forms */
@@ -404,31 +404,34 @@ input[disabled]:active {
 			display: inline-block;
 		}
 
+/* notifications */
 
-.flash-notice {
-	background-color: green;
-	color: #fff;
+.flash-notice,
+.flash-alert,
+.notification {
+	border: 0.063em solid #bbb;
+	-webkit-border-radius: 0.250em;
+	-moz-border-radius: 0.250em;
+	border-radius: 0.250em;
 	font-weight: bold;
 	margin-bottom: 1em;
 	padding: 1em;
 	text-align: center;
+}
+
+.flash-notice {
+	background-color: green;
+	color: #fff;
 }
 
 .flash-alert {
 	background-color: #c00;
 	color: #fff;
-	font-weight: bold;
-	margin-bottom: 1em;
-	padding: 1em;
-	text-align: center;
 }
 
 .notification {
 	background-color: #FFFBBC;
-	font-weight: bold;
-	margin-bottom: 1em;
-	padding: 1em;
-	text-align: center;
+	padding: 0 1em 1em;
 }
 
 .return:before {
@@ -479,6 +482,6 @@ td.imminence-actions {
 	color: #585858;
 	font-size: 0.8em;
 }
-#programme-nav .ui-accordion h3.ui-accordion-header:before { 
+#programme-nav .ui-accordion h3.ui-accordion-header:before {
 	display:none;
 	}
