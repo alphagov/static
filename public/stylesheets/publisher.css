@@ -109,6 +109,7 @@
 section {
 	margin: 6em auto 2em;
 	width: 100%;
+	* margin: 2em auto 2em;
 }
 
 	section header {
@@ -135,6 +136,7 @@ article {
 	position: relative;
   width: 75%;
 	z-index: 1;
+	* width: 74.999%;
 }
 
 article .inner {
@@ -227,31 +229,23 @@ aside li a:focus {
 	color: #fff;
 }
 
-	aside li.active a:hover {
-		background: #fff;
-		color: #1576FB;
-	}
+aside li.active a:hover {
+	background: #fff;
+	color: #1576FB;
+}
 
 aside li a .part-label {
 	color: #3f3f3f;
 	display: block;
 	font-size: 0.6em;
-/*
-	padding: 0.1em 0.35em;
-	position: relative;
-*/
 	text-transform: uppercase;
-/*	top: -0.2em;*/
 }
 
 aside li a:hover .part-label {
-/*	background: #fff;
-	color: #1576FB; */
 	color: #fff;
 }
 
 aside li.active a:hover .part-label {
-/*	background: rgba(0,0,0,0.4);*/
 	color: #1576FB;
 }
 
@@ -534,6 +528,7 @@ article header h1 {
   margin-top: 0;
   margin-bottom: 0;
 	padding-bottom: 0.75em;
+	* zoom: 1;
 }
 
 article header h1 span {
