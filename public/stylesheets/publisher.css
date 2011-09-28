@@ -133,9 +133,8 @@ article {
 	float: left;
 	min-height: 40em;
 	position: relative;
-/*  width: 75%;*/
 	z-index: 1;
-	* width: 74.999%;
+	* float: none;
 }
 
 article .inner {
@@ -143,10 +142,15 @@ article .inner {
 	width: auto;
 }
 
+#wrapper.guide article {
+	width: 75%;
+	* width: 74.999%;
+	* float: left;
+}
+
 #wrapper.section article,
 #wrapper.answer article {
 	margin-right: 12em;
-	* margin-right: 0;
 }
 
 .guide article .inner {
