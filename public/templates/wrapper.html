@@ -15,32 +15,9 @@
 	<script src="/javascripts/jquery.base64.js" type="text/javascript"></script>
 	<script src="/javascripts/devolution.js" type="text/javascript"></script>
 
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE6">
-<!--[if IE 6]>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-
-<style>
- .chromeFrameInstallDefaultStyle {
-   width: 100%; /* default is 800px */
-   border: 5px solid blue;
- }
-</style>
-
-<div id="prompt">
-  <p>Google Chrome Frame! Yeah!</p>
-</div>
-
-<script>
- // The conditional ensures that this code will only execute in IE,
- // Therefore we can use the IE-specific attachEvent without worry
- window.attachEvent("onload", function() {
-   CFInstall.check({
-     mode: "inline", // the default
-     node: "prompt"
-   });
- });
-</script>
-<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>

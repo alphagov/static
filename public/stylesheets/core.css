@@ -44,6 +44,7 @@ body {
 	max-width: 960px;
 	width: 95%;
 	* background: yellow;
+	* width: 960px;
 }
 
 .inner {
@@ -53,8 +54,9 @@ body {
 }
 
 section {
-  margin: 6em auto 2em;
-  width: 100%;
+	margin: 6em auto 2em;
+	width: 100%;
+	* margin: 2em auto 2em;
 }
 
 ol, ul, nav ol, nav ul {
@@ -345,6 +347,7 @@ a[rel="external"] {
 	max-width: 960px;
 	position: relative;
 	width: 95%;
+	* width: 100%;
 }
 
 .related-container-two {
@@ -470,28 +473,21 @@ a[rel="external"] {
 	float: left;
 	font-size: 0.75em;
 	margin: 2em 0 0 4em;
-	* margin: 2em 0 2em 5%;
-	* padding: 1em 0;
-	* width: 80%;
-	* float: left;
-	* background: red;
+	* float: none;
 }
 
 .answer .meta-data,
 .transaction .meta-data,
 .local_transaction .meta-data {
 	margin: 0em 0 2em 4em;
-	* margin: 2em 0 2em 5%;
 }
 
 .guide .meta-data {
 	margin: 2em 1.5em;
-	* margin: 2em 0 2em 5%;
 }
 
 .place .meta-data {
 	margin: 2em 0;
-	* margin: 2em 0 2em 5%;
 }
 
 .meta-data ul,
