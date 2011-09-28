@@ -465,6 +465,59 @@ a[rel="external"] {
 }
 
 /*
+	page headers
+*/
+
+#wrapper hgroup {
+	background: #efece0;
+	border-bottom: none;
+	display: block;
+	margin: 0 14em 0 2em;
+	padding: 1em 1em 0;
+}
+
+#wrapper hgroup h1 {
+	background-repeat: no-repeat;
+	color: inherit;
+	font-size: 1.8em;
+	min-height: 2.5em;
+	line-height: 1.05em;
+	padding: 0.2em 0 0.5em 2.2em;
+}
+
+#wrapper hgroup span {
+	display: block;
+	font-size: 0.4em;
+	font-weight: bold;
+	line-height: 1em;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	text-shadow: none;
+}
+
+/*
+	articles
+*/
+
+article {
+	background: #fff;
+	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	float: left;
+	margin-right: 12em;
+	min-height: 40em;
+	position: relative;
+	z-index: 1;
+	* float: none;
+}
+
+article .inner {
+	padding: 2em 3em;
+	width: auto;
+}
+
+/*
  * Text styles for articles.
  * It's kind of like typography innit.
 */
