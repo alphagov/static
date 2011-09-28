@@ -10,8 +10,9 @@
 #wrapper.place hgroup,
 #wrapper.transaction hgroup,
 #wrapper.local_transaction hgroup {
-	margin-top: -1em;
-	margin-right: 12.5em;
+/*	margin-top: -1em;*/
+/*	margin-right: 12.5em;*/
+	margin-left: 2em;
 }
 
 #wrapper.answer hgroup,
@@ -142,13 +143,8 @@ article .inner {
 	* float: left;
 }
 
-#wrapper.section article,
-#wrapper.answer article {
-	margin-right: 12em;
-}
-
 .guide article .inner {
-	padding-bottom: 0;
+	padding-bottom: 1em;
 }
 
 #wrapper.section article,
@@ -156,8 +152,7 @@ article .inner {
 #wrapper.transaction article,
 #wrapper.local_transaction article,
 #wrapper.answer article {
-/*	top: -1em;*/
-/*	width: 80%;*/
+	margin-right: 12em;
 }
 
 #wrapper.answer article {
