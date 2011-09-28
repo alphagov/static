@@ -44,8 +44,8 @@ td.due-date{
 }
 
 /* planner calendars e.g. maternity leave */
-.planner table{
-
+div#calendar table{
+	margin-bottom:3.5em;
 	height: 16em;
 }
 
