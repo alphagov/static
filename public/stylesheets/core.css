@@ -1536,15 +1536,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 .date-planner .button{
-	 background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
-	 border: 1px solid rgba(0, 0, 0, 0.25);
-	 border-radius: 4px 4px 4px 4px;
-	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-	 color: #FFFFFF;
-	 cursor: pointer;
-	 padding: 7px 10px 8px;
-	 text-decoration: none;
-	 text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 7px 10px 8px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
 	margin:0.5em 0;
 }
 /* Error messages */
