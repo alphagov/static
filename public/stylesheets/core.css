@@ -464,13 +464,124 @@ a[rel="external"] {
 	display: none;
 }
 
+/*
+ * Text styles for articles.
+ * It's kind of like typography innit.
+*/
+
+article header h1 {
+	border-bottom: solid 1px #ddd;
+  font-size: 1.65em;
+  line-height: 1.15em;
+  margin-top: 0;
+  margin-bottom: 0;
+	padding-bottom: 0.75em;
+	* zoom: 1;
+}
+
+article header h1 span {
+	color: #666;
+	display: block;
+	font-size: 0.6em;
+	font-weight: normal;
+	line-height: 1em;
+	margin-bottom: 0.4em;
+	text-transform: uppercase;
+}
+
+article h2 {
+	border-bottom: solid 1px #ddd;
+  font-size: 1.25em;
+  line-height: 1.18em;
+  margin-top: 1.2em;
+  margin-bottom: 0.2em;
+	padding-bottom: 0.2em;
+}
+
+article h3 {
+  font-size: 1.15em;
+  line-height: 1.11em;
+  margin-top: 1.304em;
+  margin-bottom: 0;
+}
+
+article h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+article h2 + p,  article h3 + p,  article h4 + p,
+article h2 + ol, article h3 + ol, article h4 + ol,
+article h2 + ul, article h3 + ul, article h4 + ul {
+	margin-top: 0.2em;
+}
+
+article p, article ul, article ol {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0.75em 0;
+}
+
+article p.large-text {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin: 0.46em 0;
+}
+
+article p.small-text {
+  font-size: 0.75em;
+  line-height: 1.5em;
+  margin: 1em 0;
+}
+
+article ul, article ol {
+  padding-left: 1.5em;
+}
+
+article ul {
+  list-style-type: disc;
+}
+
+article ol {
+  list-style-type: decimal;
+}
+
+article .application-notice p {
+  font-size: 0.88em;
+}
+
+article table ul {
+  padding-left: 0.75em;
+  margin: 0;
+  font-weight: bold;
+}
+
+article table ul li:last-child {
+  margin-bottom: 0;
+}
+
+article dl {
+  margin-top: 1.5em;
+  margin-bottom: 1.88em;
+}
+
+article dt {
+  margin-bottom: 0.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+article dd {
+  margin-bottom: 0.75em;
+}
+
 /* Meta-data */
 .meta-data {
 	border-top: dotted 1px #bbb;
 	clear: both;
 	color: #7F7F7F;
 	float: left;
-	font-size: 0.75em;
+	font-size: 0.8em;
 	margin: 2em 0 0 4em;
 	* float: none;
 }
@@ -489,15 +600,12 @@ a[rel="external"] {
 	margin: 2em 0;
 }
 
-.meta-data ul,
-.meta-data li,
-.key-dates ul,
-.key-dates ul li {
+.meta-data ul.api-links,
+.meta-data .api-links li {
 	display: inline;
 }
 
-.meta-data li a,
-.key-dates li a {
+.meta-data .api-links li a {
 	background-color: #bbb;
 	-webkit-border-radius: 0.25em;
 	-moz-border-radius: 0.25em;
@@ -509,18 +617,15 @@ a[rel="external"] {
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 }
-.meta-data li a:focus,
-.meta-data li a:active,
-.meta-data li a:hover,
-.key-dates ul li a:focus,
-.key-dates ul li a:active,
-.key-dates ul li a:hover {
+
+.meta-data .api-links li a:focus,
+.meta-data .api-links li a:active,
+.meta-data .api-links li a:hover {
 	background-color: #1D97FF;
 	text-decoration: underline;
 }
 
-.api-links,
-.key-dates ul {
+.api-links {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -545,11 +650,6 @@ div[role="contentinfo"] .copyright{
 	width: 22%;
 }
 
-/*
-div[role="contentinfo"] .copyright a {
-	color: #999;
-}
-*/
 div[role="contentinfo"] .project {
 	padding-top: 1.5em;
 	width: 20%;
