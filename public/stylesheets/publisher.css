@@ -6,19 +6,18 @@
 	padding: 1em 1em 0;
 }
 
-	#wrapper.section hgroup,
-	#wrapper.place hgroup,
-	#wrapper.transaction hgroup,
-	#wrapper.local_transaction hgroup {
-		margin-top: -1em;
-		margin-right: 12.5em;
-	}
+#wrapper.section hgroup,
+#wrapper.place hgroup,
+#wrapper.transaction hgroup,
+#wrapper.local_transaction hgroup {
+	margin-top: -1em;
+	margin-right: 12.5em;
+}
 
-	#wrapper.answer hgroup,
-	#wrapper.programme hgroup {
-		margin-right: 14em;
-		margin-left: 1.5em;
-	}
+#wrapper.answer hgroup,
+#wrapper.programme hgroup {
+	margin-left: 2em;
+}
 
 #wrapper hgroup h1 {
 	background-repeat: no-repeat;
@@ -43,66 +42,66 @@
 #wrapper.section hgroup h1 {
 	background-image: url('/images/icon-section-l.png');
 }
-	#wrapper.section hgroup h1 span {
-		color: #000;
-	}
+#wrapper.section hgroup h1 span {
+	color: #000;
+}
 
 /* Answers */
 #wrapper.answer hgroup h1 {
 	background-image: url('/images/icon-answer-l.png');
 }
-	#wrapper.answer hgroup h1 span {
-		color: #1C7000;
-	}
+#wrapper.answer hgroup h1 span {
+	color: #1C7000;
+}
 
 /* Guides */
 #wrapper.guide hgroup h1 {
 	background-image: url('/images/icon-guide-l.png');
 }
-	#wrapper.guide hgroup h1 span {
-		color: #68009F;
-		color: #157eb8;
-	}
+#wrapper.guide hgroup h1 span {
+	color: #68009F;
+	color: #157eb8;
+}
 
 /* Transactions */
 #wrapper.transaction hgroup h1 {
 	background-image: url('/images/icon-transaction-l.png');
 }
-	#wrapper.transaction hgroup h1 span {
-		color: #c00;
-	}
+#wrapper.transaction hgroup h1 span {
+	color: #c00;
+}
 
 /* Local Transactions */
 #wrapper.local_transaction hgroup h1 {
 	background-image: url('/images/icon-localtransaction-l.png');
 }
-	#wrapper.local_transaction hgroup h1 span {
-		color: #A93D00;
-	}
+#wrapper.local_transaction hgroup h1 span {
+	color: #A93D00;
+}
 
 /* Programmes */
 #wrapper.programme hgroup h1 {
 	background-image: url('/images/icon-programme-l.png');
 }
-	#wrapper.programme hgroup h1 span {
-		color: #000;
-	}
+#wrapper.programme hgroup h1 span {
+	color: #000;
+}
 
 /* Places */
 #wrapper.place hgroup h1 {
 	background-image: url('/images/icon-nearest-l.png');
 }
-	#wrapper.place hgroup h1 span {
-		color: #666;
-	}
+#wrapper.place hgroup h1 span {
+	color: #666;
+}
 
 /* Smart Answers */
 #wrapper.smartanswer hgroup h1 {
 	background-image: url('/images/icon-smart-answer-l.png');
 }
-	#wrapper.place hgroup h1 span {
-		color: #2929a3;
-	}
+#wrapper.place hgroup h1 span {
+	color: #2929a3;
+}
 
 
 
@@ -112,19 +111,19 @@ section {
 	* margin: 2em auto 2em;
 }
 
-	section header {
-		clear: both;
-	}
+section header {
+	clear: both;
+}
 
-		section header hgroup {
-			display: inline-block;
-		}
+section header hgroup {
+	display: inline-block;
+}
 
-		.article-and-navigation {
-			background: #efece0;
-			border-top: none;
-			margin-right: 12em;
-		}
+.article-and-navigation {
+	background: #efece0;
+	border-top: none;
+	margin-right: 12em;
+}
 
 article {
 	background: #fff;
@@ -134,7 +133,7 @@ article {
 	float: left;
 	min-height: 40em;
 	position: relative;
-  width: 75%;
+/*  width: 75%;*/
 	z-index: 1;
 	* width: 74.999%;
 }
@@ -144,38 +143,39 @@ article .inner {
 	width: auto;
 }
 
-	#wrapper.section article,
-	#wrapper.answer article {
-		margin-right: 12em;
-	}
+#wrapper.section article,
+#wrapper.answer article {
+	margin-right: 12em;
+	* margin-right: 0;
+}
 
-	.guide article .inner {
-		padding-bottom: 0;
-	}
+.guide article .inner {
+	padding-bottom: 0;
+}
 
-	#wrapper.section article,
-	#wrapper.place article,
-	#wrapper.transaction article,
-	#wrapper.local_transaction article,
-	#wrapper.answer article {
-		top: -1em;
-		width: 80%;
-	}
+#wrapper.section article,
+#wrapper.place article,
+#wrapper.transaction article,
+#wrapper.local_transaction article,
+#wrapper.answer article {
+/*	top: -1em;*/
+/*	width: 80%;*/
+}
 
-	#wrapper.answer article {
-		top: 0;
-	}
+#wrapper.answer article {
+	top: 0;
+}
 
 
-	article header {
-		background: none;
-		border-bottom: none;
-		margin: 0.25em 0 1em;
-	}
+article header {
+	background: none;
+	border-bottom: none;
+	margin: 0.25em 0 1em;
+}
 
-	article footer {
-		width: 100%;
-	}
+article footer {
+	width: 100%;
+}
 
 aside {
 	float: left;
@@ -260,21 +260,30 @@ aside li a .part-title {
 	border-top: solid 1px #bbb;
 	display: block;
 	margin: 2em -2em 1em -2em;
+	* margin: 0;
+	* display: none;
 }
 
 .pagination ul {
 	margin: 0;
 	padding: 0.5em 0;
+	* display: inline;
 }
 
 .pagination li {
+	float: left;
 	list-style: none;
+	* float: none;
+	* height: 5em;
+	* background: red;
+	* display: inline;
 }
 
 .pagination li a {
 	display: block;
 	padding: 0.5em;
 	position: relative;
+	* display: inline;
 }
 
 .pagination li a:hover {
@@ -287,11 +296,14 @@ aside li a .part-title {
 	box-sizing: border-box;
 	float: left;
 	width: 11em;
+	* border: none;
+	* float: none;
 }
 
 .pagination .next a {
 	float: right;
 	width: 20em;
+	* float: none;
 }
 .pagination .first {
 	border-right: solid 1px #bbb;
@@ -798,19 +810,19 @@ article .place .address {
 	width: auto;
 }
 
-	article .place .address p {
-		font-size: 1em;
-		margin-bottom: 1em;
-	}
+article .place .address p {
+	font-size: 1em;
+	margin-bottom: 1em;
+}
 
-	article .place .address span {
-		display: block;
-	}
+article .place .address span {
+	display: block;
+}
 
-	article .place .url {
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+article .place .url {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 article .place .additional-information {
 	border-top: dashed 1px #bbb;
