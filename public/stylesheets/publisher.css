@@ -2,22 +2,8 @@
 	background: #efece0;
 	border-bottom: none;
 	display: block;
-	margin-right: 14em;
+	margin: 0 14em 0 2em;
 	padding: 1em 1em 0;
-}
-
-#wrapper.section hgroup,
-#wrapper.place hgroup,
-#wrapper.transaction hgroup,
-#wrapper.local_transaction hgroup {
-/*	margin-top: -1em;*/
-/*	margin-right: 12.5em;*/
-	margin-left: 2em;
-}
-
-#wrapper.answer hgroup,
-#wrapper.programme hgroup {
-	margin-left: 2em;
 }
 
 #wrapper hgroup h1 {
@@ -105,7 +91,6 @@
 }
 
 
-
 section header {
 	clear: both;
 }
@@ -159,45 +144,34 @@ article .inner {
 	top: 0;
 }
 
-
-article header {
-	background: none;
-	border-bottom: none;
-	margin: 0.25em 0 1em;
-}
-
-article footer {
-	width: 100%;
-}
-
-aside {
+#wrapper.guide aside {
 	float: left;
   width: 25%;
 }
 
-aside .inner {
+#wrapper.guide aside .inner {
 	padding: 0;
 	width: 100%;
 }
 
-aside nav {
+aside .chapters-navigation {
 	display: block;
 	float: right;
 	margin-top: 1em;
 	width: 95%;
 }
 
-aside ol {
+aside .chapters-navigation ol {
 	font-size: 0.8em;
 	margin: 0;
 	padding: 0;
 }
 
-aside li {
+aside .chapters-navigation li {
 	list-style: none;
 }
 
-aside li a {
+aside .chapters-navigation li a {
 	-webkit-border-radius: 0.5em 0 0 0.5em;
 	-moz-border-radius: 0.5em 0 0 0.5em;
 	border-radius: 0.5em 0 0 0.5em;
@@ -207,7 +181,7 @@ aside li a {
 	text-decoration: none;
 }
 
-aside li.active a {
+aside .chapters-navigation li.active a {
 	background: #fff;
 	border: 1px solid #ddd;
 	border-right: none;
@@ -216,33 +190,33 @@ aside li.active a {
 	z-index: 2;
 }
 
-aside li a:hover,
-aside li a:focus {
+aside .chapters-navigation li a:hover,
+aside .chapters-navigation li a:focus {
 	background: #1576FB;
 	color: #fff;
 }
 
-aside li.active a:hover {
+aside .chapters-navigation li.active a:hover {
 	background: #fff;
 	color: #1576FB;
 }
 
-aside li a .part-label {
+aside .chapters-navigation li a .part-label {
 	color: #3f3f3f;
 	display: block;
 	font-size: 0.6em;
 	text-transform: uppercase;
 }
 
-aside li a:hover .part-label {
+aside .chapters-navigation li a:hover .part-label {
 	color: #fff;
 }
 
-aside li.active a:hover .part-label {
+aside .chapters-navigation li.active a:hover .part-label {
 	color: #1576FB;
 }
 
-aside li a .part-title {
+aside .chapters-navigation li a .part-title {
 	text-decoration: underline;
 }
 
@@ -440,6 +414,23 @@ aside li a .part-title {
 	border-bottom: none;
 }
 
+#wrapper.answer article .summary {
+	border-left: solid 4px #bbb;
+  font-size: 1.15em;
+  line-height: 1.11em;
+	font-weight: bold;
+	margin: 0 0.75em 1.25em 0.75em;
+	padding-left: 1em;
+}
+
+/*#wrapper.answer article h2 {
+	border-bottom: none;
+  font-size: 1.15em;
+  line-height: 1.11em;
+  margin-top: 1.304em;
+  margin-bottom: 0;
+}*/
+
 /*
  * Helper icons
  */
@@ -517,172 +508,15 @@ ul.helpers {
 		background-position: -3% 35%;
 	}
 
-
-
-
-
 /*
- * Text styles for articles, used in example apps.
- * It's kind of like typography innit.
+	markdown output
 */
-
-article header h1 {
-	border-bottom: solid 1px #ddd;
-  font-size: 1.65em;
-  line-height: 1.15em;
-  margin-top: 0;
-  margin-bottom: 0;
-	padding-bottom: 0.75em;
-	* zoom: 1;
-}
-
-article header h1 span {
-	color: #666;
-	display: block;
-	font-size: 0.6em;
-	font-weight: normal;
-	line-height: 1em;
-	margin-bottom: 0.4em;
-	text-transform: uppercase;
-}
-
-article h2 {
-	border-bottom: solid 1px #ddd;
-  font-size: 1.25em;
-  line-height: 1.18em;
-  margin-top: 1.2em;
-  margin-bottom: 0.2em;
-	padding-bottom: 0.2em;
-}
-	#wrapper.answer article h2 {
-		border-bottom: none;
-	  font-size: 1.15em;
-	  line-height: 1.11em;
-	  margin-top: 1.304em;
-	  margin-bottom: 0;
-	}
-
-article h3 {
-  font-size: 1.15em;
-  line-height: 1.11em;
-  margin-top: 1.304em;
-  margin-bottom: 0;
-}
-
-article h4 {
-  margin-top: 1.5em;
-  margin-bottom: 0;
-}
-
-article h2 + p,  article h3 + p,  article h4 + p,
-article h2 + ol, article h3 + ol, article h4 + ol,
-article h2 + ul, article h3 + ul, article h4 + ul {
-	margin-top: 0.2em;
-}
-
-article p, article ul, article ol {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin: 0.75em 0;
-}
-
-article p.large-text {
-  font-size: 1.63em;
-  line-height: 1.15em;
-  margin: 0.46em 0;
-}
-
-article p.small-text {
-  font-size: 0.75em;
-  line-height: 1.5em;
-  margin: 1em 0;
-}
-
-article ul, article ol {
-  padding-left: 1.5em;
-}
-
-article ul {
-  list-style-type: disc;
-}
-
-article ol {
-  list-style-type: decimal;
-}
-
-article .application-notice p {
-  font-size: 0.88em;
-}
-/*
-article table {
-  margin: 0em 0;
-  margin-left: -0.38em;
-  padding: 0;
-  border-collapse: separate;
-  border-spacing: 0.38em;
-}
-
-article th, article td {
-  vertical-align: top;
-  line-height: 1.3em;
-}
-
-article th {
-  padding: 0.75em 1em;
-}
-
-article td {
-  padding: 0.69em 1em 0.69em 1em;
-}
-
-article th {
-  text-align: left;
-  background: rgba(62,62,62,0.07);
-}
-
-article td {
-  background: #fff;
-  border: solid 1px #E9E8E7;
-}
-*/
-article table ul {
-  padding-left: 0.75em;
-  margin: 0;
-  font-weight: bold;
-}
-
-article table ul li:last-child {
-  margin-bottom: 0;
-}
-
-article dl {
-  margin-top: 1.5em;
-  margin-bottom: 1.88em;
-}
-
-article dt {
-  margin-bottom: 0.25em;
-  font-size: 1.25em;
-  font-weight: bold;
-}
-
-article dd {
-  margin-bottom: 0.75em;
-}
 
 article .summary {
 	font-size: 1.25em;
 	font-weight: bold;
 	margin: 0 0 1.25em 0;
 }
-	#wrapper.answer article .summary {
-		border-left: solid 4px #bbb;
-	  font-size: 1.15em;
-	  line-height: 1.11em;
-		font-weight: bold;
-		margin: 0 0.75em 1.25em 0.75em;
-		padding-left: 1em;
-	}
 
 article .example {
   background: #F2F2F2;
@@ -700,10 +534,9 @@ article .advisory {
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
-
   line-height: 1.3em;
  	margin: 1.25em 0;
-  padding: 1em 2.5em;
+  padding: 1em;
   text-align: center;
 }
 
