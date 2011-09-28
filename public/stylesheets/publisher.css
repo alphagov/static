@@ -77,6 +77,10 @@ section header hgroup {
 	margin-right: 12em;
 }
 
+#wrapper.guide header hgroup {
+	margin-left: 0;
+}
+
 #wrapper.guide article {
 	margin-right: 0;
 	width: 75%;
