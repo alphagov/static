@@ -2,7 +2,7 @@ $(document).ready(function() {
 	
 	// probably going to make this a generic script for all the planners, just needs to get a 'dataType' from the page to individualise.
 
-	$(".intro .button").click(function(){
+
 		// need to get the date and type from the form being submitted and pass to getDates();
 		var data = AlphaCal.getDates();
 
@@ -14,12 +14,9 @@ $(document).ready(function() {
 
 		AlphaCal.applyDates("#calendar", data.dates);
 		generateLegend(".key-dates", data.dates);
-		
-		return false;
-	});
+
 	
 	// this is probably too specialised for AlphaCal, but if it turns out it's not, it'll move.
-
 	function generateLegend(id, dates){
 		var l = dates.length,
 			li,

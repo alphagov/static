@@ -1431,6 +1431,27 @@ article .key-dates .summary{
 article .key-dates time{
 	font-weight:bold;
 }
+.related .actions li .button{
+	background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 7px 10px 6px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+.related .actions li{
+	padding: 0.7em 0 0.5em 0em;
+}
+.related .actions{
+	padding-top:1em;
+}
+.related .cta{
+	border:none;
+	background:none;
+}
 /* needs replacing when format is a real format i.e. ".wrapper" to ".planner" */
 #wrapper.wrapper article{
     top: -1em;
