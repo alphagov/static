@@ -256,10 +256,9 @@ input[disabled]:active {
 }
 
 .edition h3 {
-	display: inline-block;
-	min-width: 25%;
+	font-size: 1.5em;
+	margin: 0.5em 0;
 	padding-left: 1em;
-	width: 25%;
 }
 
 
@@ -272,18 +271,83 @@ input[disabled]:active {
 	display: none;
 }
 
-.edition .history li {
-	border-bottom: 0.063em solid #666;
-	list-style: none;
+.edition .history {
+	margin: 0;
+	padding: 0;
 }
 
-.edition .comment:before {
-	content: '\201C';
-}
+	.edition .history li {
+		background-color: #d8d8d8;
+		border-bottom: 0.063em solid #bbb;
+		list-style: none;
+		margin: 0 1em 0.5em;
+	}
 
-.edition .comment:after {
-	content: '\201D';
+.edition .history li div {
+	display: inline-block;
+	min-height: 6em;
+	vertical-align: top;
+	width: 20%;
 }
+	.edition .history li .action-time {
+		background-color: #fff;
+		margin-right: 1em;
+		padding-left: 0.5em;
+		width: 15%;
+	}
+		.edition .history li .action-time .time,
+		.edition .history li .action-by {
+			display: block;
+			font-size: 1.125em;
+			font-weight: bold;
+			line-height: 1.5em;
+		}
+
+	.edition .history li div.action-comment {
+		position: relative;
+		width: 50%;
+	}
+	.edition .history li div.action-comment img {
+		background-color: #eee;
+		-webkit-border-radius: 0.25em;
+		-moz-border-radius: 0.25em;
+		border-radius: 0.25em;
+		margin: 0.5em 0.25em 0;
+	}
+
+	.edition .history li div.action-comment blockquote {
+		background-color: #fff;
+		-webkit-border-radius: 0.25em;
+		-moz-border-radius: 0.25em;
+		border-radius: 0.25em;
+		border-bottom: 0.063em solid #bbb;
+		display: inline;
+		margin: 0;
+		min-height: 2em;
+		padding: 1em;
+		position: relative;
+		top: -3em;
+		left: 1.5em;
+		width: auto;
+	}
+
+	.edition .history li div.action-comment blockquote span {
+		display: inline-block;
+		word-wrap: break-word;
+	}
+
+	.edition .history li div.action-comment blockquote:after {
+		border-color: #d8d8d8 #fff #d8d8d8 #d8d8d8;
+		border-style: solid;
+		border-width: 10px 20px 10px 0;
+		content: '\00a0';
+		display: block;
+		height: 0;
+		width: 0;
+		position: absolute;
+		left: -20px;
+		top: 15px;
+	}
 
 .edition .history li h4 {
 	font-size: 1.2em;
