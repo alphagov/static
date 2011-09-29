@@ -83,7 +83,7 @@ a:active {
 }
 
 a[rel="external"] {
-	background: url(/images/external-link.png) 100% 0 no-repeat;
+	background: url(/images/external-link.png) 99% 50% no-repeat;
 	padding-right: 1.2em;
 }
 
