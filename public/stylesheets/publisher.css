@@ -380,7 +380,7 @@ aside .chapters-navigation li a .part-title {
   font-size: 1.15em;
   line-height: 1.11em;
 	font-weight: bold;
-	margin: 0 0.75em 1.25em 0.75em;
+	margin: 0 0.75em 1.25em 0;
 	padding-left: 1em;
 }
 
@@ -539,14 +539,15 @@ article .form-download a {
 }
 
 article .contact {
-  background: url('/images/icon-contact.png') 2% 20% no-repeat;
-	border: solid 2px #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
+	border: solid 1px #bbb;
+	border-top: solid 2px #fcc;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	box-sizing: border-box;
 	margin: 1em 0;
-	padding: 0 1.25em 0 2.75em;
-	width: 50%;
+	padding: 0.25em 1em;
+	width: 60%;
 }
 
 article .address {
@@ -579,9 +580,8 @@ article .place .map {
 
 article .place .information {
 	border-top: solid 2px #fcc;
-	margin-left: 13em;
+	margin-left: 13.5em;
 	min-height: 13em;
-	padding: 0 0.5em;
 }
 
 article .place .address {
