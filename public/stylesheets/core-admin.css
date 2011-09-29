@@ -256,9 +256,8 @@ input[disabled]:active {
 }
 
 .edition h3 {
-	font-size: 1.5em;
+	font-size: 1em;
 	margin: 0.5em 0;
-	padding-left: 1em;
 }
 
 .edition .history {
@@ -271,6 +270,12 @@ input[disabled]:active {
 		border-bottom: 0.063em solid #bbb;
 		list-style: none;
 		margin: 0 1em 0.5em;
+	}
+
+	.edition .buttons h3 {
+		font-size: 1.5em;
+		margin: 0.5em 0;
+		padding-left: 0.75em;
 	}
 
 .edition .history li div {
@@ -532,3 +537,53 @@ td.imminence-actions {
 #programme-nav .ui-accordion h3.ui-accordion-header:before {
 	display:none;
 	}
+
+
+/*
+ * Panopticon app
+ */
+
+#panopticon {
+	border: 1px solid #bbb;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+	padding: 1em 0 1em;
+}
+
+#panopticon fieldset {
+	margin: 0;
+}
+
+#panopticon fieldset legend {
+	margin-left: -0.25em;
+	padding: 0 0.25em;
+}
+
+#panopticon fieldset legend.label {
+	padding-left: 1em;
+}
+
+#panopticon fieldset.choices,
+#panopticon fieldset.related {
+	border: 1px solid #bbb;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+}
+	#panopticon fieldset.choices {
+		margin: 0;
+	}
+
+	#panopticon fieldset.related {
+		margin: 0 1em;
+	}
+
+#panopticon fieldset.choices ol.choices-group {
+}
+
+
+#panopticon .button {
+	margin: 1em 1em 0;
+}
+
