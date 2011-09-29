@@ -63,6 +63,31 @@
 .ui-widget-header { border-bottom: 1px solid #aaaaaa; color: #444; font-weight: bold; }
 .ui-widget-header a { color: #444; }
 
+.ui-widget-content dl {
+	padding: 0 1em;
+}
+
+.ui-widget-content dt {
+	font-size: 1em;
+	padding-top: 0;
+	margin-bottom: 0.5em;
+	width: auto;
+}
+
+.ui-widget-content dd {
+	background-color: #f5f5f5;
+	border: 1px solid #bbb;
+	color: #777;
+	cursor: default;
+	margin: 0 0 1em;
+	padding: 0.5em;
+}
+
+.ui-widget-content a.button {
+	margin-left: 1em;
+	padding: 0.5em 1em;
+}
+
 /* Interaction states
 ----------------------------------*/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: none; background: #d3d1c9; font-weight: normal; color: #555555; }
