@@ -261,16 +261,6 @@ input[disabled]:active {
 	padding-left: 1em;
 }
 
-
-.check {
-	display: inline-block;
-	text-align: right;
-	width: 72%;
-
-	/* temporarily commenting out diff buttons for first sprint */
-	display: none;
-}
-
 .edition .history {
 	margin: 0;
 	padding: 0;
