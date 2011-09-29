@@ -376,12 +376,13 @@ aside .chapters-navigation li a .part-title {
 }
 
 #wrapper.answer article .summary {
-	border-left: solid 4px #bbb;
+	background: url(/images/summary-arrow.png) no-repeat 0 0;
+/*	border-left: solid 4px #bbb;*/
   font-size: 1.15em;
   line-height: 1.11em;
 	font-weight: bold;
 	margin: 0 0.75em 1.25em 0;
-	padding-left: 1em;
+	padding-left: 1.5em;
 }
 
 /*#wrapper.answer article h2 {
