@@ -662,6 +662,10 @@ article ol.steps li:nth-child(7) {
 	position: relative;
 }
 
+#wrapper.programme article {
+	margin-right: 0;
+}
+
 #wrapper.programme .programme-switcher ul,
 #wrapper.programme .programme-progression ol {
 	list-style: none;
