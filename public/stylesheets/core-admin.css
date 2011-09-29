@@ -308,6 +308,8 @@ input[disabled]:active {
 .formats {
 	background-color: #fff;
 	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
 	font-size: 0.8em;
 	margin: 0 auto;
 	text-align: center;
@@ -319,14 +321,13 @@ input[disabled]:active {
 	}
 
 	.formats th, .formats td {
-		border: 0.063em solid #bbb;
-		border-right: 0.063em solid #eee;
-		border-width: 0.063em 0.063em 0.063em 0;
+		border-bottom: 0.125em solid #bbb;
+		border-right: 0.125em solid #d5d5d5;
 		padding: 0.4em 0.25em;
 	}
 
 		.formats th {
-			border-bottom: 0.125em solid #bbb;
+			border-bottom: 0.188em solid #bbb;
 			font-weight: bold;
 		}
 
@@ -343,6 +344,8 @@ input[disabled]:active {
 		}
 
 		.formats td:nth-child(2) {
+			border-bottom: 0.063em solid #bbb;
+			border-right: 0.063em solid #d5d5d5;
 			font-size: 1.3em;
 		  padding-left: 0.938em;
 			text-align: left;
@@ -376,7 +379,7 @@ input[disabled]:active {
 		    background-position: center right;
 		    cursor: pointer;
  		    padding-right: 1em;
-		    border-right: 0.063em solid #ccc;
+		    border-right: 0.125em solid #ccc;
 		}
 
 		th.headerSortUp {
@@ -387,11 +390,6 @@ input[disabled]:active {
 		th.headerSortDown {
 		    background-image: url(/images/desc.gif);
 		    background-color: #d7d7d7;
-		}
-
-		.formats th:last-child,
-		.formats td:last-child {
-			border-right: none;
 		}
 
 		.formats td form {
