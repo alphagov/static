@@ -506,10 +506,20 @@ article {
 	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	float: left;
 	margin-right: 12em;
-	min-height: 40em;
+	min-height: 30em;
 	position: relative;
 	z-index: 1;
 	* float: none;
+}
+
+.article-container {
+	background: #efece0;
+	border-top: none;
+	margin-right: 12em;
+}
+
+.article-container article {
+	margin-right: 0;
 }
 
 article .inner {
@@ -659,28 +669,29 @@ article td {
 
 /* Meta-data */
 .meta-data {
-	border-top: dotted 1px #bbb;
+/*	border-top: dotted 1px #bbb;*/
 	clear: both;
 	color: #7F7F7F;
 	float: left;
 	font-size: 0.8em;
-	margin: 2em 0 0 4em;
+	margin: 1em 0 2em 2em;
 	* float: none;
 }
 
-.answer .meta-data,
+/*.answer .meta-data,
 .transaction .meta-data,
 .local_transaction .meta-data {
 	margin: 0em 0 2em 4em;
-}
+}*/
 
 .guide .meta-data {
+	border-top: dotted 1px #bbb;
 	margin: 2em 1.5em;
 }
 
-.place .meta-data {
+/*.place .meta-data {
 	margin: 2em 0;
-}
+}*/
 
 .meta-data ul.api-links,
 .meta-data .api-links li {
