@@ -597,9 +597,9 @@ article ol {
   list-style-type: decimal;
 }
 
-article .application-notice p {
+/*article .application-notice p {
   font-size: 0.88em;
-}
+}*/
 
 article table ul {
   padding-left: 0.75em;

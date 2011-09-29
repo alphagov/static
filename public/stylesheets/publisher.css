@@ -517,11 +517,11 @@ article .info-notice p {
 }
 
 article .help-notice {
-  background: url('/images/application-notice-icon-default.png') 2% 50% no-repeat;
+  background: url('/images/application-notice-icon-default.png') 1em 50% no-repeat;
 }
 
 article .info-notice {
-  background: url('/images/application-info-icon-default.png') 2% 50% no-repeat;
+  background: url('/images/application-info-icon-default.png') 1em 50% no-repeat;
 }
 
 article .form-download {
