@@ -1600,3 +1600,52 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	font-weight:bold;
 	font-size:0.85em;
 }
+
+
+/* Smart answers - this block will probably move into the smart answer CSS in the new app */
+.questions{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+.questions li{
+	margin:0 0 0.5em 0;
+	border:4px solid #999;
+	border-radius:5px;
+	padding:0.5em;
+}
+.questions li.answered{
+	border:4px solid #eee;
+	border-radius:5px;
+	padding:0.2em 0.5em;
+}
+.question{
+	font-size:1.2em;
+	display:block;
+	padding:0;
+	margin:0;
+}
+.questions .button{
+	background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 7px 10px 8px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	margin:0.5em 0;
+}
+.questions .progress-question{
+	display:block;
+	clear:both;
+}
+
+.questions .yesno input{
+	margin-right:0.5em;
+}
+
+.questions label{
+	display:block;
+}
