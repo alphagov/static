@@ -2,7 +2,7 @@ $(document).ready(function() {
 //events
 
 
-	function devolutionSetup(){
+	function devolutionSetup() {
 	geo_data = AlphaGeo.readAndParseJSONCookie('geo');
 	var nation_name = geo_data.nation.toLowerCase();
 	//which countries should we hide?
@@ -67,9 +67,19 @@ $(document).ready(function() {
 		section.find('.devolved-header a').text('Show this');
 	}	
 	$(document).bind('location-changed', function(e, data) {
-		devolutionSetup();
+	  try {
+	    devolutionSetup();
+	  } catch (e) {
+	    return;
+	  }
+		
 	});
 	if($('.found_location').css("display") == "block"){
-		devolutionSetup();
+	  try {
+	    devolutionSetup();
+	  } catch (e) {
+	    return;
+	  }
+		
 	}
 });
