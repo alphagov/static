@@ -22,10 +22,32 @@
 	color: #68009F;
 	color: #157eb8;
 }
-
 #wrapper.guide header hgroup {
+	float: left;
+	min-height: 5.75em;
 	margin-left: 0;
+	margin-right: 0;
+	width: 38em;
 }
+.alternative-guide a {
+	background-color: #DFDFDF;
+	background-position: 50% 0.75em;
+	background-repeat: no-repeat;
+	display: block;
+	float: right;
+	margin-right: 12em;
+	min-height: 3em;
+	padding: 3.75em 1em 0 1em;
+	text-align: center;
+	width: 6em;
+}
+.alternative-guide a:hover, .alternative-guide a:focus {
+	background-color: #fff;
+}
+.alternative-guide.video a {
+	background-image: url(/images/icon-video-version.png);
+}
+
 #wrapper.guide article {
 	width: 75%;
 	* width: 74.999%;
@@ -99,6 +121,24 @@ aside .chapters-navigation li a .part-title {
 	text-decoration: underline;
 }
 
+.guide .meta-data {
+	border-top: dotted 1px #bbb;
+	margin: 2em 1.5em;
+}
+
+#wrapper.video-guide article {
+	width: 100%;
+}
+
+.video-guide article .inner {
+	padding-bottom: 2em;
+}
+
+.video-guide .meta-data {
+	border-top: none;
+	margin: 1em 0 2em 2em;
+}
+
 /* Transactions */
 #wrapper.transaction hgroup h1 {
 	background-image: url('/images/icon-transaction-l.png');
@@ -160,7 +200,6 @@ aside .chapters-navigation li a .part-title {
 	list-style: none;
 	* float: none;
 	* height: 5em;
-	* background: red;
 	* display: inline;
 }
 
@@ -332,7 +371,7 @@ aside .chapters-navigation li a .part-title {
 	border-bottom: none;
 }
 
-#wrapper.answer article .summary {
+#wrapper article .summary {
 	background: url(/images/summary-arrow.png) no-repeat 0 0;
 /*	border-left: solid 4px #bbb;*/
   font-size: 1.15em;
