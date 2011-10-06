@@ -43,29 +43,31 @@
 	-moz-box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
 	box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
 	color: #fff;
-	min-height: 1.5em;
+/*	min-height: 1.5em;*/
 	position: relative;
 	vertical-align: top;
 	width: 100%;
 }
 
 .gds-header .wrapper {
-	background: url('/images/gov.uk-crest.png') no-repeat 3% 12%;
+/*	background: url('/images/gov.uk-crest.png') no-repeat 3% 12%;*/
 	padding: 0.3em 0;
 }
 
 .gds-header h1,
 .gds-header h2 {
 	display: inline-block;
-	font-size: 1.3em;
+	font-size: 1em;
 	font-weight: bold;
-	margin-right: 2em;
+	line-height: 1.5em;
+	margin: 0 2em 0 0;
+/*	margin-right: 2em;*/
 	text-shadow: 0.063em 0.063em 0.063em rgb(0,0,0);
 }
 
 .gds-menu {
 	float: right;
-	margin-top: -2.5em;
+	margin-top: -1.25em;
 }
 
 /* END Global Admin header */
@@ -97,7 +99,7 @@ body {
 }
 
 .content {
-	margin: 2em auto 100px;
+	margin: 2em auto 5em auto;
 }
 
 /*
@@ -135,10 +137,8 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 #guide-controls, .format-controls, #programme-controls {
 	background: #666;
 	border-top: 0.063em solid #000;
-	position: absolute;
-	left: 0%;
-	bottom: 0%;
-	padding: 0 1em;
+	left: 0;
+	bottom: 0;
 	position: fixed;
 	z-index: 100;
 
@@ -587,3 +587,72 @@ td.imminence-actions {
 	margin: 1em 1em 0;
 }
 
+/*
+	Admin navigation
+*/
+
+.admin-nav {
+	background: #666;
+	border: 0.063em solid #333;
+	border-top: none;
+	-webkit-border-radius: 0 0 0.25em 0.25em;
+	-moz-border-radius: 0 0 0.25em 0.25em;
+	border-radius: 0 0 0.25em 0.25em;
+	padding: 0.25em 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.admin-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav ul li {
+	display: inline-block;
+	line-height: 2em;
+	margin: 0 0.25em;
+	padding: 0.25em 0.5em;
+	vertical-align: top;
+}
+
+.admin-nav ul ul li {
+	background: transparent;
+	border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav ul li a {
+	color: #fff;
+}
+
+.admin-nav ul li.publications-nav {
+	border-right: solid 1px #333;
+/*	border-left: solid 1px #333;*/
+	padding: 0.25em 1em;
+}
+
+.admin-nav ul li.publications-nav a {
+	margin-left: 1em;
+}
+
+.admin-nav .rarer-nav {
+	margin: 0;
+	padding: 0.25em 0;
+}
+
+.admin-nav .rarer-nav li {
+	margin: 0 0.5em;
+}
+
+.admin-nav fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
