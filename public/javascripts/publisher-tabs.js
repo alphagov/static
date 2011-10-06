@@ -1,4 +1,4 @@
-$(function () { $('#guide-nav').tabs(); });
+$(function () { $('#guide-nav').tabs({ selected: 1 }); });
 
 var myTextExtraction = function(node) {
   var the_node = $(node);
@@ -11,23 +11,26 @@ var myTextExtraction = function(node) {
 }
 
 $(document).ready(function() {
-  $(".formats").tablesorter({
-    textExtraction: myTextExtraction,
-    headers: {
-      // disable sorting for last three columns
-      4: { sorter: false },
-      5: { sorter: false },
-      6: { sorter: false }
-     }
-   });
+
+  $('.formats').each(function (i, e) {
+    var dontSortHeaders = {}
+    $(this).find('th.nosort').each(function (i, e) {
+      dontSortHeaders[$(this).index()] = { sorter: false };
+    });
+
+    $(this).tablesorter({
+      textExtraction: myTextExtraction,
+      headers: dontSortHeaders
+    });
+  });
 
   var tabbable = $('#guide-nav'),
     tab_links = tabbable.find('ul.ui-tabs-nav a');
-  
+
   if ('pushState' in window.history) {
     // Define our own click handler for the tabs, overriding the default.
     tabbable.tabs({ event: 'change' }); 
-    
+
     tab_links.click(function() {
       var the_element = $(this),
         state = {},
