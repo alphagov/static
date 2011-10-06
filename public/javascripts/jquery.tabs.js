@@ -30,7 +30,7 @@ jQuery.fn.tabs = function(settings){
 		var tabsNav = tabs.find('.programme-progression ol:first');
 		
 		//body is nav's next sibling
-		var tabsBody = $(".article-and-navigation");
+		var tabsBody = $(".article-container");
 
 		var tabIDprefix = 'tab-';
 

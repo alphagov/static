@@ -1,1 +1,1 @@
-rvm --create 1.9.2-p180@ag-static
+rvm use 1.9.2

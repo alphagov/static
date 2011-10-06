@@ -31,8 +31,11 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  * Core global styles
  */
 
-body {
+html {
 	background: #D4D2CC;
+}
+
+body {
 	color: #3F3F3F;
 }
 
@@ -40,18 +43,19 @@ body {
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
+	* width: 960px;
 }
 
 .inner {
 	margin: 0 auto;
 	padding: 1em;
 	position: relative;
-	width: 95%;
 }
 
 section {
-  margin: 6em auto 2em;
-  width: 100%;
+	margin: 6em auto 2em;
+	width: 100%;
+	* margin: 2em auto 2em;
 }
 
 ol, ul, nav ol, nav ul {
@@ -79,7 +83,7 @@ a:active {
 }
 
 a[rel="external"] {
-	background: url(/images/external-link.png) 100% 0 no-repeat;
+	background: url(/images/external-link.png) 99% 50% no-repeat;
 	padding-right: 1.2em;
 }
 
@@ -87,7 +91,7 @@ a[rel="external"] {
  * Global header
  */
 
-header[role="banner"] {
+#global-header {
 	background-color: #333;
 	border-bottom: solid 1px #E5E5E5;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -99,18 +103,21 @@ header[role="banner"] {
 	top: 0;
 	width: 100%;
 	z-index: 99999;
+	* height: 1em;
 }
 
-header[role="banner"] .inner {
+#global-header .inner {
 	padding: 0 1em;
+	* padding: 0;
+	* width: 100%;
 }
 
-header[role="banner"] hgroup {
+#global-header hgroup {
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	max-width: 50%;
 }
 
-header[role="banner"] h1 {
+#global-header h1 {
 	background: url('/images/templogo.png') no-repeat 0 0;
 	display: inline-block;
 	font-size: 120%;
@@ -118,84 +125,89 @@ header[role="banner"] h1 {
 	margin-right: 1em;
 	padding: 0.5em 0;
 	padding-left: 2.5em;
+	* float: left;
+	* height: 1.25em;
 }
 
-header[role="banner"] a,
-header[role="banner"] a:active {
+#global-header a,
+#global-header a:active {
 	color: #fff;
 }
 
-header[role="banner"] a:focus,
-header[role="banner"] a:hover {
+#global-header a:focus,
+#global-header a:hover {
 	color: #fff;
 }
 
-header[role="banner"] h1 a {
+#global-header h1 a {
 	text-decoration: none;
 	text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
 }
 
-header[role="banner"] h1 a:focus,
-header[role="banner"] h1 a:hover {
+#global-header h1 a:focus,
+#global-header h1 a:hover {
 	color: #fff;
 	border-bottom: 1px solid #fff;
 	padding-bottom: 0.25em;
 	text-decoration: none;
 }
 
-header[role="banner"] nav ul,
-header[role="banner"] nav ol {
+#global-header nav ul,
+#global-header nav ol {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-header[role="banner"] nav li {
+#global-header nav li {
 	display: inline-block;
 	vertical-align: middle;
+	* display: inline;
 }
 
-header[role="banner"] .header-global nav {
+#global-header .header-global nav {
 	float: right;
 	margin-right: 17em;
 	padding: 0.7em;
+	* margin-right: 0;
+	* position: relative;
+	* right: 17em;
 }
 
-header[role="banner"] .header-global nav ul {
+#global-header .header-global nav ul {
 	line-height: 1em;
 }
 
-header[role="banner"] .header-global nav li {
+#global-header .header-global nav li {
 	border-right: solid 1px #595959;
 	font-size: 0.75em;
 	margin-left: 1em;
 	padding-right: 1.25em;
-/*	text-transform: uppercase;*/
+	* border: none;
 }
 
-header[role="banner"] .header-global nav li:last-child {
+#global-header .header-global nav li:last-child {
 	border-right: none;
 	padding-right: 0;
 }
 
-header[role="banner"] .header-global nav li a {
-	color: #bbb;
+#global-header .header-global nav li a {
 	color: #d8d8d8;
 }
 
-header[role="banner"] .header-context nav li a {
+#global-header .header-context nav li a {
 	background: url(/images/section-divider-arrow.png) no-repeat 0 50%;
 	display: block;
 	font-size: 0.8em;
 	padding: 0.25em 0.25em 0.25em 1.5em;
 }
 
-header[role="banner"] .header-context nav li:first-child a {
+#global-header .header-context nav li:first-child a {
 	background: none;
 	padding-left: 0.25em;
 }
 
-header[role="banner"] .header-context {
+#global-header .header-context {
 	border-top: solid 1px;
 	border-right: solid 1px;
 	margin-right: 0.4em;
@@ -203,8 +215,8 @@ header[role="banner"] .header-context {
 	position: relative;
 }
 
-header[role="banner"] .header-context.citizen,
-header[role="banner"] .header-context.citizen .search-help {
+#global-header .header-context.citizen,
+#global-header .header-context.citizen .search-help {
 	background-color: #92AD54;
 	border-color: #B4D66B;
 }
@@ -221,6 +233,7 @@ header[role="banner"] .header-context.citizen .search-help {
 	position: absolute;
 	right: -1px;
 	top: -2.25em;
+	* width: 14em;
 }
 
 .site-search {
@@ -260,21 +273,21 @@ header[role="banner"] .header-context.citizen .search-help {
  */
 
 .popover-mask {
+  background-color: rgba(0,0,0,0.5);
   display: none;
-  position: fixed;
-  top: 30px;
-  left: 0;
-  width: 100%;
   height: 100%;
-  padding: 0;
+  left: 0;
   margin: 0;
-  background-color: rgba(0,0,0,0.6);
-  z-index:60;
+  top: 30px;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 60;
 }
 
 .popover-mask .popover {
-  background: #f6f5f1;
-  border: solid 1px #D6D6D6;
+	background: #fafafa;
+  border: solid 2px #bbb;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
@@ -293,7 +306,7 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .popover h2 {
-	border-bottom: 2px solid #ddd;
+	border-bottom: solid 2px #bbb;
 	margin: 1em 0;
 	padding-bottom: 0.5em;
 }
@@ -302,15 +315,12 @@ header[role="banner"] .header-context.citizen .search-help {
 	max-width: 40em;
   width: 60%;
 }
-#global-locator-form .postcode{
+#global-locator-form .postcode {
 	border:none;
 }
 #global-locator-form label,
 #global-locator-form .ask_location{
-	display:inline;
-}
-.article-text{
-	font-size:0.75em;
+	display: inline;
 }
 
 
@@ -336,6 +346,7 @@ header[role="banner"] .header-context.citizen .search-help {
 	max-width: 960px;
 	position: relative;
 	width: 95%;
+	* width: 100%;
 }
 
 .related-container-two {
@@ -386,7 +397,7 @@ header[role="banner"] .header-context.citizen .search-help {
 .related li {
 /*	border: 1px solid #bbb;*/
 
-	background-position: 0 50%;
+	background-position: 0 20%;
 	background-repeat: no-repeat;
 	line-height: 1.25em;
 	margin-bottom: 0.25em;
@@ -395,11 +406,11 @@ header[role="banner"] .header-context.citizen .search-help {
 
 .related li.answer {
 	background-image: url('/images/icon-answer-s.png');
+	background-position: 0 20%;
 }
 
 .related li.guide {
 	background-image: url('/images/icon-guide-s.png');
-	background-position: 0.175em 0.2em;
 }
 
 .related li.tool,
@@ -409,15 +420,20 @@ header[role="banner"] .header-context.citizen .search-help {
 }
 
 .related li.localtransaction {
-	background-image: url('/images/icon-transaction-s.png');
+	background-image: url('/images/icon-localtransaction-s.png');
 }
 
 .related li.programme {
 	background-image: url('/images/icon-programme-s.png');
 }
 
-.related li.place {
+.related li.place,
+.related li.nearest {
 	background-image: url('/images/icon-nearest-s.png');
+}
+
+.related li.smart-answer {
+	background-image: url('/images/icon-smart-answer-s.png');
 }
 
 .related li a[href*="#"] {
@@ -448,36 +464,236 @@ header[role="banner"] .header-context.citizen .search-help {
 	display: none;
 }
 
+/*
+	page headers
+*/
+
+#wrapper hgroup {
+	background: #efece0;
+	border-bottom: none;
+	display: block;
+	margin: 0 14em 0 2em;
+	padding: 1em 1em 0;
+}
+
+#wrapper hgroup h1 {
+	background-repeat: no-repeat;
+	color: inherit;
+	font-size: 1.8em;
+	min-height: 2.5em;
+	line-height: 1.05em;
+	padding: 0.2em 0 0.5em 2.2em;
+}
+
+#wrapper hgroup span {
+	display: block;
+	font-size: 0.4em;
+	font-weight: bold;
+	line-height: 1em;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	text-shadow: none;
+}
+
+/*
+	articles
+*/
+
+article {
+	background: #fff;
+	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+	float: left;
+	margin-right: 12em;
+	min-height: 30em;
+	position: relative;
+	z-index: 1;
+	* float: none;
+}
+
+.article-container {
+	background: #efece0;
+	border-top: none;
+	margin-right: 12em;
+}
+
+.article-container article {
+	margin-right: 0;
+}
+
+article .inner {
+	padding: 2em 3em;
+	width: auto;
+}
+
+/*
+ * Text styles for articles.
+ * It's kind of like typography innit.
+*/
+
+article header h1 {
+	border-bottom: solid 1px #ddd;
+  font-size: 1.65em;
+  line-height: 1.15em;
+  margin-top: 0;
+  margin-bottom: 0;
+	padding-bottom: 0.75em;
+	* zoom: 1;
+}
+
+article header h1 span {
+	color: #666;
+	display: block;
+	font-size: 0.6em;
+	font-weight: normal;
+	line-height: 1em;
+	margin-bottom: 0.4em;
+	text-transform: uppercase;
+}
+
+article h2 {
+  font-size: 1.35em;
+  line-height: 1.18em;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+article h3 {
+  font-size: 1.2em;
+  line-height: 1.11em;
+  margin-top: 1.304em;
+  margin-bottom: 0;
+}
+
+article h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+article h2 + p,  article h3 + p,  article h4 + p,
+article h2 + ol, article h3 + ol, article h4 + ol,
+article h2 + ul, article h3 + ul, article h4 + ul {
+	margin-top: 0.2em;
+}
+
+article p, article ul, article ol {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0.75em 0;
+}
+
+article p.large-text {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin: 0.46em 0;
+}
+
+article p.small-text {
+  font-size: 0.75em;
+  line-height: 1.5em;
+  margin: 1em 0;
+}
+
+article ul, article ol {
+  padding-left: 1.5em;
+}
+
+article ul {
+  list-style-type: disc;
+}
+
+article ol {
+  list-style-type: decimal;
+}
+
+/*article .application-notice p {  <-- this can probably be deleted
+  font-size: 0.88em;
+}*/
+
+article table ul {
+  padding-left: 0.75em;
+  margin: 0;
+  font-weight: bold;
+}
+
+article table ul li:last-child {
+  margin-bottom: 0;
+}
+
+article dl {
+  margin-top: 1.5em;
+  margin-bottom: 1.88em;
+}
+
+article dt {
+  margin-bottom: 0.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+article dd {
+  margin-bottom: 0.75em;
+}
+
+article table {
+  margin: 0em 0;
+  margin-left: -0.38em;
+  padding: 0;
+  border-collapse: separate;
+  border-spacing: 0.38em;
+}
+
+article th, article td {
+  vertical-align: top;
+  line-height: 1.3em;
+}
+
+article th {
+  padding: 0.75em 1em;
+}
+
+article td {
+  padding: 0.69em 1em 0.69em 1em;
+}
+
+article th {
+  text-align: left;
+  background: rgba(62,62,62,0.07);
+}
+
+article td {
+  background: #fff;
+  border: solid 1px #E9E8E7;
+}
+
 /* Meta-data */
 .meta-data {
-	border-top: dotted 1px #bbb;
+/*	border-top: dotted 1px #bbb;*/
 	clear: both;
 	color: #7F7F7F;
 	float: left;
-	font-size: 0.75em;
-	margin: 2em 0 0 4em;
+	font-size: 0.8em;
+	margin: 1em 0 2em 2em;
+	* float: none;
 }
 
-.answer .meta-data,
+/*.answer .meta-data,
 .transaction .meta-data,
 .local_transaction .meta-data {
 	margin: 0em 0 2em 4em;
-}
+}*/
 
-.guide .meta-data {
-	margin: 2em 1.5em;
-}
-
-.place .meta-data {
+/*.place .meta-data {
 	margin: 2em 0;
-}
+}*/
 
-.meta-data ul,
-.meta-data li {
+.meta-data ul.api-links,
+.meta-data .api-links li {
 	display: inline;
 }
 
-.meta-data li a {
+.meta-data .api-links li a {
 	background-color: #bbb;
 	-webkit-border-radius: 0.25em;
 	-moz-border-radius: 0.25em;
@@ -489,9 +705,10 @@ header[role="banner"] .header-context.citizen .search-help {
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 }
-.meta-data li a:focus,
-.meta-data li a:active,
-.meta-data li a:hover {
+
+.meta-data .api-links li a:focus,
+.meta-data .api-links li a:active,
+.meta-data .api-links li a:hover {
 	background-color: #1D97FF;
 	text-decoration: underline;
 }
@@ -521,11 +738,6 @@ div[role="contentinfo"] .copyright{
 	width: 22%;
 }
 
-/*
-div[role="contentinfo"] .copyright a {
-	color: #999;
-}
-*/
 div[role="contentinfo"] .project {
 	padding-top: 1.5em;
 	width: 20%;
@@ -674,7 +886,8 @@ div[role="contentinfo"] .depts li a {
 #homepage-search p {
 	display: inline;
 	float: right;
-	width: 55%;
+	line-height: 1.4em;
+	width: 50%;
 }
 
 
@@ -848,6 +1061,11 @@ div[role="contentinfo"] .depts li a {
 .home ul li.nearest a,
 .section ul li.nearest a {
 	background: url(/images/icon-nearest-s.png) no-repeat 0 50%;
+}
+
+.home ul li.smart-answer a,
+.section ul li.smart-answer a {
+	background: url(/images/icon-smart-answer-s.png) no-repeat 0 50%;
 }
 
 .home ul li.placeholder a,
@@ -1064,34 +1282,66 @@ div[role="contentinfo"] .depts li a {
 	padding:0;
 	margin:0 0 1em 0;
 }
+
 .help h1,
 .help h2,
-.help p{
-	padding:0;
-	margin:0;
-	line-height:1.4em;
+.help p {
+	padding: 0;
+	margin: 0;
+	line-height: 1.4em;
 }
 .help h1,
-.help h2{
+.help h2 {
+	border: none;
 	margin-top:0.5em;
-	border:none;
 }
-.help h2{
-	font-size:0.95em;
-}
-.help .guide-header,
-.help .quick-header,
-.help .smart-header,
-.help .services-header,
-.help .local-header,
-.help .benefits-header{
-	padding:0.5em 0 0.3em 2em;
-	margin-top:2em;
 
+.help h2 {
+	font-size: 0.95em;
 }
+
+.help dl {
+	margin: 0 1em 1.4em 0;
+}
+
+	.help dl dd {
+		border-bottom: solid 1px #bbb;
+		margin-bottom: 1.4em;
+	}
+		.help dl dd:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+
+	.help dt h2 {
+		padding: 0 0 0.2em 2em;
+	}
+
+	.help h2.guides {
+		background: url('/images/icon-guide-s.png') no-repeat 1% 0;
+	}
+	.help h2.answers {
+		background: url('/images/icon-answer-s.png') no-repeat 1% 0;
+	}
+	.help h2.smart-answers {
+		background: url('/images/icon-answer-s.png') no-repeat 1% 0;
+	}
+	.help h2.services {
+		background: url('/images/icon-transaction-s.png') no-repeat 1% 0;
+	}
+	.help h2.local-services {
+		background: url('/images/icon-localtransaction-s.png') no-repeat 1% 0;
+	}
+	.help h2.benefits {
+		background: url('/images/icon-programme-s.png') no-repeat 1% 0;
+	}
+
+	.help dl dd p {
+		margin: 0 0 1em;
+	}
 
 .help strong,
-.project li{
+.project li {
 	background: none repeat scroll 0 0 #FF5C00;
   border: 1px solid #A93D00;
   border-radius: 0.25em 0.25em 0.25em 0.25em;
@@ -1100,37 +1350,20 @@ div[role="contentinfo"] .depts li a {
 	display:block;
 	padding:1em;
 }
+
 .help strong a,
 .help strong a:visited,
-.project li a{
-	color:#fff;
-	font-weight:normal;
+.project li a {
+	color: #fff;
+	font-weight: normal;
 }
 .help strong a:hover,
 .help strong a:active,
 .help strong a:focus,
 .project li a:hover,
 .project li a:active,
-.project li a:focus{
+.project li a:focus {
 	color:#333;
-}
-.help .guide-header{
-	background: url('/images/icon-guide-s.png') no-repeat 0 0;
-}
-.help .quick-header{
-	background: url('/images/icon-answer-s.png') no-repeat 0 0;
-}
-.help .smart-header{
-	background: url('/images/icon-answer-s.png') no-repeat 0 0;
-}
-.help .services-header{
-	background: url('/images/icon-transaction-s.png') no-repeat 0 0;
-}
-.help .local-header{
-	background: url('/images/icon-localtransaction-s.png') no-repeat 0 0;
-}
-.help .benefits-header{
-	background: url('/images/icon-programme-s.png') no-repeat 0 0;
 }
 
 /*
@@ -1209,6 +1442,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	margin: 0;
 	color: #bbb;
 	font-size: 0.75em;
+	* display: none;
 }
 #location-set-message a,
 #location-unset-message a {
@@ -1334,4 +1568,79 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .search .results ol {
 	list-style: decimal;
+}
+
+.date-planner .button{
+	background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 7px 10px 8px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	margin:0.5em 0;
+}
+/* Error messages */
+
+.error-notification,
+.error-area{
+	border:2px solid #ffc946;
+	background-color:#fbedcd;
+	padding: 0 1em;
+}
+.error-area span{
+	display:block;
+	font-weight:bold;
+	font-size:0.85em;
+}
+
+
+/* Smart answers - this block will probably move into the smart answer CSS in the new app */
+.questions{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+.questions li{
+	margin:0 0 0.5em 0;
+	border:4px solid #999;
+	border-radius:5px;
+	padding:0.5em;
+}
+.questions li.answered{
+	border:4px solid #eee;
+	border-radius:5px;
+	padding:0.2em 0.5em;
+}
+.question{
+	font-size:1.2em;
+	display:block;
+	padding:0;
+	margin:0;
+}
+.questions .button{
+	background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	cursor: pointer;
+	padding: 7px 10px 8px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	margin:0.5em 0;
+}
+.questions .progress-question{
+	display:block;
+	clear:both;
+}
+
+.questions .yesno input{
+	margin-right:0.5em;
+}
+
+.questions label{
+	display:block;
 }
