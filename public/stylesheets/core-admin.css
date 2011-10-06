@@ -132,7 +132,7 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 	padding: 1.5em 0;
 }
 
-#guide-controls, .format-controls, #programme-controls {
+.format-controls {
 	background: #666;
 	border-top: 0.063em solid #000;
 	position: absolute;
@@ -149,7 +149,7 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 	text-align: center;
 }
 
-#guide-controls .button_to, .format-controls .button_to, .format-controls p.button {
+.format-controls .button_to, .format-controls p.button {
 	display: inline-block;
 	margin: 0 1em 1em 0;
 }
