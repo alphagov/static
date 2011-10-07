@@ -390,6 +390,14 @@ input[disabled]:active {
 			font-weight: bold;
 		}
 
+    .formats tbody tr.reviewed td {
+      background-color: #FFBF00;
+    }
+
+    .formats tbody tr.okay td {
+      background-color: #FFFBBC;
+    }
+
 		.formats td {
 			vertical-align: middle;
 			text-align: center;
