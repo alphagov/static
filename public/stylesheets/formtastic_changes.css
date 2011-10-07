@@ -18,7 +18,7 @@ form.formtastic fieldset.inputs { padding: 0 1em; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { margin-left: 1px; }
 
 
-form.formtastic fieldset.buttons { padding: 0 1em; width: 100%; background: transparent; }
+form.formtastic fieldset.buttons { padding: 0 1em; /*width: 100%;*/ background: transparent; }
 
 form.formtastic fieldset.buttons li { padding-right: 0; }
 
