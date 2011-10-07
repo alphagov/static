@@ -1,4 +1,4 @@
-$(function () { $('#guide-nav').tabs({ selected: 1 }); });
+$(function () { $('#guide-nav').tabs({ selected: 0 }); });
 
 var myTextExtraction = function(node) {
   var the_node = $(node);
