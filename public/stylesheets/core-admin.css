@@ -391,11 +391,11 @@ input[disabled]:active {
 		}
 
     .formats tbody tr.reviewed td {
-      background-color: #FFBF00;
+      background-color: #FFB547;
     }
 
     .formats tbody tr.okay td {
-      background-color: #FFFBBC;
+      background-color: #E6FFD6;
     }
 
 		.formats td {
