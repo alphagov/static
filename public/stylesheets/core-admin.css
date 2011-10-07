@@ -237,10 +237,10 @@ input[disabled]:active {
 	width: auto;
 }
 
-.button_to input[type="submit"] {
+.workflow_buttons .button_to input[type="submit"] {
 	padding: 0.6em 1em;
 	text-align: center;
-	width: 100%;
+/*	width: 100%;*/
 }
 
 #edit .button {
@@ -655,4 +655,74 @@ td.imminence-actions {
 	border: none;
 	margin: 0;
 	padding: 0;
+}
+
+/*
+	modal dialogue boxes
+*/
+
+.ui-dialog {
+	border: solid 0.5em #AAA;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	position: fixed;
+}
+
+.ui-dialog-content {
+	max-height: 500px;
+/*	overflow-y: scroll; <- we may want to use this at some point  */ 
+}
+
+.ui-widget-overlay {
+	background: #000;
+}
+
+.ui-dialog-titlebar {
+	background: #fff;
+	padding: 0.25em 3em 0.25em 1em;
+	position: relative;
+}
+
+.ui-dialog .ui-dialog-title {
+	line-height: 2em;
+	margin: 0;
+}
+
+.ui-dialog-titlebar-close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2.5em;
+	width: 2.5em;
+	z-index: 100;
+}
+
+.ui-dialog-titlebar-close .ui-icon-closethick {
+	position: absolute;
+	top: 0.75em;
+	left: 0.75em;
+	z-index: 110;
+}
+
+.ui-dialog form {
+	margin: 0;
+}
+
+.ui-dialog textarea {
+	max-height: 10em;
+}
+
+.ui-dialog form.formtastic fieldset.buttons li.commit {
+	float: right;
+}
+
+.ui-dialog form.formtastic fieldset.buttons ol {
+	margin: 0;
+}
+
+.ui-dialog form.formtastic fieldset.buttons li {
+	margin-bottom: 0.5em;
+	padding: 0.5em 0;
 }
