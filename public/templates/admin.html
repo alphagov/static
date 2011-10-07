@@ -4,31 +4,6 @@
     <meta charset="utf-8" />
     <title>www.gov.uk Admin</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE6">
-    <!--[if IE 6]>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-
-    <style>
-     .chromeFrameInstallDefaultStyle {
-       width: 100%; /* default is 800px */
-       border: 5px solid blue;
-     }
-    </style>
-
-    <div id="prompt">
-      <p>Google Chrome Frame! Yeah!</p>
-    </div>
-
-    <script>
-     // The conditional ensures that this code will only execute in IE,
-     // Therefore we can use the IE-specific attachEvent without worry
-     window.attachEvent("onload", function() {
-       CFInstall.check({
-         mode: "inline", // the default
-         node: "prompt"
-       });
-     });
-    </script>
-    <![endif]-->
     <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/core-admin.css" />
     <link href="/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
@@ -62,5 +37,21 @@
 		<div id="wrapper">
 
 		</div>
+		
+		<script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26179049-1']);
+      _gaq.push(['_setDomainName', 'alphagov.co.uk']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
   </body>
 </html>
