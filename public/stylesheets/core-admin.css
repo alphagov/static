@@ -465,7 +465,7 @@ input[disabled]:active {
 		    background-repeat: no-repeat;
 		    background-position: center right;
 		    cursor: pointer;
- 		    padding-right: 1em;
+ 		    padding-right: 1.5em;
 		    border-right: 0.125em solid #ccc;
 		}
 
@@ -699,7 +699,7 @@ td.imminence-actions {
 
 .ui-dialog-content {
 	max-height: 500px;
-/*	overflow-y: scroll; <- we may want to use this at some point  */ 
+/*	overflow-y: scroll; <- we may want to use this at some point  */
 }
 
 .ui-widget-overlay {
