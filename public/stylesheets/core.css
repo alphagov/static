@@ -349,12 +349,6 @@ a[rel="external"] {
 	* width: 100%;
 }
 
-.related-container-two {
-	float: left;
-	position: relative;
-	width: 100%;
-}
-
 .related {
 	position: absolute;
 	right: 0;
