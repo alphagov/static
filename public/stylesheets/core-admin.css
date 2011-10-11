@@ -30,8 +30,6 @@
 * html .group { height: 1%; } /* IE6 */
 .group { min-height: 1px; } 	/* IE7 */
 
-
-
 /*
  * Global Admin header
  */
@@ -50,8 +48,7 @@
 }
 
 .gds-header .wrapper {
-/*	background: url('/images/gov.uk-crest.png') no-repeat 3% 12%;*/
-	padding: 0.3em 0;
+	padding: 0.4em 0;
 }
 
 .gds-header h1,
@@ -59,15 +56,14 @@
 	display: inline-block;
 	font-size: 1em;
 	font-weight: bold;
-	line-height: 1.5em;
-	margin: 0 2em 0 0;
-/*	margin-right: 2em;*/
+	line-height: 1.4em;
+	margin: 0 1em 0 0;
 	text-shadow: 0.063em 0.063em 0.063em rgb(0,0,0);
 }
 
 .gds-menu {
 	float: right;
-	margin-top: -1.25em;
+	margin-top: -1.4em;
 }
 
 /* END Global Admin header */
@@ -93,7 +89,7 @@ body {
 
 .inner {
 	margin: 0 auto;
-	padding: 0.5em 1em;
+	padding: 0 1em;
 	position: relative;
 	width: 95%;
 }
@@ -387,9 +383,7 @@ input[disabled]:active {
 .formats {
 	background-color: #fff;
 	border-collapse: collapse;
-	border-left: none;
-	border-right: none;
-	font-size: 0.8em;
+	font-size: 0.929em;
 	margin: 0 auto;
 	text-align: center;
 	width: 97%;
@@ -400,7 +394,6 @@ input[disabled]:active {
 	}
 
 	.formats th, .formats td {
-		border-bottom: 0.125em solid #bbb;
 		border-right: 0.125em solid #d5d5d5;
 		padding: 0.4em 0.25em;
 	}
@@ -408,36 +401,35 @@ input[disabled]:active {
 		.formats th {
 			border-bottom: 0.188em solid #bbb;
 			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		.formats td {
+  		border-bottom: 0.125em solid #bbb;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+  		.formats th:last-child,
+  		.formats td:last-child {
+  		  border-right: none;
+  	  }
+
+		.formats th.title,
+		.formats td.title {
+		  padding-left: 0.500em;
+			text-align: left;
+			width: auto;
 		}
 
     .formats tbody tr.reviewed td {
       background-color: #FFB547;
+      background-color: rgba(255,181,71,0.33);
     }
 
     .formats tbody tr.okay td {
       background-color: #E6FFD6;
     }
-
-		.formats td {
-			vertical-align: middle;
-			text-align: center;
-		}
-
-		.formats th:nth-child(2) {
-			font-size: 1em;
-		  padding-left: 0.938em;
-			text-align: left;
-			width: 55%;
-		}
-
-		.formats td:nth-child(2) {
-			border-bottom: 0.063em solid #bbb;
-			border-right: 0.063em solid #d5d5d5;
-			font-size: 1.3em;
-		  padding-left: 0.938em;
-			text-align: left;
-			width: 55%;
-		}
 
 		.formats img,
 		.formats input {
@@ -455,7 +447,6 @@ input[disabled]:active {
 			}
 
 			.formats .version {
-				font-size: 0.7em;
 				font-style: italic;
 			}
 
