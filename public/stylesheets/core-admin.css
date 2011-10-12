@@ -403,6 +403,11 @@ input[disabled]:active {
 			font-weight: bold;
 			white-space: nowrap;
 		}
+		
+		.formats th[scope="row"] {
+			padding-right: 0.5em;
+			text-align: right;
+		}
 
 		.formats td {
   		border-bottom: 0.125em solid #bbb;
