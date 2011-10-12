@@ -19,33 +19,65 @@
 	background-image: url('/images/icon-guide-l.png');
 }
 #wrapper.guide hgroup h1 span {
-	color: #68009F;
 	color: #157eb8;
 }
+#wrapper.guide header {
+	position: relative;
+}
 #wrapper.guide header hgroup {
-	float: left;
 	min-height: 5.75em;
 	margin-left: 0;
-	margin-right: 0;
-	width: 38em;
 }
-.alternative-guide a {
-	background-color: #DFDFDF;
-	background-position: 50% 0.75em;
-	background-repeat: no-repeat;
-	display: block;
-	float: right;
-	margin-right: 12em;
-	min-height: 3em;
-	padding: 3.75em 1em 0 1em;
-	text-align: center;
-	width: 6em;
+.alternative-guide {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 7.5em;
+	overflow: hidden;
+	width: 14em;
 }
-.alternative-guide a:hover, .alternative-guide a:focus {
-	background-color: #fff;
+.alternative-guide a span {
+	font-size: 0.8em;
 }
 .alternative-guide.video a {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 1.25em;
+}
+.alternative-guide a.video-overlay {
 	background-image: url(/images/icon-video-version.png);
+	background-position: 50% 1.75em;
+	background-repeat: no-repeat;
+	display: block;
+	height: 6em;
+	position: absolute;
+	top: 0;
+	right: 1em;
+	width: 8em;
+	z-index: 20;
+}
+.alternative-guide a.video-overlay:hover, .alternative-guide a.video-overlay:focus {
+	background-position: 50% -5.75em;
+}
+.alternative-guide.video img {
+	-webkit-border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	height: 6em;
+	position: absolute;
+	top: 0;
+	right: 1em;
+	width: 8em;
+}
+.alternative-guide.text a {
+	background-image: url(/images/icon-text-version.png);
+	background-position: 50% 1.75em;
+	background-repeat: no-repeat;
+	padding: 5.5em 0 0 0;
+	position: absolute;
+	bottom: 1em;
+	right: 2em;
 }
 
 #wrapper.guide article {
@@ -371,16 +403,6 @@ aside .chapters-navigation li a .part-title {
 	border-bottom: none;
 }
 
-#wrapper article .summary {
-	background: url(/images/summary-arrow.png) no-repeat 0 0;
-/*	border-left: solid 4px #bbb;*/
-  font-size: 1.15em;
-  line-height: 1.11em;
-	font-weight: bold;
-	margin: 0 0.75em 1.25em 0;
-	padding-left: 1.5em;
-}
-
 /*#wrapper.answer article h2 {
 	border-bottom: none;
   font-size: 1.15em;
@@ -470,10 +492,14 @@ ul.helpers {
 	markdown output
 */
 
-article .summary {
-	font-size: 1.25em;
+article .summary p {
+	background: url(/images/summary-arrow.png) no-repeat 0 0;
+  font-size: 1.15em;
 	font-weight: bold;
-	margin: 0 0 1.25em 0;
+  line-height: 1.25em;
+	margin: 0 0.75em 1.25em 0;
+	min-height: 1.75em;
+	padding: 0.25em 0 0 1.5em;
 }
 
 article .example {
