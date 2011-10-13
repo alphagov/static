@@ -243,6 +243,17 @@ input[disabled]:active {
 	margin-left: 1.3em;
 }
 
+#expectations {
+  padding: 1em;
+}
+  #expectations h2 {
+    margin-top: 0.5em;
+  }
+  #expectations h2+ul {
+    border-bottom: solid 1px #bbb;
+    padding-bottom: 1.5em;
+  }
+
 .edition {
 }
 
