@@ -18,7 +18,7 @@ form.formtastic fieldset.inputs { padding: 0 1em; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { margin-left: 1px; }
 
 
-form.formtastic fieldset.buttons { padding: 0 1em; width: 100%; background: transparent; }
+form.formtastic fieldset.buttons { padding: 0 1em; background: transparent; }
 
 form.formtastic fieldset.buttons li { padding-right: 0; }
 
@@ -55,5 +55,5 @@ form.formtastic fieldset > ol > li.search input[size] { width:auto; max-width:99
 
 /* TEXTAREA OVERRIDES
 --------------------------------------------------------------------------------------------------*/
-form.formtastic fieldset > ol > li.text textarea { width: 100%; font-size: 1em; line-height: 1.4; }
-form.formtastic fieldset > ol > li.text textarea[cols] { width: auto; max-width: 100%; }
+form.formtastic fieldset > ol > li.text textarea { width: 99%; font-size: 1em; line-height: 1.4; }
+form.formtastic fieldset > ol > li.text textarea[cols] { width: auto; max-width: 99%; }

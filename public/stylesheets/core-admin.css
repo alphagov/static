@@ -30,8 +30,6 @@
 * html .group { height: 1%; } /* IE6 */
 .group { min-height: 1px; } 	/* IE7 */
 
-
-
 /*
  * Global Admin header
  */
@@ -43,29 +41,29 @@
 	-moz-box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
 	box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
 	color: #fff;
-	min-height: 1.5em;
+/*	min-height: 1.5em;*/
 	position: relative;
 	vertical-align: top;
 	width: 100%;
 }
 
 .gds-header .wrapper {
-	background: url('/images/gov.uk-crest.png') no-repeat 3% 12%;
-	padding: 0.3em 0;
+	padding: 0.4em 0;
 }
 
 .gds-header h1,
 .gds-header h2 {
 	display: inline-block;
-	font-size: 1.3em;
+	font-size: 1em;
 	font-weight: bold;
-	margin-right: 2em;
+	line-height: 1.4em;
+	margin: 0 1em 0 0;
 	text-shadow: 0.063em 0.063em 0.063em rgb(0,0,0);
 }
 
 .gds-menu {
 	float: right;
-	margin-top: -2.5em;
+	margin-top: -1.4em;
 }
 
 /* END Global Admin header */
@@ -91,13 +89,13 @@ body {
 
 .inner {
 	margin: 0 auto;
-	padding: 0.5em 1em;
+	padding: 0 1em;
 	position: relative;
 	width: 95%;
 }
 
 .content {
-	margin: 2em auto 100px;
+	margin: 2em auto 5em auto;
 }
 
 /*
@@ -132,13 +130,11 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 	padding: 1.5em 0;
 }
 
-#guide-controls, .format-controls, #programme-controls {
+.format-controls {
 	background: #666;
 	border-top: 0.063em solid #000;
-	position: absolute;
-	left: 0%;
-	bottom: 0%;
-	padding: 0 1em;
+	left: 0;
+	bottom: 0;
 	position: fixed;
 	z-index: 100;
 
@@ -149,7 +145,7 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 	text-align: center;
 }
 
-#guide-controls .button_to, .format-controls .button_to, .format-controls p.button {
+.format-controls .button_to, .format-controls p.button {
 	display: inline-block;
 	margin: 0 1em 1em 0;
 }
@@ -237,15 +233,26 @@ input[disabled]:active {
 	width: auto;
 }
 
-.button_to input[type="submit"] {
+.workflow_buttons .button_to input[type="submit"] {
 	padding: 0.6em 1em;
 	text-align: center;
-	width: 100%;
+/*	width: 100%;*/
 }
 
 #edit .button {
 	margin-left: 1.3em;
 }
+
+#expectations {
+  padding: 1em;
+}
+  #expectations h2 {
+    margin-top: 0.5em;
+  }
+  #expectations h2+ul {
+    border-bottom: solid 1px #bbb;
+    padding-bottom: 1.5em;
+  }
 
 .edition {
 }
@@ -265,12 +272,29 @@ input[disabled]:active {
 	padding: 0;
 }
 
+  .edition .history {
+    margin-bottom: 1em;
+  }
+
+	.edition .history li:last-child {
+	  border-bottom: 0.063em solid #bbb;
+  }
+
 	.edition .history li {
 		background-color: #d8d8d8;
-		border-bottom: 0.063em solid #bbb;
+		border-top: 0.063em solid #bbb;
 		list-style: none;
-		margin: 0 1em 0.5em;
+		margin: 0 1em;
 	}
+
+  	.edition .history li.note {
+  		border-top-color: #666;
+  		border-top-style: dashed;
+  	}
+
+  	.edition .history li.fact_check_received {
+  		border-top-color: #006D18;
+  	}
 
 	.edition .buttons h3 {
 		font-size: 1.5em;
@@ -286,7 +310,12 @@ input[disabled]:active {
 }
 	.edition .history li .action-time {
 		background-color: #fff;
+		-webkit-border-radius: 0 0 0.5em 0;
+		-moz-border-radius: 0 0 0.5em 0;
+		border-radius: 0 0 0.5em 0;
+
 		margin-right: 1em;
+		min-height: 1em;
 		padding-left: 0.5em;
 		width: 15%;
 	}
@@ -300,14 +329,15 @@ input[disabled]:active {
 
 	.edition .history li div.action-comment {
 		position: relative;
-		width: 50%;
+    width: 60%;
 	}
 	.edition .history li div.action-comment img {
-		background-color: #eee;
+		background-color: transparent;
 		-webkit-border-radius: 0.25em;
 		-moz-border-radius: 0.25em;
 		border-radius: 0.25em;
-		margin: 0.5em 0.25em 0;
+		float: left;
+		margin-top: 0.5em;
 	}
 
 	.edition .history li div.action-comment blockquote {
@@ -315,15 +345,12 @@ input[disabled]:active {
 		-webkit-border-radius: 0.25em;
 		-moz-border-radius: 0.25em;
 		border-radius: 0.25em;
-		border-bottom: 0.063em solid #bbb;
-		display: inline;
-		margin: 0;
-		min-height: 2em;
-		padding: 1em;
+		-webkit-box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
+		box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
+    margin: 0.5em 0 1em 5.5em;
+		padding: 0 1em;
 		position: relative;
-		top: -3em;
-		left: 1.5em;
-		width: auto;
 	}
 
 	.edition .history li div.action-comment blockquote span {
@@ -332,16 +359,16 @@ input[disabled]:active {
 	}
 
 	.edition .history li div.action-comment blockquote:after {
-		border-color: #d8d8d8 #fff #d8d8d8 #d8d8d8;
+		border-color: transparent #fff transparent transparent;
 		border-style: solid;
 		border-width: 10px 20px 10px 0;
 		content: '\00a0';
 		display: block;
 		height: 0;
 		width: 0;
-		position: absolute;
-		left: -20px;
-		top: 15px;
+    position: absolute;
+    left: -20px;
+    top: 10px;
 	}
 
 .edition .history li h4 {
@@ -367,9 +394,7 @@ input[disabled]:active {
 .formats {
 	background-color: #fff;
 	border-collapse: collapse;
-	border-left: none;
-	border-right: none;
-	font-size: 0.8em;
+	font-size: 0.929em;
 	margin: 0 auto;
 	text-align: center;
 	width: 97%;
@@ -380,7 +405,6 @@ input[disabled]:active {
 	}
 
 	.formats th, .formats td {
-		border-bottom: 0.125em solid #bbb;
 		border-right: 0.125em solid #d5d5d5;
 		padding: 0.4em 0.25em;
 	}
@@ -388,28 +412,41 @@ input[disabled]:active {
 		.formats th {
 			border-bottom: 0.188em solid #bbb;
 			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		.formats th[scope="row"] {
+		  border-bottom-width: 0.125em;
+			padding-right: 0.5em;
+			text-align: right;
 		}
 
 		.formats td {
+  		border-bottom: 0.125em solid #bbb;
 			vertical-align: middle;
 			text-align: center;
 		}
 
-		.formats th:nth-child(2) {
-			font-size: 1em;
-		  padding-left: 0.938em;
+  		.formats th:last-child,
+  		.formats td:last-child {
+  		  border-right: none;
+  	  }
+
+		.formats th.title,
+		.formats td.title {
+		  padding-left: 0.500em;
 			text-align: left;
-			width: 55%;
+			width: auto;
 		}
 
-		.formats td:nth-child(2) {
-			border-bottom: 0.063em solid #bbb;
-			border-right: 0.063em solid #d5d5d5;
-			font-size: 1.3em;
-		  padding-left: 0.938em;
-			text-align: left;
-			width: 55%;
-		}
+    .formats tbody tr.reviewed td {
+      background-color: #FFB547;
+      background-color: rgba(255,181,71,0.33);
+    }
+
+    .formats tbody tr.okay td {
+      background-color: #E6FFD6;
+    }
 
 		.formats img,
 		.formats input {
@@ -427,7 +464,6 @@ input[disabled]:active {
 			}
 
 			.formats .version {
-				font-size: 0.7em;
 				font-style: italic;
 			}
 
@@ -437,7 +473,7 @@ input[disabled]:active {
 		    background-repeat: no-repeat;
 		    background-position: center right;
 		    cursor: pointer;
- 		    padding-right: 1em;
+ 		    padding-right: 1.5em;
 		    border-right: 0.125em solid #ccc;
 		}
 
@@ -587,3 +623,142 @@ td.imminence-actions {
 	margin: 1em 1em 0;
 }
 
+/*
+	Admin navigation
+*/
+
+.admin-nav {
+	background: #666;
+	border: 0.063em solid #333;
+	border-top: none;
+	-webkit-border-radius: 0 0 0.25em 0.25em;
+	-moz-border-radius: 0 0 0.25em 0.25em;
+	border-radius: 0 0 0.25em 0.25em;
+	padding: 0.25em 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.admin-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav ul li {
+	display: inline-block;
+	line-height: 2em;
+	margin: 0 0.25em;
+	padding: 0.25em 0.5em;
+	vertical-align: top;
+}
+
+.admin-nav ul ul li {
+	background: transparent;
+	border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav ul li a {
+	color: #fff;
+}
+
+.admin-nav ul li.publications-nav {
+	border-right: solid 1px #333;
+/*	border-left: solid 1px #333;*/
+	padding: 0.25em 1em;
+}
+
+.admin-nav ul li.publications-nav a {
+	margin-left: 1em;
+}
+
+.admin-nav .rarer-nav {
+	margin: 0;
+	padding: 0.25em 0;
+}
+
+.admin-nav .rarer-nav li {
+	margin: 0 0.5em;
+}
+
+.admin-nav fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+	modal dialogue boxes
+*/
+
+.ui-dialog {
+	border: solid 0.5em #AAA;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	position: fixed;
+}
+
+.ui-dialog-content {
+	max-height: 500px;
+/*	overflow-y: scroll; <- we may want to use this at some point  */
+}
+
+.ui-widget-overlay {
+	background: #000;
+}
+
+.ui-dialog-titlebar {
+	background: #fff;
+	padding: 0.25em 3em 0.25em 1em;
+	position: relative;
+}
+
+.ui-dialog .ui-dialog-title {
+	line-height: 2em;
+	margin: 0;
+}
+
+.ui-dialog-titlebar-close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2.5em;
+	width: 2.5em;
+	z-index: 100;
+}
+
+.ui-dialog-titlebar-close .ui-icon-closethick {
+	position: absolute;
+	top: 0.75em;
+	left: 0.75em;
+	z-index: 110;
+}
+
+.ui-dialog form {
+	margin: 0;
+}
+
+.ui-dialog textarea {
+	max-height: 10em;
+}
+
+.ui-dialog form.formtastic fieldset.buttons li.commit {
+	float: right;
+}
+
+.ui-dialog form.formtastic fieldset.buttons ol {
+	margin: 0;
+}
+
+.ui-dialog form.formtastic fieldset.buttons li {
+	margin-bottom: 0.5em;
+	padding: 0.5em 0;
+}

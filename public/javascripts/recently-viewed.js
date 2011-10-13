@@ -57,10 +57,13 @@ $(function(){
 		// get the uri, h1, type (meta data) and stick it into localstorage
 		function getPageData(){
 			var uri = location.pathname,
-				title = $("#wrapper.programme hgroup h1").text(),
+				title = $("title").text(),
 				type;
-				console.log(stored)
 				
+				
+				title = title.split(' |')[0];
+				console.log(stored)
+				console.log(uri+":"+title)
 				addLink(uri+":"+title);
 		}
 		
