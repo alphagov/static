@@ -81,7 +81,7 @@ var BetaFeedback = {
 				$("#feedback-mechanism").html("<label>What were you trying to do and what went wrong?</label><textarea /><input type='submit' value='Send' /><p>We'll send this information and an error log to our development team</p>");
 				break;
 			default:
-			  console.log("other")
+			  $("#feedback-mechanism").html();
 			}
 			
 		});
