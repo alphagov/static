@@ -1654,7 +1654,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #feedback-popup{
 	position: fixed;
 	left: 0;
-	top: 0;
+	top: 100px;
 	width: 640px;
 	display: none;
 	z-index: 999999;			 
@@ -1667,9 +1667,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #feedback-popup h2{
 	padding:1em;
 }
-#feedback-popup form{
-	padding:0 1em 1em 1em;
-}
+
 #feedback-popup form,
 #feedback-popup input,
 #feedback-popup select,
@@ -1677,7 +1675,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	display:block;
 }
 #feedback-popup form{
-	width:80%;
+	width:92%;
+	padding: 0 1.5em 1em;
 }
 #feedback-popup input,
 #feedback-popup select,
@@ -1747,8 +1746,30 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #feedback-cta h2{
 	font-size:1em;
 }
+
+#feedback-popup .vcard span{
+	display:block;
+}
+#feedback-popup p{
+	background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;
+	font-size:1.2em;
+	font-weight:bold;
+  margin: 0;
+  padding:5px 0 5px 3em;
+}
+#feedback-popup ul{
+	margin:0 0 0 5em;
+	padding:0;
+	font-size:1.2em;
+}
 #related-popup h2{
 	padding:0;
+}
+#feedback-mechanism{
+	background-color:#EEE;
+	padding:1em;
+	border:1px solid #EEE;
+	border-radius:0.5em;
 }
 #related-popup{
 	padding:1em;
