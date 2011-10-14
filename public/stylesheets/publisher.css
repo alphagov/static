@@ -31,53 +31,39 @@
 .alternative-guide {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 1em;
 	height: 7.5em;
 	overflow: hidden;
-	width: 14em;
+	width: 9em;
 }
 .alternative-guide a span {
-	font-size: 0.8em;
-}
-.alternative-guide.video a {
-	display: block;
-	position: absolute;
-	bottom: 0;
-	right: 1.25em;
-}
-.alternative-guide a.video-overlay {
-	background-image: url(/images/icon-video-version.png);
-	background-position: 50% 1.75em;
+	background-image: url(/images/icon-video.png);
+	background-position: 0 50%;
 	background-repeat: no-repeat;
 	display: block;
-	height: 6em;
-	position: absolute;
-	top: 0;
-	right: 1em;
-	width: 8em;
-	z-index: 20;
+	float: right;
+	font-size: 0.8em;
+	line-height: 2em;
+	padding-left: 2.25em;
 }
-.alternative-guide a.video-overlay:hover, .alternative-guide a.video-overlay:focus {
-	background-position: 50% -5.75em;
+.alternative-guide.video .video-wrapper {
+	background: #000;
+	float: right;
+	height: 5em;
+	overflow: hidden;
+	text-align: center;
+	width: 8.5em;
 }
 .alternative-guide.video img {
-	-webkit-border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
-	height: 6em;
-	position: absolute;
-	top: 0;
-	right: 1em;
-	width: 8em;
+	margin-top: -0.5em;
 }
-.alternative-guide.text a {
-	background-image: url(/images/icon-text-version.png);
-	background-position: 50% 1.75em;
-	background-repeat: no-repeat;
-	padding: 5.5em 0 0 0;
-	position: absolute;
-	bottom: 1em;
-	right: 2em;
+.view-text-version {
+	background: #ddd;
+	border-top: solid 1px #bbb;
+	padding: 0.25em 1em;
+}
+.view-text-version p {
+	font-size: 0.8em;
 }
 
 #wrapper.guide article {
