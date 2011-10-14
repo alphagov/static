@@ -15,7 +15,9 @@
 .player-container {
     background-color: #fff;
     font: 13px Helvetica, Arial, sans-serif;
-    color: #000; }
+    color: #000;
+		margin-bottom: 1.5em;
+ }
     
 .player-container span, .player-container object {font-size: 90%; }
     
@@ -47,10 +49,10 @@
     left: 10px;
     top: 7px;
     float: left;
-    background: url(../images/nomensa-logo-small.gif) no-repeat 0 0;
+    background: url(../images/templogo.png) no-repeat 0 0;
     position: absolute; }
     
-.player-container .control-bar .logo:hover, .player-container .control-bar .logo:focus {background: url(../images/nomensa-logo-small.gif) no-repeat -16px 0; }
+.player-container .control-bar .logo:hover, .player-container .control-bar .logo:focus {background: url(../images/templogo.png) no-repeat -16px 0; }
     
 .player-container .ui-corner-bottom {
     -moz-border-radius-bottomleft: 5px;
@@ -136,10 +138,10 @@
 .player-container.player-wide .control-bar .logo {
     width: 89px; 
     height: 26px;
-    background: url(../images/nomensa-logo.gif) no-repeat -0 0;
+    background: url(../images/templogo.png) no-repeat -0 0;
     top: 12px; }
 
-.player-container.player-wide .control-bar .logo:hover, .player-container.player-wide .control-bar .logo:focus {background: url(../images/nomensa-logo.gif) no-repeat -90px 0; }
+.player-container.player-wide .control-bar .logo:hover, .player-container.player-wide .control-bar .logo:focus {background: url(../images/templogo.png) no-repeat -90px 0; }
 
 /* BUTTONS */
 .player-container.player-wide .control-bar button {background-position: 50% 0; }
