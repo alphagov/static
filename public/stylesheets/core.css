@@ -94,9 +94,9 @@ a[rel="external"] {
 #global-header {
 	background-color: #333;
 	border-bottom: solid 4px #ED6900;
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
-	box-shadow: 0 2px 5px rgba(0,0,0,.25);
+	-webkit-box-shadow: 0 2px 7px rgba(0,0,0,0.35);
+	-moz-box-shadow: 0 2px 7px rgba(0,0,0,0.35);
+	box-shadow: 0 2px 7px rgba(0,0,0,0.35);
 	min-height: 1em;
 	position: fixed;
 	top: 0;
