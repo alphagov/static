@@ -138,10 +138,10 @@
 .player-container.player-wide .control-bar .logo {
     width: 89px; 
     height: 26px;
-    background: url(../../images/media-player/templogo.png) no-repeat -0 0;
+    background: url(../../images/templogo.png) no-repeat -0 0;
     top: 12px; }
 
-.player-container.player-wide .control-bar .logo:hover, .player-container.player-wide .control-bar .logo:focus {background: url(../../images/media-player/templogo.png) no-repeat -90px 0; }
+.player-container.player-wide .control-bar .logo:hover, .player-container.player-wide .control-bar .logo:focus {background: url(../../images/templogo.png) no-repeat -90px 0; }
 
 /* BUTTONS */
 .player-container.player-wide .control-bar button {background-position: 50% 0; }
