@@ -48,11 +48,43 @@ var BetaFeedback = {
 	popup: function(){
 		$("#feedback-cta").fadeOut('fast');
 		
-		var html = "<div id='feedback-popup'><a href='' id='close-feedback'>Close</a><h2>Help improve gov.uk</h2><form><label>Describe what kind of problem you're having</label><select><option>Missing information</option></select><textarea /><input type='submit' value='Send' /></form><div id='related-popup'><h2>Related items</h2><ul><li>Related article item</li><li>Related article item</li><li>Related article item</li></ul></div></div>";
+		var selects = "<select id='feedback-type'>"+
+									"<option selected>Select feedback:</option>"+
+									"<option id='policy'>I disagree with a Government policy relating to this subject</option>"+
+									"<option id='info'>Some information is missing about this subject</option>"+
+									"<option id='suggestion'>I would like to make a suggestion about this subject</option>"+
+									"<option id='local'>I need to contact someone about this subject</option>"+
+									"<option id='error'>I received an error or the page isn't working properly</option>"+
+									"</select>";
+		
+		var html = "<div id='feedback-popup'><a href='' id='close-feedback'>Close</a><h2>Help improve gov.uk</h2><form><label>Describe what kind of problem you're having</label>"+selects+"<div id='feedback-mechanism'></div></form><div id='related-popup'><h2>Related items</h2><ul><li><a href=''>Related article item</a></li><li><a href=''>Related article item</a></li><li><a href=''>Related article item</a></li></ul></div></div>";
 		$("body").append(html);
 		$("body").append("<div id='mask'></div>")
 		
-
+		$("#feedback-type").change(function(){
+			var id = $(this).find('option:selected').attr('id');
+			switch(id)
+			{
+			case "policy":
+				$("#feedback-mechanism").html("<p>If you disagree with something relating to this subject, there are a couple of things you can do:</p><ul><li><a href='http://epetitions.direct.gov.uk/'>Start a petition</a></li><li><a href='http://www.writetothem.com/'>Contact your MP</a></li><ul>");
+			  break;
+			case "info":
+				$("#feedback-mechanism").html("<label>Explain which information you believe is missing</label><textarea /><input type='submit' value='Send' /><p>We'll send this feedback to our editorial team</p>");
+			  break;
+			case "suggestion":
+				$("#feedback-mechanism").html("<label>Send feedback</label><textarea /><input type='submit' value='Send' /><p>We'll send this feedback to our development team</p>");
+				break;
+			case "local":
+				$("#feedback-mechanism").html("<p>Please call: 09865 987543</p>");
+				break;
+			case "error":
+				$("#feedback-mechanism").html("<label>What were you trying to do and what went wrong?</label><textarea /><input type='submit' value='Send' /><p>We'll send this information and an error log to our development team</p>");
+				break;
+			default:
+			  console.log("other")
+			}
+			
+		});
 		
 		//Get the screen height and width
 		var maskHeight = $(document).height();
@@ -70,7 +102,7 @@ var BetaFeedback = {
 		var winW = $(window).width();
 
 		//Set the popup window to center
-		$("#feedback-popup").css('top',  winH/2-$("#feedback-popup").height()/2);
+		//$("#feedback-popup").css('top',  winH/2-$("#feedback-popup").height()/2);
 		$("#feedback-popup").css('left', winW/2-$("#feedback-popup").width()/2);
 
 
