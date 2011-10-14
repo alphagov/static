@@ -32,7 +32,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  */
 
 html {
-	background: #D4D2CC;
+	background: #F6F1E6;
 }
 
 body {
@@ -93,11 +93,10 @@ a[rel="external"] {
 
 #global-header {
 	background-color: #333;
-	border-bottom: solid 1px #E5E5E5;
+	border-bottom: solid 4px #ED6900;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.25);
-	box-shadow: 0 2px 3px rgba(0,0,0,.25);
-	color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,.25);
 	min-height: 1em;
 	position: fixed;
 	top: 0;
@@ -129,13 +128,17 @@ a[rel="external"] {
 	* height: 1.25em;
 }
 
-#global-header a,
-#global-header a:active {
+#global-header .header-global {
 	color: #fff;
 }
 
-#global-header a:focus,
-#global-header a:hover {
+#global-header .header-global a,
+#global-header .header-global a:active {
+	color: #fff;
+}
+
+#global-header .header-global a:focus,
+#global-header .header-global a:hover {
 	color: #fff;
 }
 
@@ -167,8 +170,9 @@ a[rel="external"] {
 
 #global-header .header-global nav {
 	float: right;
-	margin-right: 17em;
-	padding: 0.7em;
+	margin-right: 18em;
+/*	padding: 0.7em;*/
+	margin-top: 0.7em;
 	* margin-right: 0;
 	* position: relative;
 	* right: 17em;
@@ -188,7 +192,7 @@ a[rel="external"] {
 
 #global-header .header-global nav li:last-child {
 	border-right: none;
-	padding-right: 0;
+/*	padding-right: 0;*/
 }
 
 #global-header .header-global nav li a {
@@ -217,16 +221,16 @@ a[rel="external"] {
 
 #global-header .header-context.citizen,
 #global-header .header-context.citizen .search-help {
-	background-color: #92AD54;
-	border-color: #B4D66B;
+	background-color: #EBE5DD;
+/*	border-color: #B4D66B;*/
 }
 
 .search-help {
 	border: solid 1px;
 	border-bottom: none;
-	-webkit-border-radius: 0.5em 0.5em 0 0;
+/*	-webkit-border-radius: 0.5em 0.5em 0 0;
 	-moz-border-radius: 0.5em 0.5em 0 0;
-	border-radius: 0.5em 0.5em 0 0;
+	border-radius: 0.5em 0.5em 0 0;*/
 	height: 1.75em;
 	margin-top: -1px;
 	padding: 0.5em 1em 0 1em;
@@ -463,7 +467,7 @@ a[rel="external"] {
 */
 
 #wrapper hgroup {
-	background: #efece0;
+	background: #EBE5DD;
 	border-bottom: none;
 	display: block;
 	margin: 0 14em 0 2em;
@@ -507,7 +511,7 @@ article {
 }
 
 .article-container {
-	background: #efece0;
+	background: #EBE5DD;
 	border-top: none;
 	margin-right: 12em;
 }
@@ -743,7 +747,7 @@ div[role="contentinfo"] {
 	font-size: 0.8em;
 	line-height:1.2em;
 	min-height: 1em;
-	padding:0 0 1em 0;
+	padding: 0 2em 1em 2em;
 	vertical-align: top;
 	overflow: auto;
 }
