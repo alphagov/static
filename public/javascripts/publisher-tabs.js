@@ -43,7 +43,7 @@ $(document).ready(function() {
 
       // Set the state!
       state[id] = idx;
-      window.history.pushState(state, title, document.location.pathname + anchor);
+      window.history.pushState(state, title, document.location.pathname + document.location.search + anchor);
       $(window).trigger('hashchange');
     });
 
