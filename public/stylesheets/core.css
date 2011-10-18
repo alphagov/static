@@ -502,6 +502,7 @@ article {
 	margin-right: 12em;
 	min-height: 30em;
 	position: relative;
+	width: 100%;
 	z-index: 1;
 	* float: none;
 }
