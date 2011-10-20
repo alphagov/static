@@ -448,6 +448,10 @@ input[disabled]:active {
       background-color: #E6FFD6;
     }
 
+		.formats tbody tr.factchecked td {
+			background-color: #ccc;
+		}
+
 		.formats img,
 		.formats input {
 			opacity: 0.5;
