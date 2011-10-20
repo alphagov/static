@@ -1604,7 +1604,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       padding-top: 0.5em;
       position: absolute;
       text-align: center;
-      top: 0;
+      top: 2px;
       width: 40px;
       z-index: 10;
     }
@@ -1639,35 +1639,30 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     .search .results.top li a {
       display: block;
-      margin: 0.5em 1em 1em 50px;
+      margin: 0.5em 1em 0.5em 40px;
     }
 
     .search .results.top li p {
-      display: block;
-      margin: 0 1em 1em 50px;
+      margin: 0 1em 1em 40px;
     }
 
-    .search .results.top a.transaction-link {
+    .search .results.top .transaction-link {
       background-color: #A93D00;
-      bottom: 0;
       -webkit-border-radius: 0.25em 0 0.25em 0;
       -moz-border-radius: 0.25em 0 0.25em 0;
       border-radius: 0.25em 0 0.25em 0;
-      color: #fff;
-      display: inline-block;
-      line-height: 2em;
-      margin: 0;
-      padding: 0.15em 1em;
-      position: absolute;
-      right: 0;
-      text-align: right;
+      clear: both;
+      float: right;
+      line-height: 1.25em;
+      text-align: center;
+      vertical-align: middle;
     }
 
     .search .results.top ul.search-promoted,
     .search .results.top ul.search-not-found {
-    list-style: none;
-    padding-left: 0;
-  }
+      list-style: none;
+      padding-left: 0;
+    }
 
     .search .results.top ul.search-promoted li,
     .search .results.top ul.search-not-found li {
