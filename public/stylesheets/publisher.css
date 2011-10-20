@@ -60,6 +60,7 @@
 .view-text-version {
 	background: #ddd;
 	border-top: solid 1px #bbb;
+	margin-bottom: 1em;
 	padding: 0.25em 1em;
 }
 .view-text-version p {
@@ -137,11 +138,6 @@ aside .chapters-navigation li.active a:hover .part-label {
 }
 aside .chapters-navigation li a .part-title {
 	text-decoration: underline;
-}
-
-.guide .meta-data {
-	border-top: dotted 1px #bbb;
-	margin: 2em 1.5em;
 }
 
 #wrapper.video-guide article {

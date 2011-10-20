@@ -1041,10 +1041,13 @@ div[role="contentinfo"] .depts li a {
 }
 
 .home ul li.guide a,
-.section ul li.guide a {
+.section ul li.guide a,
+ul.ui-autocomplete li.guides a {
 	background: url(/images/icon-guide-s.png) no-repeat 0 50%;
 }
-
+ul.ui-autocomplete li.search-site a{
+		background: url(/images/search.png) no-repeat 7px 50%;
+}
 .home ul li.transaction a,
 .section ul li.transaction a {
 	background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
@@ -1385,26 +1388,23 @@ ul.ui-widget {
 ul.ui-autocomplete {
 	background: none repeat scroll 0 0 #fff;
 	border: 1px solid #8F8F8F;
-	width:100px;
+	width:300px;
 	list-style-type:none;
 	padding:0;
 	margin:0;
 }
 ul.ui-autocomplete li {
 	font-size: 0.75em;
-/*	margin: 0 0 0 26%;
-	padding: 0.5em 0.75em 0 0;
-	width: 64%;*/
 }
 ul.ui-autocomplete li {
-	border-top: 1px solid #DBDAD9;
+/*	border-top: 1px solid #DBDAD9;*/
 	list-style-type:none;
-	padding:0;
 	margin:0;
-	width:100%;
+/*	width:100%; */
 }
-ul.ui-autocomplete.ui-menu .ui-menu-item a {
-	padding:0.5em;
+ul.ui-autocomplete.ui-menu .ui-menu-item a,
+ul.ui-autocomplete .search-site a {
+	padding:1em 1em 1em 2.5em;
 	display:block;
 }
 ul.ui-autocomplete li a em {
@@ -1416,6 +1416,7 @@ ul.ui-autocomplete li a em {
 ul.ui-menu .ui-menu-item a.ui-state-hover,
 ul.ui-menu .ui-menu-item a.ui-state-active {
 	margin: 0;
+	background-color:#bbb;
 }
 
 ul.ui-autocomplete.ui-menu .ui-menu-item.search-site em {
@@ -1604,7 +1605,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       padding-top: 0.5em;
       position: absolute;
       text-align: center;
-      top: 0;
+      top: 2px;
       width: 40px;
       z-index: 10;
     }
@@ -1639,35 +1640,30 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     .search .results.top li a {
       display: block;
-      margin: 0.5em 1em 1em 50px;
+      margin: 0.5em 1em 0.5em 40px;
     }
 
     .search .results.top li p {
-      display: block;
-      margin: 0 1em 1em 50px;
+      margin: 0 1em 1em 40px;
     }
 
-    .search .results.top a.transaction-link {
+    .search .results.top .transaction-link {
       background-color: #A93D00;
-      bottom: 0;
       -webkit-border-radius: 0.25em 0 0.25em 0;
       -moz-border-radius: 0.25em 0 0.25em 0;
       border-radius: 0.25em 0 0.25em 0;
-      color: #fff;
-      display: inline-block;
-      line-height: 2em;
-      margin: 0;
-      padding: 0.15em 1em;
-      position: absolute;
-      right: 0;
-      text-align: right;
+      clear: both;
+      float: right;
+      line-height: 1.25em;
+      text-align: center;
+      vertical-align: middle;
     }
 
     .search .results.top ul.search-promoted,
     .search .results.top ul.search-not-found {
-    list-style: none;
-    padding-left: 0;
-  }
+      list-style: none;
+      padding-left: 0;
+    }
 
     .search .results.top ul.search-promoted li,
     .search .results.top ul.search-not-found li {
