@@ -773,9 +773,9 @@ article ol.steps li:nth-child(7) {
 	display: none;
 }
 
-#wrapper.programme .programme-progression li:last-child a {
+/*#wrapper.programme .programme-progression li:last-child a {
 	background: url(/images/icon-programme-24.png) no-repeat 90% 50%;
-}
+}*/
 
 #wrapper.programme article {
 	min-height: 10em;
