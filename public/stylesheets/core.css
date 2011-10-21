@@ -36,8 +36,8 @@ html {
 }
 
 body {
-	color: #3F3F3F;
-	font-family: "ComicSansMS", "Comic Sans MS", "Comic Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	color: #333;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	line-height: 1.4em;
 }
 
@@ -1647,11 +1647,25 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       margin: 0 1em 1em 40px;
     }
 
+    .search .results.top li ul {
+      padding: 0;
+    }
+
+    .search .results.top li li {
+      border: none;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      display: block;
+      float: none;
+      list-style-type: disc;
+      margin: 0;
+      min-height: 1em;
+      width: auto;
+      }
+
+
     .search .results.top .transaction-link {
-      background-color: #A93D00;
-      -webkit-border-radius: 0.25em 0 0.25em 0;
-      -moz-border-radius: 0.25em 0 0.25em 0;
-      border-radius: 0.25em 0 0.25em 0;
       clear: both;
       float: right;
       line-height: 1.25em;
