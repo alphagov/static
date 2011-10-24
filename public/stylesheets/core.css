@@ -393,7 +393,8 @@ a[rel="external"] {
 /*	border: solid 1px #ddd;*/
 	border-bottom: none;
 	display: block;
-	margin: 0 14em 0 2em;
+/*	margin: 0 14em 0 2em;*/
+	margin: 0;
 	padding: 1em 1em 0;
 }
 
@@ -436,7 +437,7 @@ article {
 
 .article-container {
 	background: #EBE5DD;
-	border-top: none;
+/*	border-top: none;*/
 	margin-right: 12em;
 }
 
