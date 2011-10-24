@@ -16,7 +16,7 @@ $(document).ready(function() {
         .appendTo( ul );
     }
   });
-
+	
   $.ajax({
     url: "/autocomplete",
     dataType: "json",
