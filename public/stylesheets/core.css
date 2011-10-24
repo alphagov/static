@@ -45,7 +45,9 @@ body {
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
-	_width: 960px;
+}
+.lte-ie8 #wrapper {
+	width: 960px;
 }
 
 .inner {
@@ -57,6 +59,8 @@ body {
 section {
 	margin: 6em auto 2em;
 	width: 100%;
+}
+.lte-ie8 section {
 	_margin: 2em auto 2em;
 }
 
@@ -110,13 +114,18 @@ a[rel="external"] {
 	top: 0;
 	width: 100%;
 	z-index: 99999;
-	_height: 1em;
+}
+.lte-ie8 #global-header {
+	height: 1em;
+	*height: 5em;
 }
 
 #global-header .inner {
 	padding: 0 1em;
-	_padding: 0;
-	_width: 100%;
+}
+.lte-ie8 #global-header .inner {
+	padding: 0;
+	width: 100%;
 }
 
 #global-header hgroup {
@@ -132,8 +141,11 @@ a[rel="external"] {
 	margin-right: 1em;
 	padding: 0.5em 0;
 	padding-left: 2.5em;
-	_float: left;
-	_height: 1.25em;
+
+}
+.lte-ie8 #global-header h1 {
+	float: left;
+	height: 1.25em;
 }
 
 #global-header a,
@@ -169,16 +181,20 @@ a[rel="external"] {
 #global-header nav li {
 	display: inline-block;
 	vertical-align: middle;
-	_display: inline;
+}
+.lte-ie8 #global-header nav li {
+	display: inline;
 }
 
 #global-header .header-global nav {
 	float: right;
 	margin-right: 17em;
 	padding: 0.7em;
-	_margin-right: 0;
-	_position: relative;
-	_right: 17em;
+}
+.lte-ie8 #global-header .header-global nav {
+	margin-right: 0;
+	position: relative;
+	right: 17em;
 }
 
 #global-header .header-global nav ul {
@@ -190,7 +206,9 @@ a[rel="external"] {
 	font-size: 0.75em;
 	margin-left: 1em;
 	padding-right: 1.25em;
-	_border: none;
+}
+.lte-ie8 #global-header .header-global nav li {
+	border: none;
 }
 
 #global-header .header-global nav li:last-child {
@@ -240,7 +258,9 @@ a[rel="external"] {
 	position: absolute;
 	right: -1px;
 	top: -2.25em;
-	_width: 14em;
+}
+.lte-ie8 .search-help {
+	width: 14em;
 }
 
 .site-search {
@@ -353,7 +373,9 @@ a[rel="external"] {
 	max-width: 960px;
 	position: relative;
 	width: 95%;
-	_width: 100%;
+}
+.lte-ie8 .related-container {
+	width: 100%;
 }
 
 .related {
@@ -511,7 +533,9 @@ article {
 	position: relative;
 	width: 100%;
 	z-index: 1;
-	_float: none;
+}
+.lte-ie8 article {
+	float: none;
 }
 
 .article-container {
@@ -541,7 +565,9 @@ article header h1 {
   margin-top: 0;
   margin-bottom: 0;
 	padding-bottom: 0.75em;
-	_zoom: 1;
+}
+.lte-ie8 article header h1 {
+	zoom: 1;
 }
 
 article header h1 span {
@@ -677,7 +703,9 @@ article td {
 	float: left;
 	font-size: 0.8em;
 	margin: 1em 0 2em 2em;
-	_float: none;
+}
+.lte-ie8 .meta-data {
+	float: none;
 }
 
 /*.answer .meta-data,
@@ -1429,7 +1457,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 /* Location in header bar */
 #location-set-message.removing,
-#location-unset-message.removing{
+#location-unset-message.removing {
 	display:none;
 }
 
@@ -1446,8 +1474,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	color: #bbb;
 	font-size: 0.75em;
 }
-.lte-i8 #location-set-message,
-.lte-i8 #location-unset-message {
+.lte-ie8 #location-set-message,
+.lte-ie8 #location-unset-message, {
 	display: none;
 }
 
