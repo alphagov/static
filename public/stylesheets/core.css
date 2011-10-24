@@ -45,7 +45,7 @@ body {
 	margin: 0 auto;
 	max-width: 960px;
 	width: 95%;
-	* width: 960px;
+	_width: 960px;
 }
 
 .inner {
@@ -57,7 +57,7 @@ body {
 section {
 	margin: 6em auto 2em;
 	width: 100%;
-	* margin: 2em auto 2em;
+	_margin: 2em auto 2em;
 }
 
 ol, ul, nav ol, nav ul {
@@ -110,13 +110,13 @@ a[rel="external"] {
 	top: 0;
 	width: 100%;
 	z-index: 99999;
-	* height: 1em;
+	_height: 1em;
 }
 
 #global-header .inner {
 	padding: 0 1em;
-	* padding: 0;
-	* width: 100%;
+	_padding: 0;
+	_width: 100%;
 }
 
 #global-header hgroup {
@@ -132,8 +132,8 @@ a[rel="external"] {
 	margin-right: 1em;
 	padding: 0.5em 0;
 	padding-left: 2.5em;
-	* float: left;
-	* height: 1.25em;
+	_float: left;
+	_height: 1.25em;
 }
 
 #global-header a,
@@ -169,16 +169,16 @@ a[rel="external"] {
 #global-header nav li {
 	display: inline-block;
 	vertical-align: middle;
-	* display: inline;
+	_display: inline;
 }
 
 #global-header .header-global nav {
 	float: right;
 	margin-right: 17em;
 	padding: 0.7em;
-	* margin-right: 0;
-	* position: relative;
-	* right: 17em;
+	_margin-right: 0;
+	_position: relative;
+	_right: 17em;
 }
 
 #global-header .header-global nav ul {
@@ -190,7 +190,7 @@ a[rel="external"] {
 	font-size: 0.75em;
 	margin-left: 1em;
 	padding-right: 1.25em;
-	* border: none;
+	_border: none;
 }
 
 #global-header .header-global nav li:last-child {
@@ -240,7 +240,7 @@ a[rel="external"] {
 	position: absolute;
 	right: -1px;
 	top: -2.25em;
-	* width: 14em;
+	_width: 14em;
 }
 
 .site-search {
@@ -353,7 +353,7 @@ a[rel="external"] {
 	max-width: 960px;
 	position: relative;
 	width: 95%;
-	* width: 100%;
+	_width: 100%;
 }
 
 .related {
@@ -511,7 +511,7 @@ article {
 	position: relative;
 	width: 100%;
 	z-index: 1;
-	* float: none;
+	_float: none;
 }
 
 .article-container {
@@ -541,7 +541,7 @@ article header h1 {
   margin-top: 0;
   margin-bottom: 0;
 	padding-bottom: 0.75em;
-	* zoom: 1;
+	_zoom: 1;
 }
 
 article header h1 span {
@@ -677,7 +677,7 @@ article td {
 	float: left;
 	font-size: 0.8em;
 	margin: 1em 0 2em 2em;
-	* float: none;
+	_float: none;
 }
 
 /*.answer .meta-data,
@@ -1445,8 +1445,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	margin: 0;
 	color: #bbb;
 	font-size: 0.75em;
-	* display: none;
 }
+.lte-i8 #location-set-message,
+.lte-i8 #location-unset-message {
+	display: none;
+}
+
 #location-set-message a,
 #location-unset-message a {
 	color: #bbb;
