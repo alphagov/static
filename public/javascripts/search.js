@@ -37,8 +37,10 @@ $(document).ready(function() {
 					var offset = $("#s").offset(),
 						leftoffset = offset.left,
 						width = $("#s").width();
-					var newLeft = (leftoffset - width) - 10;
-					$(".ui-autocomplete").css("left", newLeft+"px");
+					
+					var newLeft = (leftoffset - width);
+					$(".ui-autocomplete").css("left", newLeft+"px").css("width", ((width*2)+4)+"px");
+					
 					// quickly add the search value to end of list
 					var searchVal = $("#s").attr("value");
 					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?search="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>")

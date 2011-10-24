@@ -1069,8 +1069,7 @@ div[role="contentinfo"] .depts li a {
 }
 
 .home ul li.guide a,
-.section ul li.guide a,
-ul.ui-autocomplete li.guides a {
+.section ul li.guide a{
 	background: url(/images/icon-guide-s.png) no-repeat 0 50%;
 }
 ul.ui-autocomplete li.search-site a{
@@ -1407,6 +1406,7 @@ ul.ui-autocomplete li.search-site a{
 #main_autocomplete {
 	color: inherit;
 }
+
 ul.ui-menu {
 	padding: 0;
 }
@@ -1416,19 +1416,27 @@ ul.ui-widget {
 ul.ui-autocomplete {
 	background: none repeat scroll 0 0 #fff;
 	border: 1px solid #8F8F8F;
-	width:300px;
 	list-style-type:none;
 	padding:0;
 	margin:0;
+	margin-top:1px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+}
+ul.ui-autocomplete li.guides a {
+	background: url(/images/icon-guide-s.png) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li {
 	font-size: 0.75em;
 }
 ul.ui-autocomplete li {
-/*	border-top: 1px solid #DBDAD9;*/
+	border-top: 1px solid #eee;
 	list-style-type:none;
 	margin:0;
 /*	width:100%; */
+}
+ul.ui-autocomplete li.search-site{
+	border-top:3px solid #dedede;
+	background-color:#eee;
 }
 ul.ui-autocomplete.ui-menu .ui-menu-item a,
 ul.ui-autocomplete .search-site a {
@@ -1436,7 +1444,6 @@ ul.ui-autocomplete .search-site a {
 	display:block;
 }
 ul.ui-autocomplete li a em {
-	background-color: #FFE9A5;
 	font-style: normal;
 	font-weight: bold;
 	padding: 0.125em;
@@ -1444,7 +1451,7 @@ ul.ui-autocomplete li a em {
 ul.ui-menu .ui-menu-item a.ui-state-hover,
 ul.ui-menu .ui-menu-item a.ui-state-active {
 	margin: 0;
-	background-color:#bbb;
+	background-color:#ffffcc;
 }
 
 ul.ui-autocomplete.ui-menu .ui-menu-item.search-site em {
