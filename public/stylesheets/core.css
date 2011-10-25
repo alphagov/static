@@ -665,16 +665,25 @@ article dd {
 }
 
 article table {
-  margin: 0em 0;
-  margin-left: -0.38em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 0 1em;
   padding: 0;
-  border-collapse: separate;
-  border-spacing: 0.38em;
+}
+
+article table caption {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
 
 article th, article td {
   vertical-align: top;
   line-height: 1.3em;
+}
+
+article tr:nth-child(even) td {
+	background-color: #F9F9F9;
 }
 
 article th {
@@ -687,12 +696,18 @@ article td {
 
 article th {
   text-align: left;
-  background: rgba(62,62,62,0.07);
+  background-color: #e7e7e7;
+  border: solid 1px #E9E8E7;
 }
 
 article td {
   background: #fff;
   border: solid 1px #E9E8E7;
+}
+
+article table.calendar {
+  margin-bottom: 2em;
+  width: 100%;
 }
 
 /* Meta-data */
