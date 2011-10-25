@@ -55,9 +55,9 @@ body {
 
 section {
 /*	margin: 1.5em 0;*/
-/*	margin: 6em auto 2em;
+	margin: 6em auto 2em;
 	width: 100%;
-	* margin: 2em auto 2em;*/
+	* margin: 2em auto 2em;
 }
 
 ol, ul, nav ol, nav ul {
@@ -315,7 +315,6 @@ a[rel="external"] {
 
 .related li {
 /*	border: 1px solid #bbb;*/
-
 	background-position: 0 20%;
 	background-repeat: no-repeat;
 	line-height: 1.25em;
@@ -357,6 +356,7 @@ a[rel="external"] {
 
 .related li a[href*="#"] {
 	/* grey out stub links */
+	background: none;
 	color: #888;
 	cursor: default;
 	text-decoration: none;
@@ -389,13 +389,14 @@ a[rel="external"] {
 
 #wrapper hgroup {
 	background-color: #EBE5DD;
+	background-color: #E5E5E5;
 /*	background-color: #F7F7F7;*/
 /*	border: solid 1px #ddd;*/
 	border-bottom: none;
 	display: block;
 /*	margin: 0 14em 0 2em;*/
-	margin: 0;
-	padding: 1em 1em 0;
+	margin: 0 12em 0 0;
+	padding: 1em 1em 0.5em 1em;
 }
 
 #wrapper hgroup h1 {
@@ -423,6 +424,11 @@ a[rel="external"] {
 
 article {
 	background: #fff;
+/*	border-top: solid 1px #bbb;
+	border-bottom: solid 1px #bbb;
+	border-right: solid 1px #ddd;
+	border-left: solid 1px #ddd;
+	box-sizing: border-box;*/
 	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
 	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
@@ -432,11 +438,14 @@ article {
 	position: relative;
 	width: 100%;
 	z-index: 1;
-	* float: none;
+}
+.lte-ie8 article {
+	*float: none;
 }
 
 .article-container {
-	background: #EBE5DD;
+	background-color: #EBE5DD;
+	background-color: #E5E5E5;
 /*	border-top: none;*/
 	margin-right: 12em;
 }
@@ -447,6 +456,7 @@ article {
 
 article .inner {
 	padding: 2em 3em;
+/*	padding: 1em 3em;*/
 	width: auto;
 }
 
