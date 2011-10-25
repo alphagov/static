@@ -2,7 +2,7 @@ html {
 /*	background: #F8F6EE;*/
 }
 
-#wrapper.section,
+/*#wrapper.section,
 #wrapper.answer,
 #wrapper.guide, 
 #wrapper.transaction, 
@@ -25,6 +25,7 @@ html {
 #wrapper.smartanswer section {
 	margin: 1.5em 0;
 }
+*/
 
 /* section pages */
 #wrapper.section hgroup h1 {
@@ -88,6 +89,7 @@ html {
 .view-text-version {
 	background: #ddd;
 	border-top: solid 1px #bbb;
+	margin-bottom: 1em;
 	padding: 0.25em 1em;
 }
 .view-text-version p {
@@ -166,11 +168,6 @@ aside .chapters-navigation li.active a:hover .part-label {
 }
 aside .chapters-navigation li a .part-title {
 	text-decoration: underline;
-}
-
-.guide .meta-data {
-	border-top: dotted 1px #bbb;
-	margin: 2em 1.5em;
 }
 
 #wrapper.video-guide article {
@@ -802,9 +799,9 @@ article ol.steps li:nth-child(7) {
 	display: none;
 }
 
-#wrapper.programme .programme-progression li:last-child a {
+/*#wrapper.programme .programme-progression li:last-child a {
 	background: url(/images/icon-programme-24.png) no-repeat 90% 50%;
-}
+}*/
 
 #wrapper.programme article {
 	min-height: 10em;

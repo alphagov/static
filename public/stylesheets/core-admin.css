@@ -76,7 +76,7 @@
 body {
 	background-color: #efece0;
 	color: #444;
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 100%;
 }
 
@@ -213,7 +213,7 @@ input[disabled],
 input[disabled]:hover {
 	background-color: #f5f5f5;
 	color: #777;
-	cursor: default;
+	cursor: not-allowed;
 }
 
 input[type=submit]:disabled {
@@ -284,7 +284,7 @@ input[disabled]:active {
 		background-color: #d8d8d8;
 		border-top: 0.063em solid #bbb;
 		list-style: none;
-		margin: 0 1em;
+		margin: 0 1em 0.5em;
 	}
 
   	.edition .history li.note {
@@ -304,7 +304,7 @@ input[disabled]:active {
 
 .edition .history li div {
 	display: inline-block;
-	min-height: 6em;
+	min-height: 6.75em;
 	vertical-align: top;
 	width: 20%;
 }
@@ -348,7 +348,7 @@ input[disabled]:active {
 		-webkit-box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
 		-moz-box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
 		box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
-    margin: 0.5em 0 1em 5.5em;
+    margin: 0.5em 0 1em 6.25em;
 		padding: 0 1em;
 		position: relative;
 	}
@@ -447,6 +447,10 @@ input[disabled]:active {
     .formats tbody tr.okay td {
       background-color: #E6FFD6;
     }
+
+		.formats tbody tr.factchecked td {
+			background-color: #ccc;
+		}
 
 		.formats img,
 		.formats input {
