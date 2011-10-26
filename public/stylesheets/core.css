@@ -697,7 +697,12 @@ footer#footer{
 #footer .subsection {
 	float: left;
 	font-size: 0.8em;
+	line-height: 1.4em;
 	width: 50%;
+}
+
+#footer .subsection p {
+	margin: 0.5em 0;
 }
 
 /*
@@ -1446,13 +1451,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	homepage
 */
 
-#wrapper.home {
+.home #global-header .header-global ul {
+	margin-right: 0;
+}
+
+.home #wrapper {
 	margin: 0 2em;
 	max-width: none;
 }
 
-#wrapper.home section {
-	margin: 4.5em auto 0 auto;
+.home #wrapper section {
+	margin: 2.5em auto 0 auto;
 }
 
 .homepage-section {
