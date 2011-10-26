@@ -1,3 +1,32 @@
+html {
+/*	background: #F8F6EE;*/
+}
+
+/*#wrapper.section,
+#wrapper.answer,
+#wrapper.guide, 
+#wrapper.transaction, 
+#wrapper.local_transaction, 
+#wrapper.programme, 
+#wrapper.place, 
+#wrapper.smartanswer {
+	margin: 0 auto;
+	max-width: 960px;
+	* width: 960px;
+}
+
+#wrapper.section section,
+#wrapper.answer section,
+#wrapper.guide section, 
+#wrapper.transaction section, 
+#wrapper.local_transaction section, 
+#wrapper.programme section, 
+#wrapper.place section, 
+#wrapper.smartanswer section {
+	margin: 1.5em 0;
+}
+*/
+
 /* section pages */
 #wrapper.section hgroup h1 {
 	background-image: url('/images/icon-section-l.png');
@@ -25,7 +54,7 @@
 	position: relative;
 }
 #wrapper.guide header hgroup {
-	min-height: 5.75em;
+/*	min-height: 5.75em;*/
 	margin-left: 0;
 }
 .alternative-guide {
@@ -128,6 +157,7 @@ aside .chapters-navigation li a .part-label {
 	color: #3f3f3f;
 	display: block;
 	font-size: 0.6em;
+	line-height: 1.5em;
 	text-transform: uppercase;
 }
 aside .chapters-navigation li a:hover .part-label {

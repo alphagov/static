@@ -5,113 +5,55 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
   <title>www.gov.uk - This is a trial ‘beta’ version of the UK government's official website</title>
-  <link href="/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
-  <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
-	<link href="/stylesheets/core-print.css" rel="stylesheet" type="text/css" media="print" />
-  <link href="/stylesheets/core.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
+	<link href="<%= @asset_host %>/stylesheets/core-print.css" rel="stylesheet" type="text/css" media="print" />
+  <link href="<%= @asset_host %>/stylesheets/core.css" rel="stylesheet" type="text/css" />
 	
-  <script src="/javascripts/libs/jquery/jquery-1.6.2.min.js" defer="defer" type="text/javascript"></script>
-  <script src="/javascripts/libs/jquery/jquery-ui-1.8.16.custom.min.js" defer="defer" type="text/javascript"></script>
-  <script src="/javascripts/search.js" defer="defer" type="text/javascript"></script>
-	<script src="/javascripts/libs/jquery/plugins/jquery.base64.js" defer="defer" type="text/javascript"></script>
-	<script src="/javascripts/devolution.js" defer="defer" type="text/javascript"></script>
-  <script src="/javascripts/betafeedback.js" defer="defer" type="text/javascript"></script>
-  <script src="/javascripts/feedback.js" defer="defer" type="text/javascript"></script>
+  <script src="<%= @asset_host %>/javascripts/libs/jquery/jquery-1.6.2.min.js" defer="defer" type="text/javascript"></script>
+  <script src="<%= @asset_host %>/javascripts/libs/jquery/jquery-ui-1.8.16.custom.min.js" defer="defer" type="text/javascript"></script>
+  <script src="<%= @asset_host %>/javascripts/search.js" defer="defer" type="text/javascript"></script>
+	<script src="<%= @asset_host %>/javascripts/libs/jquery/plugins/jquery.base64.js" defer="defer" type="text/javascript"></script>
+	<script src="<%= @asset_host %>/javascripts/devolution.js" defer="defer" type="text/javascript"></script>
+  <script src="<%= @asset_host %>/javascripts/betafeedback.js" defer="defer" type="text/javascript"></script>
+  <script src="<%= @asset_host %>/javascripts/feedback.js" defer="defer" type="text/javascript"></script>
 	<!--[if lt IE 9]>
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
-<body>
+<body class="home">
   
   <a href="#content" class="visuallyhidden">Skip to main content</a>
-  
-  <header role="banner" class="group" id="global-header">
-    <div class="inner">
-      <div class="header-global">
-        <h1><a href="/" title="return to the www.gov.uk homepage">www.gov.uk</a></h1>
 
-				<nav role="navigation">
-					<ul>
-						<li><a href="#">Government Departments</a></li>
-						<li><a href="#">Business</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div><!-- end inner -->
-		<div class="header-context citizen group">
-			<div class="inner">
-				<nav role="navigation">
-					<ol>
-						<li class="current-context"><a href="/">Citizens home</a></li>
-					</ol>
-				</nav>
-			</div><!-- end inner -->
-			<div class="search-help">
-				<form class="site-search" action="/search" method="get" role="search">
-				  <fieldset>
-				    <legend class="visuallyhidden">Site search for www.gov.uk</legend>
-	   				<label for="s">
-	 						<span>Search</span>
-	 					</label>
-						<input type="search" name="search" id="s" title="Search" placeholder="Search for..." />
-	  				<input type="submit" value="Go" />
-	  			</fieldset>
-				</form>
-				<div class="global-help">
-					<a href="/help">Get help using this website</a>
-				</div>
-			</div>
-    </div><!-- end header-context -->
+  <header role="banner" class="group" id="global-header">
+		<div class="header-global group">
+	    <h1><a href="/" title="return to the gov.uk homepage">gov.uk</a></h1>
+			<nav role="navigation">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="#">Personalisation</a></li>
+					<li><a href="#">Government Departments</a></li>
+					<li><a href="#">Business</a></li>
+				</ul>
+			</nav>
+		</div>
   </header><!--end header-->
 
   <div id="wrapper" class="group">
   </div><!--end wrapper-->
 
-
-
-	<footer class="group" id="popular">
-		<div class="inner">
-			<div class="subsection popular">
-				<h1>Popular</h1>
-				<ul>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-					<li><a href="#">How do I claim something?</a></li>
-				</ul>
-
-			</div>
-			<div class="subsection sections">
-				<h1>Sections</h1>
-				<ul>
-					<li><a href="#">Driving</a></li>
-					<li><a href="#">Housing</a></li>
-					<li><a href="#">Communities</a></li>
-					<li><a href="#">Taxes</a></li>
-					<li><a href="#">Disabled people</a></li>
-				</ul>
-			</div>
-		</div>
-	</footer>
-  <footer class="group" id="footer">
-    <div class="inner" role="contentinfo">
+	<footer class="group" id="footer">
+		<div class="inner group" role="contentinfo">
 			<div class="subsection copyright">
-      	<p>&copy; 2011 Crown Copyright</p>
+      	<p>© 2011 Crown Copyright</p>
       	<p id="reuse-license">
         Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a>
       	</p>
       	<p id="cookie-declaration">This site uses cookies. We have published <a href="/cookies">a list and further information</a>.</p>
-			</div>
-			<div class="subsection project">
-				<ul>
-				<li><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a></li>
-				</ul>
+				<p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a</p>
 			</div>
 			<div class="subsection depts">
 				<ul>
