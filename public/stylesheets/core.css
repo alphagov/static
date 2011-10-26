@@ -691,7 +691,7 @@ footer#footer{
 }
 
 #footer .inner {
-	padding: 1em 2em;
+	padding: 0.5em 2em;
 }
 
 #footer .subsection {
@@ -1465,10 +1465,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 .homepage-section:nth-child(2) {
-	background-color: rgba(0,0,0,0.05);
+	background-color: #EFEFEF;
 }
 .homepage-section:nth-child(3) {
-	background-color: rgba(0,0,0,0.1);
+	background-color: #E0E0E0;
 	border: none;
 	box-shadow: none;
 	padding-bottom: 2em;
