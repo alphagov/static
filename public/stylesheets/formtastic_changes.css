@@ -56,4 +56,9 @@ form.formtastic fieldset > ol > li.search input[size] { width:auto; max-width:99
 /* TEXTAREA OVERRIDES
 --------------------------------------------------------------------------------------------------*/
 form.formtastic fieldset > ol > li.text textarea { width: 99%; font-size: 1em; line-height: 1.4; }
+
+form.formtastic fieldset > ol > li#note_comment_input { display: inline-block; vertical-align: middle;width: 80%; }
+form.formtastic fieldset > ol > li#note_comment_input textarea { height: 6em; width: 99%; }
+form.formtastic fieldset > ol > li#note_comment_update { display: inline-block; text-align: right; width: 10%; }
+
 form.formtastic fieldset > ol > li.text textarea[cols] { width: auto; max-width: 99%; }
