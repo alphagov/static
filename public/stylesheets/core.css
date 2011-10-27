@@ -730,17 +730,34 @@ footer#footer{
  * Help page
  */
 
+#wrapper .help header hgroup {
+	margin-right: 0;
+	padding: 1em 2em;
+}
+
+#wrapper .help header hgroup h1 {
+	padding: 0;
+	margin: 0;
+}
+
+#help article {
+	border-bottom: solid 3px #bbb;
+	box-shadow: none;
+	margin: 0 0 1em 0;
+	min-height: 0;
+	padding: 0 0 1em 0;
+}
+
 #help article .inner {
 	padding: 0;
 }
 
 #help {
 	clear: both;
-	background-color: #EFECE0;
-	border-radius: 5px;
+	background-color: #fff;
 	overflow: hidden;
-	padding: 1em;
-	width: 100%;
+	padding: 2em;
+/*	width: 100%;*/
 }
 
 #main-help {
@@ -756,21 +773,28 @@ footer#footer{
 }
 
 #extra-help article {
-	padding: 1em;
+/*	padding: 1em;*/
+}
+
+.help-menu {
+	border-bottom: solid 3px #bbb;
+	padding: 0 0 1em 0;
 }
 
 .help-menu ul {
-	list-style-type: none;
-	margin: 1em 0 0 0;
+/*	list-style-type: none;*/
+/*	margin: 1em 0 0 0;*/
+	margin: 0;
 	padding: 0;
 }
 
 .help-menu li {
-	list-style-type: none;
-	padding: 0 0 1em 1em;
+/*	list-style-type: none;*/
+	margin: 0 0 0.5em 1em;
+/*	padding: 0 0 1em 1em;*/
 }
 
-.help #find,
+/*.help #find,
 .help #tools,
 .help #feedback {
 	width: 100%;
@@ -781,7 +805,7 @@ footer#footer{
 	border:1px solid #fff;
 	padding:0.5em 1em 1em 1em;
 	border-radius:5px;
-}
+}*/
 
 #help-internet ul,
 #help-internet li{
@@ -794,7 +818,7 @@ footer#footer{
 .help h2,
 .help p {
 	padding: 0;
-	margin: 0;
+	margin: 0.5em 0;
 	line-height: 1.4em;
 }
 .help h1,
@@ -847,15 +871,15 @@ footer#footer{
 		margin: 0 0 1em;
 	}
 
-.help strong,
+.help strong a,
 .project li {
-	background: none repeat scroll 0 0 #FF5C00;
-  border: 1px solid #A93D00;
+	background: none repeat scroll 0 0 #FF7115;
+/*  border: 1px solid #A93D00;*/
   border-radius: 0.25em 0.25em 0.25em 0.25em;
 	color:#fff;
-	width:60%;
-	display:block;
-	padding:1em;
+/*	width:60%;*/
+/*	display:block;*/
+	padding:0.5em 1em;
 }
 
 .help strong a,
@@ -1777,4 +1801,57 @@ ul li.nearest a {
 
 ul li.smart-answer a {
 	background-image: url('../images/icon-smart-answer-s.png');
+}
+
+/* submit button stuff moved in from publisher.css */
+
+/* this insanity needs clearing up! */
+
+#wrapper.place fieldset input[type=submit],
+#wrapper.place fieldset input[type=submit]:visited,
+#wrapper.place .button,
+#wrapper.transaction fieldset input[type=submit],
+#wrapper.transaction fieldset input[type=submit]:visited,
+#wrapper.transaction .button,
+#wrapper.local_transaction fieldset input[type=submit],
+#wrapper.local_transaction fieldset input[type=submit]:visited,
+#wrapper.local_transaction .button,
+.popover fieldset input[type=submit],
+.popover fieldset input[type=submit]:visited {
+	background: #039 url(/images/button-overlay.png) repeat-x;
+	border: 1px solid rgba(0,0,0,0.25);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	text-decoration: none;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	position: relative;
+}
+
+/* this insanity needs clearing up! */
+
+#wrapper.place fieldset input[type=submit]:hover,
+#wrapper.place .button:hover,
+#wrapper.transaction fieldset input[type=submit]:hover,
+#wrapper.transaction .button:hover,
+#wrapper.local_transaction fieldset input[type=submit]:hover,
+#wrapper.local_transaction .button:hover {
+	background-color: rgb(0,25,80);
+	color: #fff;
+}
+
+/* this insanity needs clearing up! */
+
+#wrapper.place fieldset input[type=submit]:active,
+#wrapper.place .button:active,
+#wrapper.transaction fieldset input[type=submit]:active,
+#wrapper.transaction .button:active,
+#wrapper.local_transaction fieldset input[type=submit]:active,
+#wrapper.local_transaction .button:active {
+	top: 1px;
 }
