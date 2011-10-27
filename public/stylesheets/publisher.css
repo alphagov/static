@@ -4,11 +4,11 @@ html {
 
 /*#wrapper.section,
 #wrapper.answer,
-#wrapper.guide, 
-#wrapper.transaction, 
-#wrapper.local_transaction, 
-#wrapper.programme, 
-#wrapper.place, 
+#wrapper.guide,
+#wrapper.transaction,
+#wrapper.local_transaction,
+#wrapper.programme,
+#wrapper.place,
 #wrapper.smartanswer {
 	margin: 0 auto;
 	max-width: 960px;
@@ -17,11 +17,11 @@ html {
 
 #wrapper.section section,
 #wrapper.answer section,
-#wrapper.guide section, 
-#wrapper.transaction section, 
-#wrapper.local_transaction section, 
-#wrapper.programme section, 
-#wrapper.place section, 
+#wrapper.guide section,
+#wrapper.transaction section,
+#wrapper.local_transaction section,
+#wrapper.programme section,
+#wrapper.place section,
 #wrapper.smartanswer section {
 	margin: 1.5em 0;
 }
@@ -871,4 +871,25 @@ article ol.steps li:nth-child(7) {
 
 #wrapper.programme .part-pagination a:hover .progressor {
 	background-position: -978px 0;
+}
+
+/*
+ Calendar format
+ */
+
+ #wrapper.calendar hgroup h1 {
+ 	background-image: url('/images/icon-calendar-l.png');
+ }
+
+.ui-widget-content,
+.ui-tabs .ui-tabs-nav {
+  background-color: inherit;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-default {
+  background-color: #E9E8E7;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+  background-color: inherit;
 }
