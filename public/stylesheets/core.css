@@ -657,8 +657,9 @@ article td {
 }
 
 article table.calendar {
-  margin-bottom: 2em;
-  width: 100%;
+  background-color: inherit;
+  margin: 1em auto 2em;
+  width: 90%;
 }
 
 /* Meta-data */
