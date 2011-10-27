@@ -357,6 +357,8 @@ aside .chapters-navigation li a .part-title {
 	margin: 0 0.5em;
 }
 
+/* this insanity needs clearing up! */
+
 #wrapper.place fieldset input[type=submit],
 #wrapper.place fieldset input[type=submit]:visited,
 #wrapper.place .button,
@@ -383,6 +385,8 @@ aside .chapters-navigation li a .part-title {
 	position: relative;
 }
 
+/* this insanity needs clearing up! */
+
 #wrapper.place fieldset input[type=submit]:hover,
 #wrapper.place .button:hover,
 #wrapper.transaction fieldset input[type=submit]:hover,
@@ -392,6 +396,8 @@ aside .chapters-navigation li a .part-title {
 	background-color: rgb(0,25,80);
 	color: #fff;
 }
+
+/* this insanity needs clearing up! */
 
 #wrapper.place fieldset input[type=submit]:active,
 #wrapper.place .button:active,
