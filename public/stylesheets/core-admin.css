@@ -674,12 +674,16 @@ td.imminence-actions {
 
 .admin-nav ul li.publications-nav {
 	border-right: solid 1px #333;
-/*	border-left: solid 1px #333;*/
 	padding: 0.25em 1em;
 }
 
 .admin-nav ul li.publications-nav a {
 	margin-left: 1em;
+}
+
+.admin-nav ul li.publications-nav input {
+  font-size: 0.875em;
+  margin-left: 0.25em;
 }
 
 .admin-nav .rarer-nav {
