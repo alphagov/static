@@ -313,6 +313,7 @@ a[rel="external"] {
 	max-width: 960px;
 	position: relative;
 	width: 95%;
+	z-index: 50;
 }
 .lte-ie8 .related-container {
 	width: 100%;
@@ -323,7 +324,7 @@ a[rel="external"] {
 	right: 0;
 	margin-top: 1em;
 	width: 12em;
-	z-index: 50;
+/*	z-index: 50;*/
 }
 
 .related .inner {
@@ -336,19 +337,19 @@ a[rel="external"] {
 	width: auto;
 }
 
-.related li {
-	font-size: 0.8em;
-}
-
 .related h2 {
 	background: url('/images/related-arrow.png') no-repeat 0 50%;
 	font-size: 1em;
 	font-weight: normal;
 	line-height: 47px;
 	top: -1px;
-	margin: 0em -1em 0 -2em;
+	margin: 0 -1em 0 -2em;
 	padding-left: 2em;
 	position: relative;
+}
+.lte-ie8 .related h2 {
+	background-color: red;
+	zoom: 1;
 }
 
 .related ul {
@@ -358,15 +359,33 @@ a[rel="external"] {
 }
 
 .related li {
-/*	border: 1px solid #bbb;*/
+/*	background-position: 0 20%;*/
+/*	background-repeat: no-repeat;*/
+/*	font-size: 0.8em;
+	line-height: 1.25em;
+	margin-bottom: 0.25em;
+	padding: 0.7em 0 0.5em 2.5em;*/
+}
+
+.related li a {
 	background-position: 0 20%;
 	background-repeat: no-repeat;
+	display: block;
+	font-size: 0.8em;
 	line-height: 1.25em;
 	margin-bottom: 0.25em;
 	padding: 0.7em 0 0.5em 2.5em;
 }
 
-.related li.answer {
+.related li a[href*="#"] {
+	/* grey out stub links */
+	background: none;
+	color: #888;
+	cursor: default;
+	text-decoration: none;
+}
+
+/*.related li.answer {
 	background-image: url('/images/icon-answer-s.png');
 	background-position: 0 20%;
 }
@@ -377,7 +396,6 @@ a[rel="external"] {
 
 .related li.tool,
 .related li.transaction {
-	/* TODO - articles using tool should be renamed to transaction at some point */
 	background-image: url('/images/icon-transaction-s.png');
 }
 
@@ -396,15 +414,7 @@ a[rel="external"] {
 
 .related li.smart-answer {
 	background-image: url('/images/icon-smart-answer-s.png');
-}
-
-.related li a[href*="#"] {
-	/* grey out stub links */
-	background: none;
-	color: #888;
-	cursor: default;
-	text-decoration: none;
-}
+}*/
 
 .related li.related-topic {
 	border: dotted #bbb;
@@ -484,11 +494,7 @@ article {
 	z-index: 1;
 }
 .lte-ie8 article {
-<<<<<<< HEAD
-	*float: none;
-=======
 	float: none;
->>>>>>> master
 }
 
 .article-container {
