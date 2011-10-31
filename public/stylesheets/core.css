@@ -302,6 +302,9 @@ a[rel="external"] {
 	top: 13.75em;
 	width: 100%;
 }
+.lte-ie8 .related-positioning {
+	z-index: 50;
+}
 
 #wrapper.programme .related-positioning {
 /*	top: 12.1em;*/
@@ -324,7 +327,6 @@ a[rel="external"] {
 	right: 0;
 	margin-top: 1em;
 	width: 12em;
-/*	z-index: 50;*/
 }
 
 .related .inner {
@@ -348,7 +350,6 @@ a[rel="external"] {
 	position: relative;
 }
 .lte-ie8 .related h2 {
-	background-color: red;
 	zoom: 1;
 }
 
