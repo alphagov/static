@@ -1092,6 +1092,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #wrapper.section article ul li li a,
 #wrapper.section .popular-sections a {
+	background-repeat: no-repeat;
 	background-position: 0% 10%;
 	display: block;
 	padding: 0.2em 0 0.5em 1.8em;
