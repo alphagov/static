@@ -1519,7 +1519,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	max-width: none;
 }
 .lte-ie8 .home #wrapper {
-	margin: 0;
+	margin: 0 auto;
 }
 
 .home #wrapper section {
@@ -1537,8 +1537,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	position: relative;
 }
 .lte-ie8 .homepage-section {
-	background: yellow;
-	margin: 0 0;
+	margin: 0 auto;
+	padding: 2em 0;
 }
 
 .homepage-section:nth-child(1) {
