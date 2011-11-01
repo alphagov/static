@@ -325,7 +325,6 @@ a[rel="external"] {
 .related {
 	position: absolute;
 	right: 0;
-	margin-top: 1em;
 	width: 12em;
 }
 
@@ -1535,6 +1534,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	margin: 0 -2em;
 	padding: 2em;
 	position: relative;
+}
+.lte-ie8 .homepage-section {
+	background: yellow;
+	margin: 0 0;
 }
 
 .homepage-section:nth-child(1) {
