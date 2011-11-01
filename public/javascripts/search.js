@@ -43,7 +43,7 @@ $(document).ready(function() {
 					
 					// quickly add the search value to end of list
 					var searchVal = $("#s").attr("value");
-					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?search="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>")
+					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>")
 					}
       });
 
