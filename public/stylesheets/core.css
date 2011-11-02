@@ -1779,6 +1779,8 @@ ul li.smart-answer a {
 
 /* this insanity needs clearing up! */
 
+#wrapper.smart_answer .next-question input, 
+#wrapper.smart_answer .next-question input:visited, 
 #wrapper.place fieldset input[type=submit],
 #wrapper.place fieldset input[type=submit]:visited,
 #wrapper.place .button,
@@ -1826,4 +1828,8 @@ ul li.smart-answer a {
 #wrapper.local_transaction fieldset input[type=submit]:active,
 #wrapper.local_transaction .button:active {
 	top: 1px;
+}
+
+input[disabled=disabled] {
+	opacity: 0.5;
 }
