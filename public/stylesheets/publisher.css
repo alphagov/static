@@ -35,14 +35,6 @@ html {
 	color: #000;
 }
 
-/* Answers */
-#wrapper.answer hgroup h1 {
-	background-image: url('/images/icon-answer-l.png');
-}
-#wrapper.answer hgroup h1 span {
-	color: #1C7000;
-}
-
 /* Guides */
 #wrapper.guide hgroup h1 {
 	background-image: url('/images/icon-guide-l.png');
