@@ -334,7 +334,7 @@ a[rel="external"] {
 	margin: 0 auto;
 	max-width: 960px;
 	position: relative;
-	width: 95%;
+/*	width: 95%;*/
 	z-index: 50;
 }
 .lte-ie8 .related-container {
