@@ -1276,11 +1276,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       background-color: inherit;
       border-color: #bbb;
     }
-      .search .results.top ul.search-promoted li:before,
-      .search .results.top ul.search-not-found li:before {
-        display: none;
-      }
 
+    .search .results.top ul.search-promoted li:before,
+    .search .results.top ul.search-not-found li:before {
+      display: none;
+    }
+
+    .search .results.top ul.search-not-found h3 {
+      margin-top: 1.2em;
+    }
 
 
 .search .results ol {
