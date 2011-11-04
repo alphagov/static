@@ -705,6 +705,21 @@ article table.calendar {
   width: 90%;
 }
 
+/*
+	more article formatting including markdown styles
+*/
+
+article .summary p {
+	background: url(/images/summary-arrow.png) no-repeat 0 0;
+  font-size: 1.15em;
+	font-weight: bold;
+  line-height: 1.25em;
+	margin: 0 0.75em 1.25em 0;
+	min-height: 1.75em;
+	padding: 0.25em 0 0 1.5em;
+}
+
+
 /* Meta-data */
 .meta-data {
 	clear: both;
