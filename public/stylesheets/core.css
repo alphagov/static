@@ -75,6 +75,25 @@ fieldset {
 	padding: 0;
 }
 
+h2 {
+  font-size: 1.35em;
+  line-height: 1.18em;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+h3 {
+  font-size: 1.2em;
+  line-height: 1.11em;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+h4 {
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
 /*
  * Global link styles
  */
