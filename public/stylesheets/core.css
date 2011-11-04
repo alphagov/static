@@ -496,7 +496,7 @@ a[rel="external"] {
 #wrapper hgroup h2 {
 	color: #666;
 	font-size: 1em;
-	margin: 0 0 0 4em;
+	margin: 0.25em 0 0 4em;
 }
 
 /*
@@ -718,7 +718,6 @@ article .summary p {
 	min-height: 1.75em;
 	padding: 0.25em 0 0 1.5em;
 }
-
 
 /* Meta-data */
 .meta-data {
