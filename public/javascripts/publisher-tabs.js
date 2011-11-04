@@ -5,22 +5,30 @@ var myTextExtraction = function(node) {
   var image = the_node.find('img');
   if (image.length > 0) {
     return image.attr('alt');
-  } else {
-    return the_node.text();
   }
+  var time = the_node.find('time');
+  if (time.length > 0) {
+    return time.attr('datetime');
+  }
+  return the_node.text();
 }
 
 $(document).ready(function() {
 
   $('.formats').each(function (i, e) {
-    var dontSortHeaders = {}
-    $(this).find('th.nosort').each(function (i, e) {
-      dontSortHeaders[$(this).index()] = { sorter: false };
+    var headerDetails = {};
+    $(this).find('th').each(function (i, e) {
+      var elem = $(this);
+      if (elem.hasClass('nosort')) {
+        headerDetails[i] = {'sorter': false};
+      } else if (elem.hasClass('datetime')) {
+        headerDetails[i] = {'sorter': 'text'}
+      }
     });
 
     $(this).tablesorter({
       textExtraction: myTextExtraction,
-      headers: dontSortHeaders
+      headers: headerDetails
     });
   });
 
