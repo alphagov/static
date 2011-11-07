@@ -463,18 +463,6 @@ article .example {
   padding: 0 1em;
 }
 
-article .advisory {
-  background: #ffa;
-	border: solid 2px #FFCD17;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
-  line-height: 1.3em;
- 	margin: 1.25em 0;
-  padding: 1em;
-  text-align: center;
-}
-
 article .help-notice,
 article .info-notice {
 	border: 2px solid #bbb;
