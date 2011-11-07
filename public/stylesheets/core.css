@@ -712,7 +712,7 @@ article .summary p {
 }
 
 article .advisory {
-  background: #ffa;
+  background-color: #ffa;
 	border: solid 2px #FFCD17;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
@@ -721,6 +721,11 @@ article .advisory {
  	margin: 1.25em 0;
   padding: 1em;
   text-align: center;
+}
+
+article .advisory.high-alert {
+  background-color: #F4DCDD;
+  border-color: #C00;
 }
 
 /* Meta-data */
