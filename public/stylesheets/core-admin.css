@@ -148,9 +148,18 @@ Don't think these are being used anywhere
 	text-align: center;
 }
 
-.format-controls .button_to, .format-controls p.button {
-	display: inline-block;
-	margin: 0 1em 1em 0;
+/*.format-controls .button_to, .format-controls p.button {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}*/
+
+.format-controls ul {
+  margin: 0;
+  padding: 0;
+}
+
+.format-controls ul li {
+  list-style: none;
 }
 
 /*
