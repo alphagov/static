@@ -706,7 +706,7 @@ article table.calendar {
 	more article formatting including markdown styles
 */
 
-article .summary p {
+article .summary p, article .summary h2 {
 	background: url(/images/summary-arrow.png) no-repeat 0 0;
   font-size: 1.15em;
 	font-weight: bold;
@@ -714,6 +714,12 @@ article .summary p {
 	margin: 0 0.75em 1.25em 0;
 	min-height: 1.75em;
 	padding: 0.25em 0 0 1.5em;
+}
+
+article .summary h2 {
+  font-size: 1.35em;
+  line-height: 1.18em;
+	padding: 0.15em 0 0 1.5em;
 }
 
 article .advisory {
