@@ -280,7 +280,6 @@ a[rel="external"] {
   margin: 4em auto 0 auto;
   padding: 0 2.5em 2em 2.5em;
   position: relative;
-  width: 50%;
   min-width: 25em;
 }
 
@@ -297,8 +296,8 @@ a[rel="external"] {
 }
 
 #global-locator-box {
-	max-width: 40em;
-  width: 60%;
+	max-width: 60em;
+  width: 75%;
 }
 #global-locator-form .postcode {
 	border:none;
@@ -548,10 +547,15 @@ article .inner {
  * It's kind of like typography innit.
 */
 
+
+article h1 {
+  line-height: 1.1em;
+}
+
 article header h1 {
 	border-bottom: solid 1px #ddd;
   font-size: 1.65em;
-  line-height: 1.15em;
+/*  line-height: 1.15em;*/
   margin-top: 0;
   margin-bottom: 0;
 	padding-bottom: 0.75em;
@@ -701,7 +705,7 @@ article table.calendar {
 	more article formatting including markdown styles
 */
 
-article .summary p {
+article .summary p, article .summary h2 {
 	background: url(/images/summary-arrow.png) no-repeat 0 0;
   font-size: 1.15em;
 	font-weight: bold;
@@ -711,8 +715,14 @@ article .summary p {
 	padding: 0.25em 0 0 1.5em;
 }
 
+article .summary h2 {
+  font-size: 1.35em;
+  line-height: 1.18em;
+	padding: 0.15em 0 0 1.5em;
+}
+
 article .advisory {
-  background: #ffa;
+  background-color: #ffa;
 	border: solid 2px #FFCD17;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
@@ -721,6 +731,11 @@ article .advisory {
  	margin: 1.25em 0;
   padding: 1em;
   text-align: center;
+}
+
+article .advisory.high-alert {
+  background-color: #F4DCDD;
+  border-color: #C00;
 }
 
 /* Meta-data */
@@ -1184,156 +1199,164 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   list-style: none;
   padding-left: 0;
 }
-  .search .results.top li {
-    border: solid 0.125em #bbb;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-border-radius: 0.35em;
-    -moz-border-radius: 0.35em;
-    border-radius: 0.35em;
-    float: left;
-    margin: 0 1em 1em 0;
-    min-height: 10em;
-    position: relative;
-    width: 48.5%;
-  }
-    .search .results.top li:nth-child(even) {
-      margin-right: 0;
-    }
-
-    .search .results.top li:before {
-      content: "";
-      display: block;
-      font-weight: bold;
-      height: 30px;
-      left: 0;
-      padding-top: 0.5em;
-      position: absolute;
-      text-align: center;
-      top: 2px;
-      width: 40px;
-      z-index: 10;
-    }
-
-    .search .results.top li.answer:before {
-      content:url("/images/icon-answer-s.png");
-    }
-
-    .search .results.top li.guide:before {
-      content:url("/images/icon-guide-s.png");
-    }
-
-    .search .results.top li.transaction:before {
-      content:url("/images/icon-transaction-s.png");
-    }
-
-    .search .results.top li.local_transaction:before {
-      content:url("/images/icon-localtransaction-s.png");
-    }
-
-    .search .results.top li.programme:before {
-      content:url("/images/icon-programme-s.png");
-    }
-
-    .search .results.top li.place:before {
-      content:url("/images/icon-place-s.png");
-    }
-
-    .search .results.top li.smartanswer:before {
-      content:url("/images/icon-smartanswer-s.png");
-    }
-
-    .search .results.top li a {
-      display: block;
-      margin: 0.5em 1em 0.5em 40px;
-    }
-
-    .search .results.top li p {
-      margin: 0 1em 1em 40px;
-    }
-
-    .search .results.top li ul {
-      padding: 0;
-    }
-
-    .search .results.top li li {
-      border: none;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      border-radius: 0;
-      display: block;
-      float: none;
-      list-style-type: disc;
-      margin: 0;
-      min-height: 1em;
-      width: auto;
-      }
-
-
-    .search .results.top .transaction-link {
-      clear: both;
-      float: right;
-      line-height: 1.25em;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    .search .results.top ul.search-promoted,
-    .search .results.top ul.search-not-found {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .search .results.top ul.search-promoted li,
-    .search .results.top ul.search-not-found li {
-      background: #FDF6E5;
-      border: solid 2px #FFCD17;
-      -webkit-border-radius: 0.5em;
-      -moz-border-radius: 0.5em;
-      border-radius: 0.5em;
-      line-height: 1.3em;
-      padding: 0.25em 1em;
-      text-align: center;
-      width: 100%;
-    }
-
-    .search .results.top ul.search-promoted li p,
-    .search .results.top ul.search-not-found li p,
-    .search .results.top ul.search-promoted li a,
-    .search .results.top ul.search-not-found li a {
-      margin: 0.5em 1em 1em;
-    }
-
-    .search .results.top ul.search-not-found li {
-      background-color: inherit;
-      border-color: #bbb;
-    }
-
-    .search .results.top ul.search-promoted li:before,
-    .search .results.top ul.search-not-found li:before {
-      display: none;
-    }
-
-    .search .results.top ul.search-not-found h3 {
-      margin-top: 1.2em;
-    }
-
-
-.search .results ol {
-	list-style: decimal;
+.search .results.top ol>li {
+  border: solid 0.125em #bbb;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  border-radius: 0.35em;
+  float: left;
+  margin: 0 1em 1em 0;
+  min-height: 10em;
+  position: relative;
+  width: 48.5%;
 }
-  .search .results ol li {
-    margin-bottom: 0.875em;
-  }
-    .search .results ol li small {
-      display: block;
-      line-height: 2em;
-      margin-bottom: 0;
-    }
-    .search .results ol li p {
-      margin-top: 0.25em;
-    }
+
+.search .results.top li:nth-child(even) {
+  margin-right: 0;
+}
+
+.search .results li:before {
+  content: "";
+  display: block;
+  font-weight: bold;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0.85em;
+  width: 40px;
+  z-index: 10;
+}
+
+.search .results li.answer:before {
+  content:url("/images/icon-answer-s.png");
+}
+
+.search .results li.guide:before {
+  content:url("/images/icon-guide-s.png");
+}
+
+.search .results li.transaction:before {
+  content:url("/images/icon-transaction-s.png");
+}
+
+.search .results li.local_transaction:before {
+  content:url("/images/icon-localtransaction-s.png");
+}
+
+.search .results li.programme:before {
+  content:url("/images/icon-programme-s.png");
+}
+
+.search .results li.place:before {
+  content:url("/images/icon-place-s.png");
+}
+
+.search .results li.smartanswer:before {
+  content:url("/images/icon-smartanswer-s.png");
+}
+
+.search .results.top li a {
+  display: block;
+  margin: 0.5em 1em 0 40px;
+}
+
+.search .results.top li p {
+  font-size: 0.85em;
+  margin: 0 1em 1em 40px;
+}
+
+.search .results.top li small {
+  display: block;
+  line-height: 1.25em;
+  margin: 0.5em 1em 1em 40px;
+}
+
+.search .results.top li ul {
+  list-style-type: square;
+  list-style-position: inside;
+  line-height: 1;
+  margin: 0 0 0.875em;
+  padding: 0;
+}
+
+.search .results.top li li {
+  font-size: 0.85em;
+}
+
+.search .results.more ol {
+  list-style: none;
+  margin: 1em 0;
+}
+
+.search .results.more ol>li {
+  margin-bottom: 0.875em;
+  margin-left: -40px;
+  padding-left: 40px;
+  padding-top: 0.25em;
+  position: relative;
+
+}
+
+.search .results.more ol li small {
+  display: block;
+  line-height: 2em;
+  margin-bottom: 0;
+}
+.search .results.more ol li p {
+  margin-top: 0.25em;
+}
+
+.search .results.top .transaction-link {
+  clear: both;
+  float: right;
+  line-height: 1.25em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.search .results.top ul.search-promoted,
+.search .results.top ul.search-not-found {
+  list-style: none;
+  padding-left: 0;
+}
+
+.search .results.top ul.search-promoted li,
+.search .results.top ul.search-not-found li {
+  background: #FDF6E5;
+  border: solid 2px #FFCD17;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  line-height: 1.3em;
+  padding: 0.25em 1em;
+  text-align: center;
+  width: 100%;
+}
+
+.search .results.top ul.search-promoted li p,
+.search .results.top ul.search-not-found li p,
+.search .results.top ul.search-promoted li a,
+.search .results.top ul.search-not-found li a {
+  margin: 0.5em 1em 1em;
+}
+
+.search .results.top ul.search-not-found li {
+  background-color: inherit;
+  border-color: #bbb;
+}
+
+.search .results.top ul.search-promoted li:before,
+.search .results.top ul.search-not-found li:before {
+  display: none;
+}
+
+.search .results.top ul.search-not-found h3 {
+  margin-top: 1.2em;
+}
 
 .date-planner .button{
 	background: url("/images/button-overlay.png") repeat-x scroll 0 0 #003399;
@@ -1832,8 +1855,8 @@ ul li.smart-answer a {
 
 #wrapper.smart_answer .start a,
 #wrapper.smart_answer .start a:visited,
-#wrapper.smart_answer .next-question input, 
-#wrapper.smart_answer .next-question input:visited, 
+#wrapper.smart_answer .next-question input,
+#wrapper.smart_answer .next-question input:visited,
 #wrapper.place fieldset input[type=submit],
 #wrapper.place fieldset input[type=submit]:visited,
 #wrapper.place .button,

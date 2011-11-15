@@ -108,20 +108,22 @@ a:visited { color: #5800AE; }
 a:active 	{ color: #c11; }
 a:focus 	{ border-width: 0.063em; color: #c11; }
 
+/*
+Don't think these are being used anywhere
+
 .ui-widget-content.new {
-	/* wrapper for new guide/answer/transaction forms */
-	border: 1px solid #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
   -moz-box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
   -webkit-box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
   box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
 }
 
 .ui-widget-content.new h1 {
-	font-size: 1.5em;
-	margin: 0.75em 0.55em 0.55em;
+  font-size: 1.5em;
+  margin: 0.75em 0.55em 0.55em;
 }
 
 #guide-nav .intro {
@@ -129,6 +131,7 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 	margin: 0 1em;
 	padding: 1.5em 0;
 }
+*/
 
 .format-controls {
 	background: #666;
@@ -145,9 +148,18 @@ a:focus 	{ border-width: 0.063em; color: #c11; }
 	text-align: center;
 }
 
-.format-controls .button_to, .format-controls p.button {
-	display: inline-block;
-	margin: 0 1em 1em 0;
+/*.format-controls .button_to, .format-controls p.button {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}*/
+
+.format-controls ul {
+  margin: 0;
+  padding: 0;
+}
+
+.format-controls ul li {
+  list-style: none;
 }
 
 /*

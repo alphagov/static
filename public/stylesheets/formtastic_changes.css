@@ -34,6 +34,8 @@ form.formtastic fieldset > ol > li p.inline-hints { color: #666; font-style: ita
 
 form.formtastic fieldset > ol > li p.inline-errors { margin: 0.5em 0 0 0; font-style: italic; }
 
+form.formtastic legend { white-space:normal; color:inherit; }
+
 
 /* STRING, NUMERIC, PASSWORD, EMAIL, URL, PHONE & SEARCH OVERRIDES
 --------------------------------------------------------------------------------------------------*/
