@@ -56,9 +56,11 @@ var BetaFeedback = {
 									"<option id='local'>I need to contact someone about this subject</option>"+
 									"<option id='error'>I received an error or the page isn't working properly</option>"+
 									"</select>";
+									
+		// build select options from h3s in popup area
+		// get their behavior from nearest 'next-step' div
 		
-		var html = "<div id='feedback-popup'><a href='' id='close-feedback'>Close</a><h2>Help improve gov.uk</h2><form><label>Describe what kind of problem you're having</label>"+selects+"<div id='feedback-mechanism'></div></form><div id='related-popup'><h2>Related items</h2><ul><li><a href=''>Related article item</a></li><li><a href=''>Related article item</a></li><li><a href=''>Related article item</a></li></ul></div></div>";
-		$("body").append(html);
+		$("#feedback-options").append(selects);
 		$("body").append("<div id='mask'></div>")
 		
 		$("#feedback-type").change(function(){
