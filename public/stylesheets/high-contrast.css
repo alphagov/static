@@ -1,0 +1,276 @@
+/*
+  High Contrast Style (Inverted colors)
+
+*/
+
+html {
+  background-color: #123;
+}
+
+body {
+  background-color: inherit;
+  color: #fff;
+  font-size: 125%;
+}
+
+
+/* =Header
+----------------------------------------------- */
+
+#global-header {
+  background-color: #234;
+  border-bottom: 2px solid #345;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#global-header .header-global {
+  background-color: inherit;
+  border-bottom: 1px solid #345;
+  max-width: 960px;
+}
+
+#global-header .header-global ul {
+  font-size: 100%;
+  margin-right: 4em;
+}
+
+#global-header .header-context {
+  background-color: inherit;
+}
+
+.search-help {
+  background-color: inherit;
+  border: none;
+  margin-top: -2.75em;
+}
+
+header {
+  background-color: inherit;
+}
+
+
+#wrapper hgroup {
+  background-color: inherit;
+  margin: 0;
+  padding: 1.5em 0 1em;
+}
+
+
+
+.article-container {
+  background-color: inherit;
+  margin-right: 0;
+}
+
+article {
+  background-color: inherit;
+  border-bottom: 2px solid #234;
+  box-shadow: none;
+  float: none;
+}
+
+article .inner {
+  padding: 0;
+}
+
+.meta-data {
+  background-color: #123;
+  background-color: inherit;
+  margin: 1em 0 0;
+}
+
+
+
+/*
+  Related
+*/
+
+.related-positioning {
+  position: relative;
+}
+
+.related .inner {
+  background-color: #CFC;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+
+.related {
+  bottom: 13em;
+  color: #000;
+  left: 0;
+  position: relative;
+  width: auto;
+}
+
+.related h2 {
+  background-image: none;
+  font-weight: bold;
+}
+
+
+#feedback-cta {
+  color: #123;
+}
+
+#feedback-cta h2 {
+  margin-top: 0;
+}
+
+
+
+/* =Links
+----------------------------------------------- */
+a:link {
+  color: #fc3;
+}
+
+h1 a:link, h1 a:visited {
+  color: #fff;
+}
+
+h2 a:link, h2 a:visited {
+  color: #cfc;
+}
+
+a:visited {
+  color: #fcf;
+}
+
+a:hover, a:focus, h1 a:hover, h1 a:focus {
+  background-color: #bdf;
+  color: #000;
+  }
+
+h2 a:hover, h2 a:focus {
+  background-color: #bdf;
+  color: #000;
+}
+
+
+/* =Article
+----------------------------------------------- */
+
+h1 {
+  font: bold 200%;
+  margin: 0 -2.225em .5em;
+}
+
+article h2 {
+  color: #cfc;
+}
+
+article h3 {
+  border-color: #345;
+}
+
+article .advisory {
+  background-color: #FFCD17;
+  border: solid 2px #ffa;
+  color: #123;
+}
+
+article .help-notice {
+  background-color: #fff !important;
+  color: #123;
+  font-weight: bold;
+}
+
+article .intro {
+  background-color: #234 !important;
+}
+
+article fieldset {
+  background-color: #234 !important;
+  font-weight: bold;
+}
+
+ul.helpers li {
+  background-color: #CFC !important;
+  color: #123 !important;
+  font-weight: bold;
+}
+
+article .button {
+  background-color: #FC3 !important;
+}
+
+
+#wrapper.smart_answer .start a, #wrapper.smart_answer .start a:visited, #wrapper.smart_answer .next-question input, #wrapper.smart_answer .next-question input:visited, #wrapper.place fieldset input[type="submit"], #wrapper.place fieldset input[type="submit"]:visited, #wrapper.place .button, #wrapper.transaction fieldset input[type="submit"], #wrapper.transaction fieldset input[type="submit"]:visited, #wrapper.transaction .button, #wrapper.local_transaction fieldset input[type="submit"], #wrapper.local_transaction fieldset input[type="submit"]:visited, #wrapper.local_transaction .button, .popover fieldset input[type="submit"], .popover fieldset input[type="submit"]:visited {
+  background-color: #FC3 !important;
+  color: #123;
+}
+
+/* =Forms
+----------------------------------------------- */
+fieldset {
+  border-color: #456;
+}
+
+
+/* =Misc
+----------------------------------------------- */
+.note {
+  background-color: #900;
+  border-color: #fff;
+  color: #fff;
+}
+
+hr {
+  border-color: #456;
+  color: #123;
+}
+
+
+
+/* =Nav
+----------------------------------------------- */
+#global-header nav ul {
+  border-left-color: #456;
+}
+
+#global-header nav li {
+  border-color: #456;
+  display: inline;
+}
+
+#global-header nav li a, #global-header nav li strong {
+  color: #fff;
+}
+
+#global-header nav li#current a, #global-header nav li strong, #global-header nav li a strong {
+  background-color: #fc3;
+  color: #000;
+}
+
+#global-header nav li a:hover, #global-header nav li a:focus, #global-header nav li a:hover strong, #global-header nav li a:focus strong {
+  color: #000;
+}
+
+#global-header nav li a:hover, #global-header nav li a:focus {
+  background-color: #bdf;
+}
+
+
+/* =Search
+----------------------------------------------- */
+.site-search {
+  background-color: #234;
+  border-color: #456;
+}
+
+
+
+/* =Footer
+----------------------------------------------- */
+footer#footer {
+  background-color: #234;
+  border-top: 2px solid #345;
+  clear: both;
+  color: #cde;
+  font-size: inherit;
+  margin-top: 10em;
+}

@@ -280,7 +280,6 @@ a[rel="external"] {
   margin: 4em auto 0 auto;
   padding: 0 2.5em 2em 2.5em;
   position: relative;
-  width: 50%;
   min-width: 25em;
 }
 
@@ -297,8 +296,8 @@ a[rel="external"] {
 }
 
 #global-locator-box {
-	max-width: 40em;
-  width: 60%;
+	max-width: 60em;
+  width: 75%;
 }
 #global-locator-form .postcode {
 	border:none;
