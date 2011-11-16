@@ -748,6 +748,14 @@ article .intro {
 	padding: 0.15em 1em;
 }
 
+article .intro p.get-started {
+	display: block;
+	font-size: 2.25em;
+	font-weight: bold;
+	margin: 0.75em auto;
+	width: auto;
+}
+
 /* Meta-data */
 .meta-data {
 	clear: both;
@@ -1861,8 +1869,8 @@ ul li.smart-answer a {
 
 /* this insanity needs clearing up! */
 
-#wrapper.smart_answer .start a,
-#wrapper.smart_answer .start a:visited,
+#wrapper.smart_answer .button,
+#wrapper.smart_answer .button a:visited,
 #wrapper.smart_answer .next-question input,
 #wrapper.smart_answer .next-question input:visited,
 #wrapper.place fieldset input[type=submit],

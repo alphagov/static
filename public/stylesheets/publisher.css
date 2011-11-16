@@ -294,15 +294,6 @@ aside .chapters-navigation li a .part-title {
  * Transactions and local transactions styles
  */
 
-#wrapper.transaction .intro p.get-started,
-#wrapper.local_transaction .intro p.get-started {
-	display: block;
-	font-size: 2.25em;
-	font-weight: bold;
-	margin: 0.75em auto;
-	width: auto;
-}
-
 #wrapper.transaction .continue,
 #wrapper.local_transaction .continue {
 	background: #F9F9F9 url('/images/info-icon.png') no-repeat 1% 50%;
