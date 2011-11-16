@@ -738,6 +738,16 @@ article .advisory.high-alert {
   border-color: #C00;
 }
 
+article .intro {
+	background-color: #F9F9F9;
+	border: 2px solid #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	margin-bottom: 1.5em;
+	padding: 0.15em 1em;
+}
+
 /* Meta-data */
 .meta-data {
 	clear: both;

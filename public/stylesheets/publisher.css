@@ -294,18 +294,6 @@ aside .chapters-navigation li a .part-title {
  * Transactions and local transactions styles
  */
 
-#wrapper.transaction .intro,
-#wrapper.local_transaction .intro {
-	background-color: #F9F9F9;
-	border: 2px solid #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
-
-	margin-bottom: 1.5em;
-	padding: 0.15em 1em;
-}
-
 #wrapper.transaction .intro p.get-started,
 #wrapper.local_transaction .intro p.get-started {
 	display: block;
