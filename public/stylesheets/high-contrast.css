@@ -159,6 +159,15 @@ h1 {
   margin: 0 -2.225em .5em;
 }
 
+#wrapper hgroup h1 span {
+  color: #fff !important;
+  text-transform: none;
+}
+
+#wrapper.answer hgroup h1 {
+  background-position: 0.5em 0.35em;
+}
+
 article h2 {
   color: #cfc;
 }
@@ -186,6 +195,15 @@ article .intro {
 article fieldset {
   background-color: #234 !important;
   font-weight: bold;
+}
+
+
+article p, article ul, article li {
+  padding-left: 0;
+}
+
+article ul {
+  margin: 0 0 1.4em;
 }
 
 ul.helpers li {
@@ -273,4 +291,8 @@ footer#footer {
   color: #cde;
   font-size: inherit;
   margin-top: 10em;
+}
+
+#footer .subsection {
+  width: auto;
 }
