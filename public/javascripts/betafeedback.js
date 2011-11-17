@@ -47,7 +47,7 @@ var BetaFeedback = {
 	
 	popup: function(){
 		$("#feedback-cta").fadeOut('fast');
-		
+		_gaq.push(['_trackEvent', 'Popup', 'Feedback']);
 		var selects = "<select id='feedback-type'>"+
 									"<option selected>Select feedback:</option>"+
 									"<option id='policy'>I disagree with a Government policy relating to this subject</option>"+
