@@ -459,30 +459,23 @@ a[rel="external"] {
 	page headers
 */
 
-#wrapper hgroup {
-	background-color: #EBE5DD;
+#wrapper header hgroup {
 	background-color: #E5E5E5;
-/*	background-color: #F7F7F7;*/
-/*	border: solid 1px #ddd;*/
 	border-bottom: none;
 	display: block;
-/*	margin: 0 14em 0 2em;*/
 	margin: 0 12em 0 0;
-/*	padding: 1em 1em 0.5em 1em;*/
 	padding: 1em 1em 1.5em 1em;
 }
 
-#wrapper hgroup h1 {
+#wrapper header hgroup h1 {
 	background-repeat: no-repeat;
 	color: inherit;
 	font-size: 1.8em;
-/*	min-height: 2.5em;*/
 	line-height: 1.05em;
-/*	padding: 0.2em 0 0.75em 2.2em;*/
 	padding: 0.2em 0 0.2em 2.2em;
 }
 
-#wrapper hgroup h1 span {
+#wrapper header hgroup h1 span {
 	display: block;
 	font-size: 0.4em;
 	font-weight: bold;
@@ -492,7 +485,7 @@ a[rel="external"] {
 	text-shadow: none;
 }
 
-#wrapper hgroup h2 {
+#wrapper header hgroup h2 {
 	color: #666;
 	font-size: 1em;
 	margin: 0.25em 0 0 4em;
@@ -736,6 +729,24 @@ article .advisory {
 article .advisory.high-alert {
   background-color: #F4DCDD;
   border-color: #C00;
+}
+
+article .intro {
+	background-color: #F9F9F9;
+	border: 2px solid #bbb;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	margin-bottom: 1.5em;
+	padding: 0.15em 1em;
+}
+
+article .intro p.get-started {
+	display: block;
+	font-size: 2.25em;
+	font-weight: bold;
+	margin: 0.75em auto;
+	width: auto;
 }
 
 /* Meta-data */
@@ -1853,8 +1864,8 @@ ul li.smart-answer a {
 
 /* this insanity needs clearing up! */
 
-#wrapper.smart_answer .start a,
-#wrapper.smart_answer .start a:visited,
+#wrapper.smart_answer .button,
+#wrapper.smart_answer .button a:visited,
 #wrapper.smart_answer .next-question input,
 #wrapper.smart_answer .next-question input:visited,
 #wrapper.place fieldset input[type=submit],
