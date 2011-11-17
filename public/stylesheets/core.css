@@ -459,7 +459,7 @@ a[rel="external"] {
 	page headers
 */
 
-#wrapper header hgroup {
+header.page-header hgroup {
 	background-color: #E5E5E5;
 	border-bottom: none;
 	display: block;
@@ -467,7 +467,7 @@ a[rel="external"] {
 	padding: 1em 1em 1.5em 1em;
 }
 
-#wrapper header hgroup h1 {
+header.page-header hgroup h1 {
 	background-repeat: no-repeat;
 	color: inherit;
 	font-size: 1.8em;
@@ -475,7 +475,7 @@ a[rel="external"] {
 	padding: 0.2em 0 0.2em 2.2em;
 }
 
-#wrapper header hgroup h1 span {
+header.page-header hgroup h1 span {
 	display: block;
 	font-size: 0.4em;
 	font-weight: bold;
@@ -485,7 +485,7 @@ a[rel="external"] {
 	text-shadow: none;
 }
 
-#wrapper header hgroup h2 {
+header.page-header hgroup h2 {
 	color: #666;
 	font-size: 1em;
 	margin: 0.25em 0 0 4em;
@@ -596,6 +596,10 @@ article p, article ul, article ol {
   font-size: 1em;
   line-height: 1.5em;
   margin: 0.75em 0;
+}
+
+article li {
+  margin: 0.25em 0;
 }
 
 article p.large-text {
