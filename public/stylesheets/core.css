@@ -598,6 +598,10 @@ article p, article ul, article ol {
   margin: 0.75em 0;
 }
 
+article li {
+  margin: 0.25em 0;
+}
+
 article p.large-text {
   font-size: 1.63em;
   line-height: 1.15em;
