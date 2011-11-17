@@ -1445,7 +1445,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	width:20%;
 	float:right;
 }
-#close-feedback{
+.close{
 	float:right;
 	margin:0;
 	background-color:#92AD54;
