@@ -9,8 +9,8 @@ $(document).ready(function() {
 	  "<option id='error'>I received an error or the page isn't working properly</option>"+
 	  "</select>";
 	
-	var html = "<div id='feedback-cta' class='right'><h2>Did you find what you're looking for?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /></form></div>";
-	var delay = 3000;
+	var html = "<div id='feedback-cta' class='left'><h2>Did you find what you're looking for?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /></form></div>";
+	var delay = 6000;
 	$("#feedback-options").append(selects);
 	var popupContents = $("#feedback-popup").html();
 	$("body").append(html);
