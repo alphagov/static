@@ -16,13 +16,14 @@ $(document).ready(function() {
 	$("body").append(html);
 	$("#cta-yes").click(function(){
 	  // send to a collection bucket
-	  _gaq.push(['_trackEvent', 'Popup', 'Feedback', "Yes"]);
+	  _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Yes']);
 	  $("#feedback-cta").html("<h2>Thanks for letting us know</h2>");
 	  $("#feedback-cta").delay(1500).fadeOut('slow');
 	})
   $("#cta-no").click(function(){
-    _gaq.push(['_trackEvent', 'Popup', 'Feedback', "No"]);
+    _gaq.push(['_trackEvent', 'Citizen-Feedback', "No"]);
     BetaPopup.popup(popupContents);
+    _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Open']);
     $("#feedback-cta").fadeOut('fast');
     $("#feedback-type").change(function(){
 			var id = $(this).find('option:selected').attr('id');
