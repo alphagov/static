@@ -586,6 +586,14 @@ article h4 {
   margin-bottom: 0;
 }
 
+article h3 + table {
+  margin-top: 0.652em;
+}
+
+article h4 + table {
+  margin-top: 0.75em;
+}
+
 article h2 + p,  article h3 + p,  article h4 + p,
 article h2 + ol, article h3 + ol, article h4 + ol,
 article h2 + ul, article h3 + ul, article h4 + ul {
