@@ -1,16 +1,18 @@
 /*
-  High Contrast Style (Inverted colors)
+  High Contrast styles
 
+  Inverted colors, single-column
 */
 
 html {
-  background-color: #123;
+  background-color: #123 !important;
 }
 
 body {
-  background-color: inherit;
-  color: #fff;
-  font-size: 125%;
+  background-color: inherit !important;
+  color: #fff !important;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+  font-size: 125% !important;
 }
 
 
@@ -28,7 +30,8 @@ body {
 #global-header .header-global {
   background-color: inherit;
   border-bottom: 1px solid #345;
-  max-width: 960px;
+  margin: 0.15em auto !important;
+  max-width: 960px !important;
 }
 
 #global-header .header-global ul {
@@ -40,11 +43,32 @@ body {
   background-color: inherit;
 }
 
+
+/* =Search
+----------------------------------------------- */
+.site-search {
+  background-color: #234;
+  border-color: #456;
+}
+
 .search-help {
   background-color: inherit;
   border: none;
-  margin-top: -2.75em;
 }
+
+
+section {
+  margin-top: 0;
+  position: relative;
+  top: 6em;
+}
+
+.article-container {
+  background-color: inherit;
+  margin-right: 0;
+  margin-top: 0;
+}
+
 
 header {
   background-color: inherit;
@@ -57,11 +81,17 @@ header {
   padding: 1.5em 0 1em;
 }
 
+#wrapper hgroup h1 {
+  background-position: 0.5em 0.45em !important;
+  font-weight: bold !important;
+  letter-spacing: 0.025em;
+}
 
-
-.article-container {
-  background-color: inherit;
-  margin-right: 0;
+#wrapper hgroup h1 span {
+  color: #fff !important;
+  font-size: 0.55555555555556em !important;
+  font-weight: normal !important;
+  text-transform: none !important;
 }
 
 article {
@@ -69,15 +99,60 @@ article {
   border-bottom: 2px solid #234;
   box-shadow: none;
   float: none;
+  margin-top: 0 !important;
+  min-height: 0;
 }
 
 article .inner {
   padding: 0;
 }
 
+#wrapper.guide aside {
+  float: none !important;
+  width: auto !important;
+}
+
+aside .chapters-navigation {
+  border-bottom: 2px solid #234;
+  float: none !important;
+  margin: 0 0 1em !important;
+}
+
+aside .chapters-navigation li {
+  list-style-type: disc !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+}
+
+aside .chapters-navigation li a {
+  margin: 0 !important;
+  padding: 0 0 0.75em !important;
+  width: auto !important;
+}
+
+aside .chapters-navigation li.active a {
+  background-color: inherit !important;
+  border: none !important;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+aside .chapters-navigation li a .part-label {
+  color: #fff !important;
+  display: inline-block !important;
+  font-size: inherit !important;
+}
+
+aside .chapters-navigation li.active a .part-label {
+  color: #fff !important;
+}
+
+
 .meta-data {
-  background-color: #123;
   background-color: inherit;
+  color: #fff !important;
   margin: 1em 0 0;
 }
 
@@ -110,7 +185,6 @@ article .inner {
   background-image: none;
   font-weight: bold;
 }
-
 
 #feedback-cta {
   color: #123;
@@ -159,17 +233,9 @@ h1 {
   margin: 0 -2.225em .5em;
 }
 
-#wrapper hgroup h1 span {
-  color: #fff !important;
-  text-transform: none;
-}
-
-#wrapper.answer hgroup h1 {
-  background-position: 0.5em 0.35em;
-}
-
 article h2 {
   color: #cfc;
+  margin-top: 0;
 }
 
 article h3 {
@@ -182,8 +248,9 @@ article .advisory {
   color: #123;
 }
 
-article .help-notice {
+article .help-notice, article .info-notice {
   background-color: #fff !important;
+  border: solid 2px #123 !important;
   color: #123;
   font-weight: bold;
 }
@@ -209,7 +276,7 @@ article ul {
 ul.helpers li {
   background-color: #CFC !important;
   color: #123 !important;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 article .button {
@@ -242,6 +309,9 @@ hr {
   color: #123;
 }
 
+small {
+  color: #fff !important;
+}
 
 
 /* =Nav
@@ -273,14 +343,6 @@ hr {
 }
 
 
-/* =Search
------------------------------------------------ */
-.site-search {
-  background-color: #234;
-  border-color: #456;
-}
-
-
 
 /* =Footer
 ----------------------------------------------- */
@@ -289,6 +351,7 @@ footer#footer {
   border-top: 2px solid #345;
   clear: both;
   color: #cde;
+  color: #eee;
   font-size: inherit;
   margin-top: 10em;
 }
