@@ -83,12 +83,14 @@ header {
 
 #wrapper hgroup h1 {
   background-position: 0.5em 0.45em !important;
+  background-repeat: no-repeat !important;
   font-weight: bold !important;
   letter-spacing: 0.025em;
 }
 
 #wrapper hgroup h1 span {
   color: #fff !important;
+  display: block;
   font-size: 0.55555555555556em !important;
   font-weight: normal !important;
   text-transform: none !important;
