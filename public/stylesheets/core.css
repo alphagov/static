@@ -243,8 +243,8 @@ a[rel="external"] {
 /*	width: 14em;*/
 }
 
-.site-search fieldset {
-	font-size: 0.8em;
+.site-search {
+	font-size: 0.875em;
 	padding: 0;
 }
 
