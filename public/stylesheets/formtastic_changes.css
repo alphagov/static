@@ -64,3 +64,7 @@ form.formtastic fieldset > ol > li#note_comment_input textarea { height: 6em; wi
 form.formtastic fieldset > ol > li#note_comment_update { display: inline-block; text-align: right; width: 10%; }
 
 form.formtastic fieldset > ol > li.text textarea[cols] { width: auto; max-width: 99%; }
+
+/* INPUT LIs
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li { padding:0.5em 0; margin-top:0; margin-bottom:1em; } /* padding and negative margin juggling is for Firefox */
