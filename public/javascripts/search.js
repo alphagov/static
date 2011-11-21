@@ -2,7 +2,6 @@ $(document).ready(function() {
 	// this is for custom formating of results
    $.extend( $.ui.autocomplete.prototype, {
     _renderItem: function( ul, item) {
-      console.log(item)
       var list = "<li></li>";
       if (item.class) {
         list = "<li class=\""+item.class+"\"></li>"
