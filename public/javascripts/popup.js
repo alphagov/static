@@ -43,8 +43,8 @@ var BetaPopup = {
 		$(".close").click(function(){
 			$("#popup").slideUp('fast');	
 			$("#mask").fadeOut();
-			$("#mask").destroy();
-			$("#popup").destroy();
+			$("#mask").remove();
+			$("#popup").remove();
 			return false;
 		})
 	}
