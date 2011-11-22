@@ -19,9 +19,8 @@ var BetaPopup = {
 	
 	popup: function(html, ident){
 	
-		$("body").append("<div id='mask'></div>")
-		$("body").append("<div id='popup'></div>")
-		$("#popup").html("");
+		$("body").append("<div id='mask'></div>");
+		$("body").append("<div id='popup' class="+ident+"></div>");
 		$("#popup").append(html);
 		
 		//Get the screen height and width
@@ -44,6 +43,8 @@ var BetaPopup = {
 		$(".close").click(function(){
 			$("#popup").slideUp('fast');	
 			$("#mask").fadeOut();
+			$("#mask").destroy();
+			$("#popup").destroy();
 			return false;
 		})
 	}
