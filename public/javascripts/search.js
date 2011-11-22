@@ -3,12 +3,12 @@ $(document).ready(function() {
    $.extend( $.ui.autocomplete.prototype, {
     _renderItem: function( ul, item) {
       var list = "<li></li>";
-      if (item.clazz) {
-        list = "<li class=\""+item.clazz+"\"></li>"
+      if (item.class) {
+        list = "<li class=\""+item.class+"\"></li>"
       }
 			// temp until the service actually returns us a type
 			else{
-				list = "<li class=\"guides\"></li>"
+				list = "<li class=\"guide\"></li>"
 			}
       return $( list )
         .data( "item.autocomplete", item )
@@ -18,19 +18,20 @@ $(document).ready(function() {
   });
 	
   $.ajax({
-    url: "/autocomplete",
+    url: "/javascripts/testdata.json",
+    isLocal:true,
     dataType: "json",
     cache: true,
     success: function(data) {
       var results = $.map(data, function(e) {
-        return { 'label': e.title, 'url': "/"+e.slug }
+        return { 'label': e.title, 'url': "/"+e.link, 'class': e.format }
       });
       $('#s').autocomplete({
         delay: 0,
 				width:300,
         source: results, 
         select: function(event, ui) {
-          location.href = ui.item.url;
+          location.href = ui.item.link;
         },
 				open: function(event, ui){
 					// all this just to move the ul to the left by an offset

@@ -1187,9 +1187,25 @@ ul.ui-autocomplete {
 	margin-top:1px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
-ul.ui-autocomplete li.guides a {
+ul.ui-autocomplete li.guide a {
 	background: url(/images/icon-guide-s.png) no-repeat 4px 50%;
 }
+ul.ui-autocomplete li.answer a {
+	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
+}
+ul.ui-autocomplete li.smart-answer {
+	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
+}
+ul.ui-autocomplete li.service {
+	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
+}
+ul.ui-autocomplete li.local-service{
+	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
+}
+ul.ui-autocomplete li.benefit{
+	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
+}
+
 ul.ui-autocomplete li {
 	font-size: 0.75em;
 }
@@ -1583,14 +1599,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	background-color: #000;
 	display: none;
 }
+.js-enabled #popup,
 .js-enabled #feedback-popup{
 	display:none;
 }
-#feedback-popup{
+#popup{
 	position: fixed;
 	left: 0;
-	top: 100px;
-	width: 640px;
+	top: 20px;
+	width: 740px;
 	display: none;
 	z-index: 999999;
 	border: 4px solid #92AD54;
@@ -1599,27 +1616,27 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	overflow:visible;
 	clear:both;
 }
-#feedback-popup h2{
+#popup h2{
 	padding:1em;
 }
 
-#feedback-popup form,
-#feedback-popup input,
-#feedback-popup select,
-#feedback-popup textarea{
+#popup form,
+#popup input,
+#popup select,
+#popup textarea{
 	display:block;
 }
-#feedback-popup form{
+#popup form{
 	width:92%;
 	padding: 0 1.5em 1em;
 }
-#feedback-popup input,
-#feedback-popup select,
-#feedback-popup textarea{
+#popup input,
+#popup select,
+#popup textarea{
 	width:100%;
 	margin-bottom:1em;
 }
-#feedback-popup input[type=submit]{
+#popup input[type=submit]{
 	width:20%;
 	float:right;
 }
@@ -1652,7 +1669,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	-webkit-box-shadow: 3px 3px 4px #333;
 	box-shadow: 3px 3px 4px #333;
 	z-index:9999;
-		opacity:0.8;
+	opacity:0.8;
 }
 #feedback-cta.right{
 	position: fixed;
@@ -1702,21 +1719,35 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #feedback-cta.bottom h2{
 	display:inline;
 }
+#feedback-cta input{
+  border:none;
+  background:none;
+  padding-left:40px;
+  padding-bottom:10px;
+}
+
+#feedback-cta #cta-yes{
+  background: url("/images/icon-agree-s.png") no-repeat scroll 1em 0px transparent;
+}
+#feedback-cta #cta-no{
+  background: url("/images/icon-disagree-s.png") no-repeat scroll 1em 0px transparent;
+}
+
 #feedback-cta h2{
 	font-size:1em;
 }
 
-#feedback-popup .vcard span{
+#popup .vcard span{
 	display:block;
 }
-#feedback-popup p{
+#popup p{
 	background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;
 	font-size:1.2em;
 	font-weight:bold;
   margin: 0;
   padding:5px 0 5px 3em;
 }
-#feedback-popup ul{
+#popup ul{
 	margin:0 0 0 5em;
 	padding:0;
 	font-size:1.2em;
