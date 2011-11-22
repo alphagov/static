@@ -1600,7 +1600,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	background-color: #000;
 	display: none;
 }
-.js-enabled #popup{
+.js-enabled #popup,
+.js-enabled #feedback-popup{
 	display:none;
 }
 #popup{
