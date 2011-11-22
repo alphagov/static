@@ -548,11 +548,11 @@ ul.helpers {
 	width: 100%;
 }
 
-.js-enabled #wrapper.programme article, #wrapper.programme #overview {
+.js-enabled #wrapper.programme article.overview-etc, #wrapper.programme #overview {
 	padding-top: 4em;
 }
 
-.js-enabled #wrapper.programme article, .js-enabled #wrapper.programme .part-pagination.return-to-top {
+.js-enabled #wrapper.programme article.overview-etc, .js-enabled #wrapper.programme .part-pagination.return-to-top {
 	display:none;
 }
 
