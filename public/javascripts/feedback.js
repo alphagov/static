@@ -22,7 +22,7 @@ $(document).ready(function() {
 	})
   $("#cta-no").click(function(){
     _gaq.push(['_trackEvent', 'Citizen-Feedback', "No"]);
-    BetaPopup.popup(popupContents);
+    BetaPopup.popup(popupContents, "feedback-tools");
     _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Open']);
     $("#feedback-cta").fadeOut('fast');
     $("#feedback-type").change(function(){

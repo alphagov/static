@@ -1600,14 +1600,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	background-color: #000;
 	display: none;
 }
-.js-enabled #feedback-popup{
+.js-enabled #popup{
 	display:none;
 }
-#feedback-popup{
+#popup{
 	position: fixed;
 	left: 0;
-	top: 100px;
-	width: 640px;
+	top: 20px;
+	width: 740px;
 	display: none;
 	z-index: 999999;
 	border: 4px solid #92AD54;
@@ -1616,27 +1616,27 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	overflow:visible;
 	clear:both;
 }
-#feedback-popup h2{
+#popup h2{
 	padding:1em;
 }
 
-#feedback-popup form,
-#feedback-popup input,
-#feedback-popup select,
-#feedback-popup textarea{
+#popup form,
+#popup input,
+#popup select,
+#popup textarea{
 	display:block;
 }
-#feedback-popup form{
+#popup form{
 	width:92%;
 	padding: 0 1.5em 1em;
 }
-#feedback-popup input,
-#feedback-popup select,
-#feedback-popup textarea{
+#popup input,
+#popup select,
+#popup textarea{
 	width:100%;
 	margin-bottom:1em;
 }
-#feedback-popup input[type=submit]{
+#popup input[type=submit]{
 	width:20%;
 	float:right;
 }
@@ -1737,17 +1737,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	font-size:1em;
 }
 
-#feedback-popup .vcard span{
+#popup .vcard span{
 	display:block;
 }
-#feedback-popup p{
+#popup p{
 	background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;
 	font-size:1.2em;
 	font-weight:bold;
   margin: 0;
   padding:5px 0 5px 3em;
 }
-#feedback-popup ul{
+#popup ul{
 	margin:0 0 0 5em;
 	padding:0;
 	font-size:1.2em;
