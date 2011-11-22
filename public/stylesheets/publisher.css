@@ -548,15 +548,19 @@ ul.helpers {
 	width: 100%;
 }
 
-.js-enabled #wrapper.programme article.overview-etc, #wrapper.programme #overview {
+.js-enabled #wrapper.programme article.overview-etc, 
+#wrapper.programme #overview{
 	padding-top: 4em;
 }
 
-.js-enabled #wrapper.programme article.overview-etc, .js-enabled #wrapper.programme .part-pagination.return-to-top {
+.js-enabled #wrapper.programme article.overview-etc, 
+.js-enabled #wrapper.programme .part-pagination.return-to-top,
+.js-enabled #wrapper.programme article.tabs-panel {
 	display:none;
 }
 
-#wrapper.programme article.tabs-panel-selected {
+#wrapper.programme article.tabs-panel-selected,
+.js-enabled #wrapper.programme article.tabs-panel-selected {
 	display:block;
 }
 
