@@ -1502,7 +1502,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	-webkit-box-shadow: 3px 3px 4px #333;
 	box-shadow: 3px 3px 4px #333;
 	z-index:9999;
-		opacity:0.8;
+	opacity:0.8;
 }
 #feedback-cta.right{
 	position: fixed;
@@ -1552,6 +1552,20 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #feedback-cta.bottom h2{
 	display:inline;
 }
+#feedback-cta input{
+  border:none;
+  background:none;
+  padding-left:40px;
+  padding-bottom:10px;
+}
+
+#feedback-cta #cta-yes{
+  background: url("/images/icon-agree-s.png") no-repeat scroll 1em 0px transparent;
+}
+#feedback-cta #cta-no{
+  background: url("/images/icon-disagree-s.png") no-repeat scroll 1em 0px transparent;
+}
+
 #feedback-cta h2{
 	font-size:1em;
 }
