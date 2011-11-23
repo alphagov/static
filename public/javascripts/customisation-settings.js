@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	 // Event handlers
-    $('.customisation-settings').click(function() {
+    $('.customisation-settings.js').click(function() {
       _gaq.push(['_trackEvent', 'Citizen-Accessibility', 'Open']);
       BetaPopup.popup($("#global-locator-box").html(), "customisation-tools");
       $('.personalise-options li a').click(function(){
