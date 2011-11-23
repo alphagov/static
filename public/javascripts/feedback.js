@@ -50,5 +50,5 @@ $(document).ready(function() {
 			
 		});
   })
-  $("#feedback-cta").delay(3000).fadeIn(1500);
+  $("#feedback-cta").delay(300000).fadeIn(1500);
 });
