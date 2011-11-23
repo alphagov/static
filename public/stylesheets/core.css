@@ -1616,9 +1616,18 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	background-color: #fff;
 	overflow:visible;
 	clear:both;
+	padding-bottom:0.5em;
 }
-#popup h2{
-	padding:1em;
+#popup.customisation-tools{
+  width:90%;
+}
+#popup .ask_location p{
+  display:inline;
+  padding:0;
+}
+#popup h2,
+#popup h3{
+	padding:0.4em 1.5em;
 }
 
 #popup form,
@@ -1742,11 +1751,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	display:block;
 }
 #popup p{
-	background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;
-	font-size:1.2em;
+	/*background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;*/
+	font-size:1em;
 	font-weight:bold;
   margin: 0;
-  padding:5px 0 5px 3em;
+  padding:0.5em 2em;
 }
 #popup ul{
 	margin:0 0 0 5em;
