@@ -18,7 +18,7 @@ $(document).ready(function() {
   });
 	
   $.ajax({
-    url: "/javascripts/testdata.json",
+    url: "/autocomplete?q=",
     isLocal:true,
     dataType: "json",
     cache: true,
@@ -48,13 +48,13 @@ $(document).ready(function() {
 					}
       });
 
-			$('#main_autocomplete').autocomplete({
+		/*	$('#main_autocomplete').autocomplete({
         delay: 0,
         source: results, 
         select: function(event, ui) {
           location.href = ui.item.url;
         }
-      });
+      });*/
 
     }
 		

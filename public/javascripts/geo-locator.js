@@ -125,15 +125,18 @@ var AlphaGeo = {
 	/**
 		@name AlphaGeo.locate
 		@function
-		@description Based on Matt Patterson's original Alphagov Locator jQuery plugin.  This has various features for setting up a location widget.
+		@description Based on Matt Patterson's original Alphagov Locator jQuery plugin.  
+		This has various features for setting up a location widget.
 			This feature is expecting to find a container with at least a form element containing within it 
 
-		@param String id Selector ID for the element containing the location feature widget (Can be the form ID or the container)
+		@param String id Selector ID for the element containing the location feature 
+		  widget (Can be the form ID or the container)
 		@param {Object} [opts] Options.
 			Options
 			@param boolean ignoreKnown Set to false if you want to ignore the known value if it has been set, on page load. 
 			@param String errorSelector A selector where error messages will be shown. Default will be "#global-app-error"
-			@param boolean noJSSubmit Set to false if you would prefer to reload the page and not use JS to retrieve and set the value when clicking submit
+			@param boolean noJSSubmit Set to false if you would prefer to reload 
+			  the page and not use JS to retrieve and set the value when clicking submit
 
 		@returns false
 
@@ -260,6 +263,7 @@ var AlphaGeo = {
 	        }
 	      });
 	      geolocate_ui.find('a').click(function (e) {
+	        console.log("geolocateui")
 	        var parent_element = $(this).closest('.locate-me');
 
 	        geolocate_ui.trigger('location-started');
@@ -297,7 +301,8 @@ var AlphaGeo = {
 	    });
 	
 	
-			/* if we don't have a geo api in the browser, or the user just wants to submit on the form anyway, we want to submit the form and get back the json that way */
+			/* if we don't have a geo api in the browser, or the user just wants to submit on 
+			the form anyway, we want to submit the form and get back the json that way */
 	    locator_form.submit(function(e) {
 	      clear_geo_fields();
 	      if (!noJSSUbmit) {
@@ -353,7 +358,8 @@ var AlphaGeo = {
 		@function
 		@description 
 
-		@returns A string containing the current "friendly name" for the current location, set in the cookie, or false if no cookie found.
+		@returns A string containing the current "friendly name" 
+		for the current location, set in the cookie, or false if no cookie found.
 
 		@example
 			AlphaGeo.locationName()
@@ -372,7 +378,8 @@ var AlphaGeo = {
 		@function
 		@description 
 
-		@returns A string containing the current "friendly name" for the current location, set in the cookie, or false if no cookie found.
+		@returns A string containing the current "friendly name" 
+		for the current location, set in the cookie, or false if no cookie found.
 
 		@example
 			AlphaGeo.councils()
@@ -394,7 +401,8 @@ var AlphaGeo = {
 		@function
 		@description 
 
-		@returns A string containing the current "friendly name" for the current location, set in the cookie, or false if no cookie found.
+		@returns A string containing the current "friendly name" for the current location, 
+		  set in the cookie, or false if no cookie found.
 
 		@example
 			AlphaGeo.locationCoords()
@@ -413,7 +421,8 @@ var AlphaGeo = {
 		@function
 		@description 
 
-		@returns A string containing the current "friendly name" for the current location, set in the cookie, or false if no cookie found.
+		@returns A string containing the current "friendly name" for the current location, 
+		  set in the cookie, or false if no cookie found.
 
 		@example
 			AlphaGeo.locator_object()
