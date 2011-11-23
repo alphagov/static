@@ -285,11 +285,29 @@ article .button {
   background-color: #FC3 !important;
 }
 
+article th {
+  background-color: #234 !important;
+  border: 1px solid #345 !important;
+  color: #fff !important;
+}
+
+article td {
+  background-color: inherit !important;
+  border: 1px solid #345 !important;
+  color: #fff !important;
+}
+
+article tr:nth-child(2n) td {
+    background-color: #345;
+}
+
 
 #wrapper.smart_answer .start a, #wrapper.smart_answer .start a:visited, #wrapper.smart_answer .next-question input, #wrapper.smart_answer .next-question input:visited, #wrapper.place fieldset input[type="submit"], #wrapper.place fieldset input[type="submit"]:visited, #wrapper.place .button, #wrapper.transaction fieldset input[type="submit"], #wrapper.transaction fieldset input[type="submit"]:visited, #wrapper.transaction .button, #wrapper.local_transaction fieldset input[type="submit"], #wrapper.local_transaction fieldset input[type="submit"]:visited, #wrapper.local_transaction .button, .popover fieldset input[type="submit"], .popover fieldset input[type="submit"]:visited {
   background-color: #FC3 !important;
   color: #123;
 }
+
+
 
 /* =Forms
 ----------------------------------------------- */
