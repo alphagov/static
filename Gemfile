@@ -1,4 +1,5 @@
 source :rubygems
+source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'rake'
 gem 'cdn_helpers', :git => 'git@github.com:alphagov/cdn_helpers.git', :tag => "v0.8.4"
