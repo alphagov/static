@@ -7,3 +7,7 @@ group :development do
   gem 'rack-geo', :git => 'git@github.com:alphagov/rack-geo.git', :tag => "v0.10"
   gem 'rack'
 end
+
+group :router do
+  gem 'router-client', require: 'router/client'
+end
