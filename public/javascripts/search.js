@@ -3,12 +3,12 @@ $(document).ready(function() {
    $.extend( $.ui.autocomplete.prototype, {
     _renderItem: function( ul, item) {
       var list = "<li></li>";
-      if (item.class) {
-        list = "<li class=\""+item.class+"\"></li>"
+      if (item['class']) {
+        list = "<li class=\""+item['class']+"\"></li>";
       }
 			// temp until the service actually returns us a type
 			else{
-				list = "<li class=\"guide\"></li>"
+				list = "<li class=\"guide\"></li>";
 			}
       return $( list )
         .data( "item.autocomplete", item )
@@ -24,7 +24,7 @@ $(document).ready(function() {
     cache: true,
     success: function(data) {
       var results = $.map(data, function(e) {
-        return { 'label': e.title, 'url': "/"+e.link, 'class': e.format }
+        return { 'label': e.title, 'url': "/"+e.link, 'class': e.format };
       });
       $('#s').autocomplete({
         delay: 0,
@@ -44,7 +44,7 @@ $(document).ready(function() {
 					
 					// quickly add the search value to end of list
 					var searchVal = $("#s").attr("value");
-					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>")
+					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
 					}
       });
 
