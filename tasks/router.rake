@@ -45,7 +45,7 @@ namespace :router do
     platform = ENV['FACTER_govuk_platform']
     @application = {
       application_id: "static",
-      backend_url: "http://static.#{platform}.alphagov.co.uk/"
+      backend_url: "static.#{platform}.alphagov.co.uk/"
     }
     register_application(@application)
   end
@@ -55,6 +55,7 @@ namespace :router do
     register_route(:prefix, '/javascripts')
     register_route(:prefix, '/images')
     register_route(:prefix, '/templates')
+    register_route(:full, '/favicon.ico')
   end
 
   desc "Register application and routes with the router (run this task on server in cluster)"
