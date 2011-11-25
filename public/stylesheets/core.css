@@ -704,14 +704,6 @@ article .intro {
 	padding: 0.15em 1em;
 }
 
-article .intro p.get-started {
-	display: block;
-	font-size: 2.25em;
-	font-weight: bold;
-	margin: 0.75em auto;
-	width: auto;
-}
-
 article .example {
   background: #F2F2F2;
 	border: solid 2px #bbb;
@@ -2057,13 +2049,15 @@ ul li.smart-answer a {
 
 /* buttons! */
 
-.button {
+.button, .button:visited {
 	background: #039 url(/images/button-overlay.png) repeat-x;
-	border: 0.0625em solid rgba(0,0,0,0.25);
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+	border: 0.0625em solid #31395F;
+	-moz-border-radius: 0.15em;
+	-webkit-border-radius: 0.15em;
+	border-radius: 0.15em;
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
@@ -2078,6 +2072,22 @@ ul li.smart-answer a {
 }
 .button:active {
 	top: 1px;
+}
+.button:focus {
+	background-color: rgb(0,25,80);
+	-moz-box-shadow: 0 1px 10px rgb(255,18,198);
+	-webkit-box-shadow: 0 1px 10px rgb(255,18,198);
+  box-shadow: 0 1px 10px rgb(255,18,198);
+}
+
+.button.medium {
+  font-size: 1.5em;
+}
+
+.button.big {
+	font-size: 2.5em;
+	font-weight: bold;
+	padding: 0.65em 0.5em;
 }
 
 input[disabled=disabled] {
