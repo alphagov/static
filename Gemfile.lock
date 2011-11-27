@@ -19,6 +19,7 @@ GIT
 
 GEM
   remote: http://rubygems.org/
+  remote: https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/
   specs:
     abstract (1.0.0)
     actionpack (3.0.10)
