@@ -124,13 +124,9 @@ a[rel="external"] {
  */
 
 #global-header {
-/*	border-bottom: solid 1px #E5E5E5;
-	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0 2px 3px rgba(0,0,0,0.25);
-	box-shadow: 0 2px 3px rgba(0,0,0,0.25);*/
-	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.25);
+	box-shadow: 0 0 5px rgba(0,0,0,0.25);
 	color: #fff;
 	min-height: 1em;
 	position: fixed;
@@ -172,7 +168,6 @@ a[rel="external"] {
 
 #global-header .header-global {
 	background-color: #333;
-	border-bottom: solid 0.25em #ED6900;
 	padding: 0 2em;
 }
 
@@ -197,11 +192,11 @@ a[rel="external"] {
 
 #global-header .header-context {
 	background-color: #fff;
-	border-bottom: solid 0.0675em rgba(0,0,0,0.25);
+	border-bottom: solid 1px rgba(0,0,0,0.2);
 	padding: 0.25em 2em;
 }
 .lte-ie8 #global-header .header-context {
-	border-bottom: solid 0.0675em #DDD;
+	border-bottom: solid 1px #DDD;
 }
 
 #global-header .header-context ol {
@@ -213,7 +208,7 @@ a[rel="external"] {
 }
 
 #global-header .header-context.citizen {
-
+  border-top: solid 4px #ED6900;
 }
 
 .search-help {
