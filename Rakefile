@@ -6,6 +6,7 @@ ENV['RACK_ENV'] ||= 'production'
 require "bundler/setup"
 Bundler.require(:default, ENV['RACK_ENV'])
 load 'cdn_helpers/cdn_helpers.rake'
+load 'tasks/router.rake'
 
 task :environment do
 end

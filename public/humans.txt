@@ -55,6 +55,11 @@ Analyst and consultant: David Mann
 Twitter: bananafarmer
 Location: Hackney, London, UK
 
+Developer: Craig R Webster
+Site: http://barkingiguana.com/
+Twitter: craigwebster
+Location: London, UK
+
 /* THANKS */
 
 Name: Glyn Wintle
@@ -62,7 +67,7 @@ Name: Glyn Wintle
 Name: Matthew Bloch
 
 Name: Matthew Somerville
-                            
+
 Name: Rich Rutter
 
 Name: Matt Blease, @mattblease
