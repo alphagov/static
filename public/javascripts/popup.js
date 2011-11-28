@@ -21,6 +21,7 @@ var BetaPopup = {
 	
 		$("body").append("<div id='mask'></div>");
 		$("body").append("<div id='popup' class="+ident+"></div>");
+		$("#popup").append("<a href='#' class='close'>Close</a>")
 		$("#popup").append(html);
 		
 		//Get the screen height and width
