@@ -3,6 +3,7 @@
 */
 
 .home #global-header {
+  border-bottom: solid 4px #ED6900;
 	-webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.4);
 	-moz-box-shadow: 0 3px 5px rgba(0,0,0,0.4);
 	box-shadow: 0 3px 5px rgba(0,0,0,0.4);
@@ -25,11 +26,6 @@
 }
 
 .homepage-section {
-	border-bottom: solid 1px rgba(0,0,0,0.15);
-	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-/*	box-shadow: inset 0 2px 5px 0 rgba(0,0,0,0.5);*/
 	margin: 0 -2em;
 	padding: 2em;
 	position: relative;
@@ -40,6 +36,10 @@
 }
 
 .homepage-section:nth-child(1) {
+	border-bottom: solid 1px rgba(0,0,0,0.15);
+	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	z-index: 10;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .homepage-banner {
-	background: url('../images/banner-arrow.png') no-repeat 50% 50% #ffffcc;
+	background: url('../../images/banner-arrow.png') no-repeat 50% 50% #ffffcc;
   border: solid 0.125em #bbb;
 	-webkit-border-radius: 0.35em;
   -moz-border-radius: 0.35em;
@@ -129,29 +129,29 @@
 }
 
 ul li.answer a {
-	background-image: url('../images/icon-answer-s.png');
+	background-image: url('../../images/icon-answer-s.png');
 }
 
 ul li.guide a {
-	background-image: url('../images/icon-guide-s.png');
+	background-image: url('../../images/icon-guide-s.png');
 }
 
 ul li.transaction a {
-	background-image: url('../images/icon-transaction-s.png');
+	background-image: url('../../images/icon-transaction-s.png');
 }
 
 ul li.local_transaction a {
-	background-image: url('../images/icon-localtransaction-s.png');
+	background-image: url('../../images/icon-localtransaction-s.png');
 }
 
 ul li.programme a {
-	background-image: url('../images/icon-programme-s.png');
+	background-image: url('../../images/icon-programme-s.png');
 }
 
 ul li.nearest a {
-	background-image: url('../images/icon-nearest-s.png');
+	background-image: url('../../images/icon-nearest-s.png');
 }
 
 ul li.smart-answer a {
-	background-image: url('../images/icon-smart-answer-s.png');
+	background-image: url('../../images/icon-smart-answer-s.png');
 }
