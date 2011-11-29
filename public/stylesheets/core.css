@@ -246,7 +246,7 @@ a[rel="external"] {
 	background-position: 0 20%;
 	background-repeat: no-repeat;
 	display: block;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	line-height: 1.25em;
 	margin-bottom: 0.25em;
 	padding: 0.7em 0 0.5em 2.5em;
@@ -366,7 +366,7 @@ article .inner {
 	clear: both;
 	color: #7F7F7F;
 	float: left;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	margin: 1em 0 2em 2em;
 }
 .lte-ie8 .meta-data {
