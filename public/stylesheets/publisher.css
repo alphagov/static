@@ -34,7 +34,7 @@
 	background-repeat: no-repeat;
 	display: block;
 	float: right;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	line-height: 2em;
 	padding-left: 2.25em;
 }
@@ -56,7 +56,7 @@
 	padding: 0.25em 1em;
 }
 .view-text-version p {
-	font-size: 0.8em;
+	font-size: 0.85em;
 }
 
 #wrapper.guide article {
@@ -83,7 +83,7 @@ aside .chapters-navigation {
 	width: 95%;
 }
 aside .chapters-navigation ol {
-	font-size: 0.8em;
+	font-size: 0.85em;
 	margin: 0;
 	padding: 0;
 }
@@ -252,7 +252,7 @@ aside .chapters-navigation li a .part-title {
 }
 .pagination .pagination-label {
 	display: block;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	line-height: 1em;
 	margin-bottom: 0.5em;
 }
@@ -301,7 +301,7 @@ aside .chapters-navigation li a .part-title {
 #wrapper.place .more,
 #wrapper.transaction .more,
 #wrapper.local_transaction .more {
-	font-size: 0.8em;
+	font-size: 0.85em;
 	padding: 0.5em 0;
 }
 
@@ -416,7 +416,7 @@ ul.helpers li.offline_steps {
 	-moz-border-radius: 0.5em 0.5em 0 0;
 	border-radius: 0.5em 0.5em 0 0;
 	display: block;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	padding: 0.5em 1em;
 	position: relative;
 }
