@@ -272,7 +272,6 @@ aside .chapters-navigation li a .part-title {
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
-
 	font-size: 0.9em;
 	margin-bottom: 1.2em;
 	padding: 0.15em 1em;
@@ -299,8 +298,6 @@ aside .chapters-navigation li a .part-title {
 	margin: 0 0.5em;
 }
 
-/* submit button stuff removed from here */
-
 #wrapper.place .more,
 #wrapper.transaction .more,
 #wrapper.local_transaction .more {
@@ -314,14 +311,6 @@ aside .chapters-navigation li a .part-title {
 	border-bottom: none;
 }
 
-/*#wrapper.answer article h2 {
-	border-bottom: none;
-  font-size: 1.15em;
-  line-height: 1.11em;
-  margin-top: 1.304em;
-  margin-bottom: 0;
-}*/
-
 /*
  * Helper icons
  */
@@ -334,70 +323,70 @@ ul.helpers {
 	width: 99%;
 }
 
-	ul.helpers li {
-	  background-color: #e5e0de;
-	  background-position: 0% 25%;
-	  background-repeat: no-repeat;
-		border-top: solid 1px #fafafa;
-		border-bottom: solid 1px #bbb;
-	  color: #706e6e;
-		float: left;
-	  margin-bottom: 0.6em;
-		margin-right: 0.6em;
-		min-height: 3em;
-	  padding: 0.75em 0.25em 0.75em 3.75em;
-		vertical-align: middle;
-		width: 24.8%;
-	}
-		ul.helpers li:nth-child(3n+3) {
-			margin-right: 0;
-		}
+ul.helpers li {
+  background-color: #e5e0de;
+  background-position: 0% 25%;
+  background-repeat: no-repeat;
+	border-top: solid 1px #fafafa;
+	border-bottom: solid 1px #bbb;
+  color: #706e6e;
+	float: left;
+  margin-bottom: 0.6em;
+	margin-right: 0.6em;
+	min-height: 3em;
+  padding: 0.75em 0.25em 0.75em 3.75em;
+	vertical-align: middle;
+	width: 24.8%;
+}
+ul.helpers li:nth-child(3n+3) {
+	margin-right: 0;
+}
 
-	ul.helpers li.active, ul.helpers li.active h3 a {
-	  color: #fff;
-	}
+ul.helpers li.active, ul.helpers li.active h3 a {
+  color: #fff;
+}
 
-	ul.helpers li.need_cash {
-	  background-image: url(/images/helper-cash-icon.png);
-	}
-	ul.helpers li.card_payment {
-	  background-image: url(/images/helper-creditcard-icon.png);
-		background-position: -2% 0%;
-	}
-	ul.helpers li.gateway {
-	  background-image: url(/images/helper-govgateway-icon.png);
-		background-position: -3% 10%;
-	}
-	ul.helpers li.need_passport {
-	  background-image: url(/images/helper-passport-icon.png);
-		background-position: -2% 15%;
-	}
-	ul.helpers li.need_address {
-	  background-image: url(/images/helper-address-icon.png);
-		background-position: 5% 45%;
-	}
-	ul.helpers li.need_id {
-	  background-image: url(/images/helper-proofofid-icon.png);
-		background-position: -2% 25%;
-	}
-	ul.helpers li.need_ni {
-	  background-image: url(/images/helper-ni-icon.png);
-		background-position: 4% 35%;
-	}
-	ul.helpers li.over_18 {
-	  background-image: url(/images/helper-over18-icon.png);
-		background-position: 5% 35%;
-	}
-	ul.helpers li.less_than_10,
-	ul.helpers li.less_than_20,
-	ul.helpers li.less_than_30,
-	ul.helpers li.less_than_40 {
-	  background-image: url(/images/helper-time-icon.png);
-	}
-	ul.helpers li.offline_steps {
-	  background-image: url(/images/helper-offline-icon.png);
-		background-position: -3% 35%;
-	}
+ul.helpers li.need_cash {
+  background-image: url(/images/helper-cash-icon.png);
+}
+ul.helpers li.card_payment {
+  background-image: url(/images/helper-creditcard-icon.png);
+	background-position: -2% 0%;
+}
+ul.helpers li.gateway {
+  background-image: url(/images/helper-govgateway-icon.png);
+	background-position: -3% 10%;
+}
+ul.helpers li.need_passport {
+  background-image: url(/images/helper-passport-icon.png);
+	background-position: -2% 15%;
+}
+ul.helpers li.need_address {
+  background-image: url(/images/helper-address-icon.png);
+	background-position: 5% 45%;
+}
+ul.helpers li.need_id {
+  background-image: url(/images/helper-proofofid-icon.png);
+	background-position: -2% 25%;
+}
+ul.helpers li.need_ni {
+  background-image: url(/images/helper-ni-icon.png);
+	background-position: 4% 35%;
+}
+ul.helpers li.over_18 {
+  background-image: url(/images/helper-over18-icon.png);
+	background-position: 5% 35%;
+}
+ul.helpers li.less_than_10,
+ul.helpers li.less_than_20,
+ul.helpers li.less_than_30,
+ul.helpers li.less_than_40 {
+  background-image: url(/images/helper-time-icon.png);
+}
+ul.helpers li.offline_steps {
+  background-image: url(/images/helper-offline-icon.png);
+	background-position: -3% 35%;
+}
 
 /*
 	Programme format
@@ -509,10 +498,6 @@ ul.helpers {
 #wrapper.programme .programme-progression li:last-child .progressor {
 	display: none;
 }
-
-/*#wrapper.programme .programme-progression li:last-child a {
-	background: url(/images/icon-programme-24.png) no-repeat 90% 50%;
-}*/
 
 #wrapper.programme article {
 	min-height: 10em;
