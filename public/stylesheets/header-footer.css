@@ -1,6 +1,9 @@
 /* Global header */
 
 #global-header {
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 	color: #fff;
 	min-height: 1em;
 	position: fixed;
@@ -137,6 +140,7 @@
 
 #global-header .header-context.citizen {
   border-color: #ED6900;
+  border-bottom-color: #ba5200;
 }
 
 #global-header .header-context.government {
