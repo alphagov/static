@@ -49,9 +49,11 @@
 }
 
 #global-header .header-global ul {
-	float: right;
+  float: left;
+/*  float: right;*/
 	line-height: 2.5em;
-	margin-right: 17.5em;
+	margin-left: 2em;
+/*  margin-right: 17.5em;*/
 }
 
 #global-header .header-global ul li {
