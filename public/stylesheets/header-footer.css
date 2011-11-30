@@ -6,10 +6,11 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 	color: #fff;
 	min-height: 1em;
-	position: fixed;
-	top: 0;
+/*  position: fixed;*/
+  position: static;
+/*  top: 0;*/
 	width: 100%;
-	z-index: 99999;
+/*  z-index: 99999;*/
 }
 
 #global-header h1 {
@@ -187,7 +188,6 @@ form.site-search {
   width: 12.5em
 }
 
-
 .search-help input[type="submit"] {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -260,6 +260,14 @@ form.site-search {
 }
 
 @media only screen and (min-width:670px) {
+  
+  #global-header {
+  	position: fixed;
+  	top: 0;
+  	width: 100%;
+  	z-index: 99999;
+  }
+  
   .search-help {
     -moz-border-radius-topleft: 0.5em;
     -webkit-border-top-left-radius: 0.5em;
