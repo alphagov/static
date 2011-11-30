@@ -6,11 +6,26 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 	color: #fff;
 	min-height: 1em;
-/*  position: fixed;*/
   position: static;
-/*  top: 0;*/
 	width: 100%;
-/*  z-index: 99999;*/
+}
+
+@media only screen and (min-width:670px) {
+  
+  #global-header {
+  	position: fixed;
+  	top: 0;
+  	width: 100%;
+  	z-index: 99999;
+  }
+  
+}
+
+.lte-ie8 #global-header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99999; 
 }
 
 #global-header h1 {
@@ -216,9 +231,9 @@ form.site-search {
   background-image: -ms-linear-gradient(top, #fff, #efefef);
   background-image: linear-gradient(top, #fff, #efefef);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='white', EndColorStr='#efefef');
+  border: 1px solid #ddd;
   border-bottom: 1px solid #aaa;
   border-top: 1px solid #e5e5e5;
-  border: 1px solid #ddd;
   color: #777;
   cursor: pointer;
   display: inline-block;
@@ -261,13 +276,6 @@ form.site-search {
 
 @media only screen and (min-width:670px) {
   
-  #global-header {
-  	position: fixed;
-  	top: 0;
-  	width: 100%;
-  	z-index: 99999;
-  }
-  
   .search-help {
     -moz-border-radius-topleft: 0.5em;
     -webkit-border-top-left-radius: 0.5em;
@@ -284,7 +292,6 @@ form.site-search {
     float: right;
     border: solid 0.25em #ddd;
     border-bottom: 0;
-    float: right;
     height: 2.45em;
     margin: -2.95em 4% 0 0;
     padding: 0.25em 0.5em 0 0.5em
@@ -297,6 +304,28 @@ form.site-search {
   .header-context.government .search-help {
     border-color: #cdce00
   }
+}
+
+.lte-ie8 .search-help {
+  float: right;
+  border: solid 0.25em #ddd;
+  border-bottom: 0;
+  height: 2.45em;
+  margin: -2.95em 4% 0 0;
+  padding: 0.25em 0.5em 0 0.5em
+}
+
+.lte-ie8 .site-search #site-search-text {
+  height: 1.5em;
+  width: 12.5em;
+}
+
+.lte-ie8 .header-context.citizen .search-help {
+  border-color: #ED6900
+}
+
+.lte-ie8 .header-context.government .search-help {
+  border-color: #cdce00
 }
 
 /* Global footer */

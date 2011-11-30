@@ -54,12 +54,17 @@ body {
 	position: relative;
 }
 
-section {
-	margin: 6em auto 2em;
+section#content {
+	margin: 0 auto;
 	width: 100%;
 }
-.lte-ie8 section {
-	_margin: 2em auto 2em;
+@media only screen and (min-width:670px) {
+  section#content {
+    margin: 6em auto 2em;
+  }
+}
+.lte-ie8 section#content {
+  margin: 6em auto 2em;
 }
 
 ol, ul, nav ol, nav ul {
@@ -869,6 +874,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	padding: 0.65em 0.5em;
 }
 
-input[disabled=disabled] {
+input[disabled="disabled"] {
 	opacity: 0.5;
+}
+
+/* below fixes a bug where IE puts a nasty black border around these elements */
+
+.lte-ie8 input[type="submit"],
+.lte-ie8 input[type="reset"],
+.lte-ie8 input[type="button"]
+{
+  filter:chroma(color=#000000);
 }
