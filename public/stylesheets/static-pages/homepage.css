@@ -22,7 +22,10 @@
 }
 
 .home #wrapper section {
-	margin: 2.5em auto 0 auto;
+	margin: 3.5em auto 0 auto;
+}
+.lte-ie8 .home #wrapper section {
+  margin-top: 4.5em;
 }
 
 .homepage-section {
@@ -32,7 +35,12 @@
 }
 .lte-ie8 .homepage-section {
 	margin: 0 auto;
-	padding: 2em 0;
+	padding: 1em 0;
+}
+
+.homepage-section h2:first-child {
+  margin-top: 0;
+  margin-bottom: 0.75em;
 }
 
 .homepage-section:nth-child(1) {
