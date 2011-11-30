@@ -29,7 +29,6 @@
 	background-color: #fff;
 	overflow: hidden;
 	padding: 2em;
-/*	width: 100%;*/
 }
 
 #main-help {
@@ -44,40 +43,19 @@
 	width: 30%;
 }
 
-#extra-help article {
-/*	padding: 1em;*/
-}
-
 .help-menu {
 	border-bottom: solid 3px #bbb;
 	padding: 0 0 1em 0;
 }
 
 .help-menu ul {
-/*	list-style-type: none;*/
-/*	margin: 1em 0 0 0;*/
 	margin: 0;
 	padding: 0;
 }
 
 .help-menu li {
-/*	list-style-type: none;*/
 	margin: 0 0 0.5em 1em;
-/*	padding: 0 0 1em 1em;*/
 }
-
-/*.help #find,
-.help #tools,
-.help #feedback {
-	width: 100%;
-
-	margin-right:1em;
-	margin-bottom:1em;
-	background-color:#fff;
-	border:1px solid #fff;
-	padding:0.5em 1em 1em 1em;
-	border-radius:5px;
-}*/
 
 #help-internet ul,
 #help-internet li{
@@ -146,11 +124,8 @@
 .help strong a,
 .project li {
 	background: none repeat scroll 0 0 #FF7115;
-/*  border: 1px solid #A93D00;*/
   border-radius: 0.25em 0.25em 0.25em 0.25em;
 	color:#fff;
-/*	width:60%;*/
-/*	display:block;*/
 	padding:0.5em 1em;
 }
 
