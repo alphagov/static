@@ -192,29 +192,22 @@ aside .chapters-navigation li a .part-title {
 	border-top: solid 1px #bbb;
 	display: block;
 	margin: 2em -2em 1em -2em;
-	* margin: 0;
-	* display: none;
 }
 
 .pagination ul {
 	margin: 0;
 	padding: 0.5em 0;
-	* display: inline;
 }
 
 .pagination li {
 	float: left;
 	list-style: none;
-	* float: none;
-	* height: 5em;
-	* display: inline;
 }
 
 .pagination li a {
 	display: block;
 	padding: 0.5em;
 	position: relative;
-	* display: inline;
 }
 
 .pagination li a:hover {
@@ -227,14 +220,11 @@ aside .chapters-navigation li a .part-title {
 	box-sizing: border-box;
 	float: left;
 	width: 11em;
-	* border: none;
-	* float: none;
 }
 
 .pagination .next a {
 	float: right;
 	width: 20em;
-	* float: none;
 }
 .pagination .first {
 	border-right: solid 1px #bbb;
