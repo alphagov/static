@@ -11,8 +11,15 @@
   <link href="<%= @asset_host %>/stylesheets/header-footer.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/text.css" rel="stylesheet" type="text/css" />
 
+  <!-- publication formats styling -->
   <link href="<%= @asset_host %>/stylesheets/publisher.css" rel="stylesheet" type="text/css" />
+  
+  <!-- something clever needs doing here as we probably don't want to load all these stylesheets globally -->
+  <link href="<%= @asset_host %>/stylesheets/static-pages/error-pages.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/static-pages/help-pages.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/static-pages/platform-pages.css" rel="stylesheet" type="text/css" />
 
+  <!-- alternatives -->
   <link href="<%= @asset_host %>/stylesheets/high-contrast.css" rel="alternate stylesheet" type="text/css" title="I can&rsquo;t see very well" />
   <link href="<%= @asset_host %>/stylesheets/dyslexic.css" rel="alternate stylesheet" type="text/css" title="I find words difficult" />
 
