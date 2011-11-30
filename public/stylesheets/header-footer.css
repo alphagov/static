@@ -97,61 +97,12 @@
 
 #global-header .header-context {
 	background-color: #fff;
+  border-top: solid 4px #ddd;
 	border-bottom: solid 1px rgba(0,0,0,0.2);
   padding: 0
 }
-
 .lte-ie8 #global-header .header-context {
-	border-bottom: solid 1px #DDD;
-}
-
-#global-header .header-context nav {
-  margin: 0;
-  font-size: 0.875em;
-  line-height: 1.714em;
-  margin-bottom: 1.714em;
-  margin-bottom: 0;
-  background: #fff;
-  padding: 0.25em 4%;
-  margin: 0 auto
-}
-
-#global-header .header-context nav div {
-  display: inline
-}
-
-#global-header .header-context nav a {
-  font-weight: bold;
-  text-decoration: none;
-  color: #777;
-  margin-right: 2%;
-  white-space: nowrap
-}
-
-#global-header .header-context nav a:hover {
-  color: #9a9b00
-}
-
-#global-header .header-context nav a:last-child {
-  margin-right: 0
-}
-
-@media only screen and (min-width: 865px) {
-  #global-header .header-context nav a.home {
-    margin-right: 4%
-  }
-}
-
-#global-header .header-context ol {
-	font-size: 1em;
-}
-
-#global-header .header-context ol li {
-	margin-right: 1em;
-}
-
-#global-header .header-context {
-  border-top: solid 4px #ddd;
+	border-bottom: solid 1px #ddd;
 }
 
 #global-header .header-context.citizen {
@@ -162,6 +113,55 @@
 #global-header .header-context.government {
   border-color: #cdce00;
   border-bottom-color: #9a9b00
+}
+
+#global-header .header-context nav {
+  font-size: 0.875em;
+  line-height: 1.714em;
+  margin: 0 auto;
+  margin-bottom: 1.714em;
+  margin-bottom: 0;
+  background: #fff;
+  padding: 0.25em 4%;
+}
+
+#global-header .header-context nav div {
+  display: inline
+}
+
+#global-header .header-context nav a {
+  margin-right: 2%;
+  white-space: nowrap
+}
+#global-header .header-context.government nav {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#global-header .header-context.government nav a {
+  color: #777;
+}
+#global-header .header-context.government nav a:hover {
+  color: #9a9b00
+}
+
+#global-header .header-context nav a:last-child {
+  margin-right: 0
+}
+
+@media only screen and (min-width: 865px) {
+  #global-header .header-context nav a.home,
+  #global-header .header-context ol li.current-context {
+    margin-right: 4%
+  }
+}
+
+#global-header .header-context ol {
+	font-size: 1em;
+}
+
+#global-header .header-context ol li {
+	margin-right: 1em;
 }
 
 .search-help {
