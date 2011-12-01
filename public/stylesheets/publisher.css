@@ -1,32 +1,3 @@
-html {
-/*	background: #F8F6EE;*/
-}
-
-/*#wrapper.section,
-#wrapper.answer,
-#wrapper.guide,
-#wrapper.transaction,
-#wrapper.local_transaction,
-#wrapper.programme,
-#wrapper.place,
-#wrapper.smartanswer {
-	margin: 0 auto;
-	max-width: 960px;
-	* width: 960px;
-}
-
-#wrapper.section section,
-#wrapper.answer section,
-#wrapper.guide section,
-#wrapper.transaction section,
-#wrapper.local_transaction section,
-#wrapper.programme section,
-#wrapper.place section,
-#wrapper.smartanswer section {
-	margin: 1.5em 0;
-}
-*/
-
 /* section pages */
 #wrapper.section hgroup h1 {
 	background-image: url('/images/icon-section-l.png');
@@ -63,7 +34,7 @@ html {
 	background-repeat: no-repeat;
 	display: block;
 	float: right;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	line-height: 2em;
 	padding-left: 2.25em;
 }
@@ -85,7 +56,7 @@ html {
 	padding: 0.25em 1em;
 }
 .view-text-version p {
-	font-size: 0.8em;
+	font-size: 0.85em;
 }
 
 #wrapper.guide article {
@@ -112,7 +83,7 @@ aside .chapters-navigation {
 	width: 95%;
 }
 aside .chapters-navigation ol {
-	font-size: 0.8em;
+	font-size: 0.85em;
 	margin: 0;
 	padding: 0;
 }
@@ -221,29 +192,22 @@ aside .chapters-navigation li a .part-title {
 	border-top: solid 1px #bbb;
 	display: block;
 	margin: 2em -2em 1em -2em;
-	* margin: 0;
-	* display: none;
 }
 
 .pagination ul {
 	margin: 0;
 	padding: 0.5em 0;
-	* display: inline;
 }
 
 .pagination li {
 	float: left;
 	list-style: none;
-	* float: none;
-	* height: 5em;
-	* display: inline;
 }
 
 .pagination li a {
 	display: block;
 	padding: 0.5em;
 	position: relative;
-	* display: inline;
 }
 
 .pagination li a:hover {
@@ -256,14 +220,11 @@ aside .chapters-navigation li a .part-title {
 	box-sizing: border-box;
 	float: left;
 	width: 11em;
-	* border: none;
-	* float: none;
 }
 
 .pagination .next a {
 	float: right;
 	width: 20em;
-	* float: none;
 }
 .pagination .first {
 	border-right: solid 1px #bbb;
@@ -281,7 +242,7 @@ aside .chapters-navigation li a .part-title {
 }
 .pagination .pagination-label {
 	display: block;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	line-height: 1em;
 	margin-bottom: 0.5em;
 }
@@ -301,7 +262,6 @@ aside .chapters-navigation li a .part-title {
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
 	border-radius: 0.5em;
-
 	font-size: 0.9em;
 	margin-bottom: 1.2em;
 	padding: 0.15em 1em;
@@ -328,12 +288,10 @@ aside .chapters-navigation li a .part-title {
 	margin: 0 0.5em;
 }
 
-/* submit button stuff removed from here */
-
 #wrapper.place .more,
 #wrapper.transaction .more,
 #wrapper.local_transaction .more {
-	font-size: 0.8em;
+	font-size: 0.85em;
 	padding: 0.5em 0;
 }
 
@@ -342,14 +300,6 @@ aside .chapters-navigation li a .part-title {
 #wrapper.local_transaction .more h2 {
 	border-bottom: none;
 }
-
-/*#wrapper.answer article h2 {
-	border-bottom: none;
-  font-size: 1.15em;
-  line-height: 1.11em;
-  margin-top: 1.304em;
-  margin-bottom: 0;
-}*/
 
 /*
  * Helper icons
@@ -363,70 +313,70 @@ ul.helpers {
 	width: 99%;
 }
 
-	ul.helpers li {
-	  background-color: #e5e0de;
-	  background-position: 0% 25%;
-	  background-repeat: no-repeat;
-		border-top: solid 1px #fafafa;
-		border-bottom: solid 1px #bbb;
-	  color: #706e6e;
-		float: left;
-	  margin-bottom: 0.6em;
-		margin-right: 0.6em;
-		min-height: 3em;
-	  padding: 0.75em 0.25em 0.75em 3.75em;
-		vertical-align: middle;
-		width: 24.8%;
-	}
-		ul.helpers li:nth-child(3n+3) {
-			margin-right: 0;
-		}
+ul.helpers li {
+  background-color: #e5e0de;
+  background-position: 0% 25%;
+  background-repeat: no-repeat;
+	border-top: solid 1px #fafafa;
+	border-bottom: solid 1px #bbb;
+  color: #706e6e;
+	float: left;
+  margin-bottom: 0.6em;
+	margin-right: 0.6em;
+	min-height: 3em;
+  padding: 0.75em 0.25em 0.75em 3.75em;
+	vertical-align: middle;
+	width: 24.8%;
+}
+ul.helpers li:nth-child(3n+3) {
+	margin-right: 0;
+}
 
-	ul.helpers li.active, ul.helpers li.active h3 a {
-	  color: #fff;
-	}
+ul.helpers li.active, ul.helpers li.active h3 a {
+  color: #fff;
+}
 
-	ul.helpers li.need_cash {
-	  background-image: url(/images/helper-cash-icon.png);
-	}
-	ul.helpers li.card_payment {
-	  background-image: url(/images/helper-creditcard-icon.png);
-		background-position: -2% 0%;
-	}
-	ul.helpers li.gateway {
-	  background-image: url(/images/helper-govgateway-icon.png);
-		background-position: -3% 10%;
-	}
-	ul.helpers li.need_passport {
-	  background-image: url(/images/helper-passport-icon.png);
-		background-position: -2% 15%;
-	}
-	ul.helpers li.need_address {
-	  background-image: url(/images/helper-address-icon.png);
-		background-position: 5% 45%;
-	}
-	ul.helpers li.need_id {
-	  background-image: url(/images/helper-proofofid-icon.png);
-		background-position: -2% 25%;
-	}
-	ul.helpers li.need_ni {
-	  background-image: url(/images/helper-ni-icon.png);
-		background-position: 4% 35%;
-	}
-	ul.helpers li.over_18 {
-	  background-image: url(/images/helper-over18-icon.png);
-		background-position: 5% 35%;
-	}
-	ul.helpers li.less_than_10,
-	ul.helpers li.less_than_20,
-	ul.helpers li.less_than_30,
-	ul.helpers li.less_than_40 {
-	  background-image: url(/images/helper-time-icon.png);
-	}
-	ul.helpers li.offline_steps {
-	  background-image: url(/images/helper-offline-icon.png);
-		background-position: -3% 35%;
-	}
+ul.helpers li.need_cash {
+  background-image: url(/images/helper-cash-icon.png);
+}
+ul.helpers li.card_payment {
+  background-image: url(/images/helper-creditcard-icon.png);
+	background-position: -2% 0%;
+}
+ul.helpers li.gateway {
+  background-image: url(/images/helper-govgateway-icon.png);
+	background-position: -3% 10%;
+}
+ul.helpers li.need_passport {
+  background-image: url(/images/helper-passport-icon.png);
+	background-position: -2% 15%;
+}
+ul.helpers li.need_address {
+  background-image: url(/images/helper-address-icon.png);
+	background-position: 5% 45%;
+}
+ul.helpers li.need_id {
+  background-image: url(/images/helper-proofofid-icon.png);
+	background-position: -2% 25%;
+}
+ul.helpers li.need_ni {
+  background-image: url(/images/helper-ni-icon.png);
+	background-position: 4% 35%;
+}
+ul.helpers li.over_18 {
+  background-image: url(/images/helper-over18-icon.png);
+	background-position: 5% 35%;
+}
+ul.helpers li.less_than_10,
+ul.helpers li.less_than_20,
+ul.helpers li.less_than_30,
+ul.helpers li.less_than_40 {
+  background-image: url(/images/helper-time-icon.png);
+}
+ul.helpers li.offline_steps {
+  background-image: url(/images/helper-offline-icon.png);
+	background-position: -3% 35%;
+}
 
 /*
 	Programme format
@@ -456,7 +406,7 @@ ul.helpers {
 	-moz-border-radius: 0.5em 0.5em 0 0;
 	border-radius: 0.5em 0.5em 0 0;
 	display: block;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	padding: 0.5em 1em;
 	position: relative;
 }
@@ -539,21 +489,17 @@ ul.helpers {
 	display: none;
 }
 
-/*#wrapper.programme .programme-progression li:last-child a {
-	background: url(/images/icon-programme-24.png) no-repeat 90% 50%;
-}*/
-
 #wrapper.programme article {
 	min-height: 10em;
 	width: 100%;
 }
 
-.js-enabled #wrapper.programme article.overview-etc, 
+.js-enabled #wrapper.programme article.overview-etc,
 #wrapper.programme #overview{
 	padding-top: 4em;
 }
 
-.js-enabled #wrapper.programme article.overview-etc, 
+.js-enabled #wrapper.programme article.overview-etc,
 .js-enabled #wrapper.programme .part-pagination.return-to-top,
 .js-enabled #wrapper.programme article.tabs-panel {
 	display:none;
@@ -609,57 +555,4 @@ ul.helpers {
 
 #wrapper.programme .part-pagination a:hover .progressor {
 	background-position: -978px 0;
-}
-
-/*
- Calendar format
-
- Potentially needs moving into a calendar app
- */
-
-#wrapper.calendar hgroup h1 {
-	background-image: url('/images/icon-calendar-l.png');
-}
-
-#wrapper.calendar smaller {
-  font-size: 1em;
-}
-
-/* tab overrides */
-.ui-widget-content,
-.ui-tabs .ui-tabs-nav {
-  background-color: inherit;
-}
-
-.ui-tabs .ui-tabs-nav li.ui-state-default {
-  background-color: #E9E8E7;
-}
-
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
-  background-color: inherit;
-}
-
-.ui-tabs .ui-tabs-nav li.ui-state-active {
-  border-bottom: 1px solid #fff !important;
-}
-
-.subscribe {
-  border: 0.185em solid #bbb;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
-  margin: 0 auto 2em;
-  padding: 0.5em 1em;
-  width: 50%;
-}
-
-.subscribe h3 {
-  margin: 0 0 0.5em;
-}
-
-.subscribe a {
-  background: url(/images/icon-calendar-16.png) no-repeat 0 50%;
-  display: block;
-  line-height: 1.4em;
-  padding-left: 18px;
 }

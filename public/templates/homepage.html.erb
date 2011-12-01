@@ -8,8 +8,13 @@
   <link href="<%= @asset_host %>/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/core.css" rel="stylesheet" type="text/css" />
-  <link href="<%= @asset_host %>/stylesheets/publisher.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/header-footer.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/text.css" rel="stylesheet" type="text/css" />
+  
+  <!-- homepage styling -->
+  <link href="<%= @asset_host %>/stylesheets/static-pages/homepage.css" rel="stylesheet" type="text/css" />
 
+  <!-- alternatives -->
   <link href="<%= @asset_host %>/stylesheets/high-contrast.css" rel="alternate stylesheet" type="text/css" title="I can&rsquo;t see very well" />
   <link href="<%= @asset_host %>/stylesheets/dyslexic.css" rel="alternate stylesheet" type="text/css" title="I find words difficult" />
 
@@ -38,11 +43,8 @@
 	    <h1><a href="/" title="return to the gov.uk homepage">gov.uk</a></h1>
 			<nav role="navigation">
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><a href="#" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
-					<li><a href="#">Personalisation</a></li>
-					<li><a href="#">Government Departments</a></li>
-					<li><a href="#">Business</a></li>
 				</ul>
 			</nav>
 		</div>

@@ -8,8 +8,18 @@
   <link href="<%= @asset_host %>/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/core.css" rel="stylesheet" type="text/css" />
-  <link href="<%= @asset_host %>/stylesheets/publisher.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/header-footer.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/text.css" rel="stylesheet" type="text/css" />
 
+  <!-- publication formats styling -->
+  <link href="<%= @asset_host %>/stylesheets/publisher.css" rel="stylesheet" type="text/css" />
+  
+  <!-- something clever needs doing here as we probably don't want to load all these stylesheets globally -->
+  <link href="<%= @asset_host %>/stylesheets/static-pages/error-pages.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/static-pages/help-pages.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/static-pages/platform-pages.css" rel="stylesheet" type="text/css" />
+
+  <!-- alternatives -->
   <link href="<%= @asset_host %>/stylesheets/high-contrast.css" rel="alternate stylesheet" type="text/css" title="I can&rsquo;t see very well" />
   <link href="<%= @asset_host %>/stylesheets/dyslexic.css" rel="alternate stylesheet" type="text/css" title="I find words difficult" />
 
@@ -36,7 +46,6 @@
   <header role="banner" class="group" id="global-header">
 		<div class="header-global group">
 	    <h1><a href="/" title="return to the gov.uk homepage">gov.uk</a></h1>
-
 			<nav role="navigation">
 				<ul>
 					<li><a href="#" class="customisation-settings">Settings</a></li>
@@ -46,16 +55,16 @@
 		</div>
 		<div class="header-context citizen group">
 			<div class="search-help">
-				<form class="site-search" action="http://search.production.alphagov.co.uk/search" method="get" role="search">
-			    <legend class="visuallyhidden">Site search for www.gov.uk</legend>
+				<form class="site-search" action="/search" method="get" role="search">
+			    <fieldset><legend class="visuallyhidden">Site search for www.gov.uk</legend>
    				<label for="site-search-text" class="visuallyhidden">
  						<span>Search</span>
  					</label>
 					<input type="search" name="q" id="site-search-text" title="Search" placeholder="type your search here" />
-  				<input type="submit" value="Search" />
+  				<input type="submit" value="Search" /></fieldset>
 				</form>
 			</div>
-			<nav role="navigation">
+			<nav role="navigation" class="group">
 				<ol>
 					<li class="current-context"><a href="/">Home</a></li>
 				</ol>
@@ -96,19 +105,15 @@
 
 	          <h2>Personalise this website</h2>
 
-            <p>We&rsquo;ve worked hard to make this website as easy-to-use and understand as possible for every visitor, regardless of their ability or disability. For now we have added two additional ways to view the site and we will be adding more in the upcoming months. <span style="color: red;">This will need revising by an Ed at some point, but it's okay for now as filler...</span></p>
+            <p>We&rsquo;ve worked hard to make our website as easy-to-use and understand as possible for every visitor, regardless of ability or disability.</p>
+            <p>We have also added two additional ways to view the site, one with more contrast and one which changes the text for dyslexic users or those who find words difficult, and we will be adding more in the upcoming months.</p>
 
-            <form id="" class="app-form" action="#">
-
-              <fieldset>
-                <legend class="visuallyhidden">Site personalisation options</legend>
-                <ul class="personalise-options">
-                  <li><a href="#">I can&rsquo;t see very well</a></li>
-                  <li><a href="#">I find words difficult</a></li>
-                </ul>
-              </fieldset>
-
-            </form>
+            <h3 class="visuallyhidden">Change the theme</h3>
+            <ul class="personalise-options">
+              <li><a href="#" title="use the high contrast theme">I can&rsquo;t see very well</a></li>
+              <li><a href="#" title="use the dyslexia-friendly theme">I find words difficult</a></li>
+              <li><a href="#" title="don't use a custom theme, just show me the regular website">Show me the regular website</a></li>
+            </ul>
 
 	          <h2>Set your location</h2>
 	          <div id="global-locator-error" class="app-error hidden"></div>
@@ -123,15 +128,11 @@
                     <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
                     <input type="submit" value="Get started →">
 
-  	                  <p class="found_location" id="location-set-message">
-                        <span id="location-set-info"><a class="change-location" href="#">
-                          <strong class="friendly-name"></strong></a>
-                          <small>(<a class="explain-location" href="#">what is this?</a>)</small>
-                        </span> 
+
   	                  <p class="finding_location hidden">Locating you&hellip;
   	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
-  	                
-  	                
+
+
   	              </div>
                 </fieldset>
 
