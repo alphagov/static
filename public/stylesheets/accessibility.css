@@ -18,14 +18,14 @@
 /*:focus,*/
 a:focus {
   background-color: #ffcc00;
-  outline: 5px solid #ffcc00;
+  outline: 3px solid #ffcc00;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
 #global-header input:focus {
-  outline: 5px solid #ffcc00;
+  outline: 3px solid #ffcc00;
 }
 
 #global-header a:focus {
