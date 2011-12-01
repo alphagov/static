@@ -106,7 +106,7 @@ a 				{ color: #2200C1; }
 a:hover 	{ color: #1D97FF; }
 a:visited { color: #5800AE; }
 a:active 	{ color: #c11; }
-a:focus 	{ border-width: 0.063em; color: #c11; }
+/*a:focus   { border-width: 0.063em; color: #c11; }*/
 
 /*
 Don't think these are being used anywhere
