@@ -65,7 +65,7 @@ article h2 + ul, article h3 + ul, article h4 + ul {
 
 article p, article ul, article ol {
   font-size: 1em;
-  line-height: 1.5em;
+/*  line-height: 1.5em;*/
   margin: 0.75em 0;
 }
 
