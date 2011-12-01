@@ -15,8 +15,19 @@
 .invisible { visibility: hidden; }
 
 /* Give a strong clear visual idea as to what is currently in focus */
-:focus, a:focus, input:focus {
+/*:focus,*/
+a:focus {
   background-color: #ffcc00;
-  color: #000;
-  outline: medium solid #9E7E00;
+  outline: 5px solid #ffcc00;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+#global-header input:focus {
+  outline: 5px solid #ffcc00;
+}
+
+#global-header a:focus {
+  background-color: transparent;
 }
