@@ -4,22 +4,6 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
   vertical-align: baseline;
 }
 
-/* For image replacement */
-.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
-.ir br { display: none; }
-
-/* Hide for both screenreaders and browsers */
-.hidden { display: none; visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible { visibility: hidden; }
-
 /* self-clearing floats */
 .group:before, .group:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
 .group:after { clear: both; }
@@ -396,7 +380,6 @@ article .inner {
 	text-decoration: none;
 }
 
-.meta-data .api-links li a:focus,
 .meta-data .api-links li a:active,
 .meta-data .api-links li a:hover {
 	background-color: #1D97FF;
@@ -856,12 +839,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .button:active {
 	top: 1px;
-}
-.button:focus {
-	background-color: rgb(0,25,80);
-	-moz-box-shadow: 0 1px 10px rgb(255,18,198);
-	-webkit-box-shadow: 0 1px 10px rgb(255,18,198);
-  box-shadow: 0 1px 10px rgb(255,18,198);
 }
 
 .button.medium {

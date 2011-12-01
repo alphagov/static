@@ -376,6 +376,7 @@ article ol.steps li {
 }
 article ol.steps li:nth-child(1) {
 	background-image: url('/images/icon-step-1.png');
+	background-color: red;
 }
 article ol.steps li:nth-child(2) {
 	background-image: url('/images/icon-step-2.png');

@@ -137,9 +137,7 @@
 }
 .help strong a:hover,
 .help strong a:active,
-.help strong a:focus,
 .project li a:hover,
-.project li a:active,
-.project li a:focus {
+.project li a:active, {
 	color:#333;
 }

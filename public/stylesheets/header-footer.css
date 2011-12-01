@@ -42,7 +42,8 @@
 }
 
 #global-header h1 a {
-	background: url(../images/templogo.png) no-repeat 0 0;
+	background-image: url(../images/templogo.png);
+	background-repeat: no-repeat;
 	color: #fff;
 	float: left;
 	padding: 0 0 0 3.25em;
