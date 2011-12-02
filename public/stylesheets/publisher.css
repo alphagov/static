@@ -107,8 +107,7 @@ aside .chapters-navigation li.active a {
 	position: relative;
 	z-index: 2;
 }
-aside .chapters-navigation li a:hover,
-aside .chapters-navigation li a:focus {
+aside .chapters-navigation li a:hover {
 	background: #1576FB;
 	color: #fff;
 }
@@ -417,9 +416,7 @@ ul.helpers li.offline_steps {
 }
 
 #wrapper.programme .programme-switcher ul li a:hover,
-#wrapper.programme .programme-switcher ul li a:focus,
-#wrapper.programme .programme-progression ol li a:hover,
-#wrapper.programme .programme-progression ol li a:focus {
+#wrapper.programme .programme-progression ol li a:hover {
 	background-color: #1576FB;
 	color: #fff;
 }
@@ -452,16 +449,11 @@ ul.helpers li.offline_steps {
 	width: 100%;
 }
 
-#wrapper.programme .programme-progression li a:focus {
-	outline: none;
-}
-
 #wrapper.programme .programme-progression li.active a {
 	background-color: #ffa;
 }
 
-#wrapper.programme .programme-progression li.active a:hover,
-#wrapper.programme .programme-progression li.active a:focus {
+#wrapper.programme .programme-progression li.active a:hover {
 	background-color: #ffa;
 	color: #1576FB;
 }
