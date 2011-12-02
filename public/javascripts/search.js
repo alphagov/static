@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	// this is for custom formating of results
    $.extend( $.ui.autocomplete.prototype, {
+ 
     _renderItem: function( ul, item) {
       var list = "<li></li>";
       if (item['class']) {
@@ -27,14 +28,14 @@ $(document).ready(function() {
         cache: true,
         success: function(data) {
           var results = $.map(data, function(e) {
-            return { 'label': e.title, 'url': "/"+e.link, 'class': e.format };
+            return { 'label': e.title, 'url': "/"+e.slug, 'class': e.format };
           });
           add(results)
         }
       });
     },  
     select: function(event, ui) {
-      location.href = ui.item.link;
+      location.href = ui.item.url;
     },
     open: function(event, ui){
       // all this just to move the ul to the left by an offset
