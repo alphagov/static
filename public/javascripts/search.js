@@ -13,7 +13,7 @@ $(document).ready(function() {
 			}
       return $( list )
         .data( "item.autocomplete", item )
-        .append( $( "<a></a>" ).html( item.html || item.label ) )
+        .append( $( "<a href='"+item['url']+"'></a>" ).html( item.html || item.label ) )
         .appendTo( ul );
     }
   });
