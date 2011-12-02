@@ -165,3 +165,6 @@ ul li.nearest a {
 ul li.smart-answer a {
 	background-image: url('../../images/icon-smart-answer-s.png');
 }
+.ui-autocomplete{
+  width:300px;
+}
