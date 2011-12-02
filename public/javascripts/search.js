@@ -43,18 +43,10 @@ $(document).ready(function() {
 					$(".ui-autocomplete").css("left", newLeft+"px").css("width", ((width*2)+4)+"px");
 					
 					// quickly add the search value to end of list
-					var searchVal = $("#s").attr("value");
+					var searchVal = $("#site-search-text").attr("value");
 					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
 					}
       });
-
-		/*	$('#main_autocomplete').autocomplete({
-        delay: 0,
-        source: results, 
-        select: function(event, ui) {
-          location.href = ui.item.url;
-        }
-      });*/
 
     }
 		

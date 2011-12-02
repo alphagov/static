@@ -177,14 +177,12 @@ var AlphaGeo = {
 	
 			/* set geo labels */
 	    var update_geo_labels = function(geo_data) {
-	      console.log('update geo')
 	      if (geo_data.councils && geo_data.councils.length > 0) {  
 	        display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
 	      } else {
 	        display_name = geo_data.locality;
 	      }
-	      console.log("display name: "+display_name);
-	      console.log($('#friendly-location-name'))
+
 	      $('#popup #friendly-location-name').text("We think you're at "+display_name);
 	    //  found_ui.find('a').text('Not in ' + geo_data.locality + '?');
 	    };
@@ -266,7 +264,6 @@ var AlphaGeo = {
 	        }
 	      });
 	      $(".locate-me a").live("click", function(){
-	        console.log('locate me')
 	        geolocate_ui.trigger('location-started');
 	        browserSupportFlag = true;
 	        navigator.geolocation.getCurrentPosition(
@@ -318,23 +315,7 @@ var AlphaGeo = {
 	  
 
 	},
-	
-	/**
-		@name AlphaGeo.forgetLocation
-		@function
-		@description Use to remove all references to the locality.  Removes the cookie and resets the forms.
 
-		@returns true
-
-		@example
-			AlphaGeo.forgetLocation()
-	*/
-	
-	//
-	forgetLocation: function(){
-		
-	},
-	
 	/**
 		@name AlphaGeo.readAndParseJSONCookie
 		@function
@@ -458,7 +439,7 @@ var AlphaGeo = {
 
 /* global header geo */
 $(document).ready(function() {
-    console.log('geo')
+
     AlphaGeo.locate("#global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
   
     var show_known_location = function(current_location) {
@@ -501,24 +482,21 @@ $(document).ready(function() {
     });*/
 
     $('#forget-location a').live("click", function() {
-      console.log('forget-location')
       $(document).trigger('location-removed');
       return false;
     });
 
     $(document).bind('location-removed', function(e, message) {
-      console.log('location-removed')
       show_unknown_location();
       AlphaGeo.deleteGeoCookie();
     });
 
     $(document).bind('location-known', function(e, data) {
-      console.log('location-known')
       show_known_location(data.current_location);
+      
     });
 
     $(document).bind('location-changed', function(e, data) {
-      console.log('location-changed')
       $('#global-locator').hide();
       $("#global-user-location").addClass('set');
       show_known_location(data.current_location);
