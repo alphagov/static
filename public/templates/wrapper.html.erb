@@ -119,6 +119,8 @@
 
 	          <h2>Set your location</h2>
 	          <div id="global-locator-error" class="app-error hidden"></div>
+	          
+            </p>
 	            <form id="global-locator-form" class="app-form" action="/locator.json">
 
                 <fieldset>
@@ -126,20 +128,21 @@
 
 	                <div class="ask_location">
                     <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
-                    <input type="submit" value="Get started →">
+                    <input type="submit" class="button" value="Get started →">
 
 
   	                  <p class="finding_location hidden">Locating you&hellip;
   	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
 
-  	                <p id="forget-location">
-  	                  <a href="#">Forget my location</a>
-  	                </p>
+
   	              </div>
                 </fieldset>
 
               </form>
-
+              <p id="friendly-location-name"></p>
+              <p id="forget-location">
+                <a href="#">Forget my location</a>
+              </p>
 	            <h3>Why?</h3>
 	            <p>When you set your location we can give you details of services close to you, like Passport offices, driving test centres or police stations.</p>
 	            <p><small>Your approximate location is <a href="/cookies/">stored in a cookie</a> on your machine, but we do not save your postcode or precise location on our servers.</small></p>

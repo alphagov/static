@@ -180,10 +180,11 @@ var AlphaGeo = {
 	      if (geo_data.councils && geo_data.councils.length > 0) {  
 	        display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
 	      } else {
-	        display_name = geo_data.locality
+	        display_name = geo_data.locality;
 	      }
-	      found_ui.find('h3').text(display_name);
-	      found_ui.find('a').text('Not in ' + geo_data.locality + '?');
+
+	      $('#popup #friendly-location-name').text("We think you're at "+display_name);
+	    //  found_ui.find('a').text('Not in ' + geo_data.locality + '?');
 	    };
 	
 			/* set geo lat/long */
@@ -262,10 +263,7 @@ var AlphaGeo = {
 	          $.post(locator_form[0].action, locator_form.serialize(), dispatch_location, 'json');
 	        }
 	      });
-	      geolocate_ui.find('a').click(function (e) {
-	        console.log("geolocateui")
-	        var parent_element = $(this).closest('.locate-me');
-
+	      $(".locate-me a").live("click", function(){
 	        geolocate_ui.trigger('location-started');
 	        browserSupportFlag = true;
 	        navigator.geolocation.getCurrentPosition(
@@ -277,10 +275,13 @@ var AlphaGeo = {
 	            geolocate_ui.trigger('location-failed');
 	          }
 	        );
+	      })
+	     /* geolocate_ui.find('a').click(function (e) {
+	        console.log("geolocateui")
+	        var parent_element = $(this).closest('.locate-me');
 
-	        e.preventDefault();
-	        // return false;
-	      });
+	        
+	      });*/
 	    }
 	    if (!ignoreKnown) {
 	      $(document).bind('location-known', function(e, data) {
@@ -314,23 +315,7 @@ var AlphaGeo = {
 	  
 
 	},
-	
-	/**
-		@name AlphaGeo.forgetLocation
-		@function
-		@description Use to remove all references to the locality.  Removes the cookie and resets the forms.
 
-		@returns true
-
-		@example
-			AlphaGeo.forgetLocation()
-	*/
-	
-	//
-	forgetLocation: function(){
-		
-	},
-	
 	/**
 		@name AlphaGeo.readAndParseJSONCookie
 		@function
@@ -422,7 +407,7 @@ var AlphaGeo = {
 		@description 
 
 		@returns A string containing the current "friendly name" for the current location, 
-		  set in the cookie, or false if no cookie found.
+		set in the cookie, or false if no cookie found.
 
 		@example
 			AlphaGeo.locator_object()
@@ -480,23 +465,23 @@ $(document).ready(function() {
       $('#global-locator-form').trigger('reset-locator-form');
     };
 
-    $('#global-locator .close').click(function() {
+   /* $('#global-locator .close').click(function() {
       $('#global-locator').hide();
       return false;
-    });
+    });*/
 
     // Event handlers
-    $('.change-location').click(function() {
+    /*$('.change-location').live("click", function() {
       open_location_dialog();
       return false;
-    });
+    });*/
 
-    $('.explain-location').click(function() {
+    /*$('.explain-location').click(function() {
       open_location_dialog();
       return false;
-    });
+    });*/
 
-    $('#forget-location').click(function() {
+    $('#forget-location a').live("click", function() {
       $(document).trigger('location-removed');
       return false;
     });
@@ -508,6 +493,7 @@ $(document).ready(function() {
 
     $(document).bind('location-known', function(e, data) {
       show_known_location(data.current_location);
+      
     });
 
     $(document).bind('location-changed', function(e, data) {

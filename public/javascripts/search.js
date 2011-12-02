@@ -26,7 +26,7 @@ $(document).ready(function() {
       var results = $.map(data, function(e) {
         return { 'label': e.title, 'url': "/"+e.link, 'class': e.format };
       });
-      $('#s').autocomplete({
+      $('#site-search-text').autocomplete({
         delay: 0,
 				width:300,
         source: results, 
@@ -35,26 +35,18 @@ $(document).ready(function() {
         },
 				open: function(event, ui){
 					// all this just to move the ul to the left by an offset
-					var offset = $("#s").offset(),
+					var offset = $("#site-search-text").offset(),
 						leftoffset = offset.left,
-						width = $("#s").width();
+						width = $("#site-search-text").width();
 					
 					var newLeft = (leftoffset - width);
 					$(".ui-autocomplete").css("left", newLeft+"px").css("width", ((width*2)+4)+"px");
 					
 					// quickly add the search value to end of list
-					var searchVal = $("#s").attr("value");
+					var searchVal = $("#site-search-text").attr("value");
 					$(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
 					}
       });
-
-		/*	$('#main_autocomplete').autocomplete({
-        delay: 0,
-        source: results, 
-        select: function(event, ui) {
-          location.href = ui.item.url;
-        }
-      });*/
 
     }
 		

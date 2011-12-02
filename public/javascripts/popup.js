@@ -12,9 +12,11 @@ var BetaPopup = {
 		@name BetaPopup.popup
 		@function
 		@description Shows a feedback popup
+		@param html A snippet of HTML to put into the popup.
+		@param ident A class name to apply to the popup, so it can be uniquely styled.
 		
 		@example
-			BetaPopup.popup();
+			BetaPopup.popup($("#myContent").html(), "myContentClass");
 	*/
 	
 	popup: function(html, ident){
