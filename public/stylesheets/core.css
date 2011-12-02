@@ -440,7 +440,9 @@ ul.ui-autocomplete li.calendar{
 ul.ui-autocomplete li.fco{
 	background: url(/images/icon-fco-s.png) no-repeat 4px 50%;
 }
-
+ul.ui-autocomplete li.search-site{
+	background: url(/images/search.png) no-repeat 8px 50%;
+}
 ul.ui-autocomplete li {
 	font-size: 0.75em;
 }
