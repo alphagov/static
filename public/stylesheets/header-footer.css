@@ -75,7 +75,7 @@
 }
 
 #global-header .header-global ul li {
-	font-size: 0.8em;
+	font-size: 0.85em;
 	margin-right: 1.25em;
 	margin-bottom: 0
 
@@ -116,7 +116,7 @@
 }
 
 #global-header .header-context nav {
-  font-size: 0.875em;
+  font-size: 0.85em;
   line-height: 1.714em;
   margin: 0 auto;
   margin-bottom: 1.714em;
@@ -157,7 +157,7 @@
 }
 
 #global-header .header-context ol {
-	font-size: 1em;
+/*  font-size: 1em;*/
 }
 
 #global-header .header-context ol li {
@@ -197,7 +197,7 @@
 }
 
 form.site-search {
-	font-size: 0.875em;
+	font-size: 0.85em;
 	padding: 0;
 }
 
@@ -361,7 +361,7 @@ form.site-search {
 
 #footer .subsection {
 	float: left;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	line-height: 1.4em;
 	width: 50%;
 }
