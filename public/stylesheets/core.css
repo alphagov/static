@@ -422,16 +422,16 @@ ul.ui-autocomplete li.guide a {
 ul.ui-autocomplete li.answer a {
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.smart-answer {
+ul.ui-autocomplete li.smart_answer {
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.transaction {
 	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.local-service{
+ul.ui-autocomplete li.localtransaction{
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.benefit{
+ul.ui-autocomplete li.programme{
 	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.calendar{
