@@ -48,7 +48,7 @@ $(document).ready(function() {
         $(".ui-autocomplete").css("left", newLeft+"px").css("width", ((width*2)+4)+"px");
       }
       // quickly add the search value to end of list
-      var searchVal = $("#site-search-text").attr("value");
+      var searchVal = $(".ui-autocomplete-input").attr("value");
       $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
 
     } 
