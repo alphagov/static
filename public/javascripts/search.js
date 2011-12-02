@@ -18,7 +18,7 @@ $(document).ready(function() {
     }
   });
 	
-  $("#site-search-text").autocomplete({ 
+  $("#site-search-text, #main_autocomplete").autocomplete({ 
     delay: 300,
     width: 300, 
     source: function(req, add){  
