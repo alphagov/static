@@ -434,6 +434,12 @@ ul.ui-autocomplete li.local-service{
 ul.ui-autocomplete li.benefit{
 	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
 }
+ul.ui-autocomplete li.calendar{
+	background: url(/images/icon-calendar-s.png) no-repeat 4px 50%;
+}
+ul.ui-autocomplete li.fco{
+	background: url(/images/icon-fco-s.png) no-repeat 4px 50%;
+}
 
 ul.ui-autocomplete li {
 	font-size: 0.75em;
