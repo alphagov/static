@@ -38,17 +38,19 @@ $(document).ready(function() {
       location.href = ui.item.url;
     },
     open: function(event, ui){
-      // all this just to move the ul to the left by an offset
-      var offset = $("#site-search-text").offset(),
-      leftoffset = offset.left,
-      width = $("#site-search-text").width();
+      if($("#site-search-text").length != 0){
+        // all this just to move the ul to the left by an offset
+        var offset = $("#site-search-text").offset(),
+        leftoffset = offset.left,
+        width = $("#site-search-text").width();
 
-      var newLeft = (leftoffset - width);
-      $(".ui-autocomplete").css("left", newLeft+"px").css("width", ((width*2)+4)+"px");
-
+        var newLeft = (leftoffset - width);
+        $(".ui-autocomplete").css("left", newLeft+"px").css("width", ((width*2)+4)+"px");
+      }
       // quickly add the search value to end of list
       var searchVal = $("#site-search-text").attr("value");
       $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
+
     } 
   });
   
