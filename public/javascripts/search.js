@@ -28,7 +28,7 @@ $(document).ready(function() {
         cache: true,
         success: function(data) {
           var results = $.map(data, function(e) {
-            return { 'label': e.title, 'url': "/"+e.slug, 'class': e.format };
+            return { 'label': e.title, 'url': "/"+e.link, 'class': e.format };
           });
           add(results)
         }
