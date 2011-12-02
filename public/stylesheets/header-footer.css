@@ -11,21 +11,20 @@
 }
 
 @media only screen and (min-width:670px) {
-  
   #global-header {
   	position: fixed;
   	top: 0;
   	width: 100%;
   	z-index: 99999;
   }
-  
+
 }
 
 .lte-ie8 #global-header {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 99999; 
+	z-index: 99999;
 }
 
 #global-header h1 {
@@ -165,6 +164,26 @@
 	margin-right: 1em;
 }
 
+#global-header .header-context {
+  border-top: solid 4px #ddd;
+}
+
+#global-header .header-context.citizen {
+  border-color: #ED6900;
+  border-bottom-color: #ba5200;
+}
+
+#global-header .header-context.government {
+  border-color: #cdce00;
+  border-bottom-color: #9a9b00
+}
+
+@media only screen and (min-width: 600px) {
+  #global-header .header-context.government nav {
+    width: 79.5%;
+  }
+}
+
 .search-help {
 	background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -276,7 +295,7 @@ form.site-search {
 }
 
 @media only screen and (min-width:670px) {
-  
+
   .search-help {
     -moz-border-radius-topleft: 0.5em;
     -webkit-border-top-left-radius: 0.5em;
