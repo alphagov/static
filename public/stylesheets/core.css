@@ -631,22 +631,23 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	display:none;
 }
 #popup{
-	position: fixed;
-	left: 0;
-	top: 20px;
-	width: 740px;
 	display: none;
-	z-index: 999999;
-	border: 4px solid #92AD54;
-	border-radius:0.5em;
+  border: 3px solid #bbb;
 	background-color: #fff;
 	overflow:visible;
 	clear:both;
-	padding-bottom:0.5em;
+  padding: 1em;
+	position: fixed;
+	left: 0;
+	top: 20px;
+  width: 90%;
+	z-index: 999999;
 }
+
 #popup.customisation-tools{
   width:90%;
 }
+
 #popup .ask_location p{
   display:inline;
   padding:0;
@@ -676,21 +677,21 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	width:20%;
 	float:right;
 }
+
 .close{
-	float:right;
+  background-color: #bbb;
+  display: block;
 	margin:0;
-	background-color:#92AD54;
-	padding:0.5em;
-	border:1px solid #92AD54;
-	-webkit-border-bottom-left-radius: 0.5em;
-	-moz-border-radius-bottomleft: 0.5em;
-	border-bottom-left-radius: 0.5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+	padding: 0.25em 0.5em;
 	color:#fff;
-	text-decoration:none;
-	font-size:0.75em;
-	font-weight:bold;
-	text-transform:uppercase;
+	text-decoration: none;
+	font-size: 0.85em;
+	font-weight: bold;
 }
+
 #feedback-cta{
 	background-color:#fff450;
 	border:3px solid #fff;

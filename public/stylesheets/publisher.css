@@ -548,3 +548,15 @@ ul.helpers li.offline_steps {
 #wrapper.programme .part-pagination a:hover .progressor {
 	background-position: -978px 0;
 }
+
+/* contacts popup */
+
+#popup.contact-popup {
+  background-color: #ddd;
+  padding: 1em 2em;
+  width: 50%;
+}
+
+.contact-popup .contact {
+  width: auto;
+}
