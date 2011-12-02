@@ -269,6 +269,7 @@ article .form-download a {
 }
 
 .contact {
+  background-color: #fff;
 	border: solid 1px #bbb;
 	border-top: solid 2px #fcc;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
@@ -280,18 +281,26 @@ article .form-download a {
 	width: 60%;
 }
 
-.meta-data .contact {
-  width: auto;
-  font-size: 0.8em;
+.contact dl dt {
+  font-weight: bold;
+  margin: 0 0 0.25em 0;
 }
 
-.meta-data .contact dt {
+.contact dl dd {
+  margin: 0 0 0.5em 0;
+}
+
+.meta-data .contact {
+  width: auto;
+}
+
+.contact dl dt, .meta-data .contact dt {
   float: left;
   clear: left;
 }
 
-.meta-data .contact dd {
-  margin-left: 8em;
+.contact dl dd, .meta-data .contact dd {
+  margin-left: 8.5em;
 }
 
 article .address {
