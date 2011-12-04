@@ -100,7 +100,7 @@ a:active {
 }
 
 a[rel="external"] {
-	background: url(/images/external-link.png) 100% 50% no-repeat;
+	background: url(<%= asset_path 'external-link.png' %>) 100% 50% no-repeat;
 	padding-right: 1.25em;
 }
 
@@ -208,7 +208,7 @@ a[rel="external"] {
 }
 
 .related h2 {
-	background: url('/images/related-arrow.png') no-repeat 0 50%;
+	background: url(<%= asset_path 'related-arrow.png' %>) no-repeat 0 50%;
 	font-size: 1em;
 	font-weight: normal;
 	line-height: 47px;
@@ -312,7 +312,7 @@ header.page-header hgroup h2 {
 
 /* Answers */
 #wrapper.answer hgroup h1 {
-	background-image: url('/images/icon-answer-l.png');
+	background-image: url(<%= asset_path 'icon-answer-l.png' %>);
 }
 #wrapper.answer hgroup h1 span {
 	color: #1C7000;
@@ -417,22 +417,22 @@ ul.ui-autocomplete {
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 ul.ui-autocomplete li.guide a {
-	background: url(/images/icon-guide-s.png) no-repeat 4px 50%;
+	background: url(<%= asset_path 'icon-guide-s.png' %>) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.answer a {
-	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
+	background: url(<%= asset_path 'icon-answer-s.png' %>) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.smart-answer {
-	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
+	background: url(<%= asset_path 'icon-answer-s.png' %>) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.service {
-	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
+	background: url(<%= asset_path 'icon-transaction-s.png' %>) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.local-service{
-	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
+	background: url(<%= asset_path 'icon-localtransaction-s.png' %>) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.benefit{
-	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
+	background: url(<%= asset_path 'icon-programme-s.png' %>) no-repeat 4px 50%;
 }
 
 ul.ui-autocomplete li {
@@ -480,7 +480,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #location-set-message,
 #location-unset-message{
-	background: url('/images/location-pin_outline_tiny.png') no-repeat 0 50%;
+	background: url(<%= asset_path 'location-pin_outline_tiny.png' %>) no-repeat 0 50%;
 	position: fixed;
 /*	position: absolute;*/
 /*	top: 10px;*/
@@ -539,16 +539,16 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .england .devolved-header {
 	padding:0 0 0 18px;
-	background: url(/images/flags.png) no-repeat scroll 0 -17px #fff;
+	background: url(<%= asset_path 'flags.png' %>) no-repeat scroll 0 -17px #fff;
 }
 .scotland .devolved-header {
 	padding:0 0 0 18px;
-	background: url(/images/flags.png) no-repeat scroll 0 -60px #fff;
+	background: url(<%= asset_path 'flags.png' %>) no-repeat scroll 0 -60px #fff;
 }
 
 .wales .devolved-header {
 	padding:0 0 0 18px;
-	background: url(/images/flags.png) no-repeat scroll 0 3px #fff;
+	background: url(<%= asset_path 'flags.png' %>) no-repeat scroll 0 3px #fff;
 }
 .northern-ireland .devolved-header {
 	/* don't show a flag for NI */
@@ -763,10 +763,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #feedback-cta #cta-yes{
-  background: url("/images/icon-agree-s.png") no-repeat scroll 1em 0px transparent;
+  background: url(<%= asset_path "icon-agree-s.png" %>) no-repeat scroll 1em 0px transparent;
 }
 #feedback-cta #cta-no{
-  background: url("/images/icon-disagree-s.png") no-repeat scroll 1em 0px transparent;
+  background: url(<%= asset_path "icon-disagree-s.png" %>) no-repeat scroll 1em 0px transparent;
 }
 
 #feedback-cta h2{
@@ -777,7 +777,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	display:block;
 }
 #popup p{
-	/*background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;*/
 	font-size:1em;
 	font-weight:bold;
   margin: 0;
@@ -817,7 +816,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 /* buttons! */
 
 .button, .button:visited {
-	background: #039 url(/images/button-overlay.png) repeat-x;
+	background: #039 url(<%= asset_path 'button-overlay.png' %>) repeat-x;
 	border: 0.0625em solid #31395F;
 	-moz-border-radius: 0.15em;
 	-webkit-border-radius: 0.15em;

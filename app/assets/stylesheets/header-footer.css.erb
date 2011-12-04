@@ -11,14 +11,12 @@
 }
 
 @media only screen and (min-width:670px) {
-  
   #global-header {
   	position: fixed;
   	top: 0;
   	width: 100%;
   	z-index: 99999;
   }
-  
 }
 
 .lte-ie8 #global-header {
@@ -42,7 +40,7 @@
 }
 
 #global-header h1 a {
-	background-image: url(../images/templogo.png);
+	background-image: url(<%= asset_path 'templogo.png' %>);
 	background-repeat: no-repeat;
 	color: #fff;
 	float: left;

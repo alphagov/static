@@ -1,6 +1,6 @@
 /* section pages */
 #wrapper.section hgroup h1 {
-	background-image: url('/images/icon-section-l.png');
+	background-image: url(<%= asset_path 'icon-section-l.png' %>);
 }
 #wrapper.section hgroup h1 span {
 	color: #000;
@@ -8,7 +8,7 @@
 
 /* Guides */
 #wrapper.guide hgroup h1 {
-	background-image: url('/images/icon-guide-l.png');
+	background-image: url(<%= asset_path 'icon-guide-l.png' %>);
 }
 #wrapper.guide hgroup h1 span {
 	color: #157eb8;
@@ -29,7 +29,7 @@
 	width: 9em;
 }
 .alternative-guide a span {
-	background-image: url(/images/icon-video.png);
+	background-image: url(<%= asset_path 'icon-video.png' %>);
 	background-position: 0 50%;
 	background-repeat: no-repeat;
 	display: block;
@@ -147,7 +147,7 @@ aside .chapters-navigation li a .part-title {
 
 /* Transactions */
 #wrapper.transaction hgroup h1 {
-	background-image: url('/images/icon-transaction-l.png');
+	background-image: url(<%= asset_path 'icon-transaction-l.png' %>);
 }
 #wrapper.transaction hgroup h1 span {
 	color: #c00;
@@ -155,7 +155,7 @@ aside .chapters-navigation li a .part-title {
 
 /* Local Transactions */
 #wrapper.local_transaction hgroup h1 {
-	background-image: url('/images/icon-localtransaction-l.png');
+	background-image: url(<%= asset_path 'icon-localtransaction-l.png' %>);
 }
 #wrapper.local_transaction hgroup h1 span {
 	color: #A93D00;
@@ -163,7 +163,7 @@ aside .chapters-navigation li a .part-title {
 
 /* Programmes */
 #wrapper.programme hgroup h1 {
-	background-image: url('/images/icon-programme-l.png');
+	background-image: url(<%= asset_path 'icon-programme-l.png' %>);
 }
 #wrapper.programme hgroup h1 span {
 	color: #000;
@@ -171,7 +171,7 @@ aside .chapters-navigation li a .part-title {
 
 /* Places */
 #wrapper.place hgroup h1 {
-	background-image: url('/images/icon-nearest-l.png');
+	background-image: url(<%= asset_path 'icon-nearest-l.png' %>);
 }
 #wrapper.place hgroup h1 span {
 	color: #666;
@@ -179,7 +179,7 @@ aside .chapters-navigation li a .part-title {
 
 /* Smart Answers */
 #wrapper.smartanswer hgroup h1 {
-	background-image: url('/images/icon-smart-answer-l.png');
+	background-image: url(<%= asset_path 'icon-smart-answer-l.png' %>);
 }
 #wrapper.place hgroup h1 span {
 	color: #2929a3;
@@ -256,7 +256,7 @@ aside .chapters-navigation li a .part-title {
 
 #wrapper.transaction .continue,
 #wrapper.local_transaction .continue {
-	background: #F9F9F9 url('/images/info-icon.png') no-repeat 1% 50%;
+	background: #F9F9F9 url(<%= asset_path 'info-icon.png' %>) no-repeat 1% 50%;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
@@ -336,44 +336,44 @@ ul.helpers li.active, ul.helpers li.active h3 a {
 }
 
 ul.helpers li.need_cash {
-  background-image: url(/images/helper-cash-icon.png);
+  background-image: url(<%= asset_path 'helper-cash-icon.png' %>);
 }
 ul.helpers li.card_payment {
-  background-image: url(/images/helper-creditcard-icon.png);
+  background-image: url(<%= asset_path 'helper-creditcard-icon.png' %>);
 	background-position: -2% 0%;
 }
 ul.helpers li.gateway {
-  background-image: url(/images/helper-govgateway-icon.png);
+  background-image: url(<%= asset_path 'helper-govgateway-icon.png' %>);
 	background-position: -3% 10%;
 }
 ul.helpers li.need_passport {
-  background-image: url(/images/helper-passport-icon.png);
+  background-image: url(<%= asset_path 'helper-passport-icon.png' %>);
 	background-position: -2% 15%;
 }
 ul.helpers li.need_address {
-  background-image: url(/images/helper-address-icon.png);
+  background-image: url(<%= asset_path 'helper-address-icon.png' %>);
 	background-position: 5% 45%;
 }
 ul.helpers li.need_id {
-  background-image: url(/images/helper-proofofid-icon.png);
+  background-image: url(<%= asset_path 'helper-proofofid-icon.png' %>);
 	background-position: -2% 25%;
 }
 ul.helpers li.need_ni {
-  background-image: url(/images/helper-ni-icon.png);
+  background-image: url(<%= asset_path 'helper-ni-icon.png' %>);
 	background-position: 4% 35%;
 }
 ul.helpers li.over_18 {
-  background-image: url(/images/helper-over18-icon.png);
+  background-image: url(<%= asset_path 'helper-over18-icon.png' %>);
 	background-position: 5% 35%;
 }
 ul.helpers li.less_than_10,
 ul.helpers li.less_than_20,
 ul.helpers li.less_than_30,
 ul.helpers li.less_than_40 {
-  background-image: url(/images/helper-time-icon.png);
+  background-image: url(<%= asset_path 'helper-time-icon.png' %>);
 }
 ul.helpers li.offline_steps {
-  background-image: url(/images/helper-offline-icon.png);
+  background-image: url(<%= asset_path 'helper-offline-icon.png' %>);
 	background-position: -3% 35%;
 }
 
@@ -459,7 +459,7 @@ ul.helpers li.offline_steps {
 }
 
 #wrapper.programme .progressor {
-	background: url(/images/programme-progressor-arrows.png) no-repeat -1px 0;
+	background: url(<%= asset_path 'programme-progressor-arrows.png' %>) no-repeat -1px 0;
 	height: 36px;
 	position: absolute;
 	right: -20px;
