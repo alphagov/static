@@ -1,0 +1,784 @@
+/*
+ * Global helper styles
+ */
+
+/* For image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide for both screenreaders and browsers: */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* self-clearing floats */
+.group:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+* html .group { height: 1%; } /* IE6 */
+.group { min-height: 1px; } 	/* IE7 */
+
+/*
+ * Global Admin header
+ */
+
+.gds-header {
+	background-color: #333;
+	border-bottom: solid 0.063em #efefef;
+	-webkit-box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
+	-moz-box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
+	box-shadow: 0 0.063em 0.188em rgba(0,0,0,.25);
+	color: #fff;
+/*	min-height: 1.5em;*/
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gds-header .wrapper {
+	padding: 0.4em 0;
+}
+
+.gds-header h1,
+.gds-header h2 {
+	display: inline-block;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.4em;
+	margin: 0 1em 0 0;
+	text-shadow: 0.063em 0.063em 0.063em rgb(0,0,0);
+}
+
+.gds-menu {
+	float: right;
+	margin-top: -1.4em;
+}
+
+/* END Global Admin header */
+
+
+/*
+ * Admin styles
+ */
+
+body {
+	background-color: #efece0;
+	color: #444;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 100%;
+}
+
+.wrapper {
+	/* generic wrapper for centering elements */
+	margin: 0 auto;
+	max-width: 1260px;
+	width: 95%;
+}
+
+.inner {
+	margin: 0 auto;
+	padding: 0 1em;
+	position: relative;
+	width: 95%;
+}
+
+.content {
+	margin: 2em auto 5em auto;
+}
+
+/*
+ * link styles
+ */
+
+a 				{ color: #2200C1; }
+a:hover 	{ color: #1D97FF; }
+a:visited { color: #5800AE; }
+a:active 	{ color: #c11; }
+/*a:focus   { border-width: 0.063em; color: #c11; }*/
+
+/*
+Don't think these are being used anywhere
+
+.ui-widget-content.new {
+  border: 1px solid #bbb;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -moz-box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
+  box-shadow: 0 .5em 1em rgba(0,0,0,0.2);
+}
+
+.ui-widget-content.new h1 {
+  font-size: 1.5em;
+  margin: 0.75em 0.55em 0.55em;
+}
+
+#guide-nav .intro {
+	font-weight: bold;
+	margin: 0 1em;
+	padding: 1.5em 0;
+}
+*/
+
+.format-controls {
+	background: #666;
+	border-top: 0.063em solid #000;
+	left: 0;
+	bottom: 0;
+	position: fixed;
+	z-index: 100;
+
+	height: 3.125em;
+	margin: 0 auto;
+	padding-top: 1em;
+	width: 100%;
+	text-align: center;
+}
+
+/*.format-controls .button_to, .format-controls p.button {
+  display: inline-block;
+  margin: 0 1em 1em 0;
+}*/
+
+.format-controls ul {
+  margin: 0;
+  padding: 0;
+}
+
+.format-controls ul li {
+  list-style: none;
+}
+
+/*
+ * button styles - generic button, submit and formtastic submit
+ *
+ * these _REALLY_ need revisiting at some point to genericise them more...
+ */
+
+.button, .button:visited,
+input[type=submit], input[type=submit]:visited,
+.formtastic input[type="submit"], .formtastic input[type="submit"]:visited {
+	background: #039 url(/images/button-overlay.png) repeat-x;
+	border: 0.063em solid rgba(0,0,0,0.25);
+	-moz-border-radius: 0.250em;
+	-webkit-border-radius: 0.250em;
+	-moz-box-shadow: 0 0.063em 0.188em rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0.063em 0.188em rgba(0,0,0,0.5);
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	padding: 0.313em 0.625em 0.375em;
+	text-decoration: none;
+	text-shadow: 0 -0.063em 0.063em rgba(0,0,0,0.25);
+	position: relative;
+}
+
+.button:hover,
+input[type=submit]:hover,
+.formtastic input[type="submit"]:hover {
+	background-color: rgb(0,25,80);
+	color: #fff;
+}
+
+.button:active,
+input[type=submit]:active,
+.formtastic input[type="submit"]:active {
+	top: 0.063em;
+}
+
+.button a {
+	color: #fff;
+	padding: 0.313em 0.625em 0.375em;
+  text-decoration: none;
+}
+
+input[type=submit].update,
+input[type=submit].create,
+input[type=submit].activate {
+	/* green button */
+	background-color: rgb(0,109,24);
+	padding: 0.6em 1em;
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+}
+
+input[type=submit].update:hover,
+input[type=submit].create:hover,
+input[type=submit].activate:hover {
+	background-color: rgb(0,79,14);
+	color: #fff;
+}
+
+input[disabled],
+input[disabled]:hover {
+	background-color: #f5f5f5;
+	color: #777;
+	cursor: not-allowed;
+}
+
+input[type=submit]:disabled {
+	/* set disabled buttons to be a different colour than the text inputs */
+	background-color: rgb(61,61,61);
+	color: #eee;
+}
+
+input[disabled]:active {
+	top: 0;
+}
+
+.button_to {
+	display: inline-block;
+	float: none;
+	margin-left: 1em;
+	width: auto;
+}
+
+.workflow_buttons .button_to input[type="submit"] {
+	padding: 0.6em 1em;
+	text-align: center;
+/*	width: 100%;*/
+}
+
+#edit .button {
+	margin-left: 1.3em;
+}
+
+#expectations {
+  padding: 1em;
+}
+  #expectations h2 {
+    margin-top: 0.5em;
+  }
+  #expectations h2+ul {
+    border-bottom: solid 1px #bbb;
+    padding-bottom: 1.5em;
+  }
+
+.edition {
+}
+
+.edition .buttons {
+	display: inline-block;
+	width: 100%;
+}
+
+.edition h3 {
+	font-size: 1em;
+	margin: 0.5em 0;
+}
+
+.edition .history {
+	margin: 0;
+	padding: 0;
+}
+
+  .edition .history {
+    margin-bottom: 1em;
+  }
+
+	.edition .history li:last-child {
+	  border-bottom: 0.063em solid #bbb;
+  }
+
+	.edition .history li {
+		background-color: #d8d8d8;
+		border-top: 0.063em solid #bbb;
+		list-style: none;
+		margin: 0 1em 0.5em;
+	}
+
+  	.edition .history li.note {
+  		border-top-color: #666;
+  		border-top-style: dashed;
+  	}
+
+  	.edition .history li.fact_check_received {
+  		border-top-color: #006D18;
+  	}
+
+	.edition .buttons h3 {
+		font-size: 1.5em;
+		margin: 0.5em 0;
+		padding-left: 0.75em;
+	}
+
+.edition .history li div {
+	display: inline-block;
+	min-height: 6.75em;
+	vertical-align: top;
+	width: 20%;
+}
+	.edition .history li .action-time {
+		background-color: #fff;
+		-webkit-border-radius: 0 0 0.5em 0;
+		-moz-border-radius: 0 0 0.5em 0;
+		border-radius: 0 0 0.5em 0;
+
+		margin-right: 1em;
+		min-height: 1em;
+		padding-left: 0.5em;
+		width: 15%;
+	}
+		.edition .history li .action-time .time,
+		.edition .history li .action-by {
+			display: block;
+			font-size: 1.125em;
+			font-weight: bold;
+			line-height: 1.5em;
+		}
+
+	.edition .history li div.action-comment {
+		position: relative;
+    width: 60%;
+	}
+	.edition .history li div.action-comment img {
+		background-color: transparent;
+		-webkit-border-radius: 0.25em;
+		-moz-border-radius: 0.25em;
+		border-radius: 0.25em;
+		float: left;
+		margin-top: 0.5em;
+	}
+
+	.edition .history li div.action-comment blockquote {
+		background-color: #fff;
+		-webkit-border-radius: 0.25em;
+		-moz-border-radius: 0.25em;
+		border-radius: 0.25em;
+		-webkit-box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
+		-moz-box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
+		box-shadow: 0.063em 0.063em 3px rgba(0,0,0,0.15);
+    margin: 0.5em 0 1em 6.25em;
+		padding: 0 1em;
+		position: relative;
+	}
+
+	.edition .history li div.action-comment blockquote span {
+		display: inline-block;
+		word-wrap: break-word;
+	}
+
+	.edition .history li div.action-comment blockquote:after {
+		border-color: transparent #fff transparent transparent;
+		border-style: solid;
+		border-width: 10px 20px 10px 0;
+		content: '\00a0';
+		display: block;
+		height: 0;
+		width: 0;
+    position: absolute;
+    left: -20px;
+    top: 10px;
+	}
+
+.edition .history li h4 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+#parts { /* give parts tab groups a little breathing room */
+	margin-bottom: 0.5em;
+}
+
+.part {
+	background-color: #d3d1c9;
+	margin: 0 auto 0.188em;
+	padding: 0;
+	width: 100%;
+}
+
+/*
+ * Publications listings table
+ */
+
+.formats {
+	background-color: #fff;
+	border-collapse: collapse;
+	font-size: 0.929em;
+	margin: 0 auto;
+	text-align: center;
+	width: 97%;
+}
+
+	.formats tbody tr:nth-child(odd) td {
+		background-color: #F9F9F9;
+	}
+
+	.formats th, .formats td {
+		border-right: 0.125em solid #d5d5d5;
+		padding: 0.4em 0.25em;
+	}
+
+		.formats th {
+			border-bottom: 0.188em solid #bbb;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		.formats th[scope="row"] {
+		  border-bottom-width: 0.125em;
+			padding-right: 0.5em;
+			text-align: right;
+		}
+
+		.formats td {
+  		border-bottom: 0.125em solid #bbb;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+  		.formats th:last-child,
+  		.formats td:last-child {
+  		  border-right: none;
+  	  }
+
+		.formats th.title,
+		.formats td.title {
+		  padding-left: 0.500em;
+			text-align: left;
+			width: auto;
+		}
+
+    .formats tbody tr.reviewed td {
+      background-color: #FFB547;
+      background-color: rgba(255,181,71,0.33);
+    }
+
+    .formats tbody tr.okay td {
+      background-color: #E6FFD6;
+    }
+
+		.formats tbody tr.factchecked td {
+			background-color: #ccc;
+		}
+
+		.formats img,
+		.formats input {
+			opacity: 0.5;
+		}
+			.formats td:nth-child(1) img,
+			.formats img:hover, .formats img:focus,
+			.formats input:hover, .formats input:focus {
+				opacity: 1;
+			}
+
+			.formats .disabled {
+				opacity: 0.25;
+				cursor: default;
+			}
+
+			.formats .version {
+				font-style: italic;
+			}
+
+		/* tablesorter styles */
+		th.header {
+		    background-image: url(/images/bg.gif);
+		    background-repeat: no-repeat;
+		    background-position: center right;
+		    cursor: pointer;
+ 		    padding-right: 1.5em;
+		    border-right: 0.125em solid #ccc;
+		}
+
+		th.headerSortUp {
+		    background-image: url(/images/asc.gif);
+		    background-color: #d7d7d7;
+		}
+
+		th.headerSortDown {
+		    background-image: url(/images/desc.gif);
+		    background-color: #d7d7d7;
+		}
+
+		.formats td form {
+			/* create new edition form */
+			display: inline-block;
+		}
+
+/* notifications */
+
+.flash-notice,
+.flash-alert,
+.notification {
+	border: 0.063em solid #bbb;
+	-webkit-border-radius: 0.250em;
+	-moz-border-radius: 0.250em;
+	border-radius: 0.250em;
+	font-weight: bold;
+	margin-bottom: 1em;
+	padding: 1em;
+	text-align: center;
+}
+
+.flash-notice {
+	background-color: rgb(0,109,24);
+	color: #fff;
+}
+
+.flash-alert {
+	background-color: #c00;
+	color: #fff;
+}
+
+.notification {
+	background-color: #FFFBBC;
+	padding: 0 1em 1em;
+}
+
+.return:before {
+	content: '\2190';
+}
+
+
+/*
+ * Google insights popup
+ */
+
+a.insights {
+	margin-left: 0.5em;
+	width: auto;
+}
+
+a.insights img {
+	vertical-align: middle;
+}
+a.insights img:active {
+	margin-top: 1px;
+	margin-bottom: -1px;
+}
+
+
+#popup {
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	border: 3px solid #999;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -204px;
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+}
+
+/*
+	imminence app
+*/
+
+td.imminence-actions {
+	width: 25%;
+}
+
+.sample-data {
+	background-color: #EFECE0;
+	border: dashed 1px #bbb;
+	color: #585858;
+	font-size: 0.8em;
+}
+#programme-nav .ui-accordion h3.ui-accordion-header:before {
+	display:none;
+	}
+
+
+/*
+ * Panopticon app
+ */
+
+#panopticon {
+	border: 1px solid #bbb;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+	padding: 1em 0 1em;
+}
+
+#panopticon fieldset {
+	margin: 0;
+}
+
+#panopticon fieldset legend {
+	margin-left: -0.25em;
+	padding: 0 0.25em;
+}
+
+#panopticon fieldset legend.label {
+	padding-left: 1em;
+}
+
+#panopticon fieldset.choices,
+#panopticon fieldset.related {
+	border: 1px solid #bbb;
+	-webkit-border-radius: 0.25em;
+	-moz-border-radius: 0.25em;
+	border-radius: 0.25em;
+}
+	#panopticon fieldset.choices {
+		margin: 0;
+	}
+
+	#panopticon fieldset.related {
+		margin: 0 1em;
+	}
+
+#panopticon fieldset.choices ol.choices-group {
+}
+
+
+#panopticon .button {
+	margin: 1em 1em 0;
+}
+
+/*
+	Admin navigation
+*/
+
+.admin-nav {
+	background: #666;
+	border: 0.063em solid #333;
+	border-top: none;
+	-webkit-border-radius: 0 0 0.25em 0.25em;
+	-moz-border-radius: 0 0 0.25em 0.25em;
+	border-radius: 0 0 0.25em 0.25em;
+	padding: 0.25em 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.admin-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav ul li {
+	display: inline-block;
+	line-height: 2em;
+	margin: 0 0.25em;
+	padding: 0.25em 0.5em;
+	vertical-align: top;
+}
+
+.admin-nav ul ul li {
+	background: transparent;
+	border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.admin-nav ul li a {
+	color: #fff;
+}
+
+.admin-nav ul li.publications-nav {
+	border-right: solid 1px #333;
+	padding: 0.25em 1em;
+}
+
+.admin-nav ul li.publications-nav a {
+	margin-left: 1em;
+}
+
+.admin-nav ul li.publications-nav input {
+  font-size: 0.875em;
+  margin-left: 0.25em;
+}
+
+.admin-nav .rarer-nav {
+	margin: 0;
+	padding: 0.25em 0;
+}
+
+.admin-nav .rarer-nav li {
+	margin: 0 0.5em;
+}
+
+.admin-nav fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+	modal dialogue boxes
+*/
+
+.ui-dialog {
+	border: solid 0.5em #AAA;
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	position: fixed;
+}
+
+.ui-dialog-content {
+	max-height: 500px;
+/*	overflow-y: scroll; <- we may want to use this at some point  */
+}
+
+.ui-widget-overlay {
+	background: #000;
+}
+
+.ui-dialog-titlebar {
+	background: #fff;
+	padding: 0.25em 3em 0.25em 1em;
+	position: relative;
+}
+
+.ui-dialog .ui-dialog-title {
+	line-height: 2em;
+	margin: 0;
+}
+
+.ui-dialog-titlebar-close {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2.5em;
+	width: 2.5em;
+	z-index: 100;
+}
+
+.ui-dialog-titlebar-close .ui-icon-closethick {
+	position: absolute;
+	top: 0.75em;
+	left: 0.75em;
+	z-index: 110;
+}
+
+.ui-dialog form {
+	margin: 0;
+}
+
+.ui-dialog textarea {
+	max-height: 10em;
+}
+
+.ui-dialog form.formtastic fieldset.buttons li.commit {
+	float: right;
+}
+
+.ui-dialog form.formtastic fieldset.buttons ol {
+	margin: 0;
+}
+
+.ui-dialog form.formtastic fieldset.buttons li {
+	margin-bottom: 0.5em;
+	padding: 0.5em 0;
+}

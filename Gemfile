@@ -1,14 +1,20 @@
 source :rubygems
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
-gem 'rake'
-gem 'cdn_helpers', :git => 'git@github.com:alphagov/cdn_helpers.git', :tag => "v0.8.4"
+gem 'rails', '3.1.1'
 
-group :development do
-  gem 'rack-geo', :git => 'git@github.com:alphagov/rack-geo.git', :tag => "v0.10"
-  gem 'rack'
+group :passenger_compatibility do
+  gem 'rack', '1.3.5'
+  gem 'rake', '0.9.2'
 end
 
 group :router do
-  gem 'router-client', require: 'router/client'
+  gem 'router-client', '2.0.3', :require => 'router/client'
 end
+
+group :assets do
+  gem "therubyracer", "~> 0.9.4"
+  gem 'uglifier'
+end
+
+gem 'plek', '~> 0'
