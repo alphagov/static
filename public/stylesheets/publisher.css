@@ -61,8 +61,10 @@
 
 #wrapper.guide article {
 	width: 75%;
-	* width: 74.999%;
-	* float: left;
+}
+.lte-ie8 #wrapper.guide article {
+	width: 74.999%;
+	float: left;
 }
 .guide article .inner {
 	padding-bottom: 1em;
@@ -218,20 +220,21 @@ aside .chapters-navigation li a .part-title {
 	border-right: solid 1px #bbb;
 	box-sizing: border-box;
 	float: left;
-	width: 11em;
+	width: 12em;
 }
 
 .pagination .next a {
 	float: right;
-	width: 20em;
+	padding-left: 1em;
+	width: 19em;
 }
 .pagination .first {
 	border-right: solid 1px #bbb;
 	box-sizing: border-box;
 	float: left;
-	width: 11em;
+	width: 12em;
 	color:#999;
-	padding-left:0.5em;
+	padding: 0.5em;
 }
 
 .pagination .last {

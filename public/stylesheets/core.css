@@ -361,7 +361,7 @@ article .inner {
 	margin: 1em 2em 2em 2em;
 }
 .lte-ie8 .meta-data {
-	float: none;
+  *float: none;
 }
 
 .meta-data ul.api-links,
