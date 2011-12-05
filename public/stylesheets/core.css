@@ -23,7 +23,9 @@ body {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	line-height: 1.4em;
 }
-
+.visuallyHidden{
+  display:none;
+}
 #wrapper {
 	margin: 0 auto;
 	max-width: 960px;
