@@ -39,7 +39,9 @@ $(document).ready(function() {
     width: 300, 
     source: function(req, add){  
       $(".hint-suggest").text("Loading...");
-      $(".hint-suggest").addClass("search-loading");
+      if($(".search-landing").length == 0){
+        $(".hint-suggest").addClass("search-loading");
+      }
       $.ajax({
         url: "/autocomplete?q="+req.term,
         dataType: "json",
