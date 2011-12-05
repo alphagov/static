@@ -178,7 +178,7 @@ a[rel="external"] {
 }
 
 #wrapper.programme .related-positioning {
-/*	top: 12.1em;*/
+  /*	top: 12.1em;*/
 }
 
 .related-container {
@@ -441,22 +441,22 @@ ul.ui-autocomplete li.guide a {
 ul.ui-autocomplete li.answer a {
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.smart_answer {
+ul.ui-autocomplete li.smart_answer a{
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.transaction {
+ul.ui-autocomplete li.transaction a{
 	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.localtransaction{
+ul.ui-autocomplete li.localtransaction a{
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.programme{
+ul.ui-autocomplete li.programme a{
 	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.calendar{
+ul.ui-autocomplete li.calendar a{
 	background: url(/images/icon-calendar-24.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.fco{
+ul.ui-autocomplete li.fco a{
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.search-site{
