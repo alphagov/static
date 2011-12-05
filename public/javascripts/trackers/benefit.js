@@ -1,3 +1,4 @@
+_gaq.push(['_trackEvent', 'Citizen-Format-Benefit', 'Load']);
 $(document).ready(function() {
   // click on link in benefit (programme)
   $(".article-container a").click(function(){
