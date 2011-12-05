@@ -1,0 +1,27 @@
+body { font-size: 0.9em; }
+
+body header {
+	display: block !important;
+	font-size: 1.3em;
+}
+                   
+div#wrapper hgroup h1 { 
+	background-repeat: no-repeat;
+	display: block !important;
+	padding-bottom: 1em;
+	padding-left: 56px;
+	border-bottom: 1px solid #bbb;          
+}
+
+section#content { margin: 2em; }
+                     
+div.article-container article {
+	min-height: 0;
+	border-bottom: 1px solid #ddd;
+}
+article .inner {
+	padding: 2em 0;
+}           
+article .inner header h1 { font-size: 1.2em; } 
+
+h2 { font-size: 1.1em; }
