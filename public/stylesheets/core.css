@@ -396,18 +396,24 @@ article .inner {
  * auto complete
  * borrowed from the alpha
  */
- .hint-suggest{
-   border: 1px solid #EEEEEE;
-   margin:0;
-   background-color:#fff;
-   display: block;
-   left: 0;
-   padding: 0.5em;
-   position: relative;
-   top: -2px;
-   width: 163px;
-   color:#666;
- }
+.hint-suggest{
+  border: 1px solid #EEEEEE;
+  margin:0;
+  background-color:#fff;
+  display: block;
+  left: 0;
+  padding: 0.5em;
+  position: relative;
+  top: -2px;
+  width: 163px;
+  color:#666;
+  font-size:0.95em;
+}
+
+.search-loading{
+  background: url(/images/ajax-loader.gif) no-repeat 4px 50%;
+  padding-left:25px;
+}
 #main_autocomplete {
 	color: inherit;
 }

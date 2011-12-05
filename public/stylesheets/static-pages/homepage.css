@@ -180,3 +180,6 @@ ul li.smart-answer a {
   width: 342px;
   color:#666;
 }
+.search-loading{
+  padding-left:30px;
+}

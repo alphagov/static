@@ -38,7 +38,7 @@ $(document).ready(function() {
     delay: 300,
     width: 300, 
     source: function(req, add){  
-      $(".hint-suggest").text("Looking for suggestions...");
+      $(".hint-suggest").text("Loading...");
       $(".hint-suggest").addClass("search-loading");
       $.ajax({
         url: "/autocomplete?q="+req.term,
