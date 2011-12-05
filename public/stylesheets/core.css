@@ -413,7 +413,7 @@ article .inner {
 }
 
 .search-loading{
-  background: url(/images/ajax-loader.gif) no-repeat 4px 50%;
+  background: url(/images/ajax-loader.gif) no-repeat 4px 50% #fff;
   padding-left:25px;
 }
 #main_autocomplete {
