@@ -168,3 +168,15 @@ ul li.smart-answer a {
 .ui-autocomplete{
   width:300px;
 }
+.hint-suggest{
+  border: 1px solid #EEEEEE;
+  margin:0;
+  background-color:#fff;
+  display: block;
+  left: 0;
+  padding: 0.5em;
+  position: relative;
+  top: -46px;
+  width: 342px;
+  color:#666;
+}
