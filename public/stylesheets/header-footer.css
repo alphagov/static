@@ -332,7 +332,8 @@ form.site-search {
   border-bottom: 0;
   height: 2.45em;
   margin: -2.95em 4% 0 0;
-  padding: 0.25em 0.5em 0 0.5em
+  padding: 0.25em 0.5em 0 0.5em;
+	width: 16.25em;
 }
 
 .lte-ie8 .site-search #site-search-text {
