@@ -1,3 +1,4 @@
+_gaq.push(['_trackEvent', 'Citizen-Format-Guide', 'Load']);
 $(document).ready(function() {
   // click on link in guide
   $(".article-container a").click(function(){

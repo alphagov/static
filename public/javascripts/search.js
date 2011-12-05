@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	// this is for custom formating of results
    $.extend( $.ui.autocomplete.prototype, {
- 
+    
     _renderItem: function( ul, item) {
       var list = "<li></li>";
       if (item['class']) {
@@ -18,10 +18,28 @@ $(document).ready(function() {
     }
   });
 	
+	/* Smoke and mirrors search hint */
+	$("#main_autocomplete").live("focus", function(){
+	  $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+	});
+	
+	$("#site-search-text").live("focus", function(){
+	  var attachPoint = $(this).parent("fieldset");
+	  console.log(attachPoint);
+	  attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>")
+	 // $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+	});
+	
+	$("#site-search-text, #main_autocomplete").live("blur", function(){
+	  $(".hint-suggest").remove();
+	});
+	
   $("#site-search-text, #main_autocomplete").autocomplete({ 
     delay: 300,
     width: 300, 
     source: function(req, add){  
+      $(".hint-suggest").text("Looking for suggestions...");
+      $(".hint-suggest").addClass("search-loading");
       $.ajax({
         url: "/autocomplete?q="+req.term,
         dataType: "json",
@@ -51,7 +69,7 @@ $(document).ready(function() {
       var searchVal = $(".ui-autocomplete-input").attr("value");
       $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
 
-    } 
+    }
   });
   
 });
