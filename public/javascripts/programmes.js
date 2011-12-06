@@ -5,7 +5,7 @@ $(function(){
 	/* step link prompts */
 	
 	/* get all the sections */
-	var sections = $(".tabs-panel"),
+	/*var sections = $(".tabs-panel"),
 		i = sections.length,
 		last = $(".tabs-panel:last").attr("id").split("-enhanced")[0],
 		j, 
@@ -37,6 +37,6 @@ $(function(){
 			nav.append(ul);
 			$(sections[i]).find(".inner").append(nav);
 		}
-	}
+	}*/
 	
 });
