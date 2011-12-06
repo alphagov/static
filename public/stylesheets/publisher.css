@@ -270,9 +270,7 @@ aside .chapters-navigation li a .part-title {
 	text-indent: 25px;
 }
 
-#wrapper.place fieldset,
-#wrapper.transaction fieldset,
-#wrapper.local_transaction fieldset,
+.find-location-for-service,
 .popover fieldset {
 	background-color: #F9F9F9;
 	border: 2px solid #bbb;
@@ -284,9 +282,7 @@ aside .chapters-navigation li a .part-title {
 	text-align: center;
 }
 
-#wrapper.place fieldset input,
-#wrapper.transaction fieldset input,
-#wrapper.local_transaction fieldset input {
+.find-location-for-service fieldset input {
 	margin: 0 0.5em;
 }
 
