@@ -385,7 +385,6 @@ article ol.steps li {
 }
 article ol.steps li:nth-child(1) {
 	background-image: url('/images/icon-step-1.png');
-	background-color: red;
 }
 article ol.steps li:nth-child(2) {
 	background-image: url('/images/icon-step-2.png');
@@ -404,4 +403,14 @@ article ol.steps li:nth-child(6) {
 }
 article ol.steps li:nth-child(7) {
 	background-image: url('/images/icon-step-7.png');
+}
+
+.lte-ie8 article ol.steps {
+  border-left: solid 3px #ccc;
+  padding: 0 0 0 2.5em;
+}
+.lte-ie8 article ol.steps li {
+  list-style-type: decimal;
+  margin: 0;
+  padding: 0;
 }
