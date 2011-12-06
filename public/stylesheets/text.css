@@ -278,7 +278,7 @@ article .form-download a {
 	box-sizing: border-box;
 	margin: 1em 0;
 	padding: 0.25em 1em;
-	width: 60%;
+	min-width: 60%;
 }
 
 .contact dl dt {
@@ -311,7 +311,7 @@ article .address {
 	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	margin: 1em 0;
 	padding: 2em 15% 2em 15%;
-	width: 30%;
+	min-width: 35%;
 }
 
 ol#options {
