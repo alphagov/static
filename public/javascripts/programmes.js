@@ -11,6 +11,7 @@ $(function(){
 		j, 
 		id,
 		ul,
+		navid,
 		sectionTitle,
 		nav;
 		
@@ -18,24 +19,26 @@ $(function(){
 		
 	while(i--){
 		j = i+1;
-		nav = $("<nav class='part-pagination group' role='navigation'></nav>");
-		ul = $("<ul></ul>");
 		id = $(sections[j]).attr("id");
+		navid = id+"-nav";
+		nav = $("<div class='part-pagination group' role='navigation' id="+navid+"></div>");
+		ul = $("<ul></ul>");
+		
 		sectionTitle = $("#"+id+" h1").html();
 
 		if(sectionTitle != undefined){
 			sectionTitle = sectionTitle.toLowerCase();
 			id = id.split("-enhanced")[0];
-			var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>")
+			var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>");
 			if(i == 2){
-				ul.append(next)
+				$(ul).append(next)
 			}
 			else{
-				ul.append(next+last)
+				$(ul).append(next+last)
 			}
-			
-			nav.append(ul);
+
 			$(sections[i]).find(".inner").append(nav);
+			$("#"+navid).append(ul);
 		}
 	}
 	
