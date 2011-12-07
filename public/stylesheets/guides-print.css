@@ -4,14 +4,18 @@ body header {
 	display: block !important;
 	font-size: 1.3em;
 }
-                   
+
+body div#wrapper.programme { width: 90%; }                   
 div#wrapper hgroup h1 { 
-	background-repeat: no-repeat;
+	background: none !important;
 	display: block !important;
 	padding-bottom: 1em;
-	padding-left: 56px;
+	padding-left: 0;
 	border-bottom: 1px solid #bbb;          
-}
+}                            
+div#wrapper.programme hgroup h1 span,
+ 	div#wrapper.guide hgroup h1 span
+		{ color: #777 !important; }  
 
 section#content { margin: 2em; }      
 
@@ -26,4 +30,15 @@ article .inner {
 }           
 article .inner header h1 { font-size: 1.2em; } 
 
-h2 { font-size: 1.1em; }
+h2 { font-size: 1.1em; }   
+                                         
+a, a:link, a:visited { color: #333; }
+a:link:after, a:visited:after {content:"[" attr(href) "]"; text-decoration: none; margin: 0.5em; font-size: 0.85em; }
+a[href='#']:link:after, a[href='#']:visited:after {content: none; text-decoration: none; margin: 1em; font-size: 0.85em; }
+                      
+article .form-download a { padding-left: 0em; }
+article .help-notice, article .info-notice { padding: 0.75em !important; }
+article .help-notice p, article .info-notice p { display: inline-block; vertical-align: top; width: 90%; } 
+.form-download a img, .help-notice img, .info-notice img { display: inline-block; vertical-align: middle; padding: 0em 0.7em 0 0; } 
+
+#wrapper.programme article.overview-etc, #wrapper.programme #overview { padding-top: 0em; }
