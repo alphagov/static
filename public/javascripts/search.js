@@ -20,13 +20,17 @@ $(document).ready(function() {
 	
 	/* Smoke and mirrors search hint */
 	$("#main_autocomplete").live("focus", function(){
-	  $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
-    $("#search_hint").addClass("visuallyHidden");
+	  if($(".hint-suggest").length == 0){
+	    $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+      $("#search_hint").addClass("visuallyHidden");
+    }
 	});
 	
 	$("#site-search-text").live("focus", function(){
-	  var attachPoint = $(this).parent("fieldset");
-	  attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+	  if($(".hint-suggest").length == 0){
+	      var attachPoint = $(this).parent("fieldset");
+	      attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+      }
 	});
 	
 	$("#site-search-text, #main_autocomplete").live("blur", function(){
