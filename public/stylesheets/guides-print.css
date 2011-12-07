@@ -13,7 +13,9 @@ div#wrapper hgroup h1 {
 	border-bottom: 1px solid #bbb;          
 }
 
-section#content { margin: 2em; }
+section#content { margin: 2em; }      
+
+.visuallyhidden { display: none; }
                      
 div.article-container article {
 	min-height: 0;
