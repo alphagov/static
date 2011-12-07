@@ -138,31 +138,31 @@
 	padding: 0.45em 0 0.45em 2em;
 }
 
-ul li.answer a {
+.tools-topics ul li.answer a {
 	background-image: url('../../images/icon-answer-s.png');
 }
 
-ul li.guide a {
+.tools-topics ul li.guide a {
 	background-image: url('../../images/icon-guide-s.png');
 }
 
-ul li.transaction a {
+.tools-topics ul li.transaction a {
 	background-image: url('../../images/icon-transaction-s.png');
 }
 
-ul li.local_transaction a {
+.tools-topics ul li.local_transaction a {
 	background-image: url('../../images/icon-localtransaction-s.png');
 }
 
-ul li.programme a {
+.tools-topics ul li.programme a {
 	background-image: url('../../images/icon-programme-s.png');
 }
 
-ul li.nearest a {
+.tools-topics ul li.nearest a {
 	background-image: url('../../images/icon-nearest-s.png');
 }
 
-ul li.smart-answer a {
+.tools-topics ul li.smart-answer a {
 	background-image: url('../../images/icon-smart-answer-s.png');
 }
 .ui-autocomplete{
@@ -176,7 +176,10 @@ ul li.smart-answer a {
   left: 0;
   padding: 0.5em;
   position: relative;
-  top: -46px;
+  top: 0px;
   width: 342px;
   color:#666;
+}
+.search-loading{
+  padding-left:30px;
 }

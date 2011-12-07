@@ -21,25 +21,27 @@ $(document).ready(function() {
 	/* Smoke and mirrors search hint */
 	$("#main_autocomplete").live("focus", function(){
 	  $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+    $("#search_hint").addClass("visuallyHidden");
 	});
 	
 	$("#site-search-text").live("focus", function(){
 	  var attachPoint = $(this).parent("fieldset");
-	  console.log(attachPoint);
-	  attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>")
-	 // $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+	  attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>");
 	});
 	
 	$("#site-search-text, #main_autocomplete").live("blur", function(){
 	  $(".hint-suggest").remove();
+	  $("#search_hint").removeClass("visuallyHidden");
 	});
 	
   $("#site-search-text, #main_autocomplete").autocomplete({ 
     delay: 300,
     width: 300, 
     source: function(req, add){  
-      $(".hint-suggest").text("Looking for suggestions...");
-      $(".hint-suggest").addClass("search-loading");
+      $(".hint-suggest").text("Loading...");
+      if($(".search-landing").length == 0){
+        $(".hint-suggest").addClass("search-loading");
+      }
       $.ajax({
         url: "/autocomplete?q="+req.term,
         dataType: "json",

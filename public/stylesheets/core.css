@@ -23,7 +23,9 @@ body {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	line-height: 1.4em;
 }
-
+.visuallyHidden{
+  display:none;
+}
 #wrapper {
 	margin: 0 auto;
 	max-width: 960px;
@@ -176,7 +178,7 @@ a[rel="external"] {
 }
 
 #wrapper.programme .related-positioning {
-/*	top: 12.1em;*/
+  /*	top: 12.1em;*/
 }
 
 .related-container {
@@ -359,7 +361,7 @@ article .inner {
 	margin: 1em 2em 2em 2em;
 }
 .lte-ie8 .meta-data {
-	float: none;
+  *float: none;
 }
 
 .meta-data ul.api-links,
@@ -396,18 +398,24 @@ article .inner {
  * auto complete
  * borrowed from the alpha
  */
- .hint-suggest{
-   border: 1px solid #EEEEEE;
-   margin:0;
-   background-color:#fff;
-   display: block;
-   left: 0;
-   padding: 0.5em;
-   position: relative;
-   top: -2px;
-   width: 163px;
-   color:#666;
- }
+.hint-suggest{
+  border: 1px solid #EEEEEE;
+  margin:0;
+  background-color:#fff;
+  display: block;
+  left: 0;
+  padding: 0.5em;
+  position: relative;
+  top: -2px;
+  width: 163px;
+  color:#666;
+  font-size:0.95em;
+}
+
+.search-loading{
+  background: url(/images/ajax-loader.gif) no-repeat 4px 50% #fff;
+  padding-left:25px;
+}
 #main_autocomplete {
 	color: inherit;
 }
@@ -433,22 +441,22 @@ ul.ui-autocomplete li.guide a {
 ul.ui-autocomplete li.answer a {
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.smart_answer {
+ul.ui-autocomplete li.smart_answer a{
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.transaction {
+ul.ui-autocomplete li.transaction a{
 	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.localtransaction{
+ul.ui-autocomplete li.localtransaction a{
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.programme{
+ul.ui-autocomplete li.programme a{
 	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.calendar{
+ul.ui-autocomplete li.calendar a{
 	background: url(/images/icon-calendar-24.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.fco{
+ul.ui-autocomplete li.fco a{
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
 ul.ui-autocomplete li.search-site{
