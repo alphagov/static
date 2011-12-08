@@ -393,6 +393,12 @@ article .inner {
 	margin: 0;
 	padding: 0;
 }
+   
+.print-link a, .print-link a:link, .print-link a:visited {
+	background: url(/images/print.png) no-repeat left center;
+	display: inline-block;
+	padding-left: 22px;
+}
 
 /*
  * auto complete
