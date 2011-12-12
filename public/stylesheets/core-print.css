@@ -1,4 +1,68 @@
 /* Print stylesheets for stuff defined in core.css */
+
+html {
+  background: #fff;
+}
+
+a,
+a:link,
+a:visited {
+  color: #333;
+}
+a:link:after,
+a:visited:after {
+  content:"[" attr(href) "]";
+  text-decoration: none;
+  margin: 0.5em;
+  font-size: 0.85em;
+}
+a[href='#']:link:after,
+a[href='#']:visited:after {
+  content: none;
+  text-decoration: none;
+  margin: 1em;
+  font-size: 0.85em;
+}
+a[rel="external"] {
+  margin-right: 0.25em;
+	padding-right: 1em;
+}
+
+article .form-download a {
+  padding-left: 0em;
+}
+article .help-notice,
+article .info-notice {
+  padding: 0.75em !important;
+}
+article .help-notice p,
+article .info-notice p {
+  display: inline-block;
+  vertical-align: top;
+}      
+article ol.steps li {
+  padding-left: 0em;
+}
+article ol.steps li p {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.5em;
+  width: 90%;
+}
+article ol.steps li img,
+article .form-download a img,
+article .help-notice img,
+article .info-notice img {
+  display: inline-block;
+  padding: 0em 0.7em 0 0;
+}
+
+article .address {
+/*  min-width: 30%;*/
+  padding: 1.5em 14% 1.5em 8%;
+  width: 35%;
+}
+
 /* Some table overrides from core */
 body article td {
     background: none repeat scroll 0 0 #FFFFFF;
