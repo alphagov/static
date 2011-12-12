@@ -276,12 +276,7 @@ var AlphaGeo = {
 	          }
 	        );
 	      })
-	     /* geolocate_ui.find('a').click(function (e) {
-	        console.log("geolocateui")
-	        var parent_element = $(this).closest('.locate-me');
-
-	        
-	      });*/
+	     
 	    }
 	    if (!ignoreKnown) {
 	      $(document).bind('location-known', function(e, data) {
@@ -304,13 +299,14 @@ var AlphaGeo = {
 	
 			/* if we don't have a geo api in the browser, or the user just wants to submit on 
 			the form anyway, we want to submit the form and get back the json that way */
-	    locator_form.submit(function(e) {
+	    $("#global-locator-form").live("submit", function(e) {
 	      clear_geo_fields();
 	      if (!noJSSUbmit) {
 	        e.preventDefault();
-	        $.post(locator_form[0].action, locator_form.serialize(), dispatch_location, 'json');
+	        $.post(this.action, {"postcode_box": $("#popup #postcode_box").val()}, dispatch_location, 'json');
 	      }
 	      show_ui(locating_ui);
+	      return false;
 	    });
 	  
 
@@ -481,6 +477,7 @@ $(document).ready(function() {
       return false;
     });*/
 
+   
     $('#forget-location a').live("click", function() {
       $(document).trigger('location-removed');
       return false;
