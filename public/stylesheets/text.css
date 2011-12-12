@@ -314,8 +314,9 @@ article .address {
 	min-width: 35%;
 }
 
-ol#options {
-/*  WHAT IS THIS FOR?  padding-left: 0;*/
+article ol.places {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 article .place {
