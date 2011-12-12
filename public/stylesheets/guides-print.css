@@ -35,10 +35,11 @@ div#wrapper.guide hgroup h1 span {
 
 section#content {
   margin: 0em;
-}      
+}
 
-.visuallyhidden {
-  display: none;
+#wrapper.programme article.overview-etc,
+#wrapper.programme #overview {
+  padding-top: 0em;
 }
 
 div.article-container article {
@@ -51,67 +52,9 @@ article .inner {
 	padding: 2em 0;
 }           
 article .inner header h1 {
-  font-size: 1.2em;
+  font-size: 1.25em;
 }
 div.article-container article#how-to-claim {
 	border: 5px solid #333;
 	padding: 0em 2em;
-}
-
-h2 {
-  font-size: 1.1em;
-}   
-                                         
-a,
-a:link,
-a:visited {
-  color: #333;
-}
-a:link:after,
-a:visited:after {
-  content:"[" attr(href) "]";
-  text-decoration: none;
-  margin: 0.5em;
-  font-size: 0.85em;
-}
-a[href='#']:link:after,
-a[href='#']:visited:after {
-  content: none;
-  text-decoration: none;
-  margin: 1em;
-  font-size: 0.85em;
-}
-                      
-article .form-download a {
-  padding-left: 0em;
-}
-article .help-notice,
-article .info-notice {
-  padding: 0.75em !important;
-}
-article .help-notice p,
-article .info-notice p {
-  display: inline-block;
-  vertical-align: top;
-}      
-article ol.steps li {
-  padding-left: 0em;
-}
-article ol.steps li p {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 0.5em;
-  width: 90%;
-}
-article ol.steps li img,
-.form-download a img,
-.help-notice img,
-.info-notice img {
-  display: inline-block;
-  padding: 0em 0.7em 0 0;
-} 
-
-#wrapper.programme article.overview-etc,
-#wrapper.programme #overview {
-  padding-top: 0em;
 }
