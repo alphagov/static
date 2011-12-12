@@ -706,9 +706,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	width:100%;
 	margin-bottom:1em;
 }
-#popup input[type=submit]{
+#popup input.button{
 	width:20%;
 	float:right;
+}
+
+#popup ul.personalise-options li {
+  display: inline;
 }
 
 .close{
