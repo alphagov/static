@@ -42,9 +42,6 @@ $(document).ready(function() {
           }
       }
     }
-    // check for cookie
-      // if set, get link attrs
-      // set type on matching
       
     function setCookie(name,value,days) {
       if (days) {
