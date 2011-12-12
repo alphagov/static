@@ -5,4 +5,7 @@ jQuery(document).ready(function() {
 		$(item).prepend('<img src="'+ image +'" />');                       
 		$(item).css('background-image','none');
 	});
+	
+	// and then... you know... print.
+	window.print();
 });

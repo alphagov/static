@@ -2,6 +2,7 @@ $(function(){
 	$('body').addClass("js-enabled");
 	$('#wrapper').tabs();
 	
+	
 	/* step link prompts */
 	
 	/* get all the sections */
