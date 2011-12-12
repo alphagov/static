@@ -314,8 +314,9 @@ article .address {
 	min-width: 35%;
 }
 
-ol#options {
-/*  WHAT IS THIS FOR?  padding-left: 0;*/
+article ol.places {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 article .place {
@@ -343,17 +344,17 @@ article .place .address {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-  font-size: 1.15em;
-  line-height: 1.11em;
+/*  font-size: 1.15em;*/
+/*  line-height: 1.11em;*/
 	margin: 0;
 	padding: 0;
 	width: auto;
 }
 
-article .place .address p {
-	font-size: 1em;
-	margin-bottom: 1em;
-}
+/*article .place .address p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}*/
 
 article .place .address span {
 	display: block;
