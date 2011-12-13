@@ -677,16 +677,16 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	background-color: #fff;
 	overflow:visible;
 	clear:both;
-  padding: 1em;
+  padding: 0.75em;
 	position: fixed;
 	left: 0;
-	top: 20px;
+	top: 50px;
   width: 90%;
 	z-index: 999999;
 }
 
 #popup.customisation-tools{
-  width:90%;
+  width:60%;
 }
 
 #popup .ask_location p{
