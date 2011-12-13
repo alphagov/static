@@ -15,9 +15,7 @@ $(document).ready(function() {
         }
         setCookie("govuk-accessibility",$(this).attr("id"),1);
         setStyleSheet($(this).attr("id"));
-        
-        
-      })
+      });
       return false;
     });
     
