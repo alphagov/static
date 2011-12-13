@@ -181,9 +181,10 @@ var AlphaGeo = {
 	        display_name = Alphagov.get_display_place_name(geo_data.locality, geo_data.councils[geo_data.councils.length - 1].name);
 	      } else {
 	        display_name = geo_data.locality;
-	      }
+	      }                                           
 
-	      $('#popup #friendly-location-name').text("We think you're in "+display_name);
+	      $('#popup #friendly-location-name').text("We think you're in "+display_name); 
+				$('#local-locator-form .friendly-name').text("We think you're in "+display_name); 
 	    //  found_ui.find('a').text('Not in ' + geo_data.locality + '?');
 	    };
 	
@@ -202,6 +203,8 @@ var AlphaGeo = {
 	
 			/* this checks the response we're getting back */
 	    var dispatch_location = function(response_data) {
+          
+				window.console.dir(response_data);
 
 	      if(response_data.location_error){
 	        $(".global-locator-error").empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
@@ -209,10 +212,13 @@ var AlphaGeo = {
 	       // show_ui(ask_ui);
 	        Alphagov.delete_cookie('geo');
         } else if (response_data.current_location === undefined || !response_data.current_location) {
-	        $(".global-locator-error").empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
-	        show_ui(ask_ui);
-	      } else if (! response_data.current_location.ward) {
-	        $(".global-locator-error").empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');
+	        
+	
+					$(".global-locator-error").empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');  
+					
+	        show_ui(ask_ui);                                              
+	      } else if (! response_data.current_location.ward) {             
+	        $(".global-locator-error").empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');    
 	        show_ui(ask_ui);
 	      } else {
 	        $(".global-locator-error").empty().addClass("hidden");
@@ -222,11 +228,11 @@ var AlphaGeo = {
 	    var changed_location = function(data) {
 	      if (data.current_location != undefined) {
 	        update_geo_labels(data.current_location);
-	        update_geo_fields(data.current_location);
+	        update_geo_fields(data.current_location);    
 	        show_ui(found_ui);
 	        locator_box.data('located', true);
 	      }
-	      else {
+	      else {                         
 	        show_ui(ask_ui);
 	        locator_box.data('located', false);
 	      }
@@ -305,11 +311,11 @@ var AlphaGeo = {
 	
 			/* if we don't have a geo api in the browser, or the user just wants to submit on 
 			the form anyway, we want to submit the form and get back the json that way */
-	    $("#global-locator-form").live("submit", function(e) {
+	    $("#global-locator-form, #local-locator-form").live("submit", function(e) {
 	      clear_geo_fields();
 	      if (!noJSSUbmit) {
-	        e.preventDefault();
-	        $.post(this.action, {"postcode": $("#popup #postcode_box").val()}, dispatch_location, 'json');
+	        e.preventDefault();                                                             
+	        $.post(this.action, {"postcode": locator_box.find('#postcode_box').val()}, dispatch_location, 'json');
 	      }
 	      show_ui(locating_ui);
 	      return false;
@@ -445,14 +451,13 @@ $(document).ready(function() {
     AlphaGeo.locate("#global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
   
     
-    var show_known_location = function(current_location) {
-     $("#friendly-location-name").text("We think you're in "+current_location);
-     $(".ask_location").hide();
+    var show_known_location = function(current_location) {                            
+     $("#friendly-location-name").text("We think you're in "+current_location.friendly_name);
     };
 
     var show_unknown_location = function() {
-      $(".found_location").addClass('removing').removeClass('set').hide();
-      $(".ask_location").addClass('set').removeClass('removing').show();
+      $(".found_location").addClass('hidden').removeClass('set');
+      $(".ask_location").addClass('set').removeClass('hidden');
       $("#friendly-name-location").empty();
       //show correct message
       $('#location-set-message').hide();
@@ -461,7 +466,7 @@ $(document).ready(function() {
 
 
     if(AlphaGeo.readAndParseJSONCookie("geo").friendly_name != undefined){
-      show_known_location(AlphaGeo.readAndParseJSONCookie("geo").friendly_name)
+      show_known_location(AlphaGeo.readAndParseJSONCookie("geo"))
     }
 
     $('#forget-location a').live("click", function() {
