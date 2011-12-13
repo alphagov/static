@@ -14,8 +14,10 @@ $(document).ready(function() {
           deleteCookie("govuk-accessibility");
         }
         setCookie("govuk-accessibility",$(this).attr("id"),1);
-        setStyleSheet($(this).attr("id"));
+        setStyleSheet($(this).attr("id")); 
       });
+      
+      
       return false;
     });
     
