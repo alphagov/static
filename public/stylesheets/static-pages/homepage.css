@@ -138,33 +138,34 @@
 	padding: 0.45em 0 0.45em 2em;
 }
 
-.tools-topics ul li.answer a {
-	background-image: url('../../images/icon-answer-s.png');
+/*.tools-topics ul li.answer a {
+  background-image: url('../../images/icon-answer-s.png');
 }
 
 .tools-topics ul li.guide a {
-	background-image: url('../../images/icon-guide-s.png');
+  background-image: url('../../images/icon-guide-s.png');
 }
 
 .tools-topics ul li.transaction a {
-	background-image: url('../../images/icon-transaction-s.png');
+  background-image: url('../../images/icon-transaction-s.png');
 }
 
 .tools-topics ul li.local_transaction a {
-	background-image: url('../../images/icon-localtransaction-s.png');
+  background-image: url('../../images/icon-localtransaction-s.png');
 }
 
 .tools-topics ul li.programme a {
-	background-image: url('../../images/icon-programme-s.png');
+  background-image: url('../../images/icon-programme-s.png');
 }
 
 .tools-topics ul li.nearest a {
-	background-image: url('../../images/icon-nearest-s.png');
+  background-image: url('../../images/icon-nearest-s.png');
 }
 
 .tools-topics ul li.smart-answer a {
-	background-image: url('../../images/icon-smart-answer-s.png');
-}
+  background-image: url('../../images/icon-smart-answer-s.png');
+}*/
+
 .ui-autocomplete{
   width:300px;
 }
