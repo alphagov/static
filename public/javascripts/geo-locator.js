@@ -303,7 +303,7 @@ var AlphaGeo = {
 	      clear_geo_fields();
 	      if (!noJSSUbmit) {
 	        e.preventDefault();
-	        $.post(this.action, {"postcode_box": $("#popup #postcode_box").val()}, dispatch_location, 'json');
+	        $.post(this.action, {"postcode": $("#popup #postcode_box").val()}, dispatch_location, 'json');
 	      }
 	      show_ui(locating_ui);
 	      return false;
@@ -476,6 +476,7 @@ $(document).ready(function() {
       open_location_dialog();
       return false;
     });*/
+    
 
    
     $('#forget-location a').live("click", function() {
@@ -485,7 +486,6 @@ $(document).ready(function() {
 
     $(document).bind('location-removed', function(e, message) {
       show_unknown_location();
-      AlphaGeo.deleteGeoCookie();
     });
 
     $(document).bind('location-known', function(e, data) {
