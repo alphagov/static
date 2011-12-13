@@ -52,9 +52,13 @@ article ol.steps li p {
 article ol.steps li img,
 article .form-download a img,
 article .help-notice img,
-article .info-notice img {
+article .info-notice img,
+article .address img {
   display: inline-block;
   padding: 0em 0.7em 0 0;
+}                   
+article .address img {
+	float: right;
 }
 
 article .address {
