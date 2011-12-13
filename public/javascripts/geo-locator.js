@@ -153,7 +153,7 @@ var AlphaGeo = {
 			locator_box = $(id),
 			opts = opts || {},
 			ignoreKnown = opts.ignoreKnown || false,
-			errorSelector = opts.errorSelector || '#global-app-error',
+			errorSelector = opts.errorSelector || '.global-app-error',
 			noJSSUbmit = opts.noJSSUbmit || false,
 			ask_ui = locator_box.find('.ask_location'),
 			locating_ui = locator_box.find('.finding_location'),
@@ -183,7 +183,7 @@ var AlphaGeo = {
 	        display_name = geo_data.locality;
 	      }
 
-	      $('#popup #friendly-location-name').text("We think you're at "+display_name);
+	      $('#popup #friendly-location-name').text("We think you're in "+display_name);
 	    //  found_ui.find('a').text('Not in ' + geo_data.locality + '?');
 	    };
 	
@@ -202,7 +202,13 @@ var AlphaGeo = {
 	
 			/* this checks the response we're getting back */
 	    var dispatch_location = function(response_data) {
-	      if (response_data.current_location === undefined || !response_data.current_location) {
+
+	      if(response_data.location_error){
+	        $(errorSelector).empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
+         // $(errorSelector).empty().append.removeClass('hidden');
+	       // show_ui(ask_ui);
+	        Alphagov.delete_cookie('geo');
+        } else if (response_data.current_location === undefined || !response_data.current_location) {
 	        $(errorSelector).empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
 	        show_ui(ask_ui);
 	      } else if (! response_data.current_location.ward) {
@@ -303,7 +309,7 @@ var AlphaGeo = {
 	      clear_geo_fields();
 	      if (!noJSSUbmit) {
 	        e.preventDefault();
-	        $.post(this.action, {"postcode_box": $("#popup #postcode_box").val()}, dispatch_location, 'json');
+	        $.post(this.action, {"postcode": $("#popup #postcode_box").val()}, dispatch_location, 'json');
 	      }
 	      show_ui(locating_ui);
 	      return false;
@@ -438,46 +444,26 @@ $(document).ready(function() {
 
     AlphaGeo.locate("#global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
   
+    
     var show_known_location = function(current_location) {
-      //show correct message
-      $(".found_location").addClass('set').removeClass('removing').show();
-      $(".ask_location").addClass('removing').removeClass('set').hide();
-      $('#location-set-message').show();
-      $('#location-unset-message').hide();
-      $(".friendly-name").html(current_location.locality);
+     $("#friendly-location-name").text("We think you're in "+current_location);
+     $(".ask_location").hide();
     };
 
     var show_unknown_location = function() {
       $(".found_location").addClass('removing').removeClass('set').hide();
       $(".ask_location").addClass('set').removeClass('removing').show();
-      $(".friendly-name").html("");
+      $("#friendly-name-location").text("");
       //show correct message
       $('#location-set-message').hide();
       $('#location-unset-message').show();
     }
 
-    var open_location_dialog = function() {
-      $('#global-locator').show();
-      $('#global-locator-form').trigger('reset-locator-form');
-    };
 
-   /* $('#global-locator .close').click(function() {
-      $('#global-locator').hide();
-      return false;
-    });*/
+    if(AlphaGeo.readAndParseJSONCookie("geo").friendly_name != undefined){
+      show_known_location(AlphaGeo.readAndParseJSONCookie("geo").friendly_name)
+    }
 
-    // Event handlers
-    /*$('.change-location').live("click", function() {
-      open_location_dialog();
-      return false;
-    });*/
-
-    /*$('.explain-location').click(function() {
-      open_location_dialog();
-      return false;
-    });*/
-
-   
     $('#forget-location a').live("click", function() {
       $(document).trigger('location-removed');
       return false;
@@ -485,14 +471,9 @@ $(document).ready(function() {
 
     $(document).bind('location-removed', function(e, message) {
       show_unknown_location();
-      AlphaGeo.deleteGeoCookie();
+      Alphagov.delete_cookie("geo");
     });
-
-    $(document).bind('location-known', function(e, data) {
-      show_known_location(data.current_location);
-      
-    });
-
+    
     $(document).bind('location-changed', function(e, data) {
       $('#global-locator').hide();
       $("#global-user-location").addClass('set');
