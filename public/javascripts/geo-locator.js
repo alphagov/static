@@ -204,18 +204,18 @@ var AlphaGeo = {
 	    var dispatch_location = function(response_data) {
 
 	      if(response_data.location_error){
-	        $(errorSelector).empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
+	        $(".global-locator-error").empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
          // $(errorSelector).empty().append.removeClass('hidden');
 	       // show_ui(ask_ui);
 	        Alphagov.delete_cookie('geo');
         } else if (response_data.current_location === undefined || !response_data.current_location) {
-	        $(errorSelector).empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
+	        $(".global-locator-error").empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
 	        show_ui(ask_ui);
 	      } else if (! response_data.current_location.ward) {
-	        $(errorSelector).empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');
+	        $(".global-locator-error").empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');
 	        show_ui(ask_ui);
 	      } else {
-	        $(errorSelector).empty().addClass("hidden");
+	        $(".global-locator-error").empty().addClass("hidden");
 	        $(document).trigger('location-changed', response_data);
 	      }
 	    }
@@ -453,7 +453,7 @@ $(document).ready(function() {
     var show_unknown_location = function() {
       $(".found_location").addClass('removing').removeClass('set').hide();
       $(".ask_location").addClass('set').removeClass('removing').show();
-      $("#friendly-name-location").text("");
+      $("#friendly-name-location").empty();
       //show correct message
       $('#location-set-message').hide();
       $('#location-unset-message').show();
@@ -471,6 +471,7 @@ $(document).ready(function() {
 
     $(document).bind('location-removed', function(e, message) {
       show_unknown_location();
+      $("#friendly-location-name").empty();
       Alphagov.delete_cookie("geo");
     });
     
