@@ -153,7 +153,7 @@ var AlphaGeo = {
 			locator_box = $(id),
 			opts = opts || {},
 			ignoreKnown = opts.ignoreKnown || false,
-			errorSelector = opts.errorSelector || '#global-app-error',
+			errorSelector = opts.errorSelector || '.global-app-error',
 			noJSSUbmit = opts.noJSSUbmit || false,
 			ask_ui = locator_box.find('.ask_location'),
 			locating_ui = locator_box.find('.finding_location'),
@@ -202,7 +202,13 @@ var AlphaGeo = {
 	
 			/* this checks the response we're getting back */
 	    var dispatch_location = function(response_data) {
-	      if (response_data.current_location === undefined || !response_data.current_location) {
+
+	      if(response_data.location_error){
+	        $(errorSelector).empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
+         // $(errorSelector).empty().append.removeClass('hidden');
+	       // show_ui(ask_ui);
+	        Alphagov.delete_cookie('geo');
+        } else if (response_data.current_location === undefined || !response_data.current_location) {
 	        $(errorSelector).empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');
 	        show_ui(ask_ui);
 	      } else if (! response_data.current_location.ward) {
@@ -454,7 +460,7 @@ $(document).ready(function() {
     }
 
 
-    if(AlphaGeo.readAndParseJSONCookie("geo")){
+    if(AlphaGeo.readAndParseJSONCookie("geo").friendly_name != undefined){
       show_known_location(AlphaGeo.readAndParseJSONCookie("geo").friendly_name)
     }
 
