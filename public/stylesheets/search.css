@@ -164,7 +164,7 @@
   line-height: 1.3em;
   padding: 0.25em 1em;
   text-align: center;
-  width: 100%;
+/*  width: 100%;*/
 }
 
 .search .results.top ul.search-promoted li p,
