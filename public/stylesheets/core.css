@@ -441,31 +441,37 @@ ul.ui-autocomplete {
 	margin-top:1px;
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
-ul.ui-autocomplete li.guide a {
+
+/* remember that these are used across the site, not just for autocomplete */
+li.guide a {
 	background: url(/images/icon-guide-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.answer a {
+li.answer a {
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.smart_answer a{
+li.smart_answer a {
 	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.transaction a{
+li.transaction a {
 	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.localtransaction a{
+li.localtransaction a {
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.programme a{
+li.programme a {
 	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.calendar a{
+li.calendar a {
 	background: url(/images/icon-calendar-24.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.fco a{
+li.nearest a {
+	background: url(/images/icon-nearest-s.png) no-repeat 4px 50%;
+}
+li.fco a {
 	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
 }
-ul.ui-autocomplete li.search-site{
+
+ul.ui-autocomplete li.search-site {
 	background: url(/images/search.png) no-repeat 8px 50%;
 }
 ul.ui-autocomplete li {
