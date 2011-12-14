@@ -161,7 +161,6 @@ var AlphaGeo = {
 			all_ui = ask_ui.add(locating_ui).add(found_ui),
 			geolocate_ui;    			
 			
-			console.log(locator_form)
 			/* offer the auto locate if the geo api in browser was found */
 	    var setup_geolocation_api_ui = function() {
 	      var geolocation_ui_node = ask_ui.find('.locate-me');
@@ -475,7 +474,6 @@ $(document).ready(function() {
     
 
     $('#forget-location a').live("click", function() {
-      console.log('forget')
       $(document).trigger('location-removed');
       return false;
     });
