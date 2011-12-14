@@ -11,11 +11,6 @@
 	font-size: 0.85em;
 }
 
-.search .results li p {
-  font-size: 0.85em;
-  width: 50%;
-}
-
 .search .results.top li p {
   width: 75%;
 }
@@ -94,21 +89,6 @@
   content:url("/images/icon-smartanswer-s.png");
 }*/
 
-.search .results li a {
-  display: block;
-/*  margin: 0.5em 1em 0 40px;*/
-  margin-left: -2em;
-  padding-left: 2em;
-}
-
-.search .results li small {
-  color: #007E09;
-  display: block;
-  line-height: 1.25em;
-/*  margin: 0.5em 1em 1em 40px;*/
-  margin: 0.25em 1em 0.5em 0;
-}
-
 .search .results.top li ul {
   list-style-type: square;
   list-style-position: inside;
@@ -119,21 +99,6 @@
 
 .search .results.top li li {
   font-size: 0.85em;
-}
-
-.search .results.more ol {
-  list-style: none;
-  margin: 1em 0;
-}
-
-.search .results.more ol>li {
-/*  margin-bottom: 0.875em;*/
-/*  margin-left: -40px;*/
-/*  padding-left: 40px;*/
-  margin-bottom: 1.25em;
-  padding-top: 0.25em;
-  position: relative;
-
 }
 
 /*.search .results.more ol li small {

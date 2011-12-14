@@ -607,47 +607,47 @@ ul.ui-corner-all, ul li a.ui-corner-all {
  * Section pages
  */
 
-#wrapper.section .popular-sections {
-	background-color: #fafafa;
-	border: solid 2px #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
-	padding: 0 1em;
+/*#wrapper.section .popular-sections {
+  background-color: #fafafa;
+  border: solid 2px #bbb;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  padding: 0 1em;
 
 }
 
 #wrapper.section article ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #wrapper.section article ul li {
-	margin: 0;
-	padding: 0.25em 0;
-	width: 50%;
-	float: left;
+  margin: 0;
+  padding: 0.25em 0;
+  width: 50%;
+  float: left;
 }
 
 #wrapper.section article ul li h3 {
-	border-bottom: solid 1px #bbb;
-	margin-right: 0.75em;
+  border-bottom: solid 1px #bbb;
+  margin-right: 0.75em;
 }
 
 #wrapper.section article .a-z ul li li,
 #wrapper.section article ul li li {
-	width: 96%;
-	display: block;
+  width: 96%;
+  display: block;
 }
 
 #wrapper.section article ul li li a,
 #wrapper.section .popular-sections a {
-	background-repeat: no-repeat;
-	background-position: 0% 10%;
-	display: block;
-	padding: 0.2em 0 0.5em 1.8em;
-}
+  background-repeat: no-repeat;
+  background-position: 0% 10%;
+  display: block;
+  padding: 0.2em 0 0.5em 1.8em;
+}*/
 
 /* Error messages */
 
