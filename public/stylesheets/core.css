@@ -158,7 +158,8 @@ a[rel="external"] {
 #global-locator-form label,
 #global-locator-form .ask_location{
 	display: inline;
-}
+}                                  
+#global-locator-form .ask_location.hidden { display: none; }
 
 
 /*

@@ -128,18 +128,20 @@
 
                 <fieldset>
                   <legend class="visuallyhidden">UK Postcode lookup</legend>
+                                                                                                                                                               
+									<div class="found_location">
+										<p id="friendly-location-name"></p>  
+									</div>
+									
+									<p class="finding_location hidden">Locating you&hellip;
+                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
 
 	                <div class="ask_location">
                     <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
-                    <input type="submit" class="button" value="Get started →">
-
-	                  <p class="finding_location hidden">Locating you&hellip;
-	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
-
+										<input type="submit" class="button" value="Get started →">
   	              </div>
                 </fieldset>
               </form>
-              <p id="friendly-location-name"></p>
               <p id="forget-location">
                 <a href="#">Forget my location</a>
               </p>
