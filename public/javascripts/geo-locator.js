@@ -159,8 +159,7 @@ var AlphaGeo = {
 			locating_ui = locator_box.find('.finding_location'),
 			found_ui = locator_box.find('.found_location'),	
 			all_ui = ask_ui.add(locating_ui).add(found_ui),
-			geolocate_ui;
-			
+			geolocate_ui;    			
 			
 			/* offer the auto locate if the geo api in browser was found */
 	    var setup_geolocation_api_ui = function() {
@@ -170,9 +169,14 @@ var AlphaGeo = {
 	    };
 	
 			/* display results */ 
-	    var show_ui = function(ui_to_show) {
-	      all_ui.addClass('hidden');
-	      ui_to_show.removeClass('hidden');
+	    var show_ui = function(ui_to_show) {             
+				$(all_ui).each(function(k,el){
+					window.console.info("Hiding " +id+ " #"+ $(el).attr('id') +" ."+ $(el).attr('class'));
+					$(el).addClass('hidden');
+				})                                      
+				window.console.info("Showing "+ ui_to_show.selector +" from "+ arguments.callee.caller.toString());     
+				window.console.dir(ui_to_show);
+	      $(ui_to_show).removeClass('hidden').addClass(id.replace('#',''));
 	    };
 	
 			/* set geo labels */
@@ -203,25 +207,20 @@ var AlphaGeo = {
 	
 			/* this checks the response we're getting back */
 	    var dispatch_location = function(response_data) {
-          
-				window.console.dir(response_data);
-
 	      if(response_data.location_error){
 	        $(".global-locator-error").empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
          // $(errorSelector).empty().append.removeClass('hidden');
 	       // show_ui(ask_ui);
 	        Alphagov.delete_cookie('geo');
         } else if (response_data.current_location === undefined || !response_data.current_location) {
-	        
-	
 					$(".global-locator-error").empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');  
-					
 	        show_ui(ask_ui);                                              
 	      } else if (! response_data.current_location.ward) {             
 	        $(".global-locator-error").empty().append("<p>Sorry, that postcode was not recognised.</p>").removeClass('hidden');    
 	        show_ui(ask_ui);
 	      } else {
-	        $(".global-locator-error").empty().addClass("hidden");
+	        $(".global-locator-error").empty().addClass("hidden");                                                        
+					show_ui(found_ui);
 	        $(document).trigger('location-changed', response_data);
 	      }
 	    }
@@ -267,7 +266,7 @@ var AlphaGeo = {
 	        show_ui(ask_ui);
 	      });
 	      geolocate_ui.bind('location-completed', function (event, details) {
-	        update_geo_fields(details);
+	        update_geo_fields(details);       
 	        if (noJSSUbmit) {
 	          locator_form.submit();
 	        }
@@ -292,7 +291,8 @@ var AlphaGeo = {
 	    }
 	    if (!ignoreKnown) {
 	      $(document).bind('location-known', function(e, data) {
-	        changed_location(data);
+	        changed_location(data);                      
+					show_ui(found_ui);
 	      });
 	    }
 	    $(document).bind('location-changed', function(e, data) {
@@ -451,8 +451,9 @@ $(document).ready(function() {
     AlphaGeo.locate("#global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
   
     
-    var show_known_location = function(current_location) {                            
-     $("#friendly-location-name").text("We think you're in "+current_location.friendly_name);
+    var show_known_location = function(current_location) {  
+			var location = (current_location.friendly_name === undefined) ? current_location.locality : current_location.friendly_name;
+     	$("#friendly-location-name").text("We think you're in "+location);     
     };
 
     var show_unknown_location = function() {
