@@ -448,10 +448,8 @@ var AlphaGeo = {
 /* global header geo */
 $(document).ready(function() {
 
-    AlphaGeo.locate("#global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
-  
-    
     var show_known_location = function(current_location) {  
+      $(".ask_location").addClass('set').addClass('hidden');
 			var location = (current_location.friendly_name === undefined) ? current_location.locality : current_location.friendly_name;
      	$("#friendly-location-name").text("We think you're in "+location);     
     };
@@ -464,11 +462,16 @@ $(document).ready(function() {
       $('#location-set-message').hide();
       $('#location-unset-message').show();
     }
-
-
-    if(AlphaGeo.readAndParseJSONCookie("geo").friendly_name != undefined){
-      show_known_location(AlphaGeo.readAndParseJSONCookie("geo"))
-    }
+    
+    $(document).bind("customisation-opened", function(){
+      
+      if(AlphaGeo.readAndParseJSONCookie("geo").friendly_name != undefined){
+        show_known_location(AlphaGeo.readAndParseJSONCookie("geo"))
+      }
+    })
+    
+    
+    
 
     $('#forget-location a').live("click", function() {
       $(document).trigger('location-removed');
