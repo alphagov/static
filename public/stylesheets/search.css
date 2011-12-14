@@ -169,7 +169,6 @@
   line-height: 1.3em;
   padding: 0.25em 1em;
   text-align: center;
-/*  width: 100%;*/
 }
 
 .search .results.top ul.search-promoted li p,
@@ -177,6 +176,7 @@
 .search .results.top ul.search-promoted li a,
 .search .results.top ul.search-not-found li a {
   margin: 0.5em 1em 1em;
+  width: auto;
 }
 
 .search .results.top ul.search-not-found li {
