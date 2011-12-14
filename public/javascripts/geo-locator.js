@@ -210,7 +210,7 @@ var AlphaGeo = {
 	      if(response_data.location_error){
 	        $(".global-locator-error").empty().append("<p class='error'>Please enter a valid UK postcode.</p>");
          // $(errorSelector).empty().append.removeClass('hidden');
-	       // show_ui(ask_ui);
+	        show_ui(ask_ui);
 	        Alphagov.delete_cookie('geo');
         } else if (response_data.current_location === undefined || !response_data.current_location) {
 					$(".global-locator-error").empty().append("<p>Please enter a valid UK postcode.</p>").removeClass('hidden');  
