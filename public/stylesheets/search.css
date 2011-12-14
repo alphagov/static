@@ -1,14 +1,5 @@
 /* ----- search results page ----- */
 
-.search {
-	background-color: #fff;
-	border: solid 1px #fff;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
-	padding: 1em;
-}
-
 .search h1 {
 	margin-bottom: 0.25em;
 }
