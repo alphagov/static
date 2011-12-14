@@ -64,9 +64,8 @@ $(document).ready(function() {
     function setStyleSheet(match){
       if(match == "core"){
         deleteCookie("govuk-accessibility");
-        $("#popup .personalise-options a").each(function(){
-            toggleStyleSheets($(this).id)
-        });
+        toggleStyleSheets("dyslexic")
+       
       }
       else{
         toggleStyleSheets(match);
