@@ -11,7 +11,7 @@ module RouterHelpers
 
   def register_route(type, incoming_path)
     route = {
-      application_id: @application[:application_id], 
+      application_id: @application[:application_id],
       route_type: type,
       incoming_path: incoming_path
     }
@@ -28,7 +28,7 @@ end
 
 namespace :router do
   include RouterHelpers
-  
+
   task :router_environment do
     Bundler.require :router, :default
 
@@ -36,11 +36,9 @@ namespace :router do
     @logger = Logger.new STDOUT
     @logger.level = Logger::DEBUG
 
-    http = Router::HttpClient.new "http://cache.cluster:8080/router", @logger
-
-    @router = Router::Client.new http
+    @router = Router::Client.new :logger => @logger
   end
-  
+
   task :register_application => :router_environment do
     platform = ENV['FACTER_govuk_platform']
     @application = {

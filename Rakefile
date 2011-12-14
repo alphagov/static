@@ -18,7 +18,7 @@ namespace :cdn do
 
     logger = Logger.new(STDOUT)
     public_root_path = Pathname.new(File.join(File.dirname(__FILE__), 'public'))
-    
+
     asset_hosts = case ENV['RACK_ENV']
     when 'dev' then %W(http://assets0.dev.alphagov.co.uk http://assets1.dev.alphagov.co.uk)
     # when 'staging' then %W(http://assets0.staging.alphagov.co.uk http://assets1.staging.alphagov.co.uk)
@@ -26,7 +26,7 @@ namespace :cdn do
     when 'production' then %W(http://assets0.alpha.gov.uk http://assets1.alpha.gov.uk)
     when 'admin' then %W(https://admin.alphagov.co.uk)
     end
-    
+
     CdnHelpers::AssetPath.set_hash_salt(ENV['CDN_HASH_SALT']) if ENV['CDN_HASH_SALT']
 
     FileList.new(public_root_path.join("**/*.html").to_s).exclude("google5edcc5ea3311ac5f.html").each do |file_path|
