@@ -22,7 +22,7 @@ $(document).ready(function() {
 	$("#main_autocomplete").live("focus", function(){
 	  if($(".hint-suggest").length == 0){
 	    $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
-      $("#search_hint").addClass("visuallyHidden");
+      $("#search_hint").addClass("visuallyhidden");
     }
 	});
 	
@@ -35,7 +35,7 @@ $(document).ready(function() {
 	
 	$("#site-search-text, #main_autocomplete").live("blur", function(){
 	  $(".hint-suggest").remove();
-	  $("#search_hint").removeClass("visuallyHidden");
+	  $("#search_hint").removeClass("visuallyhidden");
 	});
 	
   $("#site-search-text, #main_autocomplete").autocomplete({ 

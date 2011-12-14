@@ -158,7 +158,8 @@ a[rel="external"] {
 #global-locator-form label,
 #global-locator-form .ask_location{
 	display: inline;
-}
+}                                  
+#global-locator-form .ask_location.hidden { display: none; }
 
 
 /*
@@ -443,37 +444,34 @@ ul.ui-autocomplete {
 }
 
 /* remember that these are used across the site, not just for autocomplete */
-li.guide a {
-	background: url(/images/icon-guide-s.png) no-repeat 4px 50%;
+li.guide a, li.guide a:hover {
+	background: url(/images/icon-guide-s.png) no-repeat 0 50%;
 }
-li.answer a {
-	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
+li.answer a, li.answer a:hover {
+	background: url(/images/icon-answer-s.png) no-repeat 0 50%;
 }
-li.smart_answer a {
-	background: url(/images/icon-answer-s.png) no-repeat 4px 50%;
+li.smart_answer a, li.smart_answer a:hover {
+	background: url(/images/icon-answer-s.png) no-repeat 0 50%;
 }
-li.transaction a {
-	background: url(/images/icon-transaction-s.png) no-repeat 4px 50%;
+li.transaction a, li.transaction a:hover {
+	background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
 }
-li.localtransaction a {
-	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
+li.localtransaction a, li.localtransaction a:hover {
+	background: url(/images/icon-localtransaction-s.png) no-repeat 0 50%;
 }
-li.programme a {
-	background: url(/images/icon-programme-s.png) no-repeat 4px 50%;
+li.programme a, li.programme a:hover {
+	background: url(/images/icon-programme-s.png) no-repeat 0 50%;
 }
-li.calendar a {
-	background: url(/images/icon-calendar-24.png) no-repeat 4px 50%;
+li.calendar a, li.calendar a:hover {
+	background: url(/images/icon-calendar-24.png) no-repeat 0 50%;
 }
-li.nearest a {
-	background: url(/images/icon-nearest-s.png) no-repeat 4px 50%;
+li.nearest a, li.nearest a:hover {
+	background: url(/images/icon-nearest-s.png) no-repeat 0 50%;
 }
-li.fco a {
-	background: url(/images/icon-localtransaction-s.png) no-repeat 4px 50%;
+li.fco a, li.fco a:hover {
+	background: url(/images/icon-localtransaction-s.png) no-repeat 0 50%;
 }
 
-ul.ui-autocomplete li.search-site {
-	background: url(/images/search.png) no-repeat 8px 50%;
-}
 ul.ui-autocomplete li {
 	font-size: 0.75em;
 }
@@ -481,16 +479,16 @@ ul.ui-autocomplete li {
 	border-top: 1px solid #eee;
 	list-style-type:none;
 	margin:0;
-/*	width:100%; */
-}
-ul.ui-autocomplete li.search-site{
-	border-top:3px solid #dedede;
-	background-color:#eee;
 }
 ul.ui-autocomplete.ui-menu .ui-menu-item a,
 ul.ui-autocomplete .search-site a {
-	padding:1em 1em 1em 2.5em;
+	padding:1em 1em 1em 3.25em;
 	display:block;
+}
+ul.ui-autocomplete .search-site a,
+ul.ui-autocomplete .search-site a:hover {
+  border-top:3px solid #dedede;
+	background: url(/images/search.png) no-repeat 12px 50% #eee;
 }
 ul.ui-autocomplete li a em {
 	font-style: normal;
@@ -498,9 +496,14 @@ ul.ui-autocomplete li a em {
 	padding: 0.125em;
 }
 ul.ui-menu .ui-menu-item a.ui-state-hover,
-ul.ui-menu .ui-menu-item a.ui-state-active {
+ul.ui-menu .ui-menu-item a.ui-state-active,
+ul.ui-autocomplete .search-site a:hover {
 	margin: 0;
 	background-color:#ffffcc;
+}
+ul.ui-autocomplete li a,
+ul.ui-autocomplete li a:hover {
+  background-position: 8px 50%;
 }
 
 ul.ui-autocomplete.ui-menu .ui-menu-item.search-site em {

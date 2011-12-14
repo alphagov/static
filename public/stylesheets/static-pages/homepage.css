@@ -132,8 +132,8 @@
 }
 
 .tools-topics ul li a {
-	background-position: 0 0.4em;
-	background-repeat: no-repeat;
+/*  background-position: 0 0.4em;*/
+/*  background-repeat: no-repeat;*/
 	display: block;
 	padding: 0.45em 0 0.45em 2em;
 }
