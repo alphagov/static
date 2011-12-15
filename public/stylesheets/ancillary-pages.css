@@ -58,3 +58,9 @@ section#content.ancillary {
   width: 40%;
   float: left;
 }
+.section-page .results ol li:nth-child(odd) {
+  margin-right: 20%;
+}
+.section-page .results ol li:nth-child(even) {
+  margin-right: 0;
+}
