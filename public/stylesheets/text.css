@@ -3,9 +3,11 @@
  * It's kind of like typography innit.
 */
 
-
 article h1 {
+  font-size: 1.45em;
   line-height: 1.1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
 }
 
 article header h1 {
@@ -30,11 +32,19 @@ article header h1 span {
 	text-transform: uppercase;
 }
 
+article h1 + h2 {
+  margin-top: 0.75em;
+}
+
 article h2 {
-  font-size: 1.35em;
+  font-size: 1.3em;
   line-height: 1.18em;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
+}
+
+article h2 + h3 {
+  margin-top: 0.75em;
 }
 
 article h3 {
@@ -42,6 +52,10 @@ article h3 {
   line-height: 1.11em;
   margin-top: 1.304em;
   margin-bottom: 0;
+}
+
+article h3 + h4 {
+  margin-top: 0.75em;
 }
 
 article h4 {
