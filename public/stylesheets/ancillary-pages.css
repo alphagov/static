@@ -4,6 +4,18 @@ section#content.ancillary {
 	width: 95%;
 }
 
+#wrapper .ancillary header hgroup {
+  background-color: transparent;
+/*  margin-right: 0;*/
+	margin: 0 0 1em 0;
+  padding: 0;
+}
+
+#wrapper .ancillary header hgroup h1 {
+	padding: 0;
+	margin: 0;
+}
+
 .ancillary article {
 	background: transparent;
 	-webkit-box-shadow: none;
@@ -81,4 +93,29 @@ section#content.ancillary {
 
 .sections-list dd {
   margin: 0 0 0.75em 0;
+}
+
+/* static pages like platform and help */
+
+.ancillary .menu {
+  float: left;
+  margin: 1em 0 0 0;
+  padding: 0 2em 0 0;
+	width: 10em;
+}
+
+.ancillary .menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.ancillary .menu li {
+  list-style: none;
+	margin: 0 0 0.5em 0;
+}
+
+.ancillary article {
+  border-left: solid 1px #bbb;
+  margin: 1em 0 0 12em;
+  padding: 0 0 0 2em;
 }
