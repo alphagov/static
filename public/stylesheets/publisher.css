@@ -270,8 +270,7 @@ aside .chapters-navigation li a .part-title {
 	text-indent: 25px;
 }
 
-.find-location-for-service,
-.popover fieldset {
+.find-location-for-service {
 	background-color: #F9F9F9;
 	border: 2px solid #bbb;
 	-webkit-border-radius: 0.5em;
