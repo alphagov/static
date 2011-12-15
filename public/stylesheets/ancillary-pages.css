@@ -15,7 +15,7 @@ section#content.ancillary {
 	width: auto;
 }
 
-.ancillary.section-page header h1 {
+.ancillary header h1 {
   margin-bottom: 1em;
 }
 
@@ -53,7 +53,8 @@ section#content.ancillary {
 
 /* section page layout */
 
-.section-page .results {
+.section-page .results,
+.sections-list {
   border-top: solid 1px #bbb;
 }
 
