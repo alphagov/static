@@ -16,7 +16,7 @@ section#content.ancillary {
 }
 
 .ancillary header h1 {
-  margin-bottom: 1em;
+  margin-bottom: 0.75em;
 }
 
 /* used for search results and link lists on section pages */
@@ -72,4 +72,13 @@ section#content.ancillary {
 }
 .section-page .results ol li:nth-child(even) {
   margin-right: 0;
+}
+
+.sections-list dt {
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+.sections-list dd {
+  margin: 0 0 0.75em 0;
 }
