@@ -15,6 +15,10 @@ section#content.ancillary {
 	width: auto;
 }
 
+.ancillary.section-page header h1 {
+  margin-bottom: 1em;
+}
+
 /* used for search results and link lists on section pages */
 
 .results ol {
@@ -48,6 +52,10 @@ section#content.ancillary {
 }
 
 /* section page layout */
+
+.section-page .results {
+  border-top: solid 1px #bbb;
+}
 
 .section-page .results ol li {
 /*  margin: 0 0 1em 0;*/
