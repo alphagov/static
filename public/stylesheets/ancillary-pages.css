@@ -4,15 +4,20 @@ section#content.ancillary {
 	width: 95%;
 }
 
-.ancillary article {
-	background: transparent;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	float: none;
-	margin-right: 0;
-	min-height: 0;
-	width: auto;
+#wrapper .ancillary header hgroup {
+  background-color: transparent;
+/*  margin-right: 0;*/
+	margin: 0 0 1em 0;
+  padding: 0;
+}
+
+#wrapper .ancillary header hgroup h1 {
+	padding: 0;
+	margin: 0 0 1.5em 0;
+}
+
+.ancillary header h1 {
+  margin-bottom: 0.75em;
 }
 
 /* used for search results and link lists on section pages */
@@ -49,12 +54,71 @@ section#content.ancillary {
 
 /* section page layout */
 
+.section-page .results,
+.sections-list {
+  border-top: solid 1px #bbb;
+}
+
 .section-page .results ol li {
 /*  margin: 0 0 1em 0;*/
-  margin: 0 5% 0.5em 0;
+  margin: 0 10% 0.5em 0;
   padding: 0.25em 0;
   min-height: 3em;
 /*  width: 50%;*/
-  width: 45%;
+  width: 40%;
   float: left;
+}
+.section-page .results ol li:nth-child(odd) {
+  margin-right: 20%;
+}
+.section-page .results ol li:nth-child(even) {
+  margin-right: 0;
+}
+
+.sections-list dt {
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+.sections-list dd {
+  margin: 0 0 0.75em 0;
+}
+
+/* static pages like platform and help */
+
+.ancillary .menu {
+  float: left;
+/*  margin: 0 0 0 0;*/
+  padding: 0 2em 0 0;
+	width: 10em;
+}
+
+.ancillary .menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.ancillary .menu li {
+  list-style: none;
+	margin: 0 0 0.5em 0;
+}
+
+.ancillary article {
+	background: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	float: none;
+  margin: 1em 0 0 12em;
+	min-height: 0;
+  padding: 0 0 0 2em;
+	width: auto;
+}
+
+.ancillary article section {
+  margin: 0 0 2.5em 0;
+}
+
+.ancillary article dt {
+  font-size: 1em;
 }

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html class="error" lang="en"><!--<![endif]-->
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
   <title>404 - www.gov.uk</title>
-  <link href="<%= @asset_host %>/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/core.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/header-footer.css" rel="stylesheet" type="text/css" />
+  <link href="<%= @asset_host %>/stylesheets/static-pages/error-pages.css" rel="stylesheet" type="text/css" />
 
-  <link href="<%= @asset_host %>/stylesheets/high-contrast.css" rel="alternate stylesheet" type="text/css" title="I can&rsquo;t see very well" />
   <link href="<%= @asset_host %>/stylesheets/dyslexic.css" rel="alternate stylesheet" type="text/css" title="I find words difficult" />
 
   <script src="<%= @asset_host %>/javascripts/libs/jquery/jquery-1.6.2.min.js"></script><!-- no defer on jquery -->
@@ -26,10 +26,25 @@
 	<![endif]-->
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+  <script id="ga-params" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26179049-1']);
+    _gaq.push(['_setDomainName', 'alphagov.co.uk']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+  </script>
+
+  <script type="text/javascript">
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 </head>
 <body>
-
-  <a href="#content" class="visuallyhidden">Skip to main content</a>
 
   <header role="banner" class="group" id="global-header">
 		<div class="header-global group">
@@ -67,7 +82,7 @@
 			<section class="group" role="main">
 			  <div id="homepage-search" class="location-not-set">
 				<header>
-				  <h1>Oops! We can't find what you're looking for.</h1>
+				  <h1>Oops! We can&rsquo;t find what you&rsquo;re looking for.</h1>
 				</header>
 		    </div>
 
@@ -80,7 +95,7 @@
 <footer class="group" id="footer">
 	<div class="inner group" role="contentinfo">
 		<div class="subsection copyright">
-    	<p>© 2011 Crown Copyright</p>
+    	<p>&copy; 2011 Crown Copyright</p>
     	<p id="reuse-license">
       Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a>
     	</p>
@@ -109,21 +124,19 @@
         </div>
         <div id="global-set-location">
 
-          <h2>Personalise this website</h2>
+          <h2>Settings</h2>
 
-          <p>We&rsquo;ve worked hard to make this website as easy-to-use and understand as possible for every visitor, regardless of their ability or disability. For now we have added two additional ways to view the site and we will be adding more in the upcoming months. <span style="color: red;">This will need revising by an Ed at some point, but it's okay for now as filler...</span></p>
+          <p>We&rsquo;ve worked hard to make our website as easy-to-use and understand as possible for every visitor, regardless of ability or disability.</p>
+          <p>We have also added an additional way to view the site for dyslexic users or those who find words difficult, and we will be looking into adding more in the upcoming months.</p>
 
-          <form id="" class="app-form" action="#">
+          <h3>Change the theme</h3>
+          <ul class="personalise-options">
+            <li><a href="#" class="button" title="use the dyslexia-friendly theme" id="dyslexic">I find words difficult</a></li>
+            <li><a href="#" class="button" title="don't use a custom theme, just show me the regular website" id="core">Show me the regular website</a></li>
 
-            <fieldset>
-              <legend class="visuallyhidden">Site personalisation options</legend>
-              <ul class="personalise-options">
-                <li><a href="#">I can&rsquo;t see very well</a></li>
-                <li><a href="#">I find words difficult</a></li>
-              </ul>
-            </fieldset>
+          </ul>
 
-          </form>
+          <hr />
 
           <h2>Set your location</h21>
           <div id="global-locator-error" class="app-error hidden"></div>
@@ -136,10 +149,10 @@
                   <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
                   <input type="submit" value="Get started →">
 
-	               
+
 	                  <p class="finding_location hidden">Locating you&hellip;
 	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
-	                
+
 	                <p id="forget-location">
 	                  <a href="#">Forget my location</a>
 	                </p>
@@ -155,20 +168,6 @@
       </div>
 
     </div>
-
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-26179049-1']);
-      _gaq.push(['_setDomainName', 'alphagov.co.uk']);
-      _gaq.push(['_setAllowLinker', true]);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
 
 </body>
 </html>

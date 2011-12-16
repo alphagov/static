@@ -46,7 +46,7 @@ $(document).ready(function() {
   		
   		AlphaGeo.locate("#popup #global-locator-form", "{ignoreKnown: false, errorSelector: '#global-locator-error', noJSSubmit: false}")
       
-      $('.personalise-options li a').click(function(){
+      $('.personalise-options li a').live("click", function(){
         _gaq.push(['_trackEvent', 'Citizen-Accessibility', $(this).attr("id")]);
         
         if(getCookie("govuk-accessibility")){
