@@ -1,19 +1,23 @@
 section#content.ancillary {
 	background-color: #fff;
-	padding: 1.5em 2.5%;
-	width: 95%;
+	padding: 1em;
+/*  width: 95%;*/
+  width: auto;
+}
+
+#wrapper .ancillary header {
+	margin: 0 0 2.25em 0;
 }
 
 #wrapper .ancillary header hgroup {
   background-color: transparent;
-/*  margin-right: 0;*/
-	margin: 0 0 1em 0;
+  margin: 0;
   padding: 0;
 }
 
 #wrapper .ancillary header hgroup h1 {
+  margin: 0;
 	padding: 0;
-	margin: 0 0 1.5em 0;
 }
 
 .ancillary header h1 {
@@ -111,7 +115,7 @@ section#content.ancillary {
 	float: none;
   margin: 1em 0 0 12em;
 	min-height: 0;
-  padding: 0 0 0 2em;
+  padding: 0 1em 1em 2em;
 	width: auto;
 }
 
