@@ -83,6 +83,7 @@
 .homepage-banner .tag-line h1 {
 	font-size: 2em;
 	line-height: 1.25em;
+	text-transform: uppercase;
 }
 
 .homepage-banner form {
