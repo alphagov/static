@@ -54,6 +54,7 @@ namespace :router do
     register_route(:prefix, '/images')
     register_route(:prefix, '/templates')
     register_route(:full, '/favicon.ico')
+    register_route(:full, '/robots.txt')
   end
 
   desc "Register application and routes with the router (run this task on server in cluster)"
