@@ -1,5 +1,9 @@
 /* ----- search results page ----- */
 
+#wrapper .ancillary.search header {
+	margin: 0;
+}
+
 .search h1 {
 	margin-bottom: 0.25em;
 }
