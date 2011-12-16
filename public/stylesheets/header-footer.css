@@ -11,16 +11,18 @@
 }
 
 @media only screen and (min-width:670px) {
-  #global-header {
+  .js-enabled #global-header {
   	position: fixed;
   	top: 0;
+  }
+  #global-header {
   	width: 100%;
   	z-index: 99999;
   }
 
 }
 
-.lte-ie8 #global-header {
+.lte-ie8 .js-enabled #global-header {
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -34,6 +36,7 @@
 	float: left;
   margin-right: 1.5em;
   padding: 0.3em 1.5em 0.3em 0;
+  text-transform: uppercase;
 }
 
 .lte-ie8 #global-header h1 {
