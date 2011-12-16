@@ -80,6 +80,9 @@ $(document).ready(function() {
         while(i--){
           currentSS = $(cssLinks[i]).attr("href");
           currentSS = currentSS.split("/stylesheets/");
+          if (currentSS.length < 2) {
+            continue;
+          }
           currentSS = currentSS[1].split(".css");
           if(currentSS[0] == match){
             if ($(cssLinks[i]).attr('disabled')){
