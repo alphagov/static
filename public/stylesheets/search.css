@@ -122,10 +122,6 @@
 .search .results.top ul.search-not-found {
   list-style: none;
   padding-left: 0;
-}
-
-.search .results.top ul.search-promoted li,
-.search .results.top ul.search-not-found li {
   background: #FDF6E5;
   border: solid 2px #FFCD17;
   -webkit-border-radius: 0.5em;
@@ -133,15 +129,28 @@
   border-radius: 0.5em;
   line-height: 1.3em;
   padding: 0.25em 1em;
+  margin: 0 0.75em 2em 0;
   text-align: center;
+}
+
+.search .results.top ul.search-promoted li,
+.search .results.top ul.search-not-found li {
 }
 
 .search .results.top ul.search-promoted li p,
 .search .results.top ul.search-not-found li p,
 .search .results.top ul.search-promoted li a,
 .search .results.top ul.search-not-found li a {
-  margin: 0.5em 1em 1em;
   width: auto;
+}
+
+.search .results.top ul.search-promoted h3 a {
+  padding: 0;
+}
+
+.search .results.top ul.search-promoted li a.button {
+  display: inline-block;
+  padding-right: 1.5em;
 }
 
 .search .results.top ul.search-not-found li {
@@ -157,3 +166,6 @@
 .search .results.top ul.search-not-found h3 {
   margin-top: 1.2em;
 }
+
+
+
