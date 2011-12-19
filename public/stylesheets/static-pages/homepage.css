@@ -148,9 +148,12 @@
 .homepage-section .tools-topics ul li a {
 	padding: 0.45em 0 0.45em 2em;
 }
+.homepage-section .sections li a {
+  font-size: 150%;
+}
 
 .ui-autocomplete{
-  width:300px;
+  width: 300px;
 }
 .hint-suggest{
   border: 1px solid #EEEEEE;
