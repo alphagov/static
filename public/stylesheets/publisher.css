@@ -445,7 +445,7 @@ ul.helpers li.offline_steps {
 	z-index: 5;
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
-  overflow: hidden;
+/*  overflow: hidden;*/
 }
 
 #wrapper.programme .programme-progression li {
