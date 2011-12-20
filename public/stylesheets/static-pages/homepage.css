@@ -27,10 +27,10 @@
 .lte-ie8 .home #wrapper section {
   margin-top: 0;
 }
-.js-enabled .home #wrapper section {
+.js-enabled.home #wrapper section {
 	margin: 3.5em auto 0 auto;
 }
-.lte-ie8 .js-enabled .home #wrapper section {
+.lte-ie8 .js-enabled.home #wrapper section {
   margin-top: 4.5em;
 }
 
