@@ -414,6 +414,9 @@ ul.helpers li.offline_steps {
 	padding: 0.5em 1em;
 	position: relative;
 }
+.lte-ie8 #wrapper.programme .programme-switcher ul li a {
+	zoom: 1;
+}
 
 #wrapper.programme .programme-switcher ul li.active a {
 	background: #fff;
@@ -435,12 +438,14 @@ ul.helpers li.offline_steps {
 	background: #EFECE0;
 	border: solid #bbb;
 	border-width: 1px 0 1px 0;
-  overflow: hidden;
 	padding: 0;
 	position: absolute;
 	top: 4.5em;
 	width: 100%;
 	z-index: 5;
+}
+.lte-ie8 #wrapper.programme .programme-progression ol {
+  overflow: hidden;
 }
 
 #wrapper.programme .programme-progression li {
