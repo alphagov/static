@@ -4,6 +4,19 @@ html {
   background: #fff;
 }
 
+/* normal page elements that we don't want to print out */
+body header[role="banner"],
+body footer,
+body #global-user-location,
+body .related-positioning,
+body #wrapper.wrapper hgroup h1,
+body header,
+body .actions, body .meta-data,
+body nav{
+	display:none;
+}
+
+
 a,
 a:link,
 a:visited {
@@ -28,99 +41,9 @@ a[rel="external"] {
 	padding-right: 1em;
 }
 
-article .form-download a {
-  padding-left: 0em;
-}
-article .help-notice,
-article .info-notice {
-  padding: 0.75em !important;
-}
-article .help-notice p,
-article .info-notice p {
-  display: inline-block;
-  vertical-align: top;
-}      
-article ol.steps li {
-  padding-left: 0em;
-}
-article ol.steps li p {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 0.5em;
-  width: 90%;
-}
-article ol.steps li img,
-article .form-download a img,
-article .help-notice img,
-article .info-notice img,
-article .address img {
-  display: inline-block;
-  padding: 0em 0.7em 0 0;
-}                   
-article .address img {
-	float: right;
-}
 
-article .address {
-/*  min-width: 30%;*/
-  padding: 1.5em 1% 1.5em 8%;
-  width: 35%;
-}
 
-/* Some table overrides from core */
-body article td {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: none;
-}
-
-body article td {
-    padding:none;
-}
-
-body article th, 
-body article td {
-    line-height: 1.3em;
-    vertical-align: top;
-}
-body article table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin: 0;
-    padding: 0;
-}
-article table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin: 0;
-    padding: 0;
-}
-/* planner calendars e.g. maternity leave */
-body .planner table{
-  float:left;
-  margin:0 0 0.8em 0;
-  border:2px solid #eee;
-  height: 14em;
-}
-body .planner table th{
-  background-color:#eee;
-}
-body .planner table th,
-body .planner table td{
-  padding:0.3em;
-}
-
-body header[role="banner"],
-body footer,
-body #global-user-location,
-body .related-positioning,
-body .key-dates ul,
-body div.date-planner p,
-body .intro,
-body #wrapper.wrapper hgroup h1,
-body header,
-body .actions, body .meta-data{
-	display:none;
-}
+/* make all the main containers as wide as possible */
 div.article-container {
     background: none transparent;
     border-top: none;
@@ -138,53 +61,11 @@ div.article-container article{
 	margin:0;
 	padding:0;
 }
-body div#wrapper{
+body div#wrapper,
+body article,
+body section{
 	margin:0;
 	padding:0;
 	width:100%;
 	float:none;
-}
-td.key-date-2{
-  color:#d9e7fb;
-}
-
-td.key-date-3{
- 	color:#ffc0cb;
-}
-td.key-date-4{
-  color:#d4c8df;
-}
-
-/* single days, more important */
-td.key-date-1{
-  color:#dfffaf;
-}
-td.key-date-0{
-  color:#5fc0b7;
-}
-td.key-date-5 {
-  color:#ffffcb;
-}
-/* planner calendars e.g. maternity leave */
-div#calendar table{
-	margin-bottom:3.5em;
-	height: 16em;
-}
-
-body section,
-body #wrapper.planner article {
-    margin: 0;
-		padding: 0;
-    width: 100% !important;
-}
-div.date-planner table{
-	margin:0 0.5em 0.5em 0;
-	min-height:15em;
-}
-div.date-planner{
-	overflow:auto;
-
-}
-.key-dates{
-	page-break-after: always;
 }
