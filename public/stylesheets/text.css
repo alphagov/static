@@ -328,6 +328,9 @@ article .address {
 	padding: 2em 15% 2em 15%;
 	min-width: 35%;
 }
+.lte-ie8 article .address {
+  width: 35%;
+}
 
 article ol.places {
   list-style-type: none;
