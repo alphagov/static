@@ -330,6 +330,7 @@ aside .chapters-navigation li a .part-title {
   display: inline-block;
   padding-right: 0.75em;
   vertical-align: middle;
+  margin-right: 2em;
 }
 
 .get-started .button .destination {
@@ -345,12 +346,12 @@ aside .chapters-navigation li a .part-title {
 
 .get-started .button .indicator:after {
   content: "\25ba";
-  display: inline-block;
   font-size: 1.75em;
   font-weight: bold;
-  padding: 0 0 0.15em 0.5em;
-  vertical-align: middle;
-  width: 0.25em;
+  margin-top: -0.5em;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
 }
 .lte-ie8 .get-started .button .indicator:after {
   _content: "&rarr;";
