@@ -254,6 +254,26 @@ aside .chapters-navigation li a .part-title {
 /*
  * Transactions and local transactions styles
  */
+ 
+#wrapper.place .advisory.minor,
+#wrapper.transaction .advisory.minor,
+#wrapper.local_transaction .advisory.minor {
+  background: #ffffcc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+  margin: -2em -3em 1.5em -3em;
+  padding: 0.25em 0;
+}
+
+#wrapper.place .advisory.minor span,
+#wrapper.transaction .advisory.minor span,
+#wrapper.local_transaction .advisory.minor span {
+	font-size: 0.85em;
+}
 
 #wrapper.transaction .continue,
 #wrapper.local_transaction .continue {
@@ -302,6 +322,38 @@ aside .chapters-navigation li a .part-title {
 #wrapper.local_transaction .get-started a[rel="external"] {
 	background: #039 url(/images/button-overlay.png) repeat-x;
 	padding-right: auto;
+}
+
+.get-started .button {
+  position: relative;
+  padding: 0.75em 0.75em;
+}
+
+.get-started .button .button-content {
+  display: inline-block;
+  padding-right: 0.75em;
+  vertical-align: middle;
+}
+
+.get-started .button .destination {
+  display: block;
+  margin: 0.25em 0 0 0;
+}
+
+.get-started .button .call-to-action {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.get-started .button .indicator:after {
+  content: "\25ba";
+  display: inline-block;
+  font-size: 1.75em;
+  font-weight: bold;
+  padding: 0 0 0.15em 0.25em;
+  vertical-align: middle;
+  width: 1em;
 }
 
 /*
