@@ -323,6 +323,7 @@ article .address {
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  display: inline-block;
 	margin: 1em 0;
 	padding: 2em 15% 2em 15%;
 	min-width: 35%;
