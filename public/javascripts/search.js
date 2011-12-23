@@ -47,7 +47,7 @@ $(document).ready(function() {
         $(".hint-suggest").addClass("search-loading");
       }
       $.ajax({
-        url: "/autocomplete?q="+req.term,
+        url: $("#search")[0].action.replace(/search$/, "/autocomplete?q="+req.term),
         dataType: "json",
         cache: true,
         success: function(data) {
