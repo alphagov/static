@@ -15,9 +15,6 @@
   <link href="<%= @asset_host %>/stylesheets/accessibility.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/search.css" rel="stylesheet" type="text/css" />
 
-  <!-- publication formats styling -->
-  <link href="<%= @asset_host %>/stylesheets/publisher.css" rel="stylesheet" type="text/css" />
-
   <!-- something clever needs doing here as we probably don't want to load all these stylesheets globally -->
   <link href="<%= @asset_host %>/stylesheets/static-pages/error-pages.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/static-pages/help-pages.css" rel="stylesheet" type="text/css" />
@@ -45,6 +42,21 @@
 	<![endif]-->
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script id="ga-params" type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26179049-1']);
+  _gaq.push(['_setDomainName', 'alphagov.co.uk']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  </script>
+
+  <script type="text/javascript">
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script> 
 </head>
 <body>
 
@@ -52,7 +64,7 @@
 
   <header role="banner" class="group" id="global-header">
 		<div class="header-global group">
-	    <h1><a href="/" title="return to the gov.uk homepage">gov.uk</a></h1>
+	    <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
 			<nav role="navigation">
 				<ul>
 					<li><a href="#" class="customisation-settings">Settings</a></li>
@@ -62,7 +74,7 @@
 		</div>
 		<div class="header-context citizen group">
 			<div class="search-help">
-				<form class="site-search" action="/search" method="get" role="search">
+				<form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
 			    <fieldset><legend class="visuallyhidden">Site search for www.gov.uk</legend>
    				<label for="site-search-text" class="visuallyhidden">
  						<span>Search</span>
@@ -73,7 +85,7 @@
 			</div>
 			<nav role="navigation" class="group">
 				<ol>
-					<li class="current-context"><a href="/">Home</a></li>
+					<li class="current-context"><a href="/homepage">Home</a></li>
 				</ol>
 			</nav>
     </div>
@@ -153,22 +165,6 @@
 	      </div>
 
 	    </div>
-
-      <script id="ga-params" type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-26179049-1']);
-        _gaq.push(['_setDomainName', 'alphagov.co.uk']);
-        _gaq.push(['_setAllowLinker', true]);
-        _gaq.push(['_trackPageview']);
-      </script>
-
-      <script type="text/javascript">
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      </script> 
 
 </body>
 </html>
