@@ -93,25 +93,36 @@
   content:url("/images/icon-smartanswer-s.png");
 }*/
 
-.search .results.top li ul {
-  list-style-type: square;
-  list-style-position: inside;
-/*  line-height: 1;*/
-  margin: 0 0 0.875em;
-  padding: 0;
-}
-
-.search .results.top li li {
-  font-size: 0.85em;
-}
-
 /*.search .results.more ol li small {
   display: block;
   line-height: 2em;
   margin-bottom: 0;
 }*/
+
+.search .results.more ol li {
+  border-bottom:dotted 1px #ccc;
+}
+
+.search .results.more ol li a {
+  font-size:1.5em;
+  font-weight:bold;
+}
 .search .results.more ol li p {
   margin-top: 0.25em;
+}
+
+.search .results.more ol li .search-parts {
+  font-size:0.6em;
+  margin:0;
+  padding:0 0 2em 0;
+}
+
+.search .results.more ol li .search-parts li {
+  border-bottom:none;
+}
+
+.search .results.more ol li .search-parts li a {
+  font-weight:normal;
 }
 
 .search .results.top .transaction-link {
