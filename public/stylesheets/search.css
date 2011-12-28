@@ -21,7 +21,13 @@
 
 .search .results.top {
   border-top: solid 0.063em #bbb;
-  padding-top: 1em;
+  padding: 0.5em 0;
+  font-size:0.9em;
+  background:#eee;
+}
+
+.search .results.top h2 {
+  padding-left:2em;
 }
 
 .search .results.top ol {
@@ -134,11 +140,11 @@
 }
 
 .search .results.top ul.search-promoted {
-  
+  list-style-type:none;
 }
-
+ 
 .search .results.top ul.search-promoted h3 a {
-  padding: 0;
+  padding: 0 0 0 2em;
 }
 
 .search .results.top ul.search-promoted li a.button {
