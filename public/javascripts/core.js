@@ -46,9 +46,9 @@ var Alphagov = {
   }
 }
 
-function recordOutboundLink(link, category, action) {
-  _gat._getTrackerByName()._trackEvent(category, action);
-  setTimeout('document.location = "' + link.href + '"', 100);
+function recordOutboundLink(e) {
+  _gat._getTrackerByName()._trackEvent(this.href, 'Outbound Links');
+  setTimeout('document.location = "' + this.href + '"', 100);
   return false;
 }
 
