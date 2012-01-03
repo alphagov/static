@@ -6,7 +6,11 @@ section#content.ancillary {
 }
 
 #wrapper .ancillary header {
-	margin: 0 0 2.25em 0;
+  background: #BA5200;
+  color: #fff;
+/*  margin: 0 0 2.25em 0;*/
+	margin: -1em -1em 1.25em -1em;
+	padding: 1em;
 }
 #wrapper .ancillary.section-page header {
 	margin: 0;
@@ -124,6 +128,10 @@ section#content.ancillary {
 
 .ancillary article section {
   margin: 0 0 2.5em 0;
+}
+
+.ancillary article h1:first-child {
+  margin-top: 0;
 }
 
 .ancillary article dt {
