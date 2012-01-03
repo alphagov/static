@@ -1,6 +1,6 @@
 section#content.ancillary {
 	background-color: #fff;
-	padding: 1em;
+/*  padding: 1em;*/
 /*  width: 95%;*/
   width: auto;
 }
@@ -9,7 +9,7 @@ section#content.ancillary {
   background: #BA5200;
   color: #fff;
 /*  margin: 0 0 2.25em 0;*/
-	margin: -1em -1em 1.25em -1em;
+	margin: 0 0 1.25em 0;
 	padding: 1em;
 }
 #wrapper .ancillary.section-page header {
@@ -99,9 +99,8 @@ section#content.ancillary {
 
 .ancillary .menu {
   float: left;
-/*  margin: 0 0 0 0;*/
-  padding: 0 2em 0 0;
-	width: 10em;
+  margin: 0 0 0 1em;
+	width: 11em;
 }
 
 .ancillary .menu ul {
@@ -120,9 +119,9 @@ section#content.ancillary {
 	-moz-box-shadow: none;
 	box-shadow: none;
 	float: none;
-  margin: 1em 0 0 12em;
+  margin: 1em 0 0 14em;
 	min-height: 0;
-  padding: 0 1em 1em 2em;
+  padding: 0 2em 1em 0;
 	width: auto;
 }
 
