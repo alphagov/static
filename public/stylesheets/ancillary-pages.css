@@ -136,3 +136,7 @@ section#content.ancillary {
 .ancillary article dt {
   font-size: 1em;
 }
+
+.ancillary article dd {
+  margin-left: 0;
+}
