@@ -136,15 +136,15 @@ body.government #global-header .header-context {
   margin-right: 2%;
   white-space: nowrap
 }
-#global-header .header-context.government nav {
+body.government #global-header .header-context nav {
   font-weight: bold;
   text-decoration: none;
 }
 
-#global-header .header-context.government nav a {
+body.government #global-header .header-context nav a {
   color: #777;
 }
-#global-header .header-context.government nav a:hover {
+body.government #global-header .header-context nav a:hover {
   color: #9a9b00
 }
 
