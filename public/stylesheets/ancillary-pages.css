@@ -1,14 +1,11 @@
 section#content.ancillary {
 	background-color: #fff;
-/*  padding: 1em;*/
-/*  width: 95%;*/
   width: auto;
 }
 
 #wrapper .ancillary header {
-  background: #BA5200;
+  background: #666;
   color: #fff;
-/*  margin: 0 0 2.25em 0;*/
 	margin: 0 0 1.25em 0;
 	padding: 1em;
 }
@@ -27,7 +24,7 @@ section#content.ancillary {
 	padding: 0;
 }
 
-.ancillary header h1 {
+.ancillary header {
   margin-bottom: 0.75em;
 }
 
@@ -53,7 +50,6 @@ section#content.ancillary {
   display: block;
   margin-left: -2em;
   padding: 0.125em 0 0.125em 2em;
-/*  padding-left: 2em;*/
 }
 
 .results li small {
@@ -65,33 +61,36 @@ section#content.ancillary {
 
 /* section page layout */
 
-.section-page .results,
-.sections-list {
+.browse-sections {
   border-top: solid 1px #bbb;
+  padding: 1em;
 }
 
-.section-page .results ol li {
-/*  margin: 0 0 1em 0;*/
+.browse-sections .results ol li {
   margin: 0 10% 0.5em 0;
   padding: 0.25em 0;
   min-height: 3em;
-/*  width: 50%;*/
   width: 40%;
   float: left;
 }
-.section-page .results ol li:nth-child(odd) {
+.browse-sections .results ol li:nth-child(odd) {
   margin-right: 20%;
 }
-.section-page .results ol li:nth-child(even) {
+.browse-sections .results ol li:nth-child(even) {
   margin-right: 0;
 }
 
-.sections-list dt {
+.browse-sections ol,
+.browse-sections dl {
+  margin: 0;
+}
+
+.browse-sections dt {
   font-size: 1.25em;
   margin-bottom: 0.25em;
 }
 
-.sections-list dd {
+.browse-sections dd {
   margin: 0 0 0.75em 0;
 }
 
