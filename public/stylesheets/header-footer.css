@@ -108,12 +108,12 @@
 	border-bottom: solid 1px #ddd;
 }
 
-#global-header .header-context.citizen {
+body.citizen #global-header .header-context {
   border-color: #ED6900;
   border-bottom-color: #ba5200;
 }
 
-#global-header .header-context.government {
+body.government #global-header .header-context {
   border-color: #cdce00;
   border-bottom-color: #9a9b00
 }
@@ -171,18 +171,18 @@
   border-top: solid 4px #ddd;
 }
 
-#global-header .header-context.citizen {
+body.citizen #global-header .header-context {
   border-color: #ED6900;
   border-bottom-color: #ba5200;
 }
 
-#global-header .header-context.government {
+body.government #global-header .header-context {
   border-color: #cdce00;
   border-bottom-color: #9a9b00
 }
 
 @media only screen and (min-width: 600px) {
-  #global-header .header-context.government nav {
+  body.government #global-header .header-context nav {
     width: 79.5%;
   }
 }
@@ -320,11 +320,11 @@ form.site-search {
     padding: 0.25em 0.5em 0 0.5em
   }
 
-  .header-context.citizen .search-help {
+  body.citizen .header-context .search-help {
     border-color: #ED6900
   }
 
-  .header-context.government .search-help {
+  body.government .header-context .search-help {
     border-color: #cdce00
   }
 }
@@ -344,11 +344,11 @@ form.site-search {
   width: 12.5em;
 }
 
-.lte-ie8 .header-context.citizen .search-help {
+.lte-ie8 body.citizen .header-context .search-help {
   border-color: #ED6900
 }
 
-.lte-ie8 .header-context.government .search-help {
+.lte-ie8 body.government .header-context .search-help {
   border-color: #cdce00
 }
 
