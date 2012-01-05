@@ -344,17 +344,12 @@ aside .chapters-navigation li a .part-title {
   font-weight: bold;
 }
 
-.get-started .button .indicator:after {
-  content: "\25ba";
+#wrapper.transaction .get-started .button .indicator:after {
   font-size: 1.75em;
-  font-weight: bold;
   margin-top: -0.5em;
   position: absolute;
   right: 0.5em;
   top: 50%;
-}
-.lte-ie8 .get-started .button .indicator:after {
-  _content: "&rarr;";
 }
 
 /*

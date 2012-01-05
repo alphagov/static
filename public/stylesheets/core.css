@@ -942,6 +942,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	padding: 0.65em 0.5em;
 }
 
+.button .indicator:after {
+  content: "\25ba";
+  font-weight: bold;
+  margin-left: 0.25em;
+}
+.lte-ie8 .button .indicator:after {
+  _content: "&rarr;";
+}
+
 input[disabled="disabled"] {
 	opacity: 0.5;
 }
