@@ -166,7 +166,7 @@ a[rel="external"]:after {
 #global-locator-form label,
 #global-locator-form .ask_location{
 	display: inline;
-}                                  
+}
 #global-locator-form .ask_location.hidden { display: none; }
 
 
@@ -275,6 +275,7 @@ a[rel="external"]:after {
 
 .related li.related-topic a {
 	color: inherit;
+	padding-left: 0;
 }
 
 .related li.related-topic span.arrow {
@@ -383,7 +384,7 @@ article .inner {
 .print-link {
   float: left;
 }
-   
+
 .print-link a, .print-link a:link, .print-link a:visited {
 	background: url(/images/print.png) no-repeat left center;
 	display: inline-block;
@@ -399,7 +400,7 @@ article .inner {
 /*  padding: 1em 0 1em 0;*/
 }
 
-.data-reuse p, 
+.data-reuse p,
 .meta-data ul.api-links,
 .meta-data .api-links li {
 	display: inline-block;
