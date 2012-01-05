@@ -3,8 +3,7 @@ $(function(){
 	$('#wrapper').tabs();
 	
 	/* step link prompts */
-	
-	$(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+
 	/* get all the sections */
 	var sections = $(".tabs-panel"),
 		i = sections.length,
@@ -42,7 +41,9 @@ $(function(){
 			$("#"+navid).append(ul);
 			
 			$(".part-pagination a").live("click", function(){
-			  $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+			  if($(window.location.hash+"-enhanced").length != 0){
+			    $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+		    }
 			});
 		}
 	}
