@@ -443,7 +443,7 @@ article .inner {
   left: 0;
   padding: 0.5em;
   position: relative;
-  top: -2px;
+  top: 0;
   width: 163px;
   color:#666;
   font-size:0.95em;
@@ -451,7 +451,8 @@ article .inner {
 
 .search-loading{
   background: url(/images/ajax-loader.gif) no-repeat 4px 50% #fff;
-  padding-left:25px;
+  padding-left:30px;
+  width: 133px;
 }
 #main_autocomplete {
 	color: inherit;

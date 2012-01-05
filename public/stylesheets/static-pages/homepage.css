@@ -164,10 +164,11 @@
   left: 0;
   padding: 0.5em;
   position: relative;
-  top: 0px;
-  width: 342px;
+  top: 0;
+  width: 314px;
   color:#666;
 }
-.search-loading{
+.search-loading {
+  width: 284px;
   padding-left:30px;
 }
