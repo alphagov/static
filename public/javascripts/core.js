@@ -44,14 +44,19 @@ var Alphagov = {
     
     return result;
   }
-  
-  
+}
+
+function recordOutboundLink(e) {
+  _gat._getTrackerByName()._trackEvent(this.href, 'Outbound Links');
+  setTimeout('document.location = "' + this.href + '"', 100);
+  return false;
 }
 
 //General page setup
 jQuery(document).ready(function() {
 
-    
+  $('a').click(recordOutboundLink);
+
   //Setup annotator links 
   $('a.annotation').each(function(index) {
     $(this).linkAnnotator();
@@ -62,10 +67,10 @@ jQuery(document).ready(function() {
     $('#feedback-router').show();
     return false;
   });
+
   $('a.close').click(function () {
     $(this).closest('.popover-mask').hide();
   });
-
 
 });*/
 

@@ -24,6 +24,7 @@
   <script src="<%= @asset_host %>/javascripts/libs/jquery/jquery-ui-1.8.16.custom.min.js" defer="defer"></script>
   <script src="<%= @asset_host %>/javascripts/libs/jquery/plugins/jquery.base64.js" defer="defer"></script>
   <script src="<%= @asset_host %>/javascripts/libs/jquery/plugins/jquery.mustache.js" defer></script>
+  <script src="<%= @asset_host %>/javascripts/core.js"></script>
   <script src="<%= @asset_host %>/javascripts/search.js" defer="defer"></script>
   <script src="<%= @asset_host %>/javascripts/devolution.js" defer="defer"></script>
   <script src="<%= @asset_host %>/javascripts/popup.js" defer="defer"></script>
@@ -37,6 +38,19 @@
   <![endif]-->
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26179049-1']);
+  _gaq.push(['_setDomainName', 'alphagov.co.uk']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
 </head>
 <body class="home">
 
@@ -44,11 +58,12 @@
 
   <header role="banner" class="group" id="global-header">
     <div class="header-global group">
-      <h1><a href="/" title="return to the gov.uk homepage">gov.uk</a></h1>
+      <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
       <nav role="navigation">
         <ul>
           <li><a href="#" class="customisation-settings">Settings</a></li>
           <li><a href="/help">Help</a></li>
+          <li><a href="#">Feedback</a></li>
         </ul>
       </nav>
     </div>
@@ -58,15 +73,40 @@
   </div><!--end wrapper-->
 
   <footer class="group" id="footer">
-    <div class="inner group" role="contentinfo">
-      <div class="subsection copyright">
-        <p>© 2011 Crown Copyright</p>
-        <p id="reuse-license">
-        Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a>
-        </p>
-        <p id="cookie-declaration">This site uses cookies. We have published <a href="/cookies">a list and further information</a>.</p>
-        <p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a</p>
+		<div class="sub-section beta-notice">
+		  <h1>This website is a beta</h1>
+		  <p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a></p>
+		</div>
+		<div class="inner group" role="contentinfo">
+		  <div class="sub-section">
+      	<p>&copy; Crown Copyright</p>
+		  </div>
+			<div class="sub-section help">
+			  <h1>Help</h1>
+			  <ul>
+			   <li><a href="/help">About the pages and tools you’ll find</a></li>
+			   <li><a href="/help/searching">Searching</a></li>
+			   <li><a href="/help/contact">Contact us</a></li>
+			   <li><a href="/help/accessibility">Accessibility and help using the internet</a></li>
+			   <li><a href="/help/terms">Terms and conditions</a></li>
+			   <li><a href="/help/cookies">Cookies</a></li>
+			   <li><a href="/help/feedback">Feedback</a></li>
+			  </ul>
+			</div>
+			<div class="sub-section platform">
+			  <h1>Technical</h1>
+			  <ul>
+			   <li><a href="/platform">About our platform</a></li>
+			   <li><a href="/platform/api">API</a></li>
+			   <li><a href="/platform/licensing">Licensing</a></li>
+			   <li><a href="/platform/code">Code</a></li>
+			  </ul>
       </div>
+			<div class="sub-section colophon">
+      	<p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
+      	<p>This website uses cookies. We have published <a href="/cookies">a list and further information</a></p>
+      	<p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
+			</div>
     </div>
   </footer><!--end footer-->
 
@@ -118,20 +158,5 @@
         </div>
 
       </div>
-
-      <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-26179049-1']);
-        _gaq.push(['_setDomainName', 'alphagov.co.uk']);
-        _gaq.push(['_setAllowLinker', true]);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      </script>
-
 </body>
 </html>

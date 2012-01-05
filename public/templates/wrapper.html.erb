@@ -15,9 +15,6 @@
   <link href="<%= @asset_host %>/stylesheets/accessibility.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/search.css" rel="stylesheet" type="text/css" />
 
-  <!-- publication formats styling -->
-  <link href="<%= @asset_host %>/stylesheets/publisher.css" rel="stylesheet" type="text/css" />
-
   <!-- something clever needs doing here as we probably don't want to load all these stylesheets globally -->
   <link href="<%= @asset_host %>/stylesheets/static-pages/error-pages.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/static-pages/help-pages.css" rel="stylesheet" type="text/css" />
@@ -45,6 +42,21 @@
 	<![endif]-->
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script id="ga-params" type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26179049-1']);
+  _gaq.push(['_setDomainName', 'alphagov.co.uk']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  </script>
+
+  <script type="text/javascript">
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script> 
 </head>
 <body>
 
@@ -52,17 +64,18 @@
 
   <header role="banner" class="group" id="global-header">
 		<div class="header-global group">
-	    <h1><a href="/" title="return to the gov.uk homepage">gov.uk</a></h1>
+	    <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
 			<nav role="navigation">
 				<ul>
 					<li><a href="#" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
+          <li><a href="#">Feedback</a></li>
 				</ul>
 			</nav>
 		</div>
-		<div class="header-context citizen group">
+		<div class="header-context group">
 			<div class="search-help">
-				<form class="site-search" action="/search" method="get" role="search">
+				<form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
 			    <fieldset><legend class="visuallyhidden">Site search for www.gov.uk</legend>
    				<label for="site-search-text" class="visuallyhidden">
  						<span>Search</span>
@@ -73,7 +86,7 @@
 			</div>
 			<nav role="navigation" class="group">
 				<ol>
-					<li class="current-context"><a href="/">Home</a></li>
+					<li class="current-context"><a href="/homepage">Home</a></li>
 				</ol>
 			</nav>
     </div>
@@ -83,16 +96,42 @@
   </div><!--end wrapper-->
 
 	<footer class="group" id="footer">
+		<div class="sub-section beta-notice">
+		  <h1>This website is a beta</h1>
+		  <p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a></p>
+		</div>
 		<div class="inner group" role="contentinfo">
-			<div class="subsection copyright">
-      	<p>© 2011 Crown Copyright</p>
-      	<p id="reuse-license">
-        Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a>
-      	</p>
-      	<p id="cookie-declaration">This site uses cookies. We have published <a href="/cookies">a list and further information</a>.</p>
-				<p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a</p>
+		  <div class="sub-section">
+      	<p>&copy; Crown Copyright</p>
+		  </div>
+			<div class="sub-section help">
+			  <h1>Help</h1>
+			  <ul>
+			   <li><a href="/help">About the pages and tools you’ll find</a></li>
+			   <li><a href="/help/searching">Searching</a></li>
+			   <li><a href="/help/contact">Contact us</a></li>
+			   <li><a href="/help/accessibility">Accessibility and help using the internet</a></li>
+			   <li><a href="/help/terms">Terms and conditions</a></li>
+			   <li><a href="/help/cookies">Cookies</a></li>
+			   <li><a href="/help/feedback">Feedback</a></li>
+			  </ul>
+			</div>
+			<div class="sub-section platform">
+			  <h1>Technical</h1>
+			  <ul>
+			   <li><a href="/platform">About our platform</a></li>
+			   <li><a href="/platform/api">API</a></li>
+			   <li><a href="/platform/licensing">Licensing</a></li>
+			   <li><a href="/platform/code">Code</a></li>
+			  </ul>
+      </div>
+			<div class="sub-section colophon">
+      	<p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
+      	<p>This website uses cookies. We have published <a href="/cookies">a list and further information</a></p>
+      	<p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
 			</div>
     </div>
+    
     <div id='feedback-popup'>
       <h2>Help improve gov.uk</h2>
       <form>
@@ -100,8 +139,8 @@
         <div id="feedback-options"></div>
         <div id='feedback-mechanism'></div>
       </form>
-
     </div>
+    
   </footer><!--end footer-->
 
 
@@ -113,7 +152,7 @@
 	          <h2>Settings</h2>
 
             <p>We&rsquo;ve worked hard to make our website as easy-to-use and understand as possible for every visitor, regardless of ability or disability.</p>
-            <p>We have also added an additional way to view the site for dyslexic users or those who find words difficult, and we will be looking into adding more in the upcoming months.</p>
+            <p>We have also added an additional way to view the website for dyslexic users or those who find words difficult, and we will be looking into adding more in the upcoming months.</p>
 
             <h3>Change the theme</h3>
             <ul class="personalise-options">
@@ -153,22 +192,6 @@
 	      </div>
 
 	    </div>
-
-      <script id="ga-params" type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-26179049-1']);
-        _gaq.push(['_setDomainName', 'alphagov.co.uk']);
-        _gaq.push(['_setAllowLinker', true]);
-        _gaq.push(['_trackPageview']);
-      </script>
-
-      <script type="text/javascript">
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      </script> 
 
 </body>
 </html>

@@ -5,17 +5,24 @@ html {
 }
 
 /* normal page elements that we don't want to print out */
-body header[role="banner"],
+body header#global-header,
 body footer,
 body #global-user-location,
 body .related-positioning,
 body #wrapper.wrapper hgroup h1,
-body header,
 body .actions, body .meta-data,
 body nav{
 	display:none;
 }
 
+body #wrapper header.page-header hgroup h1 {
+  border-bottom: solid 1px #333;
+  padding-bottom: 0.25em;
+}
+
+body #wrapper header.page-header hgroup h1 span {
+  color: #333;
+}
 
 a,
 a:link,
@@ -40,8 +47,6 @@ a[rel="external"] {
   margin-right: 0.25em;
 	padding-right: 1em;
 }
-
-
 
 /* make all the main containers as wide as possible */
 div.article-container {
@@ -68,4 +73,20 @@ body section{
 	padding:0;
 	width:100%;
 	float:none;
+}
+
+/*
+  text reformatting
+*/
+
+body #wrapper article .summary p:before,
+body #wrapper article .summary h2:before {
+  content: url(/images/summary-arrow.png);
+  padding: 0;
+}
+
+article .summary p, article .summary h2 {
+	margin: 0 0.75em 1.25em 0;
+	min-height: 1.75em;
+	padding: 0.25em 0 0 1.5em;
 }

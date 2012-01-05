@@ -47,7 +47,7 @@ $(document).ready(function() {
         $(".hint-suggest").addClass("search-loading");
       }
       $.ajax({
-        url: "/autocomplete?q="+req.term,
+        url: $("#search")[0].action.replace(/search$/, "autocomplete?q="+req.term),
         dataType: "json",
         cache: true,
         success: function(data) {
@@ -73,7 +73,8 @@ $(document).ready(function() {
       }
       // quickly add the search value to end of list
       var searchVal = $(".ui-autocomplete-input").attr("value");
-      $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='/search?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
+      var searchUrl = $("#search")[0].action;
+      $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='"+searchUrl+"?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
 
     }
   });

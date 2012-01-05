@@ -1,12 +1,13 @@
 section#content.ancillary {
 	background-color: #fff;
-	padding: 1em;
-/*  width: 95%;*/
   width: auto;
 }
 
 #wrapper .ancillary header {
-	margin: 0 0 2.25em 0;
+  background: #666;
+  color: #fff;
+	margin: 0 0 1.25em 0;
+	padding: 1em;
 }
 #wrapper .ancillary.section-page header {
 	margin: 0;
@@ -23,7 +24,7 @@ section#content.ancillary {
 	padding: 0;
 }
 
-.ancillary header h1 {
+.ancillary header {
   margin-bottom: 0.75em;
 }
 
@@ -49,7 +50,6 @@ section#content.ancillary {
   display: block;
   margin-left: -2em;
   padding: 0.125em 0 0.125em 2em;
-/*  padding-left: 2em;*/
 }
 
 .results li small {
@@ -61,33 +61,36 @@ section#content.ancillary {
 
 /* section page layout */
 
-.section-page .results,
-.sections-list {
+.browse-sections {
   border-top: solid 1px #bbb;
+  padding: 1em;
 }
 
-.section-page .results ol li {
-/*  margin: 0 0 1em 0;*/
+.browse-sections .results ol li {
   margin: 0 10% 0.5em 0;
   padding: 0.25em 0;
   min-height: 3em;
-/*  width: 50%;*/
   width: 40%;
   float: left;
 }
-.section-page .results ol li:nth-child(odd) {
+.browse-sections .results ol li:nth-child(odd) {
   margin-right: 20%;
 }
-.section-page .results ol li:nth-child(even) {
+.browse-sections .results ol li:nth-child(even) {
   margin-right: 0;
 }
 
-.sections-list dt {
+.browse-sections ol,
+.browse-sections dl {
+  margin: 0;
+}
+
+.browse-sections dt {
   font-size: 1.25em;
   margin-bottom: 0.25em;
 }
 
-.sections-list dd {
+.browse-sections dd {
   margin: 0 0 0.75em 0;
 }
 
@@ -95,9 +98,8 @@ section#content.ancillary {
 
 .ancillary .menu {
   float: left;
-/*  margin: 0 0 0 0;*/
-  padding: 0 2em 0 0;
-	width: 10em;
+  margin: 0 0 0 1em;
+	width: 11em;
 }
 
 .ancillary .menu ul {
@@ -116,9 +118,9 @@ section#content.ancillary {
 	-moz-box-shadow: none;
 	box-shadow: none;
 	float: none;
-  margin: 1em 0 0 12em;
+  margin: 1em 0 0 14em;
 	min-height: 0;
-  padding: 0 1em 1em 2em;
+  padding: 0 2em 1em 0;
 	width: auto;
 }
 
@@ -126,6 +128,14 @@ section#content.ancillary {
   margin: 0 0 2.5em 0;
 }
 
+.ancillary article h1:first-child {
+  margin-top: 0;
+}
+
 .ancillary article dt {
   font-size: 1em;
+}
+
+.ancillary article dd {
+  margin-left: 0;
 }
