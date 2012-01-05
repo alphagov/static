@@ -318,7 +318,7 @@ var AlphaGeo = {
 	        $.post(this.action, {"postcode": locator_box.find('#postcode_box').val()}, dispatch_location, 'json');
 	      }
 	      show_ui(locating_ui);
-	      return false;
+	      // return false;
 	    });
 	  
 
@@ -490,5 +490,5 @@ $(document).ready(function() {
       show_known_location(data.current_location);
     });
 		
-    $("#global-locator-form").attr('action', '/locator.json');
+    //$("#global-locator-form").attr('action', '/locator.json');
   });
