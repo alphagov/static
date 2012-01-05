@@ -4,6 +4,7 @@ $(function(){
 	
 	/* step link prompts */
 	
+	$(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
 	/* get all the sections */
 	var sections = $(".tabs-panel"),
 		i = sections.length,
@@ -39,6 +40,10 @@ $(function(){
 
 			$(sections[i]).find(".inner").append(nav);
 			$("#"+navid).append(ul);
+			
+			$(".part-pagination a").live("click", function(){
+			  $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+			});
 		}
 	}
 	

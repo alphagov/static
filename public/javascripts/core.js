@@ -1,4 +1,4 @@
-//Reusable functions
+/*//Reusable functions
 var Alphagov = {
   cookie_domain: function() {
     var host_parts = document.location.host.split(':')[0].split('.').slice(-3);
@@ -71,5 +71,31 @@ jQuery(document).ready(function() {
   $('a.close').click(function () {
     $(this).closest('.popover-mask').hide();
   });
+
+});*/
+
+$(document).ready(function() {
+  if(window.location.hash) {
+    contentNudge(window.location.hash);
+  } 
+
+  $("nav").delegate('a', 'click', function(){
+    if($(this).attr('href').charAt(0) === '#'){
+      contentNudge($(this).attr('href'));
+    } 
+  });
+  
+
+  
+  function contentNudge(hash){
+    if($(hash).length == 1){
+      if($(hash).css("top") == "auto" || "0"){
+        $(window).scrollTop( $(hash).offset().top - $("#global-header").height()  );
+      }
+    }
+  }
+  
+  
 });
+
 
