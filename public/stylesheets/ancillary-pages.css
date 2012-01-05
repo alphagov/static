@@ -30,29 +30,29 @@ section#content.ancillary {
 
 /* used for search results and link lists on section pages */
 
-.results ol {
+.ancillary .results ol {
   list-style: none;
   margin: 1em 0;
 }
 
-.results ol>li {
+.ancillary .results ol>li {
   margin-bottom: 1.25em;
   padding-top: 0.25em;
   position: relative;
 }
 
-.results li p {
+.ancillary .results li p {
   font-size: 0.85em;
   width: 50%;
 }
 
-.results li a {
+.ancillary .results li a {
   display: block;
   margin-left: -2em;
   padding: 0.125em 0 0.125em 2em;
 }
 
-.results li small {
+.ancillary .results li small {
   color: #007E09;
   display: block;
   line-height: 1.25em;
