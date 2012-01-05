@@ -1,4 +1,4 @@
-/*//Reusable functions
+//Reusable functions
 var Alphagov = {
   cookie_domain: function() {
     var host_parts = document.location.host.split(':')[0].split('.').slice(-3);
@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
     $(this).closest('.popover-mask').hide();
   });
 
-});*/
+});
 
 $(document).ready(function() {
   if(window.location.hash) {
