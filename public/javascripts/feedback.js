@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	$("body").addClass("js-enabled");
 	var selects = "<select id='feedback-type'>"+
 	  "<option selected>Select feedback:</option>"+
 	  "<option id='policy'>I disagree with a Government policy relating to this subject</option>"+
@@ -9,8 +8,8 @@ $(document).ready(function() {
 	  "<option id='error'>I received an error or the page isn't working properly</option>"+
 	  "</select>";
 	
-	var html = "<div id='feedback-cta' class='left'><h2>Did you find what you're looking for?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /></form></div>";
-	var delay = 6000;
+	var html = "<div id='feedback-cta' class='left'><h2>Helpful?</h2><p><a href='#' title='Close'>x</a></p<form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /></form></div>";
+	var delay = 6000; 
 	$("#feedback-options").append(selects);
 	var popupContents = $("#feedback-popup").html();
 	$("body").append(html);
@@ -19,6 +18,7 @@ $(document).ready(function() {
 	  _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Yes']);
 	  $("#feedback-cta").html("<h2>Thanks for letting us know</h2>");
 	  $("#feedback-cta").delay(1500).fadeOut('slow');
+	  // set cookie to dismiss it for good
 	})
   $("#cta-no").click(function(){
     _gaq.push(['_trackEvent', 'Citizen-Feedback', "No"]);

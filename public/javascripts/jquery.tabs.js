@@ -83,7 +83,8 @@ jQuery.fn.tabs = function(settings){
 				//unselect  panels
 				tabsBody.find('article.tabs-panel-selected').attr('aria-hidden',true).removeClass('tabs-panel-selected');
 				//select active panel
-				$( tab.attr('href') + tabIDsuffix ).addClass('tabs-panel-selected').attr('aria-hidden',false);
+				var anchor = tab.attr('href').split("#")[1];
+				$( "#" + anchor + tabIDsuffix ).addClass('tabs-panel-selected').attr('aria-hidden',false);
 
 			}
 		};			
