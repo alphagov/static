@@ -29,7 +29,7 @@ $(function(){
 		if(sectionTitle != undefined){
 			sectionTitle = sectionTitle.toLowerCase();
 			id = id.split("-enhanced")[0];
-			var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+" &rarr;<span class='progressor'></span></a></li>");
+			var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+"<span class='progressor'></span></a></li>");
 			if(i == 2){
 				$(ul).append(next)
 			}
