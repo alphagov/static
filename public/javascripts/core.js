@@ -68,10 +68,16 @@ $(document).ready(function() {
   } 
 
   $("nav").delegate('a', 'click', function(){
-    if($(this).attr('href').charAt(0) === '#'){
-      var hash = $(this).attr('href');
-      $("html, body").animate({scrollTop: $(hash).offset().top - 85},10);
+    var hash;
+    var href = $(this).attr('href')
+    if(href.charAt(0) === '#'){
+      hash = href; 
     } 
+    else if(href.indexOf("#") > 0){
+      hash = "#" + href.split("#")[1];
+    }
+    $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+    return false
   });
   
 
