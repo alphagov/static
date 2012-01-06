@@ -10,7 +10,6 @@ var AlphaGeo = {
 
 	initialize: function() {
 		// look for cookie
-		window.console.log('Looking for `geo` cookie.');
 		var cookie = AlphaGeo.read_and_parse_json_cookie('geo');
 		if (cookie.current_location) {
 			AlphaGeo.location = { lat: cookie.current_location.lat, lon: cookie.current_location.lon };
@@ -18,23 +17,14 @@ var AlphaGeo = {
 		}
 
 		if (AlphaGeo.location) {
-			window.console.log('AlphaGeo.location is present.');
-			window.console.dir(AlphaGeo.location);
 			// get full location
 			if (AlphaGeo.full_location) {
-				window.console.log('AlphaGeo.full_location is present.');
-				window.console.dir(AlphaGeo.full_location);
 				$(AlphaGeo).trigger('location-completed', AlphaGeo.full_location);
 			} else {
-				window.console.log('AlphaGeo.full_location is not present.');
 				AlphaGeo.lookup_full_location( function() {
-					window.console.log('AlphaGeo.full_location has been found.');
-					window.console.dir(AlphaGeo.full_location);
 					$(AlphaGeo).trigger('location-completed', AlphaGeo.full_location);	
 				});	
 			}
-		} else {
-			window.console.log('No location cookie found.');
 		}
 
 		$(AlphaGeo).bind('location-completed', function(e, location){
@@ -82,10 +72,8 @@ var AlphaGeo = {
 	},
 
 	browser_geolocate: function() {
-		window.console.info("Geolocation started");
 		navigator.geolocation.getCurrentPosition(
       function(position) {
-      	window.console.info("Geolocation finished");
       	coordinates = {lat: position.coords.latitude, lon: position.coords.longitude};
         $(AlphaGeo).trigger('geolocation-completed', coordinates);
       },
@@ -96,11 +84,8 @@ var AlphaGeo = {
 	},
 
 	save_location_to_cookie: function() {
-		window.console.dir(AlphaGeo.full_location);
 		var cookie = $.base64Encode(JSON.stringify(AlphaGeo.full_location));
-		window.console.dir(cookie);
 		Alphagov.write_cookie('geo', cookie);		
-		window.console.log("Saved to cookie.");
 	},
 
 	remove: function() {
@@ -138,7 +123,6 @@ var AlphaGeoForm = function(selector) {
 		});
 
 	  $(AlphaGeo).bind("geolocation-failed", function() {
-			window.console.info("Geolocation failed.");
 	  	show_ui(ask_ui);
 		});
 	}
@@ -164,13 +148,6 @@ var AlphaGeoForm = function(selector) {
   });
 
 }
-
-/** Logging **/
-$(AlphaGeo).bind("location-completed", function() {
-	window.console.info("Location completed");
-	window.console.dir(AlphaGeo.location);
-	window.console.dir(AlphaGeo.full_location);
-});
 
 $(document).ready( function() {
 	AlphaGeo.initialize();
