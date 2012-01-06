@@ -84,7 +84,7 @@ $(document).ready(function() {
   $("nav").delegate('a', 'click', function(){
     if($(this).attr('href').charAt(0) === '#'){
       var hash = $(this).attr('href');
-      $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},1);
+      $("html, body").animate({scrollTop: $(hash).offset().top - 85},10);
     } 
   });
   
