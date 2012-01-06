@@ -69,7 +69,7 @@ $(document).ready(function() {
 
   $("nav").delegate('a', 'click', function(){
     var hash;
-    var href = $(this).attr('href')
+    var href = $(this).attr('href');
     if(href.charAt(0) === '#'){
       hash = href; 
     } 
@@ -77,7 +77,6 @@ $(document).ready(function() {
       hash = "#" + href.split("#")[1];
     }
     $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
-    return false
   });
   
 
