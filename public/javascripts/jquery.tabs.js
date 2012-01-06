@@ -67,7 +67,8 @@ jQuery.fn.tabs = function(settings){
 		//generic select tab function
 		function selectTab(tab,fromHashChange){
 			if(o.trackState && !fromHashChange){ 
-				$.historyLoad(tab.attr('href').replace('#','') ); 
+			  var anchor = tab.attr('href').split("#")[1];
+				$.historyLoad(anchor); 
 			}
 			else{	
 				//unselect tabs
