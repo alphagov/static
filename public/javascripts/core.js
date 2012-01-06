@@ -1,4 +1,4 @@
-/*//Reusable functions
+//Reusable functions
 var Alphagov = {
   cookie_domain: function() {
     var host_parts = document.location.host.split(':')[0].split('.').slice(-3);
@@ -52,27 +52,27 @@ function recordOutboundLink(e) {
   return false;
 }
 
-//General page setup
-jQuery(document).ready(function() {
+// //General page setup
+// jQuery(document).ready(function() {
 
-  $('a').click(recordOutboundLink);
+//   $('a').click(recordOutboundLink);
 
-  //Setup annotator links 
-  $('a.annotation').each(function(index) {
-    $(this).linkAnnotator();
-  });
+//   //Setup annotator links 
+//   $('a.annotation').each(function(index) {
+//     $(this).linkAnnotator();
+//   });
 
-  //feedback
-  $('#send_feedback').click(function () {
-    $('#feedback-router').show();
-    return false;
-  });
+//   //feedback
+//   $('#send_feedback').click(function () {
+//     $('#feedback-router').show();
+//     return false;
+//   });
 
-  $('a.close').click(function () {
-    $(this).closest('.popover-mask').hide();
-  });
+//   $('a.close').click(function () {
+//     $(this).closest('.popover-mask').hide();
+//   });
 
-});*/
+// });
 
 $(document).ready(function() {
   $("body").addClass("js-enabled");
