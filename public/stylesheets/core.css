@@ -16,12 +16,13 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
 
 html {
 	background: #F4F4F4;
+  background: #f8f7ed;
 }
 
 body {
 	color: #333;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	line-height: 1.4em;
+	line-height: 1.5em;
 }
 .visuallyhidden{
   display:none;
@@ -205,11 +206,13 @@ a[rel="external"]:after {
 .related {
 	position: absolute;
 	right: 0;
-	width: 12em;
+/*  width: 12em;*/
+  width: 15em;
 }
 
 .related .inner {
-	background: #ffffcc;
+/*  background: #ffffcc;*/
+	background: #fff0a5;
 	border: 1px solid #ddd;
   -moz-border-radius: 0 0.5em 1em 0;
   -webkit-border-radius: 0 1em 1em 0;
@@ -220,13 +223,21 @@ a[rel="external"]:after {
 
 .related h2 {
 	background: url('/images/related-arrow.png') no-repeat 0 50%;
-	font-size: 1em;
+/*  background-color: red;*/
+	font-family: "Gill Sans", sans-serif;
+	font-size: 0.85em;
 	font-weight: normal;
-	line-height: 47px;
+	letter-spacing: 0.15em;
+  line-height: 47px;
 	top: -1px;
-	margin: 0 -1em 0 -2em;
-	padding-left: 2em;
+/*  margin: 0 -1em 0 -2em;*/
+  margin: 0 0 0 -2.4em;
+/*  padding-left: 2em;*/
+  padding-left: 1.75em;
 	position: relative;
+/*  text-align: right;*/
+	text-transform: uppercase;
+	width: 16em;
 }
 .lte-ie8 .related h2 {
 	zoom: 1;
@@ -246,7 +257,7 @@ a[rel="external"]:after {
 	background-position: 0 20%;
 	background-repeat: no-repeat;
 	display: block;
-	font-size: 0.85em;
+/*  font-size: 0.85em;*/
 	line-height: 1.25em;
 	margin-bottom: 0.25em;
 	padding: 0.7em 0 0.5em 2.5em;
@@ -287,25 +298,36 @@ a[rel="external"]:after {
 */
 
 header.page-header hgroup {
-	background-color: #E5E5E5;
+/*  background-color: #E5E5E5;*/
+	background-color: #F6F1D3;
 	border-bottom: none;
 	display: block;
-	margin: 0 12em 0 0;
+/*  margin: 0 12em 0 0;*/
+	margin: 0 15em 0 0;
 	padding: 1em 1em 1.5em 1em;
 }
 
 header.page-header hgroup h1 {
 	background-repeat: no-repeat;
-	color: inherit;
-	font-size: 1.8em;
+/*  color: inherit;*/
+  color: #000;
+	font-family: "Gill Sans", sans-serif;
+/*  font-size: 1.8em;*/
+  font-size: 2.75em;
+	font-weight: normal;
+	letter-spacing: 0.025em;
 	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.2em;
+/*  padding: 0.2em 0 0.2em 2.2em;*/
+  padding: 0 0 0 1.5em;
 }
 
 header.page-header hgroup h1 span {
 	display: block;
-	font-size: 0.4em;
-	font-weight: bold;
+/*  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;*/
+/*  font-size: 0.4em;*/
+  font-size: 0.32em;
+/*  font-weight: bold;*/
+	letter-spacing: 0.15em;
 	line-height: 1em;
 	margin-bottom: 0.5em;
 	text-transform: uppercase;
@@ -349,8 +371,10 @@ article {
 }
 
 .article-container {
-	background-color: #E5E5E5;
-	margin-right: 12em;
+/*  background-color: #E5E5E5;*/
+  background-color: #F6F1D3;
+/*  margin-right: 12em;*/
+  margin-right: 15em;
 }
 
 .article-container article {
@@ -358,7 +382,8 @@ article {
 }
 
 article .inner {
-	padding: 2em 3em;
+/*  padding: 2em 3em;*/
+  padding: 2em 5em;
 	width: auto;
 }
 
