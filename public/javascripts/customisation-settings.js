@@ -18,8 +18,9 @@ $(document).ready(function() {
       $("body").append("<div id='mask'></div>");
   		$("body").append("<div id='popup' class='customisation-tools'></div>");
 
-      $('#popup').load('/settings.raw');
-      $("#popup").append("<a href='#' class='close'>Close</a>");
+      $.get('/settings.raw', function(data){
+        $('#popup').html(data).append("<a href='#' class='close'>Close</a>"); 
+      });
   	  
       //Get the screen height and width
   		var maskHeight = $(document).height();
