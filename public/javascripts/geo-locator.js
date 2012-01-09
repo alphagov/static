@@ -44,8 +44,13 @@ var AlphaGeo = {
 
 	lookup_full_location: function(callback) {
 		$.getJSON('/locator.json', AlphaGeo.location, function(data){
-			AlphaGeo.full_location = data;	
-			callback();
+			if (data.location_error) {
+				$(AlphaGeo).trigger('location-failed');
+				return false;	
+			} else {
+				AlphaGeo.full_location = data;	
+				callback();
+			}
 		});	
 	},
 
@@ -119,6 +124,7 @@ var AlphaGeoForm = function(selector) {
 	  });
 
 	  $(AlphaGeo).bind("geolocation-started", function() {
+	  	form.find('.location_error').hide().text('');
 	  	show_ui(finding_ui);
 		});
 
@@ -133,8 +139,14 @@ var AlphaGeoForm = function(selector) {
 	});
 
 	$(AlphaGeo).bind("location-completed", function(e, location) {
+		form.find('.location_error').hide().text('');
   	found_ui.find('strong, a span.friendly-name').text(location.current_location.locality);
   	show_ui(found_ui);
+	});
+
+	$(AlphaGeo).bind("location-failed", function(e, location) {
+		form.find('.location_error').text('Please enter a valid postcode.').show();
+  	show_ui(ask_ui);
 	});
 
 	$(AlphaGeo).bind("location-removed", function(e, location) {
