@@ -62,13 +62,13 @@
   <a href="#content" class="visuallyhidden">Skip to main content</a>
 
   <header role="banner" class="group" id="global-header">
-	<div class="header-global group">
+		<div class="header-global group">
 	    <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
 			<nav role="navigation">
 				<ul>
 					<li><a href="#" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
-          <li><a href="#">Feedback</a></li>
+          <li><a href="#govuk-feedback">Feedback</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -131,11 +131,23 @@
 			</div>
     </div>
     
-    <div id='feedback-popup'>
+    <div id='govuk-feedback'>
       <h2>Help improve gov.uk</h2>
       <form>
-        <label for="contact-feedback">Contact blah blah</label>
-        <textarea id="contact-feedback" name="contact-feedback"></textarea>
+        <label for="">Describe what kind of problem you're having</label>
+        <div id="feedback-options">
+          <select id='feedback-type'>
+        	  <option selected>Select feedback:</option>
+        	  <option id='policy'>I disagree with a Government policy relating to this subject</option>
+        	  <option id='info'>Some information is missing about this subject</option>
+        	  <option id='suggestion'>I would like to make a suggestion about this subject</option>
+        	  <!--option id='local'>I need to contact someone about this subject</option-->
+        	  <option id='error'>I received an error or the page isn't working properly</option>
+        	  </select>
+        </div>
+        <div id='feedback-mechanism'>
+          <label for="feedback-form">Your comment: </label><textarea id="feedback-form" /><input type='submit' value='Send' /><p>We'll send this feedback to the team</p>
+        </div>
       </form>
     </div>
     
@@ -193,3 +205,4 @@
 
 </body>
 </html>
+
