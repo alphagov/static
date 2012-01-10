@@ -12,9 +12,11 @@ var BetaPopup = {
 		@name BetaPopup.popup
 		@function
 		@description Shows a feedback popup
+		@param html A snippet of HTML to put into the popup.
+		@param ident A class name to apply to the popup, so it can be uniquely styled.
 		
 		@example
-			BetaPopup.popup();
+			BetaPopup.popup($("#myContent").html(), "myContentClass");
 	*/
 	
 	popup: function(html, ident){
@@ -31,7 +33,7 @@ var BetaPopup = {
  		//Set heigth and width to mask to fill up the whole screen
 		$('#mask').css({'width':maskWidth,'height':maskHeight});
      
-		$('#mask').fadeTo("slow",0.8);  
+		$('#mask').fadeTo("fast",0.6);  
 
 		//Get the window height and width
 		var winH = $(window).height();
@@ -40,10 +42,10 @@ var BetaPopup = {
 		//Set the popup window to center
 		$("#popup").css('left', winW/2-$("#popup").width()/2);
 
-		$("#popup").delay(500).slideDown('slow');
+		$("#popup").delay(100).fadeIn('fast');
 		$(".close").click(function(){
 			$("#popup").slideUp('fast');	
-			$("#mask").fadeOut();
+			$("#mask").fadeOut('fast');
 			$("#mask").remove();
 			$("#popup").remove();
 			return false;

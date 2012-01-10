@@ -67,7 +67,8 @@ jQuery.fn.tabs = function(settings){
 		//generic select tab function
 		function selectTab(tab,fromHashChange){
 			if(o.trackState && !fromHashChange){ 
-				$.historyLoad(tab.attr('href').replace('#','') ); 
+			  var anchor = tab.attr('href').split("#")[1];
+				$.historyLoad(anchor); 
 			}
 			else{	
 				//unselect tabs
@@ -83,7 +84,8 @@ jQuery.fn.tabs = function(settings){
 				//unselect  panels
 				tabsBody.find('article.tabs-panel-selected').attr('aria-hidden',true).removeClass('tabs-panel-selected');
 				//select active panel
-				$( tab.attr('href') + tabIDsuffix ).addClass('tabs-panel-selected').attr('aria-hidden',false);
+				var anchor = tab.attr('href').split("#")[1];
+				$( "#" + anchor + tabIDsuffix ).addClass('tabs-panel-selected').attr('aria-hidden',false);
 
 			}
 		};			
@@ -135,7 +137,7 @@ jQuery.fn.tabs = function(settings){
 		//function to select a tab from the url hash
 		function selectTabFromHash(hash){
 			var currHash = hash || window.location.hash;
-			var hashedTab = tabsNav.find('a[href=#'+ currHash.replace('#','') +']');
+			var hashedTab = tabsNav.find('a[href$=#'+ currHash +']');
 		    if( hashedTab.size() > 0){
 		    	selectTab(hashedTab,true);	
 		    }

@@ -25,47 +25,71 @@ var Alphagov = {
       document.cookie = name + "=; expires=" + date.toGMTString() + "; domain=" + Alphagov.cookie_domain() + "; path=/";
     }
   },
-  write_permanent_cookie: function(name, value) {
-    var date = new Date(2021, 12, 31);
+  write_cookie: function(name, value) {
+    var date = new Date();
+    date.setTime(date.getTime()+(30*24*60*60*1000)); // 30 days in the future
     document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=" +  Alphagov.cookie_domain() + "; path=/";
   },
+}
+
+function recordOutboundLink(e) {
+  _gat._getTrackerByName()._trackEvent(this.href, 'Outbound Links');
+  setTimeout('document.location = "' + this.href + '"', 100);
+  return false;
+}
+
+// //General page setup
+// jQuery(document).ready(function() {
+
+//   $('a').click(recordOutboundLink);
+
+//   //Setup annotator links 
+//   $('a.annotation').each(function(index) {
+//     $(this).linkAnnotator();
+//   });
+
+//   //feedback
+//   $('#send_feedback').click(function () {
+//     $('#feedback-router').show();
+//     return false;
+//   });
+
+//   $('a.close').click(function () {
+//     $(this).closest('.popover-mask').hide();
+//   });
+
+// });
+
+$(document).ready(function() {
+  $("body").addClass("js-enabled");
   
-  get_display_place_name: function(locality_name, council_name){
-    var result = '';
+  if(window.location.hash) {
+    contentNudge(window.location.hash);
+  } 
 
-    //get long/short version of council name
-    council_short_name =  council_name.replace(' Borough Council', '').replace(' County Council', '').replace(' District Council', '').replace(' Council', '');
-
-    if(council_short_name != '' && council_short_name != undefined){
-      result = locality_name + ', ' + council_short_name;
-    }else{
-      result = locality_name;
+  $("nav").delegate('a', 'click', function(){
+    var hash;
+    var href = $(this).attr('href');
+    if(href.charAt(0) === '#'){
+      hash = href; 
+    } 
+    else if(href.indexOf("#") > 0){
+      hash = "#" + href.split("#")[1];
     }
-    
-    return result;
+    $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+  });
+  
+
+  
+  function contentNudge(hash){
+    if($(hash).length == 1){
+      if($(hash).css("top") == "auto" || "0"){
+        $(window).scrollTop( $(hash).offset().top - $("#global-header").height()  );
+      }
+    }
   }
   
   
-}
-
-//General page setup
-jQuery(document).ready(function() {
-
-    
-  //Setup annotator links 
-  $('a.annotation').each(function(index) {
-    $(this).linkAnnotator();
-  });
-
-  //feedback
-  $('#send_feedback').click(function () {
-    $('#feedback-router').show();
-    return false;
-  });
-  $('a.close').click(function () {
-    $(this).closest('.popover-mask').hide();
-  });
-
-
 });
+
 

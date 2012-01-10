@@ -1,0 +1,141 @@
+section#content.ancillary {
+	background-color: #fff;
+  width: auto;
+}
+
+#wrapper .ancillary header {
+  background: #666;
+  color: #fff;
+	margin: 0 0 1.25em 0;
+	padding: 1em;
+}
+#wrapper .ancillary.section-page header {
+	margin: 0;
+}
+
+#wrapper .ancillary header hgroup {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper .ancillary header hgroup h1 {
+  margin: 0;
+	padding: 0;
+}
+
+.ancillary header {
+  margin-bottom: 0.75em;
+}
+
+/* used for search results and link lists on section pages */
+
+.ancillary .results ol {
+  list-style: none;
+  margin: 1em 0;
+}
+
+.ancillary .results ol>li {
+  margin-bottom: 1.25em;
+  padding-top: 0.25em;
+  position: relative;
+}
+
+.ancillary .results li p {
+  font-size: 0.85em;
+  width: 50%;
+}
+
+.ancillary .results li a {
+  display: block;
+  margin-left: -2em;
+  padding: 0.125em 0 0.125em 2em;
+}
+
+.ancillary .results li small {
+  color: #007E09;
+  display: block;
+  line-height: 1.25em;
+  margin: 0.25em 1em 0.5em 0;
+}
+
+/* section page layout */
+
+.browse-sections {
+  border-top: solid 1px #bbb;
+  padding: 1em;
+}
+
+.browse-sections .results ol li {
+  margin: 0 10% 0.5em 0;
+  padding: 0.25em 0;
+  min-height: 3em;
+  width: 40%;
+  float: left;
+}
+.browse-sections .results ol li:nth-child(odd) {
+  margin-right: 20%;
+}
+.browse-sections .results ol li:nth-child(even) {
+  margin-right: 0;
+}
+
+.browse-sections ol,
+.browse-sections dl {
+  margin: 0;
+}
+
+.browse-sections dt {
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+.browse-sections dd {
+  margin: 0 0 0.75em 0;
+}
+
+/* static pages like platform and help */
+
+.ancillary .menu {
+  float: left;
+  margin: 0 0 0 1em;
+	width: 11em;
+}
+
+.ancillary .menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.ancillary .menu li {
+  list-style: none;
+	margin: 0 0 0.5em 0;
+}
+
+.ancillary article {
+	background: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	float: none;
+  margin: 1em 0 0 14em;
+	min-height: 0;
+  padding: 0 2em 1em 0;
+	width: auto;
+}
+
+.ancillary article section {
+  margin: 0 0 2.5em 0;
+}
+
+.ancillary article h1:first-child {
+  margin-top: 0;
+}
+
+.ancillary article dt {
+  font-size: 1em;
+}
+
+.ancillary article dd {
+  margin-left: 0;
+}

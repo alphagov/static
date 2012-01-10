@@ -171,7 +171,7 @@ Don't think these are being used anywhere
 .button, .button:visited,
 input[type=submit], input[type=submit]:visited,
 .formtastic input[type="submit"], .formtastic input[type="submit"]:visited {
-	background: #039 url(<%= asset_path 'button-overlay.png' %>) repeat-x;
+	background: #039 url(/images/button-overlay.png) repeat-x;
 	border: 0.063em solid rgba(0,0,0,0.25);
 	-moz-border-radius: 0.250em;
 	-webkit-border-radius: 0.250em;
@@ -419,7 +419,7 @@ input[disabled]:active {
 	.formats th, .formats td {
 		border-right: 0.125em solid #d5d5d5;
 		padding: 0.4em 0.25em;
-	}
+	}    
 
 		.formats th {
 			border-bottom: 0.188em solid #bbb;
@@ -481,11 +481,15 @@ input[disabled]:active {
 
 			.formats .version {
 				font-style: italic;
-			}
+			} 
+			
+		.formats tbody tr td.total, .formats tbody tr th.total, .formats tbody tr.total_row td {
+			background: #ececec;
+		}
 
 		/* tablesorter styles */
 		th.header {
-		    background-image: url(<%= asset_path 'bg.gif' %>);
+		    background-image: url(/images/bg.gif);
 		    background-repeat: no-repeat;
 		    background-position: center right;
 		    cursor: pointer;
@@ -494,12 +498,12 @@ input[disabled]:active {
 		}
 
 		th.headerSortUp {
-		    background-image: url(<%= asset_path 'asc.gif' %>);
+		    background-image: url(/images/asc.gif);
 		    background-color: #d7d7d7;
 		}
 
 		th.headerSortDown {
-		    background-image: url(<%= asset_path 'desc.gif' %>);
+		    background-image: url(/images/desc.gif);
 		    background-color: #d7d7d7;
 		}
 

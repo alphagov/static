@@ -3,9 +3,11 @@
  * It's kind of like typography innit.
 */
 
-
 article h1 {
+  font-size: 1.45em;
   line-height: 1.1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
 }
 
 article header h1 {
@@ -30,11 +32,19 @@ article header h1 span {
 	text-transform: uppercase;
 }
 
+article h1 + h2 {
+  margin-top: 0.75em;
+}
+
 article h2 {
-  font-size: 1.35em;
+  font-size: 1.3em;
   line-height: 1.18em;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
+}
+
+article h2 + h3 {
+  margin-top: 0.75em;
 }
 
 article h3 {
@@ -42,6 +52,10 @@ article h3 {
   line-height: 1.11em;
   margin-top: 1.304em;
   margin-bottom: 0;
+}
+
+article h3 + h4 {
+  margin-top: 0.75em;
 }
 
 article h4 {
@@ -65,7 +79,7 @@ article h2 + ul, article h3 + ul, article h4 + ul {
 
 article p, article ul, article ol {
   font-size: 1em;
-  line-height: 1.5em;
+/*  line-height: 1.5em;*/
   margin: 0.75em 0;
 }
 
@@ -174,7 +188,7 @@ article table.calendar {
 */
 
 article .summary p, article .summary h2 {
-	background: url(<%= asset_path 'summary-arrow.png' %>) no-repeat 0 0;
+	background: url(/images/summary-arrow.png) no-repeat 0 0;
   font-size: 1.15em;
 	font-weight: bold;
   line-height: 1.25em;
@@ -242,11 +256,11 @@ article .info-notice p {
 }
 
 article .help-notice {
-  background: url(<%= asset_path 'application-notice-icon-default.png' %>) 1em 50% no-repeat;
+  background: url('/images/application-notice-icon-default.png') 1em 50% no-repeat;
 }
 
 article .info-notice {
-  background: url(<%= asset_path 'application-info-icon-default.png' %>) 1em 50% no-repeat;
+  background: url('/images/application-info-icon-default.png') 1em 50% no-repeat;
 }
 
 article .form-download {
@@ -263,12 +277,13 @@ article .form-download p {
 }
 
 article .form-download a {
-	background: url(<%= asset_path 'icon-file-download.png' %>) 0 0.5em no-repeat;
+	background: url('/images/icon-file-download.png') 0 0.5em no-repeat;
 	display: block;
 	padding: 0.75em 0 0.75em 2em;
 }
 
 .contact {
+  background-color: #fff;
 	border: solid 1px #bbb;
 	border-top: solid 2px #fcc;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
@@ -277,36 +292,49 @@ article .form-download a {
 	box-sizing: border-box;
 	margin: 1em 0;
 	padding: 0.25em 1em;
-	width: 60%;
+	min-width: 60%;
+}
+
+.contact dl dt {
+  font-weight: bold;
+  margin: 0 0 0.25em 0;
+}
+
+.contact dl dd {
+  margin: 0 0 0.5em 0;
 }
 
 .meta-data .contact {
   width: auto;
-  font-size: 0.8em;
 }
 
-.meta-data .contact dt {
+.contact dl dt, .meta-data .contact dt {
   float: left;
   clear: left;
 }
 
-.meta-data .contact dd {
-  margin-left: 8em;
+.contact dl dd, .meta-data .contact dd {
+  margin-left: 8.5em;
 }
 
 article .address {
-	background: url(<%= asset_path 'stamp.png' %>) 95% 1em no-repeat;
+	background: url('/images/stamp.png') 95% 1em no-repeat;
 	border: solid 1px #bbb;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  display: inline-block;
 	margin: 1em 0;
 	padding: 2em 15% 2em 15%;
-	width: 30%;
+	min-width: 35%;
+}
+.lte-ie8 article .address {
+  width: 35%;
 }
 
-ol#options {
-/*  WHAT IS THIS FOR?  padding-left: 0;*/
+article ol.places {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 article .place {
@@ -334,17 +362,17 @@ article .place .address {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-  font-size: 1.15em;
-  line-height: 1.11em;
+/*  font-size: 1.15em;*/
+/*  line-height: 1.11em;*/
 	margin: 0;
 	padding: 0;
 	width: auto;
 }
 
-article .place .address p {
-	font-size: 1em;
-	margin-bottom: 1em;
-}
+/*article .place .address p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}*/
 
 article .place .address span {
 	display: block;
@@ -375,24 +403,33 @@ article ol.steps li {
 	padding: 0.25em 0 0.25em 2.75em;
 }
 article ol.steps li:nth-child(1) {
-	background-image: url(<%= asset_path 'icon-step-1.png' %>);
-	background-color: red;
+	background-image: url('/images/icon-step-1.png');
 }
 article ol.steps li:nth-child(2) {
-	background-image: url(<%= asset_path 'icon-step-2.png' %>);
+	background-image: url('/images/icon-step-2.png');
 }
 article ol.steps li:nth-child(3) {
-	background-image: url(<%= asset_path 'icon-step-3.png' %>);
+	background-image: url('/images/icon-step-3.png');
 }
 article ol.steps li:nth-child(4) {
-	background-image: url(<%= asset_path 'icon-step-4.png' %>);
+	background-image: url('/images/icon-step-4.png');
 }
 article ol.steps li:nth-child(5) {
-	background-image: url(<%= asset_path 'icon-step-5.png' %>);
+	background-image: url('/images/icon-step-5.png');
 }
 article ol.steps li:nth-child(6) {
-	background-image: url(<%= asset_path 'icon-step-6.png' %>);
+	background-image: url('/images/icon-step-6.png');
 }
 article ol.steps li:nth-child(7) {
-	background-image: url(<%= asset_path 'icon-step-7.png' %>);
+	background-image: url('/images/icon-step-7.png');
+}
+
+.lte-ie8 article ol.steps {
+  border-left: solid 3px #ccc;
+  padding: 0 0 0 2.5em;
+}
+.lte-ie8 article ol.steps li {
+  list-style-type: decimal;
+  margin: 0;
+  padding: 0;
 }

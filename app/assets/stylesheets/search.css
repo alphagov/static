@@ -1,0 +1,128 @@
+/* ----- search results page ----- */
+
+#wrapper .ancillary.search {
+  padding: 0 0 1em 0;
+}
+
+#wrapper .ancillary.search header {
+  background: inherit;
+  color: inherit;
+	margin: 0 0 1em 0;
+	padding-bottom: 0;
+}
+
+.search h1 {
+/*  margin-bottom: 0.25em;*/
+}
+
+.search h2 {
+	margin-bottom: 1em;
+}
+.search h2 span {
+  font-size: 0.85em;
+}
+
+.search .results {
+  padding: 1em;
+}
+
+.search .results.top li p {
+  width: 75%;
+}
+
+.search .results.top {
+  padding: 0;
+}
+
+.search .results.top h2 {
+  padding-left: 2em;
+}
+
+.search .results.top li:nth-child(even) {
+  margin-right: 0;
+}
+
+.search .results .search-parts li a {
+  background: none;
+}
+
+.search .results.more {
+  border-top: dotted 1px #ccc;
+  padding: 0 0 0 2em;
+}
+
+.search .results.more ol li {
+  border-bottom: dotted 1px #ccc;
+}
+
+.search .results.more ol li a {
+  font-size:1.5em;
+  font-weight:bold;
+}
+.search .results.more ol li p {
+  margin-top: 0.25em;
+}
+
+.search .results.more ol li .search-parts {
+  font-size:0.6em;
+  margin:0;
+  padding:0 0 2em 0;
+}
+
+.search .results.more ol li .search-parts li {
+  border-bottom:none;
+}
+
+.search .results.more ol li .search-parts li a {
+  font-weight:normal;
+}
+
+.search .results.top .transaction-link {
+  clear: both;
+  float: right;
+  line-height: 1.25em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.search .results.top ul.search-promoted {
+  list-style-type:none;
+}
+ 
+.search .results.top ul.search-promoted h3 a {
+  padding: 0 0 0 2em;
+}
+
+.search .results.top ul.search-promoted li a.button {
+  display: inline-block;
+  padding-right: 1.5em;
+}
+
+.search .search-not-found {
+  background: #FDF6E5;
+  border: solid 2px #FFCD17;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin: 2em 2em 1em 2em;
+  text-align: center;
+}
+
+.search .results.top ul.search-not-found li p,
+.search .results.top ul.search-not-found li a {
+  width: auto;
+}
+
+.search .results.top ul.search-not-found li {
+  background-color: inherit;
+  border-color: #bbb;
+}
+
+.search .results.top ul.search-not-found li:before {
+  display: none;
+}
+
+.search .results.top ul.search-not-found h3 {
+  margin-top: 1.2em;
+}
