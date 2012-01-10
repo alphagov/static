@@ -61,6 +61,12 @@ var AlphaGeo = {
 		});
 	},
 
+	notify: function() {
+		if (AlphaGeo.full_location) {
+			$(AlphaGeo).trigger('location-completed', AlphaGeo.full_location);
+		}
+	},
+
 	geolocate: function() {
 		if (navigator.geolocation) {
 			$(AlphaGeo).trigger('geolocation-started');
@@ -108,6 +114,12 @@ var AlphaGeoForm = function(selector) {
 	var found_ui 		= form.find('.found_location');
 	var all_ui			= [ask_ui, finding_ui, found_ui];
 
+	if (AlphaGeo.full_location) {
+		form.find('.location_error').hide().text('');
+  	found_ui.find('strong, a span.friendly-name').text(AlphaGeo.full_location.current_location.locality);
+  	show_ui(found_ui);	
+	}
+
 	function show_ui(selector) {
 		$(all_ui).each(function(k, item){
 			item.hide().css('visibility','hidden');			
@@ -133,7 +145,7 @@ var AlphaGeoForm = function(selector) {
 		});
 	}
 
-	$('a.change-location').click( function(e){
+	$('a.change-location').live('click', function(e){
 		e.preventDefault();
 		AlphaGeo.remove();
 	});
@@ -154,9 +166,9 @@ var AlphaGeoForm = function(selector) {
   	show_ui(ask_ui);
 	});
 
-  form.submit( function(e) {
+  form.live('submit', function(e) {
   	e.preventDefault();
-  	AlphaGeo.locate( form.find('input#postcode').val() );
+  	AlphaGeo.locate( form.find('input.postcode').val() );
   });
 
 }

@@ -160,9 +160,6 @@ a[rel="external"]:after {
 	padding-bottom: 0.2em;
 }
 
-#global-locator-form .postcode {
-	border:none;
-}
 #global-locator-form label,
 #global-locator-form .ask_location{
 	display: inline;
