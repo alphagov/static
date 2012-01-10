@@ -484,7 +484,7 @@ ul.helpers li.offline_steps {
 }
 
 #wrapper.programme .programme-progression li a:hover {
-	background-color: #1576FB;
+	background-color: #2E8ACA;
 	color: #fff;
 }
 
@@ -497,23 +497,23 @@ ul.helpers li.offline_steps {
 #wrapper.programme .programme-progression li.active a:hover {
 /*  background-color: #ffa;*/
   background-color: #fff;
-	color: #1576FB;
+	color: #2E8ACA;
 }
 
 #wrapper.programme div.further-information a:hover {
-  background-color: #1576FB;
+  background-color: #2E8ACA;
   color: #fff;
 }
 #wrapper.programme div.further-information.active a:hover {
   background-color: #fff;
-	color: #1576FB;
+	color: #2E8ACA;
 }
 
 #wrapper.programme .progressor {
 	background: url(/images/programme-progressor-arrows.png) no-repeat -1px 0;
 	height: 36px;
 	position: absolute;
-	right: -20px;
+  right: -20px;
 	top: 0;
 	width: 20px;
 	z-index: 1;
@@ -521,11 +521,11 @@ ul.helpers li.offline_steps {
 
 #wrapper.programme li.active a .progressor,
 #wrapper.programme li.active a:hover .progressor {
-	background-position: -283px 0;
+  background-position: -283px 0;
 }
 
 #wrapper.programme li a:hover .progressor {
-	background-position: -573px 0;
+	background-position: -574px 0;
 }
 
 #wrapper.programme .programme-progression li:last-child .progressor {
@@ -609,10 +609,12 @@ div.further-information a span {
 
 #wrapper.programme .part-pagination li:first-child a {
 	background-color: #EFECE0;
-	border: solid 1px #bbb;
-	border-bottom: solid 1px #666;
-	-webkit-border-radius: 0.5em 0.25em 0.25em 0.5em;
-	-moz-border-radius: 0.5em 0.25em 0.25em 0.5em;
+  border: solid 1px #aaa;
+  border-top: none;
+  border-right: none;
+  border-bottom-width: 2px;
+	-webkit-border-radius: 0.5em 0 0 0.5em;
+	-moz-border-radius: 0.5em 0 0 0.5em;
 	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	margin-right: 3em;
@@ -620,18 +622,18 @@ div.further-information a span {
 }
 
 #wrapper.programme .part-pagination li:first-child a:hover {
-	background-color: #1576FB;
+	background-color: #2E8ACA;
 	color: #fff;
 }
 
 #wrapper.programme .part-pagination .progressor {
 	background-position: 0 0;
 	right: -20px;
-	top: -1px;
+	top: 0;
 }
 
 #wrapper.programme .part-pagination a:hover .progressor {
-	background-position: -978px 0;
+	background-position: -573px 0;
 }
 
 /* contacts popup */
