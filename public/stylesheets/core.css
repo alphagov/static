@@ -15,7 +15,6 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  */
 
 html {
-/*  background: #F4F4F4;*/
   background: #f8f7ed;
 }
 
@@ -108,13 +107,6 @@ a:active {
 	color: #c11;
 }
 
-/*a[rel="external"] {
-  background-image: url(/images/external-link.png);
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-  padding-right: 1.25em;
-}*/
-
 a[rel="external"]:after {
 	content: url(/images/external-link.png);
   padding: 0 0.25em 0 0.25em;
@@ -196,7 +188,6 @@ a[rel="external"]:after {
 	margin: 0 auto;
 	max-width: 960px;
 	position: relative;
-/*	width: 95%;*/
 	z-index: 50;
 }
 .lte-ie8 .related-container {
@@ -206,7 +197,6 @@ a[rel="external"]:after {
 .related {
 	position: absolute;
 	right: 0;
-/*  width: 12em;*/
   width: 15em;
 }
 
@@ -300,35 +290,27 @@ a[rel="external"]:after {
 */
 
 header.page-header hgroup {
-/*  background-color: #E5E5E5;*/
 	background-color: #F6F1D3;
 	border-bottom: none;
 	display: block;
-/*  margin: 0 12em 0 0;*/
 	margin: 0 15em 0 0;
 	padding: 1em 1em 1.5em 1em;
 }
 
 header.page-header hgroup h1 {
 	background-repeat: no-repeat;
-/*  color: inherit;*/
   color: #000;
 	font-family: "Gill Sans", sans-serif;
-/*  font-size: 1.8em;*/
   font-size: 2.75em;
 	font-weight: normal;
 	letter-spacing: 0.025em;
 	line-height: 1.05em;
-/*  padding: 0.2em 0 0.2em 2.2em;*/
   padding: 0 0 0 1.5em;
 }
 
 header.page-header hgroup h1 span {
 	display: block;
-/*  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;*/
-/*  font-size: 0.4em;*/
   font-size: 0.32em;
-/*  font-weight: bold;*/
 	letter-spacing: 0.15em;
 	line-height: 1em;
 	margin-bottom: 0.5em;
@@ -373,9 +355,7 @@ article {
 }
 
 .article-container {
-/*  background-color: #E5E5E5;*/
   background-color: #F6F1D3;
-/*  margin-right: 12em;*/
   margin-right: 15em;
 }
 
@@ -384,7 +364,6 @@ article {
 }
 
 article .inner {
-/*  padding: 2em 3em;*/
   padding: 2em 5em;
 	width: auto;
 }
@@ -424,7 +403,6 @@ article .inner {
 
 .data-reuse {
   border-top: solid 1px #ccc;
-/*  padding: 1em 0 1em 0;*/
 }
 
 .data-reuse p,
