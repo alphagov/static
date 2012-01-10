@@ -38,12 +38,12 @@ $(document).ready(function() {
   		$("#popup").css('left', winW/2-$("#popup").width()/2);
 
   		$("#popup").delay(100).fadeIn('fast');
-  		$(".customisation-tools .close").live('click', function(a){
-  			$("#popup").slideUp('fast').remove();	
+  		$(".customisation-tools .close").live('click', function(e){
+  			e.preventDefault();
+        $("#popup").slideUp('fast').remove();	
   			$("#mask").fadeOut('fast').remove();
   		  // $("#global-locator-box").hide();
-  			e.preventDefault();
-  		})
+  		});
   		
       
       $('.personalise-options li a').live("click", function(){
