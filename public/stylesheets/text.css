@@ -315,7 +315,10 @@ article .help-notice p,
 article .info-notice p,
 article .form-download p,
 article .advisory p,
-article .example p
+article .example p,
+article .contact p,
+article .address p,
+article .place p
  {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
