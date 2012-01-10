@@ -118,6 +118,8 @@ var AlphaGeoForm = function(selector) {
 		form.find('.location_error').hide().text('');
   	found_ui.find('strong, a span.friendly-name').text(AlphaGeo.full_location.current_location.locality);
   	show_ui(found_ui);	
+	} else {
+		show_ui(ask_ui);
 	}
 
 	function show_ui(selector) {
