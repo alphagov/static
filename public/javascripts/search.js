@@ -55,6 +55,10 @@ $(document).ready(function() {
             return { 'label': e.title, 'url': e.link, 'class': e.format };
           });
           add(results)
+        },
+        error: function(){
+          $(".hint-suggest").removeClass("search-loading");
+          $(".hint-suggest").text("No results found");
         }
       });
     },  
