@@ -15,7 +15,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  */
 
 html {
-	background: #F4F4F4;
+/*  background: #F4F4F4;*/
   background: #f8f7ed;
 }
 
@@ -93,15 +93,15 @@ h4 {
  */
 
 a {
-	color: #2200C1;
+	color: #2E3191;
 }
 
 a:hover {
-	color: #1D97FF;
+  color: #2E8ACA;
 }
 
 a:visited {
-	color: #5800AE;
+	color: #90278E;
 }
 
 a:active {
@@ -212,8 +212,9 @@ a[rel="external"]:after {
 
 .related .inner {
 /*  background: #ffffcc;*/
-	background: #fff0a5;
-	border: 1px solid #ddd;
+/*  background: #fff0a5;*/
+  background: #F399C0;
+/*  border: 1px solid #ddd;*/
   -moz-border-radius: 0 0.5em 1em 0;
   -webkit-border-radius: 0 1em 1em 0;
   border-radius: 0 0.5em 0.5em 0;
@@ -224,12 +225,13 @@ a[rel="external"]:after {
 .related h2 {
 	background: url('/images/related-arrow.png') no-repeat 0 50%;
 /*  background-color: red;*/
+  color: #000;
 	font-family: "Gill Sans", sans-serif;
 	font-size: 0.85em;
 	font-weight: normal;
 	letter-spacing: 0.15em;
   line-height: 47px;
-	top: -1px;
+/*  top: -1px;*/
 /*  margin: 0 -1em 0 -2em;*/
   margin: 0 0 0 -2.4em;
 /*  padding-left: 2em;*/
@@ -280,12 +282,12 @@ a[rel="external"]:after {
 }
 
 .related li.related-topic span {
-	display: block;
+/*  display: block;*/
 	font-weight: bold;
 }
 
 .related li.related-topic a {
-	color: inherit;
+/*  color: inherit;*/
 	padding-left: 0;
 }
 
@@ -349,7 +351,7 @@ header.page-header hgroup h2 {
 	background-image: url('/images/icon-answer-l.png');
 }
 #wrapper.answer hgroup h1 span {
-	color: #1C7000;
+	color: #00652E;
 }
 
 /* articles */
