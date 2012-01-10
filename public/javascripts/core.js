@@ -76,7 +76,9 @@ $(document).ready(function() {
     else if(href.indexOf("#") > 0){
       hash = "#" + href.split("#")[1];
     }
-    $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+    if($(hash).length == 1){
+      $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+    }
   });
   
 
