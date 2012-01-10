@@ -55,6 +55,10 @@ $(document).ready(function() {
             return { 'label': e.title, 'url': e.link, 'class': e.format };
           });
           add(results)
+        },
+        error: function(){
+          $(".hint-suggest").removeClass("search-loading");
+          $(".hint-suggest").text("No results found");
         }
       });
     },  
@@ -75,7 +79,7 @@ $(document).ready(function() {
       var searchVal = $(".ui-autocomplete-input").attr("value");
       var searchUrl = $("#search")[0].action;
       $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='"+searchUrl+"?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
-
+      $("#search_hint").remove();
     }
   });
   

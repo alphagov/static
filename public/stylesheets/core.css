@@ -153,9 +153,6 @@ a[rel="external"]:after {
 	padding-bottom: 0.2em;
 }
 
-#global-locator-form .postcode {
-	border:none;
-}
 #global-locator-form label,
 #global-locator-form .ask_location{
 	display: inline;
@@ -710,7 +707,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	display: none;
 }
 .js-enabled #popup,
-.js-enabled #feedback-popup{
+.js-enabled #feedback-popup,
+.js-enabled #govuk-feedback{
 	display:none;
 }
 #popup{

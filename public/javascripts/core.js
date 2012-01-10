@@ -25,25 +25,11 @@ var Alphagov = {
       document.cookie = name + "=; expires=" + date.toGMTString() + "; domain=" + Alphagov.cookie_domain() + "; path=/";
     }
   },
-  write_permanent_cookie: function(name, value) {
-    var date = new Date(2021, 12, 31);
+  write_cookie: function(name, value) {
+    var date = new Date();
+    date.setTime(date.getTime()+(30*24*60*60*1000)); // 30 days in the future
     document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=" +  Alphagov.cookie_domain() + "; path=/";
   },
-  
-  get_display_place_name: function(locality_name, council_name){
-    var result = '';
-
-    //get long/short version of council name
-    council_short_name =  council_name.replace(' Borough Council', '').replace(' County Council', '').replace(' District Council', '').replace(' Council', '');
-
-    if(council_short_name != '' && council_short_name != undefined){
-      result = locality_name + ', ' + council_short_name;
-    }else{
-      result = locality_name;
-    }
-    
-    return result;
-  }
 }
 
 function recordOutboundLink(e) {
@@ -82,10 +68,17 @@ $(document).ready(function() {
   } 
 
   $("nav").delegate('a', 'click', function(){
-    if($(this).attr('href').charAt(0) === '#'){
-      var hash = $(this).attr('href');
-      $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},1);
+    var hash;
+    var href = $(this).attr('href');
+    if(href.charAt(0) === '#'){
+      hash = href; 
     } 
+    else if(href.indexOf("#") > 0){
+      hash = "#" + href.split("#")[1];
+    }
+    if($(hash).length == 1){
+      $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+    }
   });
   
 

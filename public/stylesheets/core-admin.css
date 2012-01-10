@@ -63,7 +63,8 @@
 
 .gds-menu {
 	float: right;
-	margin-top: -1.4em;
+	margin-top: -1.5em;
+	border: 3px solid yellow;
 }
 
 /* END Global Admin header */
