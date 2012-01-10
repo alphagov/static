@@ -101,6 +101,9 @@ var AlphaGeo = {
 
 	remove: function() {
 		Alphagov.delete_cookie('geo');
+		AlphaGeo.location = false;
+		AlphaGeo.full_location = false;
+		
 		$(AlphaGeo).trigger('location-removed');	
 	}
 
