@@ -220,15 +220,18 @@ a[rel="external"]:after {
   line-height: 47px;
 /*  top: -1px;*/
 /*  margin: 0 -1em 0 -2em;*/
-  margin: 0 0 0 -2.4em;
+/*  margin: 0 0 0 -2.4em;*/
+  margin: 0 0 0 -32px;
 /*  padding-left: 2em;*/
-  padding-left: 1.75em;
+/*  padding-left: 1.75em;*/
+  padding-left: 30px;
 	position: relative;
 /*  text-align: right;*/
 	text-transform: uppercase;
 	width: 16em;
 }
 .lte-ie8 .related h2 {
+  letter-spacing: 0.065em;
 	zoom: 1;
 }
 
