@@ -29,7 +29,7 @@ var Alphagov = {
     var date = new Date();
     date.setTime(date.getTime()+(30*24*60*60*1000)); // 30 days in the future
     document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=" +  Alphagov.cookie_domain() + "; path=/";
-  },
+  }
 }
 
 function recordOutboundLink(e) {
