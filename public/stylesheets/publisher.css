@@ -455,6 +455,7 @@ ul.helpers li.offline_steps {
 	z-index: 5;
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
+	bottom: 0;
 /*  overflow: hidden;*/
 }
 
@@ -464,7 +465,7 @@ ul.helpers li.offline_steps {
 
 #wrapper.programme .programme-progression li a {
 	display: block;
-	height: 2.25em;
+  height: 2.25em;
   line-height: 2.25em;
 	padding: 0 1em 0 2em;
 	position: relative;
