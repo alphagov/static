@@ -168,6 +168,7 @@ var AlphaGeoForm = function(selector) {
 
 	$(AlphaGeo).bind("location-removed", function(e, location) {
   	found_ui.find('strong, a span.friendly-name').text('');
+  	ask_ui.find('input.postcode').val('');
   	show_ui(ask_ui);
 	});
 
