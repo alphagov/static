@@ -81,7 +81,6 @@ $(document).ready(function() {
     }
   });
   
-
   
   function contentNudge(hash){
     if($(hash).length == 1){
@@ -91,7 +90,20 @@ $(document).ready(function() {
     }
   }
   
-  
+  // related box fixer
+  if($(".related-positioning").length != 0){
+    $(".related-positioning").css("position", "absolute");
+    var viewPort = $(window).height();
+    var relatedBox = $(".related").height();
+    var boxOffset = $(".related-positioning").position();
+    var topBoxOffset = boxOffset.top;
+    if(relatedBox > (viewPort - topBoxOffset)){
+      $(".related-positioning").css("position", "absolute");
+    }
+    else{
+      $(".related-positioning").css("position", "fixed");
+    }
+  }
 });
 
 
