@@ -492,7 +492,7 @@ ul.helpers li.offline_steps {
 #wrapper.programme .programme-progression li.active a {
 /*  background-color: #ffa;*/
   background-color: #fff;
-  z-index: 5;
+  /*z-index: 5*/;
 }
 
 #wrapper.programme .programme-progression li.active a:hover {
