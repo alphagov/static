@@ -90,6 +90,7 @@
 
 #global-header .header-global ul li a {
 	color: #ccc;
+	padding-left: 1em;
 	text-decoration: none;
 /*  font-weight: bold;*/
 }
@@ -125,7 +126,8 @@ body.government #global-header .header-context {
   margin-bottom: 1.714em;
   margin-bottom: 0;
   background: #fff;
-  padding: 0.25em 4%;
+/*  padding: 0.25em 4%;*/
+  padding: 0 4%;
 }
 
 #global-header .header-context nav div {
@@ -164,7 +166,20 @@ body.government #global-header .header-context nav a:hover {
 }
 
 #global-header .header-context ol li {
-	margin-right: 1em;
+  background-image: url(../images/section-divider-arrow.png);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding-left: 1.5em;
+	margin-right: 0.5em;
+}
+
+#global-header .header-context ol li:first-child {
+  background: none;
+  padding-left: 0;
+}
+
+#global-header .header-context ol li a {
+
 }
 
 #global-header .header-context {
