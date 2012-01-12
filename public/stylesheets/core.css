@@ -782,14 +782,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #feedback-cta{
-	background-color:#fff450;
-	border:3px solid #fff;
-	-webkit-border-top-left-radius: 0.5em;
-	-webkit-border-bottom-left-radius: 0.5em;
-	-moz-border-radius-topleft: 0.5em;
-	-moz-border-radius-bottomleft: 0.5em;
-	border-top-left-radius: 0.5em;
-	border-bottom-left-radius: 0.5em;
+	background-color:#FFE087;
+/*  border:3px solid #fff;*/
+/*  -webkit-border-top-left-radius: 0.5em;
+  -webkit-border-bottom-left-radius: 0.5em;
+  -moz-border-radius-topleft: 0.5em;
+  -moz-border-radius-bottomleft: 0.5em;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;*/
 	border-right:none;
 	-moz-box-shadow: 3px 3px 4px #333;
 	-webkit-box-shadow: 3px 3px 4px #333;
