@@ -118,7 +118,7 @@ $(document).ready(function() {
           }
         });
       } else {
-        if preloaded_results.length > 5 {
+        if (preloaded_results.length > 5) {
           var preloaded_results = preloaded_results.splice(4);
         }
         add( preloaded_results );
