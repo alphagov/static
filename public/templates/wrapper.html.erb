@@ -13,13 +13,14 @@
   <link href="<%= @asset_host %>/stylesheets/text.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/ancillary-pages.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/accessibility.css" rel="stylesheet" type="text/css" />
+  
   <link href="<%= @asset_host %>/stylesheets/search.css" rel="stylesheet" type="text/css" />
 
   <!-- something clever needs doing here as we probably don't want to load all these stylesheets globally -->
   <link href="<%= @asset_host %>/stylesheets/static-pages/error-pages.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/static-pages/help-pages.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/static-pages/platform-pages.css" rel="stylesheet" type="text/css" />
-
+ 
   <!-- alternatives -->
   <link href="<%= @asset_host %>/stylesheets/dyslexic.css" rel="alternate stylesheet" type="text/css" title="I find words difficult" />
 
@@ -68,7 +69,7 @@
 				<ul>
 					<li><a href="/settings" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
-          <li><a href="#">Feedback</a></li>
+         				<li><a href="#">Feedback</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -102,7 +103,7 @@
 		<div class="inner group">
 		  <div class="sub-section">
       	<p>&copy; Crown Copyright</p>
-		  </div>
+		 </div>
 			<nav class="sub-section help">
 			  <h1>Help</h1>
 			  <ul>
@@ -133,20 +134,19 @@
     
     <div id='govuk-feedback'>
       <h2>Help improve gov.uk</h2>
-      <form>
-        <label for="">Describe what kind of problem you're having</label>
+      <form method="POST" action="https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dEtacjNNZzFyRkliYUtFRWp1eTl6Snc6MQ">
+        <label class="ss-q-help" for="entry_0">Your feedback</label>
         <div id="feedback-options">
-          <select id='feedback-type'>
-        	  <option selected>Select feedback:</option>
-        	  <option id='policy'>I disagree with a Government policy relating to this subject</option>
-        	  <option id='info'>Some information is missing about this subject</option>
-        	  <option id='suggestion'>I would like to make a suggestion about this subject</option>
-        	  <!--option id='local'>I need to contact someone about this subject</option-->
-        	  <option id='error'>I received an error or the page isn't working properly</option>
-        	  </select>
+          <select name="entry.0.single" id="entry_0">
+            <option value="There is a mistake in the information">There is a mistake in the information</option> 
+            <option value="I have some feedback about the site">I have some feedback about the site</option> 
+            <option value="Something went wrong or doesn&#39;t work">Something went wrong or doesn&#39;t work</option>
+	</select>
         </div>
         <div id='feedback-mechanism'>
-          <label for="feedback-form">Your comment: </label><textarea id="feedback-form" /><input type='submit' value='Send' /><p>We'll send this feedback to the team</p>
+          <label for="feedback-form">Your comment: </label><textarea name="entry.2.single" rows="8" cols="75" class="ss-q-long" id="entry_2"></textarea>
+          <input type="hidden" name="entry.3.single" value="test" class="ss-q-short" id="entry_3">
+          <input type='submit' value='Send' /><p>We'll send this feedback to the team</p>
         </div>
       </form>
     </div>
