@@ -118,6 +118,9 @@ $(document).ready(function() {
           }
         });
       } else {
+        if preloaded_results.size > 5 {
+          var preloaded_results = preloaded_results.splice(4);
+        }
         add( preloaded_results );
       }
     },  
