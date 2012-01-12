@@ -1,3 +1,10 @@
+/* visited link colour overrides */
+
+aside .chapters-navigation li a:visited,
+#wrapper.programme .article-container nav a:visited {
+  color: #2E3191;
+}
+
 /* section pages */
 #wrapper.section hgroup h1 {
 	background-image: url('/images/icon-section-l.png');
@@ -67,7 +74,7 @@
 	float: left;
 }
 .guide article .inner {
-	padding-bottom: 1em;
+	padding: 2em 2.5em 1em 2.5em;
 }
 #wrapper.guide aside {
 	float: left;
@@ -606,11 +613,13 @@ div.further-information a span {
 
 #wrapper.programme .part-pagination ul {
 	list-style: none;
+	margin: 0;
 	padding: 0;
 }
 
 #wrapper.programme .part-pagination li {
 	float: left;
+  font-size: 1em;
 }
 
 #wrapper.programme .part-pagination li a {
