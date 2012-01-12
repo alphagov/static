@@ -29,22 +29,26 @@ $(document).ready(function() {
   var filter_terms = function(search_term,data) {
     var highlight_term = function(string,term) {
       html_safe = html_escape(string);
-      var terms = term.split(' ');
-      for (var i in terms)  {
-        var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
-        if (clean_term != "") {
-          var regex = new RegExp("\\b("+clean_term+")","ig");
-          var count = 0;
-          html_safe = html_safe.replace(regex,function(str){
-            count++;
-            return str;
-          });
-          if (count < 1) {
-            return false;
+      if (html_safe) {
+        var terms = term.split(' ');
+        for (var i in terms)  {
+          var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
+          if (clean_term != "") {
+            var regex = new RegExp("\\b("+clean_term+")","ig");
+            var count = 0;
+            html_safe = html_safe.replace(regex,function(str){
+              count++;
+              return str;
+            });
+            if (count < 1) {
+              return false;
+            }
           }
         }
+        return html_safe;
+      } else {
+        return false;
       }
-      return html_safe;
     };
 
     return $.map(data, function(item) {
