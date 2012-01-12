@@ -42,7 +42,8 @@ $(function(){
 			
 			$(".part-pagination a").live("click", function(){
 			  if($(window.location.hash+"-enhanced").length != 0){
-			    $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+			   // $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+			   $("html, body").animate({scrollTop: $("#content").offset().top - 95},10);
 		    }
 			});
 		}

@@ -137,6 +137,9 @@ jQuery.fn.tabs = function(settings){
 		//function to select a tab from the url hash
 		function selectTabFromHash(hash){
 			var currHash = hash || window.location.hash;
+			if(currHash.indexOf("#") == 0){
+        currHash = currHash.split("#")[1];
+      }
 			var hashedTab = tabsNav.find('a[href$=#'+ currHash +']');
 		    if( hashedTab.size() > 0){
 		    	selectTab(hashedTab,true);	

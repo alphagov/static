@@ -66,9 +66,9 @@
 	    <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
 			<nav role="navigation">
 				<ul>
-					<li><a href="#" class="customisation-settings">Settings</a></li>
+					<li><a href="/settings" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
-          <li><a href="#govuk-feedback">Feedback</a></li>
+          <li><a href="#">Feedback</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -103,7 +103,7 @@
 		  <div class="sub-section">
       	<p>&copy; Crown Copyright</p>
 		  </div>
-			<div class="sub-section help">
+			<nav class="sub-section help">
 			  <h1>Help</h1>
 			  <ul>
 			   <li><a href="/help">About the pages and tools you’ll find</a></li>
@@ -114,8 +114,8 @@
 			   <li><a href="/help/cookies">Cookies</a></li>
 			   <li><a href="/help/feedback">Feedback</a></li>
 			  </ul>
-			</div>
-			<div class="sub-section platform">
+			</nav>
+			<nav class="sub-section platform">
 			  <h1>Technical</h1>
 			  <ul>
 			   <li><a href="/platform">About our platform</a></li>
@@ -123,7 +123,7 @@
 			   <li><a href="/platform/licensing">Licensing</a></li>
 			   <li><a href="/platform/code">Code</a></li>
 			  </ul>
-      </div>
+      </nav>
 			<div class="sub-section colophon">
       	<p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
       	<p>This website uses cookies. We have published <a href="/help/cookies">a list and further information</a></p>
@@ -153,55 +153,7 @@
     
   </footer><!--end footer-->
 
-
 	<div id="global-app-error" class="app-error hidden"></div>
-	    <div id="global-locator" class="popover-mask">
-	      <div id="global-locator-box" class="popover">
-	        <div id="global-set-location">
-
-	          <h2>Settings</h2>
-
-            <p>We&rsquo;ve worked hard to make our website as easy-to-use and understand as possible for every visitor, regardless of ability or disability.</p>
-            <p>We have also added an additional way to view the website for dyslexic users or those who find words difficult, and we will be looking into adding more in the upcoming months.</p>
-
-            <h3>Change the theme</h3>
-            <ul class="personalise-options">
-              <li><a href="#" class="button" title="use the dyslexia-friendly theme" id="dyslexic">I find words difficult</a></li>
-              <li><a href="#" class="button" title="don't use a custom theme, just show me the regular website" id="core">Show me the regular website</a></li>
-
-            </ul>
-
-	          <h2>Set your location</h2>
-	          <div class="global-locator-error"></div>
-
-	            <form id="global-locator-form" class="app-form" action="/locator.json">
-
-                <fieldset>
-                  <legend class="visuallyhidden">UK Postcode lookup</legend>
-                                                                                                                                                               
-									<div class="found_location">
-										<p id="friendly-location-name"></p>  
-									</div>
-									
-									<p class="finding_location hidden">Locating you&hellip;
-                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
-
-	                <div class="ask_location">
-                    <label for="postcode_box">Enter a UK postcode</label> <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA" />
-										<input type="submit" class="button" value="Get started →">
-  	              </div>
-                </fieldset>
-              </form>
-              <p id="forget-location">
-                <a href="#">Forget my location</a>
-              </p>
-	            <h3>Why?</h3>
-	            <p>When you set your location we can give you details of services close to you, like Passport offices, driving test centres or police stations.</p>
-	            <p><small>Your approximate location is <a href="/help/cookies">stored in a cookie</a> on your machine, but we do not save your postcode or precise location on our servers.</small></p>
-	        </div>
-	      </div>
-
-	    </div>
 
 </body>
 </html>

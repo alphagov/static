@@ -68,7 +68,7 @@
 	    <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
 			<nav role="navigation">
 				<ul>
-					<li><a href="#" class="customisation-settings">Settings</a></li>
+					<li><a href="/settings" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
 				</ul>
 			</nav>
@@ -133,57 +133,6 @@
 
 
 <div id="global-app-error" class="app-error hidden"></div>
-    <div id="global-locator" class="popover-mask">
-      <div id="global-locator-box" class="popover">
-        <div class="header">
-        	<a class="close" href="#"><img src="<%= @asset_host %>/images/welcome/close.png" alt="close"></a>
-        </div>
-        <div id="global-set-location">
-
-          <h2>Settings</h2>
-
-          <p>We&rsquo;ve worked hard to make our website as easy-to-use and understand as possible for every visitor, regardless of ability or disability.</p>
-          <p>We have also added an additional way to view the site for dyslexic users or those who find words difficult, and we will be looking into adding more in the upcoming months.</p>
-
-          <h3>Change the theme</h3>
-          <ul class="personalise-options">
-            <li><a href="#" class="button" title="use the dyslexia-friendly theme" id="dyslexic">I find words difficult</a></li>
-            <li><a href="#" class="button" title="don't use a custom theme, just show me the regular website" id="core">Show me the regular website</a></li>
-
-          </ul>
-
-          <hr />
-
-          <h2>Set your location</h21>
-          <div id="global-locator-error" class="app-error hidden"></div>
-            <form id="global-locator-form" class="app-form" action="/locator.json">
-
-              <fieldset>
-                <legend class="visuallyhidden">UK Postcode lookup</legend>
-
-                <div class="ask_location">
-                  <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
-                  <input type="submit" value="Get started →">
-
-
-	                  <p class="finding_location hidden">Locating you&hellip;
-	                    <input type="hidden" name="lon" value=""><input type="hidden" name="lat" value=""></p>
-
-	                <p id="forget-location">
-	                  <a href="#">Forget my location</a>
-	                </p>
-	              </div>
-              </fieldset>
-
-            </form>
-
-            <h3>Why?</h3>
-            <p>When you set your location we can give you details of services close to you, like Passport offices, driving test centres or police stations.</p>
-            <p><small>Your approximate location is <a href="/cookies/">stored in a cookie</a> on your machine, but we do not save your postcode or precise location on our servers.</small></p>
-        </div>
-      </div>
-
-    </div>
 
 </body>
 </html>

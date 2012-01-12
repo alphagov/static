@@ -15,13 +15,13 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  */
 
 html {
-	background: #F4F4F4;
+  background: #f8f7ed;
 }
 
 body {
 	color: #333;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	line-height: 1.4em;
+	line-height: 1.5em;
 }
 .visuallyhidden{
   display:none;
@@ -92,27 +92,20 @@ h4 {
  */
 
 a {
-	color: #2200C1;
+	color: #2E3191;
 }
 
 a:hover {
-	color: #1D97FF;
+  color: #2E8ACA;
 }
 
 a:visited {
-	color: #5800AE;
+  color: #90278E;
 }
 
 a:active {
 	color: #c11;
 }
-
-/*a[rel="external"] {
-  background-image: url(/images/external-link.png);
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-  padding-right: 1.25em;
-}*/
 
 a[rel="external"]:after {
 	content: url(/images/external-link.png);
@@ -160,9 +153,6 @@ a[rel="external"]:after {
 	padding-bottom: 0.2em;
 }
 
-#global-locator-form .postcode {
-	border:none;
-}
 #global-locator-form label,
 #global-locator-form .ask_location{
 	display: inline;
@@ -183,7 +173,7 @@ a[rel="external"]:after {
 	width: 100%;
 }
 .lte-ie8 .related-positioning {
-	z-index: 50;
+  z-index: 50;
 }
 
 #wrapper.programme .related-positioning {
@@ -195,8 +185,7 @@ a[rel="external"]:after {
 	margin: 0 auto;
 	max-width: 960px;
 	position: relative;
-/*	width: 95%;*/
-	z-index: 50;
+  z-index: 50;
 }
 .lte-ie8 .related-container {
 	width: 100%;
@@ -205,30 +194,44 @@ a[rel="external"]:after {
 .related {
 	position: absolute;
 	right: 0;
-	width: 12em;
+  width: 15em;
 }
 
 .related .inner {
-	background: #ffffcc;
-	border: 1px solid #ddd;
+/*  background: #ffffcc;*/
+/*  background: #fff0a5;*/
+  background: #FDEBF2;
+/*  border: 1px solid #ddd;*/
   -moz-border-radius: 0 0.5em 1em 0;
   -webkit-border-radius: 0 1em 1em 0;
   border-radius: 0 0.5em 0.5em 0;
-	padding: 0 1em 1em 1em;
+	padding: 0 1em 0.25em 1em;
 	width: auto;
 }
 
 .related h2 {
 	background: url('/images/related-arrow.png') no-repeat 0 50%;
-	font-size: 1em;
+/*  background-color: red;*/
+  color: #000;
+	font-family: "Gill Sans", sans-serif;
+	font-size: 0.85em;
 	font-weight: normal;
-	line-height: 47px;
-	top: -1px;
-	margin: 0 -1em 0 -2em;
-	padding-left: 2em;
+	letter-spacing: 0.15em;
+  line-height: 47px;
+/*  top: -1px;*/
+/*  margin: 0 -1em 0 -2em;*/
+/*  margin: 0 0 0 -2.4em;*/
+  margin: 0 0 0 -32px;
+/*  padding-left: 2em;*/
+/*  padding-left: 1.75em;*/
+  padding-left: 30px;
 	position: relative;
+/*  text-align: right;*/
+	text-transform: uppercase;
+	width: 16em;
 }
 .lte-ie8 .related h2 {
+  letter-spacing: 0.065em;
 	zoom: 1;
 }
 
@@ -246,7 +249,7 @@ a[rel="external"]:after {
 	background-position: 0 20%;
 	background-repeat: no-repeat;
 	display: block;
-	font-size: 0.85em;
+/*  font-size: 0.85em;*/
 	line-height: 1.25em;
 	margin-bottom: 0.25em;
 	padding: 0.7em 0 0.5em 2.5em;
@@ -261,20 +264,19 @@ a[rel="external"]:after {
 }
 
 .related li.related-topic {
-	border: dotted #bbb;
-	border-width: 1px 0 0 0;
+	border-top: solid #000 1px;
 	list-style: none;
-	margin-top: 1.25em;
-	padding: 1em 0;
+	margin-top: 1em;
+/*  padding-top: 0.25em;*/
 }
 
 .related li.related-topic span {
-	display: block;
+/*  display: block;*/
 	font-weight: bold;
 }
 
 .related li.related-topic a {
-	color: inherit;
+/*  color: inherit;*/
 	padding-left: 0;
 }
 
@@ -287,25 +289,28 @@ a[rel="external"]:after {
 */
 
 header.page-header hgroup {
-	background-color: #E5E5E5;
+	background-color: #F6F1D3;
 	border-bottom: none;
 	display: block;
-	margin: 0 12em 0 0;
+	margin: 0 15em 0 0;
 	padding: 1em 1em 1.5em 1em;
 }
 
 header.page-header hgroup h1 {
 	background-repeat: no-repeat;
-	color: inherit;
-	font-size: 1.8em;
+  color: #000;
+	font-family: "Gill Sans", sans-serif;
+  font-size: 2.75em;
+	font-weight: normal;
+	letter-spacing: 0.025em;
 	line-height: 1.05em;
-	padding: 0.2em 0 0.2em 2.2em;
+  padding: 0 0 0 1.5em;
 }
 
 header.page-header hgroup h1 span {
 	display: block;
-	font-size: 0.4em;
-	font-weight: bold;
+  font-size: 0.32em;
+	letter-spacing: 0.15em;
 	line-height: 1em;
 	margin-bottom: 0.5em;
 	text-transform: uppercase;
@@ -327,16 +332,16 @@ header.page-header hgroup h2 {
 	background-image: url('/images/icon-answer-l.png');
 }
 #wrapper.answer hgroup h1 span {
-	color: #1C7000;
+	color: #00652E;
 }
 
 /* articles */
 
 article {
 	background: #fff;
-	-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
-	box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+/*  -webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.3);*/
+/*  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);*/
 	float: left;
 	margin-right: 12em;
 	min-height: 30em;
@@ -349,8 +354,8 @@ article {
 }
 
 .article-container {
-	background-color: #E5E5E5;
-	margin-right: 12em;
+  background-color: #F6F1D3;
+  margin-right: 15em;
 }
 
 .article-container article {
@@ -358,7 +363,7 @@ article {
 }
 
 article .inner {
-	padding: 2em 3em;
+  padding: 2em 5em;
 	width: auto;
 }
 
@@ -397,7 +402,6 @@ article .inner {
 
 .data-reuse {
   border-top: solid 1px #ccc;
-/*  padding: 1em 0 1em 0;*/
 }
 
 .data-reuse p,
@@ -917,6 +921,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	padding: 0.25em 0.625em 0.25em 0.375em;
 	text-decoration: none;
 	text-shadow: 0 -0.0625em 0.0625em rgba(0,0,0,0.75), 0 0.0625em -0.0625em rgba(0,0,0,0.25);

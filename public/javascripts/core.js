@@ -29,7 +29,7 @@ var Alphagov = {
     var date = new Date();
     date.setTime(date.getTime()+(30*24*60*60*1000)); // 30 days in the future
     document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toGMTString() + "; domain=" +  Alphagov.cookie_domain() + "; path=/";
-  },
+  }
 }
 
 function recordOutboundLink(e) {
@@ -76,10 +76,11 @@ $(document).ready(function() {
     else if(href.indexOf("#") > 0){
       hash = "#" + href.split("#")[1];
     }
-    $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+    if($(hash).length == 1){
+      $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
+    }
   });
   
-
   
   function contentNudge(hash){
     if($(hash).length == 1){
@@ -89,7 +90,20 @@ $(document).ready(function() {
     }
   }
   
-  
+  // related box fixer
+  if($(".related-positioning").length != 0){
+    $(".related-positioning").css("position", "absolute");
+    var viewPort = $(window).height();
+    var relatedBox = $(".related").height();
+    var boxOffset = $(".related-positioning").position();
+    var topBoxOffset = boxOffset.top;
+    if(relatedBox > (viewPort - topBoxOffset)){
+      $(".related-positioning").css("position", "absolute");
+    }
+    else{
+      $(".related-positioning").css("position", "fixed");
+    }
+  }
 });
 
 
