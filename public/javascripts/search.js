@@ -119,7 +119,7 @@ $(document).ready(function() {
         });
       } else {
         if (preloaded_results.length > 5) {
-          var preloaded_results = preloaded_results.splice(4);
+          var preloaded_results = preloaded_results.splice(0, 5);
         }
         add( preloaded_results );
       }
