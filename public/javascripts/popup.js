@@ -19,8 +19,7 @@ var BetaPopup = {
 			BetaPopup.popup($("#myContent").html(), "myContentClass");
 	*/
 	
-	popup: function(html, ident){
-	
+	popup: function(html, ident, source){
 		$("body").append("<div id='mask'></div>");
 		$("body").append("<div id='popup' class="+ident+"></div>");
 		$("#popup").append("<a href='#' class='close'>Close</a>")
@@ -43,12 +42,20 @@ var BetaPopup = {
 		$("#popup").css('left', winW/2-$("#popup").width()/2);
 
 		$("#popup").delay(100).fadeIn('fast');
-		$(".close").click(function(){
-			$("#popup").slideUp('fast');	
+		$(".close").live('keypress', function (e) {
+       if ( e.keyCode == 27 ){
+           closePopup();
+        }
+    });
+		$(".close").live("click", function(){
+			closePopup()
+			return false;
+		});
+		closePopup = function(){
+		  $("#popup").slideUp('fast');	
 			$("#mask").fadeOut('fast');
 			$("#mask").remove();
 			$("#popup").remove();
-			return false;
-		})
+		}
 	}
 };
