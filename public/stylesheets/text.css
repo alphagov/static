@@ -99,14 +99,20 @@ article h4 {
 
 article p, article ul, article ol {
   font-family: Georgia;
-  font-size: 1em;
-/*  font-size: 1.1em;*/
   line-height: 1.5em;
   margin: 0.75em 0;
 }
 
+article p {
+/*  font-size: 1.125em;*/
+}
+
 article li {
   margin: 0.25em 0;
+}
+
+article li p {
+  margin: 0;
 }
 
 article p.large-text {
@@ -441,7 +447,7 @@ article ol.steps li {
 	background-position: 0 0.75em;
 	background-repeat: no-repeat;
 	list-style-type: none;
-	padding: 0.15em 0 0.15em 2.25em;
+	padding: 0.75em 0 0.75em 2.25em;
 }
 article ol.steps li:nth-child(1) {
 	background-image: url('/images/icon-step-1.png');
