@@ -50,16 +50,18 @@ $(document).ready(function() {
     return $.map(data, function(item) {
       if (highlight_term(item.label,search_term)) {
         return {
-          label: html_escape(item.label),
-          html:  highlight_term(item.label,search_term),
+          format: html_escape(item.format),
+          label:  highlight_term(item.label,search_term),
           url:   item.url
         };
       }
     });
   };
 
-  var html_escape = function( string) {
-      return $('<div/>').text(string).html();
+  var html_escape = function(string) { 
+      if (string) {
+        return $('<div/>').text(string).html();
+      }
   };
 
 	/* Smoke and mirrors search hint */
@@ -86,11 +88,16 @@ $(document).ready(function() {
     delay: 300,
     width: 300, 
     source: function(req, add){  
-      $(".hint-suggest").text("Loading...");
-      if($(".search-landing").length == 0){
-        $(".hint-suggest").addClass("search-loading");
+      var preloaded_results = false;
+      if (preloaded_search_data) {
+        var preloaded_results = filter_terms(req.term,preloaded_search_data)
       }
-      if (req.term.length > 3 || preloaded_search_data == false) {
+
+      if (req.term.length > 3 || preloaded_results == false || preloaded_results.size == 0) {
+        $(".hint-suggest").text("Loading...");
+        if($(".search-landing").length == 0){
+          $(".hint-suggest").addClass("search-loading");
+        }
         $.ajax({
           url: $("form[role=search]")[0].action.replace(/search$/, "autocomplete?q="+req.term),
           dataType: "json",
@@ -107,7 +114,7 @@ $(document).ready(function() {
           }
         });
       } else {
-        add( filter_terms(req.term,preloaded_search_data) );
+        add( preloaded_results );
       }
     },  
     select: function(event, ui) {
