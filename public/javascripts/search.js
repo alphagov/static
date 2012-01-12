@@ -97,7 +97,7 @@ $(document).ready(function() {
         var preloaded_results = filter_terms(req.term,preloaded_search_data)
       }
 
-      if (req.term.length > 3 || preloaded_results == false || preloaded_results.size == 0) {
+      if (req.term.length > 3 || preloaded_results == false || preloaded_results.length == 0) {
         $(".hint-suggest").text("Loading...");
         if($(".search-landing").length == 0){
           $(".hint-suggest").addClass("search-loading");
@@ -118,7 +118,7 @@ $(document).ready(function() {
           }
         });
       } else {
-        if preloaded_results.size > 5 {
+        if preloaded_results.length > 5 {
           var preloaded_results = preloaded_results.splice(4);
         }
         add( preloaded_results );
