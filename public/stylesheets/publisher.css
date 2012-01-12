@@ -1,7 +1,7 @@
 /* visited link colour overrides */
 
-aside .chapters-navigation li a:visited,
-.pagination li a:visited,
+#wrapper.guide aside .chapters-navigation li a:visited,
+#wrapper.guide .pagination li a:visited,
 #wrapper.programme .article-container nav a:visited {
   color: #2E3191;
 }
