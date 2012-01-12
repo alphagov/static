@@ -44,7 +44,7 @@ $(document).ready(function() {
   })
   
   if(getCookie("govukfeedback") != "dismiss"){
-    $("#feedback-cta").delay(30).fadeIn(1500);
+    $("#feedback-cta").delay(30000).fadeIn(1500);
   }
   
   function setCookie(name,value,days) {
