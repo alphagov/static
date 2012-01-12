@@ -104,16 +104,20 @@ article p, article ul, article ol {
 }
 
 article p {
-/*  font-size: 1.125em;*/
+  font-size: 1.125em;
 }
 
 article li {
+  font-size: 1.125em;
   margin: 0.25em 0;
 }
 
 article li p {
+  font-size: 1em;
   margin: 0;
 }
+
+/* Are these used anywhere?
 
 article p.large-text {
   font-size: 1.63em;
@@ -125,7 +129,7 @@ article p.small-text {
   font-size: 0.75em;
   line-height: 1.5em;
   margin: 1em 0;
-}
+}*/
 
 article ul, article ol {
   padding-left: 1.5em;
@@ -223,10 +227,10 @@ article .summary p, article .summary h2 {
 	background: url(/images/summary-arrow.png) no-repeat 0 0;
 	border: none;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 1.15em;
+  font-size: 1.25em;
 /*  font-weight: bold;*/
 /*  line-height: 1.25em;*/
-	margin: 0 0.75em 1.25em 0;
+	margin: 0 0.75em 1.75em 0;
 	min-height: 1.75em;
   padding: 0.25em 0 0 1.5em;
 /*  padding: 0.25em 0 1.5em 1.5em;*/

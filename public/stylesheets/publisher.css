@@ -284,8 +284,8 @@ aside .chapters-navigation li a .part-title {
 }
 
 .get-started-intro {
-  font-size: 1.2em;
-  line-height: 1.25em;
+/*  font-size: 1em;*/
+/*  line-height: 1.25em;*/
 }
 
 #wrapper.transaction .continue,
@@ -322,6 +322,7 @@ aside .chapters-navigation li a .part-title {
 }
 
 .get-started .button {
+  margin: 0.75em 0 0 0;
   position: relative;
   padding: 0.75em 0.75em;
 }
