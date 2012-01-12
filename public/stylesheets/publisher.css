@@ -190,7 +190,7 @@ aside .chapters-navigation li a .part-title {
 	background: #F2F2F2;
 	border-top: solid 1px #bbb;
 	display: block;
-	margin: 2em -2em 1em -2em;
+	margin: 2em -5em -1em -5em;
 }
 
 .pagination ul {
@@ -284,8 +284,8 @@ aside .chapters-navigation li a .part-title {
 }
 
 .get-started-intro {
-  font-size: 1.2em;
-  line-height: 1.25em;
+/*  font-size: 1em;*/
+/*  line-height: 1.25em;*/
 }
 
 #wrapper.transaction .continue,
@@ -322,6 +322,7 @@ aside .chapters-navigation li a .part-title {
 }
 
 .get-started .button {
+  margin: 0.75em 0 0 0;
   position: relative;
   padding: 0.75em 0.75em;
 }
@@ -438,8 +439,12 @@ ul.helpers li.offline_steps {
   z-index: 5;
 }
 
+#wrapper.programme .programme-progression ol,
+#wrapper.programme .part-pagination li:first-child a {
+	background: #FFE087;
+}
+
 #wrapper.programme .programme-progression ol {
-	background: #DAC496;
 /*  border: solid 1px #bbb;*/
 	border-bottom: none;
 /*  border-left: none;*/
@@ -451,7 +456,7 @@ ul.helpers li.offline_steps {
   margin: 0;
 	padding: 0;
 	position: relative;
-	bottom: -1px;
+/*  bottom: -1px;*/
 	z-index: 5;
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
@@ -467,7 +472,7 @@ ul.helpers li.offline_steps {
 	display: block;
   height: 2.25em;
   line-height: 2.25em;
-	padding: 0 1em 0 2em;
+	padding: 0 0.65em 0 1.65em;
 	position: relative;
 	text-align: center;
 /*  width: 100%;*/
@@ -485,8 +490,10 @@ ul.helpers li.offline_steps {
   border-radius: 0 0.5em 0 0;
 }
 
-#wrapper.programme .programme-progression li a:hover {
-	background-color: #2E8ACA;
+#wrapper.programme .programme-progression li a:hover,
+#wrapper.programme div.further-information a:hover,
+#wrapper.programme .part-pagination li:first-child a:hover {
+	background-color: #97C5E5;
 	color: #fff;
 }
 
@@ -502,22 +509,22 @@ ul.helpers li.offline_steps {
 	color: #2E8ACA;
 }
 
-#wrapper.programme div.further-information a:hover {
+/*#wrapper.programme div.further-information a:hover {
   background-color: #2E8ACA;
   color: #fff;
-}
+}*/
 #wrapper.programme div.further-information.active a:hover {
   background-color: #fff;
 	color: #2E8ACA;
 }
 
 #wrapper.programme .progressor {
-	background: url(/images/programme-progressor-arrows.png) no-repeat -1px 0;
+	background: url(/images/programme-progressor-arrows.png) no-repeat 0 0;
 	height: 36px;
 	position: absolute;
-  right: -20px;
+  right: -16px;
 	top: 0;
-	width: 20px;
+	width: 16px;
 	z-index: 1;
 }
 
@@ -527,7 +534,7 @@ ul.helpers li.offline_steps {
 }
 
 #wrapper.programme li a:hover .progressor {
-	background-position: -574px 0;
+	background-position: -573px 0;
 }
 
 #wrapper.programme .programme-progression li:last-child .progressor {
@@ -547,8 +554,10 @@ div.further-information a {
 	border-radius: 0.5em 0.5em 0 0;
 	display: block;
 	float: right;
-	line-height: 2em;
-	margin: 0.25em 2em 0 0;
+	line-height: 2.25em;
+	height: 2.25em;
+/*  margin: 0.25em 2em 0 0;*/
+	margin: 0 2.75em 0 0;
   padding: 0 1em;
 }
 .lte-ie8 div.further-information {
@@ -561,7 +570,7 @@ div.further-information.active a {
 }
 
 div.further-information a span {
-	font-size: 0.85em;
+/*  font-size: 0.85em;*/
 }
 
 #wrapper.programme article {
@@ -611,7 +620,6 @@ div.further-information a span {
 }
 
 #wrapper.programme .part-pagination li:first-child a {
-	background-color: #DAC496;
   border-bottom: solid 2px #aaa;
 /*  border-top: none;
   border-right: none;
@@ -622,17 +630,6 @@ div.further-information a span {
 	display: block;
 	margin-right: 3em;
 	padding: 0 1em;
-}
-
-#wrapper.programme .part-pagination li:first-child a:hover {
-	background-color: #2E8ACA;
-	color: #fff;
-}
-
-#wrapper.programme .part-pagination .progressor {
-	background-position: 0 0;
-	right: -20px;
-	top: 0;
 }
 
 #wrapper.programme .part-pagination a:hover .progressor {
