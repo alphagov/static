@@ -43,6 +43,7 @@ $(document).ready(function() {
   			e.preventDefault();
         $("#popup").slideUp('fast').remove();	
   			$("#mask").fadeOut('fast').remove();
+  			$(".customisation-settings").focus();
   		  // $("#global-locator-box").hide();
   		});
   		
