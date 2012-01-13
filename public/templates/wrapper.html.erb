@@ -3,7 +3,7 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
+  
   <title>www.gov.uk - This is a trial ‘beta’ version of the UK government's official website</title>
   <link href="<%= @asset_host %>/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
@@ -69,7 +69,7 @@
 				<ul>
 					<li><a href="/settings" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
-         				<li><a href="#">Feedback</a></li>
+         				<li id="gs-feedback"><a href="http://getsatisfaction.com/govuk">Feedback</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -98,7 +98,7 @@
 	<footer class="group" id="footer" role="contentinfo">
 		<div class="sub-section beta-notice">
 		  <h1>This website is a beta</h1>
-		  <p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a></p>
+		  <p><a href="http://getsatisfaction.com/govuk" id="gs-feedback-banner">Send us your feedback</a></p>
 		</div>
 		<div class="inner group">
 		  <div class="sub-section">
@@ -154,7 +154,30 @@
   </footer><!--end footer-->
 
 	<div id="global-app-error" class="app-error hidden"></div>
+  <script type="text/javascript" charset="utf-8">
+    var is_ssl = ("https:" == document.location.protocol);
+    var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+    document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
 
+  <script type="text/javascript" charset="utf-8">
+    var feedback_widget_options = {};
+
+    feedback_widget_options.display = "overlay";  
+    feedback_widget_options.company = "govuk";
+    feedback_widget_options.placement = "hidden";
+    feedback_widget_options.color = "#222";
+    feedback_widget_options.style = "idea";
+
+    feedback_widget_options.limit = "3";
+    var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+    $("#gs-feedback, #gs-feedback-banner").live("click", function(){
+      feedback_widget.show();
+      return false;
+    })
+    
+    
+  </script>
 </body>
 </html>
 
