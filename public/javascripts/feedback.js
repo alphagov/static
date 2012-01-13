@@ -21,7 +21,6 @@ $(document).ready(function() {
     _gaq.push(['_trackEvent', 'Citizen-Feedback', "No"]);
     BetaPopup.popup(popupContents, "feedback-tools");
     $("#popup h2").focus;
-    _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Open']);
     $("#feedback-cta").fadeOut('fast');
     
 		$("#popup form").live("submit", function(){
