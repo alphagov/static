@@ -21,7 +21,7 @@ $(function(){
 		j = i+1;
 		id = $(sections[j]).attr("id");
 		navid = id+"-nav";
-		nav = $("<div class='part-pagination group' role='navigation' id="+navid+"></div>");
+		nav = $("<nav class='part-pagination group' role='navigation' id="+navid+"></nav>");
 		ul = $("<ul></ul>");
 		
 		sectionTitle = $("#"+id+" h1").html();

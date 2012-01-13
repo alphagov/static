@@ -281,17 +281,15 @@ article .example {
 
 article .help-notice,
 article .info-notice {
-	border: 2px solid #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
+	border: 1px solid #bbb;
 	margin: 1.25em 0;
-	padding: 0.75em 1em 0 3.5em;
+	padding: 0.5em 1em 0.5em 3.5em;
 }
 
 article .help-notice p,
 article .info-notice p {
-  margin-top: 0;
+  font-size: 1em;
+  margin: 0;
 }
 
 article .help-notice {

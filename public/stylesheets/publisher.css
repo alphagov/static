@@ -1,3 +1,11 @@
+/* visited link colour overrides */
+
+#wrapper.guide aside .chapters-navigation li a:visited,
+#wrapper.guide .pagination li a:visited,
+#wrapper.programme .article-container nav a:visited {
+  color: #2E3191;
+}
+
 /* section pages */
 #wrapper.section hgroup h1 {
 	background-image: url('/images/icon-section-l.png');
@@ -20,6 +28,7 @@
 /*	min-height: 5.75em;*/
 	margin-left: 0;
 }
+
 .alternative-guide {
 	position: absolute;
 	top: 0;
@@ -60,6 +69,7 @@
 }
 
 #wrapper.guide article {
+  min-height: 40em;
 	width: 75%;
 }
 .lte-ie8 #wrapper.guide article {
@@ -67,7 +77,7 @@
 	float: left;
 }
 .guide article .inner {
-	padding-bottom: 1em;
+	padding: 2em 2.5em 1em 2.5em;
 }
 #wrapper.guide aside {
 	float: left;
@@ -93,9 +103,6 @@ aside .chapters-navigation li {
 	list-style: none;
 }
 aside .chapters-navigation li a {
-	-webkit-border-radius: 0.5em 0 0 0.5em;
-	-moz-border-radius: 0.5em 0 0 0.5em;
-	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
 	padding: 0.75em 0.75em;
@@ -103,7 +110,6 @@ aside .chapters-navigation li a {
 }
 aside .chapters-navigation li.active a {
 	background: #fff;
-	border: 1px solid #ddd;
 	border-right: none;
 	display: block;
 	position: relative;
@@ -184,29 +190,32 @@ aside .chapters-navigation li a .part-title {
 	background-image: url('/images/icon-smart-answer-l.png');
 }
 
-
+/* guides pagination */
 
 .pagination {
-	background: #F2F2F2;
-	border-top: solid 1px #bbb;
+  background: #F2F2F2;
 	display: block;
-	margin: 2em -5em -1em -5em;
+  margin: 2em -1.5em 0 -1.5em;
 }
 
 .pagination ul {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	margin: 0;
-	padding: 0.5em 0;
+  padding: 0;
 }
 
 .pagination li {
 	float: left;
+	font-size: 1em;
 	list-style: none;
+	margin: 0;
 }
 
 .pagination li a {
 	display: block;
+	float: left;
+	min-height: 4.5em;
 	padding: 0.5em;
-	position: relative;
 }
 
 .pagination li a:hover {
@@ -215,31 +224,26 @@ aside .chapters-navigation li a .part-title {
 }
 
 .pagination .previous a {
-	border-right: solid 1px #bbb;
-	box-sizing: border-box;
-	float: left;
-	width: 12em;
+  border-right: solid 0.5em #fff;
+	width: 10em;
 }
 
 .pagination .next a {
-	float: right;
-	padding-left: 1em;
-	width: 19em;
+  width: 19.25em;
 }
+
 .pagination .first {
-	border-right: solid 1px #bbb;
-	box-sizing: border-box;
+  border-right: solid 0.5em #fff;
 	float: left;
-	width: 12em;
-	color:#999;
+	width: 10em;
 	padding: 0.5em;
 }
 
 .pagination .last {
-	float: right;
-	width: 20em;
-	color:#999;
+  width: 15em;
+  padding: 0.5em;
 }
+
 .pagination .pagination-label {
 	display: block;
 	font-size: 0.85em;
@@ -606,11 +610,13 @@ div.further-information a span {
 
 #wrapper.programme .part-pagination ul {
 	list-style: none;
+	margin: 0;
 	padding: 0;
 }
 
 #wrapper.programme .part-pagination li {
 	float: left;
+  font-size: 1em;
 }
 
 #wrapper.programme .part-pagination li a {
