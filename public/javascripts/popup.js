@@ -14,12 +14,14 @@ var BetaPopup = {
 		@description Shows a feedback popup
 		@param html A snippet of HTML to put into the popup.
 		@param ident A class name to apply to the popup, so it can be uniquely styled.
+		@param source A focal point to return to on close, usually the originating anchor
 		
 		@example
 			BetaPopup.popup($("#myContent").html(), "myContentClass");
 	*/
 	
 	popup: function(html, ident, source){
+	  var source = source || "#header-global h1 a";
 		$("body").append("<div id='mask'></div>");
 		$("body").append("<div id='popup' class="+ident+"></div>");
 		$("#popup").append("<a href='#' class='close'>Close</a>")
@@ -56,6 +58,7 @@ var BetaPopup = {
 			$("#mask").fadeOut('fast');
 			$("#mask").remove();
 			$("#popup").remove();
+			$(source).focus();
 		}
 	}
 };

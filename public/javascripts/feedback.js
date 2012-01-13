@@ -19,7 +19,8 @@ $(document).ready(function() {
 	})
   $("#cta-no").click(function(){
     _gaq.push(['_trackEvent', 'Citizen-Feedback', "No"]);
-    BetaPopup.popup(popupContents, "feedback-tools", this);
+    BetaPopup.popup(popupContents, "feedback-tools");
+    $("#popup h2").focus;
     _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Open']);
     $("#feedback-cta").fadeOut('fast');
     
@@ -44,7 +45,7 @@ $(document).ready(function() {
   })
   
   if(getCookie("govukfeedback") != "dismiss"){
-    $("#feedback-cta").delay(30000).fadeIn(1500);
+    $("#feedback-cta").delay(6000).fadeIn(1500);
   }
   
   function setCookie(name,value,days) {

@@ -38,6 +38,7 @@ $(document).ready(function() {
   		$("#popup").css('left', winW/2-$("#popup").width()/2);
 
   		$("#popup").delay(100).fadeIn('fast');
+  		$("#popup h2").focus;
   		$(".customisation-tools .close").live('click', function(e){
   			e.preventDefault();
         $("#popup").slideUp('fast').remove();	
