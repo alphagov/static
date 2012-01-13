@@ -116,7 +116,7 @@ aside .chapters-navigation li.active a {
 	z-index: 2;
 }
 aside .chapters-navigation li a:hover {
-	background: #1576FB;
+	background-color: #97C5E5;
 	color: #fff;
 }
 aside .chapters-navigation li.active a:hover {
@@ -193,7 +193,7 @@ aside .chapters-navigation li a .part-title {
 /* guides pagination */
 
 .pagination {
-  background: #F2F2F2;
+  background: #C9D0D0;
 	display: block;
   margin: 2em -1.5em 0 -1.5em;
 }
@@ -211,37 +211,51 @@ aside .chapters-navigation li a .part-title {
 	margin: 0;
 }
 
+.pagination li:first-child {
+  border-right: solid 0.5em #fff;
+  text-align: right;
+}
+
 .pagination li a {
+  background-image: url(../images/pagination-arrows.png);
+  background-repeat: no-repeat;
 	display: block;
 	float: left;
 	min-height: 4.5em;
 	padding: 0.5em;
+	text-decoration: none;
+	width: 14.625em;
 }
 
 .pagination li a:hover {
-	background: #1576FB;
+	background-color: #97C5E5;
 	color: #fff;
 }
 
 .pagination .previous a {
-  border-right: solid 0.5em #fff;
-	width: 10em;
+  background-position: -340px 50%;
+/*  width: 10em;*/
 }
 
 .pagination .next a {
-  width: 19.25em;
+  background-position: 191px 50%;
+/*  width: 19.25em;*/
 }
 
 .pagination .first {
   border-right: solid 0.5em #fff;
 	float: left;
-	width: 10em;
+	min-height: 4.5em;
+/*  width: 10em;*/
 	padding: 0.5em;
+	width: 14.625em;
 }
 
 .pagination .last {
-  width: 15em;
+/*  width: 15em;*/
+	min-height: 4.5em;
   padding: 0.5em;
+	width: 14.625em;
 }
 
 .pagination .pagination-label {
@@ -252,7 +266,12 @@ aside .chapters-navigation li a .part-title {
 }
 
 .pagination li a .pagination-label {
-	text-decoration: none;
+  color: #000;
+	display: block;
+}
+
+.pagination li a .pagination-part-title {
+  text-decoration: underline;
 }
 
 /*

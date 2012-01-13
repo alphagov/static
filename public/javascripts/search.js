@@ -20,53 +20,36 @@ $(document).ready(function() {
 
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
-  $.get('/preload-autocomplete', {}, function(data) {
-    data = $.parseJSON(data);
+  $.getJSON('/preload-autocomplete', function(data) {
     preloaded_search_data = data.map( function(e) {
       return { 'label': e.title, 'url': e.link, 'class': e.format };  
     });
   });
 
   var filter_terms = function(search_term,data) {
-    var highlight_term = function(string,term) {
-      html_safe = html_escape(string);
-      if (html_safe) {
-        var terms = term.split(' ');
-        for (var i in terms)  {
-          var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
-          if (clean_term != "") {
-            var regex = new RegExp("^\\b("+clean_term+")","ig");
-            var count = 0;
-            html_safe = html_safe.replace(regex,function(str){
-              count++;
-              return str;
-            });
-            if (count < 1) {
-              return false;
-            }
-          }
-        }
-        return html_safe;
+    var highlight_term = function(query,term) {
+      if (query == undefined) { return false; }
+      
+      var term = term.split(' ')[0];
+      var regex = new RegExp("^\\b("+term+")","ig");
+      var count = 0;
+      if (query.match(regex)) {
+        return query;
       } else {
         return false;
       }
     };
 
     return $.map(data, function(item) {
-      if (highlight_term(item.label,search_term)) {
+      var term = highlight_term(item.label,search_term);
+      if (term) {
         return {
-          class: html_escape(item.format),
-          label:  highlight_term(item.label,search_term),
+          class: item.class,
+          label:  term,
           url:   item.url
         };
       }
     });
-  };
-
-  var html_escape = function(string) { 
-      if (string) {
-        return $('<div/>').text(string).html();
-      }
   };
 
 	/* Smoke and mirrors search hint */
@@ -89,8 +72,15 @@ $(document).ready(function() {
 	  $("#search_hint").removeClass("visuallyhidden");
 	});
 	
+  $("#site-search-text, #main_autocomplete").keydown( function() {
+    if ($(this).val().length > 3) {
+      $(this).autocomplete( "option", "delay", 400);  
+    } else {
+      $(this).autocomplete( "option", "delay", 0);  
+    } 
+  });
   $("#site-search-text, #main_autocomplete").autocomplete({ 
-    delay: 300,
+    delay: 100,
     width: 300, 
     source: function(req, add){  
       var preloaded_results = false;
@@ -140,7 +130,7 @@ $(document).ready(function() {
       }
       // quickly add the search value to end of list
       var searchVal = $(".ui-autocomplete-input").attr("value");
-      var searchUrl = $("#search")[0].action;
+      var searchUrl = $("form[role=search]")[0].action;
       $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='"+searchUrl+"?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
       $("#search_hint").remove();
     }
