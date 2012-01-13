@@ -20,7 +20,8 @@ $(document).ready(function() {
 
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
-  $.getJSON('/preload-autocomplete', function(data) {
+  $.get('/preload-autocomplete', {}, function(data) {
+    data = $.parseJSON(data);
     preloaded_search_data = data.map( function(e) {
       return { 'label': e.title, 'url': e.link, 'class': e.format };  
     });
@@ -34,7 +35,7 @@ $(document).ready(function() {
         for (var i in terms)  {
           var clean_term = html_escape(terms[i].replace(/^\s+|\s+$/g, ''));
           if (clean_term != "") {
-            var regex = new RegExp("\\b("+clean_term+")","ig");
+            var regex = new RegExp("^\\b("+clean_term+")","ig");
             var count = 0;
             html_safe = html_safe.replace(regex,function(str){
               count++;
@@ -54,7 +55,7 @@ $(document).ready(function() {
     return $.map(data, function(item) {
       if (highlight_term(item.label,search_term)) {
         return {
-          format: html_escape(item.format),
+          class: html_escape(item.format),
           label:  highlight_term(item.label,search_term),
           url:   item.url
         };
