@@ -11,7 +11,6 @@ $(document).ready(function() {
 
 	 // Event handlers
     $('.customisation-settings').click(function(e) {
-      _gaq.push(['_trackEvent', 'Citizen-Accessibility', 'Open']);
        $(document).trigger('customisation-opened');
       //BetaPopup.popup(, "customisation-tools");
 
