@@ -44,7 +44,7 @@ $(document).ready(function() {
       var term = highlight_term(item.label,search_term);
       if (term) {
         return {
-          class: item.format,
+          class: item.class,
           label:  term,
           url:   item.url
         };
