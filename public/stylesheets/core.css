@@ -44,7 +44,7 @@ section#content {
 	margin: 0 auto;
 	width: 100%;
 }
-@media only screen and (min-width:670px) {
+/*@media only screen and (min-width:670px) {
   section#content {
     margin: 1em auto 1em;
   }
@@ -57,7 +57,7 @@ section#content {
 }
 .lte-ie8 .js-enabled section#content {
   margin: 6em auto 2em;
-}
+}*/
 
 ol, ul, nav ol, nav ul {
 	list-style: inherit;
