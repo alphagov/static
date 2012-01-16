@@ -18,9 +18,17 @@ $(document).ready(function() {
     }
   });
 
+  var searchUrl = function(pathSuffix) {
+    var url = $("form[role=search]")[0].action;
+    if (pathSuffix !== undefined) {
+      url = url.replace(/search$/, pathSuffix);
+    }
+    return url;
+  };
+
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
-  $.getJSON($("form[role=search]")[0].action.replace(/search$/, "preload-autocomplete"), function(data) {
+  $.getJSON(searchUrl("preload-autocomplete"), function(data) {
     preloaded_search_data = data.map( function(e) {
       return { 'label': e.title, 'url': e.link, 'class': e.format };  
     });
@@ -94,7 +102,7 @@ $(document).ready(function() {
           $(".hint-suggest").addClass("search-loading");
         }
         $.ajax({
-          url: $("form[role=search]")[0].action.replace(/search$/, "autocomplete?q="+req.term),
+          url: searchUrl("autocomplete") + "?q=" + req.term,
           dataType: "json",
           cache: true,
           success: function(data) {
@@ -130,8 +138,7 @@ $(document).ready(function() {
       }
       // quickly add the search value to end of list
       var searchVal = $(".ui-autocomplete-input").attr("value");
-      var searchUrl = $("form[role=search]")[0].action;
-      $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='"+searchUrl+"?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
+      $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='"+searchUrl()+"?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
       $("#search_hint").remove();
     }
   });
