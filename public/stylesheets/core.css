@@ -913,26 +913,31 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .button,
 .button:visited {
   background-color: #B01117;
-  background-position: 0 0;
-  background-repeat: repeat-x;
+  border: none;
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
 	font-family: "Gill Sans", sans-serif;
-	padding: 0.75em 0.5em 0.5em 0.75em;
+  padding: 0.75em 0.5em 0.5em 0.75em;
 	position: relative;
 	text-decoration: none;
-  -webkit-transition: background-color 0.5s ease-in-out;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s ease-in-out;
 }
 .button:hover {
-	background-color: #DD322D;
+  background-color: #DD322D;
 	color: #fff;
+
 }
 .button:active {
 	top: 1px;
 }
 .button:focus {
 	background-color: #001950;
+}
+
+input.button {
+  padding: 0.75em 0.5em;
 }
 
 .button.medium {
@@ -943,6 +948,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	font-size: 2.5em;
 	font-weight: bold;
 	padding: 0.65em 0.5em;
+}
+
+.get-started {
+  margin: 0;
 }
 
 .get-started .button {
@@ -964,13 +973,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0.25em 0 0 0;
   opacity: 0.6;
+  text-transform: none;
 }
 
 .get-started .button .call-to-action {
   display: block;
   font-size: 1.5em;
 /*  font-weight: bold;*/
-  text-transform: uppercase;
 }
 
 .button .call-to-action:after {
