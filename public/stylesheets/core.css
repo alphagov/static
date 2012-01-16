@@ -391,6 +391,7 @@ article .inner {
 
 .print-link {
   float: left;
+  margin-right: 12%;
 }
 
 .print-link a, .print-link a:link, .print-link a:visited {
@@ -404,7 +405,8 @@ article .inner {
 }
 
 .data-reuse {
-  border-top: solid 1px #ccc;
+  float: left;
+  margin: 0 auto;
 }
 
 .data-reuse p,
