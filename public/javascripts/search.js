@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
-  $.getJSON('/preload-autocomplete', function(data) {
+  $.getJSON($("form[role=search]")[0].action.replace(/search$/, "preload-autocomplete"), function(data) {
     preloaded_search_data = data.map( function(e) {
       return { 'label': e.title, 'url': e.link, 'class': e.format };  
     });
