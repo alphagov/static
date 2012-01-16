@@ -128,3 +128,13 @@
 .search .results.top ul.search-not-found h3 {
   margin-top: 1.2em;
 }
+
+.results #search2 { 
+	margin: 1em; 
+}
+.results #search2 input { 
+	font-size: 2em; 
+}
+.results #search2 input[type="text"] { 
+	margin-right: 1em; 
+}
