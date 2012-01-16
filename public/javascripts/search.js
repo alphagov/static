@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
 
   var searchUrl = function(pathSuffix) {
-    var url = $("form[role=search]")[0].action;
+    var url = $("form[role=search]").attr("action");
     if (pathSuffix !== undefined) {
       url = url.replace(/search$/, pathSuffix);
     }
