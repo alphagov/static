@@ -23,11 +23,11 @@ body {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	line-height: 1.5em;
 }
-.visuallyhidden{
+.visuallyhidden {
   display:none;
 }
 #wrapper {
-  background-color: #f8f7ed;
+  background-color: #F8F7ED;
 /*  margin: 0 auto;*/
 /*  max-width: 960px;*/
 }
@@ -910,28 +910,20 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .button,
 .button:visited {
-  background-color: #039;
-  background-image: url(/images/button-overlay.png);
+  background-color: #B01117;
   background-position: 0 0;
   background-repeat: repeat-x;
-	border: 0.0625em solid #31395F;
-	-moz-border-radius: 0.15em;
-	-webkit-border-radius: 0.15em;
-	border-radius: 0.15em;
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	padding: 0.25em 0.625em 0.25em 0.375em;
-	text-decoration: none;
-	text-shadow: 0 -0.0625em 0.0625em rgba(0,0,0,0.75), 0 0.0625em -0.0625em rgba(0,0,0,0.25);
+	font-family: "Gill Sans", sans-serif;
+	padding: 0.75em 0.5em 0.5em 0.75em;
 	position: relative;
+	text-decoration: none;
+  -webkit-transition: background-color 0.5s ease-in-out;
 }
 .button:hover {
-	background-color: #001950;
+	background-color: #DD322D;
 	color: #fff;
 }
 .button:active {
@@ -951,12 +943,40 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	padding: 0.65em 0.5em;
 }
 
-.button .indicator:after {
+.get-started .button {
+  float: right;
+  margin: 0.75em 0 0 0;
+  position: relative;
+/*  padding: 0.75em 0.75em;*/
+}
+
+.get-started .button .button-content {
+  display: inline-block;
+/*  padding-right: 0.75em;*/
+  vertical-align: middle;
+/*  margin-right: 2em;*/
+}
+
+.get-started .button .destination {
+  display: block;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin: 0.25em 0 0 0;
+  opacity: 0.6;
+}
+
+.get-started .button .call-to-action {
+  display: block;
+  font-size: 1.5em;
+/*  font-weight: bold;*/
+  text-transform: uppercase;
+}
+
+.button .call-to-action:after {
   content: "\25ba";
   font-weight: bold;
   margin-left: 0.25em;
 }
-.lte-ie8 .button .indicator:after {
+.lte-ie8 .button .call-to-action:after {
   _content: "&rarr;";
 }
 
