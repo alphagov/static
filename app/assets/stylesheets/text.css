@@ -12,7 +12,11 @@ article h1 {
 
 article header h1 {
 	border-bottom: solid 1px #ddd;
-  font-size: 1.65em;
+	color: #000;
+  font-family: "Gill Sans";
+/*  font-size: 1.65em;*/
+  font-size: 2em;
+  font-weight: normal;
 /*  line-height: 1.15em;*/
   margin-top: 0;
   margin-bottom: 0;
@@ -25,7 +29,9 @@ article header h1 {
 article header h1 span {
 	color: #666;
 	display: block;
-	font-size: 0.6em;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+/*  font-size: 0.6em;*/
+  font-size: 0.5em;
 	font-weight: normal;
 	line-height: 1em;
 	margin-bottom: 0.4em;
@@ -37,10 +43,15 @@ article h1 + h2 {
 }
 
 article h2 {
+  border-bottom: solid 1px #ddd;
+/*  border-top: solid 1px #ddd;*/
+/*  color: #4C4C4C;*/
   font-size: 1.3em;
+/*  font-weight: normal;*/
   line-height: 1.18em;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 article h2 + h3 {
@@ -51,7 +62,8 @@ article h3 {
   font-size: 1.2em;
   line-height: 1.11em;
   margin-top: 1.304em;
-  margin-bottom: 0;
+/*  margin-bottom: 0;*/
+  margin-bottom: 0.75em;
 }
 
 article h3 + h4 {
@@ -77,15 +89,35 @@ article h2 + ul, article h3 + ul, article h4 + ul {
 	margin-top: 0.2em;
 }
 
+article h1,
+article h2,
+article h3,
+article h4 {
+  color: #000;
+/*  font-weight: normal;*/
+}
+
 article p, article ul, article ol {
-  font-size: 1em;
-/*  line-height: 1.5em;*/
+  font-family: Georgia;
+  line-height: 1.5em;
   margin: 0.75em 0;
 }
 
+article p {
+  font-size: 1.125em;
+}
+
 article li {
+  font-size: 1.125em;
   margin: 0.25em 0;
 }
+
+article li p {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Are these used anywhere?
 
 article p.large-text {
   font-size: 1.63em;
@@ -97,7 +129,7 @@ article p.small-text {
   font-size: 0.75em;
   line-height: 1.5em;
   margin: 1em 0;
-}
+}*/
 
 article ul, article ol {
   padding-left: 1.5em;
@@ -187,14 +219,21 @@ article table.calendar {
 	more article formatting including markdown styles
 */
 
+article .summary {
+  margin-bottom: 0.75em;
+}
+
 article .summary p, article .summary h2 {
 	background: url(/images/summary-arrow.png) no-repeat 0 0;
-  font-size: 1.15em;
-	font-weight: bold;
-  line-height: 1.25em;
-	margin: 0 0.75em 1.25em 0;
+	border: none;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1.25em;
+/*  font-weight: bold;*/
+/*  line-height: 1.25em;*/
+	margin: 0 0.75em 1.75em 0;
 	min-height: 1.75em;
-	padding: 0.25em 0 0 1.5em;
+  padding: 0.25em 0 0 1.5em;
+/*  padding: 0.25em 0 1.5em 1.5em;*/
 }
 
 article .summary h2 {
@@ -242,17 +281,15 @@ article .example {
 
 article .help-notice,
 article .info-notice {
-	border: 2px solid #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
+	border: 1px solid #bbb;
 	margin: 1.25em 0;
-	padding: 0.75em 1em 0 3.5em;
+	padding: 0.5em 1em 0.5em 3.5em;
 }
 
 article .help-notice p,
 article .info-notice p {
-  margin-top: 0;
+  font-size: 1em;
+  margin: 0;
 }
 
 article .help-notice {
@@ -280,6 +317,18 @@ article .form-download a {
 	background: url('/images/icon-file-download.png') 0 0.5em no-repeat;
 	display: block;
 	padding: 0.75em 0 0.75em 2em;
+}
+
+article .help-notice p,
+article .info-notice p,
+article .form-download p,
+article .advisory p,
+article .example p,
+article .contact p,
+article .address p,
+article .place p
+ {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .contact {
@@ -400,7 +449,7 @@ article ol.steps li {
 	background-position: 0 0.75em;
 	background-repeat: no-repeat;
 	list-style-type: none;
-	padding: 0.25em 0 0.25em 2.75em;
+	padding: 0.75em 0 0.75em 2.25em;
 }
 article ol.steps li:nth-child(1) {
 	background-image: url('/images/icon-step-1.png');

@@ -21,7 +21,7 @@ $(function(){
 		j = i+1;
 		id = $(sections[j]).attr("id");
 		navid = id+"-nav";
-		nav = $("<div class='part-pagination group' role='navigation' id="+navid+"></div>");
+		nav = $("<nav class='part-pagination group' role='navigation' id="+navid+"></nav>");
 		ul = $("<ul></ul>");
 		
 		sectionTitle = $("#"+id+" h1").html();
@@ -42,7 +42,8 @@ $(function(){
 			
 			$(".part-pagination a").live("click", function(){
 			  if($(window.location.hash+"-enhanced").length != 0){
-			    $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+			   // $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
+			   $("html, body").animate({scrollTop: $("#content").offset().top - 95},10);
 		    }
 			});
 		}

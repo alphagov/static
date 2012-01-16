@@ -23,13 +23,13 @@ Static::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # Do not compress assets
-  config.assets.compress = true
+  config.assets.compress = false
 
   # rev filenames for assets
-  config.assets.digest = true
+  config.assets.digest = false
 
   config.action_controller.asset_host = Plek.current.find('assets')
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 end

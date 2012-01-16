@@ -1,3 +1,11 @@
+/* visited link colour overrides */
+
+#wrapper.guide aside .chapters-navigation li a:visited,
+#wrapper.guide .pagination li a:visited,
+#wrapper.programme .article-container nav a:visited {
+  color: #2E3191;
+}
+
 /* section pages */
 #wrapper.section hgroup h1 {
 	background-image: url('/images/icon-section-l.png');
@@ -20,6 +28,7 @@
 /*	min-height: 5.75em;*/
 	margin-left: 0;
 }
+
 .alternative-guide {
 	position: absolute;
 	top: 0;
@@ -60,6 +69,7 @@
 }
 
 #wrapper.guide article {
+  min-height: 40em;
 	width: 75%;
 }
 .lte-ie8 #wrapper.guide article {
@@ -67,7 +77,7 @@
 	float: left;
 }
 .guide article .inner {
-	padding-bottom: 1em;
+	padding: 2em 2.5em 1em 2.5em;
 }
 #wrapper.guide aside {
 	float: left;
@@ -93,9 +103,6 @@ aside .chapters-navigation li {
 	list-style: none;
 }
 aside .chapters-navigation li a {
-	-webkit-border-radius: 0.5em 0 0 0.5em;
-	-moz-border-radius: 0.5em 0 0 0.5em;
-	border-radius: 0.5em 0 0 0.5em;
 	display: block;
 	font-size: 1.3em;
 	padding: 0.75em 0.75em;
@@ -103,14 +110,13 @@ aside .chapters-navigation li a {
 }
 aside .chapters-navigation li.active a {
 	background: #fff;
-	border: 1px solid #ddd;
 	border-right: none;
 	display: block;
 	position: relative;
 	z-index: 2;
 }
 aside .chapters-navigation li a:hover {
-	background: #1576FB;
+	background-color: #97C5E5;
 	color: #fff;
 }
 aside .chapters-navigation li.active a:hover {
@@ -184,62 +190,74 @@ aside .chapters-navigation li a .part-title {
 	background-image: url('/images/icon-smart-answer-l.png');
 }
 
-
+/* guides pagination */
 
 .pagination {
-	background: #F2F2F2;
-	border-top: solid 1px #bbb;
+  background: #C9D0D0;
 	display: block;
-	margin: 2em -2em 1em -2em;
+  margin: 2em -1.5em 0 -1.5em;
 }
 
 .pagination ul {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	margin: 0;
-	padding: 0.5em 0;
+  padding: 0;
 }
 
 .pagination li {
 	float: left;
+	font-size: 1em;
 	list-style: none;
+	margin: 0;
+}
+
+.pagination li:first-child {
+  border-right: solid 0.5em #fff;
+  text-align: right;
 }
 
 .pagination li a {
+  background-image: url(../images/pagination-arrows.png);
+  background-repeat: no-repeat;
 	display: block;
+	float: left;
+	min-height: 4.5em;
 	padding: 0.5em;
-	position: relative;
+	text-decoration: none;
+	width: 14.625em;
 }
 
 .pagination li a:hover {
-	background: #1576FB;
+	background-color: #97C5E5;
 	color: #fff;
 }
 
 .pagination .previous a {
-	border-right: solid 1px #bbb;
-	box-sizing: border-box;
-	float: left;
-	width: 12em;
+  background-position: -340px 50%;
+/*  width: 10em;*/
 }
 
 .pagination .next a {
-	float: right;
-	padding-left: 1em;
-	width: 19em;
+  background-position: 191px 50%;
+/*  width: 19.25em;*/
 }
+
 .pagination .first {
-	border-right: solid 1px #bbb;
-	box-sizing: border-box;
+  border-right: solid 0.5em #fff;
 	float: left;
-	width: 12em;
-	color:#999;
+	min-height: 4.5em;
+/*  width: 10em;*/
 	padding: 0.5em;
+	width: 14.625em;
 }
 
 .pagination .last {
-	float: right;
-	width: 20em;
-	color:#999;
+/*  width: 15em;*/
+	min-height: 4.5em;
+  padding: 0.5em;
+	width: 14.625em;
 }
+
 .pagination .pagination-label {
 	display: block;
 	font-size: 0.85em;
@@ -248,7 +266,12 @@ aside .chapters-navigation li a .part-title {
 }
 
 .pagination li a .pagination-label {
-	text-decoration: none;
+  color: #000;
+	display: block;
+}
+
+.pagination li a .pagination-part-title {
+  text-decoration: underline;
 }
 
 /*
@@ -284,8 +307,8 @@ aside .chapters-navigation li a .part-title {
 }
 
 .get-started-intro {
-  font-size: 1.2em;
-  line-height: 1.25em;
+/*  font-size: 1em;*/
+/*  line-height: 1.25em;*/
 }
 
 #wrapper.transaction .continue,
@@ -322,6 +345,7 @@ aside .chapters-navigation li a .part-title {
 }
 
 .get-started .button {
+  margin: 0.75em 0 0 0;
   position: relative;
   padding: 0.75em 0.75em;
 }
@@ -438,9 +462,13 @@ ul.helpers li.offline_steps {
   z-index: 5;
 }
 
+#wrapper.programme .programme-progression ol,
+#wrapper.programme .part-pagination li:first-child a {
+	background: #FFE087;
+}
+
 #wrapper.programme .programme-progression ol {
-	background: #EFECE0;
-	border: solid 1px #bbb;
+/*  border: solid 1px #bbb;*/
 	border-bottom: none;
 /*  border-left: none;*/
   -webkit-border-radius: 0.5em 0.5em 0 0;
@@ -451,10 +479,11 @@ ul.helpers li.offline_steps {
   margin: 0;
 	padding: 0;
 	position: relative;
-	bottom: -1px;
+/*  bottom: -1px;*/
 	z-index: 5;
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
+	bottom: 0;
 /*  overflow: hidden;*/
 }
 
@@ -464,8 +493,9 @@ ul.helpers li.offline_steps {
 
 #wrapper.programme .programme-progression li a {
 	display: block;
+  height: 2.25em;
   line-height: 2.25em;
-	padding: 0 1em 0 2em;
+	padding: 0 0.65em 0 1.65em;
 	position: relative;
 	text-align: center;
 /*  width: 100%;*/
@@ -483,45 +513,47 @@ ul.helpers li.offline_steps {
   border-radius: 0 0.5em 0 0;
 }
 
-#wrapper.programme .programme-progression li a:hover {
-	background-color: #1576FB;
+#wrapper.programme .programme-progression li a:hover,
+#wrapper.programme div.further-information a:hover,
+#wrapper.programme .part-pagination li:first-child a:hover {
+	background-color: #97C5E5;
 	color: #fff;
 }
 
 #wrapper.programme .programme-progression li.active a {
 /*  background-color: #ffa;*/
   background-color: #fff;
-/*  z-index: 5;*/
+  /*z-index: 5*/;
 }
 
 #wrapper.programme .programme-progression li.active a:hover {
 /*  background-color: #ffa;*/
   background-color: #fff;
-	color: #1576FB;
+	color: #2E8ACA;
 }
 
-#wrapper.programme div.further-information a:hover {
-  background-color: #1576FB;
+/*#wrapper.programme div.further-information a:hover {
+  background-color: #2E8ACA;
   color: #fff;
-}
+}*/
 #wrapper.programme div.further-information.active a:hover {
   background-color: #fff;
-	color: #1576FB;
+	color: #2E8ACA;
 }
 
 #wrapper.programme .progressor {
-	background: url(/images/programme-progressor-arrows.png) no-repeat -1px 0;
+	background: url(/images/programme-progressor-arrows.png) no-repeat 0 0;
 	height: 36px;
 	position: absolute;
-	right: -20px;
+  right: -16px;
 	top: 0;
-	width: 20px;
+	width: 16px;
 	z-index: 1;
 }
 
 #wrapper.programme li.active a .progressor,
 #wrapper.programme li.active a:hover .progressor {
-	background-position: -283px 0;
+  background-position: -283px 0;
 }
 
 #wrapper.programme li a:hover .progressor {
@@ -537,16 +569,18 @@ div.further-information {
 }
 
 div.further-information a {
-	background-color: #ddd;
-	border: solid 1px #bbb;
+	background-color: #C1CACB;
+/*  border: solid 1px #bbb;*/
 	border-bottom: none;
 	-webkit-border-radius: 0.5em 0.5em 0 0;
 	-moz-border-radius: 0.5em 0.5em 0 0;
 	border-radius: 0.5em 0.5em 0 0;
 	display: block;
 	float: right;
-	line-height: 2em;
-	margin: 0.25em 2em 0 0;
+	line-height: 2.25em;
+	height: 2.25em;
+/*  margin: 0.25em 2em 0 0;*/
+	margin: 0 2.75em 0 0;
   padding: 0 1em;
 }
 .lte-ie8 div.further-information {
@@ -559,7 +593,7 @@ div.further-information.active a {
 }
 
 div.further-information a span {
-	font-size: 0.85em;
+/*  font-size: 0.85em;*/
 }
 
 #wrapper.programme article {
@@ -595,43 +629,36 @@ div.further-information a span {
 
 #wrapper.programme .part-pagination ul {
 	list-style: none;
+	margin: 0;
 	padding: 0;
 }
 
 #wrapper.programme .part-pagination li {
 	float: left;
+  font-size: 1em;
 }
 
 #wrapper.programme .part-pagination li a {
 	line-height: 2.15em;
+	height: 2.15em;
 	position: relative;
 }
 
 #wrapper.programme .part-pagination li:first-child a {
-	background-color: #EFECE0;
-	border: solid 1px #bbb;
-	border-bottom: solid 1px #666;
-	-webkit-border-radius: 0.5em 0.25em 0.25em 0.5em;
-	-moz-border-radius: 0.5em 0.25em 0.25em 0.5em;
-	border-radius: 0.5em 0 0 0.5em;
+  border-bottom: solid 2px #aaa;
+/*  border-top: none;
+  border-right: none;
+  border-bottom-width: 2px;*/
+/*  -webkit-border-radius: 0.5em 0 0 0.5em;
+  -moz-border-radius: 0.5em 0 0 0.5em;
+  border-radius: 0.5em 0 0 0.5em;*/
 	display: block;
 	margin-right: 3em;
 	padding: 0 1em;
 }
 
-#wrapper.programme .part-pagination li:first-child a:hover {
-	background-color: #1576FB;
-	color: #fff;
-}
-
-#wrapper.programme .part-pagination .progressor {
-	background-position: 0 0;
-	right: -20px;
-	top: -1px;
-}
-
 #wrapper.programme .part-pagination a:hover .progressor {
-	background-position: -978px 0;
+	background-position: -573px 0;
 }
 
 /* contacts popup */
