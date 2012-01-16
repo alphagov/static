@@ -86,9 +86,13 @@
 }
 
 body.citizen nav.header-context {
+  background-color: #f8f7ed;
+  padding: 0.5em 0;
+}
+
+body.citizen nav.header-context ol {
   margin: 2em auto 0 auto;
   max-width: 960px;
-  padding: 0.5em 0;
 }
 
 body.government #global-header .header-context {
@@ -254,14 +258,14 @@ form.site-search {
 /* Global footer */
 
 #footer {
-	background-color: #fff;
-	border-top: solid 0.0675em #ddd;
-	border-bottom: solid 0.0675em #ddd;
+/*  background-color: #fff;*/
+/*  border-top: solid 0.0675em #ddd;*/
+/*  border-bottom: solid 0.0675em #ddd;*/
 }
 
 #footer .sub-section.beta-notice {
   background: #E5E5E5;
-  border-bottom: solid 1px #ddd;
+/*  border-bottom: solid 1px #ddd;*/
   float: none;
   padding: 0.5em 2em;
   width: auto;

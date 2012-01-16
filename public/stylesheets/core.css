@@ -15,7 +15,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
  */
 
 html {
-  background: #f8f7ed;
+  background: #C9D0D0;
 }
 
 body {
@@ -27,11 +27,12 @@ body {
   display:none;
 }
 #wrapper {
-	margin: 0 auto;
-	max-width: 960px;
+  background-color: #f8f7ed;
+/*  margin: 0 auto;*/
+/*  max-width: 960px;*/
 }
 .lte-ie8 #wrapper {
-	width: 960px;
+/*  width: 960px;*/
 }
 
 .inner {
@@ -41,8 +42,9 @@ body {
 }
 
 section#content {
-	margin: 0 auto;
-	width: 100%;
+  margin: 0 auto;
+  max-width: 960px;
+/*  width: 100%;*/
 }
 /*@media only screen and (min-width:670px) {
   section#content {
