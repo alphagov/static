@@ -260,13 +260,17 @@ article .advisory.high-alert {
 }
 
 article .intro {
-	background-color: #F9F9F9;
-	border: 2px solid #bbb;
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
+	background-color: #C9D0D0;
 	margin-bottom: 1.5em;
-	padding: 0.15em 1em;
+	padding: 1em;
+}
+
+article .intro p {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+article .intro p:first-child {
+  margin-top: 0;
 }
 
 article .example {

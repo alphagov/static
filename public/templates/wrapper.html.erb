@@ -3,8 +3,9 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  
-  <title>www.gov.uk - This is a trial ‘beta’ version of the UK government's official website</title>
+
+  <title>GOV.UK - This is a trial ‘beta’ version of the UK government's official website</title>
+
   <link href="<%= @asset_host %>/stylesheets/admin/jquery-ui-1.8.14.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/normalize.css" rel="stylesheet" type="text/css" />
   <link href="<%= @asset_host %>/stylesheets/core.css" rel="stylesheet" type="text/css" />
@@ -100,9 +101,6 @@
 		  <p><a href="http://getsatisfaction.com/govuk" id="gs-feedback-banner">Send us your feedback</a></p>
 		</div>
 		<div class="inner group">
-		  <div class="sub-section">
-      	<p>&copy; Crown Copyright</p>
-		 </div>
 			<nav class="sub-section help">
 			  <h1>Help</h1>
 			  <ul>
@@ -124,7 +122,10 @@
 			   <li><a href="/platform/code">Code</a></li>
 			  </ul>
       </nav>
-			<div class="sub-section colophon">
+      <div class="sub-section copyright">
+       	<p>&copy; Crown Copyright</p>
+      </div>
+      <div class="sub-section colophon">
       	<p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
       	<p>This website uses cookies. We have published <a href="/help/cookies">a list and further information</a></p>
       	<p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>

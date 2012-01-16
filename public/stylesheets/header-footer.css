@@ -283,21 +283,27 @@ form.site-search {
 }
 
 #footer .inner {
-	padding: 1em 2em;
+	padding: 2em 2em;
 }
 
 #footer .inner .sub-section {
   float: left;
 	font-size: 0.85em;
 	line-height: 1.4em;
-  margin: 0 2%;
-  width: 21.5%;
+  margin: 0 2.75% 0 2.75%;
+  width: 29.65%;
 }
-#footer .inner .sub-section:first-child {
+#footer .inner .sub-section.help {
   margin-left: 0;
 }
-#footer .inner .sub-section:last-child {
+#footer .inner .sub-section.platform {
   margin-right: 0;
+}
+#footer .inner .sub-section.colophon {
+  border-top: solid 1px #667B82;
+  margin: 2em 0 0 0;
+  padding: 1em 0 0 0;
+  width: 100%;
 }
 
 #footer .sub-section h1 {

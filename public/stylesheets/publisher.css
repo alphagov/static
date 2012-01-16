@@ -344,30 +344,6 @@ aside .chapters-navigation li a .part-title {
   content: "";
 }
 
-.get-started .button {
-  margin: 0.75em 0 0 0;
-  position: relative;
-  padding: 0.75em 0.75em;
-}
-
-.get-started .button .button-content {
-  display: inline-block;
-  padding-right: 0.75em;
-  vertical-align: middle;
-  margin-right: 2em;
-}
-
-.get-started .button .destination {
-  display: block;
-  margin: 0.25em 0 0 0;
-}
-
-.get-started .button .call-to-action {
-  display: block;
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
 #wrapper.transaction .get-started .button .indicator:after {
   font-size: 1.75em;
   margin-top: -0.5em;
@@ -622,9 +598,7 @@ div.further-information a span {
 }
 
 #wrapper.programme .part-pagination {
-	border-top: solid 1px #bbb;
 	margin-top: 3em;
-	padding-top: 1em;
 }
 
 #wrapper.programme .part-pagination ul {
