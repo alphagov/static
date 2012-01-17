@@ -158,11 +158,13 @@ var AlphaGeoForm = function(selector) {
 	$(AlphaGeo).bind("location-completed", function(e, location) {
 		form.find('.location_error').hide().text('');
   	found_ui.find('strong, a span.friendly-name').text(location.current_location.locality);
+  	ask_ui.find('input[type=submit]').removeAttr('disabled');
   	show_ui(found_ui);
 	});
 
 	$(AlphaGeo).bind("location-failed", function(e, location) {
 		form.find('.location_error').text('Please enter a valid postcode.').show();
+		ask_ui.find('input[type=submit]').removeAttr('disabled');
   	show_ui(ask_ui);
 	});
 
@@ -174,6 +176,7 @@ var AlphaGeoForm = function(selector) {
 
   form.live('submit', function(e) {
   	e.preventDefault();
+  	form.find('input[type=submit]').attr('disabled','disabled');
   	AlphaGeo.locate( form.find('input.postcode').val() );
   });
 

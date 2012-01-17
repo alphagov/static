@@ -49,6 +49,7 @@
 .search .results.more {
   border-top: dotted 1px #ccc;
   padding: 0 0 0 2em;
+	min-height: 30em;
 }
 
 .search .results.more ol li {
@@ -58,6 +59,7 @@
 .search .results.more ol li a {
   font-size:1.5em;
   font-weight:bold;
+	display: inline;
 }
 .search .results.more ol li p {
   margin-top: 0.25em;
@@ -125,4 +127,14 @@
 
 .search .results.top ul.search-not-found h3 {
   margin-top: 1.2em;
+}
+
+.results #search2 { 
+	margin: 1em; 
+}
+.results #search2 input { 
+	font-size: 2em; 
+}
+.results #search2 input[type="text"] { 
+	margin-right: 1em; 
 }
