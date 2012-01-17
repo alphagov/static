@@ -52,7 +52,7 @@ $(document).ready(function() {
       var term = highlight_term(item.label,search_term);
       if (term) {
         return {
-          class: item.class,
+          class: item['class'],
           label:  term,
           url:   item.url
         };
