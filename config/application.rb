@@ -43,7 +43,7 @@ module Static
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.assets.precompile += %w( publisher-tabs.js ie.js libs/jquery/jquery-1.6.2.min.js high-contrast.css dyslexic.css admin.css libs/jquery/jquery-ui-1.8.16.custom.min.js libs/jquery/plugins/jquery.mustache.js )
+    config.assets.precompile += %w( libs/jquery/plugins/jquery.tablesorter.min.js formtastic.css formtastic_changes.css publisher-tabs.js ie.js libs/jquery/jquery-1.6.2.min.js high-contrast.css dyslexic.css admin.css libs/jquery/jquery-ui-1.8.16.custom.min.js libs/jquery/plugins/jquery.mustache.js )
 
     # Enable the asset pipeline
     config.assets.enabled = true
