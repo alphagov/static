@@ -1,0 +1,151 @@
+/*
+  home page
+*/
+
+/*.home #global-header {
+  border-bottom: solid 4px #ED6900;
+  -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+}*/
+
+.home #global-header .header-global ul {
+  margin-right: 0;
+}
+
+.home #wrapper {
+  margin: 0 2em;
+  max-width: none;
+}
+.lte-ie8 .home #wrapper {
+  margin: 0 auto;
+}
+
+.home #wrapper section {
+  margin: 0 auto;
+}
+.lte-ie8 .home #wrapper section {
+  margin-top: 0;
+}
+.js-enabled.home #wrapper section {
+  margin: 2.5em auto 0 auto;
+}
+.lte-ie8 .js-enabled.home #wrapper section {
+  margin-top: 1.5em;
+}
+
+.homepage-section {
+/*  margin: 0 -1em;*/
+  padding: 1em;
+  position: relative;
+}
+.lte-ie8 .homepage-section {
+  margin: 0 auto;
+  padding: 1em 0;
+}
+
+.homepage-section h2:first-child {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+}
+
+.homepage-banner {
+  background: url('../../images/banner-arrow.png') no-repeat 50% 50% #ffffcc;
+  border: solid 0.125em #bbb;
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  border-radius: 0.35em;
+}
+
+.homepage-banner .tag-line {
+  float: left;
+  padding: 1em 5% 1em 2.5%;
+  width: 42.5%;
+}
+
+.homepage-banner .tag-line h1 {
+  font-size: 2em;
+  line-height: 1.25em;
+  text-transform: uppercase;
+}
+
+.homepage-banner form {
+  float: left;
+  padding: 0 0 0 2.5%;
+  width: 47.5%;
+}
+
+.homepage-banner form input {
+  font-size: 1.5em;
+  line-height: 1.25em;
+  height: 1.5em;
+  margin-top: 2em;
+}
+
+.homepage-banner form input[type="text"] {
+  width: 62.5%;
+}
+.lte-ie8 .homepage-banner form input[type="text"]  {
+  height: 1.5em;
+}
+
+.homepage-banner form input.button {
+  margin-left: 2.5%;
+  padding-bottom: 0.1em;
+  padding-top: 0.1em;
+}
+
+.homepage-banner #search_hint {
+  color: #666;
+  font-size: 0.85em;
+  margin-top: 0.75em;
+}
+
+.homepage-section ul {
+  margin: 0;
+  padding: 0;
+}
+
+.homepage-section ul li {
+  display: inline-block;
+  vertical-align: top;
+  list-style: none;
+  margin-bottom: 0.5em;
+  margin-right: 4%;
+  width: 29%;
+}
+.lte-ie8 .homepage-section ul li {
+  float: left;
+  height: 5em;
+}
+
+.homepage-section ul li a {
+  display: block;
+  padding: 0.45em 0;
+}
+.homepage-section .tools-topics ul li a {
+  padding: 0.45em 0 0.45em 2em;
+}
+.homepage-section .sections li a {
+  font-size: 1.5em;
+}
+
+.ui-autocomplete{
+  width: 300px;
+}
+.hint-suggest{
+  border: 1px solid #EEEEEE;
+  margin:0;
+  background-color:#fff;
+  display: block;
+  left: 0;
+  padding: 0.5em;
+  position: relative;
+  top: 0;
+  width: 314px;
+  color:#666;
+}
+.search-loading {
+  width: 284px;
+  padding-left:30px;
+}

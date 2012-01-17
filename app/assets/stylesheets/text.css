@@ -1,0 +1,488 @@
+/*
+ * Text styles for articles.
+ * It's kind of like typography innit.
+*/
+
+article h1 {
+  font-size: 1.45em;
+  line-height: 1.1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+article header h1 {
+  border-bottom: solid 1px #ddd;
+  color: #000;
+  font-family: "Gill Sans";
+/*  font-size: 1.65em;*/
+  font-size: 2em;
+  font-weight: normal;
+/*  line-height: 1.15em;*/
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0.75em;
+}
+.lte-ie8 article header h1 {
+  zoom: 1;
+}
+
+article header h1 span {
+  color: #666;
+  display: block;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+/*  font-size: 0.6em;*/
+  font-size: 0.5em;
+  font-weight: normal;
+  line-height: 1em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+}
+
+article h1 + h2 {
+  margin-top: 0.75em;
+}
+
+article h2 {
+  border-bottom: solid 1px #ddd;
+/*  border-top: solid 1px #ddd;*/
+/*  color: #4C4C4C;*/
+  font-size: 1.3em;
+/*  font-weight: normal;*/
+  line-height: 1.18em;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+article h2 + h3 {
+  margin-top: 0.75em;
+}
+
+article h3 {
+  font-size: 1.2em;
+  line-height: 1.11em;
+  margin-top: 1.304em;
+/*  margin-bottom: 0;*/
+  margin-bottom: 0.75em;
+}
+
+article h3 + h4 {
+  margin-top: 0.75em;
+}
+
+article h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+article h3 + table {
+  margin-top: 0.652em;
+}
+
+article h4 + table {
+  margin-top: 0.75em;
+}
+
+article h2 + p,  article h3 + p,  article h4 + p,
+article h2 + ol, article h3 + ol, article h4 + ol,
+article h2 + ul, article h3 + ul, article h4 + ul {
+  margin-top: 0.2em;
+}
+
+article h1,
+article h2,
+article h3,
+article h4 {
+  color: #000;
+/*  font-weight: normal;*/
+}
+
+article p, article ul, article ol {
+  font-family: Georgia;
+  line-height: 1.5em;
+  margin: 0.75em 0;
+}
+
+article p {
+  font-size: 1.125em;
+}
+
+article li {
+  font-size: 1.125em;
+  margin: 0.25em 0;
+}
+
+article li p {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Are these used anywhere?
+
+article p.large-text {
+  font-size: 1.63em;
+  line-height: 1.15em;
+  margin: 0.46em 0;
+}
+
+article p.small-text {
+  font-size: 0.75em;
+  line-height: 1.5em;
+  margin: 1em 0;
+}*/
+
+article ul, article ol {
+  padding-left: 1.5em;
+}
+
+article ul {
+  list-style-type: disc;
+}
+
+article ol {
+  list-style-type: decimal;
+}
+
+article table ul {
+  padding-left: 0.75em;
+  margin: 0;
+  font-weight: bold;
+}
+
+article table ul li:last-child {
+  margin-bottom: 0;
+}
+
+article dl {
+  margin-top: 1.5em;
+  margin-bottom: 1.88em;
+}
+
+article dt {
+  margin-bottom: 0.25em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+article dd {
+  margin-bottom: 0.75em;
+}
+
+article table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+article table caption {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+article th, article td {
+  vertical-align: top;
+  line-height: 1.3em;
+}
+
+article tr:nth-child(even) td {
+  background-color: #F9F9F9;
+}
+
+article th {
+  padding: 0.75em 1em;
+}
+
+article td {
+  padding: 0.69em 1em 0.69em 1em;
+}
+
+article th {
+  text-align: left;
+  background-color: #e7e7e7;
+  border: solid 1px #E9E8E7;
+}
+
+article td {
+  background: #fff;
+  border: solid 1px #E9E8E7;
+}
+
+article table.calendar {
+  background-color: inherit;
+  margin: 1em auto 2em;
+  width: 90%;
+}
+
+/*
+  more article formatting including markdown styles
+*/
+
+article .summary {
+  margin-bottom: 0.75em;
+}
+
+article .summary p, article .summary h2 {
+  background: url(/images/summary-arrow.png) no-repeat 0 0;
+  border: none;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1.25em;
+/*  font-weight: bold;*/
+/*  line-height: 1.25em;*/
+  margin: 0 0.75em 1.75em 0;
+  min-height: 1.75em;
+  padding: 0.25em 0 0 1.5em;
+/*  padding: 0.25em 0 1.5em 1.5em;*/
+}
+
+article .summary h2 {
+  font-size: 1.35em;
+  line-height: 1.18em;
+  padding: 0.15em 0 0 1.5em;
+}
+
+article .advisory {
+  background-color: #ffa;
+  border: solid 2px #FFCD17;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  line-height: 1.3em;
+  margin: 1.25em 0;
+  padding: 1em;
+  text-align: center;
+}
+
+article .advisory.high-alert {
+  background-color: #F4DCDD;
+  border-color: #C00;
+}
+
+article .intro {
+  background-color: #C9D0D0;
+  margin-bottom: 1.5em;
+  padding: 1em;
+}
+
+article .intro p {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+article .intro p:first-child {
+  margin-top: 0;
+}
+
+article .example {
+  background: #F2F2F2;
+  border: solid 2px #bbb;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  padding: 0 1em;
+}
+
+article .help-notice,
+article .info-notice {
+  border: 1px solid #bbb;
+  margin: 1.25em 0;
+  padding: 0.5em 1em 0.5em 3.5em;
+}
+
+article .help-notice p,
+article .info-notice p {
+  font-size: 1em;
+  margin: 0;
+}
+
+article .help-notice {
+  background: url('/images/application-notice-icon-default.png') 1em 50% no-repeat;
+}
+
+article .info-notice {
+  background: url('/images/application-info-icon-default.png') 1em 50% no-repeat;
+}
+
+article .form-download {
+  border: solid 2px #bbb;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  padding: 0 0 0 1em;
+}
+
+article .form-download p {
+  margin: 0.25em 0;
+}
+
+article .form-download a {
+  background: url('/images/icon-file-download.png') 0 0.5em no-repeat;
+  display: block;
+  padding: 0.75em 0 0.75em 2em;
+}
+
+article .help-notice p,
+article .info-notice p,
+article .form-download p,
+article .advisory p,
+article .example p,
+article .contact p,
+article .address p,
+article .place p
+ {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.contact {
+  background-color: #fff;
+  border: solid 1px #bbb;
+  border-top: solid 2px #fcc;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  margin: 1em 0;
+  padding: 0.25em 1em;
+  min-width: 60%;
+}
+
+.contact dl dt {
+  font-weight: bold;
+  margin: 0 0 0.25em 0;
+}
+
+.contact dl dd {
+  margin: 0 0 0.5em 0;
+}
+
+.meta-data .contact {
+  width: auto;
+}
+
+.contact dl dt, .meta-data .contact dt {
+  float: left;
+  clear: left;
+}
+
+.contact dl dd, .meta-data .contact dd {
+  margin-left: 8.5em;
+}
+
+article .address {
+  background: url('/images/stamp.png') 95% 1em no-repeat;
+  border: solid 1px #bbb;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  display: inline-block;
+  margin: 1em 0;
+  padding: 2em 15% 2em 15%;
+  min-width: 35%;
+}
+.lte-ie8 article .address {
+  width: 35%;
+}
+
+article ol.places {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+article .place {
+  border: solid 1px #bbb;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  margin: 1em 0;
+  padding: 1em;
+}
+
+article .place .map {
+  float: left;
+}
+
+article .place .information {
+  border-top: solid 2px #fcc;
+  margin-left: 13.5em;
+  min-height: 13em;
+}
+
+article .place .address {
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+/*  font-size: 1.15em;*/
+/*  line-height: 1.11em;*/
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+/*article .place .address p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}*/
+
+article .place .address span {
+  display: block;
+}
+
+article .place .url {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+article .place .additional-information {
+  border-top: dashed 1px #bbb;
+  font-size: 0.85em;
+  margin-top: 1em;
+}
+article .place .additional-information a {
+  display: block;
+}
+
+article ol.steps {
+  padding-left: 0;
+}
+
+article ol.steps li {
+  background-position: 0 0.75em;
+  background-repeat: no-repeat;
+  list-style-type: none;
+  padding: 0.75em 0 0.75em 2.25em;
+}
+article ol.steps li:nth-child(1) {
+  background-image: url('/images/icon-step-1.png');
+}
+article ol.steps li:nth-child(2) {
+  background-image: url('/images/icon-step-2.png');
+}
+article ol.steps li:nth-child(3) {
+  background-image: url('/images/icon-step-3.png');
+}
+article ol.steps li:nth-child(4) {
+  background-image: url('/images/icon-step-4.png');
+}
+article ol.steps li:nth-child(5) {
+  background-image: url('/images/icon-step-5.png');
+}
+article ol.steps li:nth-child(6) {
+  background-image: url('/images/icon-step-6.png');
+}
+article ol.steps li:nth-child(7) {
+  background-image: url('/images/icon-step-7.png');
+}
+
+.lte-ie8 article ol.steps {
+  border-left: solid 3px #ccc;
+  padding: 0 0 0 2.5em;
+}
+.lte-ie8 article ol.steps li {
+  list-style-type: decimal;
+  margin: 0;
+  padding: 0;
+}
