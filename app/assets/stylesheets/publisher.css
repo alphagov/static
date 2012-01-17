@@ -70,22 +70,14 @@
 
 #wrapper.guide article {
   min-height: 40em;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   width: 75%;
-=======
-	width: 75%;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 .lte-ie8 #wrapper.guide article {
   width: 74.999%;
   float: left;
 }
 .guide article .inner {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   padding: 2em 2.5em 1em 2.5em;
-=======
-	padding: 2em 2.5em 1em 2.5em;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 #wrapper.guide aside {
   float: left;
@@ -111,7 +103,6 @@ aside .chapters-navigation li {
   list-style: none;
 }
 aside .chapters-navigation li a {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   display: block;
   font-size: 1.3em;
   padding: 0.75em 0.75em;
@@ -127,23 +118,6 @@ aside .chapters-navigation li.active a {
 aside .chapters-navigation li a:hover {
   background-color: #97C5E5;
   color: #fff;
-=======
-	display: block;
-	font-size: 1.3em;
-	padding: 0.75em 0.75em;
-	text-decoration: none;
-}
-aside .chapters-navigation li.active a {
-	background: #fff;
-	border-right: none;
-	display: block;
-	position: relative;
-	z-index: 2;
-}
-aside .chapters-navigation li a:hover {
-	background-color: #97C5E5;
-	color: #fff;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 aside .chapters-navigation li.active a:hover {
   background: #fff;
@@ -220,37 +194,21 @@ aside .chapters-navigation li a .part-title {
 
 .pagination {
   background: #C9D0D0;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   display: block;
-=======
-	display: block;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
   margin: 2em -1.5em 0 -1.5em;
 }
 
 .pagination ul {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0;
-=======
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	margin: 0;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
   padding: 0;
 }
 
 .pagination li {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   float: left;
   font-size: 1em;
   list-style: none;
   margin: 0;
-=======
-	float: left;
-	font-size: 1em;
-	list-style: none;
-	margin: 0;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 .pagination li:first-child {
@@ -261,7 +219,6 @@ aside .chapters-navigation li a .part-title {
 .pagination li a {
   background-image: url(../images/pagination-arrows.png);
   background-repeat: no-repeat;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   display: block;
   float: left;
   min-height: 4.5em;
@@ -273,19 +230,6 @@ aside .chapters-navigation li a .part-title {
 .pagination li a:hover {
   background-color: #97C5E5;
   color: #fff;
-=======
-	display: block;
-	float: left;
-	min-height: 4.5em;
-	padding: 0.5em;
-	text-decoration: none;
-	width: 14.625em;
-}
-
-.pagination li a:hover {
-	background-color: #97C5E5;
-	color: #fff;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 .pagination .previous a {
@@ -300,32 +244,18 @@ aside .chapters-navigation li a .part-title {
 
 .pagination .first {
   border-right: solid 0.5em #fff;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   float: left;
   min-height: 4.5em;
 /*  width: 10em;*/
   padding: 0.5em;
   width: 14.625em;
-=======
-	float: left;
-	min-height: 4.5em;
-/*  width: 10em;*/
-	padding: 0.5em;
-	width: 14.625em;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 .pagination .last {
 /*  width: 15em;*/
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   min-height: 4.5em;
   padding: 0.5em;
   width: 14.625em;
-=======
-	min-height: 4.5em;
-  padding: 0.5em;
-	width: 14.625em;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 .pagination .pagination-label {
@@ -337,11 +267,7 @@ aside .chapters-navigation li a .part-title {
 
 .pagination li a .pagination-label {
   color: #000;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   display: block;
-=======
-	display: block;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 .pagination li a .pagination-part-title {
@@ -514,11 +440,7 @@ ul.helpers li.offline_steps {
 
 #wrapper.programme .programme-progression ol,
 #wrapper.programme .part-pagination li:first-child a {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   background: #FFE087;
-=======
-	background: #FFE087;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 #wrapper.programme .programme-progression ol {
@@ -531,17 +453,10 @@ ul.helpers li.offline_steps {
   float: left;
   list-style: none;
   margin: 0;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   padding: 0;
   position: relative;
 /*  bottom: -1px;*/
   z-index: 5;
-=======
-	padding: 0;
-	position: relative;
-/*  bottom: -1px;*/
-	z-index: 5;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
   bottom: 0;
@@ -556,15 +471,9 @@ ul.helpers li.offline_steps {
   display: block;
   height: 2.25em;
   line-height: 2.25em;
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   padding: 0 0.65em 0 1.65em;
   position: relative;
   text-align: center;
-=======
-	padding: 0 0.65em 0 1.65em;
-	position: relative;
-	text-align: center;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 /*  width: 100%;*/
 }
 #wrapper.programme .programme-progression li:first-child a {
@@ -583,13 +492,8 @@ ul.helpers li.offline_steps {
 #wrapper.programme .programme-progression li a:hover,
 #wrapper.programme div.further-information a:hover,
 #wrapper.programme .part-pagination li:first-child a:hover {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   background-color: #97C5E5;
   color: #fff;
-=======
-	background-color: #97C5E5;
-	color: #fff;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 #wrapper.programme .programme-progression li.active a {
@@ -694,7 +598,6 @@ div.further-information a span {
 }
 
 #wrapper.programme .part-pagination {
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   margin-top: 3em;
 }
 
@@ -706,19 +609,6 @@ div.further-information a span {
 
 #wrapper.programme .part-pagination li {
   float: left;
-=======
-	margin-top: 3em;
-}
-
-#wrapper.programme .part-pagination ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#wrapper.programme .part-pagination li {
-	float: left;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
   font-size: 1em;
 }
 
@@ -736,15 +626,9 @@ div.further-information a span {
 /*  -webkit-border-radius: 0.5em 0 0 0.5em;
   -moz-border-radius: 0.5em 0 0 0.5em;
   border-radius: 0.5em 0 0 0.5em;*/
-<<<<<<< HEAD:app/assets/stylesheets/publisher.css
   display: block;
   margin-right: 3em;
   padding: 0 1em;
-=======
-	display: block;
-	margin-right: 3em;
-	padding: 0 1em;
->>>>>>> dfcd66747f75a2babeb63ae1ec1c8b702f378449:public/stylesheets/publisher.css
 }
 
 #wrapper.programme .part-pagination a:hover .progressor {
