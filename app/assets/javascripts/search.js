@@ -29,9 +29,11 @@ $(document).ready(function() {
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
   $.getJSON(searchUrl("preload-autocomplete"), function(data) {
-    preloaded_search_data = data.map( function(e) {
-      return { 'label': e.title, 'url': e.link, 'html_class': e.format };
-    });
+    if (data && data[0] && data[0].link && data[0].label && data[0].format) {
+      preloaded_search_data = data.map( function(e) {
+        return { 'label': e.title, 'url': e.link, 'html_class': e.format };
+      });
+    }
   });
 
   var filter_terms = function(search_term,data) {
