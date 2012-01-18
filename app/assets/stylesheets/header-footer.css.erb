@@ -1,12 +1,11 @@
 /* Global header */
 
 #global-header {
-  background-color: #C9D0D0;
-  border-bottom: solid 1px #93A1A1;
+  background-color: rgba(0,0,0,0.8);
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  height: 2em;
+/*  height: 2em;*/
 }
 
 #global-header .header-global {
@@ -40,21 +39,25 @@
 }
 
 #global-header h1 a {
-  color: #000;
   float: left;
+}
+
+#global-header .header-global a {
+  color: #fff;
   text-decoration: none;
 }
 
-#global-header h1 a:hover {
+#global-header .header-global a:hover {	
   text-decoration: underline;
 }
 
-#global-header ul, body.citizen nav.header-context ol {
+#global-header ul {
   margin: 0;
   padding: 0;
 }
 
-#global-header ul li, body.citizen nav.header-context ol li {
+#global-header ul li,
+body.citizen nav.header-context ol li {
   float: left;
   list-style: none;
 }
@@ -67,7 +70,7 @@
 
 #global-header .header-global ul li {
 /*  font-size: 0.85em;*/
-  margin-right: 1em;
+  margin-right: 1.5em;
   margin-bottom: 0;
 }
 
@@ -76,8 +79,7 @@
 }
 
 #global-header .header-global ul li a {
-  color: #000;
-  padding-left: 1em;
+/*  padding-left: 1em;*/
   text-decoration: none;
 }
 
@@ -91,18 +93,27 @@ body.citizen nav.header-context {
 }
 
 body.citizen nav.header-context ol {
-  margin: 2em auto 0 auto;
+  margin: 0 auto;
   max-width: 960px;
+  padding: 2.5em 0 0.5em 0;
 }
 
-body.government #global-header .header-context {
-  border-color: #cdce00;
-  border-bottom-color: #9a9b00
+body.citizen nav.header-context ol li:first-child {
+  margin-left: 0.75em;
 }
 
 body.citizen nav.header-context a {
   margin-right: 2%;
   white-space: nowrap
+}
+
+body.citizen nav.header-context a:last-child {
+  margin-right: 0
+}
+
+body.government #global-header .header-context {
+  border-color: #cdce00;
+  border-bottom-color: #9a9b00
 }
 
 body.government #global-header .header-context nav {
@@ -115,10 +126,6 @@ body.government #global-header .header-context nav a {
 }
 body.government #global-header .header-context nav a:hover {
   color: #9a9b00
-}
-
-body.citizen nav.header-context a:last-child {
-  margin-right: 0
 }
 
 @media only screen and (min-width: 865px) {
@@ -152,78 +159,19 @@ body.government #global-header .header-context {
   }
 }
 
-.search-help fieldset {
-  margin-bottom: 0
-}
-
 form.site-search {
-  padding: 0.15em 0 0 0;
+  margin-top: 0.2em;
 }
 
-.site-search #site-search-text {
-  font-size: 1em;
-  background: #fff;
-  border: none;
-  display: inline-block;
-  max-width: 100%;
-  outline: none;
-  margin: 0.15em 0;
-  padding: 0 0.25em;
-  line-height: 1.5em;
-  width: 12.5em
-}
-
-.search-help input[type="submit"] {
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
-  background-color: white;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#efefef));
-  background-image: -webkit-linear-gradient(top, #fff, #efefef);
-  background-image: -moz-linear-gradient(top, #fff, #efefef);
-  background-image: -o-linear-gradient(top, #fff, #efefef);
-  background-image: -ms-linear-gradient(top, #fff, #efefef);
-  background-image: linear-gradient(top, #fff, #efefef);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='white', EndColorStr='#efefef');
-  border: 1px solid #ddd;
-  border-bottom: 1px solid #aaa;
-  border-top: 1px solid #e5e5e5;
-  color: #777;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 1em;
+form.site-search .button {	
   line-height: 1.25em;
-  margin-left: 0.25em;
-  text-decoration: none;
-  text-shadow: 0 1px rgba(255,255,255,0.75)
+  padding: 0.2em 0.5em;
 }
 
-.search-help input[type="submit"]:hover {
-  color: #666;
-  background-color: #fafdff;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafdff), to(#d8d8d8));
-  background-image: -webkit-linear-gradient(top, #fafdff, #d8d8d8);
-  background-image: -moz-linear-gradient(top, #fafdff, #d8d8d8);
-  background-image: -o-linear-gradient(top, #fafdff, #d8d8d8);
-  background-image: -ms-linear-gradient(top, #fafdff, #d8d8d8);
-  background-image: linear-gradient(top, #fafdff, #d8d8d8);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafdff', EndColorStr='#d8d8d8');
-  border: 1px solid #ccc;
-  border-bottom: 1px solid #999;
-  border-top: 1px solid #ddd
-}
-
-.search-help input[type="submit"]:active {
-  border: 1px solid #999;
-  background-color: #fafdff;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafdff), to(#bbb));
-  background-image: -webkit-linear-gradient(top, #fafdff, #bbb);
-  background-image: -moz-linear-gradient(top, #fafdff, #bbb);
-  background-image: -o-linear-gradient(top, #fafdff, #bbb);
-  background-image: -ms-linear-gradient(top, #fafdff, #bbb);
-  background-image: linear-gradient(top, #fafdff, #bbb);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafdff', EndColorStr='#bbbbbb')
+form.site-search #site-search-text {
+  border: none;
+  line-height: 1.25em;
+  padding: 0.2em 0.25em;
 }
 
 @media only screen and (min-width:670px) {
@@ -234,25 +182,6 @@ form.site-search {
   body.government .header-context .search-help {
     border-color: #cdce00
   }
-}
-
-.lte-ie8 .search-help {
-  float: right;
-  border: solid 0.25em #ddd;
-  border-bottom: 0;
-  height: 2.45em;
-  margin: -2.95em 4% 0 0;
-  padding: 0.25em 0.5em 0 0.5em;
-  width: 16.25em;
-}
-
-.lte-ie8 .site-search #site-search-text {
-  height: 1.5em;
-  width: 12.5em;
-}
-
-.lte-ie8 body.government .header-context .search-help {
-  border-color: #cdce00
 }
 
 /* Global footer */
