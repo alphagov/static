@@ -529,7 +529,6 @@ div.further-information a {
   float: right;
   line-height: 2.25em;
   height: 2.25em;
-  margin: 0 2.75em 0 0;
   padding: 0 0.75em;
 }
 .lte-ie8 div.further-information {
@@ -543,8 +542,12 @@ div.further-information.active a {
 
 #wrapper.programme article {
   border-top: solid 1px #C9D0D0;
-  min-height: 20em;
+  min-height: none;
   width: 100%;
+}
+
+.js-enabled #wrapper.programme article {
+  min-height: 20em;
 }
 
 .js-enabled #wrapper.programme article header {
