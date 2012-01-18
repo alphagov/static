@@ -304,23 +304,23 @@ article .info-notice {
   background: url(<%= asset_path "application-info-icon-default.png" %>) 1em 50% no-repeat;
 }
 
-article .form-download {
-  border: solid 2px #bbb;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
-  margin: 1em 0;
-  padding: 0 0 0 1em;
-}
-
 article .form-download p {
-  margin: 0.25em 0;
+  margin: 0 0;
 }
-
 article .form-download a {
-  background: url(<%= asset_path "icon-file-download.png" %>) 0 0.5em no-repeat;
+  background-color: #D4EBE9;
+  background-image: url(<%= asset_path "icon-file-download.png" %>);
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+  color: #000;
   display: block;
-  padding: 0.75em 0 0.75em 2em;
+  font-size: 0.85em;
+  line-height: 1.5em;
+  margin: 1em 0;
+  padding: 0.75em 0 0.75em 3em;
+}
+article .form-download a:hover {
+  background-color: #94CFCA;
 }
 
 article .help-notice p,
