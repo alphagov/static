@@ -17,6 +17,12 @@ $(function() {
     allow_single_deselect: true, 
     no_results_text: "No results matched"
   });
+  $('select#artefact_section').chosen({
+    allow_single_deselect: true, 
+    no_results_text: "Section not found"
+  });
+  $('select#artefact_section').closest('li').css('overflow', 'visible');
+  $('select#artefact_section').closest('fieldset').css('overflow', 'visible');
   $('form.formtastic fieldset.related, form.formtastic fieldset.related > ol > li').css('overflow', 'visible');
 
   $('.flash-notice').delay(4000).slideUp(300).
