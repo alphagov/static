@@ -224,7 +224,7 @@ article .summary {
 }
 
 article .summary p, article .summary h2 {
-  background: url(/images/summary-arrow.png) no-repeat 0 0;
+  background: url(<%= asset_path "summary-arrow.png" %>) no-repeat 0 0;
   border: none;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.25em;
@@ -297,11 +297,11 @@ article .info-notice p {
 }
 
 article .help-notice {
-  background: url('/images/application-notice-icon-default.png') 1em 50% no-repeat;
+  background: url(<%= asset_path "application-notice-icon-default.png" %>) 1em 50% no-repeat;
 }
 
 article .info-notice {
-  background: url('/images/application-info-icon-default.png') 1em 50% no-repeat;
+  background: url(<%= asset_path "application-info-icon-default.png" %>) 1em 50% no-repeat;
 }
 
 article .form-download {
@@ -318,7 +318,7 @@ article .form-download p {
 }
 
 article .form-download a {
-  background: url('/images/icon-file-download.png') 0 0.5em no-repeat;
+  background: url(<%= asset_path "icon-file-download.png" %>) 0 0.5em no-repeat;
   display: block;
   padding: 0.75em 0 0.75em 2em;
 }
@@ -371,7 +371,7 @@ article .place p
 }
 
 article .address {
-  background: url('/images/stamp.png') 95% 1em no-repeat;
+  background: url(<%= asset_path "stamp.png" %>) 95% 1em no-repeat;
   border: solid 1px #bbb;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
@@ -456,25 +456,25 @@ article ol.steps li {
   padding: 0.75em 0 0.75em 2.25em;
 }
 article ol.steps li:nth-child(1) {
-  background-image: url('/images/icon-step-1.png');
+  background-image: url(<%= asset_path "icon-step-1.png" %>);
 }
 article ol.steps li:nth-child(2) {
-  background-image: url('/images/icon-step-2.png');
+  background-image: url(<%= asset_path "icon-step-2.png" %>);
 }
 article ol.steps li:nth-child(3) {
-  background-image: url('/images/icon-step-3.png');
+  background-image: url(<%= asset_path "icon-step-3.png" %>);
 }
 article ol.steps li:nth-child(4) {
-  background-image: url('/images/icon-step-4.png');
+  background-image: url(<%= asset_path "icon-step-4.png" %>);
 }
 article ol.steps li:nth-child(5) {
-  background-image: url('/images/icon-step-5.png');
+  background-image: url(<%= asset_path "icon-step-5.png" %>);
 }
 article ol.steps li:nth-child(6) {
-  background-image: url('/images/icon-step-6.png');
+  background-image: url(<%= asset_path "icon-step-6.png" %>);
 }
 article ol.steps li:nth-child(7) {
-  background-image: url('/images/icon-step-7.png');
+  background-image: url(<%= asset_path "icon-step-7.png" %>);
 }
 
 .lte-ie8 article ol.steps {

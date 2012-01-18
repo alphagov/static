@@ -1,5 +1,5 @@
 body.error {
-  background: url("/images/fail/the-chaps.jpg") no-repeat scroll center 5em transparent;
+  background: url(<%= asset_path "fail/the-chaps.jpg" %>) no-repeat scroll center 5em transparent;
   background-color: #E6E6E6;
 }
 
@@ -19,7 +19,7 @@ body.error section h1 {
 }
 
 body.error #footer {
-  background: url("/images/fail/rule.jpg") repeat-x scroll center top transparent;
+  background: url(<%= asset_path "fail/rule.jpg" %>) repeat-x scroll center top transparent;
   background-color: inherit;
   border: none;
   clear: both;
@@ -39,6 +39,6 @@ body.error #footer .subsection {
 }
 
 body.error .copyright {
-  background: url("/images/fail/coat-of-arms.jpg") no-repeat scroll center top transparent;
+  background: url(<%= asset_path "fail/coat-of-arms.jpg" %>) no-repeat scroll center top transparent;
   padding-top: 4.5em;
 }

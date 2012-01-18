@@ -110,7 +110,7 @@ a:active {
 }
 
 a[rel="external"]:after {
-  content: url(/images/external-link.png);
+  content: url(<%= asset_path "external-link.png" %>);
   padding: 0 0.25em 0 0.25em;
 }
 
@@ -213,7 +213,7 @@ a[rel="external"]:after {
 }
 
 .related h2 {
-  background: url('/images/related-arrow.png') no-repeat 0 50%;
+  background: url(<%= asset_path "related-arrow.png" %>) no-repeat 0 50%;
 /*  background-color: red;*/
   color: #000;
   font-family: "Gill Sans", sans-serif;
@@ -332,7 +332,7 @@ header.page-header hgroup h2 {
 
 /* Answers */
 #wrapper.answer hgroup h1 {
-  background-image: url('/images/icon-answer-l.png');
+  background-image: url(<%= asset_path "icon-answer-l.png" %>);
 }
 #wrapper.answer hgroup h1 span {
   color: #00652E;
@@ -395,7 +395,7 @@ article .inner {
 }
 
 .print-link a, .print-link a:link, .print-link a:visited {
-  background: url(/images/print.png) no-repeat left center;
+  background: url(<%= asset_path "print.png" %>) no-repeat left center;
   display: inline-block;
   padding-left: 22px;
 }
@@ -459,7 +459,7 @@ article .inner {
 }
 
 .search-loading{
-  background: url(/images/ajax-loader.gif) no-repeat 4px 50% #fff;
+  background: url(<%= asset_path "ajax-loader.gif" %>) no-repeat 4px 50% #fff;
   padding-left:30px;
   width: 133px;
 }
@@ -485,34 +485,34 @@ ul.ui-autocomplete {
 
 /* remember that these are used across the site, not just for autocomplete */
 li.guide a, li.guide a:hover {
-  background: url(/images/icon-guide-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-guide-s.png" %>) no-repeat 0 50%;
 }
 li.answer a, li.answer a:hover {
-  background: url(/images/icon-answer-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-answer-s.png" %>) no-repeat 0 50%;
 }
 li.smart_answer a, li.smart_answer a:hover {
-  background: url(/images/icon-answer-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-answer-s.png" %>) no-repeat 0 50%;
 }
 li.transaction a, li.transaction a:hover {
-  background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 50%;
 }
 li.localtransaction a, li.localtransaction a:hover {
-  background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 50%;
 }
 li.programme a, li.programme a:hover {
-  background: url(/images/icon-programme-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-programme-s.png" %>) no-repeat 0 50%;
 }
 li.calendar a, li.calendar a:hover {
-  background: url(/images/icon-calendar-24.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-calendar-24.png" %>) no-repeat 0 50%;
 }
 li.nearest a, li.nearest a:hover {
-  background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 50%;
 }
 li.place a, li.place a:hover {
-  background: url(/images/icon-transaction-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 50%;
 }
 li.fco a, li.fco a:hover {
-  background: url(/images/icon-localtransaction-s.png) no-repeat 0 50%;
+  background: url(<%= asset_path "icon-localtransaction-s.png" %>) no-repeat 0 50%;
 }
 
 ul.ui-autocomplete li {
@@ -531,7 +531,7 @@ ul.ui-autocomplete .search-site a {
 ul.ui-autocomplete .search-site a,
 ul.ui-autocomplete .search-site a:hover {
   border-top:3px solid #dedede;
-  background: url(/images/search.png) no-repeat 12px 50% #eee;
+  background: url(<%= asset_path "search.png" %>) no-repeat 12px 50% #eee;
 }
 ul.ui-autocomplete li a em {
   font-style: normal;
@@ -565,7 +565,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #location-set-message,
 #location-unset-message{
-  background: url('/images/location-pin_outline_tiny.png') no-repeat 0 50%;
+  background: url(<%= asset_path "location-pin_outline_tiny.png" %>) no-repeat 0 50%;
   position: fixed;
 /*  position: absolute;*/
 /*  top: 10px;*/
@@ -626,16 +626,16 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .england .devolved-header {
   padding:0 0 0 18px;
-  background: url(/images/flags.png) no-repeat scroll 0 -17px #fff;
+  background: url(<%= asset_path "flags.png" %>) no-repeat scroll 0 -17px #fff;
 }
 .scotland .devolved-header {
   padding:0 0 0 18px;
-  background: url(/images/flags.png) no-repeat scroll 0 -60px #fff;
+  background: url(<%= asset_path "flags.png" %>) no-repeat scroll 0 -60px #fff;
 }
 
 .wales .devolved-header {
   padding:0 0 0 18px;
-  background: url(/images/flags.png) no-repeat scroll 0 3px #fff;
+  background: url(<%= asset_path "flags.png" %>) no-repeat scroll 0 3px #fff;
 }
 .northern-ireland .devolved-header {
   /* don't show a flag for NI */
@@ -857,10 +857,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #feedback-cta #cta-yes{
-  background: url("/images/icon-agree-s.png") no-repeat scroll 1em 0px transparent;
+  background: url(<%= asset_path "icon-agree-s.png" %>) no-repeat scroll 1em 0px transparent;
 }
 #feedback-cta #cta-no{
-  background: url("/images/icon-disagree-s.png") no-repeat scroll 1em 0px transparent;
+  background: url(<%= asset_path "icon-disagree-s.png" %>) no-repeat scroll 1em 0px transparent;
 }
 
 #feedback-cta h2{
@@ -871,7 +871,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   display:block;
 }
 #popup p{
-  /*background: url("/images/application-info-icon-default.png") no-repeat scroll 1em 0px transparent;*/
+  /*background: url(<%= asset_path "application-info-icon-default.png" %>) no-repeat scroll 1em 0px transparent;*/
   font-size:1em;
   font-weight:bold;
   margin: 0;
