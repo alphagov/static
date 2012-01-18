@@ -20,7 +20,8 @@
             <% end %>
 
 			      <% if artefact.section && artefact.section != "" %>
-			        <li class="related-topic"><a href="/browse/<%= h(artefact.section.parameterize) %>">View more in <span><%= h(artefact.section) %>&rarr;</span></a></li>
+			        <% section, subsection = artefact.section.split(':', 2) %>
+			        <li class="related-topic"><a href="/browse/<%= h(section.parameterize) %>">View more in <span><%= h(section) %>&rarr;</span></a></li>
 			      <% end %>
 				  </ul>
 				</nav>
