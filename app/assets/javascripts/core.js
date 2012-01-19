@@ -61,8 +61,6 @@ function recordOutboundLink(e) {
 // });
 
 $(document).ready(function() {
-  $("body").addClass("js-enabled");
-  
   if(window.location.hash) {
     contentNudge(window.location.hash);
   } 
