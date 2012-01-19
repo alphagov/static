@@ -117,8 +117,8 @@ var AlphaGeoForm = function(selector) {
 	var found_ui 		= form.find('.found_location');
 	var all_ui			= [ask_ui, finding_ui, found_ui];
 
+	form.find('.location_error').addClass('hidden').text('');
 	if (AlphaGeo.full_location) {
-		form.find('.location_error').hide().text('');
   	found_ui.find('strong, a span.friendly-name').text(AlphaGeo.full_location.current_location.locality);
   	show_ui(found_ui);	
 	} else {
@@ -163,7 +163,7 @@ var AlphaGeoForm = function(selector) {
 	});
 
 	$(AlphaGeo).bind("location-failed", function(e, location) {
-		form.find('.location_error').text('Please enter a valid postcode.').show();
+		form.find('.location_error').text('Please enter a valid postcode.').removeClass('hidden');
 		ask_ui.find('input[type=submit]').removeAttr('disabled');
   	show_ui(ask_ui);
 	});
