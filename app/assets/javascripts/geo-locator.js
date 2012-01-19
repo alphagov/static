@@ -44,7 +44,7 @@ var AlphaGeo = {
 
 	lookup_full_location: function(callback) {
 		$.getJSON('/locator.json', AlphaGeo.location, function(data){
-			if (data.location_error) {
+			if (data.location_error || data.current_location.locality == false) {
 				$(AlphaGeo).trigger('location-failed');
 				return false;	
 			} else {
