@@ -313,19 +313,6 @@ header.page-header hgroup {
   font-family: 'Gill Sans W01 Medium', sans-serif;
 }
 
-#wrapper.answer header.page-header hgroup {
-  border-color: #D33883;
-}
-#wrapper.guide header.page-header hgroup {
-  border-color: #F17921;
-}
-#wrapper.service header.page-header hgroup {
-  border-color: #2DA096;
-}
-#wrapper.programme header.page-header hgroup {
-  border-color: #2E368E;
-}
-
 header.page-header hgroup h1 {
   background-position: 0 2px;
   background-repeat: no-repeat;
@@ -352,6 +339,62 @@ header.page-header hgroup h2 {
   color: #666;
   font-size: 1em;
   margin: 0.25em 0 0 4em;
+}
+
+/* Programmes */
+
+#wrapper.programme header.page-header hgroup {
+  border-color: #2E368E;
+}
+
+#wrapper.programme header.page-header hgroup h1 span {
+  color: #2E368E;
+}
+
+#wrapper.programme header.page-header hgroup h1 {
+  background-image: url(<%= asset_path "icon-programme-l.png" %>);
+}
+
+/* Services */
+
+#wrapper.service header.page-header hgroup {
+  border-color: #2DA096;
+}
+
+#wrapper.service header.page-header hgroup h1 span {
+  color: #2DA096;
+}
+
+#wrapper.service header.page-header hgroup h1 {
+  background-image: url(<%= asset_path "icon-transaction-l.png" %>);
+}
+
+/* Quick answers */
+
+#wrapper.answer header.page-header hgroup {
+  border-color: #D33883;
+}
+
+#wrapper.answer header.page-header hgroup h1 span {
+  color: #D33883;
+}
+
+#wrapper.answer header.page-header hgroup h1 {
+  background-image: url(<%= asset_path "icon-answer-l.png" %>);
+}
+
+/* Guides */
+
+#wrapper.guide header.page-header hgroup {
+  border-color: #F17921;
+}
+
+#wrapper.guide header.page-header hgroup h1 span {
+  color: #F17921;
+}
+
+#wrapper.guide header.page-header hgroup h1 {
+  background-image: url(<%= asset_path "icon-guide-l.png" %>);
 }
 
 /*
@@ -957,6 +1000,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   cursor: pointer;
   display: inline-block;
   font-family: 'Gill Sans W01 Medium', sans-serif;
+  letter-spacing: 0.15em;
   padding: 0.75em 0.5em 0.5em 0.75em;
   position: relative;
   text-decoration: none;
@@ -991,11 +1035,13 @@ input.button {
 
 .get-started {
   margin: 0;
+  text-align: center;
 }
 
 .get-started .button {
-  float: right;
+/*  float: right;*/
   margin: 0.75em 0 0 0;
+  max-width: 80%;
   position: relative;
 /*  padding: 0.75em 0.75em;*/
 }
@@ -1010,25 +1056,32 @@ input.button {
 .get-started .button .destination {
   display: block;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
   margin: 0.25em 0 0 0;
   opacity: 0.6;
   text-transform: none;
 }
 
 .get-started .button .call-to-action {
+  background-image: url(<%= asset_path "button-arrow.png" %>);
+  background-position: 8.25em 50%;
+  background-repeat: no-repeat;
   display: block;
   font-size: 1.5em;
 /*  font-weight: bold;*/
+  margin: 0 auto;
+  padding: 0.25em 1em 0.325em 0;
+  width: 8.25em;
 }
 
-.button .call-to-action:after {
+/*.button .call-to-action:after {
   content: "\25ba";
   font-weight: bold;
   margin-left: 0.25em;
 }
 .lte-ie8 .button .call-to-action:after {
   _content: "&rarr;";
-}
+}*/
 
 input[disabled="disabled"] {
   opacity: 0.5;
