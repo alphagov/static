@@ -30,7 +30,7 @@
   <script type="text/javascript">
   setTimeout(function(){var a=document,g,b={families:(g=
   		["Gill","Sassoon"]),urls:["http://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
-  		c="https://ajax.googleapis.com/ajax/libs/webfont/1.0.24/webfont_debug.js",d="script",
+  		c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
   	e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
   		={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
   		.className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
