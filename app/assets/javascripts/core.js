@@ -90,6 +90,7 @@ $(document).ready(function() {
     }
   }
   
+  
   // related box fixer
   if($(".related-positioning").length != 0){
     $(".related-positioning").css("position", "absolute");
@@ -104,6 +105,38 @@ $(document).ready(function() {
       $(".related-positioning").css("position", "fixed");
     }
   }
+    
+  
+  if($(".related-positioning").length != 0){
+    var footerHeight = $("#footer").height();
+    var viewPort = $(window).height();
+    
+    $(window).bind("scroll", function(){
+      $(".related-positioning").css("position", "absolute");
+     /* var footerOffset = $("#footer").position();
+      var topFooterOffset = footerOffset.top;
+      */
+
+      var relatedBox = $(".related").height();
+      var boxOffset = $(".related-positioning").position();
+      var topBoxOffset = boxOffset.top;
+      console.log("footer: "+footerHeight)
+      console.log(topBoxOffset + relatedBox)
+      if(footerHeight > (viewPort - (topBoxOffset + relatedBox))){  
+        console.log("WOOP");
+      }
+      else{
+        console.log("no overlap");
+        $(".related-positioning").css("position", "fixed");
+      }
+   
+    })
+  }
+  // calc related box position
+  
+  // if over view port do stuff above
+  
+  // if over footer do something to fix it in current place
 });
 
 
