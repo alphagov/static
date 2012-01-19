@@ -26,13 +26,14 @@
   _gaq.push(['_setAllowLinker', true]);
   _gaq.push(['_trackPageview']);
   </script>
-
+  <%= javascript_include_tag 'libs/goog/webfont-debug.js' %>
   <script type="text/javascript">
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  setTimeout(function(){var a=document,g,b={families:(g=
+  		["gill sans","sassoon sans"]),urls:["http://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
+  		c="webfont_debug.js",d="script",
+  	e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+  		={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
+  		.className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
   </script>
   <script type="text/javascript">
       WebFontConfig ={
