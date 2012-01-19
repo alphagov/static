@@ -208,7 +208,12 @@ a[rel="external"]:after {
   padding: 0 1em 0.25em 1.5em;
   width: auto;
 }
-
+.wf-loading .related h2 { 
+   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.wf-inactive .related h2 { 
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
 .related h2 {
   background-image: url(<%= asset_path "related-clip.png" %>);	
   background-position: 0 0;
@@ -294,7 +299,12 @@ header.page-header hgroup {
   margin: 0 15em 0 0;
   padding: 1em 1em 1.5em 1em;
 }
-
+.wf-loading header.page-header hgroup h1 { 
+   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.wf-inactive header.page-header hgroup h1 { 
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
 header.page-header hgroup h1 {
   background-position: 0 2px;
   background-repeat: no-repeat;
@@ -906,7 +916,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 /* buttons! */
-
+.wf-loading .button,
+.wf-loading .button:visited { 
+   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.wf-inactive .button,
+.wf-inactive .button:visited { 
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
 .button,
 .button:visited {
   background-color: #B01117;
