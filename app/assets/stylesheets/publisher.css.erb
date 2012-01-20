@@ -239,7 +239,7 @@ aside .chapters-navigation li.active a .part-title {
 /*
  * Transactions and local transactions styles
  */
- 
+
 #wrapper.place .advisory.minor,
 #wrapper.transaction .advisory.minor,
 #wrapper.local_transaction .advisory.minor {
@@ -319,36 +319,46 @@ aside .chapters-navigation li.active a .part-title {
  */
 
 ul.helpers {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+
   list-style-type: none;
   margin: 0.75em auto;
   padding: 0;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
-  width: 99%;
 }
 
 ul.helpers li {
-  background-color: #e5e0de;
-  background-position: 0% 25%;
-  background-repeat: no-repeat;
-  border-top: solid 1px #fafafa;
-  border-bottom: solid 1px #bbb;
-  color: #706e6e;
-  float: left;
-  margin-bottom: 0.6em;
-  margin-right: 0.6em;
-  min-height: 3em;
-  padding: 0.75em 0.25em 0.75em 3.75em;
+  background-color: #D5E8F4;
+  border-right: 1px solid #fff;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0.75em 0.25em;
+  text-align: center;
   vertical-align: middle;
-  width: 24.8%;
 }
+
+/*ul.helpers li span {
+  display: block;
+  font-size: 3em;
+  line-height: 1;
+}
+*/
 ul.helpers li:nth-child(3n+3) {
-  margin-right: 0;
+  border-right: none;
 }
 
 ul.helpers li.active, ul.helpers li.active h3 a {
   color: #fff;
 }
 
+/*
 ul.helpers li.need_cash {
   background-image: url(<%= asset_path "helper-cash-icon.png" %>);
 }
@@ -390,6 +400,7 @@ ul.helpers li.offline_steps {
   background-image: url(<%= asset_path "helper-offline-icon.png" %>);
   background-position: -3% 35%;
 }
+*/
 
 /*
   Programme format
@@ -451,7 +462,7 @@ ul.helpers li.offline_steps {
 #wrapper.programme .programme-progression li.active a,
 #wrapper.programme div.further-information.active a {
   background-color: #fff;
-  border: solid 1px #C9D0D0;	
+  border: solid 1px #C9D0D0;
   border-bottom: solid 1px #fff;
   color: #000;
   margin: -1px -1px -1px 0;
