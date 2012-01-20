@@ -203,7 +203,8 @@ a[rel="external"]:after {
 /*  background: #ffffcc;*/
 /*  background: #fff0a5;*/
 /*  background-color: #F6D7E6;*/
-  background-color: #D5E7F4;
+/*  background-color: #D5E7F4;*/
+  background-color: #D9E0E0;
 /*  border: 1px solid #ddd;*/
   padding: 0 1em 0.25em 1.5em;
   width: auto;
@@ -972,18 +973,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 /* buttons! */
-.wf-gillsans-n4-inactive .button,
-.wf-gillsans-n4-inactive .button:visited{
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-loading .button,
-.wf-gillsans-n4-loading .button:visited{
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-active .button,
-.wf-gillsans-n4-active .button:visited{
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-}
 .button,
 .button:visited {
   background-color: #B01117;
@@ -991,12 +980,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-  letter-spacing: 0.15em;
   padding: 0.75em 0.5em 0.5em 0.75em;
   position: relative;
   text-decoration: none;
-  text-transform: uppercase;
   -webkit-transition: background-color 0.5s ease-in-out;
 }
 .button:hover {
@@ -1047,23 +1033,34 @@ input.button {
 
 .get-started .button .destination {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+/*  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;*/
   letter-spacing: 0;
   margin: 0.25em 0 0 0;
   opacity: 0.75;
   text-transform: none;
 }
 
+.wf-gillsans-n4-inactive .button .call-to-action {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.wf-gillsans-n4-loading .button .call-to-action {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.wf-gillsans-n4-active .button .call-to-action {
+  font-family: 'Gill Sans W01 Medium', sans-serif;
+}
 .get-started .button .call-to-action {
   background-image: url(<%= asset_path "button-arrow.png" %>);
-  background-position: 8.25em 50%;
+  background-position: 9em 50%;
   background-repeat: no-repeat;
   display: block;
+  font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 1.5em;
-/*  font-weight: bold;*/
+  letter-spacing: 0.15em;
   margin: 0 auto;
-  padding: 0.25em 1em 0.325em 0;
-  width: 8.25em;
+  padding: 0.25em 1.5em 0.325em 0;
+  text-transform: uppercase;
+  width: 9em;
 }
 
 /*.button .call-to-action:after {
