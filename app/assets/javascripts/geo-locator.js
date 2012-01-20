@@ -141,7 +141,7 @@ var AlphaGeoForm = function(selector) {
 	  });
 
 	  $(AlphaGeo).bind("geolocation-started", function() {
-	  	form.find('.location_error').hide().text('');
+	  	form.find('.location_error').addClass('hidden').text('');
 	  	show_ui(finding_ui);
 		});
 
@@ -156,7 +156,7 @@ var AlphaGeoForm = function(selector) {
 	});
 
 	$(AlphaGeo).bind("location-completed", function(e, location) {
-		form.find('.location_error').hide().text('');
+		form.find('.location_error').addClass('hidden').text('');
   	found_ui.find('strong, a span.friendly-name').text(location.current_location.locality);
   	ask_ui.find('input[type=submit]').removeAttr('disabled');
   	show_ui(found_ui);
