@@ -47,7 +47,7 @@ $(document).ready(function() {
   		});
   		
       
-      $('.personalise-options li a').live("click", function(){
+      $('.personalise-options input').live("click", function(){
         _gaq.push(['_trackEvent', 'Citizen-Accessibility', $(this).attr("id")]);
         
         if(getCookie("govuk-accessibility")){
@@ -73,7 +73,6 @@ $(document).ready(function() {
     }
       
     function toggleStyleSheets(match){
-      console.log(match)
       //var cssLinks = $("link[type='text/css']");
       if($("."+match).attr("disabled")){
         $("."+match).attr("rel", "stylesheet");
