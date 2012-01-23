@@ -36,7 +36,7 @@
 
 .homepage-section {
 /*  margin: 0 -1em;*/
-  padding: 1em;
+  margin-top:1em;
   position: relative;
 }
 .lte-ie8 .homepage-section {
@@ -54,7 +54,7 @@
 }
 
 .homepage-banner .tag-line {
-  padding:0em 2em 0.5em 1em;
+  padding:0.5em 2em 0.5em 1em;
   width: 60%;
 }
 
@@ -72,7 +72,12 @@
 .homepage-banner form {
 
 }
-
+.homepage-banner .totry{
+  color:#fff;
+  padding:0;
+  margin:0;
+  font-size:0.75em;
+}
 .homepage-banner form input {
   font-size: 1.5em;
   line-height: 1.25em;
@@ -150,4 +155,50 @@
 .homepage-banner .site-search{
   margin:0;
   padding:0em 2em 1em 4.5em
+}
+.carousel{
+  margin-top:1em;
+  border-top:2px solid #dd322d;
+  width:960px;
+}
+.carousel ul{
+  margin:0;
+  padding:0;
+  text-indent:0;
+  width:960px;
+  list-style-type:none;
+}
+.carousel ul li{
+  width:960px;
+  height:562px;
+}
+.section{
+  width:50%;
+  float:left;
+}
+.sections{
+  background-color:rgba(255, 255, 255, 0.7);
+  margin-left:2em;
+  padding:1em;
+}
+.sections a,
+.sections a:visited{
+  color:#000;
+}
+.feature-items{
+  overflow:hidden;
+  height:562px;
+  position:relative;
+}
+.feature-items .sections{
+  bottom:-350px;
+  position:absolute;
+  z-index:9999;
+  width:90%;
+  -webkit-transition: bottom 0.2s ease-in-out; 
+  -moz-transition: bottom 0.2s ease-in-out;
+}
+.feature-items:hover .sections{
+  bottom: 0px;
+  
 }
