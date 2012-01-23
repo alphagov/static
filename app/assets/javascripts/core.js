@@ -105,6 +105,42 @@ $(document).ready(function() {
     }
   }
   
+  /*var relatedBoxTop = $(".related-positioning").css("top");
+
+  $(window).bind("scroll", function(){
+    if(isScrolledIntoView($(".beta-notice"))){
+      var docHeight = $(document).height();
+      var portHeight = $(window).height();
+      var distanceDownPage = $(window).scrollTop();
+      var footerHeight = $("footer").height();
+      var relatedHeight = $(".related").height();
+      var relatedBottomStopper = footerHeight + relatedHeight;
+      console.log("distance down page: "+distanceDownPage)
+      console.log("relatedBottomStopper: "+relatedBottomStopper)
+      if ( distanceDownPage  <= (relatedBottomStopper + footerHeight) ){
+        
+        $(".related-positioning").css("top", "auto");
+        $(".related-positioning").css("bottom", relatedBottomStopper);
+      }
+    }
+    else{
+      $(".related-positioning").css("top", relatedBoxTop);
+       $(".related-positioning").css("bottom", "auto");
+    }
+  })
+  
+  
+  function isScrolledIntoView(elem)
+  {
+      var docViewTop = $(window).scrollTop();
+      var docViewBottom = docViewTop + $(window).height();
+
+      var elemTop = $(elem).offset().top;
+      var elemBottom = elemTop + $(elem).height();
+
+      return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+  */
   
 });
 
