@@ -10,7 +10,7 @@ var AlphaGeo = {
 
 	initialize: function() {
 		// look for cookie
-		var cookie = AlphaGeo.read_and_parse_json_cookie('geo');
+		var cookie = AlphaGeo.read_and_parse_json_cookie('govukgeo');
 		if (cookie.current_location) {
 			AlphaGeo.location = { lat: cookie.current_location.lat, lon: cookie.current_location.lon };
 			AlphaGeo.full_location = cookie;
@@ -96,11 +96,11 @@ var AlphaGeo = {
 
 	save_location_to_cookie: function() {
 		var cookie = $.base64Encode(JSON.stringify(AlphaGeo.full_location));
-		Alphagov.write_cookie('geo', cookie);		
+		Alphagov.write_cookie('govukgeo', cookie);		
 	},
 
 	remove: function() {
-		Alphagov.delete_cookie('geo');
+		Alphagov.delete_cookie('govukgeo');
 		AlphaGeo.location = false;
 		AlphaGeo.full_location = false;
 		
