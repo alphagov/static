@@ -56,7 +56,8 @@ section#content.ancillary {
 .ancillary .results li a {
   display: block;
   margin-left: -2em;
-  padding: 0.125em 0 0.125em 2em;
+/*  padding: 0.125em 0 0.125em 2em;*/
+  padding: 0 0 0 2em;
 }
 
 .ancillary .results li small {
