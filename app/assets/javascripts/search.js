@@ -87,7 +87,7 @@ $(document).ready(function() {
     if ($(this).val().length > 3) {
       $(this).autocomplete( "option", "delay", 400);
     } else {
-      $(this).autocomplete( "option", "delay", 0);
+      $(this).autocomplete( "option", "delay", 100);
     }
   });
   $("#site-search-text, #main_autocomplete").autocomplete({
@@ -95,15 +95,17 @@ $(document).ready(function() {
     width: 300,
     source: function(req, add){
       var preloaded_results = false;
+      var results_found = 0;
       if (preloaded_search_data) {
         var preloaded_results = filter_terms(req.term,preloaded_search_data)
       }
 
       if (req.term.length > 3 || preloaded_results == false || preloaded_results.length == 0) {
         $(".hint-suggest").text("Loading...");
-        if($(".search-landing").length == 0){
+        if($(".search-loading").length == 0) {
           $(".hint-suggest").addClass("search-loading");
         }
+        results_found = 0;
         $.ajax({
           url: searchUrl("autocomplete") + "?q=" + req.term,
           dataType: "json",
@@ -112,11 +114,14 @@ $(document).ready(function() {
             var results = $.map(data, function(e) {
               return { 'label': e.title, 'url': e.link, 'class': e.format };
             });
+            results_found = results.length;
             add(results)
           },
-          error: function(){
+          complete: function(jqXHR, textstatus){
             $(".hint-suggest").removeClass("search-loading");
-            $(".hint-suggest").text("No results found");
+            if (textstatus != 'success' || results_found == 0) {
+              $(".hint-suggest").text("No results found");
+            }
           }
         });
       } else {

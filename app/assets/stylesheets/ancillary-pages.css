@@ -45,6 +45,10 @@ section#content.ancillary {
   width: 50%;
 }
 
+.ancillary .popular li p {
+  width: 100%;
+}
+
 .ancillary .results li a {
   display: block;
   margin-left: -2em;
