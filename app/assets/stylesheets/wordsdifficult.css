@@ -1,0 +1,17 @@
+/*
+  Low Literacy/Dyslexic Style
+
+  Same layout, different typeface
+
+*/
+
+body {
+  font-family: "Sassoon Sans W01", "Chalkboard", "Marker Felt", Verdana, sans-serif;
+  font-size: 110%;
+}
+
+#wrapper hgroup h1 span,
+article header h1 span,
+aside .chapters-navigation li a .part-label {
+  text-transform: none !important;
+}
