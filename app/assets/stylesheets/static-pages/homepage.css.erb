@@ -63,14 +63,14 @@ body.home {
 }
 
 .homepage-banner .tag-line p {
-  background: url(<%= asset_path 'button-arrow.png' %>) no-repeat 0 6px #dd322d;
+  background: url(<%= asset_path 'button-arrow.png' %>) no-repeat 0 0 #dd322d;
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 2.2em;
   line-height: 1.25em;
   font-weight:normal;
   color:#fff;
   padding-left:55px;
-  margin:0.5em 0;
+  margin: 0.25em 0;
 }
 
 .homepage-banner form {
@@ -85,7 +85,8 @@ body.home {
 .homepage-banner form input {
   font-size: 1.5em;
   line-height: 1.25em;
-  height: 1.5em;
+/*  height: 1.5em;*/
+  padding: 0.125em;
 }
 
 .homepage-banner form input[type="text"] {
@@ -96,9 +97,7 @@ body.home {
 }
 
 .homepage-banner form input.button {
-  margin-left: 2.5%;
-  padding-bottom: 0.1em;
-  padding-top: 0.1em;
+
 }
 
 .homepage-banner #search_hint {
@@ -197,12 +196,10 @@ body.home {
 .feature-items .sections{
   bottom:-350px;
   position:absolute;
-  z-index:9999;
   width:90%;
   -webkit-transition: bottom 0.2s ease-in-out; 
   -moz-transition: bottom 0.2s ease-in-out;
 }
 .feature-items:hover .sections{
   bottom: 0px;
-  
 }
