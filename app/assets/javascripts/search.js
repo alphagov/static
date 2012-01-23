@@ -64,19 +64,25 @@ $(document).ready(function() {
   };
 
 	/* Smoke and mirrors search hint */
-	$("#main_autocomplete").live("focus", function(){
-	  if($(".hint-suggest").length == 0){
-	    $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
-      $("#search_hint").addClass("visuallyhidden");
-    }
-	});
-
-	$("#site-search-text").live("focus", function(){
-	  if($(".hint-suggest").length == 0){
-	      var attachPoint = $(this).parent("fieldset");
-	      attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+	
+  function hintPlaceholder(element) {
+    if($(".hint-suggest").length == 0) {
+      if (element.attr('id') == 'main_autocomplete') {
+  	    $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+        $("#search_hint").addClass("visuallyhidden");
       }
-	});
+      else {
+        var attachPoint = element.parent("fieldset");
+        attachPoint.append("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+      }
+    }
+    return $('.hint-suggest');
+  };
+  
+  $("#main_autocomplete, #site-search-text").live("focus", function(){
+    hintPlaceholder($(this)).text('Type for suggestions');
+  });
+
 
 	$("#site-search-text, #main_autocomplete").live("blur", function(){
 	  $(".hint-suggest").remove();
@@ -89,27 +95,36 @@ $(document).ready(function() {
     } else {
       $(this).autocomplete( "option", "delay", 100);
     }
+      
+    if ($(".ui-autocomplete-input").attr("value").length == 0) {
+      $(".hint-suggest").remove();
+      $("#search_hint").removeClass("visuallyhidden");
+    }
+    
   });
-  $("#site-search-text, #main_autocomplete").autocomplete({
+  
+  var results_found = -1;
+  
+  $("#main_autocomplete, #site-search-text").autocomplete({
     delay: 100,
     width: 300,
     source: function(req, add){
+      var hint = hintPlaceholder(this.element);
       var preloaded_results = false;
-      var results_found = 0;
       if (preloaded_search_data) {
         var preloaded_results = filter_terms(req.term,preloaded_search_data)
       }
 
       if (req.term.length > 3 || preloaded_results == false || preloaded_results.length == 0) {
-        $(".hint-suggest").text("Loading...");
-        if($(".search-loading").length == 0) {
-          $(".hint-suggest").addClass("search-loading");
-        }
         results_found = 0;
         $.ajax({
           url: searchUrl("autocomplete") + "?q=" + req.term,
           dataType: "json",
           cache: true,
+          beforeSend: function(xhr) {
+            hint.text("Loading...");
+            hint.addClass("search-loading");
+          },
           success: function(data) {
             var results = $.map(data, function(e) {
               return { 'label': e.title, 'url': e.link, 'class': e.format };
@@ -118,9 +133,9 @@ $(document).ready(function() {
             add(results)
           },
           complete: function(jqXHR, textstatus){
-            $(".hint-suggest").removeClass("search-loading");
+            hint.removeClass("search-loading");
             if (textstatus != 'success' || results_found == 0) {
-              $(".hint-suggest").text("No results found");
+              hint.text("No results found");
             }
           }
         });
@@ -147,8 +162,14 @@ $(document).ready(function() {
       // quickly add the search value to end of list
       var searchVal = $(".ui-autocomplete-input").attr("value");
       $(".ui-autocomplete").append("<li class='search-site ui-state-hover'><a href='"+searchUrl()+"?q="+searchVal+"' class='ui-corner-all' tabindex='-1'>Search for <em>"+searchVal+"</em></li>");
-      $("#search_hint").remove();
+      $("#search_hint").addClass('visuallyhidden');
+    },
+    close: function(event, ui){
+      if ($(".ui-autocomplete-input").attr("value").length == 0) {
+        $(".hint-suggest").remove();
+        $("#search_hint").removeClass("visuallyhidden");
+      }
     }
   });
-
+  
 });
