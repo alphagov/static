@@ -22,7 +22,7 @@ $(document).ready(function() {
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
   $.getJSON(searchUrl("preload-autocomplete"), function(data) {
-    if (data && data[0] && data[0].link && data[0].label && data[0].format) {
+    if (data && data[0] && data[0].link && data[0].title && data[0].format) {
       preloaded_search_data = data.map( function(e) {
         return { 'label': e.title, 'url': e.link, 'html_class': e.format };
       });
@@ -34,7 +34,7 @@ $(document).ready(function() {
       if (query == undefined) { return false; }
 
       var term = term.split(' ')[0];
-      var regex = new RegExp("^\\b("+term+")","ig");
+      var regex = new RegExp("\\b("+term+")","ig");
       var count = 0;
       if (query.match(regex)) {
         return query;
@@ -105,7 +105,7 @@ $(document).ready(function() {
       var hint = hintPlaceholder(this.element);
       var preloaded_results = false;
       if (preloaded_search_data) {
-        var preloaded_results = filter_terms(req.term,preloaded_search_data)
+        var preloaded_results = filter_terms(req.term, preloaded_search_data)
       }
 
       if (req.term.length > 3 || preloaded_results == false || preloaded_results.length == 0) {
