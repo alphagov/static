@@ -6,7 +6,7 @@
 
 		<div class="related">
 			<div class="inner group">
-				<h2>Related tools &amp; topics</h2>
+				<h2>Related</h2>
 				<nav role="navigation">
 				  <ul>
 				    <% if artefact.related_items.size > 0 %>
@@ -21,7 +21,7 @@
 
 			      <% if artefact.section && artefact.section != "" %>
 			        <% section, subsection = artefact.section.split(':', 2) %>
-			        <li class="related-topic"><a href="/browse/<%= h(section.parameterize) %>">View more in <span><%= h(section) %>&rarr;</span></a></li>
+			        <li class="related-topic"><a href="/browse/<%= h(section.parameterize) %>">View more in <span><%= h(section) %></span></a></li>
 			      <% end %>
 				  </ul>
 				</nav>

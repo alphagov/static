@@ -167,7 +167,7 @@ a[rel="external"]:after {
   height: 0;
   left: 0;
   position: fixed;
-  top: 8.75em;
+  top: 8.15em;
   width: 100%;
 }
 .lte-ie8 .related-positioning {
@@ -197,12 +197,7 @@ a[rel="external"]:after {
 }
 
 .related .inner {
-/*  background: #ffffcc;*/
-/*  background: #fff0a5;*/
-/*  background-color: #F6D7E6;*/
-/*  background-color: #D5E7F4;*/
-  background-color: #D9E0E0;
-/*  border: 1px solid #ddd;*/
+  background-color: #F0E7D5;
   padding: 0 1em 0.25em 1.5em;
   width: auto;
 }
@@ -223,11 +218,11 @@ a[rel="external"]:after {
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 0.85em;
   font-weight: normal;
-  height: 38px;
+  height: 30px;
   letter-spacing: 0.15em;
   line-height: 1.5em;
-  margin: -10px 0 0 -21px;
-  padding: 24px 0 0 40px;
+  margin: 0 0 0 -21px;
+  padding: 30px 0 0 54px;
   position: relative;
   text-transform: uppercase;
   top: -13px;
@@ -251,13 +246,14 @@ a[rel="external"]:after {
 }
 
 .related li a {
-  background-position: 0 20%;
-  background-repeat: no-repeat;
+/*  background-position: 0 20%;*/
+/*  background-repeat: no-repeat;*/
   display: block;
-/*  font-size: 0.85em;*/
-  line-height: 1.25em;
-  margin-bottom: 0.25em;
-  padding: 0.7em 0 0.5em 2.5em;
+  font-size: 0.85em;
+  line-height: 1.5em;
+  margin-bottom: 0.75em;
+  padding: 0.25em 0 0.5em 2.5em;
+/*  padding: 0.125em 0 0.125em 2em;*/
 }
 
 .related li a[href*="#"] {
@@ -269,10 +265,10 @@ a[rel="external"]:after {
 }
 
 .related li.related-topic {
-  border-top: solid #000 1px;
+  border-top: solid #B4892D 1px;
   list-style: none;
-  margin-top: 1em;
-/*  padding-top: 0.25em;*/
+  margin-top: 0.5em;
+  padding-top: 0.5em;
 }
 
 .related li.related-topic span {
@@ -382,7 +378,7 @@ header.page-header hgroup h2 {
 }
 
 #wrapper.service header.page-header hgroup h1 {
-  background-image: url(<%= asset_path "icon-transaction-l.png" %>);
+  background-image: url(<%= asset_path "icon-service-l.png" %>);
 }
 
 /* Quick answers */
@@ -561,34 +557,26 @@ ul.ui-autocomplete {
 
 /* remember that these are used across the site, not just for autocomplete */
 li.guide a, li.guide a:hover {
-  background: url(<%= asset_path "icon-guide-s.png" %>) no-repeat 0 0.5em;
+  background-image: url(<%= asset_path "icon-guide-s.png" %>);
+  background-repeat: no-repeat;
 }
-li.answer a, li.answer a:hover {
-  background: url(<%= asset_path "icon-answer-s.png" %>) no-repeat 0 0.5em;
-}
+li.answer a, li.answer a:hover,
+li.calendar a, li.calendar a:hover,
 li.smart_answer a, li.smart_answer a:hover {
-  background: url(<%= asset_path "icon-answer-s.png" %>) no-repeat 0 0.5em;
+  background-image: url(<%= asset_path "icon-answer-s.png" %>);
+  background-repeat: no-repeat;
 }
-li.transaction a, li.transaction a:hover {
-  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 0.5em;
-}
-li.localtransaction a, li.localtransaction a:hover {
-  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 0.5em;
+li.local_transaction a, li.local_transaction a:hover,
+li.transaction a, li.transaction a:hover,
+li.place a, li.place a:hover,
+li.nearest a, li.nearest a:hover,
+li.service a, li.service a:hover {
+  background-image: url(<%= asset_path "icon-service-s.png" %>);
+  background-repeat: no-repeat;
 }
 li.programme a, li.programme a:hover {
-  background: url(<%= asset_path "icon-programme-s.png" %>) no-repeat 0 0.5em;
-}
-li.calendar a, li.calendar a:hover {
-  background: url(<%= asset_path "icon-calendar-24.png" %>) no-repeat 0 0.5em;
-}
-li.nearest a, li.nearest a:hover {
-  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 0.5em;
-}
-li.place a, li.place a:hover {
-  background: url(<%= asset_path "icon-transaction-s.png" %>) no-repeat 0 0.5em;
-}
-li.fco a, li.fco a:hover {
-  background: url(<%= asset_path "icon-localtransaction-s.png" %>) no-repeat 0 0.5em;
+  background-image: url(<%= asset_path "icon-programme-s.png" %>);
+  background-repeat: no-repeat;
 }
 
 ul.ui-autocomplete li {
@@ -601,13 +589,14 @@ ul.ui-autocomplete li {
 }
 ul.ui-autocomplete.ui-menu .ui-menu-item a,
 ul.ui-autocomplete .search-site a {
-  padding:1em 1em 1em 3.25em;
+  padding: 0.5em 1em;
   display:block;
 }
 ul.ui-autocomplete .search-site a,
 ul.ui-autocomplete .search-site a:hover {
   border-top:3px solid #dedede;
   background: url(<%= asset_path "search.png" %>) no-repeat 12px 50% #eee;
+  padding-left: 3em;
 }
 ul.ui-autocomplete li a em {
   font-style: normal;
@@ -1010,7 +999,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 input.button {
-  padding: 0.75em 0.5em;
+  padding: 0.25em 0.5em;
 }
 
 .button.medium {
@@ -1072,7 +1061,7 @@ input.button {
   font-size: 1.5em;
   letter-spacing: 0.15em;
   margin: 0 auto;
-  padding: 0.25em 1.5em 0.325em 0;
+  padding: 0.325em 1.5em 0.325em 0;
   text-transform: uppercase;
   width: 9em;
 }
