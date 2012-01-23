@@ -4,13 +4,6 @@ $(document).ready(function() {
 
     _renderItem: function( ul, item) {
       var list = "<li></li>";
-      if (item['html_class']) {
-        list = "<li class=\""+item['html_class']+"\"></li>";
-      }
-			// temp until the service actually returns us a type
-			else{
-				list = "<li class=\"guide\"></li>";
-			}
       return $( list )
         .data( "item.autocomplete", item )
         .append( $( "<a href='"+item['url']+"'></a>" ).html( item.html || item.label ) )
