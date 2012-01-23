@@ -27,3 +27,11 @@ function getCookie(name) {
     return null;
 }
 setCookie("govuktour","dismiss",365);
+
+$(function() {
+    $(".carousel").jCarouselLite({
+      auto: 7000,
+      visible: 1,
+      speed: 600
+    });
+});
