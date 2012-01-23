@@ -19,7 +19,7 @@ article header h1 {
 /*  line-height: 1.15em;*/
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: 0.75em;
+  padding-bottom: 0.5em;
 }
 .lte-ie8 article header h1 {
   zoom: 1;
@@ -103,16 +103,28 @@ article p, article ul, article ol {
 }
 
 article p {
-  font-size: 1.125em;
+/*  font-size: 1.125em;*/
+  font-size: 112.5%;
 }
 
 article li {
-  font-size: 1.125em;
+/*  font-size: 1.125em;*/
+  font-size: 112.5%;
   margin: 0.25em 0;
 }
 
+article li ul,
+article li ol {
+  margin: 0;
+}
+
+article li li {
+  font-size: 100%;
+  list-style-type: circle;
+}
+
 article li p {
-  font-size: 1em;
+  font-size: 100%;
   margin: 0;
 }
 
@@ -225,7 +237,7 @@ article table.calendar {
 
 .citizen article .summary {
   /*margin-bottom: 0.75em;*/
-  background-color: rgba(213,232,244,1);
+  background-color: #D5E8F4;
   padding:1em;
   margin-bottom:1em;
 }
