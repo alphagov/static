@@ -822,12 +822,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding:0.4em 1.5em;
 }
 
-#popup form,
+/*#popup form,
 #popup input,
 #popup select,
 #popup textarea{
   display:block;
-}
+}*/
 #popup form{
   width:92%;
   padding: 0 1.5em 1em;
@@ -835,7 +835,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup input,
 #popup select,
 #popup textarea{
-  width:100%;
+
   margin-bottom:1em;
 }
 #popup input.button{
@@ -843,8 +843,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   float:right;
 }
 
-#popup ul.personalise-options li {
-  display: inline;
+#popup .personalise-options {
+  padding-left:2em;
 }
 
 .close{
@@ -1097,4 +1097,28 @@ input[disabled="disabled"] {
 .lte-ie8 input[type="button"]
 {
   filter:chroma(color=#000000);
+}
+
+/* welcome popup */
+#popup.welcome-tour{
+  padding:1em;
+  font-size:0.85em;
+  width:80%;
+}
+#popup.welcome-tour h1{
+  padding:0.5em 1em 0.4em 1em;
+  font-family: 'Gill Sans W01 Medium', sans-serif;
+  font-size: 2em;
+  font-weight:normal;
+}
+#popup.welcome-tour .thanks{
+  font-family: 'Gill Sans W01 Medium', sans-serif;
+  font-size: 1.5em;
+  font-weight:normal;
+}
+#popup.welcome-tour p{
+  font-size:1em;
+  line-height:1.6em;
+  padding:0.5em 2em;
+  font-weight:normal;
 }

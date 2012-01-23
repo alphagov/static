@@ -47,7 +47,7 @@ $(document).ready(function() {
   		});
   		
       
-      $('.personalise-options li a').live("click", function(){
+      $('.personalise-options input').live("click", function(){
         _gaq.push(['_trackEvent', 'Citizen-Accessibility', $(this).attr("id")]);
         
         if(getCookie("govuk-accessibility")){
@@ -64,7 +64,7 @@ $(document).ready(function() {
     function setStyleSheet(match){
       if(match == "core"){
         deleteCookie("govuk-accessibility");
-        toggleStyleSheets("dyslexic")
+        toggleStyleSheets("wordsdifficult")
        
       }
       else{
@@ -73,17 +73,22 @@ $(document).ready(function() {
     }
       
     function toggleStyleSheets(match){
-      var cssLinks = $("link[type='text/css']");
-
-      var i = cssLinks.length,
+      //var cssLinks = $("link[type='text/css']");
+      if($("."+match).attr("disabled")){
+        $("."+match).attr("rel", "stylesheet");
+        $("."+match).removeAttr('disabled');
+      }
+      else {
+        $("."+match).attr("rel", "alternate stylesheet");
+        $("."+match).attr('disabled', 'disabled');
+      }
+      /*var i = cssLinks.length,
         currentSS;
         while(i--){
-          currentSS = $(cssLinks[i]).attr("href");
-          currentSS = currentSS.split("/stylesheets/");
-          if (currentSS.length < 2) {
-            continue;
-          }
-          currentSS = currentSS[1].split(".css");
+          currentSS = $(cssLinks[i]).attr("id");
+         // currentSS = currentSS.split("/stylesheets/");
+
+       //   currentSS = currentSS[1].split(".css");
           if(currentSS[0] == match){
             if ($(cssLinks[i]).attr('disabled')){
               $(cssLinks[i]).attr("rel", "stylesheet");
@@ -94,7 +99,7 @@ $(document).ready(function() {
               $(cssLinks[i]).attr('disabled', 'disabled');
             }
           }
-        }
+        }*/
     }
     function setCookie(name,value,days) {
       if (days) {

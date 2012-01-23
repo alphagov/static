@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag "application" %>
 
   <!-- alternatives -->
-  <%= stylesheet_link_tag "dyslexic", :rel => "alternate stylesheet", :title => "I find words difficult" %>
+  <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
 
   <%= javascript_include_tag 'libs/jquery/jquery-1.6.2.min.js' %>
   <%= javascript_include_tag 'application', :defer => 'defer' %>
@@ -23,16 +23,17 @@
   _gaq.push(['_setAccount', 'UA-26179049-1']);
   _gaq.push(['_setDomainName', 'auto']);
   _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
   </script>
 
   <script type="text/javascript">
+  _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
   </script>
+  
   <script type="text/javascript">
   setTimeout(function(){var a=document,g,b={families:(g=
   		["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
@@ -54,7 +55,7 @@
         <ul>
           <li><a href="/settings" class="customisation-settings">Settings</a></li>
           <li><a href="/help">Help</a></li>
-          <li><a href="#">Feedback</a></li>
+          <li><a href="/help/feedback">Feedback</a></li>
         </ul>
       </nav>
     </div>
@@ -66,7 +67,7 @@
   <footer class="group" id="footer">
 		<div class="sub-section beta-notice">
 		  <h1>This website is a beta</h1>
-		  <p><a href="https://sites.google.com/a/digital.cabinet-office.gov.uk/citizen-beta/">Send us your feedback</a></p>
+		  <p><a href="/help/feedback">Send us your feedback</a></p>
 		</div>
 		<div class="inner group" role="contentinfo">
 		  <div class="sub-section copyright">

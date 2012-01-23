@@ -9,7 +9,7 @@
   <%= stylesheet_link_tag "application" %>
 
   <!-- alternatives -->
-  <%= stylesheet_link_tag "dyslexic", :rel => "alternate stylesheet", :title => "I find words difficult" %>
+  <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
 
   <%= javascript_include_tag 'libs/jquery/jquery-1.6.2.min.js' %>
   <%= javascript_include_tag 'application', :defer => 'defer' %>
@@ -24,10 +24,10 @@
   _gaq.push(['_setAccount', 'UA-26179049-1']);
   _gaq.push(['_setDomainName', 'auto']);
   _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
   </script>
 
   <script type="text/javascript">
+  _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -47,7 +47,7 @@
 				<ul>
 					<li><a href="/settings" class="customisation-settings">Settings</a></li>
 					<li><a href="/help">Help</a></li>
-   				<li id="gs-feedback"><a href="http://getsatisfaction.com/govuk">Feedback</a></li>
+   				<li id="gs-feedback"><a href="/help/feedback">Feedback</a></li>
 				</ul>
 			</nav>
       <div class="search-help">
@@ -86,7 +86,7 @@
   	<footer class="group" id="footer" role="contentinfo">
   		<div class="sub-section beta-notice">
   		  <h1>This website is a beta</h1>
-  		  <p><a href="http://getsatisfaction.com/govuk" id="gs-feedback-banner">Send us your feedback</a></p>
+  		  <p><a href="/help/feedback" id="gs-feedback-banner">Send us your feedback</a></p>
   		</div>
   		<div class="inner group">
   		  <div class="sub-section">
@@ -142,29 +142,6 @@
     </footer><!--end footer-->
 
   	<div id="global-app-error" class="app-error hidden"></div>
-    <script type="text/javascript" charset="utf-8">
-      var is_ssl = ("https:" == document.location.protocol);
-      var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-      document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-
-    <script type="text/javascript" charset="utf-8">
-      var feedback_widget_options = {};
-
-      feedback_widget_options.display = "overlay";  
-      feedback_widget_options.company = "govuk";
-      feedback_widget_options.placement = "hidden";
-      feedback_widget_options.color = "#222";
-      feedback_widget_options.style = "idea";
-
-      feedback_widget_options.limit = "3";
-      var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-      $("#gs-feedback, #gs-feedback-banner").live("click", function(){
-        feedback_widget.show();
-        return false;
-      })
-
-
-    </script>
+  
   </body>
   </html>
