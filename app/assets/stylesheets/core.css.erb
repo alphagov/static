@@ -104,7 +104,7 @@ a:active {
 
 a[rel="external"]:after {
   content: url(<%= asset_path "external-link.png" %>);
-  padding: 0 0.25em 0 0.25em;
+/*  padding: 0 0.25em 0 0.25em;*/
 }
 
 /*
@@ -984,13 +984,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   position: relative;
   text-decoration: none;
   -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;
 }
 .button:hover {
   background-color: #DD322D;
   color: #fff;
-
 }
 .button:active {
+  background-color: #DD322D;
   top: 1px;
 }
 .button:focus {
@@ -1002,7 +1003,7 @@ input.button {
 }
 
 .button.medium {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .button.big {
