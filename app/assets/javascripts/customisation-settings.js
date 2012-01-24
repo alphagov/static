@@ -14,8 +14,8 @@ $(document).ready(function() {
        $(document).trigger('customisation-opened');
       //BetaPopup.popup(, "customisation-tools");
 
-      $("body").append("<div id='mask'></div>");
-  		$("body").append("<div id='popup' class='customisation-tools'></div>");
+      $("body").prepend("<div id='mask'></div>");
+  		$("body").prepend("<div id='popup' class='customisation-tools'></div>");
 
       $.get('/settings.raw', function(data){
         $('#popup').html(data).append("<a href='#' class='close'>Close</a>"); 
