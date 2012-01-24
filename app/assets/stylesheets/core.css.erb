@@ -444,6 +444,7 @@ article .inner {
   color: #7F7F7F;
   float: left;
   font-size: 0.85em;
+  padding: 2em 0 0 0;
   width: 100%;
 }
 .lte-ie8 .meta-data {
@@ -456,10 +457,11 @@ article .inner {
 
 .print-and-modified-date {
 /*  border-bottom: solid 1px #ccc;*/
+  float: left;
 }
 
 .print-link {
-  float: left;
+  float: right;
   margin-left: 12%;
 }
 
@@ -779,7 +781,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 #popup{
   display: none;
-  border: 3px solid #bbb;
   background-color: #fff;
   overflow:visible;
   clear:both;
@@ -787,7 +788,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   position: fixed;
   left: 0;
   top: 1em;
-  width: 90%;
+  width: 60%;
   z-index: 999999;
   padding-bottom:0.5em;
 }
@@ -841,79 +842,51 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding-left:2em;
 }
 
-.close{
-  background-color: #bbb;
+.close {
+  background-color: transparent;
+  background-image: url(<%= asset_path "close.png" %>);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   display: block;
   margin:0;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.25em 0.5em;
-  color:#fff;
-  text-decoration: none;
-  font-size: 0.85em;
-  font-weight: bold;
+  height: 2em;
+  width: 2em;
+  text-indent: -9999px;
+}
+.close:hover {
+  background-color: rgba(0,0,0,0.25);
 }
 
+/* feedback popup */
+
 #feedback-cta{
-  background-color:#FFE087;
-/*  border:3px solid #fff;*/
-/*  -webkit-border-top-left-radius: 0.5em;
-  -webkit-border-bottom-left-radius: 0.5em;
-  -moz-border-radius-topleft: 0.5em;
-  -moz-border-radius-bottomleft: 0.5em;
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;*/
-  border-right:none;
-  -moz-box-shadow: 3px 3px 4px #333;
-  -webkit-box-shadow: 3px 3px 4px #333;
-  box-shadow: 3px 3px 4px #333;
+  background-color: #E7EBD8;
+  box-shadow: 0.5em 0.5em 0 rgba(146,161,161,0.7);
+  position: relative;
   z-index:9999;
-  opacity:0.8;
 }
-#feedback-cta.right{
-  position: fixed;
-  right: 0;
-  display: none;
-  bottom: 10%;
-  width: 150px;
-  padding: 1em;
-}
+
 #feedback-cta.left{
   position: fixed;
-  left: 0;
+  left: -0.5em;
   display: none;
   bottom: 10%;
-  width: 150px;
-  padding: 1em;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-top-right-radius: 0.5em;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-bottom-right-radius: 0.5em;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-topright: 0.5em;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-bottomright: 0.5em;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0.5em;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0.5em;
-  border-left:none;
-  border-right:3px solid #fff;
-  -moz-box-shadow: 3px 3px 4px #333;
-  -webkit-box-shadow: 3px 3px 4px #333;
+  width: 9em;
+  padding: 1em 1em 0.5em 1.5em;
 }
-#feedback-cta.bottom{
-  position: fixed;
-  left: 0;
-  display: none;
-  bottom: 0;
-  width: 100%;
-  padding: 1em;
-  border-left:none;
-  border-right:none;
-  border-radius:0;
+
+#feedback-cta h2{
+  font-family: 'Gill Sans W01 Medium', sans-serif;
+  font-size: 0.85em;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.75em 0;
+  text-transform: uppercase;
 }
+
 #feedback-cta.bottom input,
 #feedback-cta.bottom form,
 #feedback-cta.bottom h2{
@@ -921,20 +894,29 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 #feedback-cta input{
   border:none;
-  background:none;
-  padding-left:40px;
-  padding-bottom:10px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  margin: 0 1em 0 0;
+  padding: 0.5em 1.75em 0.5em 0;
 }
 
 #feedback-cta #cta-yes{
-  background: url(<%= asset_path "icon-agree-s.png" %>) no-repeat scroll 1em 0px transparent;
+  background-image: url(<%= asset_path "thumbs-up.png" %>);
+  background-position: 100% 0;
 }
 #feedback-cta #cta-no{
-  background: url(<%= asset_path "icon-disagree-s.png" %>) no-repeat scroll 1em 0px transparent;
+  background-image: url(<%= asset_path "thumbs-down.png" %>);
+  background-position: 100% 100%;
 }
 
-#feedback-cta h2{
-  font-size:1em;
+#feedback-cta .sets-cookie {
+  background: none;
+  border-top: solid 1px #C2CD9D;
+  margin: 1em 0 0 0;
+  padding: 0.25em 0 0 0;
+}
+#feedback-cta .sets-cookie a {
+  color: #586E75;
 }
 
 #popup .vcard span{
