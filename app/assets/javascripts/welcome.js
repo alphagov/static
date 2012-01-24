@@ -23,11 +23,16 @@ $(function() {
     for(var i=0;i < ca.length;i++) {
       var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
+        if (c.indexOf(nameEQ) == 0) return          c.substring(nameEQ.length,c.length);
+      }
     return null;
-}
-setCookie("govuktour","dismiss",365);
+  }
+  
+  $(".welcome-tour .close").live("click", function(){
+    setCookie("govuktour","dismiss",365);
+    return;
+  })
+  
 
   if($(".carousel").length != 0){
     $(".carousel").jCarouselLite({
