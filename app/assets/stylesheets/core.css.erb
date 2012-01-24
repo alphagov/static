@@ -1008,7 +1008,7 @@ input.button {
 
 .button.big {
   font-family: 'Gill Sans W01 Medium', sans-serif;
-  font-size: 2em;
+  font-size: 1.75em;
   letter-spacing: 0.15em;
   padding: 0.5em 0.4em;
   text-transform: uppercase;
@@ -1025,7 +1025,15 @@ input.button {
   margin: 0.75em 0 0 0;
   max-width: 60%;
   position: relative;
+/*  padding: 0.325em 1.5em 0.325em 0;*/
 /*  padding: 0.75em 0.75em;*/
+}
+
+.get-started .button.big {
+  background-image: url(<%= asset_path "button-arrow.png" %>);
+  background-position: 95% 50%;
+  background-repeat: no-repeat;
+  padding: 0.65em 2em 0.65em 0.5em;
 }
 
 .get-started .button .button-content {
