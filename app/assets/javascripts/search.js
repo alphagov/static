@@ -128,7 +128,8 @@ $(document).ready(function() {
           complete: function(jqXHR, textstatus){
             hint.removeClass("search-loading");
             if (textstatus != 'success' || results_found == 0) {
-              hint.text("No results found");
+              $(".hint-suggest").remove();
+              $("#search_hint").removeClass("visuallyhidden");
             }
           }
         });
