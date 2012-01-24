@@ -843,20 +843,24 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 .close {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.close a  {
   background-color: transparent;
   background-image: url(<%= asset_path "close.png" %>);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   display: block;
   margin:0;
-  position: absolute;
-  top: 0;
-  right: 0;
   height: 2em;
   width: 2em;
   text-indent: -9999px;
 }
-.close:hover {
+.close a:hover {
   background-color: rgba(0,0,0,0.25);
 }
 
@@ -873,7 +877,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   position: fixed;
   left: -0.5em;
   display: none;
-  bottom: 10%;
+  bottom: 5%;
   width: 9em;
   padding: 1em 1em 0.5em 1.5em;
 }
