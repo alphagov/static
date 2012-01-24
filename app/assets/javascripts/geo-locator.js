@@ -131,9 +131,14 @@ var AlphaGeoForm = function(selector) {
 		});
 		selector.show().css('visibility','visible');
 	}
+	
+	function append_cookie_notice() {
+		$('<p class="cookie-container"><span class="sets-cookie"><a href="/help/cookies/#locationcookies" title="This form sets a location cookie">Sets a cookie</a></span></p>').appendTo(ask_ui);
+	}
 
 	if (navigator.geolocation) {
     $('<p class="geolocate-me">or <a href="#">locate me automatically</a></p>').appendTo(ask_ui);
+		append_cookie_notice();
   
 	  $(".geolocate-me a").live('click', function(e){
 	    e.preventDefault();
@@ -148,6 +153,8 @@ var AlphaGeoForm = function(selector) {
 	  $(AlphaGeo).bind("geolocation-failed", function() {
 	  	show_ui(ask_ui);
 		});
+	} else {
+		append_cookie_notice();
 	}
 
 	$('a.change-location').live('click', function(e){
