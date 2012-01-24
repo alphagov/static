@@ -4,10 +4,15 @@ section#content.ancillary {
 }
 
 #wrapper .ancillary header {
-  color: #fff;
 	margin: 0 0 1.25em 0;
 	padding: 1em;
 }
+
+#wrapper .ancillary header h1 {
+  font-family: 'Gill Sans W01 Medium', sans-serif;
+  font-weight: normal;
+}
+
 #wrapper .ancillary.section-page header {
 	margin: 0;
 }
@@ -70,8 +75,7 @@ section#content.ancillary {
 /* section page layout */
 
 .browse-sections {
-  border-top: solid 1px #bbb;
-  padding: 1em;
+  padding: 0 1em 1em 1em;
 }
 
 .browse-sections .results ol li {
