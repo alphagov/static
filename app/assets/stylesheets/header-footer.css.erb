@@ -107,8 +107,18 @@ body.citizen nav.header-context ol {
   padding: 2.5em 0 0.5em 0;
 }
 
+body.citizen nav.header-context ol li {
+  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
+  background-position: 0.2em 30%;
+  background-repeat: no-repeat;
+  padding-left: 1.5em;
+  margin-right: 0.5em;
+}
+
 body.citizen nav.header-context ol li:first-child {
+  background: none;
   margin-left: 0.75em;
+  padding-left: 0;
 }
 
 body.citizen nav.header-context a {
@@ -142,19 +152,6 @@ body.government #global-header .header-context nav a:hover {
   #global-header .header-context ol li.current-context {
     margin-right: 4%
   }
-}
-
-body.citizen nav.header-context ol li {
-  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
-  background-position: 0 50%;
-  background-repeat: no-repeat;
-  padding-left: 1.5em;
-  margin-right: 0.5em;
-}
-
-body.citizen nav.header-context ol li:first-child {
-  background: none;
-  padding-left: 0;
 }
 
 body.government #global-header .header-context {
