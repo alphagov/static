@@ -160,8 +160,8 @@ body.home {
   padding:0em 2em 1em 4.5em
 }
 .carousel{
-  margin-top:1em;
-  border-top:2px solid #dd322d;
+/*  margin-top:1em;*/
+/*  border-top:2px solid #dd322d;*/
   width:960px;
 }
 .carousel ul{
@@ -189,17 +189,19 @@ body.home {
   color:#000;
 }
 .feature-items{
+  border-top:2px solid #dd322d;
+  margin-top: 1em;
   overflow:hidden;
   height:562px;
   position:relative;
 }
 .feature-items .sections{
-  bottom:-350px;
+  top:-350px;
   position:absolute;
   width:90%;
-  -webkit-transition: bottom 0.4s ease-in-out; 
-  -moz-transition: bottom 0.4s ease-in-out;
+  -webkit-transition: top 0.4s ease-in-out; 
+  -moz-transition: top 0.4s ease-in-out;
 }
 .feature-items:hover .sections{
-  bottom: 0px;
+  top: 0px;
 }
