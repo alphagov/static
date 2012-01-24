@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en" class="error error-500"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="error error-500"><!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+  <title><%= status_code %> error | GOV.UK</title>
+
+  <%= stylesheet_link_tag "application" %>
+
+  <!-- alternatives -->
+  <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
+
+  <%= javascript_include_tag 'libs/jquery/jquery-1.6.2.min.js' %>
+  <%= javascript_include_tag 'application', :defer => 'defer' %>
+
+  <!--[if lt IE 9]>
+  <%= javascript_include_tag 'ie.js' %>
+  <![endif]-->
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script id="ga-params" type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26179049-1']);
+    _gaq.push(['_setDomainName', 'auto']);
+    _gaq.push(['_setAllowLinker', true]);
+  </script>
+
+  <script type="text/javascript">
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script> 
+</head>
+
+<body class="citizen error">
+  <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+  <a href="#content" class="visuallyhidden">Skip to main content</a>
+
+  <div id="wrapper" class="group">
+
+    <div class="content" role="main">
+      <section class="group" role="main">
+        <div id="homepage-search" class="location-not-set">
+          <header>
+            <h1>We seem to be having a problem</h1>
+          </header>
+          <p>We&rsquo;re sorry but something seems to be not right with our site.</p></p>
+
+          <p>We will automatically get a note telling us that there is a problem and we will set about fixing it straight away.</p>
+          
+          <p>You can help us improve GOV.UK by <a href="/help/feedback" id="gs-feedback-banner">telling us what you were doing when this happened</a>. </p>
+          <p>&copy; Crown Copyright</p>
+        </div>
+
+      </section>
+    </div>
+  </div><!--end wrapper-->
+
+  <div id="global-app-error" class="app-error hidden"></div>
+
+</body>
+</html>
