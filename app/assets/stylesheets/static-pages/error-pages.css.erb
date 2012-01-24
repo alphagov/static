@@ -1,10 +1,16 @@
+/* All error pages */
 html.error {
   background-color: #E6E6E6;
 }
-body.error {
+
+html.error section h1 {
+  font-size: 1.65em;
+  line-height: 1.5;
+  text-align: center;
 }
 
-body.error .content {
+/* 500 application error */
+html.error-500 .content {
   background: url(<%= asset_path "fail/the-chaps.jpg" %>) no-repeat scroll center top transparent;
   background-color: #E6E6E6;
   text-align: center;
@@ -14,13 +20,27 @@ body.error .content {
   height: 100%;
 }
 
-body.error section h1 {
-  font-size: 1.65em;
-  line-height: 1.5;
+/* 404 not found error */
+html.error-404 .content {
+  background-color: #E6E6E6;
   text-align: center;
+  text-shadow: 0 1px 0 #FFF;
+  padding-top: 4em;
+  width: auto;
+  height: 100%;
 }
 
-body.error #footer {
+html.error-404 .content h1 {
+  font-size: 200%;
+}
+
+html.error-404 .content .sections {
+  text-align: left;
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+html.error-404 #footer {
   background: url(<%= asset_path "fail/rule.jpg" %>) repeat-x scroll center top transparent;
   background-color: inherit;
   border: none;
@@ -33,14 +53,14 @@ body.error #footer {
   width: 100%;
 }
 
-body.error #footer .subsection {
+html.error-404 #footer .subsection {
   color: #6D6D6D;
   float: none;
   text-align: center;
   margin: 0 auto;
 }
 
-body.error .copyright {
+html.error-404 .copyright {
   background: url(<%= asset_path "fail/coat-of-arms.jpg" %>) no-repeat scroll center top transparent;
   padding-top: 4.5em;
 }
