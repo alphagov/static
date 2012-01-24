@@ -2,7 +2,7 @@ $(document).ready(function() {
   
 	//var selects = $("#govuk-feedback #feedback-options").html();
 	
-	var html = "<div id='feedback-cta' class='left'><h2>Helpful?</h2><p><a href='#' class='close' id='feedback-dismiss' title='Close'>x</a></p<form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /></form></div>";
+	var html = "<div id='feedback-cta' class='left'><h2>Helpful?</h2><p><a href='#' class='close' id='feedback-dismiss' title='Close'>x</a></p><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /><p><span class='sets-cookie'><a href='/help/cookies#feedbackcookies' title='These buttons set a feedback cookie'>Sets a cookie</a></span></p></form></div>";
 	$("#entry_3").val(location.href);
  	var delay = 6000; 
 	
