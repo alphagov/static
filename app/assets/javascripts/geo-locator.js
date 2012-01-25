@@ -49,7 +49,7 @@ var AlphaGeo = {
       data: AlphaGeo.location,
       type: 'POST',
       success: function(data){
-        if (data.location_error || data.current_location.locality == false) {
+        if (data.location_error || data.current_location.locality === false) {
           $(AlphaGeo).trigger('location-failed');
           return false;
         } else {
@@ -61,7 +61,7 @@ var AlphaGeo = {
   },
 
   locate: function(postcode) {
-    AlphaGeo.location = { 'postcode': postcode }
+    AlphaGeo.location = { 'postcode': postcode };
     AlphaGeo.lookup_full_location( function() {
       $(AlphaGeo).trigger('location-completed', AlphaGeo.full_location);
     });
@@ -113,7 +113,7 @@ var AlphaGeo = {
     $(AlphaGeo).trigger('location-removed');
   }
 
-}
+};
 
 var AlphaGeoForm = function(selector) {
 
@@ -193,7 +193,7 @@ var AlphaGeoForm = function(selector) {
     AlphaGeo.locate( form.find('input.postcode').val() );
   });
 
-}
+};
 
 $(document).ready( function() {
   AlphaGeo.initialize();
