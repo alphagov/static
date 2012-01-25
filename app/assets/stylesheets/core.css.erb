@@ -208,7 +208,7 @@ a[rel="external"]:after {
   font-family: 'Gill Sans W01 Medium', sans-serif;
 }
 .related h2 {
-  background-image: url(<%= asset_path "related-clip.png" %>);	
+  background-image: url(<%= asset_path "related-clip.png" %>);
   background-position: 0 0;
   background-repeat: no-repeat;
   color: #000;
@@ -754,9 +754,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .error-notification,
 .error-area{
-  border:2px solid #ffc946;
+  border:1px solid #ffc946;
   background-color:#fbedcd;
   padding: 0 1em;
+}
+.error-notification p,
+.error-area p{
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1em;
 }
 .error-area span{
   display:block;
