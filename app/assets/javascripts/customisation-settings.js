@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
     setStyleSheet(getCookie("govuk-accessibility"));
-
+    $(".customisation-settings").attr("title", "The settings link will open an overlay panel when clicked");
     $(document).keydown( function(e) {
       if (e.keyCode == 27) {
         $("#popup").slideUp('fast').remove(); 
@@ -18,7 +18,7 @@ $(document).ready(function() {
   		$("body").prepend("<div id='popup' class='customisation-tools'></div>");
 
       $.get('/settings.raw', function(data){
-        $('#popup').html(data).append("<a href='#' class='close'>Close</a>"); 
+        $('#popup').html(data).prepend("<p class='close'><a href='#' title='Click or press escape to close the settings panel'>Close</a></a>"); 
       });
   	  
       //Get the screen height and width
@@ -36,10 +36,25 @@ $(document).ready(function() {
   		//Set the popup window to center
   		$("#popup").css('left', winW/2-$("#popup").width()/2);
 
-  		$("#popup").delay(100).fadeIn('fast');
-  		$("#popup h2").focus;
+  		$("#popup").delay(100).fadeIn('fast', function(){
+  		  $(".customisation-tools h2").attr("tabindex",-1).focus();
+  		  // if we get outside the lightbox, trap the focus and send it back
+  		  $("#popup").live('blur', function(){
+  		    $(".customisation-tools h2").attr("tabindex",-1).focus();
+  		  })
+  		  if(getCookie("govuk-accessibility") == "wordsdifficult"){  
+          $('input[name=acc-options]:eq(1)').attr('checked', 'checked');   
+        }
+        else{
+          $('input[name=acc-options]:eq(0)').attr('checked', 'checked');
+        }
+  		});
+  		
+  		
+  		
   		$(".customisation-tools .close").live('click', function(e){
   			e.preventDefault();
+  			$("#popup").unbind('blur');
         $("#popup").slideUp('fast').remove();	
   			$("#mask").fadeOut('fast').remove();
   			$(".customisation-settings").focus();
@@ -47,32 +62,38 @@ $(document).ready(function() {
   		});
   		
       
-      $('.personalise-options input').live("click", function(){
+      $('.personalise-options').live("submit", function(){
+
+        var id = $('input[name=acc-options]:checked').val();
         _gaq.push(['_trackEvent', 'Citizen-Accessibility', $(this).attr("id")]);
-        
         if(getCookie("govuk-accessibility")){
           deleteCookie("govuk-accessibility");
         }
-        setCookie("govuk-accessibility",$(this).attr("id"),1);
-        setStyleSheet($(this).attr("id")); 
+        setCookie("govuk-accessibility",id,1);
+        setStyleSheet(id); 
+      return false;
       });
       
       e.preventDefault();
+      
     });
     
     
     function setStyleSheet(match){
       if(match == "core"){
         deleteCookie("govuk-accessibility");
-        toggleStyleSheets("wordsdifficult")
-       
+        $(".wordsdifficult").attr("rel", "alternate stylesheet");
+        $(".wordsdifficult").attr('disabled', 'disabled');    
+        $('input[name=acc-options]:eq(0)').attr('checked', 'checked');   
       }
-      else{
-        toggleStyleSheets(match);
+      else if(match == "wordsdifficult"){
+        $(".wordsdifficult").attr("rel", "stylesheet");
+        $(".wordsdifficult").removeAttr('disabled');
+        $('input[name=acc-options]:eq(1)').attr('checked', 'checked');
       }
     }
       
-    function toggleStyleSheets(match){
+    /*function toggleStyleSheets(match){
       //var cssLinks = $("link[type='text/css']");
       if($("."+match).attr("disabled")){
         $("."+match).attr("rel", "stylesheet");
@@ -82,7 +103,7 @@ $(document).ready(function() {
         $("."+match).attr("rel", "alternate stylesheet");
         $("."+match).attr('disabled', 'disabled');
       }
-      /*var i = cssLinks.length,
+      var i = cssLinks.length,
         currentSS;
         while(i--){
           currentSS = $(cssLinks[i]).attr("id");
@@ -99,8 +120,8 @@ $(document).ready(function() {
               $(cssLinks[i]).attr('disabled', 'disabled');
             }
           }
-        }*/
-    }
+        }
+    }*/
     function setCookie(name,value,days) {
       if (days) {
         var date = new Date();
