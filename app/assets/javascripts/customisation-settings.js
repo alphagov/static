@@ -39,49 +39,61 @@ $(document).ready(function() {
   		$("#popup").delay(100).fadeIn('fast', function(){
   		  $(".customisation-tools h2").attr("tabindex",-1).focus();
   		  // if we get outside the lightbox, trap the focus and send it back
-  		  $("#popup").bind('blur', function(){
+  		  $("#popup").live('blur', function(){
   		    $(".customisation-tools h2").attr("tabindex",-1).focus();
   		  })
+  		  if($(".wordsdifficult").attr("rel", "alternate stylesheet")){
+  		    // alt set
+		    }
+		    else{
+		      // core set
+		    }
   		});
   		
   		
   		
   		$(".customisation-tools .close").live('click', function(e){
   			e.preventDefault();
+  			$("#popup").unbind('blur');
         $("#popup").slideUp('fast').remove();	
   			$("#mask").fadeOut('fast').remove();
-  			$("#site-search-text").unbind('focusin');
   			$(".customisation-settings").focus();
   		  // $("#global-locator-box").hide();
   		});
   		
       
-      $('.personalise-options input').live("click", function(){
+      $('.personalise-options').live("submit", function(){
+
+        var id = $('input[name=acc-options]:checked').val();
         _gaq.push(['_trackEvent', 'Citizen-Accessibility', $(this).attr("id")]);
-        
         if(getCookie("govuk-accessibility")){
           deleteCookie("govuk-accessibility");
         }
-        setCookie("govuk-accessibility",$(this).attr("id"),1);
-        setStyleSheet($(this).attr("id")); 
+        setCookie("govuk-accessibility",id,1);
+        setStyleSheet(id); 
+      return false;
       });
       
       e.preventDefault();
+      
     });
     
     
     function setStyleSheet(match){
       if(match == "core"){
         deleteCookie("govuk-accessibility");
-        toggleStyleSheets("wordsdifficult")
+        $(".wordsdifficult").attr("rel", "alternate stylesheet");
+        $(".wordsdifficult").attr('disabled', 'disabled');
+       // toggleStyleSheets("wordsdifficult")
        
       }
       else{
-        toggleStyleSheets(match);
+        $(".wordsdifficult").attr("rel", "stylesheet");
+        $(".wordsdifficult").removeAttr('disabled');
       }
     }
       
-    function toggleStyleSheets(match){
+    /*function toggleStyleSheets(match){
       //var cssLinks = $("link[type='text/css']");
       if($("."+match).attr("disabled")){
         $("."+match).attr("rel", "stylesheet");
@@ -91,7 +103,7 @@ $(document).ready(function() {
         $("."+match).attr("rel", "alternate stylesheet");
         $("."+match).attr('disabled', 'disabled');
       }
-      /*var i = cssLinks.length,
+      var i = cssLinks.length,
         currentSS;
         while(i--){
           currentSS = $(cssLinks[i]).attr("id");
@@ -108,8 +120,8 @@ $(document).ready(function() {
               $(cssLinks[i]).attr('disabled', 'disabled');
             }
           }
-        }*/
-    }
+        }
+    }*/
     function setCookie(name,value,days) {
       if (days) {
         var date = new Date();
