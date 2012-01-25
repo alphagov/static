@@ -787,7 +787,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding: 0;
   position: fixed;
   left: 0;
-  top: 1em;
+  top: 2em;
   width: 60%;
   z-index: 999999;
   padding-bottom:0.5em;
@@ -796,13 +796,18 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup.customisation-tools{
   width:60%;
 }
-#popup.customisation-tools h1{
+#popup.customisation-tools h2,
+#popup.feedback-tools h2{
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 1.75em;
   font-weight:normal;
   padding:0.5em 0 0 0.85em;
+  margin:0;
 }
-#popup.customisation-tools h2{
+#popup.customisation-tools form{
+  padding:0 1.40em;
+}
+#popup.customisation-tools h3{
   font-size:1em;
 }
 #popup.customisation-tools p{
@@ -810,6 +815,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 #popup .ask_location p{
   display:inline;
+  padding:0;
+}
+#popup.customisation-tools p.close,
+#popup.feedback-tools p.close,
+#popup.welcome-tour p.close{
   padding:0;
 }
 #popup h2,
@@ -931,7 +941,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   font-size:1em;
   font-weight:bold;
   margin: 0;
-  padding:0.1em 2em;
+  padding:0.1em 1.4em;
 }
 #popup ul{
   margin:0 0 0 5em;

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
     setStyleSheet(getCookie("govuk-accessibility"));
-
+    $(".customisation-settings").attr("title", "The settings link will open an overlay panel when clicked");
     $(document).keydown( function(e) {
       if (e.keyCode == 27) {
         $("#popup").slideUp('fast').remove(); 
@@ -18,7 +18,7 @@ $(document).ready(function() {
   		$("body").prepend("<div id='popup' class='customisation-tools'></div>");
 
       $.get('/settings.raw', function(data){
-        $('#popup').html(data).append("<a href='#' class='close'>Close</a>"); 
+        $('#popup').html(data).prepend("<p class='close'><a href='#' title='Click or press escape to close the settings panel'>Close</a></a>"); 
       });
   	  
       //Get the screen height and width
@@ -36,12 +36,21 @@ $(document).ready(function() {
   		//Set the popup window to center
   		$("#popup").css('left', winW/2-$("#popup").width()/2);
 
-  		$("#popup").delay(100).fadeIn('fast');
-  		$("#popup h2").focus;
+  		$("#popup").delay(100).fadeIn('fast', function(){
+  		  $(".customisation-tools h2").attr("tabindex",-1).focus();
+  		  // if we get outside the lightbox, trap the focus and send it back
+  		  $("#popup").bind('blur', function(){
+  		    $(".customisation-tools h2").attr("tabindex",-1).focus();
+  		  })
+  		});
+  		
+  		
+  		
   		$(".customisation-tools .close").live('click', function(e){
   			e.preventDefault();
         $("#popup").slideUp('fast').remove();	
   			$("#mask").fadeOut('fast').remove();
+  			$("#site-search-text").unbind('focusin');
   			$(".customisation-settings").focus();
   		  // $("#global-locator-box").hide();
   		});
