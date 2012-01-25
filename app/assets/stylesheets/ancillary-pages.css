@@ -138,11 +138,16 @@ section#content.ancillary {
 	width: auto;
 }
 
+.ancillary.feedback article {
+  margin-left: 1em;
+}
+
 .ancillary article section {
   margin: 0 0 2.5em 0;
 }
 
-.ancillary article h1:first-child {
+.ancillary article h1:first-child,
+.ancillary article h2:first-child {
   margin-top: 0;
 }
 
