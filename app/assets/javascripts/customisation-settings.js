@@ -42,12 +42,12 @@ $(document).ready(function() {
   		  $("#popup").live('blur', function(){
   		    $(".customisation-tools h2").attr("tabindex",-1).focus();
   		  })
-  		  if($(".wordsdifficult").attr("rel", "alternate stylesheet")){
-  		    // alt set
-		    }
-		    else{
-		      // core set
-		    }
+  		  if(getCookie("govuk-accessibility") == "wordsdifficult"){  
+          $('input[name=acc-options]:eq(1)').attr('checked', 'checked');   
+        }
+        else{
+          $('input[name=acc-options]:eq(0)').attr('checked', 'checked');
+        }
   		});
   		
   		
@@ -83,13 +83,13 @@ $(document).ready(function() {
       if(match == "core"){
         deleteCookie("govuk-accessibility");
         $(".wordsdifficult").attr("rel", "alternate stylesheet");
-        $(".wordsdifficult").attr('disabled', 'disabled');
-       // toggleStyleSheets("wordsdifficult")
-       
+        $(".wordsdifficult").attr('disabled', 'disabled');    
+        $('input[name=acc-options]:eq(0)').attr('checked', 'checked');   
       }
-      else{
+      else if(match == "wordsdifficult"){
         $(".wordsdifficult").attr("rel", "stylesheet");
         $(".wordsdifficult").removeAttr('disabled');
+        $('input[name=acc-options]:eq(1)').attr('checked', 'checked');
       }
     }
       
