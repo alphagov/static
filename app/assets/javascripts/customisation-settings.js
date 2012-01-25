@@ -39,9 +39,9 @@ $(document).ready(function() {
   		$("#popup").delay(100).fadeIn('fast', function(){
   		  $(".customisation-tools h2").attr("tabindex",-1).focus();
   		  // if we get outside the lightbox, trap the focus and send it back
-  		  $("#popup").live('blur', function(){
+  		/*  $("#popup").live('blur', function(){
   		    $(".customisation-tools h2").attr("tabindex",-1).focus();
-  		  })
+  		  })*/
   		  if(getCookie("govuk-accessibility") == "wordsdifficult"){  
           $('input[name=acc-options]:eq(1)').attr('checked', 'checked');   
         }
