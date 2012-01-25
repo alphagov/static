@@ -50,11 +50,13 @@ section#content.ancillary {
 }
 
 .ancillary .results li p {
-  font-size: 0.85em;
-  width: 50%;
+  font-family: Georgia;
+  font-size: 1em;
+  width: 65%;
 }
 
 .ancillary .popular li p {
+  margin-top: 0.125em;
   width: 100%;
 }
 
@@ -86,7 +88,7 @@ section#content.ancillary {
   float: left;
 }
 .browse-sections .results ol li:nth-child(odd) {
-  margin-right: 20%;
+  margin-right: 15%;
 }
 .browse-sections .results ol li:nth-child(even) {
   margin-right: 0;
