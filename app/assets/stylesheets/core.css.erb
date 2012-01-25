@@ -809,19 +809,44 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding:0.5em 0 0 0.85em;
   margin:0;
 }
-#popup.customisation-tools form{
-  padding:0 1.40em;
+
+#popup .intro {
+  background-color: #D9E0E0;
+  margin: 0.5em auto 1.5em;
+  padding: 1em;
+  width: 90%;
 }
-#popup.customisation-tools h3{
-  font-size:1em;
+
+#popup h3 {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  padding: 1em 0 0;
 }
-#popup.customisation-tools p{
-  line-height:1.2em;
+
+#popup .intro p {
+  font-weight: normal;
+  line-height: 1.5em;
+  padding: 0;
 }
-#popup .ask_location p{
-  display:inline;
-  padding:0;
+
+#popup #global-locator-form {
+  background: #f8f8f8 url(<%= asset_path "locator-icon.png" %>) no-repeat 1em 1em;
+  border: none;
+  height: 4.25em;
+  margin: 1em auto;
+  padding: 1.2em 0.75em 1.2em 3.5em;
+  width: 90%;
 }
+
+#popup p.geolocate-me {
+  border-top: 1px solid #ddd;
+  font-size: 1em;
+  margin-bottom: 0;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+}
+
+
 #popup.customisation-tools p.close,
 #popup.feedback-tools p.close,
 #popup.welcome-tour p.close{
@@ -838,7 +863,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup textarea{
   display:block;
 }*/
-#popup form{
+
+/*#popup form{
   width:92%;
   padding: 0 1.5em 1em;
 }
@@ -852,7 +878,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   width:20%;
   float:right;
 }
-
+*/
 #popup .personalise-options {
   padding-left:2em;
 }
