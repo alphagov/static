@@ -43,15 +43,21 @@ var AlphaGeo = {
 	},
 
 	lookup_full_location: function(callback) {
-		$.getJSON('/locator.json', AlphaGeo.location, function(data){
-			if (data.location_error || data.current_location.locality == false) {
-				$(AlphaGeo).trigger('location-failed');
-				return false;	
-			} else {
-				AlphaGeo.full_location = data;	
-				callback();
-			}
-		});	
+    $.ajax({
+      url: '/locator.json',
+      dataType: 'json',
+      data: AlphaGeo.location,
+      type: 'POST',
+      success: function(data){
+        if (data.location_error || data.current_location.locality == false) {
+          $(AlphaGeo).trigger('location-failed');
+          return false;	
+        } else {
+          AlphaGeo.full_location = data;	
+          callback();
+        }
+      }
+    });
 	},
 
 	locate: function(postcode) {
