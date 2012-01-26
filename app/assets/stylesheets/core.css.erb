@@ -456,7 +456,6 @@ article .inner {
 }
 
 .print-and-modified-date {
-/*  border-bottom: solid 1px #ccc;*/
   float: left;
 }
 
@@ -465,9 +464,9 @@ article .inner {
 }
 
 .print-link a, .print-link a:link, .print-link a:visited {
-  background: url(<%= asset_path "print.png" %>) no-repeat left center;
+  background: url(<%= asset_path "print.png" %>) no-repeat 0 50%;
   display: inline-block;
-  padding-left: 22px;
+  padding-left: 30px;
 }
 
 .modified-date {
@@ -1098,22 +1097,27 @@ input[disabled="disabled"] {
 }
 
 /* welcome popup */
+
 #popup.welcome-tour{
+  background-color: #F27820;
   padding:1em;
   font-size:0.85em;
   width:80%;
 }
+
 #popup.welcome-tour h1{
   padding:0.5em 1em 0.4em 1em;
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 2em;
   font-weight:normal;
 }
+
 #popup.welcome-tour .thanks{
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 1.5em;
   font-weight:normal;
 }
+
 #popup.welcome-tour p{
   font-size:1em;
   line-height:1.6em;

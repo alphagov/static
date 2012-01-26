@@ -17,7 +17,7 @@
     <%= javascript_include_tag 'ie.js' %>
   <![endif]-->
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
   <script id="ga-params" type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-26179049-1']);
@@ -63,7 +63,7 @@
    				<label for="site-search-text" class="visuallyhidden">
  						<span>Search</span>
  					</label>
-					<input type="search" name="q" id="site-search-text" title="Search" placeholder="type your search here" />
+					<input type="search" name="q" id="site-search-text" title="Search" />
   				<input type="submit" value="Search" class="button" />
 				</form>
 			</div>
@@ -90,7 +90,7 @@
   			  <ul>
   			   <li><a href="/help">Help</a></li>
   			   <li><a href="/help/cookies">Cookies</a></li>
-  			   <li><a href="/help/search">Search</a></li>
+  			   <li><a href="/search">Search</a></li>
   			  </ul>
   			</nav>
   			<div class="colophon">
