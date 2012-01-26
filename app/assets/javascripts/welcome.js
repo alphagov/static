@@ -2,10 +2,29 @@ $(function() {
   var welcomeCopy = "<h1>Hello!</h1><p>Welcome to GOV.UK, an experimental trial ('beta') replacement for DirectGov, and the first step towards a single government website. It aims to be as simple as possible, which should make it clear and straightforward to use.</p><p>Developed in 6 months by a team within the Government Digital Service, it's a direct response to Martha Lane Fox's 2010 review of government websites, which demanded revolution, not evolution, in the way that government services are delivered online.</p><p>As this is a test site, it's likely you may find inaccuracies and anomalies. We're expecting a few. So your feedback is really valuable, and we've included <a href='/help/feedback'>simple, clear ways in which you can give it to us</a>, and help make the site better.</p><p><strong>An important thing to note</strong> – if you need a fully working, tested, accurate site upon which to carry out any of your normal business with the government, head to <a href='http://direct.gov.uk'>Directgov</a>.</p><p>And if you want to find out more about how this new GOV.UK beta site works, <a href='/tour'>click here to take the tour</a>.</p><p class='thanks'>Thanks for visiting</p><p><small>N.B. This site makes use of cookies and Google Analytics. If you're concerned about that or want to know more, there's information <a href='/help/cookies'>right here</a>. <strong>Closing this popup window will set a cookie</strong>.</small></p>";
 
 
+  $.extend({
+    getUrlVars: function(){
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++)
+      {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+      }
+      return vars;
+    },
+    getUrlVar: function(name){
+      return $.getUrlVars()[name];
+    }
+  });
+  
+  console.log($.getUrlVar('nopopup'))
 
-
-  if(getCookie("govuktour") != "dismiss"){
-    BetaPopup.popup(welcomeCopy, "welcome-tour"); 
+  if($.getUrlVar('nopopup') != "true"){
+    if(getCookie("govuktour") != "dismiss"){
+      BetaPopup.popup(welcomeCopy, "welcome-tour"); 
+    }
   }
 
   function setCookie(name,value,days) {
