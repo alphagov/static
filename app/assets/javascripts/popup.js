@@ -54,14 +54,13 @@ var BetaPopup = {
       return false;
     });
     closePopup = function(){
-           
-         $("#popup").fadeOut('slow', function(){
-           $("#mask").slideUp('fast');
-           $("#mask").remove();
-           $("#popup").remove();
-         });
+      $("#popup").fadeOut(400, function(){
+        $("#mask").slideUp('fast');
+        $("#mask").remove();
+        $("#popup").remove();
+      });
 
-         $(source).focus();
-       }
+      $(source).focus();
+    }
   }
 };
