@@ -8,3 +8,4 @@
 //= require geo-locator
 //= require customisation-settings
 //= require welcome
+//= require feedback
