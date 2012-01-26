@@ -1,5 +1,5 @@
 $(function() {
-  var welcomeCopy = "<div class='welcome-curve-left'></div><div class='welcome-curve'></div><div class='welcome-curve-right'></div><div class='welcome-content'><h2>Beta</h2><div class='welcome-inner'><p>Welcome to GOV.UK, an experimental trial (‘beta’) replacement for <a href='http://www.direct.gov.uk'>Directgov</a> and the first step towards a single government website.</p><p><strong>PLEASE BE AWARE – this is a test website. It may contain inaccuracies or be misleading. <a href='http://www.direct.gov.uk'>Directgov</a> remains the official website for government information and services.</strong></p><p>Your suggestions will help us make this site better, so please leave your feedback here, and visit our blog to find out more.</p><p class='thanks'><a href='#' class='button'>Thanks, I’ve read the warning</a></p><p>N.B. This site uses ‘cookies’ and Google Analytics. Closing this page sets a oookie. There’s more information on cookies at <a href='http://www.aboutcookies.org'>AboutCookies.org</a>.</p></div></div>";
+  var welcomeCopy = "<div class='welcome-curve-left'></div><div class='welcome-curve'></div><div class='welcome-curve-right'></div><div class='welcome-content'><h2>Beta</h2><div class='welcome-inner'><p>Welcome to GOV.UK, an experimental trial (‘beta’) replacement for <a href='http://www.direct.gov.uk'>Directgov</a> and the first step towards a single government website.</p><p><strong>PLEASE BE AWARE – this is a test website. It may contain inaccuracies or be misleading. <a href='http://www.direct.gov.uk'>Directgov</a> remains the official website for government information and services.</strong></p><p>Your suggestions will help us make this site better, so please leave your feedback here, and visit our blog to find out more.</p><p class='thanks'><a href='#' class='button thanks-dismiss'>Thanks, I’ve read the warning</a></p><p>N.B. This site uses ‘cookies’ and Google Analytics. Closing this page sets a oookie. There’s more information on cookies at <a href='http://www.aboutcookies.org'>AboutCookies.org</a>.</p></div></div>";
 
 
   $.extend({
@@ -52,6 +52,20 @@ $(function() {
     return;
   })
   
+  $(".thanks-dismiss").live("click", function(){
+    setCookie("govuktour","dismiss",365);
+    closePopup()
+    return false;
+  });
+  closePopup = function(){
+    $("#popup").fadeOut(400, function(){
+      $("#mask").slideUp('fast');
+      $("#mask").remove();
+      $("#popup").remove();
+    });
+
+    $(".header-global h1 a").focus();
+  }
   
   if($(".carousel").length != 0){
     
