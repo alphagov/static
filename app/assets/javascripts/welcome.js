@@ -19,7 +19,6 @@ $(function() {
     }
   });
   
-  console.log($.getUrlVar('nopopup'))
 
   if($.getUrlVar('nopopup') != "true"){
     if(getCookie("govuktour") != "dismiss"){
