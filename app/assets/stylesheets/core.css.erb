@@ -1100,11 +1100,56 @@ input[disabled="disabled"] {
 
 /* welcome popup */
 
-#popup.welcome-tour{
-  background-color: #F27820;
-  padding:1em;
-  font-size:0.85em;
+#popup.welcome-tour {
+  background-color: transparent;
+  top: 4px;
   width:80%;
+}
+
+#popup.welcome-tour .welcome-curve-left {
+  background-image: url(<%= asset_path "welcome-banner-top-left-curve.png" %>);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  height: 29px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 59px;
+}
+
+#popup.welcome-tour .welcome-curve-right {
+  background-image: url(<%= asset_path "welcome-banner-top-right-curve.png" %>);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  height: 29px;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 24px;
+}
+
+#popup.welcome-tour .welcome-curve {
+  background-image: url(<%= asset_path "welcome-banner-top-shadow-repeat.png" %>);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  height: 29px;
+  margin: 0 24px 0 59px;
+}
+
+#popup.welcome-tour .welcome-inner {
+  background-color: #F27820;
+/*  border-color: #F27820;
+  border-style: solid;
+  border-width: 0 2em 2em 2em;*/
+  color: #000;
+  margin: 0 0 0 59px;
+  padding: 2em;
+  font-size:0.85em;
+}
+
+#popup.welcome-tour .close {
+  right: 2em;
+  top: 2em;
 }
 
 #popup.welcome-tour h1{
