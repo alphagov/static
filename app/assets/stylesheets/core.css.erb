@@ -721,21 +721,19 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .error-notification,
 .error-area{
-  border:1px solid #B01117;
-  background-color:#FFF3CF;
+  border:1px solid #ffc946;
+  background-color:#fbedcd;
   padding: 0 1em;
 }
 .error-notification p,
 .error-area p{
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
-  color:#B01117;
 }
 .error-area span{
   display:block;
   font-weight:bold;
   font-size:0.85em;
-  color:#B01117;
 }
 
 /* Feedback mechanism styles */
@@ -789,13 +787,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup h3 {
   font-size: 1em;
   margin-bottom: 0.5em;
-  padding: 1em 0 0;
+}
+
+#popup p {
+  line-height: 1.5em;
+  margin: 0.75em 0;
 }
 
 #popup .intro p {
-  font-weight: normal;
-  line-height: 1.5em;
-  padding: 0;
+/*  line-height: 1.5em;*/
 }
 
 #popup #global-locator-form {
@@ -821,10 +821,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup.welcome-tour p.close{
   padding:0;
 }
-#popup h2,
+/*#popup h2,
 #popup h3{
   padding:0.4em 1.5em;
-}
+}*/
 
 /*#popup form,
 #popup input,
@@ -936,17 +936,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup .vcard span{
   display:block;
 }
-#popup p{
-  /*background: url(<%= asset_path "application-info-icon-default.png" %>) no-repeat scroll 1em 0px transparent;*/
-  font-size:1em;
-  font-weight:bold;
-  margin: 0;
-  padding:0.1em 1.4em;
-}
+
 #popup ul{
   margin:0 0 0 5em;
   padding:0;
-  font-size:1.2em;
+/*  font-size:1.2em;*/
 }
 #related-popup h2{
   padding:0;
@@ -982,7 +976,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  padding: 0.75em 0.5em 0.5em 0.75em;
+  padding: 0.5em 0.75em;
   position: relative;
   text-decoration: none;
   -webkit-transition: background-color 0.5s ease-in-out;
@@ -1103,7 +1097,7 @@ input[disabled="disabled"] {
 #popup.welcome-tour {
   background-color: transparent;
   top: 4px;
-  width:80%;
+  width: 70%;
 }
 
 #popup.welcome-tour .welcome-curve-left {
@@ -1136,40 +1130,34 @@ input[disabled="disabled"] {
   margin: 0 24px 0 59px;
 }
 
-#popup.welcome-tour .welcome-inner {
+#popup.welcome-tour .welcome-content {
   background-color: #F27820;
-/*  border-color: #F27820;
-  border-style: solid;
-  border-width: 0 2em 2em 2em;*/
+  margin: -8px 0 0 59px;
+  padding: 0 2em 2em 2em;
+  box-shadow: -8px 8px 0 rgba(0,0,0,0.3);
+}
+
+#popup.welcome-tour .welcome-inner {
+  background-color: #FDE4D2;
   color: #000;
-  margin: 0 0 0 59px;
-  padding: 2em;
-  font-size:0.85em;
+  padding: 1em 2em;
 }
 
 #popup.welcome-tour .close {
   right: 2em;
-  top: 2em;
+  top: 0.5em;
 }
 
-#popup.welcome-tour h1{
-  padding:0.5em 1em 0.4em 1em;
-  font-family: 'Gill Sans W01 Medium', sans-serif;
+#popup.welcome-tour h2 {
+  background-image: url(<%= asset_path "betastar.png" %>);
+  background-position: 0 0;
+  background-repeat: no-repeat;
   font-size: 2em;
-  font-weight:normal;
-}
-
-#popup.welcome-tour .thanks{
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-  font-size: 1.5em;
-  font-weight:normal;
-}
-
-#popup.welcome-tour p{
-  font-size:1em;
-  line-height:1.6em;
-  padding:0.5em 2em;
-  font-weight:normal;
+  font-weight: normal;
+  height: 80px;
+  margin: 0 0 0.5em 0;
+  width: 80px;
+  text-indent: -9999px;
 }
 
 .sets-cookie {

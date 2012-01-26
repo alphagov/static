@@ -54,8 +54,8 @@ var BetaPopup = {
       return false;
     });
     closePopup = function(){
-      $("#popup").slideUp('fast');  
-      $("#mask").fadeOut('fast');
+      $("#popup").delay(100).slideUp('slow');  
+      $("#mask").delay(100).fadeOut('slow');
       $("#mask").remove();
       $("#popup").remove();
       $(source).focus();
