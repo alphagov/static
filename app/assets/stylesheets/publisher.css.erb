@@ -158,7 +158,7 @@ aside .chapters-navigation li.active a .part-title {
 .pagination {
   background: #E1E8E8;
   display: block;
-  margin: 2em -1.5em 0 -1.5em;
+  margin: 2em 0 0 0;
 }
 
 .pagination ul {
@@ -171,23 +171,24 @@ aside .chapters-navigation li.active a .part-title {
   float: left;
   font-size: 1em;
   list-style: none;
+  text-align:right;
   margin: 0;
 }
 
 .pagination li:first-child {
   border-right: solid 0.5em #fff;
-  text-align: right;
+  text-align: left;
 }
 
 .pagination li a {
-  background-image: url(<%= asset_path "pagination-arrows.png" %>);
-  background-repeat: no-repeat;
+  /*background-image: url(<%= asset_path "pagination-arrows.png" %>);
+  background-repeat: no-repeat;*/
   display: block;
   float: left;
   min-height: 4.5em;
   padding: 0.5em;
   text-decoration: none;
-  width: 14.625em;
+  width: 11.6em;
 }
 
 .pagination li a:hover {
@@ -196,12 +197,20 @@ aside .chapters-navigation li.active a .part-title {
 }
 
 .pagination .previous a {
-  background-position: -340px 50%;
+  background-image: url(<%= asset_path "section-divider-arrow-rev.png" %>);
+  background-position: 5% 50%;
+  background-repeat: no-repeat;
+  padding-left:2em;
+ /* background-position: -340px 50%;*/
 /*  width: 10em;*/
 }
 
 .pagination .next a {
-  background-position: 191px 50%;
+  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
+  background-position: 95% 50%;
+  background-repeat: no-repeat;
+  padding-right:2em;
+/*  background-position: 191px 50%;*/
 /*  width: 19.25em;*/
 }
 
@@ -211,14 +220,14 @@ aside .chapters-navigation li.active a .part-title {
   min-height: 4.5em;
 /*  width: 10em;*/
   padding: 0.5em;
-  width: 14.625em;
+  width: 13.1em;
 }
 
 .pagination .last {
 /*  width: 15em;*/
   min-height: 4.5em;
   padding: 0.5em;
-  width: 14.625em;
+  width: 13.1em;
 }
 
 .pagination .pagination-label {
