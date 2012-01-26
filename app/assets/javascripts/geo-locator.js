@@ -144,7 +144,7 @@ var AlphaGeoForm = function(selector) {
 
   if (navigator.geolocation) {
     $('<p class="geolocate-me">or <a href="#">locate me automatically</a></p>').appendTo(ask_ui);
-    //append_cookie_notice();
+    append_cookie_notice();
 
     $(".geolocate-me a").live('click', function(e){
       e.preventDefault();
