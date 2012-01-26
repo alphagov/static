@@ -11,9 +11,12 @@ $(document).ready(function() {
 
  // Event handlers
   $('.customisation-settings').click(function(e) {
-    if ($("#mask").length > 0) { return; }
+    if ($("#mask").length > 0) {
+      e.preventDefault();
+      return false;
+    }
 
-     $(document).trigger('customisation-opened');
+    $(document).trigger('customisation-opened');
     //BetaPopup.popup(, "customisation-tools");
 
     $("body").prepend("<div id='mask'></div>");
