@@ -75,10 +75,8 @@ jQuery.fn.tabs = function(settings){
 				tabsNav.find('li.active')
 					.removeClass('active')
 					.find('a')
-            // .attr('tabindex','-1');
 				//set selected tab item	
 				tab
-          // .attr('tabindex','0')
 					.parent()
 					.addClass('active');
 				//unselect  panels

@@ -7,6 +7,9 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
 /*  height: 2em;*/
 }
+.lte-ie8 #global-header {
+  background-color: #0C0C0C;
+}
 
 #global-header .header-global {
   padding: 0 4%;
@@ -201,69 +204,62 @@ form.site-search #site-search-text {
 /* Global footer */
 
 #footer {
-/*  background-color: #fff;*/
-/*  border-top: solid 0.0675em #ddd;*/
-/*  border-bottom: solid 0.0675em #ddd;*/
+
 }
 
-#footer .sub-section.beta-notice {
-  background: #E5E5E5;
-/*  border-bottom: solid 1px #ddd;*/
+#footer .beta-notice {
+  background: #F37920;
   float: none;
-  padding: 0.5em 2em;
+  padding: 0.5em 4%;
   width: auto;
 }
 
-#footer .sub-section.beta-notice h1 {
+#footer .beta-notice p {
   display: inline-block;
-  margin: 0;
-  margin-right: 1em;
-}
-
-#footer .sub-section.beta-notice p {
-  display: inline-block;
-  margin: 0;
+  margin: 0 1em 0 0;
 }
 
 #footer .inner {
-  padding: 2em 2em;
+  padding: 1em 4%;
 }
 
-#footer .inner .sub-section {
+#footer .inner a {
+  color: #000;
+}
+#footer .inner a:hover {
+  text-decoration: none;
+}
+
+#footer .colophon-and-help {
   float: left;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  margin: 0 2.75% 0 2.75%;
-  width: 29.65%;
-}
-#footer .inner .sub-section.help {
-  margin-left: 0;
-}
-#footer .inner .sub-section.platform {
-  margin-right: 0;
-}
-#footer .inner .sub-section.colophon {
-  border-top: solid 1px #667B82;
-  margin: 2em 0 0 0;
-  padding: 1em 0 0 0;
-  width: 100%;
+  width: 35%;
 }
 
-#footer .sub-section h1 {
-  font-size: 1em;
+#footer .help ul {
   margin: 0;
-}
-
-#footer .sub-section p {
-  margin: 0 0 0.5em 0;
-}
-
-#footer .sub-section ul {
-  list-style: none;
-  margin: 0.25em 0;
   padding: 0;
 }
 
-#footer .sub-section ul li {
-  margin: 0 0 0.25em 0;
+#footer .help ul li {
+  display: inline;
+  list-style: none;
+  margin-right: 0.75em;
+}
+
+#footer .colophon {
+  margin: 1.5em 0 0 0;
+}
+
+#footer .colophon p {
+  font-size: 0.85em;
+}
+
+#footer .copyright {
+  float: left;
+  text-align: right;
+  width: 65%;
+}
+
+#footer .copyright p:first-child {
+  margin-top: 0;
 }

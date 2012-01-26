@@ -208,7 +208,7 @@ a[rel="external"]:after {
   font-family: 'Gill Sans W01 Medium', sans-serif;
 }
 .related h2 {
-  background-image: url(<%= asset_path "related-clip.png" %>);	
+  background-image: url(<%= asset_path "related-clip.png" %>);
   background-position: 0 0;
   background-repeat: no-repeat;
   color: #000;
@@ -462,7 +462,6 @@ article .inner {
 
 .print-link {
   float: right;
-  margin-left: 12%;
 }
 
 .print-link a, .print-link a:link, .print-link a:visited {
@@ -473,37 +472,6 @@ article .inner {
 
 .modified-date {
   float: left;
-}
-
-.data-reuse {
-  float: right;
-  margin: 0 auto;
-}
-
-.data-reuse p,
-.meta-data ul.api-links,
-.meta-data .api-links li {
-  display: inline-block;
-}
-
-.meta-data .api-links li a {
- /* -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  border-radius: 0.25em;*/
-  display: inline;
-  font-size: inherit;
-  padding: 0.25em 0.5em;
-}
-
-.meta-data .api-links li a:active,
-.meta-data .api-links li a:hover {
-  text-decoration: underline;
-}
-
-.api-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 /*
@@ -754,9 +722,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .error-notification,
 .error-area{
-  border:2px solid #ffc946;
+  border:1px solid #ffc946;
   background-color:#fbedcd;
   padding: 0 1em;
+}
+.error-notification p,
+.error-area p{
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1em;
 }
 .error-area span{
   display:block;
@@ -787,7 +760,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding: 0;
   position: fixed;
   left: 0;
-  top: 1em;
+  top: 2em;
   width: 60%;
   z-index: 999999;
   padding-bottom:0.5em;
@@ -796,20 +769,55 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup.customisation-tools{
   width:60%;
 }
-#popup.customisation-tools h1{
+#popup.customisation-tools h2,
+#popup.feedback-tools h2{
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 1.75em;
   font-weight:normal;
   padding:0.5em 0 0 0.85em;
+  margin:0;
 }
-#popup.customisation-tools h2{
-  font-size:1em;
+
+#popup .intro {
+  background-color: #D9E0E0;
+  margin: 0.5em auto 1.5em;
+  padding: 1em;
+  width: 90%;
 }
-#popup.customisation-tools p{
-  line-height:1.2em;
+
+#popup h3 {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  padding: 1em 0 0;
 }
-#popup .ask_location p{
-  display:inline;
+
+#popup .intro p {
+  font-weight: normal;
+  line-height: 1.5em;
+  padding: 0;
+}
+
+#popup #global-locator-form {
+  background: #f8f8f8 url(<%= asset_path "locator-icon.png" %>) no-repeat 1em 1em;
+  border: none;
+  height: 4.25em;
+  margin: 1em auto;
+  padding: 1.2em 0.75em 1.2em 3.5em;
+  width: 90%;
+}
+
+#popup p.geolocate-me {
+  border-top: 1px solid #ddd;
+  font-size: 1em;
+  margin-bottom: 0;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+}
+
+
+#popup.customisation-tools p.close,
+#popup.feedback-tools p.close,
+#popup.welcome-tour p.close{
   padding:0;
 }
 #popup h2,
@@ -823,7 +831,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup textarea{
   display:block;
 }*/
-#popup form{
+
+/*#popup form{
   width:92%;
   padding: 0 1.5em 1em;
 }
@@ -837,7 +846,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   width:20%;
   float:right;
 }
-
+*/
 #popup .personalise-options {
   padding-left:2em;
 }
@@ -931,7 +940,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   font-size:1em;
   font-weight:bold;
   margin: 0;
-  padding:0.1em 2em;
+  padding:0.1em 1.4em;
 }
 #popup ul{
   margin:0 0 0 5em;
