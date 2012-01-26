@@ -11,6 +11,8 @@ $(document).ready(function() {
 
 	 // Event handlers
     $('.customisation-settings').click(function(e) {
+      if ($("#mask").length > 0) { return; }
+
        $(document).trigger('customisation-opened');
       //BetaPopup.popup(, "customisation-tools");
 
