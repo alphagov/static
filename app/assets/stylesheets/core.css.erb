@@ -227,12 +227,10 @@ a[rel="external"]:after {
   text-transform: uppercase;
   top: -13px;
 }
-.lte-ie8 .related h2 {
-  display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  margin: 0.25em 0 0 0;
-  letter-spacing: 0.065em;
-  text-transform: none;
+.lte-ie8 .related {
+  display: inline;
+  height: 1%;
+  zoom: 1;
 }
 
 .related ul {
@@ -904,13 +902,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   top: -0.5em;
 }
 
-#feedback-cta.left{
+#feedback-cta.left {
   position: fixed;
   left: -0.5em;
   display: none;
   bottom: 5%;
   width: 9em;
   padding: 1em 1em 0.5em 1.5em;
+}
+.lte-ie8 #feedback-cta.left {
+  position: absolute;
+  bottom: 5%;
 }
 
 #feedback-cta h2{
