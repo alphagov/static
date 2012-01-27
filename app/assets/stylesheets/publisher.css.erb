@@ -14,42 +14,33 @@
 }
 
 .alternative-guide {
-  position: absolute;
-  top: 0;
-  right: 1em;
-  height: 7.5em;
+  margin: 0 auto 0.5em;
   overflow: hidden;
-  width: 9em;
+  width: 9.5em;
 }
-.alternative-guide a span {
+
+.alternative-guide.video .video-wrapper {
+  background: #000;
+  height: 5em;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  width: 8.5em;
+}
+
+.alternative-guide.video .video-wrapper img {
+  margin-top: -0.5em;
+}
+
+.alternative-guide.video a span {
   background-image: url(<%= asset_path "icon-video.png" %>);
-  background-position: 0 50%;
+  background-position: 0 0.5em;
   background-repeat: no-repeat;
   display: block;
   float: right;
   font-size: 0.85em;
   line-height: 2em;
   padding-left: 2.25em;
-}
-.alternative-guide.video .video-wrapper {
-  background: #000;
-  float: right;
-  height: 5em;
-  overflow: hidden;
-  text-align: center;
-  width: 8.5em;
-}
-.alternative-guide.video img {
-  margin-top: -0.5em;
-}
-.view-text-version {
-  background: #ddd;
-  border-top: solid 1px #bbb;
-  margin-bottom: 1em;
-  padding: 0.25em 1em;
-}
-.view-text-version p {
-  font-size: 0.85em;
 }
 
 #wrapper.guide article {
@@ -58,6 +49,13 @@
   min-height: 40em;
   width: 75%;
 }
+
+#wrapper.video-guide article {
+  /* get rid of border on video guide pages */
+  border-left: none;
+  margin-left: 0;
+}
+
 .lte-ie8 #wrapper.guide article {
   width: 74.999%;
   float: left;
