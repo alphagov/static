@@ -59,7 +59,7 @@ module Static
       libs/jquery/jquery-ui-1.8.16.custom.min.js
       libs/jquery/plugins/jquery.mustache.js
       libs/goog/webfont-debug.js
-      json/preload-autocomplete.json
+      javascripts/preload-autocomplete.js
     }
 
     # Enable the asset pipeline
