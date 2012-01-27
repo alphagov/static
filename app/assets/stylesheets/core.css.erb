@@ -887,8 +887,21 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   background-color: #F0E7D5;
 /*  box-shadow: -0.5em 0.5em 0 rgba(146,161,161,0.7);*/
   box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
-  position: relative;
   z-index:9999;
+}
+
+#feedback-cta .inner {
+  padding: 0;
+  position: relative;
+}
+
+#feedback-cta .inner .close {
+  right: -1em;
+  top: -1em;
+}
+.lte-ie8 #feedback-cta .inner .close {
+  right: 0em;
+  top: -0.5em;
 }
 
 #feedback-cta.left{

@@ -43,7 +43,7 @@ $(document).ready(function() {
   }
   
   function setUpFeedback(){
-    var html = "<div id='feedback-cta' class='left'><p class='close'><a href='#' id='feedback-dismiss' title='Close'>Close</a></p><h2>Helpful?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /><p class='sets-cookie'><a href='/help/cookies#feedbackcookies' title='These buttons set a feedback cookie'>Sets a cookie</a></p></form></div>";
+    var html = "<div id='feedback-cta' class='left'><div class='inner'><p class='close'><a href='#' id='feedback-dismiss' title='Close'>Close</a></p><h2>Helpful?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /><p class='sets-cookie'><a href='/help/cookies#feedbackcookies' title='These buttons set a feedback cookie'>Sets a cookie</a></p></form></div></div>";
   	$("#entry_3").val(location.href);
 
   	var popupContents = $("#govuk-feedback").html();
