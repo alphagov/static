@@ -10,7 +10,7 @@
   position: relative;
 }
 #wrapper.guide header hgroup {
-  margin-left: 0;
+/*  margin-left: 0;*/
 }
 
 .alternative-guide {
@@ -437,6 +437,9 @@ ul.helpers li.offline_steps {
 #wrapper.programme .programme-progression ol li {
   float: left;
 }
+.lte-ie8 #wrapper.programme .programme-progression ol li {
+  width: 7.5em;
+}
 
 #wrapper.programme .programme-progression li a {
   background-color: #E1E8E8;
@@ -452,6 +455,10 @@ ul.helpers li.offline_steps {
   text-align: center;
   text-decoration: none;
   top: 0;
+}
+.lte-ie8 #wrapper.programme .programme-progression li a {
+  background-image: none;
+  padding: 0 0.5em;
 }
 
 #wrapper.programme .programme-progression li:first-child a {
@@ -498,9 +505,6 @@ div.further-information a {
   height: 2.25em;
   padding: 0 0.75em;
   text-decoration: none;
-}
-.lte-ie8 div.further-information {
-  zoom: 1;
 }
 
 div.further-information.active a {
