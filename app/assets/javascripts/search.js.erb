@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	// this is for custom formating of results
-   $.extend( $.ui.autocomplete.prototype, {
+  // this is for custom formating of results
+  $.extend( $.ui.autocomplete.prototype, {
 
     _renderItem: function( ul, item) {
       var list = "<li></li>";
@@ -19,16 +19,25 @@ $(document).ready(function() {
     return url;
   };
 
-  var preloaded_search_data = false;
-  /* Preload some common searches into the autocomplete box */
-  $.getJSON(searchUrl("preload-autocomplete"), function(data) {
+  function transformPreloadedSearchData(data) {
     if (data && data[0] && data[0].link && data[0].title && data[0].format) {
-      preloaded_search_data = data.map( function(e) {
+      return data.map( function(e) {
         return { 'label': e.title, 'url': e.link, 'html_class': e.format };
       });
+    } else {
+      return [];      
     }
-  });
-
+  }
+  
+  function preloadedSearchData() {
+    if(typeof(GDS.preloaded_search_data) == 'undefined') {
+      return [];
+    } else if(typeof(GDS.transformed_preloaded_search_data) == 'undefined') {
+      GDS.transformed_preloaded_search_data = transformPreloadedSearchData(GDS.preloaded_search_data);
+    } 
+    return GDS.transformed_preloaded_search_data;
+  }
+  
   var filter_terms = function(search_term,data) {
     var highlight_term = function(query, term) {
       if (query == undefined) { return false; }
@@ -106,10 +115,7 @@ $(document).ready(function() {
     width: 300,
     source: function(req, add){
       var hint = hintPlaceholder(this.element);
-      var preloaded_results = false;
-      if (preloaded_search_data) {
-        var preloaded_results = filter_terms(req.term, preloaded_search_data)
-      }
+      var preloaded_results = filter_terms(req.term, preloadedSearchData())
 
       if (req.term.length > 3 || preloaded_results == false || preloaded_results.length == 0) {
         results_found = 0;
