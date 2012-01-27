@@ -55,12 +55,19 @@
 .search .results.more ol li {
   border-bottom: dotted 1px #ccc;
 }
+.lte-ie8 .search .results.more ol li {
+  padding: 0 0 1em 0;
+}
 
 .search .results.more ol li a {
   font-size:1.5em;
   font-weight:bold;
 	display: inline;
 }
+.lte-ie8 .search .results.more ol li a {
+  zoom: 1;
+}
+
 .search .results.more ol li p {
   margin-top: 0.25em;
 }

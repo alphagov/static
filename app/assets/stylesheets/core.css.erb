@@ -257,6 +257,10 @@ a[rel="external"]:after {
   background-position: 0 0;
 }
 
+.lte-ie8 .related li a {
+  height: 1%;
+}
+
 .related li a[href*="#"] {
   /* grey out stub links */
   background: none;
@@ -310,7 +314,7 @@ header.page-header hgroup {
 }
 
 header.page-header hgroup h1 {
-  background-position: 0 2px;
+/*  background-position: 0 2px;*/
   background-repeat: no-repeat;
   color: #000;
   font-family: 'Gill Sans W01 Medium', sans-serif;
@@ -319,6 +323,9 @@ header.page-header hgroup h1 {
   letter-spacing: 0.025em;
   line-height: 1.05em;
   padding: 0.1em 1.5em 0 1.65em;
+}
+.lte-ie8 header.page-header hgroup h1 {
+  height: 1%;
 }
 
 .service header.page-header hgroup h1 {
