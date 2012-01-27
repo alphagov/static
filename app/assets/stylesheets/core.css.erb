@@ -104,6 +104,7 @@ a:active {
 
 a[rel="external"]:after {
   content: url(<%= asset_path "external-link.png" %>);
+  margin-right: 0.3em;
 }
 
 /*
@@ -879,7 +880,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #feedback-cta{
   background-color: #E7EBD8;
-  box-shadow: 0.5em 0.5em 0 rgba(146,161,161,0.7);
+/*  box-shadow: -0.5em 0.5em 0 rgba(146,161,161,0.7);*/
+  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
   position: relative;
   z-index:9999;
 }
@@ -1133,9 +1135,9 @@ input[disabled="disabled"] {
 
 #popup.welcome-tour .welcome-content {
   background-color: #F27820;
-  margin: -8px 0 0 59px;
+  margin: -0.5em 0 0 59px;
   padding: 0 2em 2em 2em;
-  box-shadow: -8px 8px 0 rgba(0,0,0,0.3);
+  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
 }
 
 #popup.welcome-tour .welcome-inner {
