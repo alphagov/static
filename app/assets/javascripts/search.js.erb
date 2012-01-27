@@ -21,7 +21,7 @@ $(document).ready(function() {
 
   var preloaded_search_data = false;
   /* Preload some common searches into the autocomplete box */
-  $.getJSON(searchUrl("preload-autocomplete"), function(data) {
+  $.getJSON('<%= asset_path("preload-autocomplete.json") %>', function(data) {
     if (data && data[0] && data[0].link && data[0].title && data[0].format) {
       preloaded_search_data = data.map( function(e) {
         return { 'label': e.title, 'url': e.link, 'html_class': e.format };
