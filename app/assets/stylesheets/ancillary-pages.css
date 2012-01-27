@@ -40,6 +40,7 @@ section#content.ancillary {
 .ancillary .results ol {
   list-style: none;
   margin: 1em 0;
+  padding: 0;
 }
 
 .ancillary .results ol>li {
@@ -61,9 +62,14 @@ section#content.ancillary {
 
 .ancillary .results li a {
   display: block;
-  margin-left: -2em;
+/*  margin-left: -2em;*/
 /*  padding: 0.125em 0 0.125em 2em;*/
   padding: 0 0 0 2em;
+}
+.lte-ie8 .ancillary .results li a {
+  height: 1%;
+  display: inline;
+  zoom: 1;
 }
 
 .ancillary .results li small {
@@ -91,6 +97,10 @@ section#content.ancillary {
 }
 .browse-sections .results ol li:nth-child(even) {
   margin-right: 0;
+}
+.lte-ie8 .browse-sections .results ol li {
+  height: 3em;
+  width: 35%;
 }
 
 .browse-sections ol,
