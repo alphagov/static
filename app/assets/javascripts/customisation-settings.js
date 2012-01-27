@@ -98,35 +98,6 @@ $(document).ready(function() {
     }
   }
 
-  /*function toggleStyleSheets(match){
-    //var cssLinks = $("link[type='text/css']");
-    if($("."+match).attr("disabled")){
-      $("."+match).attr("rel", "stylesheet");
-      $("."+match).removeAttr('disabled');
-    }
-    else {
-      $("."+match).attr("rel", "alternate stylesheet");
-      $("."+match).attr('disabled', 'disabled');
-    }
-    var i = cssLinks.length,
-      currentSS;
-      while(i--){
-        currentSS = $(cssLinks[i]).attr("id");
-       // currentSS = currentSS.split("/stylesheets/");
-
-     //   currentSS = currentSS[1].split(".css");
-        if(currentSS[0] == match){
-          if ($(cssLinks[i]).attr('disabled')){
-            $(cssLinks[i]).attr("rel", "stylesheet");
-            $(cssLinks[i]).removeAttr('disabled');
-          }
-          else {
-            $(cssLinks[i]).attr("rel", "alternate stylesheet");
-            $(cssLinks[i]).attr('disabled', 'disabled');
-          }
-        }
-      }
-  }*/
   function setCookie(name,value,days) {
     var expires;
     if (days) {
