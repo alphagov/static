@@ -171,8 +171,8 @@ a[rel="external"]:after {
   width: 100%;
 }
 .lte-ie8 .related-positioning {
-  position: relative;
-  z-index: 50;
+  position: absolute !important;
+  z-index: 10;
 }
 
 #wrapper.programme .related-positioning {
@@ -1054,7 +1054,7 @@ input.button {
 /*  padding: 0.75em 0.75em;*/
 }
 .lte-ie8 .get-started .button {
-  max-width: 60%;
+  width: 60%;
 }
 
 .get-started .button.big {
