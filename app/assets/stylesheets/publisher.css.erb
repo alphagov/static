@@ -437,6 +437,7 @@ ul.helpers li.offline_steps {
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
   overflow: hidden;
+  padding: 1px 1px 0 0;
 }
 
 #wrapper.programme .programme-progression ol li {
@@ -487,6 +488,11 @@ ul.helpers li.offline_steps {
   position: relative;
   z-index: 5;
 }
+.lte-ie8 #wrapper.programme .programme-progression li.active a,
+.lte-ie8 #wrapper.programme div.further-information.active a {
+/*  border-bottom: none;*/
+  bottom: -1px;
+}
 
 #wrapper.programme .programme-progression li.active a:hover {
   background-color: #fff;
@@ -510,6 +516,9 @@ div.further-information a {
   height: 2.25em;
   padding: 0 0.75em;
   text-decoration: none;
+}
+.lte-ie8 div.further-information a {
+  margin-top: 1px;
 }
 
 div.further-information.active a {
