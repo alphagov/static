@@ -12,5 +12,6 @@
  *= require static-pages/error-pages
  *= require static-pages/help-pages
  *= require static-pages/platform-pages
+ *= require static-pages/tour
  *= require publisher
 */
