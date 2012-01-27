@@ -74,7 +74,7 @@ $(document).ready(function() {
       if(getCookie("govuk-accessibility")){
         deleteCookie("govuk-accessibility");
       }
-      setCookie("govuk-accessibility",id,1);
+      setCookie("govuk-accessibility", id, 4 * 30);
       setStyleSheet(id);
     return false;
     });
