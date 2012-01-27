@@ -171,6 +171,7 @@ a[rel="external"]:after {
   width: 100%;
 }
 .lte-ie8 .related-positioning {
+  position: relative;
   z-index: 50;
 }
 
@@ -758,7 +759,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 #popup{
   display: none;
-  background-color: #fff;
+/*  background-color: #fff;*/
   overflow:visible;
   clear:both;
   padding: 0;
@@ -768,6 +769,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   width: 60%;
   z-index: 999999;
   padding-bottom:0.5em;
+}
+.lte-ie8 #popup {
+  position: absolute;
 }
 
 #popup.customisation-tools{
@@ -887,6 +891,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
   z-index:9999;
 }
+.lte-ie8 #feedback-cta {
+  position: absolute;
+}
 
 #feedback-cta .inner {
   padding: 0;
@@ -912,7 +919,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .lte-ie8 #feedback-cta.left {
   position: absolute;
-  bottom: 5%;
 }
 
 #feedback-cta h2{
@@ -1121,7 +1127,6 @@ input[disabled="disabled"] {
 /* welcome popup */
 
 #popup.welcome-tour {
-  background-color: transparent;
   top: 4px;
   width: 70%;
 }
