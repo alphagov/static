@@ -55,8 +55,6 @@ $(document).ready(function() {
       }
     });
 
-
-
     $(".customisation-tools .close").live('click', function(e){
       e.preventDefault();
       $("#popup").unbind('blur');
@@ -65,7 +63,6 @@ $(document).ready(function() {
       $(".customisation-settings").focus();
       // $("#global-locator-box").hide();
     });
-
 
     $('.personalise-options').live("submit", function(){
 
@@ -80,9 +77,7 @@ $(document).ready(function() {
     });
 
     e.preventDefault();
-
   });
-
 
   function setStyleSheet(match){
     if(match == "core"){
