@@ -1,14 +1,5 @@
 $(document).ready(function() {
-  
-	//var selects = $("#govuk-feedback #feedback-options").html();
-	
-	var html = "<div id='feedback-cta' class='left'><p class='close'><a href='#' id='feedback-dismiss' title='Close'>Close</a></p><h2>Helpful?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /><p class='sets-cookie'><a href='/help/cookies#feedbackcookies' title='These buttons set a feedback cookie'>Sets a cookie</a></p></form></div>";
-	$("#entry_3").val(location.href);
- 	var delay = 6000; 
-	
-//	$("#feedback-options").append(selects);
-	var popupContents = $("#govuk-feedback").html();
-	$("body").append(html);
+
 	$("#cta-yes").click(function(){
 	  // send to a collection bucket
 	  _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Yes']);
@@ -43,8 +34,19 @@ $(document).ready(function() {
     setCookie("govukfeedback","dismiss",7);
   })
   
-  if(getCookie("govukfeedback") != "dismiss"){
-    $("#feedback-cta").delay(6000).fadeIn(1500);
+  if($("meta[name=x-section-format]").length != 0){
+    if(getCookie("govukfeedback") != "dismiss"){
+      setUpFeedback()
+      $("#feedback-cta").delay(6000).fadeIn(1500);
+    }
+  }
+  
+  function setUpFeedback(){
+    var html = "<div id='feedback-cta' class='left'><p class='close'><a href='#' id='feedback-dismiss' title='Close'>Close</a></p><h2>Helpful?</h2><form><input id='cta-yes' type='button' value='Yes' /><input id='cta-no' type='button' value='No' /><p class='sets-cookie'><a href='/help/cookies#feedbackcookies' title='These buttons set a feedback cookie'>Sets a cookie</a></p></form></div>";
+  	$("#entry_3").val(location.href);
+
+  	var popupContents = $("#govuk-feedback").html();
+  	$("body").append(html);
   }
   
   function setCookie(name,value,days) {
