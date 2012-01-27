@@ -41,6 +41,9 @@ section#content {
   max-width: 960px;
 /*  width: 100%;*/
 }
+.lte-ie8 section#content {
+  width: 960px;
+}
 
 /*@media only screen and (min-width:670px) {
   section#content {
@@ -183,7 +186,7 @@ a[rel="external"]:after {
   z-index: 50;
 }
 .lte-ie8 .related-container {
-  width: 100%;
+  width: 960px;
 }
 
 .related {
@@ -1028,6 +1031,9 @@ input.button {
   position: relative;
 /*  padding: 0.325em 1.5em 0.325em 0;*/
 /*  padding: 0.75em 0.75em;*/
+}
+.lte-ie8 .get-started .button {
+  max-width: 60%;
 }
 
 .get-started .button.big {
