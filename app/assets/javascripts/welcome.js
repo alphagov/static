@@ -51,12 +51,12 @@ $(function() {
   }
   
   $(".welcome-tour .close").live("click", function(){
-    setCookie("govuktour", "dismiss",365);
+    setCookie("govuktour", "dismiss", 4 * 30);
     return;
   });
   
   $(".thanks-dismiss").live("click", function(){
-    setCookie("govuktour", "dismiss",365);
+    setCookie("govuktour", "dismiss", 4 * 30);
     closePopup();
     return false;
   });
