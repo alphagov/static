@@ -28,10 +28,11 @@ $(document).ready(function() {
 		setCookie("govukfeedback","dismiss",7)
 
   });
-  $("#feedback-dismiss").click(function(){
+  $("#feedback-dismiss").live("click", function(){
     $("#feedback-cta").remove();
     _gaq.push(['_trackEvent', 'Citizen-Feedback', 'Dismiss']);
     setCookie("govukfeedback","dismiss",7);
+    return;
   })
   
   if($("meta[name=x-section-format]").length != 0){
