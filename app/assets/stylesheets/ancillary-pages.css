@@ -100,7 +100,9 @@ section#content.ancillary {
 }
 .lte-ie8 .browse-sections .results ol li {
   height: 3em;
-  width: 35%;
+  margin: 0 0 0.5em 0;
+  padding: 0.25em 10% 0.25em 0;
+  width: 40%;
 }
 
 .browse-sections ol,
