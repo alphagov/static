@@ -65,9 +65,8 @@ $(document).ready(function() {
     });
 
     $('.personalise-options').live("submit", function(){
-
-      var id = $('input[name=acc-options]:checked').val();
-      _gaq.push(['_trackEvent', 'Citizen-Accessibility', $(this).attr("id")]);
+      var id = $('input[name=acc-options]:checked').attr("id");
+      _gaq.push(['_trackEvent', 'Citizen-Accessibility', id]);
       if(getCookie("govuk-accessibility")){
         deleteCookie("govuk-accessibility");
       }
