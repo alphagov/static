@@ -42,7 +42,7 @@ section#content {
 /*  width: 100%;*/
 }
 .lte-ie8 section#content {
-  width: 960px;
+  _width: 960px;
 }
 
 /*@media only screen and (min-width:670px) {
@@ -171,7 +171,7 @@ a[rel="external"]:after {
   width: 100%;
 }
 .lte-ie8 .related-positioning {
-  position: absolute !important;
+  _position: absolute !important;
   z-index: 10;
 }
 
@@ -187,7 +187,7 @@ a[rel="external"]:after {
   z-index: 50;
 }
 .lte-ie8 .related-container {
-  width: 960px;
+  _width: 960px;
 }
 
 .related {
@@ -1062,7 +1062,7 @@ input.button {
 /*  padding: 0.75em 0.75em;*/
 }
 .lte-ie8 .get-started .button {
-  width: 60%;
+  _width: 60%;
 }
 
 .get-started .button.big {
@@ -1197,6 +1197,41 @@ input[disabled="disabled"] {
   margin: 0 0 0.5em 0;
   width: 80px;
   text-indent: -9999px;
+}
+
+/* beta badge */
+
+#footer .beta-warning {
+  left: 40%;
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+}
+
+#footer .beta-warning .inner {
+  background-color: #F37920;
+  color: #000;
+  margin: 0 auto;
+  padding: 0.25em 1em 0.25em 0.5em;
+  width: 17em;
+}
+
+#footer .beta-warning h2 {
+  background: url(<%= asset_path "betastar-small.png" %>) 0 0 no-repeat;
+  font-size: 1em;
+  font-weight: normal;
+  height: 40px;
+  margin: 0.25em 0 0.5em 0;
+  width: 40px;
+  text-indent: -9999px;
+}
+
+#footer .beta-warning p {
+  font-size: 0.85em;
+  left: 60px;
+  line-height: 1.2em;
+  position: absolute;
+  top: 0;
 }
 
 .sets-cookie {

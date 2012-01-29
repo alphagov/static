@@ -251,22 +251,16 @@ aside .chapters-navigation li.active a .part-title {
 #wrapper.transaction .advisory.minor,
 #wrapper.local_transaction .advisory.minor {
   background: #ffffcc;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  margin: -2em -3em 1.5em -3em;
-  padding: 0.25em 0;
+/*  margin: -2em -3em 1.5em -3em;*/
+  padding: 0.25em 0.5em;
 }
 .lte-ie8 #wrapper.place .advisory.minor,
 .lte-ie8 #wrapper.transaction .advisory.minor,
 .lte-ie8 #wrapper.local_transaction .advisory.minor {
-  margin-top: 0;
-  margin-bottom: 0;
-  position: relative;
-  top: -2em;
+/*  margin-top: 0;*/
+/*  margin-bottom: 0;*/
+/*  position: relative;*/
+/*  top: -2em;*/
 }
 
 #wrapper.place .advisory.minor span,
@@ -436,15 +430,15 @@ ul.helpers li.offline_steps {
   z-index: 5;
 }
 .lte-ie8 #wrapper.programme .programme-progression ol {
-  overflow: hidden;
-  padding: 1px 1px 0 0;
+  _overflow: hidden;
+  _padding: 1px 1px 0 0;
 }
 
 #wrapper.programme .programme-progression ol li {
   float: left;
 }
 .lte-ie8 #wrapper.programme .programme-progression ol li {
-  width: 7.5em;
+  _width: 7.5em;
 }
 
 #wrapper.programme .programme-progression li a {
@@ -463,8 +457,8 @@ ul.helpers li.offline_steps {
   top: 0;
 }
 .lte-ie8 #wrapper.programme .programme-progression li a {
-  background-image: none;
-  padding: 0 0.5em;
+  _background-image: none;
+  _padding: 0 0.5em;
 }
 
 #wrapper.programme .programme-progression li:first-child a {
@@ -476,6 +470,7 @@ ul.helpers li.offline_steps {
 #wrapper.programme div.further-information a:hover,
 #wrapper.programme .part-pagination li:first-child a:hover {
   background-color: #97C5E5;
+  color: inherit;
 }
 
 #wrapper.programme .programme-progression li.active a,
@@ -491,7 +486,7 @@ ul.helpers li.offline_steps {
 .lte-ie8 #wrapper.programme .programme-progression li.active a,
 .lte-ie8 #wrapper.programme div.further-information.active a {
 /*  border-bottom: none;*/
-  bottom: -1px;
+  _bottom: -1px;
 }
 
 #wrapper.programme .programme-progression li.active a:hover {
@@ -518,7 +513,7 @@ div.further-information a {
   text-decoration: none;
 }
 .lte-ie8 div.further-information a {
-  margin-top: 1px;
+  _margin-top: 1px;
 }
 
 div.further-information.active a {
@@ -573,10 +568,10 @@ div.further-information.active a {
 
 #wrapper.programme .part-pagination li:first-child a {
   background-color: #E1E8E8;
-  background-image: url(../images/section-divider-arrow.png);
+  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
   background-position: 94% 50%;
   background-repeat: no-repeat;
-  border-bottom: solid 1px #C9D0D0;
+/*  border-bottom: solid 1px #C9D0D0;*/
   display: block;
   margin-right: 3em;
   padding: 0 1.75em 0 0.5em;
