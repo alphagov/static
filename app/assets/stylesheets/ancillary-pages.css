@@ -27,6 +27,13 @@ section#content.ancillary {
 	padding: 0;
 }
 
+#wrapper .ancillary.section-page h2 {
+
+}
+.lte-ie8 #wrapper .ancillary.section-page h2 {
+  clear: both;
+}
+
 .ancillary header {
   margin-bottom: 0.75em;
 }
@@ -36,6 +43,10 @@ section#content.ancillary {
 }
 
 /* used for search results and link lists on section pages */
+
+.ancillary .results {
+  margin: 0 0 1em 0;
+}
 
 .ancillary .results ol {
   list-style: none;
@@ -47,6 +58,9 @@ section#content.ancillary {
   margin-bottom: 1.25em;
   padding-top: 0.25em;
   position: relative;
+}
+.lte-ancially .ancillary .results ol>li {
+  height: 1%;
 }
 
 .ancillary .results li p {
@@ -64,7 +78,7 @@ section#content.ancillary {
   display: block;
 /*  margin-left: -2em;*/
 /*  padding: 0.125em 0 0.125em 2em;*/
-  padding: 0 0 0 2em;
+  padding: 0.25em 0 0.25em 2em;
 }
 .lte-ie8 .ancillary .results li a {
   height: 1%;
@@ -101,7 +115,7 @@ section#content.ancillary {
 .lte-ie8 .browse-sections .results ol li {
   height: 3em;
   margin: 0 0 0.5em 0;
-  padding: 0.25em 10% 0.25em 0;
+  padding: 0.25em 10% 1em 0;
   width: 40%;
 }
 
