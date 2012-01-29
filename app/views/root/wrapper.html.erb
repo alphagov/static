@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
-<head> 
+<head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
   <title>GOV.UK - This is a trial ‘beta’ version of the UK government's official website</title>
@@ -33,8 +33,8 @@
   _gaq.push(['_setAccount', 'UA-26179049-1']);
   _gaq.push(['_setDomainName', 'auto']);
   _gaq.push(['_setAllowLinker', true]);
-  </script>  
-  
+  </script>
+
   <script type="text/javascript">
   _gaq.push(['_trackPageview']);
   (function() {
@@ -43,7 +43,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
   </script>
-  
+
 </head>
 <body>
   <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
@@ -60,6 +60,7 @@
           <li id="gs-feedback"><a href="/feedback">Feedback</a></li>
         </ul>
       </nav>
+
       <div class="search-help">
         <form id="search" class="site-search" action="<%%= @prefix %>/search" method="get" role="search">
           <label for="site-search-text" class="visuallyhidden">
@@ -70,6 +71,7 @@
         </form>
       </div>
     </div>
+
   </header><!--end header-->
 
   <nav role="navigation" class="header-context">
@@ -83,8 +85,7 @@
 
   <footer class="group" id="footer" role="contentinfo">
     <div class="beta-notice">
-      <p>This website is a beta.</p>
-      <p><a href="/help/feedback">Send us your feedback</a></p>
+      <p>This is a test website. Please <a href="/help/feedback">send us your feedback</a></p>
     </div>
     <div class="inner group">
       <div class="colophon-and-help">
@@ -104,15 +105,22 @@
         <p>&copy; Crown Copyright</p>
       </div>
     </div>
-    
+
+    <div class="beta-warning">
+      <div class="inner">
+        <h2>Beta</h2>
+        <p>May be inaccurate or misleading. For official info, visit <a href="http://www.direct.gov.uk">Directgov</a></p>
+      </div>
+    </div>
+
     <div id='govuk-feedback'>
       <h2>Help improve gov.uk</h2>
       <form method="POST" action="https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dEtacjNNZzFyRkliYUtFRWp1eTl6Snc6MQ">
         <label class="ss-q-help" for="entry_0">Your feedback</label>
         <div id="feedback-options">
           <select name="entry.0.single" id="entry_0">
-            <option value="There is a mistake in the information">There is a mistake in the information</option> 
-            <option value="I have some feedback about the site">I have some feedback about the site</option> 
+            <option value="There is a mistake in the information">There is a mistake in the information</option>
+            <option value="I have some feedback about the site">I have some feedback about the site</option>
             <option value="Something went wrong or doesn&#39;t work">Something went wrong or doesn&#39;t work</option>
   </select>
         </div>
@@ -123,10 +131,10 @@
         </div>
       </form>
     </div>
-    
+
   </footer><!--end footer-->
 
   <div id="global-app-error" class="app-error hidden"></div>
-  
+
 </body>
 </html>
