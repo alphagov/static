@@ -19,14 +19,34 @@ $(document).ready(function() {
     return url;
   };
 
-  function transformPreloadedSearchData(data) {
-    if (data && data[0] && data[0].link && data[0].title && data[0].format) {
-      return data.map( function(e) {
-        return { 'label': e.title, 'url': e.link, 'html_class': e.format };
-      });
-    } else {
-      return [];      
+  /*
+  if (Array.prototype.map) {
+    Array.prototype.map = function(f, scope) {
+      var l = this.length;
+      var r = [];
+      for (var x = 0; x < l; x++) {
+        r.push(f.call(scope||window, this[x], x, this));
+      }
+      return r;
     }
+  }
+  */
+
+  function transformPreloadedSearchData(data) {    
+    var result = [];
+    var item = function(e) {
+      return {
+        'label': e.title, 'url': e.link, 'html_class': e.format
+      };
+    };
+    
+    if (data && data[0] && data[0].link && data[0].title && data[0].format) {
+      for (var x = 0; x < data.length; x++) {
+        result.push(item(data[x]));
+      }
+    }
+
+    return result;
   }
   
   function preloadedSearchData() {
