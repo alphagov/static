@@ -2,10 +2,6 @@ section#content.ancillary {
 
 }
 
-#wrapper .ancillary header {
-	margin: 0 0 1.25em 0;
-}
-
 #wrapper .ancillary.section-page header {
 	margin: 0;
 }
@@ -13,6 +9,11 @@ section#content.ancillary {
 #wrapper .ancillary header hgroup {
   background-color: transparent;
   margin: 0;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+#wrapper .ancillary.section-page header hgroup {
   padding-left: 3em;
   padding-right: 3em;
 }
@@ -33,9 +34,9 @@ section#content.ancillary {
   clear: both;
 }
 
-.ancillary header {
+/*.ancillary header {
   margin-bottom: 0.75em;
-}
+}*/
 
 #wrapper .ancillary .summary {
   color: #2E3191;
@@ -142,22 +143,6 @@ section#content.ancillary {
 .ancillary .menu li {
   list-style: none;
 	margin: 0 0 0.5em 0;
-}
-
-.ancillary article {
-	background: transparent;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	float: none;
-  margin: 1em 0 0 14em;
-	min-height: 0;
-  padding: 0 2em 1em 0;
-	width: auto;
-}
-
-.ancillary.feedback article {
-  margin-left: 1em;
 }
 
 .ancillary article section {
