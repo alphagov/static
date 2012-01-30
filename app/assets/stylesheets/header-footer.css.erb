@@ -5,7 +5,8 @@
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
-/*  height: 2em;*/
+  height: 1.65em;
+  padding: 0.45em 0 0.5em 0;
 }
 .lte-ie8 #global-header {
   background-color: #0C0C0C;
@@ -41,10 +42,11 @@
 }
 #global-header h1 {
   font-family: 'Gill Sans W01 Medium', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: normal;
-  line-height: 1.25em;
   float: left;
+  letter-spacing: 0.05em;
+  line-height: 1.15em;
   margin-right: 1.5em;
   text-transform: uppercase;
 }
@@ -54,7 +56,11 @@
 }
 
 #global-header h1 a {
+  background-image: url(<%= asset_path "header-crown.png" %>);
+  background-position: 0 0;
+  background-repeat: no-repeat;
   float: left;
+  padding: 0 0 0 1.7em;
 }
 
 #global-header .header-global a {
@@ -85,6 +91,7 @@ body.citizen nav.header-context ol li {
 
 #global-header .header-global ul li {
 /*  font-size: 0.85em;*/
+  line-height: 1.75em;
   margin-right: 1.5em;
   margin-bottom: 0;
 }
@@ -110,7 +117,7 @@ body.citizen nav.header-context {
 body.citizen nav.header-context ol {
   margin: 0 auto;
   max-width: 960px;
-  padding: 2.5em 0 0.5em 0;
+  padding: 3em 0 0.5em 0;
 }
 .lte-ie8 body.citizen .header-context ol {
   _padding: 0.25em 0;
@@ -183,7 +190,7 @@ body.government #global-header .header-context {
 }
 
 form.site-search {
-  margin-top: 0.2em;
+/*  margin-top: 0.2em;*/
 }
 
 form.site-search .button {
@@ -218,7 +225,7 @@ form.site-search #site-search-text {
 }
 
 #footer .beta-notice {
-  background: #F37920;
+  background: #F17921;
   color: #000;
   float: none;
   padding: 0.5em 4%;
