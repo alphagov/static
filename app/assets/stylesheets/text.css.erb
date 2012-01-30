@@ -235,29 +235,36 @@ article table.calendar {
   more article formatting including markdown styles
 */
 
-.citizen article .summary {
+.citizen article .summary,
+.citizen .ancillary .summary {
   background-color: #D5E8F4;
   padding:1em;
   margin-bottom:1em;
 }
 
 .citizen .ancillary .summary {
-  background-color: #D5E8F4;
-  padding:1em;
-  margin-bottom:1.25em;
+  margin-bottom: 2em;
 }
 
 article .summary p,
 article .summary h2,
 .citizen .ancillary .summary p,
 .citizen .ancillary .summary h2 {
-  background: url(<%= asset_path "summary-arrow.png" %>) no-repeat 0 0.3em;
+  background-image: url(<%= asset_path "summary-arrow.png" %>);
+  background-position: 0 0.3em;
+  background-repeat: no-repeat;
   border: none;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.25em;
   margin: 0 0.75em 0 0;
   min-height: 2.75em;
   padding: 0 0 0 2.5em;
+}
+.lte-ie8 article .summary p,
+.lte-ie8 article .summary h2,
+.lte-ie8 .citizen .ancillary .summary p,
+.lte-ie8 .citizen .ancillary .summary h2 {
+  height: 2.75em;
 }
 
 article .summary h2,
