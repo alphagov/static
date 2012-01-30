@@ -14,8 +14,8 @@ section#content.ancillary {
 }
 
 #wrapper .ancillary.section-page header hgroup {
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
 }
 
 #wrapper .ancillary header hgroup h1 {
@@ -24,7 +24,7 @@ section#content.ancillary {
 
 .browse-sections {
 	background-color: #fff;
-  padding: 0 3em 1em 3em;
+  padding: 0 2.5em 1em 2.5em;
 }
 
 #wrapper .ancillary.section-page h2 {
