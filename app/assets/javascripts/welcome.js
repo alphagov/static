@@ -69,6 +69,7 @@ $(function() {
     });
 
     $(".header-global h1 a").focus();
-  };  
-  }
+  };
+  
+ 
 });
