@@ -1,5 +1,27 @@
 $(function() {
-  var welcomeCopy = "<div class='welcome-curve-left'></div><div class='welcome-curve'></div><div class='welcome-curve-right'></div><div class='welcome-content'><h2>Beta</h2><div class='welcome-inner'><p>Welcome to GOV.UK, an experimental trial (‘beta’) replacement for <a href='http://www.direct.gov.uk'>Directgov</a> and the first step towards a single government website.</p><p><strong>PLEASE BE AWARE – this is a test website. It may contain inaccuracies or be misleading. <a href='http://www.direct.gov.uk'>Directgov</a> remains the official website for government information and services.</strong></p><p>Your suggestions will help us make this site better, so please leave your feedback here, and visit our blog to find out more.</p><p class='thanks'><a href='#' class='button thanks-dismiss'>Thanks, I’ve read the warning</a></p><p><small>N.B. This site uses ‘cookies’ and Google Analytics. Closing this page sets a cookie. There’s more information on cookies at <a href='http://www.aboutcookies.org'>AboutCookies.org</a>.</small></p></div></div>";
+  var welcomeCopy = [
+    "<div class='welcome-curve-left'></div>",
+    "<div class='welcome-curve'></div>",
+    "<div class='welcome-curve-right'></div>",
+    "<div class='welcome-content'>",
+    "<h2>Beta</h2>",
+    "<div class='welcome-inner'>",
+    "<p>Welcome to GOV.UK, an experimental trial (\u2018beta\u2019) replacement for ",
+    "<a href='http://www.direct.gov.uk'>Directgov</a> and the first step ",
+    "towards a single government website.</p>",
+    "<p><strong>PLEASE BE AWARE \u2013 this is a test website. It may contain ",
+    "inaccuracies or be misleading. ",
+    "<a href='http://www.direct.gov.uk'>Directgov</a> remains the official ",
+    "website for government information and services.</strong></p>",
+    "<p>Your suggestions will help us make this site better, so please leave ",
+    "your feedback here, and visit our blog to find out more.</p>",
+    "<p class='thanks'><a href='#' class='button thanks-dismiss'>Thanks, I\u2019ve ",
+    "read the warning</a></p>",
+    "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
+    "this page sets a cookie. There\u2019s more information on cookies at ",
+    "<a href='http://www.aboutcookies.org'>AboutCookies.org</a>.</small></p>",
+    "</div></div>"
+  ].join('');
 
   $.extend({
     getUrlVars: function(){
