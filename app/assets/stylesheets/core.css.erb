@@ -797,15 +797,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #popup .intro {
   background-color: #D9E0E0;
-  margin: 0.5em auto 1.5em;
+/*  margin: 0.5em auto 1.5em;*/
   padding: 1em;
-  width: 90%;
+/*  width: 90%;*/
 }
 
 #popup h3 {
   font-size: 1em;
 /*  font-weight: normal;*/
-  margin-bottom: 0.5em;
+  margin: 0.75em 0;
 }
 
 /*#popup p {
@@ -814,14 +814,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }*/
 
 #popup .intro p.explanation {
-	font-size: 0.8em;
+	font-size: 0.85em;
+	margin-bottom: 0;
 }
 
 #popup #global-locator-form {
   background: #f8f8f8 url(<%= asset_path "locator-icon.png" %>) no-repeat 1em 1em;
   border: none;
   height: 4.25em;
-  margin: 1em auto;
+  margin: 0 auto 1em auto;
   padding: 1.2em 0.75em 1.2em 3.5em;
   position: relative;
 /*  width: 90%;*/
@@ -829,14 +830,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #popup #global-set-theme .personalise-options {
 	background: #D9E0E0;
-	margin: 0.5em auto 0 auto;
 	padding: 1em;
-	width: 90%;
+	position: relative;
 }
 #popup #global-set-theme .beta-notice {
-	margin: 0 auto 1.5em;
-	padding: 1em;
-	width: 90%;
+  font-size: 0.85em;
+  line-height: 1.5em;
 }
 
 #popup p.geolocate-me {
