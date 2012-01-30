@@ -19,15 +19,17 @@ body.home {
 
 .home #wrapper {
   max-width: none;
-  padding: 1em 0 0 0;
+  padding:0;
 }
 .lte-ie8 .home #wrapper {
   margin: 0 auto;
 }
 
 .home #wrapper section {
+  background: url(<%= asset_path "home-arrow.png" %>) no-repeat scroll 52px -109px #4C9B6E;
   margin: 0 auto;
-  padding-left:290px;
+  padding-left:345px;
+  padding-top:32px;
 }
 .lte-ie8 .home #wrapper section {
   margin-top: 0;
@@ -64,20 +66,59 @@ body.home {
 }
 .feature-items h2{
   font-family: 'Gill Sans W01 Medium', sans-serif;
+  display: block;
+  font-size: 0.85em;
+  letter-spacing: 0.15em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
   text-transform: uppercase;
   font-weight:normal;
+   padding:1em 2em 0 2.3em;
 }
 .feature-items .section{
-  width:300px;
-  background-color:gray;
-  
+  width:301px;
+  background-color:#fff;
+}
+.feature-items ul{
+  list-style-type:none;
+  padding:0.5em 2em;
+  margin:0;
 }
 .feature-items .popular{
-  margin-left:14px;
+  margin-left:12px;
   border-top:2px solid #00652E;
+}
+.feature-items .popular h2{
+ color:#00652E; 
+}
+.feature-items .popular li{
+  padding-bottom:0.5em;
+  font-size:0.95em;
+}
+.feature-items .popular li a{
+  padding-left: 30px;
+  display:block;
 }
 .feature-items .browse{
   border-top:2px solid #D43783;
+}
+.feature-items .browse h2{
+ color:#D43783; 
+}
+.feature-items .browse li{
+  display:block;
+  float:left;
+  margin:0 0.5em 0.7em 0;
+}
+.feature-items .browse a{
+  background-color: #EA9BC1;
+  text-decoration:none;
+  padding:0.2em;
+}
+.feature-items .browse a:hover,
+.feature-items .browse a:focus{
+  background-color:#D43783;
 }
 .homepage-banner .tag-line {
   padding:0.5em 2em 0.5em 1em;
@@ -176,7 +217,7 @@ body.home {
 
 .homepage-banner .site-search{
   margin:0;
-  padding:0em 2em 1em 4.5em
+  padding:0em 2em 1em 1em
 }
 .carousel{
 /*  margin-top:1em;*/
