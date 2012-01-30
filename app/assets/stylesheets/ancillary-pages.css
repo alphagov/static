@@ -122,15 +122,10 @@
 
 /* static pages like platform and help */
 
-.ancillary.help .article-container {
-  margin-left: 15em;
-  margin-right: 0;
-}
-
 .ancillary .menu {
-  float: left;
-  margin: 0 0 0 -15em;
-	width: 11em;
+  float: right;
+  margin: -3em -15em 0 0;
+	width: 12em;
 }
 
 .ancillary .menu ul {
