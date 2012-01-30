@@ -102,13 +102,17 @@ body.home #footer .inner {
  color:#00652E; 
 }
 .feature-items .popular li{
-  padding-bottom:0.5em;
-  font-size:0.95em;
+  margin-bottom: 0.5em;
 }
 .feature-items .popular li a{
-  padding-left: 30px;
+  padding: 0.25em 0 0.25em 2em;
   display:block;
+  line-height: 1.4em;
 }
+.feature-items .popular li a:hover {
+  text-decoration: none;
+}
+
 .feature-items .browse{
   border-top:2px solid #D43783;
 }
@@ -258,20 +262,18 @@ body.home #footer .inner {
   color:#000;
 }
 .aerial-info{
-  background-color: rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.6);
-  width:260px;
-  clear: both;
-  font-size: 0.65em;
-  height: 16px;
-  line-height: 1.2em;
-  margin: 0 0 -2em -294px;
-  overflow: hidden;
+  font-size: 0.75em;
   padding: 0;
-  position: relative;
+  position: absolute;
+  bottom: 3em;
+  left: 5em;
+}
+.lte-ie8 {
+  background-color: #fff;
 }
 .aerial-info p{
-  padding:0.2em;
+  padding:0.2em 0.4em;
   margin:0;
   display:block;
 }
