@@ -783,14 +783,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #popup.customisation-tools{
+  background-color: #fff;
+  padding: 1em 1.5em;
   width:60%;
 }
 #popup.customisation-tools h2,
 #popup.feedback-tools h2{
-  font-family: 'Gill Sans W01 Medium', sans-serif;
+/*  font-family: 'Gill Sans W01 Medium', sans-serif;*/
   font-size: 1.75em;
   font-weight:normal;
-  padding:0.5em 0 0 0.85em;
   margin:0;
 }
 
@@ -803,14 +804,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #popup h3 {
   font-size: 1em;
+/*  font-weight: normal;*/
   margin-bottom: 0.5em;
-	padding: 0.5em 1.5em;
 }
 
-#popup p {
+/*#popup p {
   line-height: 1.5em;
   margin: 0.75em 0;
-}
+}*/
 
 #popup .intro p.explanation {
 	font-size: 0.8em;
@@ -822,7 +823,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   height: 4.25em;
   margin: 1em auto;
   padding: 1.2em 0.75em 1.2em 3.5em;
-  width: 90%;
+  position: relative;
+/*  width: 90%;*/
 }
 
 #popup #global-set-theme .personalise-options {
@@ -845,14 +847,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding-top: 0.5em;
 }
 
-#popup p.cookie-container {
-	float: right;
-	margin-top: -1em;
+/*#popup p.cookie-container {
+  float: right;
+  margin-top: -1em;
 }
 #popup .global-location p.cookie-container {
-	margin-top: -1.5em;
+  margin-top: -1.5em;
 }
-
+*/
 
 #popup.customisation-tools p.close,
 #popup.feedback-tools p.close,
@@ -886,9 +888,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   float:right;
 }
 */
-#popup .personalise-options {
-  padding-left:2em;
-}
 
 .close {
   margin: 0;
@@ -1253,7 +1252,7 @@ input[disabled="disabled"] {
   line-height: 1.2em;
   position: absolute;
   top: 0;
-}
+}*/
 
 .sets-cookie {
   background: #F0E7D5;
@@ -1261,4 +1260,10 @@ input[disabled="disabled"] {
   margin: 0.25em 0;
   padding: 0.15em;
 }
-*/
+
+.cookie-container {
+  margin: 0;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
