@@ -2,20 +2,25 @@
 	margin: 0;
 }
 
-#wrapper .ancillary header hgroup {
+#wrapper .ancillary header.page-header hgroup {
   background-color: transparent;
+  border-color: #90278E;
   margin: 0;
   padding-left: 5em;
   padding-right: 5em;
 }
 
-#wrapper .ancillary.section-page header hgroup {
+#wrapper .ancillary.section-page header.page-header hgroup {
   padding-left: 2.5em;
   padding-right: 2.5em;
 }
 
 #wrapper .ancillary header hgroup h1 {
   padding: 0;
+}
+
+#wrapper .ancillary header hgroup h1 span {
+  color: #90278E;
 }
 
 .browse-sections {
