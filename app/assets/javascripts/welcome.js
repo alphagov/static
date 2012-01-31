@@ -1,7 +1,7 @@
 $(function() {
   var welcomeCopy = [
     "<div class='welcome-content'>",
-    "<h2>Beta</h2>",
+    "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
     "<div class='welcome-inner'>",
     "<p>Welcome to GOV.UK, an experimental trial (\u2018beta\u2019) replacement for ",
     "<a href='http://www.direct.gov.uk'>Directgov</a> and the first step ",
@@ -12,7 +12,7 @@ $(function() {
     "website for government information and services.</strong></p>",
     "<p>Your suggestions will help us make this site better, so please leave ",
     "your feedback here, and visit our blog to find out more.</p>",
-    "<p class='thanks'><a href='#' class='button thanks-dismiss'>Thanks, I\u2019ve ",
+    "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
     "read the warning</a></p>",
     "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
     "this page sets a cookie. There\u2019s more information on cookies at ",
@@ -39,6 +39,7 @@ $(function() {
   if($.getUrlVar('nopopup') != "true"){
     if(getCookie("govuktour") != "dismiss"){
       BetaPopup.popup(welcomeCopy, "welcome-tour"); 
+      
     }
   }
 

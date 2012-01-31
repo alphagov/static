@@ -24,7 +24,7 @@ var BetaPopup = {
     var source = source || "#header-global h1 a";
     $("body").append("<div id='mask'></div>");
     $("body").append("<div id='popup' class="+ident+"></div>");
-    $("#popup").append("<p class='close'><a href='#'>Close</a></p>")
+    //$("#popup").append("<p class='close'><a href='#'>Close</a></p>")
     $("#popup").append(html);
 
     //Get the screen height and width
@@ -43,7 +43,9 @@ var BetaPopup = {
     //Set the popup window to center
     $("#popup").css('left', winW/2-$("#popup").width()/2);
 
-    $("#popup").delay(100).fadeIn('fast');
+    $("#popup").delay(100).fadeIn('fast', function(){
+      $("#popup h2").attr("tabindex",-1).focus();
+    });
     $(".close").live('keypress', function (e) {
        if ( e.keyCode == 27 ){
            closePopup();
