@@ -157,3 +157,22 @@
 .ancillary article dd {
   margin-left: 0;
 }
+
+/* feedback page */
+
+.ancillary.feedback .pullout {
+  background-color: #D9E0E0;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin: 1.5em 0;
+  padding: 1em;
+}
+
+.ancillary.feedback .image-in-text {
+  float: right;
+  margin-left: 2em;
+}
+
+.ancillary.feedback .image-in-text a[rel="external"]:after {
+  content: none;
+  margin: 0;
+}
