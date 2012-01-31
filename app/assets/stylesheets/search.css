@@ -94,6 +94,7 @@
 
 .search .results.more ol li .search-parts li {
   border-bottom:none;
+  padding-bottom: 0;
 }
 
 .search .results.more ol li .search-parts li a {
