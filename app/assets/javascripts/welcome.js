@@ -10,13 +10,13 @@ $(function() {
     "inaccuracies or be misleading. ",
     "<a href='http://www.direct.gov.uk'>Directgov</a> remains the official ",
     "website for government information and services.</strong></p>",
-    "<p>Your suggestions will help us make this site better, so please leave ",
-    "your feedback here, and visit our blog to find out more.</p>",
+    "<p>Your suggestions will help us make this site better, so if ",
+    "you have any comments please leave us feedback.</p>",
     "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
     "read the warning</a></p>",
     "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
     "this page sets a cookie. There\u2019s more information on cookies at ",
-    "<a href='/help/cookies'>on our help page</a>.</small></p>",
+    "<a href='http://www.aboutcookies.org/'>AboutCookies.org</a>.</small></p>",
     "</div></div>"
   ].join('');
 
