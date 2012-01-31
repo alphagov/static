@@ -49,6 +49,9 @@
   min-height: 40em;
   width: 75%;
 }
+.lte-ie8 #wrapper.guide article {
+  _min-height: 40em;
+}
 
 #wrapper.video-guide article {
   /* get rid of border on video guide pages */
@@ -193,6 +196,9 @@ aside .chapters-navigation li.active a .part-title {
   text-decoration: none;
   width: 80%;
 }
+.lte-ie8 .pagination li a {
+  _height: 4.5em;
+}
 
 .pagination li a:hover {
   background-color: #97C5E5;
@@ -218,6 +224,10 @@ aside .chapters-navigation li.active a .part-title {
   background-color: #E1E8E8;
   min-height: 4.5em;
 }
+.lte-ie8 .pagination .first,
+.lte-ie8.pagination .last {
+  _height: 4.5em;
+}
 
 .pagination .first span,
 .pagination .last span {
@@ -225,6 +235,10 @@ aside .chapters-navigation li.active a .part-title {
   min-height: 4.5em;
   padding: 0.75em 5%;
   width: 90%;
+}
+.lte-ie8 .pagination .first span,
+.lte-ie8 .pagination .last span {
+  _height: 4.5em;
 }
 
 .pagination .pagination-label {
@@ -287,13 +301,12 @@ aside .chapters-navigation li.active a .part-title {
 .find-location-for-service {
   background: #f8f8f8 url(<%= asset_path "locator-icon.png" %>) no-repeat 1em 1em;
   border: none;
-  height: 4.25em;
   margin: 1.2em 0;
   padding: 1.2em 0.75em 1.2em 3.5em;
   position: relative;
 }
 
-.find-location-for-service fieldset input.postcode {
+input.postcode {
   border: 1px solid #bbb;
   line-height: 1.4em;
   width: 8em;
@@ -527,9 +540,15 @@ div.further-information.active a {
   min-height: none;
   width: 100%;
 }
+.lte-ie8 #wrapper.programme article {
+  _height: none;
+}
 
 .js-enabled #wrapper.programme article {
   min-height: 20em;
+}
+.lte-ie8 .js-enabled #wrapper.programme article {
+  _height: 20em;
 }
 
 .js-enabled #wrapper.programme article header {

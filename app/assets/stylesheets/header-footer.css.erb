@@ -139,19 +139,32 @@ body.citizen nav.header-context ol li:first-child {
 }
 
 body.citizen nav.header-context a {
-/*  color: #2E8ACA;
-  font-size: 0.85em;
-  margin-right: 2%;
-  text-decoration: none;*/
-  white-space: nowrap
-}
-body.citizen nav.header-context a:hover {
-/*  color: #2E3191;
-  text-decoration: underline;*/
+  white-space: nowrap;
 }
 
 body.citizen nav.header-context a:last-child {
   margin-right: 0
+}
+
+body.citizen nav.header-context .beta-notice {
+  height: 0;
+}
+
+body.citizen nav.header-context .beta-notice .inner {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0;
+  position: relative;
+}
+
+body.citizen nav.header-context .beta-notice p {
+  background-color: #F17921;
+  color: #000;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  position: absolute;
+  right: 15em;
+  top: 2.5em;
 }
 
 body.government #global-header .header-context {
@@ -283,6 +296,12 @@ form.site-search #site-search-text {
   width: 65%;
 }
 
-#footer .copyright p:first-child {
-  margin-top: 0;
+#footer .copyright p {
+  background-image: url(<%= asset_path "coat-of-arms.png" %>);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+/*  height: 10em;*/
+/*  margin: 9.5em 1.5em 1em 0;*/
+  margin: 0;
+  padding: 9.5em 1.5em 0 0;
 }
