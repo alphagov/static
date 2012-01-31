@@ -5,7 +5,6 @@
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
-/*  height: 1.65em;*/
   padding: 0.4em 0 0.4em 0;
 }
 .lte-ie8 #global-header {
@@ -90,7 +89,6 @@ body.citizen nav.header-context ol li {
 }
 
 #global-header .header-global ul li {
-/*  font-size: 0.85em;*/
   line-height: 1.75em;
   margin-right: 1.5em;
   margin-bottom: 0;
@@ -102,7 +100,6 @@ body.citizen nav.header-context ol li {
 
 #global-header .header-global ul li a {
   font-size: 0.85em;
-/*  padding-left: 1em;*/
   text-decoration: none;
 }
 
@@ -159,12 +156,19 @@ body.citizen nav.header-context .beta-notice .inner {
 
 body.citizen nav.header-context .beta-notice p {
   background-color: #F17921;
-  color: #000;
   margin: 0;
   padding: 0.25em 0.5em;
   position: absolute;
   right: 15em;
   top: 2.5em;
+}
+
+body.citizen nav.header-context .beta-notice p a {
+  color: #000;
+  text-decoration: none;
+}
+body.citizen nav.header-context .beta-notice p a:hover {
+  text-decoration: underline;
 }
 
 body.government #global-header .header-context {
@@ -237,10 +241,6 @@ form.site-search #site-search-text {
 
 /* Global footer */
 
-#footer {
-
-}
-
 #footer .beta-notice {
   background: #F17921;
   color: #000;
@@ -300,8 +300,6 @@ form.site-search #site-search-text {
   background-image: url(<%= asset_path "coat-of-arms.png" %>);
   background-position: 100% 0;
   background-repeat: no-repeat;
-/*  height: 10em;*/
-/*  margin: 9.5em 1.5em 1em 0;*/
   margin: 0;
   padding: 7.25em 0 0 0;
 }
