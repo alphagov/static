@@ -4,14 +4,14 @@
 
 body.home {
   background: url(<%= asset_path "angel_map.jpg" %>) repeat scroll 0 0 #C9D0D0;
-
+ 
 }
 body.home #wrapper {
   background-color:transparent;
 }
 body.home #footer .inner {
-    background-color: #C9D0D0;
-    padding: 1em 4%;
+  background-color: #C9D0D0;
+  padding: 1em 4%;
 }
 .home #global-header .header-global ul {
   margin-right: 0;
@@ -43,7 +43,6 @@ body.home #footer .inner {
 }
 
 .homepage-section {
-/*  margin: 0 -1em;*/
   margin-top:1em;
   position: relative;
 }
@@ -91,21 +90,25 @@ body.home #footer .inner {
   border-top:2px solid #00652E;
 }
 .feature-items .popular h2{
- color:#00652E;
+ color:#00652E; 
 }
 .feature-items .popular li{
-  padding-bottom:0.5em;
-  font-size:0.95em;
+  margin-bottom: 0.5em;
 }
 .feature-items .popular li a{
-  padding-left: 30px;
+  padding: 0.25em 0 0.25em 2em;
   display:block;
+  line-height: 1.4em;
 }
+.feature-items .popular li a:hover {
+  text-decoration: none;
+}
+
 .feature-items .browse{
   border-top:2px solid #D43783;
 }
 .feature-items .browse h2{
- color:#D43783;
+ color:#D43783; 
 }
 .feature-items .browse li{
   display:block;
@@ -128,7 +131,7 @@ body.home #footer .inner {
 .homepage-banner .tag-line p {
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 2em;
-  line-height: 1.25em;
+  line-height: 1.15em;
   font-weight:normal;
   color:#fff;
   letter-spacing:0.025em;
@@ -154,10 +157,10 @@ body.home #footer .inner {
   height: 1.5em;
 }
 
-.homepage-banner form input.button {
+/*.homepage-banner form input.button {
   margin-left:0.3em;
 }
-
+*/
 .homepage-banner #search_hint {
   color: #666;
   font-size: 0.85em;
@@ -244,22 +247,18 @@ body.home #footer .inner {
   color:#000;
 }
 .aerial-info{
-  background-color: rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.6);
-  width:260px;
-  clear: both;
-  font-size: 0.65em;
-  height: 16px;
-  line-height: 1.2em;
-  margin: 0 0 -2em -294px;
-  overflow: hidden;
+  font-size: 0.75em;
   padding: 0;
-  position: relative;
+  position: absolute;
+  bottom: 3em;
+  left: 5em;
+}
+.lte-ie8 {
+  background-color: #fff;
 }
 .aerial-info p{
-  padding:0.2em;
+  padding:0.2em 0.4em;
   margin:0;
   display:block;
 }
-
-

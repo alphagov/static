@@ -160,7 +160,7 @@ body.citizen nav.header-context .beta-notice p {
   padding: 0.25em 0.5em;
   position: absolute;
   right: 15em;
-  top: 2.5em;
+  top: 2.65em;
 }
 
 body.citizen nav.header-context .beta-notice p a {
@@ -216,8 +216,12 @@ form.site-search .button {
     this version is much more contrast-friendly than #2E8ACA
   */
   background-color: #4370CD;
+  border-color: #4370CD;
   line-height: 1.25em;
   padding: 0.2em 0.5em;
+}
+form.site-search .button:hover {
+  border-color: #9798C8;
 }
 
 form.site-search #site-search-text {
@@ -300,6 +304,7 @@ form.site-search #site-search-text {
   background-image: url(<%= asset_path "coat-of-arms.png" %>);
   background-position: 100% 0;
   background-repeat: no-repeat;
+  color: #7F7F7F;
   margin: 0;
   padding: 7.25em 0 0 0;
 }

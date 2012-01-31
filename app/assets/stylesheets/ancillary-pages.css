@@ -2,20 +2,25 @@
 	margin: 0;
 }
 
-#wrapper .ancillary header hgroup {
+#wrapper .ancillary header.page-header hgroup {
   background-color: transparent;
+  border-color: #90278E;
   margin: 0;
   padding-left: 5em;
   padding-right: 5em;
 }
 
-#wrapper .ancillary.section-page header hgroup {
+#wrapper .ancillary.section-page header.page-header hgroup {
   padding-left: 2.5em;
   padding-right: 2.5em;
 }
 
 #wrapper .ancillary header hgroup h1 {
   padding: 0;
+}
+
+#wrapper .ancillary header hgroup h1 span {
+  color: #90278E;
 }
 
 .browse-sections {
@@ -119,9 +124,11 @@
 /* static pages like platform and help */
 
 .ancillary .menu {
+  background-color: #F0E7D5;
   float: right;
   margin: -3em -15em 0 0;
-	width: 12em;
+  padding: 1em;
+	width: 13em;
 }
 
 .ancillary .menu ul {
