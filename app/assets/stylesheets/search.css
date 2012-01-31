@@ -51,6 +51,9 @@
   padding: 0 0 0 2em;
 	min-height: 30em;
 }
+.lte-ie8 .search .results.more {
+  _height: 30em;
+}
 
 .search .results.more ol li {
   border-bottom: dotted 1px #ccc;
