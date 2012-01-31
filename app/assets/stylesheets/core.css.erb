@@ -1041,7 +1041,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .button,
 .button:visited {
   background-color: #B01117;
-  border: none;
+  background-image: url(<%= asset_path "button-overlay.png" %>);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  border: solid 1px #B01117;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   color: #fff;
   cursor: pointer;
   display: inline-block;
@@ -1053,10 +1059,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .button:hover {
   background-color: #DD322D;
+  border: solid 1px #760418;
   color: #fff;
 }
 .button:active {
   background-color: #DD322D;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+.lte-ie .button:active {
   top: 1px;
 }
 .button:focus {
