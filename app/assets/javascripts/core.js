@@ -43,6 +43,7 @@ function recordOutboundLink(e) {
 
 $(document).ready(function() {
   $("body").addClass("js-enabled");
+  $('.print-link a').attr('target', '_blank');
   
   if(window.location.hash) {
     contentNudge(window.location.hash);
