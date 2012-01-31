@@ -1,7 +1,7 @@
 $(function() {
   var welcomeCopy = [
     "<div class='welcome-content'>",
-    "<h2>Beta</h2>",
+    "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
     "<div class='welcome-inner'>",
     "<p>Welcome to GOV.UK, an experimental trial (\u2018beta\u2019) replacement for ",
     "<a href='http://www.direct.gov.uk'>Directgov</a> and the first step ",
@@ -37,7 +37,7 @@ $(function() {
   });
 
   if($.getUrlVar('nopopup') != "true"){
-    if(getCookie("govuktour") == "dismiss"){
+    if(getCookie("govuktour") != "dismiss"){
       BetaPopup.popup(welcomeCopy, "welcome-tour"); 
       
     }
