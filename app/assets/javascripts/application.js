@@ -2,7 +2,7 @@
 //= require libs/jquery/plugins/jquery.base64
 //= require libs/jquery/plugins/jquery.mustache.js
 //= require search
-//= require preload-autocomplete
+//= require search-top-trumps
 //= require core
 //= require devolution
 //= require popup
