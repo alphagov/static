@@ -12,7 +12,6 @@
 }
 
 .search h1 {
-/*  margin-bottom: 0.25em;*/
 }
 
 .search h2 {
@@ -100,7 +99,7 @@
 .search .results.top ul.search-promoted {
   list-style-type:none;
 }
- 
+
 .search .results.top ul.search-promoted h3 a {
   padding: 0 0 0 2em;
 }
@@ -139,12 +138,12 @@
   margin-top: 1.2em;
 }
 
-.results #search2 { 
-	margin: 1em; 
+.results #search2 {
+	margin: 1em;
 }
-.results #search2 input { 
-	font-size: 2em; 
+.results #search2 input {
+	font-size: 2em;
 }
-.results #search2 input[type="text"] { 
-	margin-right: 1em; 
+.results #search2 input[type="text"] {
+	margin-right: 1em;
 }

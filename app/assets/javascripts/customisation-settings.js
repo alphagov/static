@@ -90,6 +90,8 @@ $(document).ready(function() {
       $(".wordsdifficult").removeAttr('disabled');
       $('input[name=acc-options]:eq(1)').attr('checked', 'checked');
     }
+
+    $(".customisation-tools .close").click();
   }
 
   function setCookie(name,value,days) {
