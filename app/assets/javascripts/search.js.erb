@@ -46,7 +46,9 @@ $(document).ready(function() {
   }
 
   var score_document = function(search_query, doc){
-    var terms = search_query.split(' ');
+    var terms = $.map(search_query.split(' '), function(term) {
+      if(term) return term;
+    });
     var doc_score = 0;
 
     $.each(terms, function(index, term){
