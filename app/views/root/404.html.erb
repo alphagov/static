@@ -9,6 +9,16 @@
   <!-- alternatives -->
   <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
 
+  <!-- fonts -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document,g,b={families:(g=
+      ["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
+      c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
+    e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+      ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
+      .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+  </script>
+
   <%= javascript_include_tag 'libs/jquery/jquery-1.6.2.min.js' %>
   <%= javascript_include_tag 'application', :defer => 'defer' %>
 
@@ -37,10 +47,10 @@
   <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
   <a href="#content" class="visuallyhidden">Skip to main content</a>
-  
+
   <header role="banner" class="group" id="global-header">
     <div class="header-global group">
-      <h1><a href="/homepage" title="return to the gov.uk homepage">gov.uk</a></h1>
+      <h1><a href="/homepage" title="Go to the gov.uk homepage">GOV.UK</a></h1>
       <nav role="navigation">
         <ul>
           <li><a href="/settings" class="customisation-settings">Settings</a></li>
@@ -50,117 +60,116 @@
       </nav>
 
       <div class="search-help">
-        <form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
-          <legend class="visuallyhidden">Site search for www.gov.uk</legend>
+        <form id="search" class="site-search" action="<%%= @prefix %>/search" method="get" role="search">
           <label for="site-search-text" class="visuallyhidden">
             <span>Search</span>
           </label>
-          <input type="search" name="q" id="site-search-text" title="Search" placeholder="type your search here" />
-          <input type="submit" value="Search" />
+          <input type="search" name="q" id="site-search-text" title="Search" />
+          <input type="submit" value="Search" class="button" />
         </form>
       </div>
     </div>
+
   </header><!--end header-->
+
+  <nav role="navigation" class="header-context">
+    <div class="beta-notice">
+      <div class="inner">
+        <p><a href="http://digital.cabinetoffice.gov.uk/2012/01/30/beta/">BETA</a></p>
+      </div>
+    </div>
+    <ol class="group">
+      <li><a href="/homepage">Home</a></li>
+    </ol>
+  </nav>
 
   <div id="wrapper" class="group">
 
-    <div class="content" role="main">
-      <section class="group" role="main">
-        <div id="homepage-search" class="location-not-set">
-          <header>
-            <h1>Page not found</h1>
-          </header>
-          
-          <p>The page you are looking for does not exist.</p>
+    <section id="content" role="main" class="group ancillary">
+      <div class="article-container">
 
-          <p>This will happen from time to time, due to this being an incomplete trial (‘beta’) site. You can help us improve GOV.UK by <a href="/feedback" id="gs-feedback-banner">telling us what you were doing</a> or looking for when this happened.</p>
-          
-          <form id="search2" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
-            <fieldset>
-              <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
-              <p>Try searching
-                <label for="main_autocomplete2" class="visuallyhidden">Search</label>
-                <input type="text" id="main_autocomplete2" name="q" value="<%=h @query %>">
-                <input type="submit" value="Search" class="button">
-              </p>
-            </fieldset>
-          </form>
-
-          <p>&copy; Crown Copyright</p>
-          
-        </div>
+        <header class="page-header group">
+          <hgroup>
+            <h1><span>Error </span>Page not found</h1>
+          </hgroup>
+        </header>
         
-        <div class="sections group">
-        <div class="popular section">
-          <h2>Popular tools and topics</h2>
-          <ul>
-            <li><a href="/vat-rates">VAT rates</a></li>
-            <li><a href="/bank-holidays">UK bank holidays</a></li>
-            <li><a href="/student-finance-calculator">Student Finance &ndash; how much you can get for 2012/13</a></li>
-            <li><a href="/driving-theory-test/overview">The driving theory test for cars and motorcycles</a></li>
-            <li><a href="/stamp-duty-land-tax-rates">Stamp Duty Land Tax rates</a></li>
-            <li><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
-            <li><a href="/check-mot-status-vehicle">Check the MOT status of a vehicle</a></li>
-            <li><a href="/pension-credit">Pension Credit</a></li>
+        <article role="article" class="group">
+          <div class="inner">
+          
+            <div class="intro">
+              <p>The page you are looking for does not exist.</p>
 
-          </ul>
+              <p>This will happen from time to time, due to this being an incomplete trial (‘beta’) site. You can help us improve GOV.UK by <a href="/feedback" id="gs-feedback-banner">telling us what you were doing</a> or looking for when this happened.</p>
+          
+              <form id="search2" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
+                <fieldset>
+                  <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
+                  <p>
+                    <label for="main_autocomplete2">Try searching</label>
+                    <input type="text" id="main_autocomplete2" name="q" value="<%=h @query %>">
+                    <input type="submit" value="Search" class="button">
+                  </p>
+                </fieldset>
+              </form>
+            </div>
+        
+          <div class="sections group">
+            <div class="popular section">
+              <h2>Popular tools and topics</h2>
+              <ul>
+                <li><a href="/vat-rates">VAT rates</a></li>
+                <li><a href="/bank-holidays">UK bank holidays</a></li>
+                <li><a href="/student-finance-calculator">Student Finance &ndash; how much you can get for 2012/13</a></li>
+                <li><a href="/driving-theory-test/overview">The driving theory test for cars and motorcycles</a></li>
+                <li><a href="/stamp-duty-land-tax-rates">Stamp Duty Land Tax rates</a></li>
+                <li><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
+                <li><a href="/check-mot-status-vehicle">Check the MOT status of a vehicle</a></li>
+                <li><a href="/pension-credit">Pension Credit</a></li>
+              </ul>
+            </div>
+            <div class="browse section">
+              <h2>Browse</h2>
+              <ul>
+                <li><a href="/family">Family</a></li>
+                <li><a href="/education">Education</a></li>
+                <li><a href="/money-and-tax">Money and tax</a></li>
+                <li><a href="/driving">Driving</a></li>
+                <li><a href="/life-in-the-uk">Life in the UK</a></li>
+                <li><a href="/housing">Housing</a></li>
+                <li><a href="/travel">Travel</a></li>
+                <li><a href="/neighbourhoods">Neighbourhoods</a></li>
+                <li><a href="/crime-and-justice">Crime and justice</a></li>
+                <li><a href="/work">Work</a></li>
+              </ul>
+            </div>
+          </div>
+        
         </div>
-        <div class="browse section">
-          <h2>Browse</h2>
-          <ul>
-            <li><a href="/family">Family</a></li>
-            <li><a href="/education">Education</a></li>
-            <li><a href="/money-and-tax">Money and tax</a></li>
-            <li><a href="/driving">Driving</a></li>
-            <li><a href="/life-in-the-uk">Life in the UK</a></li>
-            <li><a href="/housing">Housing</a></li>
-            <li><a href="/travel">Travel</a></li>
-            <li><a href="/neighbourhoods">Neighbourhoods</a></li>
-            <li><a href="/crime-and-justice">Crime and justice</a></li>
-            <li><a href="/work">Work</a></li>
-          </ul>
-        </div>
-        </div>
-
-      </section>
-    
-    </div>
+      </article>
+    </section>
   </div><!--end wrapper-->
 
   <footer class="group" id="footer" role="contentinfo">
-    <div class="sub-section beta-notice">
-      <h1>This website is a beta</h1>
-      <p><a href="/feedback" id="gs-feedback-banner">Send us your feedback</a></p>
+    <div class="beta-notice">
+      <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/30/beta/">test website</a>, so may be inaccurate or misleading. The official website remains <a href="http://www.direct.gov.uk">Directgov</a></p>
     </div>
     <div class="inner group">
-      <div class="sub-section">
-        <p>&copy; Crown Copyright</p>
+      <div class="colophon-and-help">
+        <nav class="help">
+          <ul>
+           <li><a href="/help">Help</a></li>
+           <li><a href="/help/cookies">Cookies</a></li>
+           <li><a href="/search">Search</a></li>
+          </ul>
+        </nav>
+        <div class="colophon">
+          <p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
+          <p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
+        </div>
       </div>
-      <nav class="sub-section help">
-        <h1>Help</h1>
-        <ul>
-          <li><a href="/help">About the pages and tools you’ll find</a></li>
-          <li><a href="/help/searching">Searching</a></li>
-          <li><a href="/help/contact">Contact us</a></li>
-          <li><a href="/help/accessibility">Accessibility and help using the internet</a></li>
-          <li><a href="/help/terms">Terms and conditions</a></li>
-          <li><a href="/help/cookies">Cookies</a></li>
-          <li><a href="/feedback">Feedback</a></li>
-        </ul>
-      </nav>
-      <nav class="sub-section platform">
-        <h1>Technical</h1>
-        <ul>
-          <li><a href="/platform">About our platform</a></li>
-          <li><a href="/platform/api">API</a></li>
-          <li><a href="/platform/licensing">Licensing</a></li>
-          <li><a href="/platform/code">Code</a></li>
-        </ul>
-      </nav>
-      <div class="sub-section colophon">
-        <p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
-        <p>This website uses cookies. We have published <a href="/help/cookies">a list and further information</a></p>
-        <p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
+      <div class="copyright">
+        <p>&copy; Crown Copyright</p>
       </div>
     </div>
 
@@ -170,15 +179,15 @@
         <label class="ss-q-help" for="entry_0">Your feedback</label>
         <div id="feedback-options">
           <select name="entry.0.single" id="entry_0">
-            <option value="There is a mistake in the information">There is a mistake in the information</option> 
-            <option value="I have some feedback about the site">I have some feedback about the site</option> 
+            <option value="There is a mistake in the information">There is a mistake in the information</option>
+            <option value="I have some feedback about the site">I have some feedback about the site</option>
             <option value="Something went wrong or doesn&#39;t work">Something went wrong or doesn&#39;t work</option>
-          </select>
+  </select>
         </div>
         <div id='feedback-mechanism'>
           <label for="feedback-form">Your comment: </label><textarea name="entry.2.single" rows="8" cols="75" class="ss-q-long" id="entry_2"></textarea>
           <input type="hidden" name="entry.3.single" value="no javascript" class="ss-q-short" id="entry_3">
-          <input type='submit' value='Send' /><p>We'll send this feedback to the team</p>
+          <input type='submit' value='Send' class="button" /><p>We'll send this feedback to the team</p>
         </div>
       </form>
     </div>
@@ -189,5 +198,3 @@
 
 </body>
 </html>
-
-
