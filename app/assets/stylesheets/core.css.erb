@@ -863,47 +863,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding-top: 0.5em;
 }
 
-/*#popup p.cookie-container {
-  float: right;
-  margin-top: -1em;
-}
-#popup .global-location p.cookie-container {
-  margin-top: -1.5em;
-}
-*/
-
 #popup.customisation-tools p.close,
 #popup.feedback-tools p.close,
 #popup.welcome-tour p.close{
   padding:0;
 }
-/*#popup h2,
-#popup h3{
-  padding:0.4em 1.5em;
-}*/
 
-/*#popup form,
-#popup input,
-#popup select,
-#popup textarea{
-  display:block;
-}*/
-
-/*#popup form{
-  width:92%;
-  padding: 0 1.5em 1em;
-}
-#popup input,
-#popup select,
-#popup textarea{
-
-  margin-bottom:1em;
-}
-#popup input.button{
-  width:20%;
-  float:right;
-}
-*/
 
 .close {
   margin: 0;
@@ -1182,44 +1147,14 @@ input[disabled="disabled"] {
 
 #popup.welcome-tour {
   top: 12px;
-  width: 70%;
-}
-
-#popup.welcome-tour .welcome-curve-left {
-  background-image: url(<%= asset_path "welcome-banner-top-left-curve.png" %>);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  height: 29px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 59px;
-}
-
-#popup.welcome-tour .welcome-curve-right {
-  background-image: url(<%= asset_path "welcome-banner-top-right-curve.png" %>);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  height: 29px;
-  right: 0;
-  position: absolute;
-  top: 0;
-  width: 24px;
-}
-
-#popup.welcome-tour .welcome-curve {
-  background-image: url(<%= asset_path "welcome-banner-top-shadow-repeat.png" %>);
-  background-position: 0 0;
-  background-repeat: repeat-x;
-  height: 29px;
-  margin: 0 24px 0 59px;
+  width: 560px;
+  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
+  padding:0;
 }
 
 #popup.welcome-tour .welcome-content {
   background-color: #F27820;
-  margin: -0.5em 0 0 59px;
-  padding: 0 2em 2em 2em;
-  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
+  padding: 0 5px 5px 5px;
 }
 
 #popup.welcome-tour .welcome-inner {
@@ -1229,12 +1164,18 @@ input[disabled="disabled"] {
 }
 
 #popup.welcome-tour .close {
-  right: 2em;
-  top: 0.5em;
+  right: 0.5em;
+  top: 1.5em;
 }
 
 #popup.welcome-tour h2 {
-  background-image: url(<%= asset_path "betastar.png" %>);
+  font-family: 'Gill Sans W01 Medium', sans-serif;
+  font-size: 2em;
+  font-weight: normal;
+  text-transform:uppercase;
+  padding:0.2em 0 0 0.5em;
+  color:#000;
+  /*background-image: url(<%= asset_path "betastar.png" %>);
   background-position: 0 0;
   background-repeat: no-repeat;
   font-size: 2em;
@@ -1242,7 +1183,7 @@ input[disabled="disabled"] {
   height: 80px;
   margin: 0 0 0.5em 0;
   width: 80px;
-  text-indent: -9999px;
+  text-indent: -9999px;*/
 }
 
 /* beta badge */

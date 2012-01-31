@@ -1,8 +1,5 @@
 $(function() {
   var welcomeCopy = [
-    "<div class='welcome-curve-left'></div>",
-    "<div class='welcome-curve'></div>",
-    "<div class='welcome-curve-right'></div>",
     "<div class='welcome-content'>",
     "<h2>Beta</h2>",
     "<div class='welcome-inner'>",
