@@ -1,141 +1,141 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lte-ie8" lang="en" class="error error-500"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="en" class="error error-500"><!--<![endif]-->
-<head> 
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title><%= status_code %> error | GOV.UK</title>
-  <%= stylesheet_link_tag "application" %>
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <title><%= status_code %> error | GOV.UK</title>
+ <%= stylesheet_link_tag "application" %>
 
-  <!-- alternatives -->
-  <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
+ <!-- alternatives -->
+ <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
 
-  <!-- fonts -->
-  <script type="text/javascript">
-  setTimeout(function(){var a=document,g,b={families:(g=
-      ["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
-      c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
-    e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
-      ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
-      .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
-  </script>
+ <!-- fonts -->
+ <script type="text/javascript">
+ setTimeout(function(){var a=document,g,b={families:(g=
+     ["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
+     c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
+   e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+     ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
+     .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+ </script>
 
-  <%= javascript_include_tag 'libs/jquery/jquery-1.6.2.min.js' %>
-  <%= javascript_include_tag 'application', :defer => 'defer' %>
+ <%= javascript_include_tag 'libs/jquery/jquery-1.6.2.min.js' %>
+ <%= javascript_include_tag 'application', :defer => 'defer' %>
 
-  <!--[if lt IE 9]>
-  <%= javascript_include_tag 'ie.js' %>
-  <![endif]-->
+ <!--[if lt IE 9]>
+ <%= javascript_include_tag 'ie.js' %>
+ <![endif]-->
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <script id="ga-params" type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26179049-1']);
-  _gaq.push(['_setDomainName', 'auto']);
-  _gaq.push(['_setAllowLinker', true]);
-  </script>
+ <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+ <script id="ga-params" type="text/javascript">
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-26179049-1']);
+ _gaq.push(['_setDomainName', 'auto']);
+ _gaq.push(['_setAllowLinker', true]);
+ </script>
 
-  <script type="text/javascript">
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script> 
+ <script type="text/javascript">
+ _gaq.push(['_trackPageview']);
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+ </script>
 </head>
 <body class="citizen error">
-  <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+ <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
 
-  <a href="#content" class="visuallyhidden">Skip to main content</a>
+ <a href="#content" class="visuallyhidden">Skip to main content</a>
 
-  <header role="banner" class="group" id="global-header">
-    <div class="header-global group">
-      <h1><a href="/homepage" title="Go to the gov.uk homepage">GOV.UK</a></h1>
-      <nav role="navigation">
-        <ul>
-          <li><a href="/settings" class="customisation-settings">Settings</a></li>
+ <header role="banner" class="group" id="global-header">
+   <div class="header-global group">
+     <h1><a href="/homepage" title="Go to the gov.uk homepage">GOV.UK</a></h1>
+     <nav role="navigation">
+       <ul>
+         <li><a href="/settings" class="customisation-settings">Settings</a></li>
+         <li><a href="/help">Help</a></li>
+         <li id="gs-feedback"><a href="/feedback">Feedback</a></li>
+       </ul>
+     </nav>
+
+     <div class="search-help">
+       <form id="search" class="site-search" action="<%%= @prefix %>/search" method="get" role="search">
+         <label for="site-search-text" class="visuallyhidden">
+           <span>Search</span>
+         </label>
+         <input type="search" name="q" id="site-search-text" title="Search" />
+         <input type="submit" value="Search" class="button" />
+       </form>
+     </div>
+   </div>
+
+ </header><!--end header-->
+
+ <nav role="navigation" class="header-context">
+   <div class="beta-notice">
+     <div class="inner">
+       <p><a href="http://digital.cabinetoffice.gov.uk/2012/01/30/beta/">BETA</a></p>
+     </div>
+   </div>
+   <ol class="group">
+     <li><a href="/homepage">Home</a></li>
+   </ol>
+ </nav>
+
+ <div id="wrapper" class="group">
+
+   <section id="content" role="main" class="group ancillary">
+     <div class="article-container">
+
+       <header class="page-header group">
+         <hgroup>
+           <h1><span>Error </span>We seem to be having a problem</h1>
+         </hgroup>
+       </header>
+
+       <article role="article" class="group">
+         <div class="inner">
+
+           <div class="intro">
+             <p>This could be because you’re looking for a page that doesn’t exist. Due to this being an experimental trial (‘beta’) site, this may happen occasionally.</p>
+
+             <p>We’ll automatically receive a note telling us there is a problem, and you can help us improve GOV.UK by <a href="/feedback">telling us what you were doing</a> when this happened. Thanks.</p>
+           </div>
+
+       </div>
+     </article>
+   </section>
+ </div><!--end wrapper-->
+
+ <footer class="group" id="footer" role="contentinfo">
+   <div class="beta-notice">
+     <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/30/beta/">test website</a>, so may be inaccurate or misleading. The official website remains <a href="http://www.direct.gov.uk">Directgov</a></p>
+   </div>
+   <div class="inner group">
+     <div class="colophon-and-help">
+       <nav class="help">
+         <ul>
           <li><a href="/help">Help</a></li>
-          <li id="gs-feedback"><a href="/feedback">Feedback</a></li>
-        </ul>
-      </nav>
+          <li><a href="/help/cookies">Cookies</a></li>
+          <li><a href="/search">Search</a></li>
+         </ul>
+       </nav>
+       <div class="colophon">
+         <p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
+         <p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
+       </div>
+     </div>
+     <div class="copyright">
+       <p>&copy; Crown Copyright</p>
+     </div>
+   </div>
 
-      <div class="search-help">
-        <form id="search" class="site-search" action="<%%= @prefix %>/search" method="get" role="search">
-          <label for="site-search-text" class="visuallyhidden">
-            <span>Search</span>
-          </label>
-          <input type="search" name="q" id="site-search-text" title="Search" />
-          <input type="submit" value="Search" class="button" />
-        </form>
-      </div>
-    </div>
 
-  </header><!--end header-->
 
-  <nav role="navigation" class="header-context">
-    <div class="beta-notice">
-      <div class="inner">
-        <p><a href="http://digital.cabinetoffice.gov.uk/2012/01/30/beta/">BETA</a></p>
-      </div>
-    </div>
-    <ol class="group">
-      <li><a href="/homepage">Home</a></li>
-    </ol>
-  </nav>
+ </footer><!--end footer-->
 
-  <div id="wrapper" class="group">
-
-    <section id="content" role="main" class="group ancillary">
-      <div class="article-container">
-
-        <header class="page-header group">
-          <hgroup>
-            <h1><span>Error </span>We seem to be having a problem</h1>
-          </hgroup>
-        </header>
-        
-        <article role="article" class="group">
-          <div class="inner">
-          
-            <div class="intro">
-              <p>This could be because you’re looking for a page that doesn’t exist. Due to this being an experimental trial (‘beta’) site, this may happen occasionally.</p>
-
-              <p>We’ll automatically receive a note telling us there is a problem, and you can help us improve GOV.UK by <a href="/feedback">telling us what you were doing</a> when this happened. Thanks.</p>
-            </div>
-        
-        </div>
-      </article>
-    </section>
-  </div><!--end wrapper-->
-
-  <footer class="group" id="footer" role="contentinfo">
-    <div class="beta-notice">
-      <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/30/beta/">test website</a>, so may be inaccurate or misleading. The official website remains <a href="http://www.direct.gov.uk">Directgov</a></p>
-    </div>
-    <div class="inner group">
-      <div class="colophon-and-help">
-        <nav class="help">
-          <ul>
-           <li><a href="/help">Help</a></li>
-           <li><a href="/help/cookies">Cookies</a></li>
-           <li><a href="/search">Search</a></li>
-          </ul>
-        </nav>
-        <div class="colophon">
-          <p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="licence">Open Government Licence</a></p>
-          <p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; Crown Copyright</p>
-      </div>
-    </div>
-
-    
-
-  </footer><!--end footer-->
-
-  <div id="global-app-error" class="app-error hidden"></div>
+ <div id="global-app-error" class="app-error hidden"></div>
 
 </body>
 </html>
