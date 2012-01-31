@@ -16,7 +16,7 @@ $(function() {
     "read the warning</a></p>",
     "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
     "this page sets a cookie. There\u2019s more information on cookies at ",
-    "<a href='http://www.aboutcookies.org'>AboutCookies.org</a>.</small></p>",
+    "<a href='/help/cookies'>on our help page</a>.</small></p>",
     "</div></div>"
   ].join('');
 
