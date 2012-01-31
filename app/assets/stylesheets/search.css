@@ -35,11 +35,14 @@
 }
 
 .search .results.top {
-  padding: 0;
+  background-color: #FFF3CF;
+  padding: 1em;
 }
 
 .search .results.top h2 {
-  padding-left: 2em;
+  font-size: 1em;
+  font-weight: normal;
+  margin-top: 0;
 }
 
 .search .results.top li:nth-child(even) {
@@ -111,10 +114,16 @@
 
 .search .results.top ul.search-promoted {
   list-style-type:none;
+  margin: 0;
+  padding: 0;
+}
+
+.search .results.top ul.search-promoted h3 {
+  font-weight: normal;
 }
 
 .search .results.top ul.search-promoted h3 a {
-  padding: 0 0 0 2em;
+  padding: 0;
 }
 
 .search .results.top ul.search-promoted li a.button {
