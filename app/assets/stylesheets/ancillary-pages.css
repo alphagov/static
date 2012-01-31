@@ -119,9 +119,11 @@
 /* static pages like platform and help */
 
 .ancillary .menu {
+  background-color: #F0E7D5;
   float: right;
   margin: -3em -15em 0 0;
-	width: 12em;
+  padding: 1em;
+	width: 13em;
 }
 
 .ancillary .menu ul {
