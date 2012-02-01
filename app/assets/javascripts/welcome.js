@@ -15,7 +15,7 @@ $(function() {
     "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
     "read the warning</a></p>",
     "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
-    "this page sets a cookie. There\u2019s more information on cookies at ",
+    "this page sets a cookie so you don\u2019t see it again. There\u2019s more information on cookies at ",
     "<a href='http://www.aboutcookies.org/'>AboutCookies.org</a>.</small></p>",
     "</div></div>"
   ].join('');
