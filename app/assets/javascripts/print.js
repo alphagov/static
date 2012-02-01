@@ -8,7 +8,4 @@ jQuery(document).ready(function() {
 	
 	// and then... you know... print.
 	window.print();
-
-  // and close the window after printing *experimental*
-  window.close();
 });
