@@ -28,7 +28,6 @@
     width: 100%;
     z-index: 1000;
   }
-
 }
 
 .wf-gillsans-n4-inactive #global-header {
@@ -189,7 +188,7 @@ body.government #global-header .header-context nav a:hover {
   color: #9a9b00
 }
 
-@media only screen and (min-width: 865px) {
+@media only screen and (min-width: 670px) {
   #global-header .header-context nav a.home,
   #global-header .header-context ol li.current-context {
     margin-right: 4%
@@ -209,6 +208,10 @@ body.government #global-header .header-context {
 
 form.site-search {
   margin-top: 0.15em;
+}
+
+#global-header form.site-search {
+  clear: both;
 }
 
 form.site-search .button {
@@ -240,6 +243,27 @@ form.site-search #site-search-text {
 
   body.government .header-context .search-help {
     border-color: #cdce00
+  }
+}
+@media only screen and (max-width:670px) {
+  form.site-search {
+    padding-top: 0.25em;
+  }
+  form.site-search .button {
+    width: 25%;
+  }
+  form.site-search #site-search-text {
+    width: 72%;
+  }
+  body.citizen nav.header-context ol {
+    padding-top: 0.5em;
+  }
+  body.citizen nav.header-context .beta-notice p {
+    right: 0;
+    top: 0;
+  }
+  body.citizen nav.header-context ol li:first-child {
+    margin-left: 4%;
   }
 }
 .lte-ie8 .search-help {
