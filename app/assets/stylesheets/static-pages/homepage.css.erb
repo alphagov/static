@@ -23,13 +23,13 @@ body.home #footer .inner {
 .lte-ie8 .home #wrapper {
   margin: 0 auto;
 }
-
 .home #wrapper section {
   background: url(<%= asset_path "home-arrow.png" %>) no-repeat scroll 52px -109px transparent;
   margin: 0 auto;
   padding-left:345px;
   padding-top:32px;
 }
+
 .lte-ie8 .home #wrapper section {
   margin-top: 0;
 }
@@ -79,6 +79,7 @@ body.home #footer .inner {
   background-color:#fff;
   padding:0.5em 2em;
 }
+
 .feature-items ul{
   list-style-type:none;
   margin:0;
@@ -254,4 +255,56 @@ body.home #footer .inner {
   padding:0.2em 0.4em;
   margin:0;
   display:block;
+} 
+
+@media only screen and (max-width:670px) {
+  body.home {
+    background: none repeat scroll 0 0 #C9D0D0;
+  }
+  .home #wrapper section {
+    background: none no-repeat scroll 0 0 transparent;
+    margin: 0 auto;
+    padding-left:0;
+    padding-top:0;
+  }
+  .js-enabled.home #wrapper section {
+      margin: 0;
+      padding-bottom: 0;
+  }
+  .homepage-banner {
+    width:100%;
+  }
+  .feature-items{
+    width:100%;
+    margin-top:0;
+  }
+  .feature-items .section{
+    width:100%;
+    background-color:#fff;
+    padding:0;
+  }
+  .feature-items h2,
+  .feature-items ul{
+    margin:1em 1em 1em 2em
+  }
+  .feature-items .popular{
+    margin-left:0;
+    border-top:2px solid #00652E;
+  }
+  .homepage-section{
+    margin:0;
+  }
+  .ui-autocomplete,
+  .aerial-info,
+  #global-set-theme{
+    display:none;
+  }
+  .cookie-container{
+    top:1em;
+    bottom:auto;
+  }
+  .ask_location input.postcode {
+    margin: 0;
+  }
+
 }
