@@ -201,6 +201,11 @@ a[rel="external"]:after {
   width: 16.5em;
 /*  width: 14em;*/
 }
+.lte-ie8 .related {
+  display: inline;
+  height: 1%;
+  zoom: 1;
+}
 
 .related .inner {
   background-color: #F0E7D5;
@@ -232,11 +237,6 @@ a[rel="external"]:after {
   position: relative;
   text-transform: uppercase;
   top: -13px;
-}
-.lte-ie8 .related {
-  display: inline;
-  height: 1%;
-  zoom: 1;
 }
 
 .related ul {
@@ -1113,4 +1113,35 @@ input[disabled="disabled"] {
 .find-location-for-service .cookie-container {
   bottom: 0.75em;
   right: 0.75em;
+}
+
+@media only screen and (max-width:670px) {
+  .article-container,
+  .search-container {
+    margin-right: 0;
+  }
+  .related-positioning {
+    height: auto;
+    left: auto;
+    position: static;
+    top: auto;
+  }
+  .related-container {
+    height: auto;
+  }
+  .related {
+    position: static;
+    right: auto;
+    width: auto;
+  }
+  .related .inner {
+    padding-top: 1em;
+  }
+  .related h2 {
+    background-image: none;
+    height: auto;
+    margin: 0 0 0.75em 0;
+    padding: 0;
+    top: auto;
+  }
 }
