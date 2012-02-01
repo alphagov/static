@@ -47,6 +47,8 @@ module Static
       favicon.ico
       *.js
       *.css
+      guides-print.css
+      print.js
       libs/jquery/plugins/jquery.tablesorter.min.js
       formtastic.css
       formtastic_changes.css
