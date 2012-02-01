@@ -86,7 +86,7 @@ $(document).ready(function() {
         $(".related-positioning").css("position", "fixed");
       }
     }
-
+  }
   /*var relatedBoxTop = $(".related-positioning").css("top");
 
   $(window).bind("scroll", function(){
