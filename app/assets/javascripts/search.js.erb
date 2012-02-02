@@ -136,14 +136,47 @@ $(document).ready(function() {
     });
     initAutoComplete();
   }
-  
+
+  function shouldUseCitizenPreloadedSearchData() {
+    return (window.location.pathname.match(/^\/government/) == null)
+  }
+
   function initAutoComplete(){
     $("#main_autocomplete, #site-search-text").autocomplete({
       delay: 100,
       width: 300,
       source: function(req, add){
         var hint = hintPlaceholder(this.element);
-        add(filter_terms(req.term, preloadedSearchData()));
+        if (shouldUseCitizenPreloadedSearchData()) {
+          add(filter_terms(req.term, preloadedSearchData()));
+        } else {
+          if (req.term.length >= 3) {
+            results_found = 0;
+            $.ajax({
+              url: searchUrl("autocomplete") + ".json?q=" + req.term,
+              dataType: "json",
+              cache: true,
+              beforeSend: function(xhr) {
+                hint.text("Loading...");
+                hint.addClass("search-loading");
+              },
+              success: function(data) {
+                var results = $.map(data, function(e) {
+                  return { 'label': e.title, 'url': e.link, 'class': e.format };
+                });
+                results_found = results.length;
+                add(results)
+              },
+              complete: function(jqXHR, textstatus){
+                hint.removeClass("search-loading");
+                if (textstatus != 'success' || results_found == 0) {
+                  $(".hint-suggest").remove();
+                  $("#search_hint").removeClass("visuallyhidden");
+                }
+              }
+            });
+          }
+        }
       },
       select: function(event, ui) {
         location.href = ui.item.url;

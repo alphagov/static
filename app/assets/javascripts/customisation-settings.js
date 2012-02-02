@@ -23,7 +23,7 @@ $(document).ready(function() {
     $("body").prepend("<div id='popup' class='customisation-tools'></div>");
 
     $.get('/settings.raw', function(data){
-      $('#popup').html(data).prepend("<p class='close'><a href='#' title='Click or press escape to close the settings panel'>Close</a></a>");
+      $('#popup').html(data).find('.inner').prepend("<p class='close'><a href='#' title='Click or press escape to close the settings panel'>Close</a></a>");
     });
 
     //Get the screen height and width
