@@ -746,13 +746,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #popup.customisation-tools{
   background-color: #fff;
-  padding: 0.5em 0.5em;
+  padding: 1em 1.5em;
   width:60%;
   min-height: 26em;
 }
 #popup.customisation-tools h2,
-#popup.feedback-tools h2,
-#wrapper.settings h2 {
+#popup.feedback-tools h2{
   font-size: 1.75em;
   font-weight:normal;
   margin:0;
@@ -773,7 +772,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	margin-bottom: 0;
 }
 
-#global-locator-form {
+#popup #global-locator-form {
   background: #f8f8f8 url(<%= asset_path "locator-icon.png" %>) no-repeat 1em 1em;
   border: none;
   margin: 0 auto 1em auto;
@@ -781,17 +780,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   position: relative;
 }
 
-#global-set-theme .personalise-options {
+#popup #global-set-theme .personalise-options {
 	background: #D9E0E0;
 	padding: 1em;
 	position: relative;
 }
-#global-set-theme .beta-notice {
+#popup #global-set-theme .beta-notice {
   font-size: 0.85em;
   line-height: 1.5em;
 }
 
-#global-locator-form p.geolocate-me {
+#popup p.geolocate-me {
   border-top: 1px solid #ddd;
   font-size: 1em;
   margin-bottom: 0;
@@ -805,16 +804,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding:0;
 }
 
+
 .close {
   margin: 0;
   position: absolute;
   top: 0;
   right: 0;
-}
-
-#popup .inner .close {
-  top: -0.5em;
-  right: -0.5em;
 }
 
 .close a  {
@@ -830,12 +825,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .close a:hover {
   background-color: rgba(0,0,0,0.25);
-}
-
-#wrapper.settings {
-  margin: auto;
-  max-width: 960px;
-  position: relative; 
 }
 
 /* feedback popup */
@@ -1139,11 +1128,12 @@ input[disabled="disabled"] {
   .ask_location input.postcode {
     margin: 0;
   }
-  .article-container,
-  .search-container {
+  #wrapper .article-container,
+  #wrapper .ancillary.search .search-container {
     margin-right: 0;
   }
-  header.page-header hgroup {
+  header.page-header hgroup,
+  #wrapper .ancillary.search header {
     margin-right: 0;
     padding-left: 0.5em;
   }
