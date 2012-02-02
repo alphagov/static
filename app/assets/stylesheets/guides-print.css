@@ -1,67 +1,139 @@
 /*
- *= require core
- *= require text
- *= require publisher
- *= require core-print
+ *= XXXrequire core-print
  */
 
+* {
+ background: transparent;
+ color: black;
+ text-shadow: none;
+ filter:none;
+ -ms-filter: none;
+}
+
+@page { margin: 0.5cm; }
+
+a, a:visited { text-decoration: underline; }
+a[href]:after { content: " (" attr(href) ")"; }
+abbr[title]:after { content: " (" attr(title) ")"; }
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+pre, blockquote { border: 1pt solid #999; page-break-inside: avoid; }
+
+thead { display: table-header-group; }
+tr, img { page-break-inside: avoid; }
+img { max-width: 100% !important; }
+p, article h2, article h3, article h4, article h5, article h6 { orphans: 3; widows: 3; }
+article h2, article h3, article h4, article h5, article h6 { page-break-after: avoid; }
+
 body {
-  font-size: 0.9em;
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 12pt;
+ line-height: 1.4em;
 }
 
-body header {
-	display: block !important;
-	font-size: 1.3em;
-}             
-
-div#wrapper h1.govuk {
-  font-size: 1.5em;
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
-  text-align: center;
+h1.govuk {
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
 }
 
-body div#wrapper {
-  max-width: none;
-  padding: 1em 2em 2em 2em;
-  width: auto;
+section > header {
+  position: relative;
 }
 
-div#wrapper hgroup h1 { 
-	background: none !important;
-	display: block !important;
-	padding-bottom: 0.75em;
-	padding-left: 0;
-	border-bottom: 1px solid #bbb;               
-}
-div#wrapper.programme hgroup h1 span,
-div#wrapper.guide hgroup h1 span {
-  color: #777 !important;
-}  
-
-section#content {
-  margin: 0em;
+section > header h1 {
+  border-bottom: solid 1pt black;
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22pt;
+  font-weight: normal;
+  padding-bottom: 6pt;
 }
 
-#wrapper.programme article.overview-etc,
-#wrapper.programme #overview {
-  padding-top: 0em;
+section > header p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+  right: 36pt;
+  top: -6pt;
 }
 
-div.article-container article {
-	min-height: 0;
-	border-bottom: 1px solid #ddd;
-	width: auto !important;
-	float: none;
+section {
+  padding: 0 1cm;
 }
-article .inner {
-	padding: 2em 0;
-}           
-article .inner header h1 {
-  font-size: 1.25em;
+
+article {
+  margin-bottom: 1cm;
+  width: 80%;
 }
+
+article header h1, article h2, article h3, article h4, article h5, article h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+article header h1 {
+  border-bottom: 1pt solid #999;
+  font-size: 16pt;
+  padding-bottom: 0.25em;
+}
+
+article h2 {
+  font-size: 16pt;
+}
+
+article h3 {
+  font-size: 12pt;
+}
+
+article h4 {
+  font-size: 12pt;
+}
+
+article p {
+  font-size: 12pt;
+}
+
+article ul, article ol {
+  font-size: 12pt;
+  padding-left: 0;
+}
+
+article li {
+  line-height: 1.5em;
+}
+
+article table {
+  border: 2pt solid #666;
+  border-collapse: collapse;
+}
+
+article table th,
+article table td {
+  border: 1pt solid #666;
+  padding: 0.25em 0.5em;
+}
+
+article table th {
+  background-color: #999;
+}
+
+article table tr:nth-child(even) td {
+  background-color: #ddd;
+}
+
+.print-link {
+  display: none;
+}
+
+.modified-date {
+  color: #666;
+  font-size: 10pt;
+}
+
+/*
 div.article-container article#how-to-claim {
-	border: 5px solid #333;
-	padding: 0em 2em;
+  border: 5px solid gray;
+  padding: 0em 2em;
 }
+*/
