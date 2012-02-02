@@ -94,10 +94,10 @@ body.citizen nav.header-context ol li {
   margin-bottom: 0;
 }
 
-#global-header .header-global ul li:last-child {
+/*#global-header .header-global ul li:last-child {
   margin-right: 0;
 }
-
+*/
 #global-header .header-global ul li a {
   font-size: 0.85em;
   text-decoration: none;
@@ -245,27 +245,6 @@ form.site-search #site-search-text {
     border-color: #cdce00
   }
 }
-@media only screen and (max-width:670px) {
-  form.site-search {
-    padding-top: 0.25em;
-  }
-  form.site-search .button {
-    width: 25%;
-  }
-  form.site-search #site-search-text {
-    width: 72%;
-  }
-  body.citizen nav.header-context ol {
-    padding-top: 0.5em;
-  }
-  body.citizen nav.header-context .beta-notice p {
-    right: 0;
-    top: 0;
-  }
-  body.citizen nav.header-context ol li:first-child {
-    margin-left: 4%;
-  }
-}
 .lte-ie8 .search-help {
   float: right;
 }
@@ -299,7 +278,7 @@ form.site-search #site-search-text {
 
 #footer .colophon-and-help {
   float: left;
-  width: 35%;
+  width: 50%;
 }
 
 #footer .help ul {
@@ -324,7 +303,7 @@ form.site-search #site-search-text {
 #footer .copyright {
   float: left;
   text-align: right;
-  width: 65%;
+  width: 50%;
 }
 
 #footer .copyright p {
@@ -334,4 +313,72 @@ form.site-search #site-search-text {
   color: #7F7F7F;
   margin: 0;
   padding: 7.25em 0 0 0;
+}
+
+@media only screen and (max-width:670px) {
+  form.site-search {
+    padding-top: 0.25em;
+  }
+  form.site-search .button {
+    width: 25%;
+  }
+  form.site-search #site-search-text {
+    width: 72%;
+  }
+  body.citizen nav.header-context ol {
+    padding-top: 0.5em;
+  }
+  body.citizen nav.header-context .beta-notice p {
+    right: 0;
+    top: 0;
+  }
+  body.citizen nav.header-context ol li:first-child {
+    margin-left: 4%;
+  }
+  #footer .help ul li {
+    float: none;
+  }
+  #footer .colophon-and-help,
+  #footer .copyright {
+    float: none;
+    width: auto;
+  }
+  #footer .copyright {
+    margin-top: 1.5em;
+    text-align: left;
+  }
+  #footer .copyright p {
+    background-position: 0 0;
+  }
+}
+
+/* tour link */
+
+.home-tour {
+  position: fixed;
+  top: 0.5em;
+  right: 4%;
+  z-index: 1000;
+}
+
+.tour-label a {
+  background-color: #D43783;
+  color: #fff;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+}
+.tour-label a:hover {
+  background-color: #000;
+}
+#footer .tour-label a {
+  color: #fff;
+}
+
+@media only screen and (max-width:670px) {
+  .home .home-tour {
+    position: absolute;
+  }
+  #global-header .header-global ul li:last-child {
+    margin-right: 7em;
+  }
 }
