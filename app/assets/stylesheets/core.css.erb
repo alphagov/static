@@ -746,12 +746,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #popup.customisation-tools{
   background-color: #fff;
-  padding: 1em 1.5em;
+  padding: 0.5em 0.5em;
   width:60%;
   min-height: 26em;
 }
 #popup.customisation-tools h2,
-#popup.feedback-tools h2{
+#popup.feedback-tools h2,
+#wrapper.settings h2 {
   font-size: 1.75em;
   font-weight:normal;
   margin:0;
@@ -772,7 +773,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 	margin-bottom: 0;
 }
 
-#popup #global-locator-form {
+#global-locator-form {
   background: #f8f8f8 url(<%= asset_path "locator-icon.png" %>) no-repeat 1em 1em;
   border: none;
   margin: 0 auto 1em auto;
@@ -780,17 +781,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   position: relative;
 }
 
-#popup #global-set-theme .personalise-options {
+#global-set-theme .personalise-options {
 	background: #D9E0E0;
 	padding: 1em;
 	position: relative;
 }
-#popup #global-set-theme .beta-notice {
+#global-set-theme .beta-notice {
   font-size: 0.85em;
   line-height: 1.5em;
 }
 
-#popup p.geolocate-me {
+#global-locator-form p.geolocate-me {
   border-top: 1px solid #ddd;
   font-size: 1em;
   margin-bottom: 0;
@@ -804,12 +805,16 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding:0;
 }
 
-
 .close {
   margin: 0;
   position: absolute;
   top: 0;
   right: 0;
+}
+
+#popup .inner .close {
+  top: -0.5em;
+  right: -0.5em;
 }
 
 .close a  {
@@ -825,6 +830,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .close a:hover {
   background-color: rgba(0,0,0,0.25);
+}
+
+#wrapper.settings {
+  margin: auto;
+  max-width: 960px;
+  position: relative; 
 }
 
 /* feedback popup */
