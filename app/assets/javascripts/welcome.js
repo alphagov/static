@@ -37,7 +37,7 @@ $(function() {
   });
 
   if($.getUrlVar('nopopup') != "true"){
-    if(getCookie("govuktour") != "dismiss"){
+    if(getCookie("govuk-tour") != "dismiss"){
       BetaPopup.popup(welcomeCopy, "welcome-tour"); 
       
     }
@@ -71,12 +71,12 @@ $(function() {
   }
   
   $(".welcome-tour .close").live("click", function(){
-    setCookie("govuktour", "dismiss", 4 * 30);
+    setCookie("govuk-tour", "dismiss", 7);
     return;
   });
   
   $(".thanks-dismiss").live("click", function(){
-    setCookie("govuktour", "dismiss", 4 * 30);
+    setCookie("govuk-tour", "dismiss", 7);
     closePopup();
     return false;
   });
