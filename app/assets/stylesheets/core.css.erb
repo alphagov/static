@@ -106,6 +106,10 @@ a:active {
   color: #c11;
 }
 
+a[rel="external"] {
+  display: inline-block;
+}
+
 a[rel="external"]:after {
   content: url(<%= asset_path "external-link.png" %>);
   margin-right: 0.2em;
