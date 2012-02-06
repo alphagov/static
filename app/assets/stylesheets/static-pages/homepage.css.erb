@@ -3,7 +3,7 @@
 */
 
 body.home {
-  background: url(<%= asset_path "angel_map.jpg" %>) repeat scroll 0 0 #C9D0D0;
+  background: url(<%= asset_path "portsmouth-map.jpg" %>) repeat scroll 0 0 #C9D0D0;
 }
 body.home #wrapper {
   background-color:transparent;
@@ -24,10 +24,11 @@ body.home #footer .inner {
   margin: 0 auto;
 }
 .home #wrapper section {
-  background: url(<%= asset_path "home-arrow.png" %>) no-repeat scroll 52px -109px transparent;
+  /*background: url(<%= asset_path "home-arrow.png" %>) no-repeat scroll 52px -109px transparent;*/
   margin: 0 auto;
-  padding-left:345px;
-  padding-top:32px;
+  width:614px;
+ /* padding-left:345px;
+  padding-top:32px;*/
 }
 
 .lte-ie8 .home #wrapper section {
@@ -42,6 +43,7 @@ body.home #footer .inner {
 }
 
 .homepage-section {
+  margin:0 auto;
   margin-top:1em;
   position: relative;
 }
@@ -244,9 +246,10 @@ body.home #footer .inner {
   background-color: rgba(255, 255, 255, 0.6);
   font-size: 0.75em;
   padding: 0;
-  position: absolute;
-  bottom: 3em;
-  left: 5em;
+  left: 3.75em;
+  position: relative;
+  width: 35%;
+  margin-bottom:1em;
 }
 .lte-ie8 .aerial-info {
   background-color: #fff;
