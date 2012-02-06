@@ -174,3 +174,10 @@
 .results #search2 input[type="text"] {
 	margin-right: 1em;
 }
+@media only screen and (max-width:670px) {
+  #wrapper .ancillary.search header,
+  #wrapper .ancillary.search .search-container {
+      margin: 0;
+    }
+     
+}
