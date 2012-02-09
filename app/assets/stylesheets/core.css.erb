@@ -540,6 +540,8 @@ ul.ui-autocomplete {
   margin-top:1px;
   position:absolute;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  top: 1.8em;
+  left: 0;
 }
 
 /* remember that these are used across the site, not just for autocomplete */
@@ -587,6 +589,7 @@ ul.ui-autocomplete .search-site a {
   color: #333;
   text-decoration:none;
 }
+
 ul.ui-autocomplete .search-site a,
 ul.ui-autocomplete .search-site a:hover {
   border-top:3px solid #dedede;
@@ -813,7 +816,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #popup.welcome-tour p.close{
   padding:0;
 }
-
 
 .close {
   margin: 0;
@@ -1126,11 +1128,11 @@ input[disabled="disabled"] {
 }
 
 @media only screen and (max-width:670px) {
-  .ui-autocomplete,
   .aerial-info,
   #global-set-theme{
     display:none;
   }
+
   .cookie-container{
     top:1em;
     bottom:auto;
@@ -1196,5 +1198,12 @@ input[disabled="disabled"] {
   }
   .print-link{
     display:none;
+  }
+}
+
+@media only screen and (min-width: 670px) {
+  #global-header .header-global ul.ui-autocomplete {
+    right: 4.3em;
+    width: 415px;
   }
 }
