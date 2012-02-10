@@ -2,154 +2,152 @@
  *= XXXrequire core-print
  */
 
-@media print {
-  * {
-   background: transparent;
-   color: black;
-   text-shadow: none;
-   filter:none;
-   -ms-filter: none;
-  }
-
-  body {
-   font-family: Georgia, "Times New Roman", Times, serif;
-   font-size: 11pt;
-   line-height: 1.4em;
-   margin: 0;
-   padding: 0;
-   width: 100%;
-  }
-
-  h1.govuk {
-    display: none;
-  }
-
-  section > header {
-    position: relative;
-  }
-
-  section > header h1 {
-    border-bottom: solid 1pt black;
-    font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18pt;
-    font-weight: normal;
-    line-height: 1.2;
-    padding-bottom: 6pt;
-    width: 80%;
-  }
-
-  section > header p {
-    border-bottom: solid 1pt black;
-    bottom: -11pt;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    font-weight: bold;
-    position: absolute;
-    text-align: center;
-    text-transform: uppercase;
-    padding-bottom: 6pt;
-    right: 0;
-    width: 15%;
-  }
-
-  article {
-    margin-bottom: 1cm;
-    width: 80%;
-  }
-
-  article header h1, article h2, article h3, article h4, article h5, article h6 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-  }
-
-  article header h1 {
-    border-bottom: 1pt solid rgb(225,225,225);
-    font-size: 14pt;
-    padding-top: 7pt;
-    padding-bottom: 7pt;
-  }
-
-  article h2 {
-    font-size: 14pt;
-    padding-top: 7pt;
-  }
-
-  article h3 {
-    font-size: 12pt;
-  }
-
-  article h4 {
-    font-size: 11pt;
-  }
-
-  article p {
-    font-size: 11pt;
-  }
-
-  p, h2, h3, h4 { orphans: 3; widows: 3; }
-  h2, h3, h4 { page-break-after: avoid; }
-
-  article ul, article ol {
-    font-size: 11pt;
-    padding-left: 13pt;
-  }
-
-  article li {
-    line-height: 1.5em;
-  }
-
-  article li p {
-    margin: 0;
-  }
-
-  a, a:visited { text-decoration: underline; word-break: break-all; }
-  a[href]:after { content: " (" attr(href) ")"; }
-  a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-
-  abbr[title]:after { content: " (" attr(title) ")"; }
-
-  article table {
-    border: 1pt solid rgb(125,125,125);
-    border-collapse: collapse;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-
-  article table thead { display: table-header-group; }
-
-  article table th,
-  article table td {
-    border: 1pt solid rgb(125,125,125);
-    padding: 0.25em 0.5em;
-  }
-
-  article table td:nth-child(n+2) {
-    text-align: right;
-  }
-
-  article .contact {
-    border: 1pt solid rgb(125,125,125);
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 10pt;
-  }
-
-  img { max-width: 100% !important; }
-
-  .print-link {
-    display: none;
-  }
-
-  .modified-date {
-    font-size: 11pt;
-  }
-
-  .modified-date:after {
-    content: "© Crown Copyright";
-    float: right;
-  }
-  /*
-  div.article-container article#how-to-claim {
-    border: 5px solid rgb(225,225,225);
-    padding: 0em 2em;
-  }
-  */
+* {
+ background: transparent;
+ color: black;
+ text-shadow: none;
+ filter:none;
+ -ms-filter: none;
 }
+
+body {
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 11pt;
+ line-height: 1.4em;
+ margin: 0;
+ padding: 0;
+ width: 100%;
+}
+
+section > header {
+  position: relative;
+}
+
+section > header h1 {
+  border-bottom: solid 1pt black;
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18pt;
+  font-weight: normal;
+  line-height: 1.2;
+  padding-bottom: 6pt;
+  width: 80%;
+}
+
+section > header p {
+  border-bottom: solid 1pt black;
+  bottom: -11pt;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 6pt;
+  right: 0;
+  width: 15%;
+}
+
+article {
+  margin-bottom: 1cm;
+  width: 80%;
+}
+
+article header h1, article h2, article h3, article h4, article h5, article h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+article header h1 {
+  border-bottom: 1pt solid rgb(225,225,225);
+  font-size: 14pt;
+  padding-top: 7pt;
+  padding-bottom: 7pt;
+}
+
+article h2 {
+  font-size: 14pt;
+  padding-top: 7pt;
+}
+
+article h3 {
+  font-size: 12pt;
+}
+
+article h4 {
+  font-size: 11pt;
+}
+
+article p {
+  font-size: 11pt;
+}
+
+article p, article ul, article h2, article h3, article h4 { orphans: 3; widows: 3; }
+article h2, article h3, article h4 { page-break-after: avoid; }
+
+article ul, article ol {
+  font-size: 11pt;
+  padding-left: 13pt;
+}
+
+article li {
+  line-height: 1.5em;
+}
+
+article li p {
+  margin: 0;
+}
+
+a, a:visited { text-decoration: underline; word-wrap: break-word; }
+a[href^="/"]:after { content: " (https://www.gov.uk" attr(href) ")"; font-size: 90%; text-decoration: none; }
+a[href^="http://"]:after { content: " (" attr(href) ")"; font-size: 90%; text-decoration: none; }
+
+a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+
+abbr[title]:after { content: " (" attr(title) ")"; }
+
+article table {
+  border: 1pt solid rgb(125,125,125);
+  border-collapse: collapse;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+article table thead { display: table-header-group; }
+
+article table th,
+article table td {
+  border: 1pt solid rgb(125,125,125);
+  padding: 0.25em 0.5em;
+}
+
+article table td:nth-child(n+2) {
+  text-align: right;
+}
+
+article .contact,
+article .info-notice {
+  border: 1pt solid rgb(125,125,125);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 4pt;
+}
+
+img { max-width: 100% !important; }
+
+.print-link {
+  display: none;
+}
+
+.modified-date {
+  color: rgb(125,125,125);
+  font-size: 11pt;
+}
+
+.modified-date:after {
+  content: "© Crown Copyright";
+  float: right;
+}
+/*
+div.article-container article#how-to-claim {
+  border: 5px solid rgb(225,225,225);
+  padding: 0em 2em;
+}
+*/
