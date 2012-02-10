@@ -133,17 +133,6 @@ $(document).ready(function() {
   });
 
   initAutoComplete();
-  var _resizingWait = false;
-
-  var resizeHandler = function () {
-    if (_wrapper) {
-      if (_resizingWait !== false)
-        clearTimeout(_resizingWait);
-      _resizingWait = setTimeout(_afterResize, 200);
-    };
-  };
-
-  $(window).resize(resizeHandler);
 
   function shouldUseCitizenPreloadedSearchData() {
     return (window.location.pathname.match(/^\/government/) == null)
