@@ -98,8 +98,8 @@ article li p {
 }
 
 a, a:visited { text-decoration: underline; word-wrap: break-word; }
-a[href^="/"]:after { content: " (https://www.gov.uk" attr(href) ")"; font-size: 90%; text-decoration: none; }
-a[href^="http://"]:after { content: " (" attr(href) ")"; font-size: 90%; text-decoration: none; }
+a[href^="/"]:after { content: " (https://www.gov.uk" attr(href) ")"; font-size: 90%; }
+a[href^="http://"]:after, a[href^="https://"]:after { content: " (" attr(href) ")"; font-size: 90%; }
 
 a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
 
