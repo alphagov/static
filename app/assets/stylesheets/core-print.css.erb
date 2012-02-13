@@ -1,92 +1,185 @@
-/* Print stylesheets for stuff defined in core.css */
+/* Global print stylesheet */
 
-html {
-  background: #fff;
+/* reset everything */
+* {
+ background: transparent;
+ color: black;
+ text-shadow: none;
+ filter:none;
+ -ms-filter: none;
 }
 
-/* normal page elements that we don't want to print out */
+body {
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 11pt;
+ line-height: 1.4em;
+ margin: 0;
+ padding: 0;
+ width: 100%;
+}
+
+section > header {
+  position: relative;
+}
+
+section > header h1 {
+  border-bottom: solid 1pt black;
+  font-family: "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18pt;
+  font-weight: normal;
+  line-height: 1.2;
+  padding-bottom: 6pt;
+  width: 80%;
+}
+
+section > header h1:after {
+  content: " from GOV.UK";
+}
+
+section > header p {
+  border-bottom: solid 1pt black;
+  bottom: -11pt;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 6pt;
+  right: 0;
+  width: 15%;
+}
+
+article {
+  margin-bottom: 1cm;
+  width: 80%;
+}
+
+article header h1, article h2, article h3, article h4, article h5, article h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+article header h1 {
+  border-bottom: 1pt solid rgb(225,225,225);
+  font-size: 14pt;
+  padding-top: 7pt;
+  padding-bottom: 7pt;
+}
+
+article h2 {
+  font-size: 14pt;
+  padding-top: 7pt;
+}
+
+article h3 {
+  font-size: 12pt;
+}
+
+article h4 {
+  font-size: 11pt;
+}
+
+article p {
+  font-size: 11pt;
+}
+
+article p, article ul, article h2, article h3, article h4 { orphans: 3; widows: 3; }
+article h2, article h3, article h4, article .info-notice { page-break-after: avoid; }
+
+article ul, article ol {
+  font-size: 11pt;
+  padding-left: 13pt;
+}
+
+article li {
+  line-height: 1.5em;
+}
+
+article li p {
+  margin: 0;
+}
+
+a, a:visited { text-decoration: underline; word-wrap: break-word; }
+a[href^="/"]:after { content: " (https://www.gov.uk" attr(href) ")"; font-size: 90%; }
+a[href^="http://"]:after, a[href^="https://"]:after { content: " (" attr(href) ")"; font-size: 90%; }
+
+a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+
+abbr[title]:after { content: " (" attr(title) ")"; }
+
+article table {
+  border: 1pt solid rgb(125,125,125);
+  border-collapse: collapse;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+}
+
+article table thead { display: table-header-group; }
+
+article table th,
+article table td {
+  border: 1pt solid rgb(125,125,125);
+  padding: 0.25em 0.5em;
+  text-align: left;
+}
+
+article table td:nth-child(n+2) {
+  text-align: right;
+}
+
+article .contact,
+article .info-notice {
+  border: 1pt solid rgb(125,125,125);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 2pt;
+}
+
+article .info-notice:before {
+  content: "!";
+  float: left;
+  font-family: Georgia, serif;
+  font-size: 24pt;
+  font-weight: bold;
+  margin: 10pt 0 0 6pt;
+}
+
+article .info-notice p {
+  margin-left: 22pt;
+}
+
+img { max-width: 100% !important; }
+
+.print-link {
+  display: none;
+}
+
+.modified-date {
+  color: rgb(225,225,225);
+  font-size: 11pt;
+}
+
+.modified-date:after {
+  content: "© Crown Copyright";
+  float: right;
+}
+
+/* hide the unnecessary page elements */
+
 body header#global-header,
 body footer,
 body #global-user-location,
 body .related-positioning,
-body #wrapper.wrapper hgroup h1,
-body .actions, body .meta-data,
-body nav{
-	display:none;
-}
-
-body #wrapper header.page-header hgroup h1 {
-  border-bottom: solid 1px #333;
-  padding-bottom: 0.25em;
-}
-
-body #wrapper header.page-header hgroup h1 span {
-  color: #333;
-}
-
-a,
-a:link,
-a:visited {
-  color: #333;
-}
-a:link:after,
-a:visited:after {
-  content:"[" attr(href) "]";
-  text-decoration: none;
-  margin: 0.5em;
-  font-size: 0.85em;
-}
-a[href='#']:link:after,
-a[href='#']:visited:after {
-  content: none;
-  text-decoration: none;
-  margin: 1em;
-  font-size: 0.85em;
-}
-a[rel="external"] {
-  margin-right: 0.25em;
-	padding-right: 1em;
-}
-
-/* make all the main containers as wide as possible */
-div.article-container {
-    background: none transparent;
-    border-top: none;
-    margin: 0;
-		width:100%;
-		padding:0;
-}
-div#wrapper hgroup span,
-div#wrapper hgroup,
-div#wrapper h1,
-div.article-container article{
-	border:none;
-	box-shadow: none;
-	background:none;
-	margin:0;
-	padding:0;
-}
-body div#wrapper,
-body article,
-body section{
-	margin:0;
-	padding:0;
-	width:100%;
-	float:none;
-}
-
-/*
-  text reformatting
-*/
-
-body #wrapper article .summary p:before,
-body #wrapper article .summary h2:before {
-  content: url(<%= asset_path "summary-arrow.png" %>);
-  padding: 0;
-}
-
-article .summary p, article .summary h2 {
-	margin: 0 0.75em 1.25em 0;
-	min-height: 1.75em;
-	padding: 0.25em 0 0 1.5em;
+header.page-header hgroup h1 span,
+body .actions,
+body nav,
+.visuallyhidden,
+#local-locator-form,
+#location-loading,
+#get-started,
+.finding_location,
+.found_location,
+.loading_location,
+.location_error {
+	display: none !important;
 }
