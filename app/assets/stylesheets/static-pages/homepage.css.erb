@@ -3,7 +3,7 @@
 */
 
 body.home {
-  background: url(<%= asset_path "valentines3.jpg" %>) repeat scroll 0 0 #C9D0D0;
+  background: url(<%= asset_path "angel_map.jpg" %>) repeat scroll 0 0 #C9D0D0;
 }
 body.home #wrapper {
   background-color:transparent;
@@ -249,20 +249,19 @@ body.home #footer .inner {
 }
 .aerial-info {
   background-color: rgba(255, 255, 255, 0.6);
+  bottom:1em;
+	display: inline;
   font-size: 0.75em;
-  padding: 0;
   left: 3.75em;
+  padding: 0.5em;
   position: relative;
-  width: 35%;
-  margin-bottom:1em;
 }
 .lte-ie8 .aerial-info {
   background-color: #fff;
 }
 .aerial-info p{
-  padding:0.2em 0.4em;
   margin:0;
-  display:block;
+  display:inline;
 }
 
 @media only screen and (max-width:670px) {
@@ -313,6 +312,9 @@ body.home #footer .inner {
     line-height: 1em;
     margin-top: 0.5em;
   }
+	.aerial-info {
+		display: none;
+	}
 }
 
 @media only screen and (min-width: 670px) {
