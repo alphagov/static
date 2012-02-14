@@ -176,3 +176,13 @@
   content: none;
   margin: 0;
 }
+
+@media only screen and (max-width:670px) {
+  .image-in-text img {
+    border: 0 none;
+    width: 80%;
+  }
+  #wrapper .ancillary header.page-header hgroup{
+    padding-left: 2.5em;
+  }
+}
