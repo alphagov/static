@@ -41,8 +41,8 @@ article h1 + h2 {
 article h2 {
   font-size: 1.3em;
   line-height: 1.18em;
+  margin-bottom: 0.625em;
   margin-top: 1.2em;
-  margin-bottom: 0.5em;
 }
 
 article h2 + h3 {
@@ -99,11 +99,13 @@ article p {
 article li {
   font-size: 112.5%;
   margin: 0.25em 0;
+  padding-left: 0.3em;
 }
 
 article li ul,
 article li ol {
   margin: 0;
+  list-style-position:inside;
 }
 
 article li li {
@@ -117,11 +119,16 @@ article li p {
 }
 
 article ul, article ol {
-  padding-left: 1.5em;
+  padding-left: 2.1em;
+  margin-left: -2.4em;
 }
 
+
+
 article ul {
-  list-style-type: disc;
+  list-style-type: circle;
+  list-style-image: url(<%= asset_path "bullet-disc-5px.gif" %>);
+  margin-bottom: 1.25em;
 }
 
 article ol {
@@ -441,13 +448,14 @@ article .place .additional-information a {
 
 article ol.steps {
   padding-left: 0;
+  margin-left: 0;
 }
 
 article ol.steps li {
-  background-position: 0 0.85em;
+  background-position: 0 0.87em;
   background-repeat: no-repeat;
   list-style-type: none;
-  padding: 0.75em 0 0.75em 2.25em;
+  padding: 0.75em 0 0.75em 2.2em;
 }
 article ol.steps li:nth-child(1) {
   background-image: url(<%= asset_path "icon-step-1.png" %>);
