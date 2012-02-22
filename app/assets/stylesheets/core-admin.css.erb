@@ -358,6 +358,29 @@ input[disabled]:active {
 	font-weight: normal;
 }
 
+.edition .history ul.diff {
+	border: 1px solid #bbb;
+	margin: 2em 0;
+	padding: 0;
+}
+.edition .history ul.diff li {
+	background: #f6f6f6;
+	font-family: Monaco, "Courier New", fixed-width;
+	font-size: 0.8em;
+	min-height: 1em;
+	margin: 0;
+	padding: 0.5em;
+}
+.edition .history ul.diff li.alt {
+	background: #ececec;
+}
+.edition .history ul.diff li.addition {
+	background: #d7ecdb;
+}
+.edition .history ul.diff li.removal {
+	background: #ecd7d9;
+}
+
 #parts { /* give parts tab groups a little breathing room */
 	margin-bottom: 0.5em;
 }
