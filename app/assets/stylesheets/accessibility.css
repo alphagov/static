@@ -6,7 +6,7 @@
 .hidden { display: none; visibility: hidden; }
 
 /* Hide only visually, but have it available for screenreaders */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden { position:absolute; left:-9999em; }
 
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
