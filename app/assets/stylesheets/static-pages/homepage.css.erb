@@ -119,9 +119,14 @@ body.home #footer .inner {
 }
 .feature-items .browse a{
   background-color: rgb(253,235,242);
+  display:block;
   text-decoration:none;
   padding:0.2em;
 }
+.lte-ie8 .feature-items .browse a{
+  white-space:nowrap;
+}
+
 .feature-items .browse a:hover,
 .feature-items .browse a:focus{
   text-decoration:underline;
