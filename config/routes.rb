@@ -10,4 +10,5 @@ Static::Application.routes.draw do
   match "/templates/500.html.erb", :to => "root#500"
   match "/templates/501.html.erb", :to => "root#501"
   match "/templates/503.html.erb", :to => "root#503"
+  match "/templates/504.html.erb", :to => "root#504"
 end
