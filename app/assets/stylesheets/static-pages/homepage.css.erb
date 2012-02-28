@@ -78,17 +78,25 @@ body.home #footer .inner {
 }
 .feature-items .section{
   width:237px;
-  background-color:#fff;
-  padding:0.5em 2em;
 }
-
+.feature-items .popular, 
+.feature-items .browse,
+.feature-items .news{
+  padding:0.5em 2em;
+  background-color:#fff;
+  overflow:auto;
+}
+.feature-items .browse,
+.feature-items .news{
+  width:100%;
+}
 .feature-items ul{
   list-style-type:none;
   margin:0;
   padding:0;
 }
 .feature-items .popular{
-  margin-left:12px;
+  margin-left:76px;
   border-top:2px solid #00652E;
 }
 .feature-items .popular h2{
@@ -105,9 +113,23 @@ body.home #footer .inner {
 .feature-items .popular li a:hover {
   text-decoration: none;
 }
-
+.feature-items .news{
+  border-top:2px solid #DD322D;
+  margin-bottom:0.55em;
+}
+.feature-items .news h2 a{
+  text-decoration:none;
+}
+.feature-items .news h2 span{
+  background-color:#DD322D;
+  color:#fff;
+  padding:0.1em 0.3em 0.1em 0.5em;
+  display:inline-block;
+  font-size:0.75em;
+}
 .feature-items .browse{
   border-top:2px solid #D43783;
+
 }
 .feature-items .browse h2{
  color:#D43783;
@@ -306,6 +328,13 @@ body.home #footer .inner {
   }
   .homepage-section{
     margin:0;
+  }
+
+  .feature-items .popular, .feature-items .browse, .feature-items .news{
+    padding:0.5em 0em;
+  }
+  .feature-items .news p{
+    padding:0 1.675em;
   }
   .homepage-banner .tag-line p{
     font-size:1.5em
