@@ -54,7 +54,7 @@ module Static
       formtastic_changes.css
       publisher-tabs.js
       ie.js
-      libs/jquery/jquery-1.6.2.min.js
+      libs/jquery/jquery-1.7.2.min.js
       high-contrast.css
       dyslexic.css
       admin.css
