@@ -48,17 +48,21 @@ $(function() {
     "</div></div>"
   ].join('');
 
-  var gelWelcomeCopy = [
+  var dpWelcomeCopy = [
     "<div class='welcome-content'>",
     "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
     "<div class='welcome-inner'>",
     "<p>",
-    "  Welcome to the Design Principles Alpha",
+    "  Welcome to the first draft of the Design Principles for GOV.UK. This",
+    "  is an 'alpha' draft - there's lots more work to be done and many more",
+    "  resources to be added.",
     "</p>",
-    "<p>Your suggestions will help us make this site better, so if ",
-    "you have any comments please leave us feedback.</p>",
-    "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
-    "read the warning</a></p>",
+    "<p>These principles are intended to be 'carrot not stick'. They're not a ",
+    "list of bad things to be avoided, they're a set of principles to ",
+    "inspire you, accompanied by examples which explain things further and ",
+    "code and resources which will make the principles easier to follow.</p>",
+    "<p>We'd love to know what you think - will these principles and examples ",
+    "be useful for you? Please let us know via <a href='mailto:govuk-feedback@digital.cabinet-office.gov.uk'>govuk-feedback@digital.cabinet-office.gov.uk</a>.</p>",
     "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
     "this page sets a cookie so you don\u2019t see it again. There\u2019s more information on cookies at ",
     "<a href='http://www.aboutcookies.org/'>AboutCookies.org</a>.</small></p>",
@@ -93,7 +97,7 @@ $(function() {
       return 'whitehall-tour';
     }
     else if (onGel()){
-      return 'gel-tour';
+      return 'dp-tour';
     } else {
       return 'govuk-tour';
     }
@@ -103,7 +107,7 @@ $(function() {
     if (onWhitehall()) {
       return whitehallWelcomeCopy;
     else if (onGel()){
-      return gellWelcomeCopy;
+      return dplWelcomeCopy;
     } else {
       return govUkWelcomeCopy;
     }
