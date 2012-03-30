@@ -67,6 +67,10 @@ $(function() {
     return !! window.location.pathname.match(/^\/government/)
   }
 
+  function onGel() {
+    return !! window.location.pathname.match(/^\/designprinciples/)
+  }
+
   function activeCookieName() {
     if (onWhitehall()) {
       return 'whitehall-tour';
@@ -91,7 +95,10 @@ $(function() {
     }
   }
 
-  showPopup();
+  if(!onGel()){
+    showPopup();
+  }
+  
 
   function setCookie(name, value, days){
     var expires;

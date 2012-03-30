@@ -45,7 +45,7 @@ $(document).ready(function() {
   $("body").addClass("js-enabled");
   $('.print-link a').attr('target', '_blank');
   
-  if(window.location.hash) {
+  if(window.location.hash && $(".design-principles").length != 1) {
     contentNudge(window.location.hash);
   } 
 
