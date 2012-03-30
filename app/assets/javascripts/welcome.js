@@ -48,6 +48,23 @@ $(function() {
     "</div></div>"
   ].join('');
 
+  var gelWelcomeCopy = [
+    "<div class='welcome-content'>",
+    "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
+    "<div class='welcome-inner'>",
+    "<p>",
+    "  Welcome to the Design Principles Alpha",
+    "</p>",
+    "<p>Your suggestions will help us make this site better, so if ",
+    "you have any comments please leave us feedback.</p>",
+    "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
+    "read the warning</a></p>",
+    "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
+    "this page sets a cookie so you don\u2019t see it again. There\u2019s more information on cookies at ",
+    "<a href='http://www.aboutcookies.org/'>AboutCookies.org</a>.</small></p>",
+    "</div></div>"
+  ].join('');
+
   function getUrlVars() {
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -74,6 +91,9 @@ $(function() {
   function activeCookieName() {
     if (onWhitehall()) {
       return 'whitehall-tour';
+    }
+    else if (onGel()){
+      return 'gel-tour';
     } else {
       return 'govuk-tour';
     }
@@ -82,6 +102,8 @@ $(function() {
   function popupCopy() {
     if (onWhitehall()) {
       return whitehallWelcomeCopy;
+    else if (onGel()){
+      return gellWelcomeCopy;
     } else {
       return govUkWelcomeCopy;
     }
@@ -95,9 +117,8 @@ $(function() {
     }
   }
 
-  if(!onGel()){
-    showPopup();
-  }
+  showPopup();
+  
   
 
   function setCookie(name, value, days){
