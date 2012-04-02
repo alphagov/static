@@ -106,6 +106,7 @@ $(function() {
   function popupCopy() {
     if (onWhitehall()) {
       return whitehallWelcomeCopy;
+    }
     else if (onGel()){
       return dpWelcomeCopy;
     } else {
