@@ -107,7 +107,7 @@ $(function() {
     if (onWhitehall()) {
       return whitehallWelcomeCopy;
     else if (onGel()){
-      return dplWelcomeCopy;
+      return dpWelcomeCopy;
     } else {
       return govUkWelcomeCopy;
     }
