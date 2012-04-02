@@ -50,7 +50,7 @@ $(function() {
 
   var dpWelcomeCopy = [
     "<div class='welcome-content'>",
-    "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
+    "<h2>Alpha</h2><p class='close'><a href='#'>Close</a></p>",
     "<div class='welcome-inner'>",
     "<p>",
     "  Welcome to the first draft of the Design Principles for GOV.UK. This",
