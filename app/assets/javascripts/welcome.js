@@ -20,34 +20,6 @@ $(function() {
     "</div></div>"
   ].join('');
 
-  var whitehallWelcomeCopy = [
-    "<div class='welcome-content'>",
-    "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
-    "<div class='welcome-inner'>",
-    "<p>",
-    "  Welcome to \u2018Inside government\u2019 a 6-week trial of a better way",
-    "  to organise and deliver information about the workings of government. ",
-    "  It contains information from ten departments but many areas will be ", 
-    "  empty during this test. This \u2018beta\u2019 version will run from ",
-    "  29 Feb to 11 April 2012.",
-    "</p>",
-    "<p>",
-    "  <strong>",
-    "    PLEASE BE AWARE \u2013 this is a test website. It may ",
-    "    contain inaccuracies or be misleading. The individual departmental",
-    "    and agency websites remain the official sources for government information.",
-    "  </strong>",
-    "</p>",
-    "<p>Your suggestions will help us make this site better, so if ",
-    "you have any comments please leave us feedback.</p>",
-    "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
-    "read the warning</a></p>",
-    "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
-    "this page sets a cookie so you don\u2019t see it again. There\u2019s more information on cookies at ",
-    "<a href='http://www.aboutcookies.org/'>AboutCookies.org</a>.</small></p>",
-    "</div></div>"
-  ].join('');
-
   var dpWelcomeCopy = [
     "<div class='welcome-content'>",
     "<h2>Alpha</h2><p class='close'><a href='#'>Close</a></p>",
@@ -86,19 +58,12 @@ $(function() {
     return getUrlVars()[name];
   }
 
-  function onWhitehall() {
-    return !! window.location.pathname.match(/^\/government/)
-  }
-
-  function onGel() {
+  function onDesignPrinciples() {
     return !! window.location.pathname.match(/^\/designprinciples/)
   }
 
   function activeCookieName() {
-    if (onWhitehall()) {
-      return 'whitehall-tour';
-    }
-    else if (onGel()){
+    if (onDesignPrinciples()){
       return 'dp-tour';
     } else {
       return 'govuk-tour';
@@ -106,10 +71,7 @@ $(function() {
   }
 
   function popupCopy() {
-    if (onWhitehall()) {
-      return whitehallWelcomeCopy;
-    }
-    else if (onGel()){
+    if (onDesignPrinciples()){
       return dpWelcomeCopy;
     } else {
       return govUkWelcomeCopy;
@@ -119,14 +81,14 @@ $(function() {
   function showPopup() {
     if (getUrlVar('nopopup') != "true") {
       if(getCookie(activeCookieName()) != "dismiss"){
-        BetaPopup.popup(popupCopy(), "welcome-tour"); 
+        BetaPopup.popup(popupCopy(), "welcome-tour");
       }
     }
   }
 
   showPopup();
-  
-  
+
+
 
   function setCookie(name, value, days){
     var expires;
@@ -154,12 +116,12 @@ $(function() {
     }
     return null;
   }
-  
+
   $(".welcome-tour .close").live("click", function(){
     setCookie(activeCookieName(), "dismiss", 7);
     return;
   });
-  
+
   $(".thanks-dismiss").live("click", function(){
     setCookie(activeCookieName(), "dismiss", 7);
     closePopup();
@@ -175,6 +137,6 @@ $(function() {
 
     $(".header-global h1 a").focus();
   };
-  
- 
+
+
 });
