@@ -18,3 +18,4 @@ group :assets do
 end
 
 gem 'plek', '~> 0'
+gem 'jasmine'
