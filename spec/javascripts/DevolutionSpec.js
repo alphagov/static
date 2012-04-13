@@ -338,20 +338,49 @@ describe("openAndCloseSectionsByLocation", function(){
     testSelectedSectionsAreOpenAndOthersAreClosed("wales", "england-wales");
   });
 
-  // it("hides London section if councils are not in London", function() {
-  //   loadFixtures("DevolutionTIncorrectSections.html");
-
-  //   var geoData = {
-  //     nation: 'Wales',
-  //     council: []
-  //   }
-  //   Devolution.addHideThisLinks();
-  //   Devolution.openAndCloseSectionsByLocation(geoData);
-
-  //   testSelectedSectionsAreOpenAndOthersAreClosed("wales", "england-wales");
-  // });
+  it("hides London section if councils are not in London", function() {
+    loadFixtures("DevolutionThreeCountryPlusLondonSections.html");
+    
+    testSectionsAreOpen("england-wales", "northern-ireland", "scotland", "london");
 
 
+    var geoData = {
+      nation: 'Wales',
+      council: [ {
+        id: 2603,
+        name: "Monmouthshire Council",
+        ons: "00PP",
+        type: "UTA"  
+      }]
+
+      
+    }
+    Devolution.openAndCloseSectionsByLocation(geoData);
+
+    testSelectedSectionsAreOpenAndOthersAreClosed("england-wales");
+  });
+
+  it("shows London section if council is in London", function() {
+    loadFixtures("DevolutionThreeCountryPlusLondonSections.html");
+    
+    testSectionsAreOpen("england-wales", "northern-ireland", "scotland", "london");
+
+
+    var geoData = {
+      nation: 'Wales',
+      council: [ {
+        id: 2490,
+        name: "Lambeth Borough Council",
+        ons: "00AY",
+        type: "LBO"
+      }]
+
+      
+    }
+    Devolution.openAndCloseSectionsByLocation(geoData);
+
+    testSelectedSectionsAreOpenAndOthersAreClosed("england-wales", "london");
+  });
 
 
 });
