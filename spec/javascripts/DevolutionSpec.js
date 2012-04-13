@@ -140,7 +140,7 @@ describe("addHideThisLinks", function() {
 
 describe("openAndCloseSectionsByLocation", function(){
 
-  function testAllSectionsOpen() {
+  function testSectionsAreOpen() {
     for (var i=0, length=arguments.length; i < length; i++) {
       expect($('.' + arguments[i] + ' > .devolved-body')).toBeVisible();
     }
@@ -157,11 +157,22 @@ describe("openAndCloseSectionsByLocation", function(){
     });
   }
 
+  function testSelectedSectionsHaveAHideThisLinkAndOthersHaveShowThis() {
+    var args = arguments;
+    $(".devolved-content").each(function(i, section) {
+      if ($(section).hasClass(args[0]) || $(section).hasClass(args[1])) {
+        expect($(section).find("a").text()).toBe("Hide this");
+      } else {
+        expect($(section).find("a").text()).toBe("Show this");
+      }
+    });
+  }
+
 
   it("opens the england section when England is the current location and closes all other sections", function(){
     loadFixtures("DevolutionFourCountrySections.html");
 
-    testAllSectionsOpen("england", "scotland", "northern-ireland", "wales");
+    testSectionsAreOpen("england", "scotland", "northern-ireland", "wales");
 
     var geoData = {
       nation: 'England',
@@ -175,7 +186,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the scotland section when Scotland is the current location and closes all other sections", function() {
     loadFixtures("DevolutionFourCountrySections.html");
 
-    testAllSectionsOpen("england", "scotland", "northern-ireland", "wales");
+    testSectionsAreOpen("england", "scotland", "northern-ireland", "wales");
 
     var geoData = {
       nation: 'Scotland',
@@ -189,7 +200,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the northern-ireland section when Northern Ireland is the current location and closes all other sections", function() {
     loadFixtures("DevolutionFourCountrySections.html");
 
-    testAllSectionsOpen("england", "scotland", "northern-ireland", "wales");
+    testSectionsAreOpen("england", "scotland", "northern-ireland", "wales");
 
     var geoData = {
       nation: 'Northern Ireland',
@@ -203,7 +214,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the wales section when Wales is the current location and closes all other sections", function() {
     loadFixtures("DevolutionFourCountrySections.html");
 
-    testAllSectionsOpen("england", "scotland", "northern-ireland", "wales");
+    testSectionsAreOpen("england", "scotland", "northern-ireland", "wales");
 
     var geoData = {
       nation: 'Wales',
@@ -217,7 +228,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the england-wales section when England is the current location and closes all other sections", function() {
     loadFixtures("DevolutionThreeCountrySections.html");
 
-    testAllSectionsOpen("england-wales", "scotland", "northern-ireland");
+    testSectionsAreOpen("england-wales", "scotland", "northern-ireland");
 
     var geoData = {
       nation: 'England',
@@ -232,7 +243,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the england-wales section when Wales is the current location and closes all other sections", function() {
     loadFixtures("DevolutionThreeCountrySections.html");
 
-    testAllSectionsOpen("england-wales", "scotland", "northern-ireland");
+    testSectionsAreOpen("england-wales", "scotland", "northern-ireland");
 
     var geoData = {
       nation: 'Wales',
@@ -247,7 +258,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the northern-ireland section when Northern Ireland is the current location and there is a joint england-wales section, and closes all other sections", function() {
     loadFixtures("DevolutionThreeCountrySections.html");
 
-    testAllSectionsOpen("england-wales", "scotland", "northern-ireland");
+    testSectionsAreOpen("england-wales", "scotland", "northern-ireland");
 
     var geoData = {
       nation: 'Northern Ireland',
@@ -261,7 +272,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the england and england-wales sections when England is the current location and closes all other sections", function() {
     loadFixtures("DevolutionIncorrectSections.html");
 
-    testAllSectionsOpen("england", "wales", "england-wales", "northern-ireland");
+    testSectionsAreOpen("england", "wales", "england-wales", "northern-ireland");
 
     var geoData = {
       nation: 'England',
@@ -275,7 +286,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("opens the wales and england-wales sections when Wales is the current location and closes all other sections", function() {
     loadFixtures("DevolutionIncorrectSections.html");
 
-    testAllSectionsOpen("england", "wales", "england-wales", "northern-ireland");
+    testSectionsAreOpen("england", "wales", "england-wales", "northern-ireland");
 
     var geoData = {
       nation: 'Wales',
@@ -289,7 +300,7 @@ describe("openAndCloseSectionsByLocation", function(){
   it("hides all sections when Scotland is the current location and there is no scotland section", function() {
     loadFixtures("DevolutionIncorrectSections.html");
 
-    testAllSectionsOpen("england", "wales", "england-wales", "northern-ireland");
+    testSectionsAreOpen("england", "wales", "england-wales", "northern-ireland");
 
     var geoData = {
       nation: 'Scotland',
@@ -299,4 +310,48 @@ describe("openAndCloseSectionsByLocation", function(){
 
     testSelectedSectionsAreOpenAndOthersAreClosed();
   });
+
+
+  it("sets the england section link text to 'Hide this' when England is the current location and sets all others to 'Show this'", function(){
+    loadFixtures("DevolutionFourCountrySections.html");
+
+    var geoData = {
+      nation: 'England',
+      council: []
+    }
+    Devolution.addHideThisLinks();
+    Devolution.openAndCloseSectionsByLocation(geoData);
+
+    testSelectedSectionsHaveAHideThisLinkAndOthersHaveShowThis("england");
+  });
+
+  it("sets the wales and england-wales section link texts to 'Hide this' when Wales is the current location and sets all others to 'Show this'", function() {
+    loadFixtures("DevolutionIncorrectSections.html");
+
+    var geoData = {
+      nation: 'Wales',
+      council: []
+    }
+    Devolution.addHideThisLinks();
+    Devolution.openAndCloseSectionsByLocation(geoData);
+
+    testSelectedSectionsAreOpenAndOthersAreClosed("wales", "england-wales");
+  });
+
+  // it("hides London section if councils are not in London", function() {
+  //   loadFixtures("DevolutionTIncorrectSections.html");
+
+  //   var geoData = {
+  //     nation: 'Wales',
+  //     council: []
+  //   }
+  //   Devolution.addHideThisLinks();
+  //   Devolution.openAndCloseSectionsByLocation(geoData);
+
+  //   testSelectedSectionsAreOpenAndOthersAreClosed("wales", "england-wales");
+  // });
+
+
+
+
 });
