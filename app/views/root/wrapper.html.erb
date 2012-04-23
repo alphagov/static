@@ -34,7 +34,11 @@
   <script id="ga-params" type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-26179049-1']);
-  _gaq.push(['_setDomainName', 'auto']);
+  if(document.domain=='www.gov.uk') {
+    _gaq.push(['_setDomainName', '.www.gov.uk']);
+  } else {
+    _gaq.push(['_setDomainName', document.domain]);
+  }
   _gaq.push(['_setAllowLinker', true]);
   </script>
 
