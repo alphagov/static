@@ -20,7 +20,7 @@ $(document).ready(function() {
         url: this.action,
         data: $(this).serialize(),
         complete: function(){
-          $("#popup form").html("<p>Thanks for your feedback</p>")
+          $("#popup form").html("<p class='feedback-thanks'>Thanks for your feedback</p><p>We'll send this feedback to the team.</p>")
         }
       });
 		  return false;
