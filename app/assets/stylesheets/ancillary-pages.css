@@ -81,46 +81,6 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0.25em 1em 0.5em 0;
 }
 
-/* section page layout */
-
-.browse-sections .results ol li {
-  margin: 0 2.5% 0.5em 0;
-  padding: 0.25em 0;
-  min-height: 3em;
-  width: 47.5%;
-  float: left;
-}
-.browse-sections .results ol li:nth-child(odd) {
-  margin-right: 5%;
-}
-.browse-sections .results ol li:nth-child(even) {
-  margin-right: 0;
-}
-.lte-ie8 .browse-sections .results ol li {
-  _height: 5em;
-  margin: 0 0 0.5em 0;
-  padding: 0.25em 2.5% 1em 0;
-  width: 47.5%;
-}
-
-.browse-sections ol,
-.browse-sections dl {
-  margin: 0;
-}
-
-.browse-sections dt {
-  font-size: 1.25em;
-  margin-bottom: 0.25em;
-}
-
-.browse-sections dd {
-  margin: 0 0 1em 0;
-}
-
-.browse-sections dd p {
-  margin: 0;
-}
-
 /* static pages like platform and help */
 
 .ancillary .menu {

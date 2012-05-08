@@ -1,0 +1,377 @@
+/* @override http://static.dev.gov.uk/static/browse.css?body=1 */
+
+/* Sections
+======================================================================== */
+.section-container { background-color: #fff; }
+
+.js-enabled .browse-sections .results.group {
+  /* force full width on column */
+  margin: 0 -2.5em;
+  width: auto;
+  border: 0.75em solid #f2f2f2;
+  border-width: 0.75em 0 0 0;
+  padding: 0;
+}
+
+.browse-sections .results {
+  position: relative;
+}
+
+.browse-sections .sub-sections {
+  /* sign post ui */
+  max-width: 33.333%;
+  padding: 0;
+  float: left;
+  border-right: 1px solid #f2f2f2;
+}
+
+.browse-sections .sub-sections>ol.group {
+  display: none;
+}
+
+.browse-sections .browse-panel {
+  /* results panel */
+  max-width: 66%;
+  float: left;
+  border-left: 1px solid #f2f2f2;
+  margin-left: -1px;
+}
+
+.browse-sections .group ul,
+.browse-sections .group ol {
+  padding: 0.5625em 0 0.1875em;
+  list-style: none;
+  margin: 0;
+}
+
+.browse-sections .group p {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.browse-sections h2 {
+  /* sign post ui */
+  background-color: #c1cacb;
+  border-top: 1px solid #f2f2f2;
+  margin: 0;
+  padding: 0.5em 0.667em;
+  line-height: inherit;
+  font-size: 1.125em;
+}
+
+.js-enabled .browse-sections h2 {
+  padding: 0;
+}
+
+.browse-sections h2 a {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+
+.js-enabled .browse-sections h2 a {
+  padding: 0.5em 0.667em;
+}
+
+/* signpost ui link styles */
+.browse-sections h2 a:hover { background-color: #D5E8F4; }
+.browse-sections h2 a:active { background-color: #2E3191; color: #fff; }
+.browse-sections h2 a:focus { background-color: #2E3191; outline: none; }
+
+.browse-sections h2.open a { color: #fff; }
+.browse-sections h2.open a:hover { background-color: transparent; }
+
+.js-enabled .browse-sections h2.open:after {
+  /* arrow */
+  content: " ";
+  
+  position: absolute;
+  top: 0; right: -1.111em;
+  height: 0; width: 0;
+  overflow: hidden;
+  
+  border-top: 1.167em solid transparent;
+  border-bottom: 1.167em solid transparent;
+  border-left: 1.167em solid #2E3191;
+}
+
+.js-enabled .browse-sections h2.first {
+  /* make the first one massive */
+  border-top: 0;
+  font-size: 2.25em;
+  margin-left: -0.667em;
+  line-height: 1.111em;
+  padding: 0;
+}
+
+.js-enabled .browse-sections h2.first a {
+  padding: 0.25em 0 0.25em 0.5em;
+}
+
+.js-enabled .browse-sections h2.open {
+  background-color: #2E3191;
+  position: relative;
+}
+
+.js-enabled .browse-sections h2.first.open:after {
+  right: -0.805em;
+  border-top-width: 0.805em;
+  border-bottom-width: 0.805em;
+  border-left-width: 0.805em;
+}
+
+.browse-sections ol.content-links li {
+  margin: 0;
+}
+
+.browse-sections ol.content-links li a {
+  background: transparent;
+  display: inline;
+  padding: 0;
+}
+
+.browse-sections ol.content-links p {
+  padding-bottom: 1.5em;
+  width: auto;
+}
+
+.js-enabled .browse-sections ol.group {
+  /* results list */
+  display: none;
+}
+
+.js-enabled .browse-sections ol.open-section {
+  /* results list open */
+  display: block;
+}
+
+.js-enabled .browse-sections .sub-sections ol.open-section {
+  display: none;
+}
+
+.browse-sections .browse-panel>ol a {
+  background: inherit;
+}
+
+/* format type headings */
+.browse-sections h4 {
+  margin: 0;
+  padding: 0.25em 0 0.5em 2em;
+}
+
+.browse-sections ol>li.guide h4 {
+  background-image: url(<%= asset_path "icon-guide-s.png" %>);
+  background-repeat: no-repeat;
+  background-position: 0 0.25em;
+}
+.browse-sections ol>li.answer h4,
+.browse-sections ol>li.calendar h4,
+.browse-sections ol>li.smart_answer h4,
+.browse-sections ol>li.calculator h4,
+.browse-sections ol>li.custom-application h4 {
+  background-image: url(<%= asset_path "icon-answer-s.png" %>);
+  background-repeat: no-repeat;
+  background-position: 0 0.25em;
+}
+.browse-sections ol>li.local_transaction h4,
+.browse-sections ol>li.transaction h4,
+.browse-sections ol>li.place h4,
+.browse-sections ol>li.nearest h4,
+.browse-sections ol>li.service h4 {
+  background-image: url(<%= asset_path "icon-service-s.png" %>);
+  background-repeat: no-repeat;
+  background-position: 0 0.25em;
+}
+.browse-sections ol>li.programme h4 {
+  background-image: url(<%= asset_path "icon-programme-s.png" %>);
+  background-repeat: no-repeat;
+  background-position: 0 0.25em;
+}
+
+.browse-sections .browse-panel>ol>li {
+  /* sub section */
+  padding: 0 0.75em 0.75em 2em;
+}
+
+.browse-sections .browse-panel>ol>li>ol {
+  /* content links list */
+  padding: 0 0 0.375em 0;
+} 
+
+.browse-sections .browse-panel>ol>li>ol>li {
+  /* content links list item */
+  padding: 0.375em 0 0 0;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */ 
+@media only screen and (max-width:960px) {
+	.browse-sections .sub-sections h2.first {
+	  /* make the first one massive */
+	  margin-left: 0;
+	}  
+}
+
+@media only screen and (max-width:670px) {
+  .browse-sections .browse-panel {
+    display: none;
+  }
+  
+  .js-enabled .browse-sections h2.first {
+    font-size: 1.125em;
+  }
+  
+  .js-enabled .browse-sections h2.first a {
+    padding: 0.5em 0.667em;
+  }
+
+  .browse-sections .sub-sections {
+    max-width: 100%;
+    padding: 0;
+    float: none;
+    border: none;
+  }
+  
+  .browse-sections .sub-sections>ol.group {
+    display: none;
+    padding-left: 0.75em;
+  }
+  
+  .js-enabled .browse-sections .sub-sections>ol.open-section {
+    display: block;
+  }
+  
+  .browse-sections ol.content-links li {
+	padding: 0.25em 1em 0;	
+  }
+}
+
+/* Search Footer
+======================================================================== */
+.prototype-onward {
+  position: relative;
+  clear: both;
+  max-width: 58.5em;
+  padding: 0.375em 0.75em;
+
+  border: 0.75em solid #f2f2f2;
+  border-width: 0.75em 0;
+  margin: 0 -2.5em -0.75em -2.5em;
+
+  background: #999;
+  color: white;
+}
+
+.prototype-onward h2 {
+  background-color: inherit;
+  padding: 0; border: 0;
+}
+
+.prototype-onward input[type="search"] {
+  height: 1.875em;
+  margin-left: 0.625em;
+  width: 60%;
+}
+
+.prototype-onward button {
+  background-color: #4370CD;
+  border: 1px solid #4370CD;
+  line-height: 1.25em;
+  padding: 0.5em 0.75em;
+  
+  -moz-transition: background-color 0.5s ease-in-out 0s;
+  background-image: url(<%= asset_path "button-overlay.png" %>);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  border-radius: 2px 2px 2px 2px;
+
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+/* Summary
+======================================================================== */
+.citizen .browse-sections .summary {
+  background-color: transparent;
+  padding:0;
+}
+
+#wrapper .browse-sections .summary { color: inherit; }
+
+/* Upcoming Event
+======================================================================== */
+
+.highlighted-event p {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1.875em;
+  font-weight: bold;
+  margin-top: 0;
+  color: #D33883;
+}
+
+.highlighted-event p span {
+  font-weight: normal;
+}
+
+/* Audience Filter
+======================================================================== */
+
+.browse-sections div.audience-filter {
+  padding: 16px 26px 0 34px;
+  color: #666;
+}
+
+.browse-sections div.audience-filter label {
+  float: left;
+  margin-right: 10px;
+}
+
+.browse-sections div.audience-filter ul {
+  padding-top: 0;
+}
+
+.browse-sections div.audience-filter ul li {
+  display: inline-block;
+}
+
+.browse-sections div.audience-filter ul li a {
+  padding: 2px 4px;
+  line-height: 20px;
+
+  border-radius: 2px;
+
+  background: #e1e8e8;
+  color: #666;
+
+  text-decoration: none;
+  
+          transition: 0.4s ease;
+       -o-transition: 0.4s ease;
+     -moz-transition: 0.4s ease;
+  -webkit-transition: 0.4s ease;
+}
+
+.browse-sections div.audience-filter ul li a:hover {
+  background-color: #e8f0f0;
+}
+
+.browse-sections div.audience-filter ul li a.active {
+  font-weight: bold;
+  background-color: #c1cacb;
+  color: #fff;
+}
+
+.filtered {
+  opacity: 0.2;
+}
+
+.content-links li {
+          transition: 0.4s ease;
+       -o-transition: 0.4s ease;
+     -moz-transition: 0.4s ease;
+  -webkit-transition: 0.4s ease;
+}
