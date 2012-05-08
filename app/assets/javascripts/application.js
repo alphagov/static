@@ -10,4 +10,5 @@
 //= require customisation-settings
 //= require welcome
 //= require feedback
+//= require browse
 
