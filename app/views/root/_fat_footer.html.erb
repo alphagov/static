@@ -1,0 +1,141 @@
+<div class="prototype-footer">
+  <div class="prototype-footer-wrapper">
+    <h2>Browse</h2>
+
+    <% if false %>
+    <div class="prototype-footer-filters">
+      <!-- <span>Show me:</span> -->
+      <ul class="prototype-footer-filter-actions group">
+        <li><button type="button" class="active" data-filter="everyone">Everybody</button></li>
+        <li><button type="button" data-filter="business">Business</button></li>
+      </ul>
+    </div>
+
+    <% @popular_items.each do |key, items| %>
+    <div class="prototype-footer-row group">
+      <div class="prototype-footer-section">
+        <h4><a href="#"><%= key %></a></h4>
+        <ul class="prototype-footer-list">
+          <% items[0..3].each do |item| %>
+            <li><a href="#"><%= item %></a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+
+    <% end %>
+
+    <div class="group">
+      <div class="prototype-footer-section">
+        <h4><a href="#">Crime &amp; Justice</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Jury Service</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Report a crime or anti-social behaviour</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Prison Life</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Become a magistrate</a></li>
+        </ul>
+        <p><a href="#">More on Crime &amp; Justice…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Driving</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Get a tax disc (vehicle licence)</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Calculate vehicle tax rates</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Book a driving theory test</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Book a practical driving test</a></li>
+        </ul>
+        <p><a href="#">More on Driving…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Education</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone"><a href="#">Student finance 2012-13</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Student finance calculator 2012-13</a></li>
+          <li class="prototype-filter-everyone"><a href="#">School term and holiday dates</a></li>
+          <li class="prototype-filter-everyone"><a href="#">The national curriculum</a></li>
+        </ul>
+        <p><a href="#">More on Education…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Family</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone"><a href="#">Order a copy of a birth, death or marriage certificate</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Register a birth</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Get a divorce</a></li>
+          <li class="prototype-filter-everyone"><a href="#">What to do after someone dies</a></li>
+        </ul>
+        <p><a href="#">More on Family…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Housing</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone"><a href="#">Housing Benefit</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Council Tax Benefit</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Council housing</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Apply for council housing</a></li>
+        </ul>
+        <p><a href="#">More on Housing…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Life in the UK</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Petition the government</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Register to vote</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Becoming a British citizen</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Disability rights</a></li>
+        </ul>
+        <p><a href="#">More on Life in the UK…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Money and Tax</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Claim tax credits</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Tax credits calculator</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">State Pension: qualifying and claiming</a></li>
+          <li class="prototype-filter-everyone"><a href="#">File your Self Assessment tax return</a></li>
+        </ul>
+        <p><a href="#">More on Money and Tax…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Neighbourhoods</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">UK online centres</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Organising a fete or street party</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Noise pollution from roads, trains or planes</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Controlling your dog in public</a></li>
+        </ul>
+        <p><a href="#">More on Neighbourhoods…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Travel</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Plan your journey</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Get a passport quickly</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Hand luggage restrictions at UK airports</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Apply for or renew a European Health Insurance Card</a></li>
+        </ul>
+        <p><a href="#">More on Travel…</a></p>
+      </div>
+
+      <div class="prototype-footer-section">
+        <h4><a href="#">Work</a></h4>
+        <ul class="prototype-footer-list">
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Find a job</a></li>
+          <li class="prototype-filter-everyone"><a href="#">Jobseeker&rsquo;s Allowance</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Calculate your redundancy pay</a></li>
+          <li class="prototype-filter-everyone prototype-filter-business"><a href="#">Your right to the minimum wage</a></li>
+        </ul>
+        <p><a href="#">More on Work…</a></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 Static::Application.routes.draw do
   match "/templates/wrapper.html.erb", :to => "root#wrapper"
+  match "/templates/wrapper_with_fat_footer.html.erb", :to => "root#wrapper_with_fat_footer"
   match "/templates/print.html.erb", :to => "root#print"
   match "/templates/related.raw.html.erb", :to => "root#related"
   match "/templates/homepage.html.erb", :to => "root#homepage"

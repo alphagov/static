@@ -1,3 +1,5 @@
+/* @override http://static.dev.gov.uk/static/header-footer.css?body=1 */
+
 /* Global header */
 
 #global-header {
@@ -404,3 +406,218 @@ form.site-search #site-search-text {
     position: absolute;
   }
 }
+
+/* Prototype Footer: Alex Torrance
+======================================================================== */
+
+.core-content, .prototype-footer {
+  -webkit-font-smoothing: antialiased;
+}
+ 
+#footer { z-index: 999; position: relative; }
+
+#footer .prototype-footer {
+  background: #444;
+  color: #bbb;
+  
+  position: relative;
+  padding: 0.5em 3.125.em;
+  
+  font-size: .875em;
+  line-height: 1.285714286em;
+}
+
+#footer .prototype-footer-wrapper {
+  max-width: 67.571428571em;
+  margin: 0 auto;
+}
+
+/* Heading & text */
+
+#footer .prototype-footer h2 {
+  padding: 0.631578947em 0 1.263157895em 0;
+  color: #fff;
+  
+  /*display: inline-block;*/
+}
+
+#footer .prototype-footer h4 {
+  margin: 0; color: #fff;
+}
+
+#footer .prototype-footer h4 a {
+  font-size: 1.357142857em;
+  border: none;
+}
+
+#footer .prototype-footer h4 a:hover {
+  color: #fff;
+}
+
+#footer .prototype-footer a {
+  color: inherit;
+  text-decoration: none;
+  /*border-bottom: 1px solid #777;*/
+  transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+}
+
+#footer .prototype-footer a:hover {
+  text-decoration: underline;
+  color: #f8f8f8;
+  /*border-bottom: 1px solid #ddd;*/
+}
+
+#footer .prototype-footer p {
+  margin: 0;
+  text-indent: 0.857142857em;
+}
+
+/* Columns */
+
+#footer .prototype-footer-column {
+  margin-right: 1.714285714em;
+  width: 15.857142857em;
+  float: left;
+}
+
+#footer .prototype-footer-column:last-child {
+  margin-right: 0;
+}
+
+
+/* Rows */
+
+#footer .prototype-footer-section {
+  padding: 0.857142857em 1.714285714em 0.857142857em 0;
+  width: 15.142857143em;
+  float: left;
+  min-height: 12.642857143em;
+}
+
+#footer .prototype-footer-section:nth-child(4n+4) {
+  padding-right: 0;
+}
+
+/* Lists */
+
+#footer .prototype-footer-list {
+  list-style: none;
+  padding: 0.214285714em 0; margin:0;
+}
+
+#footer .prototype-footer-list li {
+  display: block; overflow: hidden;
+       -o-transition: opactiy 0.4s ease, height 0.4s ease 0.4s;
+     -moz-transition: opacity 0.4s ease, height 0.4s ease 0.4s;
+  -webkit-transition: opacity 0.4s ease, height 0.4s ease 0.4s;
+          transition: opacity 0.4s ease, height 0.4s ease 0.4s;
+}
+
+#footer .prototype-footer-list li a {
+  font-weight: bold;
+  display: inline-block; padding: 0.214285714em 0;
+}
+
+#footer .prototype-footer-list li.cloaked {
+  height: 0!important; opacity: 0;
+}
+
+#footer .prototype-footer-list li.cloaked a {
+}
+
+/* Filters */
+
+#footer .prototype-footer-filters {
+  margin: 0; padding: 0.428571429em;
+  background: #333;
+  display: inline-block;
+  
+  position: relative;
+  top: 0.857142857em; left: 0.357142857em;
+}
+
+#footer .prototype-footer-filter-actions {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+#footer .prototype-footer-filter-actions li {
+  float: left;
+  margin-right: 0.357142857em;
+}
+
+#footer .prototype-footer-filter-actions li:last-child {
+  margin: 0;
+}
+
+/* Buttons */
+
+#footer .prototype-footer-filters button {
+  padding: 0.142857143em 0.285714286em;
+  line-height: 1.428571429em;
+  
+  border: 0;
+  border-radius: 0.142857143em;
+  background: transparent;
+  
+  color: #fff;
+  
+  transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+}
+
+#footer .prototype-footer-filters button:hover {
+  background: #444;
+}
+
+#footer .prototype-footer-filters button.active,
+#footer .prototype-footer-filters button.active:hover {
+  background: #999; color: #000;
+}
+
+@media only screen and (max-width:960px) {
+  #footer .prototype-footer-wrapper {
+    padding: 0 0.857142857em;
+  }
+  
+  #footer .prototype-footer-row {
+	height: 0; overflow: visible;
+  }
+  
+  #footer .prototype-footer-section {
+    width: 22%;
+    padding-right: 4%;
+  }
+}
+
+@media only screen and (max-width:740px) and (min-width: 580px) {
+  #footer .prototype-footer-section,
+  #footer .prototype-footer-section:nth-child(4n+4) {
+    width: 30%;
+    padding-right: 5%;
+  }
+  
+  #footer .prototype-footer-section:nth-child(3n+3) {
+    padding-right: 0;
+  }    
+}
+
+@media only screen and (max-width:580px) {
+  #footer .prototype-footer-section,
+  #footer .prototype-footer-section:nth-child(4n+4) {
+    width: 45%;
+    padding-right: 10%;
+  }
+  
+  #footer .prototype-footer-section:nth-child(even) {
+    padding-right: 0;
+  }  
+}
+
+
+
