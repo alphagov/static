@@ -442,12 +442,13 @@ form.site-search #site-search-text {
 }
 
 #footer .prototype-footer h4 {
-  margin: 0; color: #fff;
+  margin: 0;
 }
 
 #footer .prototype-footer h4 a {
   font-size: 1.357142857em;
   border: none;
+  color: #fff;
 }
 
 #footer .prototype-footer h4 a:hover {
@@ -462,6 +463,10 @@ form.site-search #site-search-text {
   -o-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
   -webkit-transition: 0.2s ease;
+}
+
+.lte-ie8 #footer .prototype-footer a {
+  color: #bbb;
 }
 
 #footer .prototype-footer a:hover {
@@ -492,7 +497,10 @@ form.site-search #site-search-text {
 
 #footer .prototype-footer-section {
   padding: 0.857142857em 1.714285714em 0.857142857em 0;
-  width: 15.142857143em;
+  /*width: 15.142857143em;*/
+  width: 22%;
+  padding-right: 4%;
+  
   float: left;
   min-height: 12.642857143em;
 }
@@ -589,10 +597,10 @@ form.site-search #site-search-text {
 	height: 0; overflow: visible;
   }
   
-  #footer .prototype-footer-section {
+  /*#footer .prototype-footer-section {
     width: 22%;
     padding-right: 4%;
-  }
+  }*/
 }
 
 @media only screen and (max-width:740px) and (min-width: 580px) {

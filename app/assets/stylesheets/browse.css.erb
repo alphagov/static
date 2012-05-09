@@ -105,8 +105,16 @@
   padding: 0;
 }
 
+.lte-ie8 .js-enabled .browse-sections h2.first {
+  margin-left: 0;
+}
+
 .js-enabled .browse-sections h2.first a {
   padding: 0.25em 0 0.25em 0.5em;
+}
+
+.lte-ie8 .js-enabled .browse-sections h2.first a {
+  padding-left: 0.333333333em;
 }
 
 .js-enabled .browse-sections h2.open {
@@ -115,7 +123,7 @@
 }
 
 .js-enabled .browse-sections h2.first.open:after {
-  right: -0.805em;
+  right: -0.777777778em;
   border-top-width: 0.805em;
   border-bottom-width: 0.805em;
   border-left-width: 0.805em;
@@ -268,15 +276,17 @@
 }
 
 .prototype-onward h2 {
-  background-color: inherit;
+  background-color: transparent;
   padding: 0; border: 0;
 }
 
-.prototype-onward input[type="search"] {
-  height: 1.875em;
-  width: 60%;
+.prototype-onward input {
+  width: 60%; height: 1.2em;
   clear: left; float: left;
   display: block;
+  font-size: 1.5em;
+  line-height: 1.25em;
+  padding: 0.125em;
 }
 
 .prototype-onward button {
