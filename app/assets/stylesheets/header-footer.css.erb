@@ -627,5 +627,15 @@ form.site-search #site-search-text {
   }  
 }
 
+/* IE styles after @media blocks as they get overwritten */
+.lte-ie8 #footer .prototype-footer-wrapper {
+  _width: 67.571428571em;  /* <= IE6 */
+}
 
+.lte-ie8 #footer .prototype-footer-section {
+  *padding-right: 3.9%; /* <= IE7 */
+}
 
+.lte-ie8 #footer .prototype-footer-section.last {
+  *padding-right: 0; /* <= IE7 */
+}

@@ -4,7 +4,7 @@
 ======================================================================== */
 .section-container { background-color: #fff; }
 
-.js-enabled .browse-sections .results.group {
+.js-enabled .browse-sections .results {
   /* force full width on column */
   margin: 0 -2.5em;
   width: auto;
@@ -35,6 +35,7 @@
   float: left;
   border-left: 1px solid #f2f2f2;
   margin-left: -1px;
+  display: inline;
 }
 
 .browse-sections .group ul,
@@ -105,16 +106,8 @@
   padding: 0;
 }
 
-.lte-ie8 .js-enabled .browse-sections h2.first {
-  margin-left: 0;
-}
-
 .js-enabled .browse-sections h2.first a {
   padding: 0.25em 0 0.25em 0.5em;
-}
-
-.lte-ie8 .js-enabled .browse-sections h2.first a {
-  padding-left: 0.333333333em;
 }
 
 .js-enabled .browse-sections h2.open {
@@ -133,8 +126,9 @@
   margin: 0;
 }
 
-.browse-sections ol.content-links li a {
-  background: transparent;
+.browse-sections ol.content-links li a,
+.browse-sections ol.content-links li a:hover {
+  background-image: none;
   display: inline;
   padding: 0;
 }
@@ -168,46 +162,46 @@
   padding: 0.25em 0 0.5em 2em;
 }
 
-.browse-sections ol>li.guide h4 {
+.browse-sections ol li.guide h4 {
   background-image: url(<%= asset_path "icon-guide-s.png" %>);
   background-repeat: no-repeat;
   background-position: 0 0.25em;
 }
-.browse-sections ol>li.answer h4,
-.browse-sections ol>li.calendar h4,
-.browse-sections ol>li.smart_answer h4,
-.browse-sections ol>li.calculator h4,
-.browse-sections ol>li.custom-application h4 {
+.browse-sections ol li.answer h4,
+.browse-sections ol li.calendar h4,
+.browse-sections ol li.smart_answer h4,
+.browse-sections ol li.calculator h4,
+.browse-sections ol li.custom-application h4 {
   background-image: url(<%= asset_path "icon-answer-s.png" %>);
   background-repeat: no-repeat;
   background-position: 0 0.25em;
 }
-.browse-sections ol>li.local_transaction h4,
-.browse-sections ol>li.transaction h4,
-.browse-sections ol>li.place h4,
-.browse-sections ol>li.nearest h4,
-.browse-sections ol>li.service h4 {
+.browse-sections ol li.local_transaction h4,
+.browse-sections ol li.transaction h4,
+.browse-sections ol li.place h4,
+.browse-sections ol li.nearest h4,
+.browse-sections ol li.service h4 {
   background-image: url(<%= asset_path "icon-service-s.png" %>);
   background-repeat: no-repeat;
   background-position: 0 0.25em;
 }
-.browse-sections ol>li.programme h4 {
+.browse-sections ol li.programme h4 {
   background-image: url(<%= asset_path "icon-programme-s.png" %>);
   background-repeat: no-repeat;
   background-position: 0 0.25em;
 }
 
-.browse-sections .browse-panel>ol>li {
+.browse-sections .browse-panel ol li {
   /* sub section */
   padding: 0 0.75em 0.75em 2em;
 }
 
-.browse-sections .browse-panel>ol>li>ol {
+.browse-sections .browse-panel ol li ol {
   /* content links list */
   padding: 0 0 0.375em 0;
 } 
 
-.browse-sections .browse-panel>ol>li>ol>li {
+.browse-sections .browse-panel ol li ol li {
   /* content links list item */
   padding: 0.375em 0 0 0;
   margin: 0;
@@ -259,6 +253,17 @@
   }
 }
 
+/* IE styles after @media blocks as they get overwritten */
+.lte-ie8 .js-enabled .browse-sections h2.first {	
+  margin-left: 0;
+  *font-size: 1.125em; /* <= IE 7 */
+}
+
+.lte-ie8 .js-enabled .browse-sections h2.first a {
+  padding-left: 0.333333333em;
+  *padding: 0.5em 0.667em; /* <= IE 7 */
+}
+
 /* Search Footer
 ======================================================================== */
 .prototype-onward {
@@ -275,6 +280,10 @@
   color: white;
 }
 
+.lt-ie8 .prototype-onward {
+  height: 1%;
+}
+
 .prototype-onward h2 {
   background-color: transparent;
   padding: 0; border: 0;
@@ -282,11 +291,15 @@
 
 .prototype-onward input {
   width: 60%; height: 1.2em;
-  clear: left; float: left;
-  display: block;
+  /*clear: left; float: left;*/
+  display: inline;
   font-size: 1.5em;
   line-height: 1.25em;
   padding: 0.125em;
+}
+
+.lt-ie7 .prototype-onward input {
+  margin-left: 2.5em;
 }
 
 .prototype-onward button {
@@ -303,7 +316,7 @@
 
   color: #FFFFFF;
   cursor: pointer;
-  display: inline-block;
+  /*display: inline-block;*/
   position: relative;
   text-decoration: none;
 }
@@ -311,6 +324,10 @@
 .prototype-onward .totry {
   margin-top: 0;
   font-size: 0.875em;
+}
+
+.lt-ie8 .prototype-onward form {
+  height: 1%;
 }
 
 /* Summary
