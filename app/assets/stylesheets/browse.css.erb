@@ -100,7 +100,7 @@
 .js-enabled .browse-sections h2.first {
   /* make the first one massive */
   border-top: 0;
-  font-size: 2.25em;
+  font-size: 1.75em;
   margin-left: -0.667em;
   line-height: 1.111em;
   padding: 0;
@@ -193,7 +193,7 @@
 
 .browse-sections .browse-panel ol li {
   /* sub section */
-  padding: 0 0.75em 0.75em 2em;
+  padding: 0 0.75em 0.75em 2.5em;
 }
 
 .browse-sections .browse-panel ol li ol {
@@ -209,10 +209,14 @@
 
 /* Responsive Breakpoints */ 
 @media only screen and (max-width:960px) {
-	.browse-sections .sub-sections h2.first {
-	  /* make the first one massive */
-	  margin-left: 0;
-	}  
+  .browse-sections .sub-sections h2.first {
+    /* make the first one massive */
+	margin-left: 0;
+  }
+
+  .browse-sections .sub-sections h2.first a {
+    padding: 0.25em 0.333333333em;
+  }
 }
 
 @media only screen and (max-width:670px) {
@@ -270,7 +274,7 @@
   position: relative;
   clear: both;
   max-width: 58.5em;
-  padding: 0.375em 0.75em;
+  padding: 1em 0.75em;
 
   border: 0.75em solid #f2f2f2;
   border-width: 0.75em 0;
