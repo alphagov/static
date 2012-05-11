@@ -3,11 +3,6 @@
  * Alex Torrance.
 */
 
-function urlSlugify(str) {
-  // creates a url friendly slug from a text string
-  return str.toLowerCase().replace(/[^a-zA-Z0-9\s-]/g, '').replace(/\s+/g, '-');
-}
-
 $(document).ready(function() {
   
   // Footer Filter Fade Out
@@ -52,20 +47,19 @@ $(document).ready(function() {
     $this.addClass('active');
   });
 
-
-  // section toggles
+  // Set Up Browse Sections
   var slugs = [];
   
   $('.browse-sections').find('.results h2').each(function(i){
-    slugs.push(urlSlugify($(this).text()));
-    $(this).attr('id', slugs[slugs.length-1]).html("<a href='#"+slugs[slugs.length-1]+"' class='toggle-section'>"+$(this).text()+"</a>");
+    var $this = $(this);
+    slugs.push($this.attr('id'))
+    $this.html("<a href='#/"+slugs[slugs.length-1]+"' class='toggle-section'>"+$(this).text()+"</a>");
   }).add('.browse-sections ol.group').wrapAll('<div class="sub-sections"></div>')
-  .filter('ol.group').each(function(i){
-    $(this).addClass('section-'+slugs[i]);
-  }).clone().appendTo('.browse-sections .results').wrapAll('<div class="browse-panel"></div>'); // clone ol's to a container
+  .filter('ol.group').clone().appendTo('.browse-sections .results').wrapAll('<div class="browse-panel"></div>'); // clone ol's to a container
 
   $('.audience-filter').detach().prependTo('.browse-panel'); // move filter to browse panel
     
+  // Browse sections click actions
   $('.results').on("click", ".toggle-section", function(e) {
     var $section = $(this).parent();
     var slug = $section.attr('id');
@@ -75,12 +69,18 @@ $(document).ready(function() {
       .closest('.browse-sections').find('ol.group').removeClass("open-section")
       .filter('.section-'+slug).addClass('open-section');
       
-    if ($(window).width() > 670) {
-      e.preventDefault();
-      // window.location.hash = slug;
+    if ($(window).width() < 670) {
+      // if inline (mobile) then scroll to section
+      $(window).scrollTop($section.offset().top);
     }
   });
   
+  // on page load parse hash
+  if ($('.browse-sections').length > 0) {
+    var hash = window.location.hash.substring(2);
+    $('#'+hash).find('a').click();
+    console.log(hash);
+  }
   
   // Audience filter
   $('.audience-filter').on('click', 'a', function(e) {
