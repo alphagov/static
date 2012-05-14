@@ -42,6 +42,8 @@ video {
 /*
  * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
  *    http://clagnut.com/blog/348/#c790
+ *    note - font-size reduced to 62.5% to allow simple rem/px font-sizing and fallback
+ *    http://snook.ca/archives/html_and_css/font-size-with-rem
  * 2. Keeps page centred in all browsers regardless of content height
  * 3. Removes Android and iOS tap highlight color to prevent entire container being highlighted
  *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
@@ -50,7 +52,7 @@ video {
  */
 
 html {
-    font-size: 100%; /* 1 */
+    font-size: 62.5%; /* 1 */
     overflow-y: scroll; /* 2 */
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
     -webkit-text-size-adjust: 100%; /* 4 */
@@ -58,11 +60,15 @@ html {
 }
 
 /*
- * Addresses margins handled incorrectly in IE6/7
+ * 1. Font-size increased to compensate for change to html element font-size in 
+ *    order to support beta typography which was set in ems
+ *    (62.5% * 160% = 100%)
+ * 2. Addresses margins handled incorrectly in IE6/7
  */
 
 body {
-    margin: 0;
+    font-size: 160%; /* 1 */
+    margin: 0; /* 2 */
 }
 
 /*
