@@ -884,6 +884,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   width: 12em;
   min-height:10em;
   padding:0em 0.5em 0.5em 1em;
+  
+  -webkit-transition: left 0.5s ease-in-out;
+  -moz-transition: left 0.5s ease-in-out;
 }
 .lte-ie8 #feedback-cta.left {
   display:none;
@@ -895,13 +898,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #feedback-cta.hide:active,
 #feedback-cta.hide:focus{
   left:0px;
-  -webkit-transition: left 0.5s ease-in-out;
-  -moz-transition: left 0.5s ease-in-out;
 }
 #feedback-cta.hide{
   left:-12em;
-  -webkit-transition: left 0.5s ease-in-out;
-  -moz-transition: left 0.5s ease-in-out;
 }
 
 #feedback-cta h2{
