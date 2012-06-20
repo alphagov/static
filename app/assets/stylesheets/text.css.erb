@@ -308,8 +308,8 @@ article .help-notice,
 article .info-notice {
   /*border: 1px solid #93A1A1;*/
   background-color:#e5e5e5;
-  margin: 0.75em 0;
-  padding: 0.5em 1em 0.5em 0.5em;
+  margin: 0.75em -1em;
+  padding: 0.5em 1em 0.5em 1em;
 }
 
 article .help-notice p,
@@ -330,18 +330,22 @@ article .info-notice {
   background: url(<%= asset_path "icon-information.png" %>) 1em 50% no-repeat;
 }*/
 
+article .form-download{
+  background-color: #E5E5E5;
+  margin: 0.75em -1em;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
 article .form-download p {
   margin: 0 0;
 }
 article .form-download a {
-  background-color: #E5E5E5;
   /*background-image: url(<%= asset_path "icon-file-download.png" %>);
   background-position: 1em 50%;*/
-  background-repeat: no-repeat;
   color: #000;
   display: block;
-  margin: 1em 0;
-  padding: 0.75em 0 0.75em 1em;
+  /*margin: 1em 0;
+  padding: 0.75em 0 0.75em 1em;*/
 }
 article .form-download a:hover {
   background-color: #d2d9d9;
@@ -362,7 +366,7 @@ article .place p
 .contact {
   background-color:#e5e5e5;
   box-sizing: border-box;
-  margin: 0.75em 0;
+  margin: 0.75em -1em;
   padding: 0.25em 1em;
   min-width: 60%;
 }
