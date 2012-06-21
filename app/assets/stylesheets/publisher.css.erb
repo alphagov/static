@@ -1,13 +1,12 @@
 /* visited link colour overrides */
 
-#wrapper.guide aside .chapters-navigation li a:visited,
-#wrapper.guide .pagination li a:visited,
+#content.multi-page aside .page-navigation li a:visited,
+#content.multi-page .pagination li a:visited,
 #wrapper.programme .article-container nav a:visited {
   color: #2E3191;
 }
 
-#wrapper.guide header,
-#wrapper.licence header {
+#content.multi-page header {
   position: relative;
 }
 
@@ -41,15 +40,13 @@
   padding-left: 2.25em;
 }
 
-#wrapper.guide article,
-#wrapper.licence article {
+#content.multi-page article {
   border-left: solid 1px #C9D0D0;
   margin-left: -1px;
   min-height: 40em;
   width: 75%;
 }
-.lte-ie8 #wrapper.guide article,
-.lte-ie8 #wrapper.licence article {
+.lte-ie8 #content.multi-page article {
   _min-height: 40em;
 }
 
@@ -59,44 +56,40 @@
   margin-left: 0;
 }
 
-.lte-ie8 #wrapper.guide article,
-.lte-ie8 #wrapper.licence article {
+.lte-ie8 #content.multi-page article {
   width: 74.999%;
   float: left;
 }
-.guide article .inner,
-.licence article .inner {
+.multi-page article .inner {
   padding: 0.5em 2.5em 1em 2.5em;
 }
 .licence article .inner {
   padding-top: 0;
 }
-#wrapper.guide aside,
-#wrapper.licence aside {
+#content.multi-page aside {
   float: left;
   width: 25%;
 }
 
-#wrapper.guide aside .inner,
-#wrapper.licence aside .inner {
+#content.multi-page aside .inner {
   padding: 0;
   width: 100%;
 }
-aside .chapters-navigation {
+aside .page-navigation {
   display: block;
   float: right;
   margin-top: 0.5em;
   width: 95%;
 }
-aside .chapters-navigation ol {
+aside .page-navigation ol {
   font-size: 0.85em;
   margin: 0;
   padding: 0;
 }
-aside .chapters-navigation li {
+aside .page-navigation li {
   list-style: none;
 }
-aside .chapters-navigation li a {
+aside .page-navigation li a {
   background-color: #E1E8E8;
   border-top: solid 1px #C9D0D0;
   display: block;
@@ -104,10 +97,10 @@ aside .chapters-navigation li a {
   padding: 0.75em 0.75em;
   text-decoration: none;
 }
-aside .chapters-navigation li:first-child a {
+aside .page-navigation li:first-child a {
   border-top: none;
 }
-aside .chapters-navigation li.active a {
+aside .page-navigation li.active a {
   background: #fff;
   border: solid 1px #C9D0D0;
   border-right: none;
@@ -117,39 +110,39 @@ aside .chapters-navigation li.active a {
   position: relative;
   z-index: 2;
 }
-.lte-ie8 aside .chapters-navigation li.active a {
+.lte-ie8 aside .page-navigation li.active a {
   bottom: -1px;
   margin: 0;
 }
 
-aside .chapters-navigation li a:hover {
+aside .page-navigation li a:hover {
   background-color: #97C5E5;
   color: #fff;
 }
-aside .chapters-navigation li.active a:hover {
+aside .page-navigation li.active a:hover {
   background: #fff;
   color: #1576FB;
 }
-aside .chapters-navigation li a span {
+aside .page-navigation li a span {
   display: block;
 }
-aside .chapters-navigation li a .part-label {
+aside .page-navigation li a .part-label {
   color: #3f3f3f;
   display: block;
   font-size: 0.75em;
   line-height: 1.5em;
   text-transform: uppercase;
 }
-aside .chapters-navigation li a:hover .part-label {
+aside .page-navigation li a:hover .part-label {
   color: #fff;
 }
-aside .chapters-navigation li.active a:hover .part-label {
+aside .page-navigation li.active a:hover .part-label {
   color: #1576FB;
 }
-aside .chapters-navigation li a .part-title {
+aside .page-navigation li a .part-title {
   line-height: 1.3em;
 }
-aside .chapters-navigation li.active a .part-title {
+aside .page-navigation li.active a .part-title {
   color: #000;
 }
 
@@ -622,36 +615,30 @@ div.further-information.active a {
 }
 
 @media only screen and (max-width:670px) {
-  .guide article .inner {
+  .multi-page article .inner {
     padding: 0.5em 1.25em 1em 1.25em;
   }
-  #wrapper.guide aside,
-  #wrapper.licence aside {
+  #content.multi-page aside {
     width: 100%;
   }
-  #wrapper.guide aside .chapters-navigation,
-  #wrapper.licence aside .chapters-navigation {
+  #content.multi-page aside .page-navigation {
     margin-bottom: 1em;
     margin-top: 0;
     width: 100%;
   }
-  #wrapper.guide aside .chapters-navigation li a,
-  #wrapper.licence aside .chapters-navigation li a {
+  #content.multi-page aside .page-navigation li a {
     padding-bottom: 0.5em;
     padding-top: 0.5em;
   }
-  #wrapper.guide aside .chapters-navigation li a span,
-  #wrapper.licence aside .chapters-navigation li a span{
+  #content.multi-page aside .page-navigation li a span {
     display: inline;
   }
-  #wrapper.guide aside .chapters-navigation li a .part-label .visuallyhidden,
-  #wrapper.licence aside .chapters-navigation li a .part-label .visuallyhidden {
+  #content.multi-page aside .page-navigation li a .part-label .visuallyhidden {
     display: inline;
     margin: 0;
     position: static;
   }
-  #wrapper.guide article,
-  #wrapper.licence article{
+  #content.multi-page article {
     width: 100%;
   }
   #wrapper.guide .alternative-guide {

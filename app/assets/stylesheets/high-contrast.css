@@ -109,32 +109,31 @@ article .inner {
   padding: 0;
 }
 
-#wrapper.guide aside,
-#wrapper.licence aside {
+#content.multi-page aside {
   float: none !important;
   width: auto !important;
 }
 
-aside .chapters-navigation {
+aside .page-navigation {
   border-bottom: 2px solid #234;
   float: none !important;
   margin: 0 0 1em !important;
 }
 
-aside .chapters-navigation li {
+aside .page-navigation li {
   list-style-type: disc !important;
   margin: 0 !important;
   padding: 0 !important;
   width: auto !important;
 }
 
-aside .chapters-navigation li a {
+aside .page-navigation li a {
   margin: 0 !important;
   padding: 0 0 0.75em !important;
   width: auto !important;
 }
 
-aside .chapters-navigation li.active a {
+aside .page-navigation li.active a {
   background-color: inherit !important;
   border: none !important;
   -webkit-border-radius: 0;
@@ -142,13 +141,13 @@ aside .chapters-navigation li.active a {
   border-radius: 0;
 }
 
-aside .chapters-navigation li a .part-label {
+aside .page-navigation li a .part-label {
   color: #fff !important;
   display: inline-block !important;
   font-size: inherit !important;
 }
 
-aside .chapters-navigation li.active a .part-label {
+aside .page-navigation li.active a .part-label {
   color: #fff !important;
 }
 
