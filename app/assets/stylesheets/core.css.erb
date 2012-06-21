@@ -46,21 +46,6 @@ section#content {
   _width: 960px;
 }
 
-/*@media only screen and (min-width:670px) {
-  section#content {
-    margin: 1em auto 1em;
-  }
-  .js-enabled section#content {
-    margin: 6em auto 2em;
-  }
-}
-.lte-ie8 section#content {
-  margin: 1em auto 1em;
-}
-.lte-ie8 .js-enabled section#content {
-  margin: 6em auto 2em;
-}*/
-
 ol, ul, nav ol, nav ul {
   list-style: inherit;
 }
@@ -203,7 +188,6 @@ a[rel="external"]:after {
   position: absolute;
   right: 0;
   width: 16.5em;
-/*  width: 14em;*/
 }
 .lte-ie8 .related {
   display: inline;
@@ -226,19 +210,13 @@ a[rel="external"]:after {
   font-family:"NTA", "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 .related h2 {
-  /*background-image: url(<%= asset_path "related-clip.png" %>);
-  background-position: 0 0;
-  background-repeat: no-repeat;*/
   color: #000;
-  /*font-family: 'Gill Sans W01 Medium', sans-serif;*/
-  font-weight: normal;
   font-weight:300;
   height: 30px;
   line-height: 1.5em;
   margin: 0 0 0 -21px;
   padding: 30px 0 0 20px;
   position: relative;
-  /*text-transform: uppercase;*/
   top: -13px;
 }
 
@@ -256,8 +234,6 @@ a[rel="external"]:after {
   background-position: 0 -290px;
   background-repeat: no-repeat;
   display: block;
-  /*font-size: 0.85em;
-  line-height: 1.5em;*/
   margin-bottom: 0.75em;
   padding: 0.25em 0 0.5em 2.5em;
 }
@@ -284,12 +260,10 @@ a[rel="external"]:after {
 }
 
 .related li.related-topic span {
-/*  display: block;*/
   font-weight: bold;
 }
 
 #wrapper .related li.related-topic a {
-/*  color: inherit;*/
   padding-left: 0;
 }
 
@@ -307,11 +281,8 @@ a[rel="external"]:after {
 
 header.page-header hgroup {
   background-color: #fff;
-  /*border-style: solid;
-  border-width: 2px 0 0 0;*/
   display: block;
   margin: 0 15em 0 0;
-/*  margin: 0 12.5em 0 0;*/
   padding: 1.25em 1em 1.5em 0.5em;
 }
 .wf-gillsans-n4-inactive header.page-header hgroup h1{
@@ -325,7 +296,6 @@ header.page-header hgroup {
 }
 
 header.page-header hgroup h1 {
-/*  background-position: 0 2px;*/
   background-repeat: no-repeat;
   color: #000;
   font-family: "NTA", "Gill Sans W01 Medium", sans-serif;
@@ -362,7 +332,6 @@ header.page-header hgroup h1 span {
   letter-spacing: 0.15em;
   line-height: 1em;
   margin-bottom: 0.5em;
-  /*text-transform: uppercase;*/
   text-shadow: none;
 
   display:none;
@@ -380,14 +349,6 @@ header.page-header hgroup h2 {
 
 /* Programmes */
 
-#wrapper.programme header.page-header hgroup {
-  /*border-color: #2E368E;*/
-}
-
-/*#wrapper.programme header.page-header hgroup h1 span {
-  color: #2E368E;
-}*/
-
 #wrapper.programme header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-programme-l.png" %>);
 }
@@ -398,27 +359,11 @@ header.page-header hgroup h2 {
   /*border-color: #2DA096;*/
 }
 
-/*#wrapper.service header.page-header hgroup h1 span {
-  /*
-    new colour should be added to the palette
-    this version is much more contrast-friendly than #2DA096
-  
-  color: #227770;
-}*/
-
 #wrapper.service header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-service-l.png" %>);
 }
 
 /* Quick answers */
-
-/*#wrapper.answer header.page-header hgroup {
-  border-color: #D33883;
-}*/
-
-/*#wrapper.answer header.page-header hgroup h1 span {
-  color: #D33883;
-}*/
 
 #wrapper.answer header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-answer-l.png" %>);
@@ -426,31 +371,11 @@ header.page-header hgroup h2 {
 
 /* Licence guidance */
 
-/*#wrapper.licence header.page-header hgroup {
-  border-color: #839938;
-}*/
-
-/*#wrapper.licence header.page-header hgroup h1 span {
-  color: #839938;
-}*/
-
 #wrapper.licence header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-licence-l.png" %>);
 }
 
 /* Guides */
-
-/*#wrapper.guide header.page-header hgroup {
-  border-color: #F17921;
-}*/
-
-/*#wrapper.guide header.page-header hgroup h1 span {
-  /*
-    new colour should be added to the palette
-    this version is much more contrast-friendly than #F17921
-  
-  color: #BE4F19;
-}*/
 
 #wrapper.guide header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-guide-l.png" %>);
