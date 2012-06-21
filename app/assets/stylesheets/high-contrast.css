@@ -109,7 +109,8 @@ article .inner {
   padding: 0;
 }
 
-#wrapper.guide aside {
+#wrapper.guide aside,
+#wrapper.licence aside {
   float: none !important;
   width: auto !important;
 }
