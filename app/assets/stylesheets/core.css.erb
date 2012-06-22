@@ -945,7 +945,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 /* buttons! */
 .button,
 .button:visited {
-  background-color: #B01117;
+  /*background-color: #B01117;
   background-image: url(<%= asset_path "button-overlay.png" %>);
   _background-image:none;
   background-position: 0 100%;
@@ -961,22 +961,22 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   position: relative;
   text-decoration: none;
   -webkit-transition: background-color 0.5s ease-in-out;
-  -moz-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;*/
 }
 .button:hover {
-  background-color: #DD322D;
+  /*background-color: #DD322D;
   border: solid 1px #760418;
-  color: #fff;
+  color: #fff;*/
 }
 .button:active {
-  background-color: #DD322D;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+  /*background-color: #DD322D;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);*/
 }
 .lte-ie .button:active {
-  top: 1px;
+  /*top: 1px;*/
 }
 .button:focus {
-  background-color: #001950;
+  /*background-color: #001950;*/
 }
 
 input.button,
@@ -997,41 +997,46 @@ input.button,
   text-transform: uppercase;
 }
 
+/* get started buttons */
 .get-started {
-  margin: 0;
-  text-align: center;
+  /*margin: 0;
+  text-align: center;*/
+  text-align:right;
+  margin:1.5em 0 0 0;
 }
 
 .get-started .button {
-  font-family: 'NTA', 'Gill Sans W01 Medium', sans-serif;
+  /*font-family: 'NTA', 'Gill Sans W01 Medium', sans-serif;
   font-weight:300;
   margin: 0.75em 0 0 0;
   max-width: 60%;
-  position: relative;
+  position: relative;*/
+  text-decoration:none;
 }
 .lte-ie8 .get-started .button {
   _width: 60%;
 }
 
 .get-started .button.big {
-  background-image: url(<%= asset_path "button-arrow.png" %>);
+  /*background-image: url(<%= asset_path "button-arrow.png" %>);
   background-position: 95% 50%;
   background-repeat: no-repeat;
-  padding: 0.65em 2em 0.65em 0.5em;
+  padding: 0.65em 2em 0.65em 0.5em;*/
 }
 
 .get-started .button .button-content {
-  display: inline-block;
-  vertical-align: middle;
+  /*display: inline-block;
+  vertical-align: middle;*/
 }
-
+.get-started .button{
+  text-align:left;
+}
 .get-started .button .destination {
+  font-size:0.7368em;
+  color:#333;
+  margin-top:1em;
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  letter-spacing: 0;
-  margin: 0.25em 0 0 0;
-  opacity: 0.75;
-  text-transform: none;
+
 }
 
 .wf-gillsans-n4-inactive .button .call-to-action {
@@ -1044,15 +1049,48 @@ input.button,
   font-family: 'Gill Sans W01 Medium', sans-serif;
 }
 .get-started .button .call-to-action {
-  background-image: url(<%= asset_path "button-arrow.png" %>);
+  background-color:#28A197;
+  color:#fff;
+  display:block;
+  font-size:1.3162em;
+  padding:0.5em 1.7em 0.35em 0.5em;
+  line-height:0.8em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow:0 4px 0 #ccc,0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow:0 4px 0 #ccc, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0, 0, 0, 0.05);
+  background-image: url(<%= asset_path "icon-pointer.png" %>);
   background-position: 100% 50%;
   background-repeat: no-repeat;
-  display: block;
+  /*display: block;
   font-size: 1.5em;
   letter-spacing: 0.15em;
   margin: 0 auto;
   padding: 0.325em 1.5em 0.325em 0;
-  text-transform: uppercase;
+  text-transform: uppercase;*/
+}
+.button:active span.call-to-action { 
+  -webkit-transform: translate(0, 4px);
+  -moz-transform: translate(0, 4px);
+  -o-transform: translate(0, 4px);
+  transform: translate(0, 4px);
+  box-shadow:none;
+  outline:none;
+}
+.button:focus span,
+.button:active span
+.button:active,
+.button:focus{
+  outline:none;
+  background-color:transparent;
+}
+
+a.button[rel="external"]:after{
+  content: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 input[disabled="disabled"] {
@@ -1071,25 +1109,17 @@ input[disabled="disabled"] {
 /* Alternative button styles */
 
 .button.variation_one,
-.button.variation_one:visited {
-  background-color: #2DA096;
-  border-color: #1c645e;
-}
-.button.variation_one:hover {
-  background-color: #33b7ad;
-  border-color: #258982; 
-}
-
+.button.variation_one:visited,
 .button.variation_two,
 .button.variation_two:visited {
-  background-color: #D33883;
-  border-color: #9b2962;
+  /*background-color: #2DA096;
+  border-color: #1c645e;*/
 }
+.button.variation_one:hover,
 .button.variation_two:hover {
-  background-color: #e93e93;
-  border-color: #9b2962; 
+  /*background-color: #33b7ad;
+  border-color: #258982; */
 }
-
 /* welcome popup */
 
 #popup.welcome-tour {
