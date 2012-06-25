@@ -101,6 +101,10 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0 0 0.5em 0;
 }
 
+.ancillary .menu li.active {
+  font-weight: bold;
+}
+
 .ancillary article section {
   margin: 0 0 2.5em 0;
 }
