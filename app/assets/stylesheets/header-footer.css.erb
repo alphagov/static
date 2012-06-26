@@ -63,13 +63,17 @@
 }
 
 #global-header h1 a {
-  background-image: url(<%= asset_path "header-crown.png" %>);
+  background-image: url(<%= asset_path "gov.uk_logotype.png" %>);
   background-position: 0 1px;
   background-repeat: no-repeat;
   float: left;
   padding: 0 0 0 1.7em;
+  width:100px;
+  text-indent:-999px;
 }
-
+#global-header h1 a:hover{
+  background-position: 0 -43px;
+}
 #global-header .header-global a {
   color: #fff;
   text-decoration: none;
