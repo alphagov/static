@@ -12,16 +12,6 @@
  <!-- alternatives -->
  <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
 
- <!-- fonts -->
- <script type="text/javascript">
- setTimeout(function(){var a=document,g,b={families:(g=
-     ["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
-     c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
-   e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
-     ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
-     .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
- </script>
-
  <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.min.js' %>
  <%= javascript_include_tag 'application', :defer => 'defer' %>
 
