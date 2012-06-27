@@ -27,6 +27,11 @@ body {
 #wrapper {
   background-color: #F2F2F2;
 }
+#wrapper.business header.page-header hgroup{
+  background-image:url(<%= asset_path "business_link_logo.png" %>);
+  background-position:97% 1em;
+  background-repeat:no-repeat;
+}
 #footer{
   background-color: #C9D0D0;
 }
@@ -1114,7 +1119,6 @@ input[disabled="disabled"] {
 }
 
 #popup.welcome-tour h2 {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 2em;
   font-weight: normal;
   text-transform:uppercase;
