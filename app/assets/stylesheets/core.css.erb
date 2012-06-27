@@ -903,8 +903,8 @@ input{
 }
 .get-started .button .call-to-action,
 .get-started .button.big,
-input.button,
-input.button:visited{
+.button,
+.button:visited {
   background-color:#28A197;
   color:#fff;
    -webkit-border-radius: 3px;
@@ -917,13 +917,14 @@ input.button:visited{
 
 .get-started .button:hover span.call-to-action,
 .get-started .button.big:hover,
-input.button:hover{
+.button:hover {
   background-color: #3ABAA8;
+  color: #fff;
 }
 
-input.button:active,
+.button:active,
 .button:active span.call-to-action,
-.get-started .button.big:active { 
+.get-started .button.big:active {
   -webkit-transform: translate(0, 4px);
   -moz-transform: translate(0, 4px);
   -o-transform: translate(0, 4px);
@@ -933,19 +934,21 @@ input.button:active,
 }
 
 /* buttons! */
-input.button,
-input.button:visited {
+.button,
+.button:visited {
   display:inline;
   line-height:0.8em;
   border:none;
+  text-decoration: none;
 }
 
-input.button:focus span,
-input.button:active span
-input.button:active,
-input.button:focus{
+.button:focus span,
+.button:active span
+.button:active,
+.button:focus{
   outline:none;
   background-color:transparent;
+  color: #fff;
 }
 
 .lte-ie .button:active {
@@ -955,7 +958,7 @@ input.button:focus{
   /*background-color: #001950;*/
 }
 
-input.button,
+.button,
 .button.medium {
   padding: 0.3em 0.5em 0.1em 0.5em;
 }
@@ -1177,7 +1180,7 @@ input[disabled="disabled"] {
   #popup.customisation-tools .button{
     margin-top:0.5em;
   }
-  
+
   .cookie-container{
     top:auto;
   }
