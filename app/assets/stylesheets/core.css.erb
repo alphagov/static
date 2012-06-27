@@ -901,6 +901,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 input{
   font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+
 .get-started .button .call-to-action,
 .get-started .button.big,
 .button,
@@ -933,6 +934,15 @@ input{
   outline:none;
 }
 
+.get-started .button:active{
+   -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  box-shadow:none;
+  outline:none;
+}
+
 /* buttons! */
 .button,
 .button:visited {
@@ -950,6 +960,7 @@ input{
   background-color:transparent;
   color: #fff;
 }
+
 
 .lte-ie .button:active {
   /*top: 1px;*/
@@ -979,6 +990,9 @@ input{
 
 .get-started .button {
   text-decoration:none;
+  background-color: transparent;
+  box-shadow:none;
+  outline:none;
 }
 .lte-ie8 .get-started .button {
   _width: 60%;
@@ -1006,13 +1020,7 @@ input{
   display: inline-block;
   }
 
-.button:focus span,
-.button:active span
-.button:active,
-.button:focus{
-  outline:none;
-  background-color:transparent;
-}
+
 
 a.button[rel="external"]:after{
   content: none;
