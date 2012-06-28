@@ -59,7 +59,6 @@
 }
 
 .ancillary .results li p {
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   width: 65%;
 }
@@ -126,7 +125,6 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 .ancillary.feedback .pullout {
   background-color: #D9E0E0;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1.5em 0;
   padding: 1em;
 }
