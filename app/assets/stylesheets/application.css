@@ -15,4 +15,5 @@
  *= require static-pages/platform-pages
  *= require static-pages/tour
  *= require publisher
+ *= require multi-step
 */
