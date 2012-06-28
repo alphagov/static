@@ -290,11 +290,20 @@ article .example {
 }
 
 article .help-notice,
-article .info-notice {
+article .info-notice,
+article .subscribe {
   background-color:#d5e8f3;
   margin: 1em -1em 1.5em -1em;
   padding: 1em 1em 1em 1em;
   background: url(<%= asset_path "icon-important.png" %>) no-repeat scroll 98% 1em #D5E8F3;
+}
+
+article .subscribe {
+  background: url(<%= asset_path "calendar-icon.png" %>) no-repeat scroll 98% 1em #D5E8F3;
+}
+
+.subscribe p {
+  margin: 0;
 }
 
 article .info-notice{
@@ -302,7 +311,8 @@ article .info-notice{
 }
 
 article .help-notice p,
-article .info-notice p {
+article .info-notice p,
+article .subscribe p {
   margin: 0;
   padding-right:4em;
 }
