@@ -84,9 +84,15 @@
 /* feedback page */
 
 .ancillary.feedback .pullout {
+<<<<<<< HEAD
+  background-color: #D9E0E0;
+  margin: 1.5em 0;
+  padding: 1em;
+=======
   background-color: #d5ecea;
   margin: 1.5em -1em;
   padding: 0.5em 1em;
+>>>>>>> a4a21b714b46f4cc3ff87dbb23aea280a41aa347
 }
 
 .ancillary.feedback .image-in-text {
