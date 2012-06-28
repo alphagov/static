@@ -85,8 +85,8 @@
 
 .ancillary.feedback .pullout {
   background-color: #d5ecea;
-  margin: 1.5em 0;
-  padding: 1em;
+  margin: 1.5em -1em;
+  padding: 0.5em 1em;
 }
 
 .ancillary.feedback .image-in-text {
