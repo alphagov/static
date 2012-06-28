@@ -4,17 +4,18 @@
 */
 
 article h1 {
-  font-size: 1.45em;
+  font-size:1.5625em;
+  font-weight:300;
   line-height: 1.1em;
   margin-top: 1.5em;
   margin-bottom: 0.75em;
 }
 
 article header h1 {
-  border-bottom: solid 1px #ddd;
   color: #000;
-  font-size: 2em;
-  font-weight: normal;
+  font-size: 1.5625em;
+  font-weight: 300;
+  line-height: 1.2em;
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0.5em;
@@ -26,12 +27,11 @@ article header h1 {
 article header h1 span {
   color: #666;
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 0.5em;
-  font-weight: normal;
+  font-weight: 300;
   line-height: 1em;
   margin-bottom: 0.4em;
-  text-transform: uppercase;
 }
 
 article h1 + h2 {
@@ -39,10 +39,11 @@ article h1 + h2 {
 }
 
 article h2 {
-  font-size: 1.3em;
-  line-height: 1.18em;
   margin-bottom: 0.625em;
-  margin-top: 1.2em;
+  margin-top: 2em;
+  font-size: 1.1875em;
+  line-height:1.2em;
+  font-weight:300;
 }
 
 article h2 + h3 {
@@ -52,7 +53,8 @@ article h2 + h3 {
 article h3 {
   font-size: 1.2em;
   line-height: 1.11em;
-  margin-top: 1.304em;
+  font-weight:300;
+  margin-top: 2.4em;
   margin-bottom: 0.75em;
 }
 
@@ -87,15 +89,16 @@ article h4 {
 }
 
 article p, article ul, article ol {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.5em;
   margin: 0.75em 0;
 }
 
 article p {
-  font-size: 112.5%;
+  font-size: 1.1875em;
 }
 
+article p + .help-notice{
+  margin-top:2em;
+}
 article li {
   font-size: 112.5%;
   margin: 0.25em 0;
@@ -128,7 +131,7 @@ article ul, article ol {
 article ul {
   list-style-type: circle;
   list-style-image: url(<%= asset_path "bullet-disc-5px.gif" %>);
-  margin-bottom: 1.25em;
+  margin-bottom: 1.75em;
 }
 
 article ol {
@@ -138,7 +141,7 @@ article ol {
 article table ul {
   padding-left: 0.75em;
   margin: 0;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 article table ul li:last-child {
@@ -163,53 +166,41 @@ article dd {
 article table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 0 0 1em;
-  padding: 0;
-  width:100%;
-  margin-top:0;
+  margin:2.2em -1em 3.8em -1em;
+  width:105.95%;
 }
 
 article table caption {
-  font-size: 1.25em;
-  font-weight: bold;
+  text-align:left;
+  font-weight: 300;
   margin-bottom: 0.5em;
+  font-size:1.1875em;
+  padding-left:1em;
 }
 
 article th, article td {
   vertical-align: top;
   line-height: 1.3em;
+  padding: 0.7em 0.5em 0.7em 1em;
 }
 
 article tr:nth-child(even) td {
-  background-color: #C1CACB;
+  background-color: #fff;
+}
+
+article td {
+  background: #fafafa;
+  border:dotted 1px #bbb;
 }
 
 article th {
-  padding: 0.6em 0.5em;
+  
   line-height:1.25em;
-}
-
-article td {
-  padding: 0.6em 0.5em;
-}
-
-article th {
   text-align: left;
-  color:#fff;
+  color:#000;
   font-weight:normal;
-  background-color: #0A3641;
-  border: solid 2px #fff;
-}
-
-article td {
-  background: #E1E8E8;
-  border: solid 2px #fff;
-}
-
-article table.calendar {
-  background-color: inherit;
-  margin: 1em auto 2em;
-  width: 100%;
+  background-color: #e1e8e8;
+  border:solid 1px #bbb;
 }
 
 /*
@@ -218,9 +209,9 @@ article table.calendar {
 
 .citizen article .summary,
 .citizen .ancillary .summary {
-  background-color: #D5E8F4;
-  padding:1em;
-  margin-bottom:1em;
+  background-color: #D5ECEA;
+  margin: 0 -1em 0;
+  padding: 1em;
 }
 
 .citizen .ancillary .summary {
@@ -231,15 +222,10 @@ article .summary p,
 article .summary h2,
 .citizen .ancillary .summary p,
 .citizen .ancillary .summary h2 {
-  background-image: url(<%= asset_path "summary-arrow.png" %>);
-  background-position: 0 0.3em;
-  background-repeat: no-repeat;
   border: none;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 1.25em;
   margin: 0 0.75em 0 0;
   min-height: 2.75em;
-  padding: 0 0 0 2.5em;
+  font-weight:300;
 }
 .lte-ie8 article .summary p,
 .lte-ie8 article .summary h2,
@@ -250,8 +236,9 @@ article .summary h2,
 
 article .summary h2,
 .citizen .ancillary .summary h2 {
-  font-weight: normal;
+  font-weight: 300;
   line-height: 1.35em;
+  color:#333;
 }
 
 article .advisory {
@@ -282,13 +269,9 @@ article .advisory.high-alert {
 }
 
 article .intro {
-  background-color: #D9E0E0;
-  margin-bottom: 1.5em;
-  padding: 1em;
-}
-
-article .intro p {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background-color: #D5ECEA;
+  margin: 0 -1em 1.5em -1em;
+  padding: 1em 1em 1em 1em;
 }
 
 article .intro p:first-child {
@@ -304,65 +287,50 @@ article .example {
 
 article .help-notice,
 article .info-notice {
-  border: 1px solid #93A1A1;
-  margin: 0.75em 0;
-  padding: 0.5em 1em 0.5em 3.5em;
+  background-color:#d5e8f3;
+  margin: 1em -1em 1.5em -1em;
+  padding: 1em 1em 1em 1em;
+  background: url(<%= asset_path "icon-important.png" %>) no-repeat scroll 98% 1em #D5E8F3;
+}
+
+article .info-notice{
+  background: url(<%= asset_path "icon-information.png" %>) no-repeat scroll 98% 1em #D5E8F3;
 }
 
 article .help-notice p,
 article .info-notice p {
-  font-size: 1em;
   margin: 0;
+  padding-right:4em;
+}
+article p + .help-notice,
+article p + .info-notice{
+  margin-top:2em;
 }
 
 article .info-notice a[rel="external"] {
   display:inline;
 }
 
-article .help-notice {
-  background: url(<%= asset_path "icon-important.png" %>) 0.75em 50% no-repeat;
-}
-
-article .info-notice {
-  background: url(<%= asset_path "icon-information.png" %>) 1em 50% no-repeat;
+article .form-download{
+  background: url(<%= asset_path "icon-file-download.png" %>) no-repeat scroll 98% 0.5em #D5E8F3;
+  margin: 0.75em -1em;
+  padding: 0.5em 1em 0.5em 1em;
 }
 
 article .form-download p {
   margin: 0 0;
+  padding-right:3em;
 }
 article .form-download a {
-  background-color: #d9e0e0;
-  background-image: url(<%= asset_path "icon-file-download.png" %>);
-  background-position: 1em 50%;
-  background-repeat: no-repeat;
   color: #000;
   display: block;
-  font-size: 0.85em;
-  line-height: 1.5em;
-  margin: 1em 0;
-  padding: 0.75em 0 0.75em 3em;
-}
-article .form-download a:hover {
-  background-color: #d2d9d9;
 }
 
-article .help-notice p,
-article .info-notice p,
-article .form-download p,
-article .advisory p,
-article .example p,
-article .contact p,
-article .address p,
-article .place p
- {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
 
 .contact {
-  background-color: #fff;
-  border: solid 1px #93A1A1;
+  background-color:#d5e8f3;
   box-sizing: border-box;
-  margin: 0.75em 0;
+  margin: 0.75em -1em;
   padding: 0.25em 1em;
   min-width: 60%;
 }
@@ -503,22 +471,21 @@ article ol.steps li:nth-child(7) {
 }
 
 .highlight-answer {
-  background-color:#D33883;
+  font-size:1.5em;
+  background-color:#28a197;
   color:#fff;
   text-align:center;
   padding:0.1em 2em 0.2em 2em;
-  margin-bottom:1em;
+  margin:0 -1em 1em -1em;
 }
 .highlight-answer p {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   line-height:2.3em;
   color:#fff;
-  font-size:1.5em;
 }
 .highlight-answer p em {
-  font-size:3em;
+  font-size:2.45em;
   font-style:normal;
-  font-weight:bold;
+  font-weight:400;
   display:block;
   margin-bottom:0.5em;
   color:#fff;

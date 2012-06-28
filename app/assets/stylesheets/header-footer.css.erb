@@ -3,7 +3,7 @@
 /* Global header */
 
 #global-header {
-  background-color: rgba(0,0,0,0.8);
+  background-color: #303030;
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
@@ -23,8 +23,7 @@
 @media only screen and (min-width:1024px) {
   #global-header .header-global {
     margin: 0 auto;
-    max-width: 1280px;
-    width: 81%;
+    max-width: 960px;
   }
 }
 
@@ -39,21 +38,10 @@
   }
 }
 
-.wf-gillsans-n4-inactive #global-header {
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-loading #global-header {
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-active #global-header {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-}
 #global-header h1 {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 1.6em;
-  font-weight: normal;
+  font-weight:400;
   float: left;
-  letter-spacing: 0.05em;
   line-height: 1.15em;
   margin-right: 1.5em;
   text-transform: uppercase;
@@ -64,13 +52,17 @@
 }
 
 #global-header h1 a {
-  background-image: url(<%= asset_path "header-crown.png" %>);
+  background-image: url(<%= asset_path "gov.uk_logotype.png" %>);
   background-position: 0 1px;
   background-repeat: no-repeat;
   float: left;
   padding: 0 0 0 1.7em;
+  width:141px;
+  text-indent:-999px;
 }
-
+#global-header h1 a:hover{
+  background-position: 0 -43px;
+}
 #global-header .header-global a {
   color: #fff;
   text-decoration: none;
@@ -95,6 +87,7 @@ body.citizen nav.header-context ol li {
   float: left;
   margin-right: 0;
   line-height: 2em;
+  margin-left:1em
 }
 
 #global-header .header-global nav ul li {
@@ -103,10 +96,6 @@ body.citizen nav.header-context ol li {
   margin-bottom: 0;
 }
 
-/*#global-header .header-global nav ul li:last-child {
-  margin-right: 0;
-}
-*/
 #global-header .header-global nav ul li a {
   font-size: 0.85em;
   text-decoration: none;
@@ -143,10 +132,10 @@ body.citizen nav.header-context ol {
 }
 
 body.citizen nav.header-context ol li {
-  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
-  background-position: 0.2em 30%;
+  background-image: url(<%= asset_path "separator.png" %>);
+  background-position: 0.2em 36%;
   background-repeat: no-repeat;
-  padding-left: 1.5em;
+  padding-left: 1.3em;
   margin-right: 0.5em;
 }
 
@@ -164,24 +153,24 @@ body.citizen nav.header-context a:last-child {
   margin-right: 0
 }
 
+/* beta notice */
+
 body.citizen nav.header-context .beta-notice {
-  height: 0;
+  display:none;
 }
 
-body.citizen nav.header-context .beta-notice .inner {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0;
-  position: relative;
+/*body.citizen nav.header-context .beta-notice .inner {
+
 }
 
 body.citizen nav.header-context .beta-notice p {
   background-color: #F17921;
   margin: 0;
   padding: 0.25em 0.5em;
-  position: absolute;
-  right: 15em;
-  top: 2.65em;
+  position: fixed;
+  left: 20%;
+  top: 0.5em;
+  z-index:9999;
 }
 
 body.citizen nav.header-context .beta-notice p a {
@@ -190,7 +179,8 @@ body.citizen nav.header-context .beta-notice p a {
 }
 body.citizen nav.header-context .beta-notice p a:hover {
   text-decoration: underline;
-}
+}*/
+
 
 body.government #global-header .header-context {
   border-color: #cdce00;
@@ -234,28 +224,33 @@ form.site-search {
 #global-header form.site-search {
   clear: both;
   position: relative;
+  top: -2px;
 }
 
 form.site-search .button {
-  /*
-    new colour should be added to the palette
-    this version is much more contrast-friendly than #2E8ACA
-  */
-  background-color: #4370CD;
-  border-color: #4370CD;
-  line-height: 1.25em;
-  padding: 0.2em 0.5em;
+  background-color:#28A197;
+  color:#fff;
+  display:inline;
+  line-height:1.2em;
+  font-weight:300;
+  border:none;
+  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding: 0.35em 0.5em 0.2em;
+  top: -2px;
+  margin-left:0.5em;
 }
 form.site-search .button:hover {
-  border-color: #9798C8;
+  background-color: #3ABAA8;
 }
 
 form.site-search #site-search-text {
+  font-weight:300;
   border: none;
   border-bottom: solid 1px #fff;
   border-top: solid 1px #fff;
   line-height: 1.25em;
   padding: 0.2em 0.25em;
+  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 @media only screen and (min-width:765px) {
@@ -277,13 +272,15 @@ form.site-search #site-search-text {
   background: #F17921;
   color: #000;
   float: none;
-  padding: 0.5em 4%;
   width: auto;
+  text-align:center;
 }
 
 #footer .beta-notice p {
   display: inline-block;
-  margin: 0 1em 0 0;
+  margin: 0.7em auto;
+  width:960px;
+  text-align:left;
 }
 
 #footer .inner {
@@ -293,8 +290,8 @@ form.site-search #site-search-text {
 @media only screen and (min-width:1024px) {
   #footer .inner {
     margin: 0 auto;
-    max-width: 1280px;
-    width: 81%;
+    max-width: 960px;
+    /*width: 81%;*/
   }
 }
 
@@ -419,10 +416,8 @@ form.site-search #site-search-text {
 #footer .prototype-footer {
   background: #444;
   color: #bbb;
-  
   position: relative;
   padding: 0.5em 3.125.em;
-  
   font-size: .875em;
   line-height: 1.285714286em;
 }
@@ -439,8 +434,6 @@ form.site-search #site-search-text {
   padding: 0.631578947em 0 1.263157895em 0;
   color: #fff;
   margin: 0;
-  
-  /*display: inline-block;*/
 }
 
 #footer .prototype-footer h4 {
@@ -460,7 +453,6 @@ form.site-search #site-search-text {
 #footer .prototype-footer a {
   color: inherit;
   text-decoration: none;
-  /*border-bottom: 1px solid #777;*/
   transition: 0.2s ease;
   -o-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
@@ -474,7 +466,6 @@ form.site-search #site-search-text {
 #footer .prototype-footer a:hover {
   text-decoration: underline;
   color: #f8f8f8;
-  /*border-bottom: 1px solid #ddd;*/
 }
 
 #footer .prototype-footer p {
@@ -499,7 +490,6 @@ form.site-search #site-search-text {
 
 #footer .prototype-footer-section {
   padding: 0.857142857em 1.714285714em 0.857142857em 0;
-  /*width: 15.142857143em;*/
   width: 22%;
   padding-right: 4%;
   
@@ -598,11 +588,6 @@ form.site-search #site-search-text {
   #footer .prototype-footer-row {
 	height: 0; overflow: visible;
   }
-  
-  /*#footer .prototype-footer-section {
-    width: 22%;
-    padding-right: 4%;
-  }*/
 }
 
 @media only screen and (max-width:740px) and (min-width: 580px) {

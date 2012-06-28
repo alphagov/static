@@ -7,7 +7,7 @@
 
 #wrapper hgroup h1 span,
 article header h1 span,
-aside .chapters-navigation li a .part-label {
+aside .page-navigation li a .part-label {
   font-size: 0.375em;
   text-transform: none !important;
 }
@@ -16,7 +16,7 @@ article header h1 span {
   font-size: 0.5em;
 }
 
-aside .chapters-navigation li a .part-label {
+aside .page-navigation li a .part-label {
   font-size: 0.8em;
 }
 

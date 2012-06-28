@@ -1,16 +1,13 @@
 /* visited link colour overrides */
 
-#wrapper.guide aside .chapters-navigation li a:visited,
-#wrapper.guide .pagination li a:visited,
+#content.multi-page aside .page-navigation li a:visited,
+#content.multi-page .pagination li a:visited,
 #wrapper.programme .article-container nav a:visited {
   color: #2E3191;
 }
 
-#wrapper.guide header {
+#content.multi-page header {
   position: relative;
-}
-#wrapper.guide header hgroup {
-/*  margin-left: 0;*/
 }
 
 .alternative-guide {
@@ -43,13 +40,13 @@
   padding-left: 2.25em;
 }
 
-#wrapper.guide article {
-  border-left: solid 1px #C9D0D0;
+
+#content.multi-page article {
   margin-left: -1px;
   min-height: 40em;
   width: 75%;
 }
-.lte-ie8 #wrapper.guide article {
+.lte-ie8 #content.multi-page article {
   _min-height: 40em;
 }
 
@@ -59,90 +56,91 @@
   margin-left: 0;
 }
 
-.lte-ie8 #wrapper.guide article {
+.lte-ie8 #content.multi-page article {
   width: 74.999%;
   float: left;
 }
-.guide article .inner {
+.multi-page article .inner {
   padding: 0.5em 2.5em 1em 2.5em;
 }
-#wrapper.guide aside {
+.licence article .inner {
+  padding-top: 0;
+}
+#content.multi-page aside {
   float: left;
   width: 25%;
 }
 
-#wrapper.guide aside .inner {
+#content.multi-page aside .inner {
   padding: 0;
   width: 100%;
 }
-aside .chapters-navigation {
+aside .page-navigation {
   display: block;
   float: right;
   margin-top: 0.5em;
-  width: 95%;
+  width: 100%;
 }
-aside .chapters-navigation ol {
+
+aside .page-navigation ol {
   font-size: 0.85em;
   margin: 0;
   padding: 0;
 }
-aside .chapters-navigation li {
+aside .page-navigation li {
   list-style: none;
 }
-aside .chapters-navigation li a {
+aside .page-navigation li a {
   background-color: #E1E8E8;
   border-top: solid 1px #C9D0D0;
   display: block;
-  font-size: 1.2em;
   padding: 0.75em 0.75em;
+  font-size: 1.176em;
   text-decoration: none;
 }
-aside .chapters-navigation li:first-child a {
+aside .page-navigation li:first-child a {
   border-top: none;
 }
-aside .chapters-navigation li.active a {
+aside .page-navigation li.active a {
   background: #fff;
   border: solid 1px #C9D0D0;
   border-right: none;
   display: block;
   margin: 0 0 -1px -1px;
-/*  margin-bottom: -1px;*/
   position: relative;
   z-index: 2;
 }
-.lte-ie8 aside .chapters-navigation li.active a {
+.lte-ie8 aside .page-navigation li.active a {
   bottom: -1px;
   margin: 0;
 }
 
-aside .chapters-navigation li a:hover {
+aside .page-navigation li a:hover {
   background-color: #97C5E5;
   color: #fff;
 }
-aside .chapters-navigation li.active a:hover {
+aside .page-navigation li.active a:hover {
   background: #fff;
   color: #1576FB;
 }
-aside .chapters-navigation li a span {
+aside .page-navigation li a span {
   display: block;
 }
-aside .chapters-navigation li a .part-label {
+aside .page-navigation li a .part-label {
   color: #3f3f3f;
   display: block;
-  font-size: 0.75em;
   line-height: 1.5em;
-  text-transform: uppercase;
 }
-aside .chapters-navigation li a:hover .part-label {
+aside .page-navigation li a:hover .part-label {
   color: #fff;
 }
-aside .chapters-navigation li.active a:hover .part-label {
+aside .page-navigation li.active a:hover .part-label {
   color: #1576FB;
 }
-aside .chapters-navigation li a .part-title {
+aside .page-navigation li a .part-title {
   line-height: 1.3em;
 }
-aside .chapters-navigation li.active a .part-title {
+aside .page-navigation li.active a .part-title {
   color: #000;
 }
 
@@ -162,20 +160,17 @@ aside .chapters-navigation li.active a .part-title {
 /* guides pagination */
 
 .pagination {
-/*  background: #E1E8E8;*/
   display: block;
-  margin: 2em 0 0 0;
+  margin: 2em -1em 0 -1em;
 }
 
 .pagination ul {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .pagination li {
   float: left;
-  font-size: 1em;
   list-style: none;
   text-align:right;
   margin: 0;
@@ -194,7 +189,7 @@ aside .chapters-navigation li.active a .part-title {
   float: left;
   min-height: 4.5em;
   text-decoration: none;
-  width: 80%;
+  width: 87%;
 }
 .lte-ie8 .pagination li a {
   _height: 4.5em;
@@ -206,17 +201,11 @@ aside .chapters-navigation li.active a .part-title {
 }
 
 .pagination .previous a {
-  background-image: url(<%= asset_path "section-divider-arrow-rev.png" %>);
-  background-position: 5% 50%;
-  background-repeat: no-repeat;
-  padding: 0.75em 5% 0.75em 15%;
+  padding: 0.75em 5% 0.75em 1em;
 }
 
 .pagination .next a {
-  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
-  background-position: 95% 50%;
-  background-repeat: no-repeat;
-  padding: 0.75em 15% 0.75em 5%;
+  padding: 0.75em 1em 0.75em 5%;
 }
 
 .pagination .first,
@@ -265,16 +254,11 @@ aside .chapters-navigation li.active a .part-title {
 #wrapper.transaction .advisory.minor,
 #wrapper.local_transaction .advisory.minor {
   background: #ffffcc;
-/*  margin: -2em -3em 1.5em -3em;*/
   padding: 0.25em 0.5em;
 }
 .lte-ie8 #wrapper.place .advisory.minor,
 .lte-ie8 #wrapper.transaction .advisory.minor,
 .lte-ie8 #wrapper.local_transaction .advisory.minor {
-/*  margin-top: 0;*/
-/*  margin-bottom: 0;*/
-/*  position: relative;*/
-/*  top: -2em;*/
 }
 
 #wrapper.place .advisory.minor span,
@@ -284,19 +268,12 @@ aside .chapters-navigation li.active a .part-title {
   font-size: 0.85em;
 }
 
-.get-started-intro {
-/*  font-size: 1em;*/
-/*  line-height: 1.25em;*/
-}
-
 #wrapper.transaction .continue,
 #wrapper.local_transaction .continue {
   background: #F9F9F9 url(<%= asset_path "info-icon.png" %>) no-repeat 1% 50%;
   border: 1px solid #586E75;
-/*  font-size: 0.9em;*/
   margin-bottom: 1.2em;
   padding: 0.15em 1em;
-/*  text-indent: 25px;*/
 }
 
 .find-location-for-service {
@@ -312,6 +289,9 @@ input.postcode {
   line-height: 1.4em;
   width: 8em;
   margin: 0 0.5em;
+  font-weight: 300;
+  line-height: 1.25em;
+  padding: 0.3em 0.25em 0.1em;
 }
 
 .find-location-for-service p.geolocate-me {
@@ -334,89 +314,18 @@ input.postcode {
   top: 50%;
 }
 
-
-h1#what-you-need-to-know {
-  font-family: 'Gill Sans W01 Medium', 'Gill Sans', GillSans, 'Gill Sans MT', GillSansMT, sans-serif;
-}
 h1#what-you-need-to-know{
-  font-weight:normal;
-  letter-spacing:1px;
-  text-transform:uppercase;
+  font-weight: 300;
 }
 
 /*
  * Helper icons
  */
 
-/*ul.helpers {
-  list-style-type: disc;
-  list-style-position:inside;
-  margin: 0.75em auto;
-  padding: 0;
-}
-
-ul.helpers li {
-  font-size: 1em;
-  padding: 0;
-}*/
-
-/*ul.helpers li span {
-  display: block;
-  font-size: 3em;
-  line-height: 1;
-}
-*/
-/*ul.helpers li:nth-child(3n+3) {
-  border-right: none;
-}*/
-
 ul.helpers li.active, ul.helpers li.active h3 a {
   color: #fff;
 }
 
-/*
-ul.helpers li.need_cash {
-  background-image: url(<%= asset_path "helper-cash-icon.png" %>);
-}
-ul.helpers li.card_payment {
-  background-image: url(<%= asset_path "helper-creditcard-icon.png" %>);
-  background-position: -2% 0%;
-}
-ul.helpers li.gateway {
-  background-image: url(<%= asset_path "helper-govgateway-icon.png" %>);
-  background-position: -3% 10%;
-}
-ul.helpers li.need_passport {
-  background-image: url(<%= asset_path "helper-passport-icon.png" %>);
-  background-position: -2% 15%;
-}
-ul.helpers li.need_address {
-  background-image: url(<%= asset_path "helper-address-icon.png" %>);
-  background-position: 5% 45%;
-}
-ul.helpers li.need_id {
-  background-image: url(<%= asset_path "helper-proofofid-icon.png" %>);
-  background-position: -2% 25%;
-}
-ul.helpers li.need_ni {
-  background-image: url(<%= asset_path "helper-ni-icon.png" %>);
-  background-position: 4% 35%;
-}
-ul.helpers li.over_18 {
-  background-image: url(<%= asset_path "helper-over18-icon.png" %>);
-  background-position: 5% 35%;
-}
-ul.helpers li.less_than_10,
-ul.helpers li.less_than_20,
-ul.helpers li.less_than_30,
-ul.helpers li.less_than_40 {
-  background-image: url(<%= asset_path "helper-time-icon.png" %>);
-}
-ul.helpers li.offline_steps {
-  background-image: url(<%= asset_path "helper-offline-icon.png" %>);
-  background-position: -3% 35%;
-}
-*/
 
 /*
   Programme format
@@ -427,7 +336,7 @@ ul.helpers li.offline_steps {
 }
 
 #wrapper.programme .programme-progression {
-  padding: 0 3em 0 0.5em;
+  padding: 0 0 0 4.5em;
   position: relative;
 }
 
@@ -454,14 +363,11 @@ ul.helpers li.offline_steps {
 
 #wrapper.programme .programme-progression li a {
   background-color: #E1E8E8;
-  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
-  background-position: 94% 50%;
-  background-repeat: no-repeat;
   display: block;
   height: 2.25em;
   line-height: 2.25em;
   margin-left: 1px;
-  padding: 0 1.5em 0 0.75em;
+  padding: 0 1em 0 0.75em;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -496,7 +402,6 @@ ul.helpers li.offline_steps {
 }
 .lte-ie8 #wrapper.programme .programme-progression li.active a,
 .lte-ie8 #wrapper.programme div.further-information.active a {
-/*  border-bottom: none;*/
   _bottom: -1px;
 }
 
@@ -515,12 +420,12 @@ div.further-information {
 }
 
 div.further-information a {
-  background-color: #E1E8E8;
+  background-color: #FFF;
   display: block;
   float: right;
   line-height: 2.25em;
   height: 2.25em;
-  padding: 0 0.75em;
+  padding: 0 2em 0 0.75em;
   text-decoration: none;
 }
 .lte-ie8 div.further-information a {
@@ -577,7 +482,6 @@ div.further-information.active a {
 
 #wrapper.programme .part-pagination li {
   float: left;
-  font-size: 1em;
 }
 
 #wrapper.programme .part-pagination li a {
@@ -588,13 +492,9 @@ div.further-information.active a {
 
 #wrapper.programme .part-pagination li:first-child a {
   background-color: #E1E8E8;
-  background-image: url(<%= asset_path "section-divider-arrow.png" %>);
-  background-position: 94% 50%;
-  background-repeat: no-repeat;
-/*  border-bottom: solid 1px #C9D0D0;*/
   display: block;
-  margin-right: 3em;
-  padding: 0 1.75em 0 0.5em;
+  margin:0 1em 0 -1em;
+  padding: 0 0.55em 0 0.5em;
   text-decoration: none;
 }
 
@@ -615,30 +515,30 @@ div.further-information.active a {
 }
 
 @media only screen and (max-width:670px) {
-  .guide article .inner {
+  .multi-page article .inner {
     padding: 0.5em 1.25em 1em 1.25em;
   }
-  #wrapper.guide aside {
+  #content.multi-page aside {
     width: 100%;
   }
-  #wrapper.guide aside .chapters-navigation {
+  #content.multi-page aside .page-navigation {
     margin-bottom: 1em;
     margin-top: 0;
     width: 100%;
   }
-  #wrapper.guide aside .chapters-navigation li a {
+  #content.multi-page aside .page-navigation li a {
     padding-bottom: 0.5em;
     padding-top: 0.5em;
   }
-  #wrapper.guide aside .chapters-navigation li a span {
+  #content.multi-page aside .page-navigation li a span {
     display: inline;
   }
-  #wrapper.guide aside .chapters-navigation li a .part-label .visuallyhidden {
+  #content.multi-page aside .page-navigation li a .part-label .visuallyhidden {
     display: inline;
     margin: 0;
     position: static;
   }
-  #wrapper.guide article {
+  #content.multi-page article {
     width: 100%;
   }
   #wrapper.guide .alternative-guide {
@@ -677,7 +577,7 @@ div.further-information.active a {
     padding: 0 0.75em;
     text-align: left;
   }
-  #wrapper.programme .programme-progression li.active a, 
+  #wrapper.programme .programme-progression li.active a,
   #wrapper.programme div.further-information.active a {
     border: none;
     border-top: solid 1px #C9D0D0;
