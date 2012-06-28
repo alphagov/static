@@ -165,7 +165,7 @@ a[rel="external"]:after {
   height: 0;
   left: 0;
   position: fixed;
-  top: 8.15em;
+  top: 8em;
   width: 100%;
 }
 .lte-ie8 .related-positioning {
@@ -203,6 +203,7 @@ a[rel="external"]:after {
   background-color: #E5E5E5;
   padding: 0 1em 0.25em 1.2em;
   width: auto;
+  border-left:1px solid #C9D0D0;
 }
 .related h2 {
   color: #000;
@@ -251,9 +252,10 @@ a[rel="external"]:after {
 }
 
 .related li.related-topic {
-  list-style: none;
-  margin-top: 0.5em;
-  padding-top: 0.5em;
+  border-top: 1px solid #C9D0D0;
+  list-style: none outside none;
+  margin: 1em 0 0;
+  padding: 1em 0;
 }
 
 .related li.related-topic span {
