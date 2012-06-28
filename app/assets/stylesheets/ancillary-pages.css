@@ -4,10 +4,10 @@
 
 #wrapper .ancillary header.page-header hgroup {
   background-color: transparent;
-  border-color: #90278E;
   margin: 0;
   padding-left: 5em;
   padding-right: 5em;
+  padding-top: 1em;
 }
 
 #wrapper .ancillary.section-page header.page-header hgroup {
@@ -40,51 +40,10 @@
   line-height: 1.5em;
 }
 
-/* used for search results and link lists on section pages */
-
-.ancillary .results {
-  margin: 0 0 1em 0;
-}
-
-.ancillary .results ol {
-  list-style: none;
-  margin: 1em 0;
-  padding: 0;
-}
-
-.ancillary .results ol>li {
-  margin-bottom: 1.25em;
-  padding-top: 0.25em;
-  position: relative;
-}
-
-.ancillary .results li p {
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1em;
-  width: 65%;
-}
-
-.ancillary .popular li p {
-  margin-top: 0.125em;
-  width: 100%;
-}
-
-.ancillary .results li a {
-  display: block;
-  padding: 0.25em 0 0.25em 2em;
-}
-
-.ancillary .results li small {
-  color: #007E09;
-  display: block;
-  line-height: 1.25em;
-  margin: 0.25em 1em 0.5em 0;
-}
-
 /* static pages like platform and help */
 
 .ancillary .menu {
-  background-color: #F0E7D5;
+  background-color: #E5E5E5;
   float: right;
   margin: -3em -15em 0 0;
   padding: 1em;
@@ -126,7 +85,6 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 .ancillary.feedback .pullout {
   background-color: #D9E0E0;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1.5em 0;
   padding: 1em;
 }
