@@ -2,29 +2,34 @@
 
 #wrapper .ancillary.search .search-container {
   background-color: #fff;
-  margin-right: 15em;
   padding: 1em 2.5em 1em 2.5em;
 }
+
+/* Header
+============================================================================ */
 
 #wrapper .ancillary.search header {
   background-color: #fff;
   color: inherit;
-  margin: 0 15em 0 0;
-	padding-bottom: 0;
+  margin: 0;
+  padding-bottom: 0;
 }
 
 #wrapper .ancillary.search header hgroup {
   border-top: solid 2px #FFC10E;
-  padding: 1.5em 2.5em 0 2.5em;
+  padding: 1.5em 2.5em;
 }
 
 #wrapper .ancillary.search header hgroup h1 {
-  font-size: 1.5em;
+  font-size: 2.75em;
 }
 
 #wrapper .ancillary.search header hgroup h1 em {
   color: #2E3191;
 }
+
+/* Search results
+============================================================================ */
 
 .search .results {
   padding: 1em;
@@ -182,72 +187,11 @@
      
 }
 
-/* @override http://dev.gov.uk:4000/xprop.search/assets/css/search-prototype.css */
-
-/* Header
-============================================================================ */
-
-/* This is all overwriting stuff in search.css */
-
-#wrapper .ancillary.search header {
-  background-color: #fff;
-  color: inherit;
-  margin: 0;
-  padding-bottom: 0;
-}
-
-#wrapper .ancillary.search header hgroup {
-  border-top: solid 2px #FFC10E;
-  padding: 1.5em 2.5em;
-}
-
-#wrapper .ancillary.search header hgroup h1 {
-  font-size: 2.75em;
-}
-
-#wrapper .ancillary.search header hgroup h1 em {
-  color: #2E3191;
-}
-
-#wrapper .ancillary.search .search-container {
-  margin: 0;
-}
-
 /* Search Form
 ============================================================================ */
 form.search-header {
   display: block;
   margin-bottom: 2.4rem;
-}
-
-/* button styles taken from core.css, should be changed to also apply to <button>s */
-button {
-  background-color: #B01117;
-  background-image: url(<%= asset_path "button-overlay.png" %>);
-  _background-image:none;
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  border: solid 1px #B01117;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.5em 0.75em;
-  position: relative;
-  text-decoration: none;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  -moz-transition: background-color 0.5s ease-in-out;
-}
-button:hover {
-  background-color: #DD322D;
-  border: solid 1px #760418;
-  color: #fff;
-}
-button:active {
-  background-color: #DD322D;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
 }
 
 /* reset pesky webkit search styles */
@@ -273,7 +217,6 @@ form.search-header input[type="search"] {
   border: 2px inset;
 }
 
-form.search-header button,
 form.search-header .button {
   background-color: #4370CD;
   border-color: #4370CD;
@@ -377,13 +320,14 @@ form.search-header-3 input[type="search"] {
 ============================================================================ */
 .search .results {
   padding: 0;
-  margin-left: -20rem;
+  margin-left: -26rem;
   float: right;
   width: 100%;
 }
 
 .search .results-wrapper {
-  padding: 0; margin: 0px 0px 0px 20rem;
+  padding: 0;
+  margin-left: 26rem;
 }
 
 .search .results-list {
@@ -393,16 +337,16 @@ form.search-header-3 input[type="search"] {
 
 .search .results-list li {
   display: block;
-  padding: 0; margin: 0px 0px 1.6rem 0px;
+  margin-bottom: 2.4rem;
+  max-width: 52rem;
+  padding: 0;
   overflow: hidden;
 
   -webkit-transition: opacity 0.2s ease, height 0.2s ease 0.2s, padding-bottom 0.2s ease 0.2s, visibility 0s linear;
-/*
-  -moz-transition: opacity 0.2s ease 0, height 0.2s ease 0.2s;
-  -ms-transition: opacity 0.2s ease 0, height 0.2s ease 0.2s;
-  -o-transition: opacity 0.2s ease 0, height 0.2s ease 0.2s;
-  transition: opacity 0.2s ease 0, height 0.2s ease 0.2s;
-*/
+  -moz-transition: opacity 0.2s ease, height 0.2s ease 0.2s, padding-bottom 0.2s ease 0.2s, visibility 0s linear;
+  -ms-transition: opacity 0.2s ease, height 0.2s ease 0.2s, padding-bottom 0.2s ease 0.2s, visibility 0s linear;
+  -o-transition: opacity 0.2s ease, height 0.2s ease 0.2s, padding-bottom 0.2s ease 0.2s, visibility 0s linear;
+  transition: opacity 0.2s ease, height 0.2s ease 0.2s, padding-bottom 0.2s ease 0.2s, visibility 0s linear;
 
 }
 
@@ -419,15 +363,15 @@ form.search-header-3 input[type="search"] {
 
 .search .results-list .result-meta {
   padding: 0;
-  margin: 0;
+  margin: 0.25em 0 0 0;
   font-size: 1.6rem;
 }
 
 .search .results-list .result-meta li {
   display: inline-block;
   color: #999;
-  line-height: 2.8rem;
-  margin: 0;
+  line-height: 2.4rem;
+  margin-bottom: 0;
 }
 
 .search .results-list .result-meta li:first-child {
@@ -448,36 +392,41 @@ form.search-header-3 input[type="search"] {
 
 /* icons taken from core.css hardcoded image uris */
 .search .results-list .result-meta li.guide {
-  text-indent: 30px;
   background-image: url(<%= asset_path "icon-guide-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
 }
 .search .results-list .result-meta li.answer,
 .search .results-list .result-meta li.calendar,
 .search .results-list .result-meta li.smart_answer,
 .search .results-list .result-meta li.calculator,
 .search .results-list .result-meta li.custom-application {
-  text-indent: 30px;
   background-image: url(<%= asset_path "icon-answer-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
 }
 .search .results-list .result-meta li.local_transaction,
 .search .results-list .result-meta li.transaction,
 .search .results-list .result-meta li.place,
 .search .results-list .result-meta li.nearest,
 .search .results-list .result-meta li.service {
-  text-indent: 30px;
   background-image: url(<%= asset_path "icon-service-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
 }
 .search .results-list .result-meta li.programme {
-  text-indent: 30px;
   background-image: url(<%= asset_path "icon-programme-s.png" %>);
+}
+
+.search .results-list .result-meta li.guide,
+.search .results-list .result-meta li.answer,
+.search .results-list .result-meta li.calendar,
+.search .results-list .result-meta li.smart_answer,
+.search .results-list .result-meta li.calculator,
+.search .results-list .result-meta li.custom-application,
+.search .results-list .result-meta li.local_transaction,
+.search .results-list .result-meta li.transaction,
+.search .results-list .result-meta li.place,
+.search .results-list .result-meta li.nearest,
+.search .results-list .result-meta li.service,
+.search .results-list .result-meta li.programme {
   background-repeat: no-repeat;
-  background-position: 0 0.25em;
+  background-position: 0 0;
+  text-indent: 30px;
 }
 
 .search .results .recommended {
@@ -513,107 +462,31 @@ form.search-header-3 input[type="search"] {
 */
 }
 
-/* Results v2
-============================================================================ */
-.search .results-2 {
-  margin-left: -26rem;
-}
-
-.search .results-2 .results-wrapper {
-  margin-left: 26rem;
-}
-
-.search .results-2 .results-list li {
-  margin-bottom: 2.4rem;
-}
-
-.search .results-2 .results-list li {
-  max-width: 52rem;
-}
-
-.search .results-2 .results-list .result-meta li {
-  line-height: 2.4rem;
-  margin-bottom: 0;
-}
-
-.search .results-2 .results-list .result-meta li.guide,
-.search .results-2 .results-list .result-meta li.answer,
-.search .results-2 .results-list .result-meta li.calendar,
-.search .results-2 .results-list .result-meta li.smart_answer,
-.search .results-2 .results-list .result-meta li.calculator,
-.search .results-2 .results-list .result-meta li.custom-application,
-.search .results-2 .results-list .result-meta li.local_transaction,
-.search .results-2 .results-list .result-meta li.transaction,
-.search .results-2 .results-list .result-meta li.place,
-.search .results-2 .results-list .result-meta li.nearest,
-.search .results-2 .results-list .result-meta li.service,
-.search .results-2 .results-list .result-meta li.programme {
-  background-position: 0 0;
-}
-
-/* Results v3
-============================================================================ */
-.search .results-3 {
-  margin-left: 0;
-  float: left;
-  width: 62rem;
-}
-
-.search .results-3 .results-wrapper {
-  padding: 0; margin-left: 0;
-}
-
-.search .results-3 .results-list li {
-  margin-bottom: 2.4rem;
-}
-
-.search .results-3 .results-list li {
-  max-width: 58rem;
-}
-
-.search .results-3 .results-list .result-meta li {
-  line-height: 2.4rem;
-  margin-bottom: 0;
-}
-
-.search .results-3 .results-list .result-meta li.guide,
-.search .results-3 .results-list .result-meta li.answer,
-.search .results-3 .results-list .result-meta li.calendar,
-.search .results-3 .results-list .result-meta li.smart_answer,
-.search .results-3 .results-list .result-meta li.calculator,
-.search .results-3 .results-list .result-meta li.custom-application,
-.search .results-3 .results-list .result-meta li.local_transaction,
-.search .results-3 .results-list .result-meta li.transaction,
-.search .results-3 .results-list .result-meta li.place,
-.search .results-3 .results-list .result-meta li.nearest,
-.search .results-3 .results-list .result-meta li.service,
-.search .results-3 .results-list .result-meta li.programme {
-  background-position: 0 0;
-}
-
-
-
 /* Filters
 ============================================================================ */
 .filters {
-  width: 22.4rem;
-  /* background-color: #c1cacb; */
   float: left;
-  margin: 0 0 0 -4rem;
+  background-color: transparent;
+  margin-left: 0;
+  width: 22.4rem;
 }
 
 .filters .group {
-  margin-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.filters .inner {
+  padding-top: 0;
 }
 
 .filters h2 {
   font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 0.85em;
   font-weight: normal;
-  height: 30px;
+  height: auto;
   letter-spacing: 0.15em;
-  line-height: 1.5em;
-  margin: 0 0 .8rem 0;
+  line-height: 2.4rem;
+  margin-bottom: 0;
   padding: 0;
   position: relative;
   text-transform: uppercase;
@@ -634,6 +507,7 @@ form.search-header-3 input[type="search"] {
 .filters ul li a {
   border-radius: 2px;
   display: block;
+  line-height: 2rem;
   padding: 2px 2px 2px 6px;
   text-decoration: none;
   -webkit-transition: 0.4s ease-out;
@@ -647,7 +521,7 @@ form.search-header-3 input[type="search"] {
 }
 
 .filters ul li.active a {
-  background-color: #2E3191;
+  background-color: #999;
   color: #fff;
 }
 
@@ -658,8 +532,8 @@ form.search-header-3 input[type="search"] {
   display: block;
   float: right; 
   font-size: 1.4rem;
-  height: 20px;
-  line-height: 20px;
+  height: 1.6rem;
+  line-height: 1.6rem;
   min-width: 16px;
   padding: 2px 4px;
   text-align: center;
@@ -679,46 +553,10 @@ form.search-header-3 input[type="search"] {
   text-indent: 0;
 }
 
-/* Filters v2
-============================================================================ */
-.filters-2 {
-  background-color: transparent;
-  margin-left: 0;
-}
-
-.filters-2 .inner {
-  padding-top: 0;
-}
-
-.filters-2 h2 {
-  height: auto;
-  line-height: 2.4rem;
-  margin-bottom: 0;
-}
-
-.filters-2 ul li a {
-  line-height: 2rem;
-}
-
-.filters-2 ul li a span {
-  height: 1.6rem; line-height: 1.6rem;
-}
-
-.filters-2 .group {
-  margin-bottom: 2.4rem;
-}
-
-/* Filters v3
-============================================================================ */
-.filters-3 {
-  float: right;
-}
-
-
 /* Related
 ============================================================================ */
 
-#wrapper .search .related ul li a {
+/*#wrapper .search .related ul li a {
   padding: 0; margin-bottom: 0;
   font-size: 1em;
 }
@@ -726,5 +564,5 @@ form.search-header-3 input[type="search"] {
 #wrapper .search .related ul li p {
   font-size: .875em;
   margin-top: 0;
-}
+}*/
 
