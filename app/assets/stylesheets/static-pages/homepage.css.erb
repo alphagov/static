@@ -73,20 +73,17 @@ section#homepage .homepage-search .search-suggestions:before {
 }
 
 section#homepage .homepage-search input[type="search"] {
-  border: 1px solid #ccc; border-width: 0.1rem;
-  padding: 5px; padding: 0.5rem;
   margin-right: 10px; margin-right: 1rem;
+  padding-left: 35px; padding-left: 3.5rem;
   
-  width: 450px; width: 45rem;
+  width: 415px; width: 41.5rem;
   
   font-size: 24px; line-height: 30px;
   font-size: 2.4rem; line-height: 3rem;
-  
-  text-indent: 20px;
 }
 
 
-section#homepage .homepage-search button.search {
+section#homepage .homepage-search .button.search {
   background-image: url(<%= asset_path "icon-search.png" %>);
 }
 
@@ -98,39 +95,31 @@ section#homepage .homepage-search button.search:hover {
 /* Carousel
 ============================================================================ */
 
+section#homepage #homepage-carousel {
+  position: relative;
+  width: 960px;
+  width: 96rem;
+  
+  margin: 0 auto;
+}
+
 section#homepage .homepage-carousel-wrapper {
   position: relative;
   overflow: hidden;
   
-  width: 100%;
   height: 240px;
   height: 24rem;
-  
-/*
-  width: 960px;
-  width: 96rem;
-*/
-  
-  margin: 0 auto;
 }
 
 section#homepage .homepage-carousel {
   list-style: none;
   padding: 0; margin: 0;
-  
-  width: 5000px;
 }
 
 section#homepage .homepage-carousel li {
   display: block;
-  width: 200px; height: 225px;
-  width: 20rem; height: 22.5rem;
-  
   
   margin-right: 12px; margin-right: 1.2rem;
-  
-  padding: 10px 15px 0 15px;
-  padding: 1rem 1.5rem 0 1.5rem;
   
   font-size: 24px; line-height: 30px;
   font-size: 2.4rem; line-height: 3rem;
@@ -143,11 +132,62 @@ section#homepage .homepage-carousel li {
 
 section#homepage .homepage-carousel li a {
   display: block;
-  width: 100%; height: 100%;
+
+  width: 200px; height: 225px;  
+  width: 20rem; height: 22.5rem;
+  
+  padding: 10px 15px 0 15px;
+  padding: 1rem 1.5rem 0 1.5rem;
+
   
   color: #333;
   text-decoration: none;
 }
+
+section#homepage .homepage-carousel li a:focus {
+  background-color: transparent;
+}
+
+section#homepage .homepage-carousel-controls {
+  list-style: none;
+  position: absolute;
+  top: 50%; left: 0;
+  
+  width: 100%; height: 100%;
+  
+  margin: 0; padding: 0;
+}
+
+section#homepage .homepage-carousel-controls li {
+  display: block;
+  width: 60px; height: 60px;
+  margin-top: -50%;
+  
+  font-size: 1px; line-height: 1px;
+  text-indent: -5000px;
+  
+  position: absolute;
+}
+
+section#homepage .homepage-carousel-controls li.prev { left: -60px; }
+section#homepage .homepage-carousel-controls li.next { right: -60px; }
+
+
+section#homepage .homepage-carousel-controls li a {
+  display: block;
+  width: 100%; height: 100%;
+  background: transparent url(<%= asset_path "carousel-arrows.png" %>) no-repeat 0 0;
+}
+
+section#homepage .homepage-carousel-controls li.prev a { background-position: 0 0; }
+section#homepage .homepage-carousel-controls li.next a { background-position: 100% 0; }
+section#homepage .homepage-carousel-controls li.prev a:hover { background-position: 0 100%; }
+section#homepage .homepage-carousel-controls li.next a:hover { background-position: 100% 100%; }
+
+
+section#homepage .homepage-carousel-controls li.pause a { display: none; }
+section#homepage .homepage-carousel-controls li.play a { display: none; }
+
 
 /* Sections
 ============================================================================ */
@@ -212,6 +252,7 @@ section#homepage .sections-list h3 a {
 }
 
 section#homepage .sections-list h3 a:hover {
+  color: #1D97FF;
   text-decoration: underline;
 }
 
