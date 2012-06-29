@@ -905,8 +905,8 @@ input, button {
   font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-.button .call-to-action,
-.button.big,
+.get-started .button .call-to-action,
+.get-started .button.big,
 .button,
 .button:visited {
   background-color:#28a198;
@@ -920,8 +920,8 @@ input, button {
   font-weight:300;
 }
 
-.button:hover span.call-to-action,
-.button.big:hover,
+.get-started .button:hover span.call-to-action,
+.get-started .button.big:hover,
 .button:hover {
   background-color: #3ABAA8;
   color: #fff;
@@ -938,13 +938,21 @@ input, button {
   outline:none;
 }
 
-.get-started .button.big:active{
-   -webkit-transform: translate(0, 0);
+/* this compensates for this style being pushed down twice by keeping
+the inner span still */
+.get-started .button:active .call-to-action {
+  -webkit-transform: translate(0, 0);
   -moz-transform: translate(0, 0);
   -o-transform: translate(0, 0);
   transform: translate(0, 0);
-  box-shadow:none;
-  outline:none;
+}
+
+/* this compensates for the whole thing being pushed down by pushing back up */
+.get-started .button:active .destination {
+  -webkit-transform: translate(0, -4px);
+  -moz-transform: translate(0, -4px);
+  -o-transform: translate(0, -4px);
+  transform: translate(0, -4px);
 }
 
 /* buttons! */
@@ -1016,7 +1024,7 @@ input, button {
 }
 
 .get-started .button .call-to-action,
-.button.big {
+.get-started .button.big {
   display:block;
   font-size:1.3162em;
   padding:0.5em 1.7em 0.35em 0.5em;
