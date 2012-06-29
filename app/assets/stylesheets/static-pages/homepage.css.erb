@@ -1,364 +1,287 @@
-/*
-  home page
-*/
+/* July 4 Homepage Styles
+============================================================================ */
 
-body.home {
-  background: url(<%= asset_path "jubilee_homepage.jpg" %>) repeat scroll 0 0 #C9D0D0;
+section#homepage {
 }
-body.home #wrapper {
-  background-color:transparent;
+
+/* Homepage Header
+============================================================================ */
+
+section#homepage header {
+  padding-top: 85px;
+  padding-top: 8.5rem;
+
+  text-align: center;
+  
+  width: 960px;
+  width: 96rem;
+  
+  margin: 0 auto;
+
 }
-body.home #footer .inner {
-  background-color: #C9D0D0;
-  padding: 1em 4%;
+
+section#homepage header h1 {
+  font-size: 24px; line-height: 30px;
+  font-size: 2.4rem; line-height: 3rem;
+  font-weight: 300;
 }
-.home #global-header .header-global ul {
+
+section#homepage header h1.strap {
+  font-size: 72px; line-height: 70px;
+  font-size: 7.2rem; line-height: 7rem;
+  
+  margin-top: 30px;
+  margin-top: 3rem;
+}
+
+/* Homepage Search box
+============================================================================ */
+
+section#homepage .homepage-search {
+  margin: 60px auto;
+  margin: 6rem auto;
+  
+  width: 600px;
+  width: 60rem;
+  
+  position: relative;
+}
+
+section#homepage .homepage-search .search-suggestions {
+  font-size: 24px; line-height: 30px;
+  font-size: 2.4rem; line-height: 3rem;
+  font-weight: 300;
+  
+  margin-bottom: 20px; margin-bottom: 2rem;
+}
+
+section#homepage .homepage-search .search-suggestions span {
+  color: #d53880;
+  font-weight: 500;
+}
+
+section#homepage .homepage-search .search-suggestions:before {
+  /* search arrow as generated content */
+  content: " ";
+  display: block;
+  width: 124px; height: 113px;
+  
+  position: absolute;
+  top: 6px; left: -77px;
+  
+  background: transparent url(<%= asset_path "homepage-search-arrow.png" %>) no-repeat 0 50%;
+}
+
+section#homepage .homepage-search input[type="search"] {
+  margin-right: 10px; margin-right: 1rem;
+  padding-left: 35px; padding-left: 3.5rem;
+  
+  width: 415px; width: 41.5rem;
+  
+  font-size: 24px; line-height: 30px;
+  font-size: 2.4rem; line-height: 3rem;
+}
+
+
+section#homepage .homepage-search .button.search {
+  background-image: url(<%= asset_path "icon-search.png" %>);
+}
+
+section#homepage .homepage-search button.search:hover {
+  /* overwriting erreneous styles from search.css */
+  border: none;
+}
+
+/* Carousel
+============================================================================ */
+
+section#homepage #homepage-carousel {
+  position: relative;
+  width: 960px;
+  width: 96rem;
+  
+  margin: 0 auto;
+}
+
+section#homepage .homepage-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  
+  height: 240px;
+  height: 24rem;
+}
+
+section#homepage .homepage-carousel {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+
+section#homepage .homepage-carousel li {
+  display: block;
+  
+  margin-right: 12px; margin-right: 1.2rem;
+  
+  font-size: 24px; line-height: 30px;
+  font-size: 2.4rem; line-height: 3rem;
+  
+  float: left;
+  
+  background: #e1e8e8 url(http://placehold.it/230x160) no-repeat 0 100%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.333);
+}
+
+section#homepage .homepage-carousel li a {
+  display: block;
+
+  width: 200px; height: 225px;  
+  width: 20rem; height: 22.5rem;
+  
+  padding: 10px 15px 0 15px;
+  padding: 1rem 1.5rem 0 1.5rem;
+
+  
+  color: #333;
+  text-decoration: none;
+}
+
+section#homepage .homepage-carousel li a:focus {
+  background-color: transparent;
+}
+
+section#homepage .homepage-carousel-controls {
+  list-style: none;
+  position: absolute;
+  top: 50%; left: 0;
+  
+  width: 100%; height: 100%;
+  
+  margin: 0; padding: 0;
+}
+
+section#homepage .homepage-carousel-controls li {
+  display: block;
+  width: 60px; height: 60px;
+  margin-top: -50%;
+  
+  font-size: 1px; line-height: 1px;
+  text-indent: -5000px;
+  
+  position: absolute;
+}
+
+section#homepage .homepage-carousel-controls li.prev { left: -60px; }
+section#homepage .homepage-carousel-controls li.next { right: -60px; }
+
+
+section#homepage .homepage-carousel-controls li a {
+  display: block;
+  width: 100%; height: 100%;
+  background: transparent url(<%= asset_path "carousel-arrows.png" %>) no-repeat 0 0;
+}
+
+section#homepage .homepage-carousel-controls li.prev a { background-position: 0 0; }
+section#homepage .homepage-carousel-controls li.next a { background-position: 100% 0; }
+section#homepage .homepage-carousel-controls li.prev a:hover { background-position: 0 100%; }
+section#homepage .homepage-carousel-controls li.next a:hover { background-position: 100% 100%; }
+
+
+section#homepage .homepage-carousel-controls li.pause a { display: none; }
+section#homepage .homepage-carousel-controls li.play a { display: none; }
+
+
+/* Sections
+============================================================================ */
+
+section#homepage .homepage-sections {
+  background: #D9DFE0;
+  
+  margin-top: 85px;
+  margin-top: 8.5rem;
+}
+
+section#homepage .homepage-sections .group {
+  width: 960px;
+  width: 96rem;
+  
+  margin: 0 auto;
+  
+    
+  padding: 20px 0;
+}
+
+section#homepage .homepage-sections h2 {
+  font-size: 24px; line-height: 30px;
+  font-size: 2.4rem; line-height: 3rem;
+  font-weight: 300;
+  
+  margin: 0 0 20px 0;
+  margin: 0 0 2rem 0;
+}
+
+section#homepage .homepage-sections-column {
+  width: 30%;
+  margin-right: 5%;
+  float: left;
+}
+
+section#homepage .homepage-sections-column:last-child {
   margin-right: 0;
 }
 
-.home #wrapper {
-  max-width: none;
-  padding:0;
-}
-.lte-ie8 .home #wrapper {
-  margin: 0 auto;
-}
-.home #wrapper section {
-  /*background: url(<%= asset_path "home-arrow.png" %>) no-repeat scroll 52px -109px transparent;*/
-  margin: 0 auto;
-  width:614px;
- /* padding-left:345px;
-  padding-top:32px;*/
+section#homepage .sections-list {
+  list-style: none;
+  margin: 0; padding: 0;
 }
 
-.lte-ie8 .home #wrapper section {
-  margin-top: 0;
-}
-.js-enabled.home #wrapper section {
-  margin: 2.5em auto 0 auto;
-  padding-bottom:2em;
-}
-.lte-ie8 .js-enabled.home #wrapper section {
-  margin-top: 1.5em;
+section#homepage .sections-list li {
+  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
-.homepage-section {
-  margin:0 auto;
-  margin-top:1em;
-  position: relative;
-}
-.lte-ie8 .homepage-section {
-  margin: 0 auto;
-  padding: 1em 0;
+section#homepage .sections-list h3 {
+  font-size: 24px; line-height: 25px;
+  font-size: 2.4rem; line-height: 2.5rem;
+  font-weight: 300;
+  
+  margin: 0;
 }
 
-.homepage-section h2:first-child {
-  margin-top: 0;
-  margin-bottom: 0.75em;
-}
-
-.homepage-banner {
-  background-color: #dd322d;
-  width:614px
-}
-.feature-items{
-  width:614px;
-  margin-top:1em;
-}
-.feature-items h2{
-  display: block;
-  font-size: 0.90em;
-  letter-spacing: 0.15em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
-  text-shadow: none;
-  text-transform: uppercase;
-  font-weight:normal;
-}
-.feature-items .section{
-  width:237px;
-}
-.feature-items .popular,
-.feature-items .browse,
-.feature-items .news{
-  padding:0.5em 2em;
-  background-color:#fff;
-  overflow:auto;
-}
-.feature-items .browse,
-.feature-items .news{
-  width:100%;
-}
-.feature-items ul{
-  list-style-type:none;
-  margin:0;
-  padding:0;
-}
-.feature-items .popular{
-  margin-left:76px;
-  border-top:2px solid #00652E;
-}
-.feature-items .popular h2{
- color:#00652E;
-}
-.feature-items .popular li{
-  margin-bottom: 0.5em;
-}
-.feature-items .popular li a{
-  padding: 0.25em 0 0.25em 2em;
-  display:block;
-  line-height: 1.4em;
-}
-.feature-items .popular li a:hover {
+section#homepage .sections-list h3 a {
+  color: #000;
   text-decoration: none;
 }
-.feature-items .news{
-  border-top:2px solid #DD322D;
-  margin-bottom:0.55em;
-}
-.feature-items .news h2 a{
-  text-decoration:none;
-}
-.feature-items .news h2 span{
-  background-color:#DD322D;
-  color:#fff;
-  padding:0.1em 0.3em 0.1em 0.5em;
-  display:inline-block;
-  font-size:0.75em;
-}
-.feature-items .browse{
-  border-top:2px solid #D43783;
 
-}
-.feature-items .browse h2{
- color:#D43783;
-}
-.feature-items .browse li{
-  display:block;
-  float:left;
-  margin:0 0.5em 0.7em 0;
-}
-.feature-items .browse a{
-  background-color: rgb(253,235,242);
-  display:block;
-  text-decoration:none;
-  padding:0.2em;
-}
-.lte-ie8 .feature-items .browse a{
-  white-space:nowrap;
+section#homepage .sections-list h3 a:hover {
+  color: #1D97FF;
+  text-decoration: underline;
 }
 
-.feature-items .browse a:hover,
-.feature-items .browse a:focus{
-  text-decoration:underline;
-}
-.homepage-banner .tag-line {
-  padding:0.5em 4em 0.5em 2em;
-}
-
-.homepage-banner .tag-line p {
-  font-size: 2em;
-  line-height: 1.15em;
-  font-weight:normal;
-  color:#fff;
-  letter-spacing:0.025em;
-  margin: 0.25em 0;
-}
-
-.homepage-banner .totry{
-  color:#fff;
-  padding:0;
-  margin:0;
-  font-size:0.95em;
-}
-.homepage-banner form input {
-  font-size: 1.5em;
-  line-height: 1.25em;
-  padding: 0.125em;
-}
-
-.homepage-banner form input[type="text"] {
-  height: 1.25em;
-  width: 63%;
-}
-
-.homepage-banner #search_hint {
-  color: #666;
-  font-size: 0.85em;
-  margin-top: 0.75em;
-}
-
-.homepage-section ul {
-  margin: 0;
-  margin-left: 2em;
-  margin-top: -24px;
-  padding: 0;
-}
-
-.homepage-section ul li {
-  display: inline-block;
-  vertical-align: top;
+section#homepage .sections-links {
   list-style: none;
- /* margin-bottom: 0.5em;*/
-  margin-right: 4%;
-  width: 100%;
-}
-.homepage-section ul li.search-site{
-
-}
-.lte-ie8 .homepage-section ul li {
-  float: left;
-  height: 5em;
+  margin: 0; padding: 0;
 }
 
-.homepage-section ul li a {
-  display: block;
-  padding: 0.45em 0;
-}
-.homepage-section .tools-topics ul li a {
-  padding: 0.45em 0 0.45em 2em;
-}
-.homepage-section .sections li a {
-  font-size: 1.5em;
+section#homepage .sections-links li {
+ font-size: 19px; line-height: 25px;
+ font-size: 1.9rem; line-height: 2.5rem; 
+ 
+ display: inline;
 }
 
-.ui-autocomplete{
-  width: 300px;
-}
-.hint-suggest{
-  border: 1px solid #EEEEEE;
-  margin:0;
-  background-color:#fff;
-  display: block;
-  left: 0;
-  padding: 0.5em;
-  position: relative;
-  top: 0;
-  width: 314px;
-  color:#666;
-}
-.search-loading {
-  width: 284px;
-  padding-left:30px;
+section#homepage .sections-links li:after {
+  content: ", ";
 }
 
-.homepage-banner .site-search{
-  margin:0;
-  padding:0em 2em 1em 2em
-}
-.carousel{
-  width:960px;
-}
-.carousel ul{
-  margin:0;
-  padding:0;
-  text-indent:0;
-  width:960px;
-  list-style-type:none;
-}
-.carousel ul li{
-  width:960px;
-  height:562px;
-}
-.section{
-  width:50%;
-  float:left;
+section#homepage .sections-links li:last-child:after {
+  content: none;
 }
 
-.lte-ie8 .sections {
-  background-color: #fff;
-}
-.sections a,
-.sections a:visited{
-  color:#000;
-}
-.aerial-info {
-  background-color: rgba(255, 255, 255, 0.8);
-  bottom:1em;
-  display: inline;
-  font-size: 0.75em;
-  left: 3.75em;
-  padding: 0.5em;
-  position: relative;
-}
-.lte-ie8 .aerial-info {
-  background-color: #fff;
-}
-.aerial-info p{
-  margin:0;
-  display:inline;
+
+section#homepage .sections-links li a {
+  color: #000;
+  text-decoration: underline;
 }
 
-@media only screen and (max-width:670px) {
-  body.home {
-    background: none repeat scroll 0 0 #C9D0D0;
-  }
-  .home #wrapper section {
-    background: none no-repeat scroll 0 0 transparent;
-    margin: 0 auto;
-    padding-left:0;
-    padding-top:0;
-    width:100%;
-  }
-  .js-enabled.home #wrapper section {
-      margin: 0;
-      padding-bottom: 0;
-  }
-  .homepage-banner {
-    width:100%;
-  }
-  .feature-items{
-    width:100%;
-    margin-top:0;
-  }
-  .feature-items .section{
-    width:100%;
-    background-color:#fff;
-    padding:0;
-  }
-  .feature-items h2,
-  .feature-items ul{
-    margin:1em 1em 1em 2em
-  }
-  .feature-items .popular{
-    margin-left:0;
-    border-top:2px solid #00652E;
-  }
-  .homepage-section{
-    margin:0;
-  }
-
-  .feature-items .popular, .feature-items .browse, .feature-items .news{
-    padding:0.5em 0em;
-  }
-  .feature-items .news p{
-    padding:0 1.675em;
-  }
-  .homepage-banner .tag-line p{
-    font-size:1.5em
-  }
-  .homepage-banner form input {
-    font-size: 1em;
-  }
-  .homepage-banner .totry {
-    line-height: 1em;
-    margin-top: 0.5em;
-  }
-  .aerial-info {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 670px) {
-  .homepage-banner ul.ui-autocomplete {
-    top:auto;
-    display: block;
-  }
-}
-
-.lte-ie8 {
-  .homepage-banner ul.ui-autocomplete {
-    top:auto;
-    display: block;
-  }
+section#homepage .sections-links li a:hover {
+  color: #1D97FF;
 }
