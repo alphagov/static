@@ -27,6 +27,11 @@
   color: #2E3191;
 }
 
+#wrapper .ancillary.section-page header h1 {
+  margin: 0 0 0 320px;
+  margin: 0 0 0 32rem;
+}
+
 /* Search results [this needs merging with "Results" section below!]
 ============================================================================ */
 
@@ -231,9 +236,17 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 0; padding: 0;
 }
 
+.section-page .results-list li a {
+  font-size: 1.6rem;
+}
+
 .search .results-list li p {
   margin: 0; 
   width: auto;
+}
+
+.section-page .results-list li p {
+  font-size: 1.4rem;
 }
 
 .search .results-list li p.search-result-title {
@@ -338,6 +351,27 @@ input[type="search"]::-webkit-search-results-decoration {
 */
 }
 
+/* Browse Summary
+============================================================================ */
+.section-page.ancillary .summary {
+  padding: 0 0 2.4rem 0;
+  border-bottom: 0.1rem solid #ccc;
+  margin: 0 0 2.3rem 0;
+
+  background-color: transparent;
+}
+
+.section-page.ancillary .summary p {
+  margin: 0;
+  padding: 0;
+  
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  
+  background: transparent;
+  color: #333;
+}
+
 /* Filters
 ============================================================================ */
 .filters {
@@ -345,6 +379,10 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: transparent;
   margin-left: 2em;
   width: 14em;
+}
+
+.section-page .filters {
+  margin: -8rem 0 0 0;
 }
 
 .filters .group {
@@ -358,12 +396,16 @@ input[type="search"]::-webkit-search-results-decoration {
 .filters ul {
   list-style: none;
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
 
 .filters ul li {
   display: block;
   margin: 0 -2px 0 -6px;
+}
+
+.section-page .filters ul li {
+  margin-left: 0;
 }
 
 .filters ul li a {
@@ -374,8 +416,17 @@ input[type="search"]::-webkit-search-results-decoration {
   text-decoration: none;
 }
 
+.section-page .filters ul li a {
+  padding: 0;
+}
+
 .filters ul li a:hover {
   background-color: #eee;
+}
+
+.section-page .filters ul li a:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 .filters ul li.active a {
@@ -410,6 +461,47 @@ input[type="search"]::-webkit-search-results-decoration {
 .filters ul li.guide a span {
   text-indent: 0;
 }
+
+.filters h2 {
+  font-size: 0.85em;
+  font-weight: normal;
+  height: auto;
+  line-height: 2.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.section-page .filters ul li ul {
+  border-top: 0.1rem solid #ccc;
+  margin-bottom: 2.5rem;
+}
+
+.section-page .filters ul li ul li {
+  display: block;
+  margin: 0;
+}
+
+.section-page .filters ul li ul li a {
+  color: #333;
+  border-radius: 2px;
+  display: block;
+  padding: 2px 2px 2px 5px;
+  text-decoration: none;
+  -webkit-transition: 0.4s ease-out;
+  -moz-transition: 0.4s ease-out;
+  -o-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
+}
+
+.section-page .filters ul li ul li a:hover {
+  background-color: #eee;
+  text-decoration: none;
+}
+
+.section-page .filters ul li ul li.active a {
+  background-color: yellow;
+}
+
 
 /* No search results
 ============================================================================ */
