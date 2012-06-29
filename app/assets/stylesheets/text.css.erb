@@ -246,25 +246,24 @@ article .summary h2,
 }
 
 article .advisory {
-  background-color: rgba(249,188,144,1);
+  background: url(<%= asset_path "icon-information.png" %>) no-repeat scroll 98% 1em #D5E8F3;
   line-height: 1.3em;
-  margin-bottom: 1em;
+  margin: 0 -1em 1em -1em;
   padding: 1em;
   text-align: left;
 }
 
 article .advisory p {
-  background: url(<%= asset_path "orange-arrow.png" %>) no-repeat 0 0.3em;
   margin: 0 0.75em 0 0;
   min-height: 1.75em;
-  padding: 0 0 0 2.5em;
+  padding-right:3em;
 }
 .lte-ie8 article .advisory p {
   _height: 1.75em;
 }
 
 article .advisory strong {
-  font-weight: normal;
+  font-weight: 300;
 }
 
 article .advisory.high-alert {
