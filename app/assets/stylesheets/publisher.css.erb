@@ -17,7 +17,7 @@
 }
 
 .alternative-guide.video .video-wrapper {
-  background: #000;
+  background: url(<%= asset_path "play-video-cta.png" %>) no-repeat 0 -80px #e5e5e5;
   height: 5em;
   margin: 0 auto;
   overflow: hidden;
@@ -25,7 +25,12 @@
   width: 8.5em;
 }
 
+.alternative-guide.video .video-wrapper:hover {
+  background: url(<%= asset_path "play-video-cta.png" %>) no-repeat 0 0 #e5e5e5;
+}
+
 .alternative-guide.video .video-wrapper img {
+  display:none;
   margin-top: -0.5em;
 }
 
