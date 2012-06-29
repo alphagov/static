@@ -183,7 +183,9 @@
 form.search-header {
   display: block;
   font-size: 1.1875em;
-  margin: 1em 0 2em 7.25em;
+  /*margin: 1em 0 2em 7.25em;*/
+  margin: 1em 10.5em 2em 0;
+  text-align: right;
 }
 
 form.search-header #search-main {
@@ -407,6 +409,17 @@ input[type="search"]::-webkit-search-results-decoration {
 .filters ul li.smart_answer a span,
 .filters ul li.guide a span {
   text-indent: 0;
+}
+
+/* No search results
+============================================================================ */
+
+.no-results article {
+  margin: 0;
+}
+
+.no-results article p {
+  font-size: 1em;
 }
 
 /* Related
