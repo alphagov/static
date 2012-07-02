@@ -73,6 +73,13 @@ section#homepage .homepage-search .search-suggestions:before {
   background: transparent url(<%= asset_path "homepage-search-arrow.png" %>) no-repeat 0 50%;
 }
 
+/* IE8 doesn't support transparent images overlapping form elements,
+so we position the arrow slightly outside to point at the search box
+instead */
+.lte-ie8 section#homepage .homepage-search .search-suggestions:before {
+  left: -115px;
+}
+
 section#homepage .homepage-search input[type="search"] {
   margin-right: 10px; margin-right: 1rem;
   padding-left: 35px; padding-left: 3.5rem;
