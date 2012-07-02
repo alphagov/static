@@ -318,12 +318,19 @@ article .example strong{
   display:block;
 }
 
-article .help-notice,
-article .info-notice,
-article .subscribe {
+article .application-notice,
+.advisory.minor {
   background-color:#d5e8f3;
   margin: 1em -1em 1.5em -1em;
   padding: 1em 1em 1em 1em;
+}
+
+article .advisory.minor {
+  background-image: none;
+  padding: 0.75em 1em;
+}
+
+article .help-notice {
   background: url(<%= asset_path "icon-important.png" %>) no-repeat scroll 98% 1em #D5E8F3;
 }
 
