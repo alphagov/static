@@ -227,6 +227,11 @@ section#homepage .homepage-sections-column {
 section#homepage .homepage-sections-column:last-child {
   margin-right: 0;
 }
+/* IE8 drops selectors it doesn't understand, like the above, so we
+need a separate group */
+.lte-ie8 section#homepage .homepage-sections-column.last {
+  margin-right: 0;
+}
 
 section#homepage .sections-list {
   list-style: none;
