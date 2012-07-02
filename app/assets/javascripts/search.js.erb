@@ -201,3 +201,43 @@ $(document).ready(function() {
 
 
 });
+
+/*
+* Search Prototype
+* Alex Torrance - 2012/06/12
+*/
+
+function initSearchFilter() {
+  $('.search .filters').on('click', 'a', function(e) {
+    e.preventDefault();
+    var $li = $(this).parent();
+    
+    $('.active').not($li).removeClass('active');
+    $li.toggleClass('active');
+    
+    filterResults();
+  });
+}
+
+function filterResults() {
+  var $results = $('.results-list');
+
+  $results.find('.filtered').removeClass('filtered');
+
+  var filter = '';
+  $('.search .filters').find('.active').each(function() { 
+    /* if (filter != '') filter += ', '; */
+    filter += '.'+$(this).data('filter');
+  });
+  
+  if (filter == '') filter = '*';
+  
+  console.log(filter);
+  
+  $results.children('li').not(filter).addClass('filtered');
+}
+
+$(document).ready(function() {
+  initSearchFilter();
+});
+

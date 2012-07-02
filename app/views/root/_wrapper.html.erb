@@ -13,20 +13,6 @@
   <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
   <%= stylesheet_link_tag "core-print", :media => "print" %>
 
-  <!-- fonts -->
-  <!--[if gt IE 8]><!-->
-  <script type="text/javascript">
-  (function(){if(window.opera){return;}
-  setTimeout(function(){var a=document,g,b={families:(g=
-      ["Gill","Sassoon","nta","nta-bold"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css", "<%= asset_path "fonts.css" %>"]},
-      c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
-    e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
-      ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
-      .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
-  })()
-  </script>
-  <!--<![endif]-->
-
   <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.js' %>
   <%= javascript_include_tag 'application', :defer => 'defer' %>
 
@@ -100,8 +86,11 @@
   </div><!--end wrapper-->
 
   <footer class="group" id="footer" role="contentinfo">
+    <% if content_for?(:fat_footer) %>
+      <%= yield :fat_footer %>
+    <% end %>
     <div class="beta-notice">
-      <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official websites remain <a href="http://www.direct.gov.uk">Directgov</a>, <a href="http://www.businesslink.gov.uk/">Businesslink</a>, and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
+      <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official website remains <a href="http://www.direct.gov.uk">Directgov</a> and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
     </div>
     <div class="inner group">
       <div class="colophon-and-help">
@@ -121,25 +110,7 @@
       </div>
     </div>
 
-    <div id='govuk-feedback'>
-      <h2>How could this page be better?</h2><p class='close'><a href='#'>Close</a></p>
-      <form method="POST" action="https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dEtacjNNZzFyRkliYUtFRWp1eTl6Snc6MQ">
-        <label class="ss-q-help" for="entry_0">Your feedback</label>
-        <div id="feedback-options">
-          <select name="entry.0.single" id="entry_0">
-            <option value="I don&#39;t understand something on this page">I don't understand something on this page</option>
-            <option value="I have some feedback about the site">The information could be clearer</option>
-            <option value="Something went wrong or doesn&#39;t work">Something is wrong or doesn't work</option>
-          </select>
-        </div>
-        <div id='feedback-mechanism'>
-          <label for="feedback-form">Your comment: </label><textarea name="entry.2.single" class="ss-q-long" id="entry_2"></textarea>
-          <input type="hidden" name="entry.3.single" value="no javascript" class="ss-q-short" id="entry_3" />
-          <input type='submit' value='Send' class="button" />
-        </div>
-      </form>
-      <p><small>This feedback is anonymous.  Please don't include your email address or other contact information.  If you would like to receive a response, please see our <a href="/feedback">other methods of feedback.</a></small></p>
-    </div>
+    
 
   </footer><!--end footer-->
 
