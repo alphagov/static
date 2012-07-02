@@ -12,10 +12,10 @@ section#homepage header {
   padding-top: 8.5rem;
 
   text-align: center;
-  
+
   width: 960px;
   width: 96rem;
-  
+
   margin: 0 auto;
 
 }
@@ -29,7 +29,7 @@ section#homepage header h1 {
 section#homepage header h1.strap {
   font-size: 72px; line-height: 70px;
   font-size: 7.2rem; line-height: 7rem;
-  
+
   margin-top: 30px;
   margin-top: 3rem;
 }
@@ -40,10 +40,10 @@ section#homepage header h1.strap {
 section#homepage .homepage-search {
   margin: 60px auto;
   margin: 6rem auto;
-  
+
   width: 600px;
   width: 60rem;
-  
+
   position: relative;
 }
 
@@ -51,7 +51,7 @@ section#homepage .homepage-search .search-suggestions {
   font-size: 24px; line-height: 30px;
   font-size: 2.4rem; line-height: 3rem;
   font-weight: 300;
-  
+
   margin-bottom: 20px; margin-bottom: 2rem;
 }
 
@@ -65,26 +65,30 @@ section#homepage .homepage-search .search-suggestions:before {
   content: " ";
   display: block;
   width: 124px; height: 113px;
-  
+
   position: absolute;
   top: 6px; left: -77px;
-  
+  z-index: 99;
+
   background: transparent url(<%= asset_path "homepage-search-arrow.png" %>) no-repeat 0 50%;
 }
 
 section#homepage .homepage-search input[type="search"] {
   margin-right: 10px; margin-right: 1rem;
   padding-left: 35px; padding-left: 3.5rem;
-  
+
   width: 415px; width: 41.5rem;
-  
+
   font-size: 24px; line-height: 30px;
   font-size: 2.4rem; line-height: 3rem;
+  position: relative;
+  z-index: 0;
 }
 
 
 section#homepage .homepage-search .button.search {
   background-image: url(<%= asset_path "icon-search.png" %>);
+  background-repeat: no-repeat;
 }
 
 section#homepage .homepage-search button.search:hover {
@@ -99,14 +103,14 @@ section#homepage #homepage-carousel {
   position: relative;
   width: 960px;
   width: 96rem;
-  
+
   margin: 0 auto;
 }
 
 section#homepage .homepage-carousel-wrapper {
   position: relative;
   overflow: hidden;
-  
+
   height: 240px;
   height: 24rem;
 }
@@ -118,14 +122,14 @@ section#homepage .homepage-carousel {
 
 section#homepage .homepage-carousel li {
   display: block;
-  
+
   margin-right: 12px; margin-right: 1.2rem;
-  
+
   font-size: 24px; line-height: 30px;
   font-size: 2.4rem; line-height: 3rem;
-  
+
   float: left;
-  
+
   background: #e1e8e8 url(http://placehold.it/230x160) no-repeat 0 100%;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.333);
 }
@@ -133,13 +137,13 @@ section#homepage .homepage-carousel li {
 section#homepage .homepage-carousel li a {
   display: block;
 
-  width: 200px; height: 225px;  
+  width: 200px; height: 225px;
   width: 20rem; height: 22.5rem;
-  
+
   padding: 10px 15px 0 15px;
   padding: 1rem 1.5rem 0 1.5rem;
 
-  
+
   color: #333;
   text-decoration: none;
 }
@@ -152,9 +156,9 @@ section#homepage .homepage-carousel-controls {
   list-style: none;
   position: absolute;
   top: 50%; left: 0;
-  
+
   width: 100%; height: 100%;
-  
+
   margin: 0; padding: 0;
 }
 
@@ -162,10 +166,10 @@ section#homepage .homepage-carousel-controls li {
   display: block;
   width: 60px; height: 60px;
   margin-top: -50%;
-  
+
   font-size: 1px; line-height: 1px;
   text-indent: -5000px;
-  
+
   position: absolute;
 }
 
@@ -194,7 +198,7 @@ section#homepage .homepage-carousel-controls li.play a { display: none; }
 
 section#homepage .homepage-sections {
   background: #D9DFE0;
-  
+
   margin-top: 85px;
   margin-top: 8.5rem;
 }
@@ -202,10 +206,10 @@ section#homepage .homepage-sections {
 section#homepage .homepage-sections .group {
   width: 960px;
   width: 96rem;
-  
+
   margin: 0 auto;
-  
-    
+
+
   padding: 20px 0;
 }
 
@@ -213,7 +217,7 @@ section#homepage .homepage-sections h2 {
   font-size: 24px; line-height: 30px;
   font-size: 2.4rem; line-height: 3rem;
   font-weight: 300;
-  
+
   margin: 0 0 20px 0;
   margin: 0 0 2rem 0;
 }
@@ -247,7 +251,7 @@ section#homepage .sections-list h3 {
   font-size: 24px; line-height: 25px;
   font-size: 2.4rem; line-height: 2.5rem;
   font-weight: 300;
-  
+
   margin: 0;
 }
 
@@ -268,8 +272,8 @@ section#homepage .sections-links {
 
 section#homepage .sections-links li {
  font-size: 19px; line-height: 25px;
- font-size: 1.9rem; line-height: 2.5rem; 
- 
+ font-size: 1.9rem; line-height: 2.5rem;
+
  display: inline;
 }
 
