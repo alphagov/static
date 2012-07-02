@@ -16,7 +16,7 @@
 }
 
 #wrapper .ancillary.search header hgroup {
-  padding: 1.5em 2.5em;
+  padding: 2.1875em 2.5em;
 }
 
 #wrapper .ancillary.search header hgroup h1 {
@@ -28,8 +28,7 @@
 }
 
 #wrapper .ancillary.section-page header h1 {
-  margin: 0 0 0 320px;
-  margin: 0 0 0 32rem;
+  margin: 0 0 0 7.272727273em;
 }
 
 /* Search results [this needs merging with "Results" section below!]
@@ -237,7 +236,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-page .results-list li a {
-  font-size: 1.6rem;
+  font-size: 1.1875em;
 }
 
 .search .results-list li p {
@@ -246,7 +245,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-page .results-list li p {
-  font-size: 1.4rem;
+  font-size: 1em;
 }
 
 .search .results-list li p.search-result-title {
@@ -354,19 +353,21 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Browse Summary
 ============================================================================ */
 .section-page.ancillary .summary {
-  padding: 0 0 2.4rem 0;
-  border-bottom: 0.1rem solid #ccc;
-  margin: 0 0 2.3rem 0;
+  padding: 0 0 1.5em 0;
+  border-bottom: .0625em solid #ccc;
+  margin: 0 0 1.4375em 0;
 
   background-color: transparent;
+  
+  max-width: 32.5em;
 }
 
 .section-page.ancillary .summary p {
   margin: 0;
   padding: 0;
   
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  font-size: 1.1875em;
+  line-height: 1.315789474em;
   
   background: transparent;
   color: #333;
@@ -382,7 +383,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-page .filters {
-  margin: -8rem 0 0 0;
+  margin-top: -5em;
 }
 
 .filters .group {
@@ -406,6 +407,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .section-page .filters ul li {
   margin-left: 0;
+  font-size: 1.1875em;
+  line-height: 1.315789474em;
 }
 
 .filters ul li a {
@@ -462,23 +465,15 @@ input[type="search"]::-webkit-search-results-decoration {
   text-indent: 0;
 }
 
-.filters h2 {
-  font-size: 0.85em;
-  font-weight: normal;
-  height: auto;
-  line-height: 2.4rem;
-  margin: 0;
-  padding: 0;
-}
-
 .section-page .filters ul li ul {
-  border-top: 0.1rem solid #ccc;
-  margin-bottom: 2.5rem;
+  border-top: .0625em solid #ccc;
+  margin-bottom: 1.5625em;
 }
 
 .section-page .filters ul li ul li {
   display: block;
   margin: 0;
+  font-size: .842105263em;
 }
 
 .section-page .filters ul li ul li a {
@@ -499,9 +494,12 @@ input[type="search"]::-webkit-search-results-decoration {
   text-decoration: none;
 }
 
-.section-page .filters ul li ul li.active		 a {
+.section-page .filters ul li ul li.active a,
+.section-page .filters ul li ul li.active a:hover {
+  background-color: #999;
   color: #fff;
 }
+
 
 /* No search results
 ============================================================================ */
