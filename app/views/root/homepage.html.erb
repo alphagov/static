@@ -41,14 +41,19 @@
   })();
   </script>
 
+  <!-- fonts -->
+  <!--[if gt IE 8]><!-->
   <script type="text/javascript">
+  (function(){if(window.opera){return;}
   setTimeout(function(){var a=document,g,b={families:(g=
-      ["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
+      ["Gill","Sassoon","nta","nta-bold"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css", "<%= asset_path "fonts.css" %>"]},
       c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
     e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
       ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
       .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+  })()
   </script>
+  <!--<![endif]-->
 </head>
 <body class="home">
   <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>

@@ -53,6 +53,7 @@ namespace :router do
     register_route(:prefix, '/javascripts')
     register_route(:prefix, '/images')
     register_route(:prefix, '/templates')
+    register_route(:prefix, '/fonts')
     register_route(:full, '/favicon.ico')
     register_route(:full, '/robots.txt')
   end
