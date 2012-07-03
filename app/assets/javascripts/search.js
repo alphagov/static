@@ -237,10 +237,7 @@ function filterResults() {
     filter += '.'+$(this).data('filter');
   });
   
-  if (filter == '') filter = '*';
-  
-  console.log(filter);
-  
+  if (filter == '') filter = '*';  
   $results.children('li').not(filter).addClass('filtered');
 }
 
