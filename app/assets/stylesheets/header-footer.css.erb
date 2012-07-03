@@ -29,6 +29,12 @@
   position: fixed;
   top: 0;
 }
+/* we don't want the header to be fixed on small iOS screens */
+@media only screen and (max-device-width:320px) {
+  .js-enabled #global-header {
+    position: absolute;
+  }
+}
 #global-header {
   width: 100%;
   z-index: 1000;

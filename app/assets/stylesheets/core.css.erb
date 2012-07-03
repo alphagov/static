@@ -169,6 +169,12 @@ a[rel="external"]:after {
   top: 8em;
   width: 100%;
 }
+/* the sidebar related box overlaps the main content when zoomed on iPhone */
+@media only screen and (max-device-width:320px) {
+  .related-positioning {
+    position: absolute !important;
+  }
+}
 .lte-ie8 .related-positioning {
   _position: absolute !important;
   z-index: 10;
