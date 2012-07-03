@@ -28,7 +28,11 @@ select:focus,
   outline: 3px solid #ffbf47;
 }
 
-#global-header a:focus {
+#global-header h1 a:focus {
   background-color: transparent;
   outline: none;
+}
+
+#global-header a:focus {
+	color: #000;
 }
