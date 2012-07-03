@@ -139,15 +139,10 @@ $(document).ready(function() {
   }
 
   function initAutoComplete(){
-    $("#main_autocomplete, #site-search-text").autocomplete({
+    var autocompleteOptions = {
       delay: 100,
       width: 300,
       appendTo: 'form#search',
-      position: {
-        using: function (position) {
-          $(this).css({top: '', left: '', width: '', display: ''});
-        }
-      },
       source: function(req, add){
         var hint = hintPlaceholder(this.element);
         if (shouldUseCitizenPreloadedSearchData()) {
@@ -196,7 +191,19 @@ $(document).ready(function() {
           $("#search_hint").removeClass("visuallyhidden");
         }
       }
-    });
+    };
+    $("#main_autocomplete").autocomplete($.extend(autocompleteOptions, {
+      position: {
+        my: "left top",
+        at: "left bottom"
+      }
+    }));
+    $("#site-search-text").autocomplete($.extend(autocompleteOptions, {
+      position: {
+        my: "right top",
+        at: "right bottom"
+      }
+    }));
   }
 });
 
