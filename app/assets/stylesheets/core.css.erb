@@ -962,6 +962,11 @@ the inner span still */
   transform: translate(0, -4px);
 }
 
+/* this stops IE6 etc. getting a flash of green around their extra text */
+.lte-ie8 .get-started .button:hover {
+  background: #D5ECEA; /* this is the same as section.intro */
+}
+
 /* buttons! */
 .button,
 .button:visited {
@@ -1006,14 +1011,17 @@ the inner span still */
   text-decoration:none;
   background-color: transparent;
   box-shadow:none;
+  text-align:left;
 }
+
+.get-started .button span {
+  cursor: pointer;
+}
+
 .lte-ie8 .get-started .button {
   _width: 60%;
 }
 
-.get-started .button{
-  text-align:left;
-}
 .get-started .button .destination {
   font-size:0.7368em;
   color:#333;
