@@ -20,12 +20,18 @@ html {
 
 body {
   color: #333;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
   line-height: 1.5em;
+  font-weight:300;
 }
 #wrapper {
   background-color: #F2F2F2;
 }
+/*#wrapper.business header.page-header hgroup{
+  background-image:url(<%= asset_path "business_link_logo.png" %>);
+  background-position:97% 1em;
+  background-repeat:no-repeat;
+}*/
 #footer{
   background-color: #C9D0D0;
 }
@@ -38,27 +44,11 @@ body {
 section#content {
   margin: 0 auto;
   max-width: 960px;
-/*  width: 100%;*/
   position: relative;
 }
 .lte-ie8 section#content {
   _width: 960px;
 }
-
-/*@media only screen and (min-width:670px) {
-  section#content {
-    margin: 1em auto 1em;
-  }
-  .js-enabled section#content {
-    margin: 6em auto 2em;
-  }
-}
-.lte-ie8 section#content {
-  margin: 1em auto 1em;
-}
-.lte-ie8 .js-enabled section#content {
-  margin: 6em auto 2em;
-}*/
 
 ol, ul, nav ol, nav ul {
   list-style: inherit;
@@ -70,7 +60,7 @@ fieldset {
 }
 
 h2 {
-  font-size: 1.35em;
+  font-size: 112.5%;
   line-height: 1.18em;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
@@ -175,7 +165,7 @@ a[rel="external"]:after {
   height: 0;
   left: 0;
   position: fixed;
-  top: 8.15em;
+  top: 8em;
   width: 100%;
 }
 .lte-ie8 .related-positioning {
@@ -201,8 +191,7 @@ a[rel="external"]:after {
 .related {
   position: absolute;
   right: 0;
-  width: 16.5em;
-/*  width: 14em;*/
+  width: 15em;
 }
 .lte-ie8 .related {
   display: inline;
@@ -211,34 +200,19 @@ a[rel="external"]:after {
 }
 
 .related .inner {
-  background-color: #F0E7D5;
-  padding: 0 1em 0.25em 1.5em;
+  background-color: #E5E5E5;
+  padding: 0 1em 0.25em 1.2em;
   width: auto;
-}
-.wf-gillsans-n4-inactive h2{
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-loading h2{
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-active h2{
-  font-family: 'Gill Sans W01 Medium', sans-serif;
+  border-left:1px solid #C9D0D0;
 }
 .related h2 {
-  background-image: url(<%= asset_path "related-clip.png" %>);
-  background-position: 0 0;
-  background-repeat: no-repeat;
   color: #000;
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-  font-size: 0.85em;
-  font-weight: normal;
+  font-weight:300;
   height: 30px;
-  letter-spacing: 0.15em;
   line-height: 1.5em;
   margin: 0 0 0 -21px;
-  padding: 30px 0 0 54px;
+  padding: 30px 0 0 20px;
   position: relative;
-  text-transform: uppercase;
   top: -13px;
 }
 
@@ -249,17 +223,17 @@ a[rel="external"]:after {
 }
 
 .related li {
-
+  padding-bottom: 0.45em;
+  padding-left:0;
 }
 
 #wrapper .related li a {
-  background-position: 0 -290px;
+  background-position: 0 -287px;
   background-repeat: no-repeat;
   display: block;
-  font-size: 0.85em;
-  line-height: 1.5em;
-  margin-bottom: 0.75em;
-  padding: 0.25em 0 0.5em 2.5em;
+  line-height:1.25em;
+  padding: 0em 0 0.5em 0em;
+  orphans: 2;
 }
 #wrapper .related li a:hover {
   background-position: 0 0;
@@ -278,19 +252,17 @@ a[rel="external"]:after {
 }
 
 .related li.related-topic {
-  border-top: solid #B4892D 1px;
-  list-style: none;
-  margin-top: 0.5em;
-  padding-top: 0.5em;
+  border-top: 1px solid #C9D0D0;
+  list-style: none outside none;
+  margin: 1em 0 0;
+  padding: 1em 0;
 }
 
 .related li.related-topic span {
-/*  display: block;*/
   font-weight: bold;
 }
 
 #wrapper .related li.related-topic a {
-/*  color: inherit;*/
   padding-left: 0;
 }
 
@@ -308,49 +280,41 @@ a[rel="external"]:after {
 
 header.page-header hgroup {
   background-color: #fff;
-  border-style: solid;
-  border-width: 2px 0 0 0;
   display: block;
   margin: 0 15em 0 0;
-/*  margin: 0 12.5em 0 0;*/
-  padding: 0.75em 1em 1.5em 0.5em;
-}
-.wf-gillsans-n4-inactive header.page-header hgroup h1{
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-loading header.page-header hgroup h1{
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-active header.page-header hgroup h1{
-  font-family: 'Gill Sans W01 Medium', sans-serif;
+  padding: 0.2em 1em 1.5em 0.5em;
 }
 
+
 header.page-header hgroup h1 {
-/*  background-position: 0 2px;*/
   background-repeat: no-repeat;
   color: #000;
-  font-family: 'Gill Sans W01 Medium', sans-serif;
+  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 2.75em;
-  font-weight: normal;
-  letter-spacing: 0.025em;
-  line-height: 1.05em;
-  padding: 0.1em 1.5em 0 1.65em;
+  font-weight:400;
+  letter-spacing: 0em;
+  line-height: 1.041666667em;
+  padding: 0.3em 1.5em 0.35em 1.65em;
 }
+/*.business header.page-header hgroup h1 {
+    padding-right:3em;
+  }
+*/
 .lte-ie8 header.page-header hgroup h1 {
   height: 1%;
 }
 
 .service header.page-header hgroup h1 {
-  background-position: 0 9px;
+  background-position: 0 12px;
 }
 .guide header.page-header hgroup h1 {
-  background-position: 15px 2px;
+  background-position: 15px 14px;
 }
 .answer header.page-header hgroup h1 {
-  background-position: 12px 4px;
+  background-position: 12px 14px;
 }
 .programme header.page-header hgroup h1 {
-  background-position: 0 2px;
+  background-position: 0 14px;
 }
 .licence header.page-header hgroup h1 {
   background-position: 16px 0;
@@ -358,12 +322,11 @@ header.page-header hgroup h1 {
 
 header.page-header hgroup h1 span {
   display: block;
-  font-size: 0.32em;
-  letter-spacing: 0.15em;
+  font-size: 0.4319em;
   line-height: 1em;
   margin-bottom: 0.5em;
-  text-transform: uppercase;
   text-shadow: none;
+  font-weight:300;
 }
 
 header.page-header hgroup h2 {
@@ -378,14 +341,6 @@ header.page-header hgroup h2 {
 
 /* Programmes */
 
-#wrapper.programme header.page-header hgroup {
-  border-color: #2E368E;
-}
-
-#wrapper.programme header.page-header hgroup h1 span {
-  color: #2E368E;
-}
-
 #wrapper.programme header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-programme-l.png" %>);
 }
@@ -393,15 +348,7 @@ header.page-header hgroup h2 {
 /* Services */
 
 #wrapper.service header.page-header hgroup {
-  border-color: #2DA096;
-}
-
-#wrapper.service header.page-header hgroup h1 span {
-  /*
-    new colour should be added to the palette
-    this version is much more contrast-friendly than #2DA096
-  */
-  color: #227770;
+  /*border-color: #2DA096;*/
 }
 
 #wrapper.service header.page-header hgroup h1 {
@@ -410,45 +357,16 @@ header.page-header hgroup h2 {
 
 /* Quick answers */
 
-#wrapper.answer header.page-header hgroup {
-  border-color: #D33883;
-}
-
-#wrapper.answer header.page-header hgroup h1 span {
-  color: #D33883;
-}
-
 #wrapper.answer header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-answer-l.png" %>);
 }
 
 /* Licence guidance */
-
-#wrapper.licence header.page-header hgroup {
-  border-color: #617900;
-}
-
-#wrapper.licence header.page-header hgroup h1 span {
-  color: #10370D;
-}
-
 #wrapper.licence header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-licence-l.png" %>);
 }
 
 /* Guides */
-
-#wrapper.guide header.page-header hgroup {
-  border-color: #F17921;
-}
-
-#wrapper.guide header.page-header hgroup h1 span {
-  /*
-    new colour should be added to the palette
-    this version is much more contrast-friendly than #F17921
-  */
-  color: #BE4F19;
-}
 
 #wrapper.guide header.page-header hgroup h1 {
   background-image: url(<%= asset_path "icon-guide-l.png" %>);
@@ -488,8 +406,6 @@ article .inner {
 .meta-data {
   color: #333;
   float: left;
-  font-size: 0.85em;
-  padding: 2em 0 0 0;
   width: 100%;
 }
 .lte-ie8 .meta-data {
@@ -509,9 +425,11 @@ article .inner {
 }
 
 .print-link a, .print-link a:link, .print-link a:visited {
-  background: url(<%= asset_path "print.png" %>) no-repeat 0 50%;
+  background: url(<%= asset_path "print.png" %>) no-repeat 100% 50%;
   display: inline-block;
   padding-left: 30px;
+  padding-right:2em;
+  padding-top:4px;
 }
 
 .modified-date {
@@ -565,39 +483,6 @@ ul.ui-autocomplete {
   display: none;
 }
 
-/* remember that these are used across the site, not just for autocomplete */
-li.guide a, li.guide a:hover {
-  background-image: url(<%= asset_path "icon-guide-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
-}
-li.answer a, li.answer a:hover,
-li.calendar a, li.calendar a:hover,
-li.smart_answer a, li.smart_answer a:hover,
-li.calculator a, li.calculator a:hover,
-li.custom-application a, li.custom-application a:hover {
-  background-image: url(<%= asset_path "icon-answer-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
-}
-li.local_transaction a, li.local_transaction a:hover,
-li.transaction a, li.transaction a:hover,
-li.place a, li.place a:hover,
-li.nearest a, li.nearest a:hover,
-li.service a, li.service a:hover {
-  background-image: url(<%= asset_path "icon-service-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
-}
-li.programme a, li.programme a:hover {
-  background-image: url(<%= asset_path "icon-programme-s.png" %>);
-  background-repeat: no-repeat;
-  background-position: 0 0.25em;
-}
-
-ul.ui-autocomplete li {
-  font-size: 0.75em;
-}
 ul.ui-autocomplete li {
   border-top: 1px solid #eee;
   list-style-type:none;
@@ -732,7 +617,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 .error-notification p,
 .error-area p{
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
 }
 .error-area span{
@@ -796,18 +680,20 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #popup .intro {
-  background-color: #D9E0E0;
+  background-color: #d5ecea;
   padding: 1em;
 }
 
 #popup h3 {
   font-size: 1em;
+  font-weight:300;
   margin: 0.75em 0;
 }
 
 #popup .intro p.explanation {
-	font-size: 0.85em;
+	font-size: 1em;
 	margin-bottom: 0;
+  padding-right:8em;
 }
 
 #popup #global-locator-form {
@@ -819,7 +705,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #popup #global-set-theme .personalise-options {
-	background: #D9E0E0;
+	background: #d5ecea;
 	padding: 1em;
 	position: relative;
 }
@@ -898,7 +784,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   width: 12em;
   min-height:10em;
   padding:0em 0.5em 0.5em 1em;
-  
   -webkit-transition: left 0.5s ease-in-out;
   -moz-transition: left 0.5s ease-in-out;
 }
@@ -918,7 +803,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 #feedback-cta h2{
-  font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 0.85em;
   font-weight: normal;
   letter-spacing: 0.15em;
@@ -964,7 +848,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 #feedback-cta .sets-cookie {
   background: none;
-  /*border-top: solid 1px #C2CD9D;*/
   margin: 1em 0 0 0;
   padding: 0.25em 0 0 0;
 }
@@ -1017,120 +900,166 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   margin-right:1em;
 }
 
+/*shared bits for buttons on a, button and input */
+input, button {
+  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.get-started .button .call-to-action,
+.get-started .button.big,
+.button,
+.button:visited {
+  background-color:#28a198;
+  color:#fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow:0 4px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow:0 4px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0, 0, 0, 0.05);
+  font-weight: 300;
+}
+
+.get-started .button:hover span.call-to-action,
+.get-started .button.big:hover,
+.button:hover {
+  background-color: #3ABAA8;
+  color: #fff;
+}
+
+.button:active,
+.button.big:active,
+.button:active span.call-to-action {
+  -webkit-transform: translate(0, 4px);
+  -moz-transform: translate(0, 4px);
+  -o-transform: translate(0, 4px);
+  transform: translate(0, 4px);
+  box-shadow:none;
+  outline:none;
+}
+
+/* this compensates for this style being pushed down twice by keeping
+the inner span still */
+.get-started .button:active .call-to-action {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* this compensates for the whole thing being pushed down by pushing back up */
+.get-started .button:active .destination {
+  -webkit-transform: translate(0, -4px);
+  -moz-transform: translate(0, -4px);
+  -o-transform: translate(0, -4px);
+  transform: translate(0, -4px);
+}
+
 /* buttons! */
 .button,
 .button:visited {
-  background-color: #B01117;
-  background-image: url(<%= asset_path "button-overlay.png" %>);
-  _background-image:none;
-  background-position: 0 100%;
-  background-repeat: repeat-x;
-  border: solid 1px #B01117;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.5em 0.75em;
-  position: relative;
+  display:inline;
+  line-height:0.8em;
+  border:none;
   text-decoration: none;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  -moz-transition: background-color 0.5s ease-in-out;
-}
-.button:hover {
-  background-color: #DD322D;
-  border: solid 1px #760418;
-  color: #fff;
-}
-.button:active {
-  background-color: #DD322D;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
-}
-.lte-ie .button:active {
-  top: 1px;
-}
-.button:focus {
-  background-color: #001950;
+  position:relative;
+  top:-3px;
+  line-height:1.3em;
 }
 
-input.button,
+.button:focus span,
+.button:active span
+.button:active,
+.button:focus{
+  outline:none;
+  background-color:transparent;
+  color: #fff;
+}
+.button:active,
+.button:focus{
+  background-color:#28A197;
+}
+
+.lte-ie .button:active {
+  /*top: 1px;*/
+}
+.button:focus {
+  /*background-color: #001950;*/
+}
+
+.button,
 .button.medium {
-  padding: 0.25em 0.5em;
+  padding: 0.3em 0.5em 0.1em 0.5em;
 }
 
 .button.medium {
   font-size: 1.25em;
 }
 
-.button.big {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-  font-size: 1.75em;
-  letter-spacing: 0.15em;
-  padding: 0.5em 0.4em;
-  text-transform: uppercase;
-}
 
+/* get started buttons */
 .get-started {
-  margin: 0;
-  text-align: center;
+  text-align:right;
+  margin:1.5em 0 0 0;
 }
 
 .get-started .button {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-  margin: 0.75em 0 0 0;
-  max-width: 60%;
-  position: relative;
+  text-decoration:none;
+  background-color: transparent;
+  box-shadow:none;
+  outline:none;
 }
 .lte-ie8 .get-started .button {
   _width: 60%;
 }
 
-.get-started .button.big {
-  background-image: url(<%= asset_path "button-arrow.png" %>);
-  background-position: 95% 50%;
-  background-repeat: no-repeat;
-  padding: 0.65em 2em 0.65em 0.5em;
+.get-started .button{
+  text-align:left;
 }
-
-.get-started .button .button-content {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .get-started .button .destination {
+  font-size:0.7368em;
+  color:#333;
+  margin-top:1em;
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  letter-spacing: 0;
-  margin: 0.25em 0 0 0;
-  opacity: 0.75;
-  text-transform: none;
 }
 
-.wf-gillsans-n4-inactive .button .call-to-action {
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-loading .button .call-to-action {
-  font-family: "Gill Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.wf-gillsans-n4-active .button .call-to-action {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
-}
-.get-started .button .call-to-action {
-  background-image: url(<%= asset_path "button-arrow.png" %>);
+.get-started .button .call-to-action,
+.get-started .button.big,
+#homepage-search-form .button.big {
+  display:block;
+  font-size:1.3162em;
+  padding:0.5em 1.7em 0.35em 0.5em;
+  line-height:0.8em;
+  background-image: url(<%= asset_path "icon-pointer.png" %>);
   background-position: 100% 50%;
   background-repeat: no-repeat;
-  display: block;
-  font-size: 1.5em;
-  letter-spacing: 0.15em;
-  margin: 0 auto;
-  padding: 0.325em 1.5em 0.325em 0;
-  text-transform: uppercase;
+  display: inline-block;
+  }
+
+
+
+a.button[rel="external"]:after{
+  content: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 input[disabled="disabled"] {
   opacity: 0.5;
 }
+
+input[type="text"],
+input[type="search"]{
+  border: 1px solid #bbb;
+  line-height: 1.4em;
+  min-width: 8em;
+  _width:8em;
+  margin: 0 0.5em;
+  font-weight: 300;
+  line-height: 1.25em;
+  padding: 0.3em 0.25em 0.1em;
+}
+
 
 /* below fixes a bug where IE puts a nasty black border around these elements */
 
@@ -1144,25 +1073,17 @@ input[disabled="disabled"] {
 /* Alternative button styles */
 
 .button.variation_one,
-.button.variation_one:visited {
-  background-color: #2DA096;
-  border-color: #1c645e;
-}
-.button.variation_one:hover {
-  background-color: #33b7ad;
-  border-color: #258982; 
-}
-
+.button.variation_one:visited,
 .button.variation_two,
 .button.variation_two:visited {
-  background-color: #D33883;
-  border-color: #9b2962;
+  /*background-color: #2DA096;
+  border-color: #1c645e;*/
 }
+.button.variation_one:hover,
 .button.variation_two:hover {
-  background-color: #e93e93;
-  border-color: #9b2962; 
+  /*background-color: #33b7ad;
+  border-color: #258982; */
 }
-
 /* welcome popup */
 
 #popup.welcome-tour {
@@ -1189,7 +1110,6 @@ input[disabled="disabled"] {
 }
 
 #popup.welcome-tour h2 {
-  font-family: 'Gill Sans W01 Medium', sans-serif;
   font-size: 2em;
   font-weight: normal;
   text-transform:uppercase;
@@ -1198,10 +1118,9 @@ input[disabled="disabled"] {
 }
 
 .sets-cookie {
-  background: #F0E7D5;
-  font-size: 0.75em;
-  margin: 0.25em 0;
-  padding: 0.15em;
+  font-size: 0.85em;
+  /*margin: 0.25em 0;*/
+  /*padding: 0.15em;*/
 }
 
 .cookie-container {
@@ -1212,7 +1131,7 @@ input[disabled="disabled"] {
 }
 
 .find-location-for-service .cookie-container {
-  bottom: 0.75em;
+  bottom: 1em;
   right: 0.75em;
 }
 
@@ -1242,6 +1161,7 @@ input[disabled="disabled"] {
     font-size: 2em;
     padding: 0.1em 0 0.25em 2.25em;
   }
+
   header.page-header hgroup h1 span {
     font-size: 0.45em;
   }
@@ -1298,7 +1218,7 @@ input[disabled="disabled"] {
   #popup.customisation-tools .button{
     margin-top:0.5em;
   }
-  
+
   .cookie-container{
     top:auto;
   }
@@ -1321,7 +1241,6 @@ input[disabled="disabled"] {
     width: 100%;
   }
   #feedback-cta h2{
-    font-family: 'Gill Sans W01 Medium', sans-serif;
     font-size: 0.85em;
     font-weight: normal;
     letter-spacing: 0.15em;

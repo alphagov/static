@@ -5,7 +5,6 @@
  *= require header-footer
  *= require text
  *= require ancillary-pages
- *= require browse
  *= require accessibility
  *= require search
  *= require static-pages/homepage
@@ -15,4 +14,5 @@
  *= require static-pages/platform-pages
  *= require static-pages/tour
  *= require publisher
+ *= require multi-step
 */

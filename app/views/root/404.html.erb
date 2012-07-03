@@ -12,16 +12,6 @@
  <!-- alternatives -->
  <%= stylesheet_link_tag "wordsdifficult", :rel => "alternate stylesheet", :title => "I find words difficult", :class => "wordsdifficult"%>
 
- <!-- fonts -->
- <script type="text/javascript">
- setTimeout(function(){var a=document,g,b={families:(g=
-     ["Gill","Sassoon"]),urls:["https://fast.fonts.com/cssapi/172cb3ce-d500-423b-9495-ef65783e8f1d.css"]},
-     c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
-   e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
-     ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
-     .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
- </script>
-
  <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.min.js' %>
  <%= javascript_include_tag 'application', :defer => 'defer' %>
 
@@ -107,7 +97,7 @@
            <div class="intro">
              <p>The page you are looking for does not exist.</p>
 
-             <p>This will happen from time to time, due to this being an incomplete trial (‘beta’) site. You can help us improve GOV.UK by <a href="/feedback" id="gs-feedback-banner">telling us what you were doing</a>.</p>
+             <p>This might happen from time to time, since this is an incomplete trial (‘beta’) site. You can help us improve GOV.UK by <a href="/feedback" id="gs-feedback-banner">telling us what you were doing</a>.</p>
 
              <form id="search2" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
                <fieldset>
@@ -135,16 +125,6 @@
                <li><a href="/pension-credit">Pension Credit</a></li>
              </ul>
 
-             <h2>Inside government</h2>
-             <ul>
-               <li><a href="/government/news-and-speeches">News &amp; speeches</a></li>
-               <li><a href="/government/policy-topics">Policy</a></li>
-               <li><a href="/government/publications">Publications</a></li>
-               <li><a href="/government/consultations">Consultations</a></li>
-               <li><a href="/government/ministers">Ministers</a></li>
-               <li><a href="/government/organisations">Departments &amp; agencies</a></li>
-               <li><a href="/government/world">UK and the world</a></li>
-             </ul>
            </div>
            <div class="browse section">
              <h2>Browse</h2>
@@ -171,7 +151,7 @@
 
  <footer class="group" id="footer" role="contentinfo">
    <div class="beta-notice">
-     <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official website remains <a href="http://www.direct.gov.uk">Directgov</a> and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
+     <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official websites remain <a href="http://www.direct.gov.uk">Directgov</a>, <a href="http://www.businesslink.gov.uk/">Businesslink</a>, and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
    </div>
    <div class="inner group">
      <div class="colophon-and-help">

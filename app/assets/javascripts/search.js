@@ -198,6 +198,46 @@ $(document).ready(function() {
       }
     });
   }
-
-
 });
+
+/*
+* New Search Design
+*/
+
+function initSearchFilter() {
+  // if this is NOT a section page - probably a better way to do this
+  if ($('.section-page').length < 1) {
+    $('.search .filters').on('click', 'a', function(e) {
+      e.preventDefault();
+      var $li = $(this).parent();
+      
+      $('.active').not($li).removeClass('active');
+      $li.toggleClass('active');
+      
+      filterResults();
+    });
+  }
+}
+
+function filterResults() {
+  var $results = $('.results-list');
+
+  $results.find('.filtered').removeClass('filtered');
+
+  var filter = '';
+  $('.search .filters').find('.active').each(function() { 
+    /* if (filter != '') filter += ', '; */
+    filter += '.'+$(this).data('filter');
+  });
+  
+  if (filter == '') filter = '*';
+  
+  console.log(filter);
+  
+  $results.children('li').not(filter).addClass('filtered');
+}
+
+$(document).ready(function() {
+  initSearchFilter();
+});
+

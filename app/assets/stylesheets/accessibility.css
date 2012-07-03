@@ -17,15 +17,15 @@
 /* Give a strong clear visual idea as to what is currently in focus */
 /*:focus,*/
 a:focus {
-  background-color: #fabb96;
-  outline: 3px solid #fabb96;
+  background-color: #ffbf47;
+  outline: 3px solid #ffbf47;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
 #global-header input:focus {
-  outline: 3px solid #fabb96;
+  outline: 3px solid #ffbf47;
 }
 
 #global-header a:focus {
