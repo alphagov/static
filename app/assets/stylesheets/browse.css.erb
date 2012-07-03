@@ -86,12 +86,12 @@
 .js-enabled .browse-sections h2.open:after {
   /* arrow */
   content: " ";
-  
+
   position: absolute;
   top: 0; right: -1.111em;
   height: 0; width: 0;
   overflow: hidden;
-  
+
   border-top: 1.167em solid transparent;
   border-bottom: 1.167em solid transparent;
   border-left: 1.167em solid #2E3191;
@@ -200,7 +200,7 @@
 .browse-sections .browse-panel ol li ol {
   /* content links list */
   padding: 0 0 0.375em 0;
-} 
+}
 
 .browse-sections .browse-panel ol li ol li {
   /* content links list item */
@@ -208,65 +208,9 @@
   margin: 0;
 }
 
-/* Responsive Breakpoints */ 
-@media only screen and (max-width:960px) {
-  .browse-sections .sub-sections h2.first {
-    /* make the first one massive */
-	margin-left: 0;
-  }
+/* Responsive Breakpoints */
 
-  .browse-sections .sub-sections h2.first a {
-    padding: 0.25em 0.333333333em;
-  }
-  
-  .browse-sections .sub-sections h2.first.open:after {
-    right: -0.785714286em;
-    border-top-width: 0.785714286em;
-    border-bottom-width: 0.785714286em;
-    border-left-width: 0.785714286em;
-  }
-}
-
-@media only screen and (max-width:670px) {
-  .browse-sections .browse-panel {
-    display: none;
-  }
-  
-  .js-enabled .browse-sections h2.first {
-    font-size: 1.125em;
-  }
-  
-  .js-enabled .browse-sections h2.first a {
-    padding: 0.5em 0.667em;
-  }
-  
-  .js-enabled .browse-sections h2.open:after {
-    display: none;
-  }
-
-  .browse-sections .sub-sections {
-    max-width: 100%;
-    padding: 0;
-    float: none;
-    border: none;
-  }
-  
-  .browse-sections .sub-sections>ol.group {
-    display: none;
-    padding-left: 0.75em;
-  }
-  
-  .js-enabled .browse-sections .sub-sections>ol.open-section {
-    display: block;
-  }
-  
-  .browse-sections ol.content-links li {
-	padding: 0.25em 1em 0;	
-  }
-}
-
-/* IE styles after @media blocks as they get overwritten */
-.lte-ie8 .js-enabled .browse-sections h2.first {	
+.lte-ie8 .js-enabled .browse-sections h2.first {
   margin-left: 0;
   *font-size: 1.125em; /* <= IE 7 */
 }
@@ -319,7 +263,7 @@
   border: 1px solid #4370CD;
   line-height: 1.25em;
   padding: 0.5em 0.75em;
-  
+
   -moz-transition: background-color 0.5s ease-in-out 0s;
   background-image: url(<%= asset_path "button-overlay.png" %>);
   background-position: 0 100%;
@@ -397,7 +341,7 @@
   color: #666;
 
   text-decoration: none;
-  
+
           transition: 0.4s ease;
        -o-transition: 0.4s ease;
      -moz-transition: 0.4s ease;

@@ -18,23 +18,22 @@
 #global-header .header-global {
   padding: 0 1%;
 }
-@media only screen and (min-width:1024px) {
-  #global-header .header-global {
-    margin: 0 auto;
-    max-width: 960px;
-  }
+#global-header .header-global {
+  margin: 0 auto;
+  max-width: 960px;
 }
 
-@media only screen and (min-width:670px) {
-  .js-enabled #global-header {
-    position: fixed;
-    top: 0;
-  }
-  #global-header {
-    width: 100%;
-    z-index: 1000;
-  }
+
+
+.js-enabled #global-header {
+  position: fixed;
+  top: 0;
 }
+#global-header {
+  width: 100%;
+  z-index: 1000;
+}
+
 
 #global-header h1 {
   /*font-size: 1.6em;*/
@@ -197,23 +196,23 @@ body.government #global-header .header-context nav a:hover {
   color: #9a9b00
 }
 
-@media only screen and (min-width: 670px) {
-  #global-header .header-context nav a.home,
-  #global-header .header-context ol li.current-context {
-    margin-right: 4%
-  }
+
+#global-header .header-context nav a.home,
+#global-header .header-context ol li.current-context {
+  margin-right: 4%
 }
+
 
 body.government #global-header .header-context {
   border-color: #cdce00;
   border-bottom-color: #9a9b00
 }
 
-@media only screen and (min-width: 600px) {
-  body.government #global-header .header-context nav {
-    width: 79.5%;
-  }
+
+body.government #global-header .header-context nav {
+  width: 79.5%;
 }
+
 
 form.site-search {
   margin-top: 0.15em;
@@ -249,15 +248,15 @@ form.site-search #site-search-text {
   font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-@media only screen and (min-width:765px) {
-  .search-help {
-    float: right;
-  }
 
-  body.government .header-context .search-help {
-    border-color: #cdce00
-  }
+.search-help {
+  float: right;
 }
+
+body.government .header-context .search-help {
+  border-color: #cdce00
+}
+
 .lte-ie8 .search-help {
   float: right;
 }
@@ -283,13 +282,13 @@ form.site-search #site-search-text {
   padding: 1em 4%;
 }
 
-@media only screen and (min-width:1024px) {
-  #footer .inner {
-    margin: 0 auto;
-    max-width: 960px;
-    /*width: 81%;*/
-  }
+
+#footer .inner {
+  margin: 0 auto;
+  max-width: 960px;
+/*width: 81%;*/
 }
+
 
 #footer .colophon-and-help {
   float: left;
@@ -330,42 +329,7 @@ form.site-search #site-search-text {
   padding: 1em 4.5em 1em 0;
 }
 
-@media only screen and (max-width:764px) {
-  form.site-search {
-    padding-top: 0.25em;
-  }
-  form.site-search .button {
-    width: 25%;
-  }
-  form.site-search #site-search-text {
-    width: 72%;
-  }
-  body.citizen nav.header-context ol {
-    padding-top: 0.5em;
-  }
-  body.citizen nav.header-context .beta-notice p {
-    right: 0;
-    top: 0;
-  }
-  body.citizen nav.header-context ol li:first-child {
-    margin-left: 4%;
-  }
-  #footer .help ul li {
-    float: none;
-  }
-  #footer .colophon-and-help,
-  #footer .copyright {
-    float: none;
-    width: auto;
-  }
-  #footer .copyright {
-    margin-top: 1.5em;
-    text-align: left;
-  }
-  #footer .copyright p {
-    background-position: 0 0;
-  }
-}
+
 
 /* tour link */
 
@@ -384,10 +348,4 @@ form.site-search #site-search-text {
 }
 .tour-label a:hover {
   background-color: #fff;
-}
-
-@media only screen and (max-width:670px) {
-  .home .home-tour {
-    position: absolute;
-  }
 }
