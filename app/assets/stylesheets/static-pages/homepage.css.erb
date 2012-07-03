@@ -116,6 +116,9 @@ section#homepage .homepage-carousel-wrapper {
   overflow: hidden;
 
   height: 15em;
+
+  /* overflow doesn't work in IE6 without a defined width */
+  *width:100%;
 }
 
 section#homepage .homepage-carousel {
@@ -158,7 +161,7 @@ section#homepage .homepage-carousel li a:focus {
 section#homepage .homepage-carousel-controls {
   list-style: none;
   width: 12.5em;
-  
+
   margin: .3125em auto 0 auto; padding: 0;
 }
 
@@ -169,7 +172,7 @@ section#homepage .homepage-carousel-controls li {
   display: block;
   width: 60em; height: 60em;
   overflow: hidden;
-  
+
   float: left;
 }
 
