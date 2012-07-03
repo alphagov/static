@@ -8,51 +8,43 @@ section#homepage {
 ============================================================================ */
 
 section#homepage header {
-  padding-top: 85px;
-  padding-top: 8.5rem;
+  padding-top: 5.3125em;
 
   text-align: center;
 
-  width: 960px;
-  width: 96rem;
+  width: 60em;
 
   margin: 0 auto;
-
 }
 
 section#homepage header h1 {
-  font-size: 24px; line-height: 30px;
-  font-size: 2.4rem; line-height: 3rem;
+  font-size: 1.5em; line-height: 1.25em;
   font-weight: 300;
 }
 
 section#homepage header h1.strap {
-  font-size: 72px; line-height: 70px;
-  font-size: 7.2rem; line-height: 7rem;
+  font-size: 4.5em; line-height: .972222222em;
 
-  margin-top: 30px;
-  margin-top: 3rem;
+  margin-top: .416666667em;
 }
 
 /* Homepage Search box
 ============================================================================ */
 
 section#homepage .homepage-search {
-  margin: 60px auto;
-  margin: 6rem auto;
+  margin: 3.75em auto;
 
-  width: 600px;
-  width: 60rem;
+  width: 37.5em;
 
   position: relative;
+  left: 2.375em;
 }
 
 section#homepage .homepage-search .search-suggestions {
-  font-size: 24px; line-height: 30px;
-  font-size: 2.4rem; line-height: 3rem;
+  font-size: 1.5em; line-height: 1.25em;
   font-weight: 300;
 
-  margin-bottom: 20px; margin-bottom: 2rem;
+  margin-bottom: .833333333em;
 }
 
 section#homepage .homepage-search .search-suggestions ul {
@@ -71,10 +63,10 @@ section#homepage .homepage-search .search-suggestions:before {
   /* search arrow as generated content */
   content: " ";
   display: block;
-  width: 124px; height: 113px;
+  width: 5.166666667em; height: 4.708333333em;
 
   position: absolute;
-  top: 6px; left: -77px;
+  top: .25em; left: -3.208333333em;
   z-index: 99;
 
   background: transparent url(<%= asset_path "homepage-search-arrow.png" %>) no-repeat 0 50%;
@@ -88,13 +80,12 @@ instead */
 }
 
 section#homepage .homepage-search input[type="search"] {
-  margin-right: 10px; margin-right: 1rem;
-  padding-left: 35px; padding-left: 3.5rem;
+  margin-right: .416666667em;
+  padding-left: 1.5em;
 
-  width: 415px; width: 41.5rem;
+  width: 17.291666667em;
 
-  font-size: 24px; line-height: 30px;
-  font-size: 2.4rem; line-height: 3rem;
+  font-size: 1.5em; line-height: 1.25em;
   position: relative;
   z-index: 0;
 }
@@ -115,8 +106,7 @@ section#homepage .homepage-search button.search:hover {
 
 section#homepage #homepage-carousel {
   position: relative;
-  width: 960px;
-  width: 96rem;
+  width: 60em;
 
   margin: 0 auto;
 }
@@ -125,8 +115,7 @@ section#homepage .homepage-carousel-wrapper {
   position: relative;
   overflow: hidden;
 
-  height: 240px;
-  height: 24rem;
+  height: 15em;
 }
 
 section#homepage .homepage-carousel {
@@ -137,31 +126,26 @@ section#homepage .homepage-carousel {
 section#homepage .homepage-carousel li {
   display: block;
 
-  margin-right: 12px; margin-right: 1.2rem;
+  font-size: 1.5em; line-height: 1.25em;
 
-  font-size: 24px; line-height: 30px;
-  font-size: 2.4rem; line-height: 3rem;
-
+  margin-right: .5em;
   float: left;
 
   background: #e1e8e8 url(<%= asset_path "homepage-guide.png" %>) no-repeat 0 100%;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.333);
+  box-shadow: .083333333em .083333333em .083333333em rgba(0,0,0,0.333);
 }
 
 section#homepage .homepage-carousel li.benefit { background-image: url(<%= asset_path "homepage-benefit.png" %>); }
 section#homepage .homepage-carousel li.guide { background-image: url(<%= asset_path "homepage-guide.png" %>); }
 section#homepage .homepage-carousel li.quick-answer { background-image: url(<%= asset_path "homepage-quick_answer.png" %>); }
-section#homepage .homepage-carousel li.transaction { background-image: url(<%= asset_path "homepage-service.png" %>); }
+section#homepage .homepage-carousel li.service { background-image: url(<%= asset_path "homepage-service.png" %>); }
 
 section#homepage .homepage-carousel li a {
   display: block;
 
-  width: 200px; height: 225px;
-  width: 20rem; height: 22.5rem;
+  width: 8.333333333em; height: 9.375em;
 
-  padding: 10px 15px 0 15px;
-  padding: 1rem 1.5rem 0 1.5rem;
-
+  padding: .416666667em .625em 0 .625em;
 
   color: #333;
   text-decoration: none;
@@ -173,23 +157,25 @@ section#homepage .homepage-carousel li a:focus {
 
 section#homepage .homepage-carousel-controls {
   list-style: none;
-  width: 200px;
+  width: 12.5em;
   
-  margin: 25px auto 0 auto; padding: 0;
+  margin: .3125em auto 0 auto; padding: 0;
 }
 
 section#homepage .homepage-carousel-controls li {
-  display: block;
-  width: 60px; height: 60px;  
   font-size: 1px; line-height: 1px;
   text-indent: -5000px;
+
+  display: block;
+  width: 60em; height: 60em;
+  overflow: hidden;
   
   float: left;
 }
 
 section#homepage .homepage-carousel-controls li a {
   display: block;
-  width: 60px; height: 60px;
+  width: 60em; height: 60em;
   background: transparent url(<%= asset_path "carousel-arrows.png" %>) no-repeat 0 0;
   /* overflow hidden makes sure the outline doesn't get pushed off the side of
      the page by Firefox */
@@ -212,27 +198,21 @@ section#homepage .homepage-carousel-controls li.play a { display: none; }
 section#homepage .homepage-sections {
   background: #D9DFE0;
 
-  margin-top: 85px;
-  margin-top: 8.5rem;
+  margin-top: 5.3125em;
 }
 
 section#homepage .homepage-sections .group {
-  width: 960px;
-  width: 96rem;
+  width: 60em;
 
   margin: 0 auto;
-
-
-  padding: 20px 0;
+  padding: 1.25em 0;
 }
 
 section#homepage .homepage-sections h2 {
-  font-size: 24px; line-height: 30px;
-  font-size: 2.4rem; line-height: 3rem;
+  font-size: 1.5em; line-height: 1.25em;
   font-weight: 300;
 
-  margin: 0 0 20px 0;
-  margin: 0 0 2rem 0;
+  margin: 0 0 .833333333em 0;
 }
 
 section#homepage .homepage-sections-column {
@@ -256,13 +236,11 @@ section#homepage .sections-list {
 }
 
 section#homepage .sections-list li {
-  margin-bottom: 20px;
-  margin-bottom: 2rem;
+  margin-bottom: .833333333em;
 }
 
 section#homepage .sections-list h3 {
-  font-size: 24px; line-height: 25px;
-  font-size: 2.4rem; line-height: 2.5rem;
+  font-size: 1.5em; line-height: 1.041666667em;
   font-weight: 300;
 
   margin: 0;
@@ -284,8 +262,7 @@ section#homepage .sections-links {
 }
 
 section#homepage .sections-links li {
- font-size: 19px; line-height: 25px;
- font-size: 1.9rem; line-height: 2.5rem;
+ font-size: 1.1875em; line-height: 1.315789474em;
 
  display: inline;
 }
