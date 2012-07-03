@@ -55,9 +55,16 @@ section#homepage .homepage-search .search-suggestions {
   margin-bottom: 20px; margin-bottom: 2rem;
 }
 
-section#homepage .homepage-search .search-suggestions span {
+section#homepage .homepage-search .search-suggestions ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: inline-block;
+}
+
+section#homepage .homepage-search .search-suggestions ul li a {
   color: #d53880;
   font-weight: 500;
+  text-decoration: none;
 }
 
 section#homepage .homepage-search .search-suggestions:before {
@@ -137,9 +144,14 @@ section#homepage .homepage-carousel li {
 
   float: left;
 
-  background: #e1e8e8 url(http://placehold.it/230x160) no-repeat 0 100%;
+  background: #e1e8e8 url(<%= asset_path "homepage-guide.png" %>) no-repeat 0 100%;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.333);
 }
+
+section#homepage .homepage-carousel li.benefit { background-image: url(<%= asset_path "homepage-benefit.png" %>); }
+section#homepage .homepage-carousel li.guide { background-image: url(<%= asset_path "homepage-guide.png" %>); }
+section#homepage .homepage-carousel li.quick-answer { background-image: url(<%= asset_path "homepage-quick_answer.png" %>); }
+section#homepage .homepage-carousel li.transaction { background-image: url(<%= asset_path "homepage-service.png" %>); }
 
 section#homepage .homepage-carousel li a {
   display: block;
@@ -161,29 +173,19 @@ section#homepage .homepage-carousel li a:focus {
 
 section#homepage .homepage-carousel-controls {
   list-style: none;
-  width: 100%; height: 100%;
-
-  margin: 0; padding: 0;
+  width: 200px;
+  
+  margin: 25px auto 0 auto; padding: 0;
 }
 
 section#homepage .homepage-carousel-controls li {
   display: block;
-  width: 60px; height: 60px;
-  margin-top: -12rem; /* this is half the height of the carousel itself */
-
+  width: 60px; height: 60px;  
   font-size: 1px; line-height: 1px;
   text-indent: -5000px;
-
-  position: absolute;
+  
+  float: left;
 }
-
-.lte-ie8 section#homepage .homepage-carousel-controls li {
-  margin-top: -120px;
-}
-
-section#homepage .homepage-carousel-controls li.prev { left: -60px; }
-section#homepage .homepage-carousel-controls li.next { right: -60px; }
-
 
 section#homepage .homepage-carousel-controls li a {
   display: block;
@@ -292,7 +294,7 @@ section#homepage .sections-links li:after {
   content: ", ";
 }
 
-section#homepage .sections-links li:last-child:after {
+section#homepage .sections-links li.last:after {
   content: none;
 }
 
