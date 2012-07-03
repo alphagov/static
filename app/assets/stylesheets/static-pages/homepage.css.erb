@@ -160,7 +160,7 @@ section#homepage .homepage-carousel li a:focus {
 
 section#homepage .homepage-carousel-controls {
   list-style: none;
-  width: 12.5em;
+  width: 9.375em;
 
   margin: .3125em auto 0 auto; padding: 0;
 }
@@ -191,9 +191,20 @@ section#homepage .homepage-carousel-controls li.prev a:hover { background-positi
 section#homepage .homepage-carousel-controls li.next a:hover { background-position: 100% 100%; }
 
 
-section#homepage .homepage-carousel-controls li.pause a { display: none; }
-section#homepage .homepage-carousel-controls li.play a { display: none; }
+section#homepage .homepage-carousel-controls li.pause,
+section#homepage .homepage-carousel-controls li.play {
+  width: 30em;
+}
 
+section#homepage .homepage-carousel-controls li.pause a,
+section#homepage .homepage-carousel-controls li.play a {
+  background-image: url(<%= asset_path "carousel-play-pause.png" %>);
+}
+
+section#homepage .homepage-carousel-controls li.pause a { background-position: 0 0; }
+section#homepage .homepage-carousel-controls li.play a { background-position: 100% 0; }
+section#homepage .homepage-carousel-controls li.pause a:hover { background-position: 0 100%; }
+section#homepage .homepage-carousel-controls li.play a:hover { background-position: 100% 100%; }
 
 /* Sections
 ============================================================================ */
