@@ -12,7 +12,7 @@
   <%= stylesheet_link_tag "core-print", :media => "print" %>
 
   <!-- fonts -->
-  <!--[if gt IE 8]><!-->
+  <!--[if gte IE 8]><!-->
   <script type="text/javascript">
   (function(){if(window.opera){return;}
   setTimeout(function(){var a=document,g,b={families:(g=
@@ -33,7 +33,7 @@
   <![endif]-->
 
   <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
-  
+
   <!-- For third-generation iPad with high-resolution Retina display: -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path "apple-touch-icon-144x144.png" %>">
   <!-- For iPhone with high-resolution Retina display: -->
@@ -42,7 +42,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path "apple-touch-icon-72x72.png" %>">
   <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
   <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
-  
+
   <script id="ga-params" type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-26179049-1']);
