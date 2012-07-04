@@ -18,7 +18,6 @@
 */
 
 .hint {
-  color: #666;
   display: block;
 }
 
@@ -56,7 +55,7 @@
 .done-questions ol > li {
   list-style: none;
   position: relative;
-  padding: 0.5em 1.5em 0.5em 5em;
+  padding: 0.75em 1.5em 0.75em 5em;
 }
 
 .done-questions ol > li.done {
@@ -87,7 +86,6 @@ li.upcoming h3 {
   display: inline;
   font-size: 1em;
   margin: 0 0.5em 0 0;
-  font-weight:300;
 }
 .lte-ie8 li.done h3,
 .lte-ie8 li.upcoming h3 {
@@ -99,7 +97,7 @@ li.done .answer {
   color: #315843;
   font-weight:400;
   display: inline;
-  padding: 0.1em 0.3em;
+  /*padding: 0.1em 0;*/
   margin-right: 0.5em;
 }
 
@@ -126,7 +124,6 @@ li.done .undo a {
 
 li.done:hover .undo a {
   color: inherit;
-  text-decoration: none;
 }
 
 .step.current {
@@ -137,13 +134,12 @@ li.done:hover .undo a {
 }
 
 .current-question {
-  border-top: solid 1px #C9D0D0;
-  margin-top: -1px;
-  padding: 1.5em 0 1.25em 0;
+  padding: 1.5em 0 1em 0;
 }
 
 .current-question h2 {
   border: none;
+  margin-top: 0;
   margin-bottom: 0.5em;
   position: relative;
 }
@@ -162,7 +158,7 @@ li.done:hover .undo a {
 }
 
 .question .question-number {
-  margin-left: -1.7em;
+  /*margin-left: -1.7em;*/
 }
 
 .current-question ul {
