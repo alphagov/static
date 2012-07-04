@@ -4,7 +4,7 @@ $(function() {
     "<h2>Beta</h2><p class='close'><a href='#'>Close</a></p>",
     "<div class='welcome-inner'>",
     "<p>Welcome to GOV.UK, an experimental trial (\u2018beta\u2019) of a home for government information ",
-    "and servcies, and the first steps towards a single government website.</p>",
+    "and services, and the first steps towards a single government website.</p>",
     "<p><strong>PLEASE BE AWARE \u2013 this is a test website. It may contain ",
     "inaccuracies or be misleading. ",
     "<a href='http://www.direct.gov.uk'>Directgov</a> and <a href='http://businesslink.gov.uk'>Businesslink</a> remain the official ",
