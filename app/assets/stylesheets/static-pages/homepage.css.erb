@@ -99,7 +99,10 @@ section#homepage .homepage-search #main_autocomplete {
   z-index: 0;
 }
 
-
+/* and reduce the left padding from the the search box */
+.lte-ie8 section#homepage .homepage-search #main_autocomplete {
+  padding-left: 0.25em;
+}
 section#homepage .homepage-search .button.search {
   background-image: url(<%= asset_path "icon-search.png" %>);
   background-repeat: no-repeat;
