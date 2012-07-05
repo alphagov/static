@@ -1,29 +1,15 @@
-<%
-  #  Explicitly serve fonts from our own domain, static.gov.uk rather than cdn.
-  #  To serve fonts from the cdn (cloudfront) and for it to work on Firefox and IE9+,
-  #  they would need to set the "allow origin" header, but they don't support this.
-  #  When we have our own cdn, we can solve this ourselves.
-  def fonts_url
-    if Rails.env.development? || Rails.env.test?
-      Plek.current.find('assets') + "/static"
-    else
-      Plek.current.find('assets') + "/fonts"
-    end
-  end
-%>
-
 @font-face {
   font-family: 'nta';
-  src: url(<%= fonts_url %>/nta_light-webfont-ps.eot#) format('embedded-opentype'),
-       url(<%= fonts_url %>/nta_light-webfont-ps.woff) format('woff');
+  src: url(<%= asset_path "nta_light-webfont-ps.eot" %>#) format('embedded-opentype'),
+       url(<%= asset_path "nta_light-webfont-ps.woff" %>) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'nta-bold';
-  src: url(<%= fonts_url %>/nta_medium-webfont-ps.eot#) format('embedded-opentype'),
-       url(<%= fonts_url %>/nta_medium-webfont-ps.woff) format('woff');
+  src: url(<%= asset_path "nta_medium-webfont-ps.eot" %>#) format('embedded-opentype'),
+       url(<%= asset_path "nta_medium-webfont-ps.woff" %>) format('woff');
   font-weight: normal;
   font-style: normal;
 }

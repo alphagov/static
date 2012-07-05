@@ -55,6 +55,13 @@ Static::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_controller.asset_host = Plek.current.find('cdn')
+  # fork asset host depending on whether they're fonts or not
+  config.action_controller.asset_host = Proc.new { |source|
+    if source.starts_with?('/fonts')
+      Plek.current.find('assets')
+    else
+      Plek.current.find('cdn')
+    end
+  }
 
 end
