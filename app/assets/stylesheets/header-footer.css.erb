@@ -16,14 +16,11 @@
 }
 
 #global-header .header-global {
-  padding: 0 1%;
-}
-#global-header .header-global {
+  height: 2em;
   margin: 0 auto;
   max-width: 960px;
+  padding: 0 1%;
 }
-
-
 
 .js-enabled #global-header {
   position: fixed;
@@ -42,10 +39,8 @@
 
 
 #global-header h1 {
-  /*font-size: 1.6em;*/
   font-weight:400;
   float: left;
-  /*line-height: 1.15em;*/
   margin-right: 1.5em;
   text-transform: uppercase;
 }
@@ -225,13 +220,13 @@ body.government #global-header .header-context nav {
 
 
 form.site-search {
-  margin-top: 0.15em;
+  padding-top: 0.15em;
 }
 
 #global-header form.site-search {
   clear: both;
   position: relative;
-  top: -1px;
+  top: 0;
 }
 
 form.site-search .button {
@@ -240,14 +235,11 @@ form.site-search .button {
   display:inline;
   font-weight:300;
   border:none;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  padding: 0.35em 0.5em 0.15em;
-  top: 0px;
+  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding: 0.25em 0.5em 0.25em;
+  /*top: -2px;*/
   border-radius: 0;
   box-shadow: none;
-}
-.wf-nta-n4-active form.site-search .button {
-  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 form.site-search .button:hover {
   background-color: #3ABAA8;
@@ -258,13 +250,8 @@ form.site-search #site-search-text {
   border: none;
   border-bottom: solid 1px #fff;
   border-top: solid 1px #fff;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-
-.wf-nta-n4-active form.site-search #site-search-text {
   font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
 
 .search-help {
   float: right;
