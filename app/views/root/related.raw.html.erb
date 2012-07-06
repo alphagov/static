@@ -2,34 +2,34 @@
 
 <!-- related -->
 <div class="related-positioning">
-	<div class="related-container">
+  <div class="related-container">
 
-		<div class="related">
-			<div class="inner group">
-				<h2>Related topics</h2>
-				<nav role="navigation">
-				  <ul>
-				    <% if artefact.related_items.size > 0 %>
-				      <% (artefact.related_items || []).each do |item| %>
-  				      <% if item.artefact %>
-  				      <li class="<%= h(item.artefact.kind) %>">
-  				        <a href="/<%= h(item.artefact.slug) %>"><%= h(item.artefact.name) %></a>
-  				      </li>
-  				      <% end %>
+    <div class="related">
+      <div class="inner group">
+        <h2>Related topics</h2>
+        <nav role="navigation">
+          <ul>
+            <% if artefact.related_items.size > 0 %>
+              <% (artefact.related_items || []).each do |item| %>
+                <% if item.artefact %>
+                <li class="<%= h(item.artefact.kind) %>">
+                  <a href="/<%= h(item.artefact.slug) %>"><%= h(item.artefact.name) %></a>
+                </li>
+                <% end %>
               <% end %>
             <% end %>
 
-			      <% if artefact.section && artefact.section != "" %>
-			        <% section, subsection = artefact.section.split(':', 2) %>
+            <% if artefact.section && artefact.section != "" %>
+              <% section, subsection = artefact.section.split(':', 2) %>
               <li class="related-topic"><a href="/browse/<%= h(section.parameterize) %>"
                 >More from the <span><%= h(section) %></span> section</a></li>
-			      <% end %>
-				  </ul>
-				</nav>
-	   </div>
-	 </div>
+            <% end %>
+          </ul>
+        </nav>
+     </div>
+   </div>
 
-	</div>
+  </div>
 </div>
 <!-- end related -->
 <% end %>
