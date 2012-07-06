@@ -5,7 +5,8 @@
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  padding: 0.4em 0 0.4em 0;
+  height: 1.9em;
+  padding: 0.4em 0;
 }
 .lte-ie8 #global-header {
   background-color: #0C0C0C;
@@ -16,10 +17,10 @@
 }
 
 #global-header .header-global {
-  height: 2em;
   margin: 0 auto;
   max-width: 960px;
-  padding: 0 1%;
+  /*padding: 0 1%;*/
+  position: relative;
 }
 
 .js-enabled #global-header {
@@ -219,30 +220,34 @@ body.government #global-header .header-context nav {
 }
 
 
+/* Search form in global header */
+
 form.site-search {
-  padding-top: 0.15em;
+  padding-top: 0.2em;
 }
 
 #global-header form.site-search {
   clear: both;
   position: relative;
-  top: 0;
+  top: -1px;
 }
 
 form.site-search .button {
-  background-color:#28A197;
-  color:#fff;
   display:inline;
-  font-weight:300;
-  border:none;
-  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  padding: 0.25em 0.5em 0.25em;
-  /*top: -2px;*/
+  padding: 0.25em 0.5em 0.2em;
+  position: relative;
+  top: -2px;
   border-radius: 0;
   box-shadow: none;
 }
 form.site-search .button:hover {
   background-color: #3ABAA8;
+}
+form.site-search .button:active {
+  -webkit-transform: translate(0, 2px);
+  -moz-transform: translate(0, 2px);
+  -o-transform: translate(0, 2px);
+  transform: translate(0, 2px);
 }
 
 form.site-search #site-search-text {
@@ -250,7 +255,7 @@ form.site-search #site-search-text {
   border: none;
   border-bottom: solid 1px #fff;
   border-top: solid 1px #fff;
-  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  line-height: 1;
 }
 
 .search-help {
