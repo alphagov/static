@@ -55,15 +55,6 @@ Static::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # fork asset host depending on whether they're fonts or not.
-  # This is because we can't send CORS headers via AWS, so for the
-  # moment we're unable to correctly serve Firefox fonts.
-  config.action_controller.asset_host = Proc.new { |source|
-    if source.starts_with?('/fonts')
-      Plek.current.find('assets')
-    else
-      Plek.current.find('cdn')
-    end
-  }
+  config.action_controller.asset_host = Plek.current.find('cdn')
 
 end
