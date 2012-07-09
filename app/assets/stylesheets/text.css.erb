@@ -428,7 +428,7 @@ article ol.places {
 }
 
 article .place {
-  background-color:#d5e8f3;
+  background-color:#f8f8f8;
   margin: 0.75em -1em;
   padding: 1em;
 }
@@ -441,12 +441,16 @@ article .places.answer_locations .information {
 article .place .map {
   float: left;
 }
+article .place .map img {
+  display: block;
+}
 article .place .map .view_map {
   font-size: 0.85em;
+  margin-top:1em;
 }
 
 article .place .information {
-  margin-left: 13.5em;
+  margin-left: 11.5263158em; /* 219px */
   min-height: 13em;
 }
 .lte-ie8 article .place .information {
@@ -472,9 +476,10 @@ article .place .url {
 }
 
 article .place .additional-information {
-  border-top: solid 1px #c0d6e2;
+  border-top: solid 1px #c9e0e0;
   font-size: 0.85em;
   margin-top: 1em;
+  padding-top:1em;
 }
 article .place .additional-information a {
   display: block;
