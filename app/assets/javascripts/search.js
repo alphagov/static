@@ -135,7 +135,7 @@ $(document).ready(function() {
   initAutoComplete();
 
   function shouldUseCitizenPreloadedSearchData() {
-    return (window.location.pathname.match(/^\/government/) == null)
+    return (window.location.pathname.match(/^\/government|specialist/) == null)
   }
 
   function initAutoComplete(){
@@ -217,10 +217,10 @@ function initSearchFilter() {
     $('.search .filters').on('click', 'a', function(e) {
       e.preventDefault();
       var $li = $(this).parent();
-      
+
       $('.active').not($li).removeClass('active');
       $li.toggleClass('active');
-      
+
       filterResults();
     });
   }
@@ -232,12 +232,12 @@ function filterResults() {
   $results.find('.filtered').removeClass('filtered');
 
   var filter = '';
-  $('.search .filters').find('.active').each(function() { 
+  $('.search .filters').find('.active').each(function() {
     /* if (filter != '') filter += ', '; */
     filter += '.'+$(this).data('filter');
   });
-  
-  if (filter == '') filter = '*';  
+
+  if (filter == '') filter = '*';
   $results.children('li').not(filter).addClass('filtered');
 }
 
