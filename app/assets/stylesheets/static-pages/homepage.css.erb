@@ -2,42 +2,37 @@
 ============================================================================ */
 
 section#homepage {
+  width: 60em;
+  margin: 0 auto;
 }
 
 /* Homepage Header
 ============================================================================ */
 
 section#homepage header {
-  padding-top: 5.3125em;
-
-  text-align: center;
-
-  width: 60em;
-
-  margin: 0 auto;
+  margin-left: 20em;
+  padding-top: 3.75em;
 }
 
 section#homepage header h1 {
-  font-size: 1.5em; line-height: 1.25em;
+  font-size: 1.5em;
+  line-height: 1.25em;
   font-weight: 300;
 }
 
 section#homepage header h1.strap {
-  font-size: 4.5em; line-height: .972222222em;
+  font-size: 3em;
+  line-height: 1.0416666667;
 
-  margin-top: .416666667em;
+  margin-bottom: .625em;
 }
 
 /* Homepage Search box
 ============================================================================ */
 
 section#homepage .homepage-search {
-  margin: 3.75em auto;
-
-  width: 46.25em;
-
+  margin: 3.125em 0 0 20em;
   position: relative;
-  left: 6.875em;
 }
 
 section#homepage .homepage-search .search-suggestions {
@@ -75,34 +70,20 @@ section#homepage .homepage-search .search-suggestions:before {
   width: 5.166666667em; height: 4.708333333em;
 
   position: absolute;
-  top: .25em; left: -3.208333333em;
+  top: .25em; left: -5.4em;
   z-index: 99;
 
   background: transparent url(<%= asset_path "homepage-search-arrow.png" %>) no-repeat 0 50%;
 }
 
-/* IE8 doesn't support transparent images overlapping form elements,
-so we position the arrow slightly outside to point at the search box
-instead */
-.lte-ie8 section#homepage .homepage-search .search-suggestions:before {
-  left: -115px;
-}
-
 section#homepage .homepage-search #main_autocomplete {
-  margin-right: .416666667em;
-  padding-left: 1.5em;
-
-  width: 17.291666667em;
-
+  margin: 0 .416666667em 0 0;
+  width: 19.33em;
   font-size: 1.5em; line-height: 1.25em;
   position: relative;
   z-index: 0;
 }
 
-/* and reduce the left padding from the the search box */
-.lte-ie8 section#homepage .homepage-search #main_autocomplete {
-  padding-left: 0.25em;
-}
 section#homepage .homepage-search .button.search {
   background-image: url(<%= asset_path "icon-search.png" %>);
   background-repeat: no-repeat;
@@ -113,201 +94,46 @@ section#homepage .homepage-search button.search:hover {
   border: none;
 }
 
-/* Carousel
-============================================================================ */
-
-section#homepage #homepage-carousel {
-  position: relative;
-  width: 60em;
-
-  margin: 0 auto;
-}
-
-section#homepage .homepage-carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-
-  height: 15em;
-
-  /* overflow doesn't work in IE6 without a defined width */
-  *width:100%;
-}
-
-section#homepage .homepage-carousel {
-  list-style: none;
-  padding: 0; margin: 0;
-}
-
-section#homepage .homepage-carousel li {
-  display: block;
-
-  font-size: 1.5em; line-height: 1.25em;
-
-  margin-right: .5em;
-  float: left;
-
-  background: #e1e8e8 url(<%= asset_path "homepage-guide.png" %>) no-repeat 0 100%;
-  box-shadow: .083333333em .083333333em .083333333em rgba(0,0,0,0.333);
-}
-
-section#homepage .homepage-carousel li.benefit { background-image: url(<%= asset_path "homepage-benefit.png" %>); }
-section#homepage .homepage-carousel li.guide { background-image: url(<%= asset_path "homepage-guide.png" %>); }
-section#homepage .homepage-carousel li.quick-answer { background-image: url(<%= asset_path "homepage-quick_answer.png" %>); }
-section#homepage .homepage-carousel li.service { background-image: url(<%= asset_path "homepage-service.png" %>); }
-
-section#homepage .homepage-carousel li a {
-  display: block;
-
-  width: 8.333333333em; height: 9.375em;
-
-  padding: .416666667em .625em 0 .625em;
-
-  color: #333;
-  text-decoration: none;
-}
-
-section#homepage .homepage-carousel li a:focus {
-  background-color: transparent;
-}
-
-section#homepage .homepage-carousel-controls {
-  list-style: none;
-  width: 9.46em; /* IE8-9 font sizing + rounding algorithm requires extra width */
-
-  margin: .3125em auto 0 auto; padding: 0;
-}
-
-section#homepage .homepage-carousel-controls li {
-  font-size: 1px; line-height: 1px;
-  text-indent: -5000px;
-
-  display: block;
-  width: 60em; height: 60em;
-  overflow: hidden;
-
-  float: left;
-}
-
-section#homepage .homepage-carousel-controls li a {
-  display: block;
-  width: 100%; height: 100%;
-  background: transparent url(<%= asset_path "carousel-arrows.png" %>) no-repeat 0 0;
-  /* overflow hidden makes sure the outline doesn't get pushed off the side of
-     the page by Firefox */
-  overflow: hidden
-}
-
-section#homepage .homepage-carousel-controls li.prev a { background-position: 0 0; }
-section#homepage .homepage-carousel-controls li.next a { background-position: 100% 0; }
-section#homepage .homepage-carousel-controls li.prev a:hover { background-position: 0 100%; }
-section#homepage .homepage-carousel-controls li.next a:hover { background-position: 100% 100%; }
-
-
-section#homepage .homepage-carousel-controls li.pause,
-section#homepage .homepage-carousel-controls li.play {
-  width: 30em;
-}
-
-section#homepage .homepage-carousel-controls li.pause a,
-section#homepage .homepage-carousel-controls li.play a {
-  background-image: url(<%= asset_path "carousel-play-pause.png" %>);
-}
-
-section#homepage .homepage-carousel-controls li.pause a { background-position: 0 0; }
-section#homepage .homepage-carousel-controls li.play a { background-position: 100% 0; }
-section#homepage .homepage-carousel-controls li.pause a:hover { background-position: 0 100%; }
-section#homepage .homepage-carousel-controls li.play a:hover { background-position: 100% 100%; }
-
 /* Sections
 ============================================================================ */
 
 section#homepage .homepage-sections {
-  background: #D9DFE0;
-
   margin-top: 5.3125em;
 }
 
-section#homepage .homepage-sections .group {
-  width: 60em;
-
-  margin: 0 auto;
-  padding: 2.75em 0;
-}
-
 section#homepage .homepage-sections h2 {
-  font-size: 1.5em; line-height: 1.25em;
+  font-size: 2.25em;
   font-weight: 300;
 
-  margin: 0 0 .833333333em 0;
-}
-
-section#homepage .homepage-sections-column {
-  width: 30%;
-  margin-right: 5%;
+  margin: 0;
+  width: 8.888888889em;
   float: left;
-  /* the columns float under each other in IE6, so reduce the width */
-  _zoom: 1;
-  _width: 28%;
 }
 
-section#homepage .homepage-sections-column:last-child {
-  margin-right: 0;
+section#homepage .homepage-sections h2 a {
+  color: #333;
+  text-decoration: none;
 }
-/* IE8 drops selectors it doesn't understand, like the above, so we
-need a separate group */
-.lte-ie8 section#homepage .homepage-sections-column.last {
-  margin-right: 0;
+
+section#homepage .homepage-sections h2 a:hover {
+  color: #333;
+  text-decoration: underline;
 }
 
 section#homepage .sections-list {
   list-style: none;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 section#homepage .sections-list li {
-  margin-bottom: 2.75em;
+  display: block;
+
+  border-top: 1px solid #c1cacb;
+  padding: 1.25em 0;
 }
-
-section#homepage .sections-list h3 {
-  font-size: 1.5em; line-height: 1.25em;
-  font-weight: 300;
-
-  margin: 0;
-}
-
-section#homepage .sections-list a {
-  color: #000;
-  text-decoration: none;
-}
-
-section#homepage .sections-list a:hover {
-  color: #1D97FF;
-  text-decoration: underline;
-}
-
-section#homepage .sections-list a:active { color: #2E3191; }
 
 section#homepage .sections-links {
-  list-style: none;
-  margin: 0; padding: 0;
-}
-
-section#homepage .sections-links li {
- font-size: 1.16em; line-height: 1.315789474em;
-
- display: inline;
-}
-
-section#homepage .sections-links li:after {
-  content: ", ";
-}
-
-section#homepage .sections-links li.last:after {
-  content: none;
-}
-
-
-section#homepage .sections-links li a {
-  color: #000;
-  text-decoration: underline;
+  font-size: 1.1875em;
+  line-height: 1.315789474;
 }
