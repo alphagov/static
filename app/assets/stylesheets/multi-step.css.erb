@@ -101,11 +101,21 @@ li.done .answer {
   margin-right: 0.5em;
 }
 
+li.done .answer.multiple {
+  display: block;
+}
+
 li.done .undo {
-  display: inline;
-  float: right;
+  position: absolute;
+  top: 0.833333em;<%# 0.75em / 0.9 (the font-size). Aren't em's lovely... %>
+  right: 1.666667em;<%# 1.5em / 0.9 %>
+  margin: 0;
   font-size: 0.9em;
-  margin: 0 0 0 0.5em;
+}
+
+li.done .answer ul {
+  margin: 0.5em 0 0 -2.1em;
+  padding-left: 2.1em;
 }
 
 .lte-ie8 li.done .undo {
