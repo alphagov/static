@@ -127,6 +127,10 @@ a[rel="external"]:after {
   z-index: 60;
 }
 
+.lte-ie8 .popover-mask {
+  _position: absolute !important;
+}
+
 .popover-mask .popover {
   background: #fafafa;
   border: solid 2px #bbb;
@@ -658,6 +662,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   display:none;
 }
 #popup{
+  background-color: #fff;
   display: none;
   overflow:visible;
   clear:both;
