@@ -2,15 +2,20 @@
 ============================================================================ */
 
 section#homepage {
-  width: 60em;
+  max-width: 960px;
   margin: 0 auto;
 }
+
+.lte-ie8 section#homepage {
+  _width: 960px;
+}
+
 
 /* Homepage Header
 ============================================================================ */
 
 section#homepage header {
-  margin-left: 20em;
+  margin-left: 33.3333333%;
   padding-top: 3.75em;
 }
 
@@ -31,12 +36,13 @@ section#homepage header h1.strap {
 ============================================================================ */
 
 section#homepage .homepage-search {
-  margin: 3.125em 0 0 20em;
+  margin: 3.125em 0 0 33.3333333%;
   position: relative;
 }
 
 section#homepage .homepage-search .search-suggestions {
-  font-size: 1.5em; line-height: 1.25em;
+  font-size: 1.1875em;
+  line-height: 1.25em;
   font-weight: 300;
 
   margin-bottom: .833333333em;
@@ -67,10 +73,10 @@ section#homepage .homepage-search .search-suggestions:before {
   /* search arrow as generated content */
   content: " ";
   display: block;
-  width: 5.166666667em; height: 4.708333333em;
+  width: 124px; height: 133px;
 
   position: absolute;
-  top: .25em; left: -5.4em;
+  top: -16px; left: -130px;
   z-index: 99;
 
   background: transparent url(<%= asset_path "homepage-search-arrow.png" %>) no-repeat 0 50%;
@@ -78,18 +84,25 @@ section#homepage .homepage-search .search-suggestions:before {
 
 section#homepage .homepage-search #main_autocomplete {
   margin: 0 .416666667em 0 0;
-  width: 19.33em;
+  max-width: 19.33em;
+  width: 77%;
   font-size: 1.5em; line-height: 1.25em;
   position: relative;
   z-index: 0;
 }
 
+.lte-ie8 section#homepage .homepage-search #main_autocomplete {
+  _width: 19.33em;
+}
+
 section#homepage .homepage-search .button.search {
   background-image: url(<%= asset_path "icon-search.png" %>);
   background-repeat: no-repeat;
+  
+  font-size: 1.42em;
 }
 
-section#homepage .homepage-search button.search:hover {
+section#homepage .homepage-search .button.search:hover {
   /* overwriting erreneous styles from search.css */
   border: none;
 }
@@ -99,6 +112,7 @@ section#homepage .homepage-search button.search:hover {
 
 section#homepage .homepage-sections {
   margin-top: 5.3125em;
+  padding-bottom: 5em;
 }
 
 section#homepage .homepage-sections h2 {
@@ -106,18 +120,19 @@ section#homepage .homepage-sections h2 {
   font-weight: 300;
 
   margin: 0;
-  width: 8.888888889em;
+  width: 33.3333333%;
   float: left;
 }
 
 section#homepage .homepage-sections h2 a {
   color: #333;
   text-decoration: none;
+  border-bottom: 1px solid #2e9aca;
+  padding-bottom: 4px;
 }
 
 section#homepage .homepage-sections h2 a:hover {
-  color: #333;
-  text-decoration: underline;
+  color: #2E8ACA;
 }
 
 section#homepage .sections-list {
@@ -136,4 +151,5 @@ section#homepage .sections-list li {
 section#homepage .sections-links {
   font-size: 1.1875em;
   line-height: 1.315789474;
+  margin-right: 1.5em;
 }
