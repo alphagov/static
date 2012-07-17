@@ -933,8 +933,8 @@ input, button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow:0 4px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
-  -moz-box-shadow:0 4px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
+  -webkit-box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
   box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0, 0, 0, 0.05);
   font-weight: 300;
 }
@@ -949,10 +949,10 @@ input, button {
 .button:active,
 .button.big:active,
 .button:active span.call-to-action {
-  -webkit-transform: translate(0, 4px);
-  -moz-transform: translate(0, 4px);
-  -o-transform: translate(0, 4px);
-  transform: translate(0, 4px);
+  -webkit-transform: translate(0, 3px);
+  -moz-transform: translate(0, 3px);
+  -o-transform: translate(0, 3px);
+  transform: translate(0, 3px);
   box-shadow:none;
   outline:none;
 }
@@ -968,10 +968,10 @@ the inner span still */
 
 /* this compensates for the whole thing being pushed down by pushing back up */
 .get-started .button:active .destination {
-  -webkit-transform: translate(0, -4px);
-  -moz-transform: translate(0, -4px);
-  -o-transform: translate(0, -4px);
-  transform: translate(0, -4px);
+  -webkit-transform: translate(0, -3px);
+  -moz-transform: translate(0, -3px);
+  -o-transform: translate(0, -3px);
+  transform: translate(0, -3px);
 }
 
 /* this stops IE6 etc. getting a flash of green around their extra text */
@@ -1049,7 +1049,7 @@ the inner span still */
 #search .button.big {
   display:block;
   font-size: 1.3162em;
-  padding: 0.5em 1.7em 0.35em 0.5em;
+  padding: 0.45em 1.7em 0.45em 0.5em;
   line-height: 0.8em;
   background-image: url(<%= asset_path "icon-pointer.png" %>);
   background-position: 100% 50%;
@@ -1077,7 +1077,7 @@ input[type="search"]{
   margin: 0 0.5em;
   font-weight: 300;
   line-height: 1.25;
-  padding: 0.3em 0.25em 0.1em;
+  padding: 0.25em;
 }
 
 
