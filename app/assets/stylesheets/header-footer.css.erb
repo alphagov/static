@@ -236,7 +236,7 @@ form.site-search .button {
   display:inline;
   padding: 0.25em 0.5em 0.2em;
   position: relative;
-  top: -2px;
+  top: 0;
   border-radius: 0;
   box-shadow: none;
 }
@@ -244,10 +244,10 @@ form.site-search .button:hover {
   background-color: #3ABAA8;
 }
 form.site-search .button:active {
-  -webkit-transform: translate(0, 2px);
-  -moz-transform: translate(0, 2px);
-  -o-transform: translate(0, 2px);
-  transform: translate(0, 2px);
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
 form.site-search #site-search-text {
@@ -256,6 +256,7 @@ form.site-search #site-search-text {
   border-bottom: solid 1px #fff;
   border-top: solid 1px #fff;
   line-height: 1;
+  padding: 0.2em 0.25em;
 }
 
 .search-help {
