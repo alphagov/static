@@ -71,7 +71,7 @@ $(document).ready(function() {
         return scored_document;
       }
     });
-  }
+  };
 
   var filter_terms = function(search_query, data){
     var scored_docs = $.map(data, function(doc){
@@ -95,12 +95,12 @@ $(document).ready(function() {
     });
   };
 
- 	/* Smoke and mirrors search hint */
+ /* Smoke and mirrors search hint */
 
   function hintPlaceholder(element) {
     if($(".hint-suggest").length == 0) {
       if (element.attr('id') == 'main_autocomplete') {
-  	    $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
+        $("#search_hint").after("<span class='hint-suggest'><em>Type for suggestions</em></span>");
         $("#search_hint").addClass("visuallyhidden");
       }
       else {
@@ -109,7 +109,7 @@ $(document).ready(function() {
       }
     }
     return $('.hint-suggest');
-  };
+  }
 
 
   var results_found = -1;
@@ -163,7 +163,7 @@ $(document).ready(function() {
                   return { 'label': e.title, 'url': e.link, 'class': e.format };
                 });
                 results_found = results.length;
-                add(results)
+                add(results);
               },
               complete: function(jqXHR, textstatus){
                 hint.removeClass("search-loading");
@@ -177,6 +177,10 @@ $(document).ready(function() {
         }
       },
       select: function(event, ui) {
+        // add in Google Analytics tracking
+        if ( _gat && _gat._getTracker ) {
+          _gaq.push(['_trackEvent', 'GOV.UK_search_autocomplete', ui.item.label, ui.item.url]);
+        }
         location.href = ui.item.url;
       },
       open: function(event, ui){
