@@ -90,15 +90,16 @@ $(function() {
 
 
   function setCookie(name, value, days){
-    var expires;
+    var cookieString = name + "=" + value + "; path=/";
     if (days) {
       var date = new Date();
       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toGMTString();
-    } else {
-      expires = "";
+      cookieString = cookieString + "; expires=" + date.toGMTString();
     }
-    document.cookie = name + "=" + value + expires + "; path=/";
+    if (document.location.protocol == 'https:'){
+      cookieString = cookieString + "; Secure";
+    }
+    document.cookie = cookieString;
   }
 
   function getCookie(name){
