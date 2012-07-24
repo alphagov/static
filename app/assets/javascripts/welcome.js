@@ -20,7 +20,7 @@ $(function() {
   ].join('');
 
   var dpWelcomeCopy = [
-    "<div class='welcome-content'>",
+    "<div class='welcome-content dp-welcome-content'>",
     "<h2>Alpha</h2><p class='close'><a href='#'>Close</a></p>",
     "<div class='welcome-inner'>",
     "<p>",
