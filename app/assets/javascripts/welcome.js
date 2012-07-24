@@ -58,7 +58,21 @@ $(function() {
   }
 
   function onDesignPrinciples() {
-    return !! window.location.pathname.match(/^\/designprinciples/)
+    var pathName = window.location.pathname,
+        isDP = !! pathName.match(/^\/designprinciples/),
+        isPF;
+    
+    if (isDP) {
+      // performance framework is in beta so return false to force that popup
+      isPF = !! pathName.match(/^\/designprinciples\/performanceframework/);
+      if (isPF) {
+        return false;
+      }
+      
+      return true;
+    }
+    
+    return false;
   }
 
   function activeCookieName() {

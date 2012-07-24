@@ -6,7 +6,7 @@
 */
 
 var BetaPopup = {
-
+  maskOpacity : 0.6,
 
   /**
     @name BetaPopup.popup
@@ -25,11 +25,12 @@ var BetaPopup = {
 
     var source = source || "#header-global h1 a",
     $popup = $('#popup'), $win = $(window), $mask = $('#mask');
+
     //Get the window height and width
     var winH = $win.height(), winW = $win.width();
 
     $popup.append(html);
-    $mask.fadeTo("fast",0.6).height(winH).width(winW);
+    $mask.fadeTo("fast", this.maskOpacity).height(winH).width(winW);
 
     //Set the popup window to center
     $popup.css('left', winW/2-$popup.width()/2)
