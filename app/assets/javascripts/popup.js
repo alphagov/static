@@ -33,7 +33,7 @@ var BetaPopup = {
     $mask.fadeTo("fast", this.maskOpacity).height(winH).width(winW);
 
     //Set the popup window to center
-    $popup.css('left', '10%')
+    $popup
       .delay(100).fadeIn('fast', function(){
         $popup.find("h2").attr("tabindex",-1).focus();
       })
