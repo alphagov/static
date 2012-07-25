@@ -27,6 +27,8 @@
   <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
 
   <script id="ga-params" type="text/javascript">
+  var GOVUK = GOVUK || {};
+  GOVUK.Analytics = GOVUK.Analytics || {};
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-26179049-1']);
   if(document.domain=='www.gov.uk') {
@@ -36,6 +38,8 @@
   }
   _gaq.push(['_setAllowLinker', true]);
   </script>
+  <%# This is here rather than in application to guarantee that GOVUK and _gaq exist %>
+  <%= javascript_include_tag 'analytics' %>
 
   <script type="text/javascript">
   _gaq.push(['_trackPageview']);
