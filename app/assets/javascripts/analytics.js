@@ -1,6 +1,6 @@
 (function() {
     function trackTaskCompletion(needID, format) {
-        if (format == "Guide") {
+        if (format == "guide") {
             trackGuideFormatSuccess(needID);
         }
     }
@@ -30,8 +30,8 @@
             return;
         }
         dict.success = true;
-        _gaq.push(['_trackEvent', 'MS_Guide', needID, 'Success-' + string]);
-        _gaq.push(['_trackEvent', 'MS_Guide', needID, 'Success']);
+        _gaq.push(['_trackEvent', 'MS_guide', needID, 'Success-' + string]);
+        _gaq.push(['_trackEvent', 'MS_guide', needID, 'Success']);
     }
 
     function userCameFromThePageWithinTheSameArtefact() {
