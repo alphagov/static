@@ -5,6 +5,7 @@ gem 'rails', '3.1.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
+gem 'lograge'
 
 group :passenger_compatibility do
   gem 'rack', '1.3.5'

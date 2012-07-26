@@ -57,4 +57,5 @@ Static::Application.configure do
 
   config.action_controller.asset_host = Plek.current.find('cdn')
 
+  config.lograge.enabled = true
 end
