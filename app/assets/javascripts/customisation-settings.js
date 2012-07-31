@@ -25,7 +25,6 @@ $(document).ready(function() {
 
     $('.personalise-options').on("submit", function(){
       var id = $('input[name=acc-options]:checked').attr("id");
-      _gaq.push(['_trackEvent', 'Citizen-Accessibility', id]);
       if(getCookie("govuk-accessibility")){
         deleteCookie("govuk-accessibility");
       }
