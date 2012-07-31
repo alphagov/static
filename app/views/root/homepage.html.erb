@@ -53,18 +53,8 @@
 
   <a href="#homepage" class="visuallyhidden">Skip to main content</a>
 
-  <header role="banner" class="group" id="global-header">
-    <div class="header-global group">
-      <h1><a href="/" title="return to the gov.uk homepage">GOV.UK</a></h1>
-      <nav role="navigation">
-        <ul>
-          <li><a href="/settings" class="customisation-settings">Settings</a></li>
-          <li><a href="/help">Help</a></li>
-          <li><a href="/feedback">Feedback</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header><!--end header-->
+  <%= render :partial => 'global_header', :locals => {:no_search => true} %>
+
   <div class="home-tour"><div class="tour-label"><a href="/tour">Take the tour</a></div></div>
 
   <div id="wrapper" class="group">
