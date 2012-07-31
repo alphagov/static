@@ -7,7 +7,6 @@
 //= require devolution
 //= require popup
 //= require geo-locator
-//= require customisation-settings
 //= require welcome
 //= require browse
 
