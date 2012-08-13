@@ -234,6 +234,7 @@ function filterResults() {
   var $results = $('.results-list');
 
   $results.find('.filtered').removeClass('filtered');
+  $results.parents('.results-block').show();
 
   var filter = '';
   $('.search .filters').find('.active').each(function() {
@@ -243,6 +244,12 @@ function filterResults() {
 
   if (filter == '') filter = '*';
   $results.children('li').not(filter).addClass('filtered');
+
+  $results.each(function(i, el){
+    if($(el).find(':visible').length === 0){
+      $(el).parents('.results-block').hide();
+    }
+  });
 }
 
 $(document).ready(function() {
