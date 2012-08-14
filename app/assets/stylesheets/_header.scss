@@ -1,0 +1,151 @@
+#global-header {
+  background-color: #303030;
+  min-height: 1.9em;
+  padding: 0.4em 0;
+  width: 100%;
+  z-index: 1000;
+
+  @include box-shadow(0 0 5px rgba(0,0,0,0.3));
+
+  h1 {
+    font-weight:400;
+    float: left;
+    margin-right: 1.5em;
+    text-transform: uppercase;
+
+    a {
+      background-image: image-url("gov.uk_logotype.png");
+      background-position: 0 1px;
+      background-repeat: no-repeat;
+      float: left;
+      padding: 0 0 0 1.7em;
+      width: 141px;
+      height: 28px;
+      text-indent: -999px;
+
+      &:hover {
+        background-position: 0 -43px;
+      }
+    }
+
+  }
+
+  .header-global {
+    margin: 0 auto;
+    max-width: 960px;
+    /*padding: 0 1%;*/
+    position: relative;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    ul.ui-autocomplete {
+      position: absolute;
+
+      a {
+        color: #333;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // this UL can be in both the auto-complete and the nav
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    ul {
+      margin-right: 1em;
+      float: left;
+      line-height: 1.9em;
+
+      li {
+        float: left;
+        list-style: none;
+        margin: 0 1.5em 0 0;
+
+        a {
+          font-size: 1em;
+          text-decoration: none;
+
+          &:hover {
+            color: #fff
+          }
+
+          &.home {
+            margin-right: 4%;
+          }
+        }
+      }
+    }
+  }
+
+  // container for search form
+  // TODO: remove this, just use the form;
+  .search-help {
+    float: right;
+  }
+
+  form.site-search {
+    padding-top: 0.2em;
+    clear: both;
+    position: relative;
+    top: -1px;
+
+    .button {
+      // this inherits from the basic button styles
+      display:inline;
+      padding: 0.25em 0.5em 0.2em;
+      position: relative;
+      top: 0;
+      border-radius: 0;
+      box-shadow: none;
+
+      &:hover {
+        background-color: #3ABAA8;
+      }
+
+      &:active {
+        @include translate(0, 0);
+      }
+    }
+
+    // search input
+    #site-search-text {
+      font-weight:300;
+      border: none;
+      border-bottom: solid 1px #fff;
+      border-top: solid 1px #fff;
+      line-height: 1;
+      padding: 0.2em 0.25em;
+    }
+  }
+}
+
+// Global cookie message
+
+.js-enabled #global-cookie-message {
+  display: none; // shown with JS
+}
+
+#global-cookie-message {
+  background-color: #D5E8F3;
+  padding: 0.5em 0;
+
+  p {
+    font-size: 1.16em;
+    margin: 0 auto;
+    max-width: 960px;
+  }
+}
