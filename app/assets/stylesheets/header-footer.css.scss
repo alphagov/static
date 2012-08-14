@@ -2,11 +2,11 @@
 
 #global-header {
   background-color: #303030;
+  min-height: 1.9em;
+  padding: 0.4em 0;
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.3);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  min-height: 1.9em;
-  padding: 0.4em 0;
 }
 .lte-ie8 #global-header {
   background-color: #0C0C0C;
@@ -52,7 +52,7 @@
 }
 
 #global-header h1 a {
-  background-image: url(<%= asset_path "gov.uk_logotype.png" %>);
+  background-image: image-url("gov.uk_logotype.png");
   background-position: 0 1px;
   background-repeat: no-repeat;
   float: left;
@@ -62,7 +62,7 @@
   text-indent:-999px;
 }
 .lte-ie8 #global-header h1 a {
-  background-image: url(<%= asset_path "gov.uk_logotype_ie.png" %>);
+  background-image: image-url("gov.uk_logotype_ie.png");
 }
 #global-header h1 a:hover{
   background-position: 0 -43px;
@@ -136,7 +136,7 @@ body.mainstream nav.header-context ol {
 }
 
 body.mainstream nav.header-context ol li {
-  background-image: url(<%= asset_path "separator.png" %>);
+  background-image: image-url("separator.png");
   background-position: 0.2em 36%;
   background-repeat: no-repeat;
   padding-left: 1.3em;
@@ -184,7 +184,6 @@ body.mainstream nav.header-context .beta-notice p a {
 body.mainstream nav.header-context .beta-notice p a:hover {
   text-decoration: underline;
 }*/
-
 
 body.government #global-header .header-context {
   border-color: #cdce00;
@@ -350,7 +349,7 @@ body.government .header-context .search-help {
 
 #footer .copyright a {
   display: block;
-  background-image: url(<%= asset_path "coat-of-arms.png" %>);
+  background-image: image-url("coat-of-arms.png");
   background-position: 100% 0;
   background-repeat: no-repeat;
   color: #7F7F7F;
@@ -360,10 +359,6 @@ body.government .header-context .search-help {
   
   text-decoration: none;
 }
-
-
-
-
 
 /* tour link */
 
