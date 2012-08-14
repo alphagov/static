@@ -1,115 +1,35 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="lte-ie8" lang="en" class="error error-500"><![endif]-->
-<!--[if gt IE 8]><!--><html lang="en" class="error error-500"><!--<![endif]-->
-<head>
- <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<% content_for :html_classes do %>error error-500<% end %>
 
- <title><%= status_code %> error | GOV.UK</title>
- <%= stylesheet_link_tag "application" %>
+<% content_for :title do %><%= status_code %> error | GOV.UK<% end %>
 
-  <%= render partial: "fonts" %>
-
- <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.min.js' %>
- <%= javascript_include_tag 'application', :defer => 'defer' %>
-
- <!--[if lt IE 9]>
- <%= javascript_include_tag 'ie.js' %>
- <![endif]-->
-
- <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
- <script id="ga-params" type="text/javascript">
- var _gaq = _gaq || [];
- _gaq.push(['_setAccount', 'UA-26179049-1']);
- if(document.domain=='www.gov.uk') {
-   _gaq.push(['_setDomainName', '.www.gov.uk']);
- } else {
-   _gaq.push(['_setDomainName', document.domain]);
- }
- _gaq.push(['_setAllowLinker', true]);
- </script>
-
- <script type="text/javascript">
- _gaq.push(['_trackPageview']);
- (function() {
-   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-   })();
- </script>
-</head>
 <%# The citizen class is going to be deprecated, to be replaced with mainstream. %>
 <%# Added the mainstream class in preparation for the change. %>
-<body class="citizen mainstream error">
- <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+<% content_for :body_classes do %>citizen mainstream error<% end %>
 
- <a href="#content" class="visuallyhidden">Skip to main content</a>
+<% content_for :content do %>
+  <section id="content" role="main" class="group ancillary">
+    <div class="article-container">
 
- <%= render :partial => 'global_header' %>
+      <header class="page-header group">
+        <hgroup>
+          <h1><span>Error </span>We seem to be having a problem</h1>
+        </hgroup>
+      </header>
 
- <nav role="navigation" class="header-context">
-   <div class="beta-notice">
-     <div class="inner">
-       <p><a href="http://digital.cabinetoffice.gov.uk/2012/02/01/govuk-beta-day1/">BETA</a></p>
-     </div>
-   </div>
-   <ol class="group">
-     <li><a href="/browse">All sections</a></li>
-   </ol>
- </nav>
+      <article role="article" class="group">
+        <div class="inner">
 
- <div id="wrapper" class="group">
+          <div class="intro">
+            <p>This could be because you’re looking for a page that doesn’t exist. Since this is an experimental trial (‘beta’) site, this might happen occasionally.</p>
 
-   <section id="content" role="main" class="group ancillary">
-     <div class="article-container">
+            <p>We’ll automatically receive a note telling us there is a problem, and you can help us improve GOV.UK by <a href="/feedback">telling us what you were doing</a> when this happened. Thanks.</p>
+          </div>
 
-       <header class="page-header group">
-         <hgroup>
-           <h1><span>Error </span>We seem to be having a problem</h1>
-         </hgroup>
-       </header>
-
-       <article role="article" class="group">
-         <div class="inner">
-
-           <div class="intro">
-             <p>This could be because you’re looking for a page that doesn’t exist. Since this is an experimental trial (‘beta’) site, this might happen occasionally.</p>
-
-             <p>We’ll automatically receive a note telling us there is a problem, and you can help us improve GOV.UK by <a href="/feedback">telling us what you were doing</a> when this happened. Thanks.</p>
-           </div>
-
-         </div>
-       </article>
-      </div>
-   </section>
- </div><!--end wrapper-->
-
- <footer class="group" id="footer" role="contentinfo">
-   <div class="beta-notice">
-     <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official website remains <a href="http://www.direct.gov.uk">Directgov</a> and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
-   </div>
-   <div class="inner group">
-     <div class="colophon-and-help">
-       <nav class="help">
-         <ul>
-          <li><a href="/help">Help</a></li>
-          <li><a href="/help/cookies">Cookies</a></li>
-         </ul>
-       </nav>
-       <div class="colophon">
-         <p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="license">Open Government Licence</a></p>
-         <p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
-       </div>
-     </div>
-     <div class="copyright">
-       <p>&copy; Crown Copyright</p>
-     </div>
-   </div>
+        </div>
+      </article>
+    </div>
+  </section>
+<% end %>
 
 
-
- </footer><!--end footer-->
-
- <div id="global-app-error" class="app-error hidden"></div>
-
-</body>
-</html>
+<%= render template: 'root/base' %>

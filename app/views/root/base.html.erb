@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<% html_classes = content_for?(:html_classes) ? " #{yield(:html_classes)}" : ''%>
+<!--[if lt IE 9]><html class="lte-ie8 <%= html_classes %>" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="<%= html_classes %>"><!--<![endif]-->
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - This is a trial ‘beta’ version of the UK government's official website" %></title>
+
+    <%= stylesheet_link_tag local_assigns[:css_file] || 'application' %>
+
+    <%= stylesheet_link_tag "core-print", :media => "print" %>
+
+    <%= render partial: "fonts" %>
+
+    <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.js' %>
+    <%= javascript_include_tag 'application', :defer => 'defer' %>
+
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'ie.js' %>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path "apple-touch-icon-144x144.png" %>">
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= asset_path "apple-touch-icon-114x114.png" %>">
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path "apple-touch-icon-72x72.png" %>">
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
+
+    <%= render partial: "google_analytics" %>
+
+  </head>
+
+  <body<%= content_for?(:body_classes) ? " class=\"#{yield(:body_classes)}\"".html_safe : '' %>>
+      <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
+
+    <%= render :partial => 'global_header', locals: local_assigns[:header_vars] || {} %>
+
+    <% if local_assigns[:show_tour] %>
+      <div class="home-tour"><div class="tour-label"><a href="/tour">Take the tour</a></div></div>
+    <% end %>
+
+    <% unless local_assigns[:hide_nav] %>
+      <nav role="navigation" class="header-context">
+        <div class="beta-notice">
+          <div class="inner">
+            <p><a href="http://digital.cabinetoffice.gov.uk/2012/02/01/govuk-beta-day1/">BETA</a></p>
+          </div>
+        </div>
+        <ol class="group">
+          <li><a href="/browse">All sections</a></li>
+        </ol>
+      </nav>
+    <% end %>
+
+    <div id="wrapper" class="group">
+      <%= yield :content %>
+    </div>
+
+    <%= render :partial => 'global_footer' %>
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+  </body>
+</html>
