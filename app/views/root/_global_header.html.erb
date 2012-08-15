@@ -7,7 +7,6 @@
         <li id="gs-feedback"><a href="/feedback">Feedback</a></li>
       </ul>
     </nav>
-
     <%- unless local_assigns[:no_search] -%>
     <div class="search-help">
       <form id="search" class="site-search" action="/search" method="get" role="search">
@@ -21,3 +20,6 @@
     <%- end -%>
   </div>
 </header><!--end header-->
+<div id="global-cookie-message">
+  <p>GOV.UK uses cookies to make the site simpler. <a href="/cookies">Find out more about cookies</a></p>
+</div>
