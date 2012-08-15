@@ -19,11 +19,6 @@
   padding: 0;
 }
 
-.browse-sections {
-	background-color: #fff;
-  padding: 0 2.5em 1em 2.5em;
-}
-
 .lte-ie8 #wrapper .ancillary.section-page h2 {
   clear: both;
 }
@@ -93,4 +88,79 @@
 .ancillary.feedback .image-in-text a[rel="external"]:after {
   content: none;
   margin: 0;
+}
+
+/* sections page */
+
+#wrapper .sections-page {
+  background:#fff;
+}
+
+#wrapper .sections-page header {
+  padding:0 1.75em 0;
+}
+
+#wrapper .sections-page header.page-header hgroup {
+  padding:3em 0 1.5em;
+  margin:0 0 0 33.3333333%;
+  background:none;
+}
+
+#wrapper .sections-page header h1 {
+  font-size:3em;
+  padding:0;
+}
+
+#wrapper .browse-sections {
+  padding-bottom: 5em;
+}
+
+#wrapper .browse-sections dl {
+  margin: 0;
+  padding: 0 1.75em;
+}
+
+#wrapper .browse-sections dt,
+#wrapper .browse-sections dd {
+  border-top: 1px solid #c1cacb;
+}
+
+#wrapper .browse-sections dt:nth-child(1),
+#wrapper .browse-sections dd:nth-child(2) {
+  border-top:none;
+}
+
+#wrapper .browse-sections dt {
+  font-size: 2.25em;
+  font-weight: 300;
+
+  margin: 0;
+  width: 33.3333333%;
+  float: left;
+  clear:left;
+  padding:0.5em 0;
+}
+
+#wrapper .browse-sections dt a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #2e3191;
+}
+
+#wrapper .browse-sections dt a:hover {
+  color: #2e8aca;
+  border-color: #2e8aca;
+}
+
+#wrapper .browse-sections dd {
+  display: block;
+  overflow:hidden;
+  font-size: 1.1875em;
+  line-height: 1.315789474;
+  margin-left:0;
+  padding: 1.25em 0;
+}
+
+#wrapper .browse-sections dd p {
+  margin:0;
 }
