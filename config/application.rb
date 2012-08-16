@@ -47,21 +47,6 @@ module Static
       favicon.ico
       *.js
       *.css
-      guides-print.css
-      print.js
-      libs/jquery/plugins/jquery.tablesorter.min.js
-      formtastic.css
-      formtastic_changes.css
-      publisher-tabs.js
-      ie.js
-      libs/jquery/jquery-1.7.2.min.js
-      high-contrast.css
-      dyslexic.css
-      admin.css
-      libs/jquery/jquery-ui-1.8.16.custom.min.js
-      libs/jquery/plugins/jquery.mustache.js
-      libs/goog/webfont-debug.js
-      javascripts/preload-autocomplete.js
     }
 
     # Enable the asset pipeline
