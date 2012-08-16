@@ -1,15 +1,7 @@
 /* Global header */
+@import "_conditionals";
 
 @import "_header";
-
-.lte-ie8 #global-header {
-  background-color: #0C0C0C;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 1.9em;
-  z-index: 50;
-}
 
 .js-enabled #global-header {
   position: fixed;

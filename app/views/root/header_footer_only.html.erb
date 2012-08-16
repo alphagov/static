@@ -5,7 +5,11 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
   <title>GOV.UK - This is a trial ‘beta’ version of the UK government's official website</title>
-  <%= stylesheet_link_tag "application_head_foot" %>
+
+  <!--[if gt IE 8]><!--><%= stylesheet_link_tag "header-footer-only" %><!--<![endif]-->
+  <!--[if IE 6]><%= stylesheet_link_tag "header-footer-only-ie6" %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag "header-footer-only-ie7" %><![endif]-->
+  <!--[if IE 8]><%= stylesheet_link_tag "header-footer-only-ie8" %><![endif]-->
 
   <%= stylesheet_link_tag "core-print", :media => "print" %>
 
