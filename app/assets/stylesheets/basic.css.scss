@@ -34,7 +34,8 @@ body {
   padding-top: 2.5em;
 }
 
-input, button {
+input,
+button {
   font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -97,3 +98,5 @@ body {
     font-size: 160%; /* 1 */
     margin: 0; /* 2 */
 }
+
+@import "_buttons"
