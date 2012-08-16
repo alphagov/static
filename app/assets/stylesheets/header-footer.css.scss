@@ -1,18 +1,5 @@
 /* Global header */
 
-@mixin box-shadow($shadow) {
-  -webkit-box-shadow: $shadow;
-     -moz-box-shadow: $shadow;
-          box-shadow: $shadow;
-}
-
-@mixin translate($x, $y) {
-  -webkit-transform: translate($x, $y);
-     -moz-transform: translate($x, $y);
-       -o-transform: translate($x, $y);
-          transform: translate($x, $y);
-}
-
 @import "_header";
 
 .lte-ie8 #global-header {
