@@ -307,12 +307,14 @@ ul.helpers li.active, ul.helpers li.active h3 a {
 */
 
 #wrapper.programme article .inner {
-  padding: 2em 5em 2em 5em;
+  padding: 0.5em 2.5em 1em;
 }
 
 #wrapper.programme .programme-progression {
-  padding: 0 0 0 4.5em;
+  padding: 0;
   position: relative;
+  width:25%;
+  float:left;
 }
 
 #wrapper.programme .programme-progression ol {
@@ -321,30 +323,20 @@ ul.helpers li.active, ul.helpers li.active h3 a {
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
+  width:100%;
   z-index: 5;
 }
-.lte-ie8 #wrapper.programme .programme-progression ol {
-  _overflow: hidden;
-  _padding: 1px 1px 0 0;
-}
 
-#wrapper.programme .programme-progression ol li {
-  float: left;
-}
-.lte-ie8 #wrapper.programme .programme-progression ol li {
-  _width: 7.5em;
-}
 
 #wrapper.programme .programme-progression li a {
   background-color: #E1E8E8;
   display: block;
   height: 2.25em;
   line-height: 2.25em;
-  margin-left: 1px;
+  border-top: 1px solid #C9D0D0;
   padding: 0 1em 0 0.75em;
   position: relative;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   top: 0;
 }
@@ -368,16 +360,13 @@ ul.helpers li.active, ul.helpers li.active h3 a {
 #wrapper.programme .programme-progression li.active a,
 #wrapper.programme div.further-information.active a {
   background-color: #fff;
-  border: solid 1px #C9D0D0;
-  border-bottom: solid 1px #fff;
+  border-color: #C9D0D0 -moz-use-text-color #C9D0D0 #C9D0D0;
+  border-style: solid none solid solid;
+  border-width: 1px medium 1px 1px;
   color: #000;
   margin: -1px -1px -1px 0;
   position: relative;
   z-index: 5;
-}
-.lte-ie8 #wrapper.programme .programme-progression li.active a,
-.lte-ie8 #wrapper.programme div.further-information.active a {
-  _bottom: -1px;
 }
 
 #wrapper.programme .programme-progression li.active a:hover {
@@ -392,16 +381,15 @@ ul.helpers li.active, ul.helpers li.active h3 a {
 
 div.further-information {
   margin: 0;
+  clear:both;
+  padding-top:2em;
 }
 
 div.further-information a {
-  background-color: #FFF;
-  display: block;
-  float: right;
-  line-height: 2.25em;
-  height: 2.25em;
-  padding: 0 2em 0 0.75em;
-  text-decoration: none;
+  padding: 0 0 0 0.8em;
+}
+div.further-information a:hover{
+  background-color:#fff;
 }
 .lte-ie8 div.further-information{
   width:175px;
@@ -411,14 +399,13 @@ div.further-information a {
 }
 
 div.further-information.active a {
-  background: #fff;
-  z-index: 5;
+
 }
 
 #wrapper.programme article {
-  border-top: solid 1px #C9D0D0;
+  /*border-top: solid 1px #C9D0D0;*/
   min-height: none;
-  width: 100%;
+  width: 75%;
 }
 .lte-ie8 #wrapper.programme article {
   _height: none;
@@ -431,9 +418,9 @@ div.further-information.active a {
   _height: 20em;
 }
 
-.js-enabled #wrapper.programme article header {
+/*.js-enabled #wrapper.programme article header {
   display: none;
-}
+}*/
 
 .js-enabled #wrapper.programme .part-pagination.return-to-top,
 .js-enabled #wrapper.programme article.tabs-panel {
@@ -459,7 +446,7 @@ div.further-information.active a {
 }
 
 #wrapper.programme .part-pagination li {
-  float: left;
+  float: right;
 }
 
 #wrapper.programme .part-pagination li a {
@@ -471,7 +458,7 @@ div.further-information.active a {
 #wrapper.programme .part-pagination li:first-child a {
   background-color: #E1E8E8;
   display: block;
-  margin:0 1em 0 -1em;
+  /*margin:0 1em 0 -1em;*/
   padding: 0 0.55em 0 0.5em;
   text-decoration: none;
 }
