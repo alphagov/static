@@ -40,7 +40,31 @@
 
     <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
 
-    <%= render :partial => 'global_header', locals: local_assigns[:header_vars] || {} %>
+    <header role="banner" class="group" id="global-header">
+      <div class="header-global group">
+        <h1><a href="/" title="Go to the gov.uk homepage">GOV.UK</a></h1>
+        <nav role="navigation">
+          <ul>
+            <li><a href="/help">Help</a></li>
+            <li id="gs-feedback"><a href="/feedback">Feedback</a></li>
+          </ul>
+        </nav>
+        <%- unless local_assigns[:no_search] -%>
+          <div class="search-help">
+            <form id="search" class="site-search" action="/search" method="get" role="search">
+              <label for="site-search-text" class="visuallyhidden">
+                <span>Search</span>
+              </label>
+              <input type="search" name="q" id="site-search-text" />
+              <input type="submit" value="Search" class="button" />
+            </form>
+          </div>
+        <%- end -%>
+      </div>
+    </header><!--end header-->
+    <div id="global-cookie-message">
+      <p>GOV.UK uses cookies to make the site simpler. <a href="/help/cookies">Find out more about cookies</a></p>
+    </div>
 
     <% if local_assigns[:show_tour] %>
       <div class="home-tour"><div class="tour-label"><a href="/tour">Take the tour</a></div></div>
@@ -63,7 +87,28 @@
       <%= yield :content %>
     </div>
 
-    <%= render :partial => 'global_footer' %>
+    <footer class="group" id="footer" role="contentinfo">
+      <div class="beta-notice">
+        <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official websites remain <a href="http://www.direct.gov.uk">Directgov</a>, <a href="http://www.businesslink.gov.uk/">Businesslink</a>, and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
+      </div>
+      <div class="inner group">
+        <div class="colophon-and-help">
+          <nav class="help">
+            <ul>
+              <li><a href="/help">Help</a></li>
+              <li><a href="/help/cookies">Cookies</a></li>
+            </ul>
+          </nav>
+          <div class="colophon">
+            <p>Much of the information on this website is available for reuse under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" rel="license">Open Government Licence</a></p>
+            <p>Built by the <a href="http://digital.cabinetoffice.gov.uk">Government Digital Service</a></p>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown Copyright</a>
+        </div>
+      </div>
+    </footer><!--end footer-->
 
     <div id="global-app-error" class="app-error hidden"></div>
 
