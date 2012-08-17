@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<% html_classes = content_for?(:html_classes) ? " #{yield(:html_classes)}" : ''%>
+<% html_classes = content_for?(:html_classes) ? "#{yield(:html_classes)}" : ''%>
 <!--[if lt IE 9]><html class="lte-ie8 <%= html_classes %>" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="en" class="<%= html_classes %>"><!--<![endif]-->
   <head>
