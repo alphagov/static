@@ -103,33 +103,7 @@ $(function() {
 
 
 
-  function setCookie(name, value, days){
-    var cookieString = name + "=" + value + "; path=/";
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      cookieString = cookieString + "; expires=" + date.toGMTString();
-    }
-    if (document.location.protocol == 'https:'){
-      cookieString = cookieString + "; Secure";
-    }
-    document.cookie = cookieString;
-  }
-
-  function getCookie(name){
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0, len = ca.length; i < len; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1, c.length);
-      }
-      if (c.indexOf(nameEQ) === 0) {
-        return c.substring(nameEQ.length, c.length);
-      }
-    }
-    return null;
-  }
+  
 
   $(".welcome-tour .close").live("click", function(){
     setCookie(activeCookieName(), "dismiss", 7);
@@ -153,4 +127,39 @@ $(function() {
   };
 
 
+});
+
+function setCookie(name, value, days){
+  var cookieString = name + "=" + value + "; path=/";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    cookieString = cookieString + "; expires=" + date.toGMTString();
+  }
+  if (document.location.protocol == 'https:'){
+    cookieString = cookieString + "; Secure";
+  }
+  document.cookie = cookieString;
+}
+
+function getCookie(name){
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0, len = ca.length; i < len; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
+  }
+  return null;
+}
+
+$(function() {
+  if (document.getElementById('global-cookie-message') && getCookie('seen_cookie_message') === null) {
+    $('#global-cookie-message').show();
+    setCookie('seen_cookie_message', 'yes', 28);
+  }
 });
