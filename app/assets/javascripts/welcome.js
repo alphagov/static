@@ -160,6 +160,6 @@ function getCookie(name){
 $(function() {
   if (document.getElementById('global-cookie-message') && getCookie('seen_cookie_message') === null) {
     $('#global-cookie-message').show();
-    setCookie('seen_cookie_message', 'yes', 365);
+    setCookie('seen_cookie_message', 'yes', 28);
   }
 });
