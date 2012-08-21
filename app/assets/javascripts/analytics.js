@@ -14,10 +14,10 @@
     {
         var success = { "success": false };
         setTimeout(function() {
-            onSuccess("Duration", success, needID);
+            onSuccess(success, needID);
         }, 7000);
         $("#content a").click(function() {
-            onSuccess("Interaction", success, needID);
+            onSuccess(success, needID);
             try {
                 setTimeout('document.location = "' + $(this).attr("href") + '"', 50)
             }catch(err){}
@@ -25,12 +25,11 @@
         });
     }
 
-    function onSuccess(string, dict, needID) {
+    function onSuccess(dict, needID) {
         if (dict.success) {
             return;
         }
         dict.success = true;
-        _gaq.push(['_trackEvent', 'MS_guide', needID, 'Success-' + string]);
         _gaq.push(['_trackEvent', 'MS_guide', needID, 'Success']);
     }
 
