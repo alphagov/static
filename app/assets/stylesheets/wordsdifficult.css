@@ -38,7 +38,7 @@ article ul, article ol {
 
 article .summary p,
 article .summary h2,
-.citizen .ancillary .summary p,
-.citizen .ancillary .summary h2 {
+.mainstream .ancillary .summary p,
+.mainstream .ancillary .summary h2 {
   font-family: "Sassoon Sans W01", "Chalkboard", "Marker Felt", Verdana, sans-serif;
 }
