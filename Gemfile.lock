@@ -141,7 +141,7 @@ PLATFORMS
 DEPENDENCIES
   aws-ses
   exception_notification
-  govuk_frontend_toolkit
+  govuk_frontend_toolkit (= 0.0.2)
   jasmine
   lograge
   plek (~> 0)
