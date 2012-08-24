@@ -1,11 +1,13 @@
+@import "_conditionals";
+
 /*
  * Text styles for articles.
  * It's kind of like typography innit.
 */
 
 article h1 {
-  font-size:1.5em;
-  font-weight:300;
+  font-size: 1.5em;
+  font-weight: 300;
   line-height: 1.1em;
   margin-top: 1.5em;
   margin-bottom: 0.75em;
@@ -19,21 +21,23 @@ article header h1 {
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0.5em;
-}
-.lte-ie8 article header h1 {
-  zoom: 1;
+
+  @include ie-lte(8) {
+    zoom: 1;
+  }
+
+  span {
+    color: #333;
+    display: block;
+    font-size: 0.64em;
+    font-weight: 300;
+    line-height: 1em;
+    margin-bottom: 0.4em;
+  }
 }
 
-article header h1 span {
-  color: #333;
-  display: block;
-  font-size: 0.64em;
-  font-weight: 300;
-  line-height: 1em;
-  margin-bottom: 0.4em;
-}
 .wf-nta-n4-active article header h1 span {
-  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 article h1 + h2 {
@@ -44,8 +48,8 @@ article h2 {
   margin-bottom: 0.625em;
   margin-top: 2em;
   font-size: 1.5em;
-  line-height:1.2;
-  font-weight:300;
+  line-height: 1.2;
+  font-weight: 300;
 }
 
 article h2 + h3 {
@@ -55,7 +59,7 @@ article h2 + h3 {
 article h3 {
   font-size: 1.3em;
   line-height: 1.11;
-  font-weight:300;
+  font-weight: 300;
   margin-top: 2.4em;
   margin-bottom: 0.75em;
 }
@@ -99,28 +103,29 @@ article p {
 }
 
 article p + .help-notice{
-  margin-top:2em;
+  margin-top: 2em;
 }
+
 article li {
   font-size: 1.16em;
   margin: 0.25em 0;
   padding-left: 0.3em;
-}
 
-article li ul,
-article li ol {
-  margin: 0;
-  list-style-position:inside;
-}
+  ul,
+  ol {
+    margin: 0;
+    list-style-position: inside;
+  }
 
-article li li {
-  font-size: 100%;
-  list-style-type: circle;
-}
+  li {
+    font-size: 100%;
+    list-style-type: circle;
+  }
 
-article li p {
-  font-size: 100%;
-  margin: 0;
+  p {
+    font-size: 100%;
+    margin: 0;
+  }
 }
 
 article ul, article ol {
@@ -130,18 +135,18 @@ article ul, article ol {
   margin-bottom: 0.75em;
 }
 
-/* example has a green background, so we need an additional indent to
-avoid the bullets hanging on the edge of the colour */
+/*
+ * Example has a green background, so we need an additional indent to
+ * avoid the bullets hanging on the edge of the colour.
+*/
 article .example ul,
 article .example ol {
   margin-left: -1.2em;
 }
 
-
-
 article ul {
   list-style-type: circle;
-  list-style-image: url(<%= asset_path "bullet-disc-5px.gif" %>);
+  list-style-image: image-url("bullet-disc-5px.gif");
 }
 
 article ol {
@@ -177,15 +182,15 @@ article table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 1em -1em 2em -1em;
-  width:105.95%;
-}
+  width: 105.95%;
 
-article table caption {
-  text-align:left;
-  font-weight: 300;
-  margin-bottom: 0.5em;
-  font-size:1.16em;
-  padding-left:1em;
+  caption {
+    text-align: left;
+    font-weight: 300;
+    margin-bottom: 0.5em;
+    font-size: 1.16em;
+    padding-left: 1em;
+  }
 }
 
 article th, article td {
@@ -200,37 +205,39 @@ article tr:nth-child(even) td {
 
 article td {
   background: #fafafa;
-  border:dotted 1px #bbb;
+  border: dotted 1px #bbb;
+
+  small {
+    font-size: 1em;
+  }
 }
 
 article th {
-
-  line-height:1.25em;
+  line-height: 1.25em;
   text-align: left;
-  color:#000;
-  font-weight:normal;
+  color: #000;
+  font-weight: normal;
   background-color: #e1e8e8;
-  border:solid 1px #bbb;
+  border: solid 1px #bbb;
 }
-article td small{
-  font-size:1em;
-}
+
 /*
-  more article formatting including markdown styles
-*/
+ * More article formatting including markdown styles.
+ */
 
 .mainstream article .summary {
   margin: 0 -1em 2em -1em;
   padding: 0 1em;
-  font-weight:400;
-  color:#000;
-}
-.mainstream article .summary p{
-  font-size:1.5em;
-}
+  font-weight: 400;
+  color: #000;
 
-.lte-ie8 .mainstream article .summary {
-  zoom: 1;
+  @include ie-lte(8) {
+    zoom: 1;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
 }
 
 .mainstream .ancillary .summary {
@@ -243,13 +250,11 @@ article .summary h2,
 .mainstream .ancillary .summary h2 {
   border: none;
   margin: 0 0.75em 0 0;
-  font-weight:300;
-}
-.lte-ie8 article .summary p,
-.lte-ie8 article .summary h2,
-.lte-ie8 .mainstream .ancillary .summary p,
-.lte-ie8 .mainstream .ancillary .summary h2 {
-  _height: 2.75em;
+  font-weight: 300;
+
+  @include ie-lte(7) {
+    height: 2.75em;
+  }
 }
 
 article .summary h2,
@@ -258,73 +263,71 @@ article .summary h2,
   line-height: 1.35em;
 }
 
+.licence-finder article.outcome ul {
+  background: image-url("icon-licence-m.png") no-repeat scroll 98% 1em #d5ecea;
+  padding: 1em 1em;
+  margin: 0 -1em;
+
+  li {
+    list-style-type: none;
+    list-style-image: none;
+    margin: 0 0 0.75em 0;
+    padding: 0;
+  }
+}
 
 article .advisory {
-  background: url(<%= asset_path "icon-information.png" %>) no-repeat scroll 98% 1em #D5E8F3;
+  background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
   line-height: 1.3em;
   margin: 0 -1em 1em -1em;
   padding: 1em;
   text-align: left;
-}
 
-.licence-finder article.outcome ul {
-  background: #d5ecea;
-  padding:1em 1em;
-  margin:0 -1em;
-}
-.licence-finder article.outcome ul {
-  background: url(<%= asset_path "icon-licence-m.png" %>) no-repeat scroll 98% 1em #d5ecea;
-}
+  p {
+    margin: 0 0.75em 0 0;
+    min-height: 1.75em;
+    padding-right: 3em;
 
-.licence-finder article.outcome ul li {
-  list-style-type:none;
-  list-style-image:none;
-  margin:0 0 0.75em 0;
-  padding:0;
-}
-article .advisory p {
-  margin: 0 0.75em 0 0;
-  min-height: 1.75em;
-  padding-right:3em;
-}
-.lte-ie8 article .advisory p {
-  _height: 1.75em;
-}
+    @include ie-lte(7) {
+      height: 1.75em;
+    }
+  }
 
-article .advisory strong {
-  font-weight: 300;
-}
+  strong {
+    font-weight: 300;
+  }
 
-article .advisory.high-alert {
-  background-color: #F4DCDD;
-  border-color: #C00;
+  &.high-alert {
+    background-color: #F4DCDD;
+    border-color: #C00;
+  }
 }
 
 article .intro {
   background-color: #D5ECEA;
   margin: 0 -1em 1.5em -1em;
   padding: 1em 1em 1em 1em;
-}
 
-article .intro p:first-child {
-  margin-top: 0;
+  p:first-child {
+    margin-top: 0;
+  }
 }
 
 article .example {
   background: none repeat scroll 0 0 #e7ebda;
   margin: 0.75em -1em;
   padding: 0.5em 1em;
-}
 
-article .example strong{
-  display:block;
+  strong {
+    display: block;
+  }
 }
 
 article .application-notice,
 article .advisory.minor,
 article .form-download,
 article .subscribe {
-  background-color:#d5e8f3;
+  background-color: #d5e8f3;
   margin: 1em -1em 1.5em -1em;
   padding: 0.25em 1em 0.25em 1em;
 }
@@ -335,126 +338,134 @@ article .advisory.minor {
 }
 
 article .help-notice {
-  background: url(<%= asset_path "icon-important.png" %>) no-repeat scroll 98% 1em #f2f2f2;
+  background: image-url("icon-important.png") no-repeat scroll 98% 1em #f2f2f2;
 }
 
 article .subscribe {
-  background: url(<%= asset_path "calendar-icon.png" %>) no-repeat scroll 98% 1em #D5E8F3;
+  background: image-url("calendar-icon.png") no-repeat scroll 98% 1em #D5E8F3;
 }
 
 article .info-notice{
-  background: url(<%= asset_path "icon-information.png" %>) no-repeat scroll 98% 1em #D5E8F3;
+  background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
 }
 
 article .help-notice p,
 article .info-notice p,
 article .subscribe p {
-  /*margin: 0;*/
-  padding-right:4em;
+  padding-right: 4em;
 }
+
 article p + .help-notice,
 article p + .info-notice{
-  margin-top:2em;
+  margin-top: 2em;
 }
 
 article .info-notice a[rel="external"] {
-  display:inline;
+  display: inline;
 }
 
-article .form-download{
-  background: url(<%= asset_path "icon-file-download.png" %>) no-repeat scroll 98% 1em #D5E8F3;
-}
+article .form-download {
+  background: image-url("icon-file-download.png") no-repeat scroll 98% 1em #D5E8F3;
 
-article .form-download p {
-  /*margin: 0 0;*/
-  padding-right:3em;
-}
-article .form-download a {
-  color: #000;
-  display: block;
+  p {
+    padding-right: 3em;
+  }
+
+  a {
+    color: #000;
+    display: block;
+  }
 }
 
 article .help-notice ul,
 article .info-notice ul,
 article .subscribe ul,
-article .intro ul{
-  margin-left:-1em;
+article .intro ul {
+  margin-left: -1em;
 }
 .contact {
-  background-color:#d5e8f3;
+  background-color: #d5e8f3;
   box-sizing: border-box;
   margin: 0.75em -1em;
   padding: 0.25em 1em;
   min-width: 60%;
-}
 
-.contact dl dt {
-  font-weight: bold;
-  margin: 0 0 0.25em 0;
-}
+  dl {
+    dt {
+      font-weight: bold;
+      margin: 0 0 0.25em 0;
+    }
 
-.contact dl dd {
-  margin: 0 0 0.5em 0;
+    dd {
+      margin: 0 0 0.5em 0;
+    }
+  }
 }
 
 .meta-data .contact {
   width: auto;
 }
 
-.contact dl dt, .meta-data .contact dt {
+.contact dl dt,
+.meta-data .contact dt {
   float: left;
   clear: left;
 }
 
-.contact dl dd, .meta-data .contact dd {
+.contact dl dd,
+.meta-data .contact dd {
   margin-left: 8.5em;
 }
 
 article .address {
-  background: #f2f2f2 url(<%= asset_path "stamp.png" %>) 95% 1em no-repeat;
+  background: #f2f2f2 image-url("stamp.png") 95% 1em no-repeat;
   border: solid 1px #d6d6d6;
   margin: 0.75em 0;
   padding: 2em 16% 2em 15%;
   min-width: 35%;
-}
-.lte-ie8 article .address {
-  width: 35%;
+
+  @include ie-lte(8) {
+    width: 35%;
+  }
 }
 
 article ol.places {
   list-style-type: none;
   padding-left: 0;
   margin-left: 0;
+
+  &.answer_locations .information {
+    margin-left: 7.5em;
+    min-height: 3em;
+  }
 }
 
 article .place {
-  background-color:#f8f8f8;
+  background-color: #f8f8f8;
   margin: 0.75em -1em;
   padding: 1em;
 }
 
-article .places.answer_locations .information {
-  margin-left: 7.5em;
-  min-height: 3em;
-}
-
 article .place .map {
   float: left;
-}
-article .place .map img {
-  display: block;
-}
-article .place .map .view_map {
-  font-size: 0.85em;
-  margin-top:1em;
+
+  img {
+    display: block;
+  }
+
+  .view_map {
+    font-size: 0.85em;
+    margin-top: 1em;
+  }
 }
 
 article .place .information {
   margin-left: 11.5263158em; /* 219px */
   min-height: 13em;
-}
-.lte-ie8 article .place .information {
-  _height: 13em;
+
+  @include ie-lte(7) {
+    height: 13em;
+  }
 }
 
 article .place .address {
@@ -464,10 +475,10 @@ article .place .address {
   padding: 0;
   width: auto;
   display: block;
-}
 
-article .place .address span {
-  display: block;
+  .address span {
+    display: block;
+  }
 }
 
 article .place .url {
@@ -479,72 +490,61 @@ article .place .additional-information {
   border-top: solid 1px #c9e0e0;
   font-size: 0.85em;
   margin-top: 1em;
-  padding-top:1em;
-}
-article .place .additional-information a {
-  display: block;
+  padding-top: 1em;
+
+  a {
+    display: block;
+  }
 }
 
 article ol.steps {
   padding-left: 0;
   margin-left: 0;
-}
 
-article ol.steps li {
-  background-position: 0 0.87em;
-  background-repeat: no-repeat;
-  list-style-type: none;
-  padding: 0.75em 0 0.75em 2.2em;
-}
-article ol.steps li:nth-child(1) {
-  background-image: url(<%= asset_path "icon-step-1.png" %>);
-}
-article ol.steps li:nth-child(2) {
-  background-image: url(<%= asset_path "icon-step-2.png" %>);
-}
-article ol.steps li:nth-child(3) {
-  background-image: url(<%= asset_path "icon-step-3.png" %>);
-}
-article ol.steps li:nth-child(4) {
-  background-image: url(<%= asset_path "icon-step-4.png" %>);
-}
-article ol.steps li:nth-child(5) {
-  background-image: url(<%= asset_path "icon-step-5.png" %>);
-}
-article ol.steps li:nth-child(6) {
-  background-image: url(<%= asset_path "icon-step-6.png" %>);
-}
-article ol.steps li:nth-child(7) {
-  background-image: url(<%= asset_path "icon-step-7.png" %>);
-}
+  li {
+    background-position: 0 0.87em;
+    background-repeat: no-repeat;
+    list-style-type: none;
+    padding: 0.75em 0 0.75em 2.2em;
 
-.lte-ie8 article ol.steps {
-  border-left: solid 3px #ccc;
-  padding: 0 0 0 2.5em;
-}
-.lte-ie8 article ol.steps li {
-  list-style-type: decimal;
-  margin: 0;
-  padding: 0;
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) {
+        background-image: image-url("icon-step-#{$i}.png");
+      }
+    }
+
+    @include ie-lte(8) {
+      list-style-type: decimal;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @include ie-lte(8) {
+    border-left: solid 3px #ccc;
+    padding: 0 0 0 2.5em;
+  }
 }
 
 .highlight-answer {
-  font-size:1.5em;
-  background-color:#28a197;
-  color:#fff;
-  text-align:center;
-  padding:0.1em 2em 0.2em 2em;
-  margin:0 -1em 1em -1em;
-}
-.highlight-answer p {
-  line-height:2.3em;
-  color:#fff;
-}
-.highlight-answer p em {
-  font-size:2.45em;
-  font-style:normal;
-  font-weight:400;
-  display:block;
-  margin-bottom:0.5em;
-  color:#fff;
+  font-size: 1.5em;
+  background-color: #28a197;
+  color: #fff;
+  text-align: center;
+  padding: 0.1em 2em 0.2em 2em;
+  margin: 0 -1em 1em -1em;
+
+  p {
+    line-height: 2.3em;
+    color: #fff;
+
+    em {
+      font-size: 2.45em;
+      font-style: normal;
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.5em;
+      color: #fff;
+    }
+  }
 }
