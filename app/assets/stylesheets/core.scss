@@ -1,3 +1,6 @@
+@import "_conditionals";
+@import "_css3";
+
 body.citizen nav.header-context {
   background-color: #F2F2F2;
 
@@ -36,7 +39,7 @@ body.citizen nav.header-context {
 
   /* beta notice */
   .beta-notice {
-    display:none;
+    display: none;
   }
 }
 
@@ -282,6 +285,7 @@ h4 {
       cursor: default;
       text-decoration: none;
     }
+  }
 
   li.related-topic a {
     padding-left: 0;
@@ -295,70 +299,6 @@ h4 {
 /*
  * Page headers
  */
-header {
-  .page-header hgroup {
-    background-color: #fff;
-    display: block;
-    margin: 0 15em 0 0;
-    padding: 0.2em 1em 1.5em 0.5em;
-  }
-
-  .page-header hgroup {
-      h1 {
-        background-repeat: no-repeat;
-        color: #000;
-        font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
-        font-size: 2.75em;
-        font-weight: 400;
-        letter-spacing: 0em;
-        line-height: 1.041666667em;
-        padding: 0.3em 1.5em 0.35em 1.65em;
-
-        @include ie-lte(8) {
-            height: 1%;
-        }
-      }
-
-      h2 {
-        color: #666;
-        font-size: 1em;
-        margin: 0.75em 0 0 4.5em;
-      }
-
-      span {
-        display: block;
-        font-size: 0.42em;
-        line-height: 1em;
-        margin-bottom: 0.5em;
-        text-shadow: none;
-        font-weight:300;
-      }
-  }
-}
-
-.business header.page-header hgroup h1 {
-  padding-right: 3em;
-}
-.service header.page-header hgroup h1 {
-  background-position: 0 12px;
-}
-.guide header.page-header hgroup h1 {
-  background-position: 15px 14px;
-}
-.answer header.page-header hgroup h1 {
-  background-position: 12px 14px;
-}
-.programme header.page-header hgroup h1 {
-  background-position: 0 14px;
-}
-.licence header.page-header hgroup h1 {
-  background-position: 16px 14px;
-}
-
-/*
-  ============================== Stuff (mainly) used in publications =============================
-*/
-
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
@@ -387,7 +327,70 @@ header {
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
+  background-repeat: no-repeat;
 }
+
+header {
+  &.page-header hgroup {
+    background-color: #fff;
+    display: block;
+    margin: 0 15em 0 0;
+    padding: 0.2em 1em 1.5em 0.5em;
+
+    h1 {
+      background-repeat: no-repeat;
+      color: #000;
+      font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-size: 2.75em;
+      font-weight: 400;
+      letter-spacing: 0em;
+      line-height: 1.041666667em;
+      padding: 0.3em 1.5em 0.35em 1.65em;
+
+      @include ie-lte(8) {
+        height: 1%;
+      }
+    }
+
+    h2 {
+      color: #666;
+      font-size: 1em;
+      margin: 0.75em 0 0 4.5em;
+    }
+
+    span {
+      display: block;
+      font-size: 0.42em;
+      line-height: 1em;
+      margin-bottom: 0.5em;
+      text-shadow: none;
+      font-weight:300;
+    }
+  }
+}
+
+.business header.page-header hgroup h1 {
+  padding-right: 3em;
+}
+.service header.page-header hgroup h1 {
+  background-position: 0 12px;
+}
+.guide header.page-header hgroup h1 {
+  background-position: 15px 14px;
+}
+.answer header.page-header hgroup h1 {
+  background-position: 12px 14px;
+}
+.programme header.page-header hgroup h1 {
+  background-position: 0 14px;
+}
+.licence header.page-header hgroup h1 {
+  background-position: 16px 14px;
+}
+
+/*
+  ============================== Stuff (mainly) used in publications =============================
+*/
 
 /* articles */
 article {
