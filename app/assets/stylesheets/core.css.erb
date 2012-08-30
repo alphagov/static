@@ -30,10 +30,20 @@ body {
 #wrapper {
   background-color: #F2F2F2;
 }
-#wrapper.business header.page-header hgroup{
-  background-image:url(<%= asset_path "business_link_logo.png" %>);
+#wrapper header.page-header hgroup{
   background-position:97% 1em;
   background-repeat:no-repeat;
+}
+#wrapper.businesslink header.page-header hgroup{
+  background-image:url(<%= asset_path "business_link_logo.png" %>);
+}
+#wrapper.directgov header.page-header hgroup{
+  /*TODO: Put real image in here */
+  <%# background-image:url(http://placekitten.com/100/48); %>
+}
+#wrapper.businesslink.directgov header.page-header hgroup{
+  /*TODO: Put real image in here */
+  <%#background-image:url(http://placekitten.com/100/50);%>
 }
 
 #footer{
@@ -103,7 +113,7 @@ a:hover {
 }
 
 a:active {
-  color: #c11;
+  color: #2E8ACA;
 }
 
 a[rel="external"]:after,
@@ -929,6 +939,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 /*shared bits for buttons on a, button and input */
+/* old green: 28a198 new green: 008270 */
+
 input, button {
   font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
@@ -937,15 +949,23 @@ input, button {
 .get-started .button.big,
 .button,
 .button:visited {
-  background-color:#28a198;
+  background-color:#008270;
   color:#fff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
-  -moz-box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
-  box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow:0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow:0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow:0 3px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
   font-weight: 300;
+}
+
+
+.button,
+.button:visited{
+  -webkit-box-shadow:0 2px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow:0 2px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow:0 2px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
 }
 
 .get-started .button:hover span.call-to-action,
