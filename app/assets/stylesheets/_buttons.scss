@@ -1,17 +1,22 @@
 // global button styles
 
+/*
+ * Old green: 28a198
+ * New green: 008270
+ */
+
 .get-started .button .call-to-action,
 .get-started .button.big,
 .button,
 .button:visited {
-  background-color:#28a198;
-  color:#fff;
+  background-color: #008270;
+  color: #fff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
-  -moz-box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0,0,0,.05);
-  box-shadow:0 3px 0 #1C7568, 0 8px 10px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
   font-weight: 300;
 }
 
@@ -58,13 +63,16 @@ the inner span still */
 /* buttons! */
 .button,
 .button:visited {
-  display:inline;
-  line-height:0.8em;
-  border:none;
+  display: inline;
+  line-height: 0.8em;
+  border: none;
   text-decoration: none;
-  position:relative;
-  top:-3px;
-  line-height:1.3em;
+  position: relative;
+  top: -3px;
+  line-height: 1.3em;
+  -webkit-box-shadow: 0 2px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 2px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow: 0 2px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
 }
 
 .button:active,

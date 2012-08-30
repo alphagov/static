@@ -57,10 +57,23 @@ body.citizen .header-context ol {
 #wrapper {
   background-color: #F2F2F2;
 
-  .business header.page-header hgroup {
-    background-image: image-url("business_link_logo.png");
+  header.page-header hgroup {
     background-position: 97% 1em;
     background-repeat: no-repeat;
+  }
+
+  &.businesslink header.page-header hgroup {
+    background-image: image-url("business_link_logo.png");
+  }
+
+  &.directgov header.page-header hgroup {
+    /* TODO: Put real image in here */
+    /* background-image:url(http://placekitten.com/100/48); */
+  }
+
+  &.businesslink.directgov header.page-header hgroup {
+    /* TODO: Put real image in here */
+    /* background-image:url(http://placekitten.com/100/50); */
   }
 }
 

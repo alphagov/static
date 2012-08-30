@@ -58,7 +58,7 @@ a:hover {
 }
 
 a:active {
-  color: #c11;
+  color: #2E8ACA;
 }
 
 a[rel="external"]:after,
@@ -82,10 +82,10 @@ a[rel="external"]:after,
  */
 
 html {
-    font-size: 62.5%; /* 1 */
-    overflow-y: scroll; /* 2 */
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
- }
+  font-size: 62.5%; /* 1 */
+  overflow-y: scroll; /* 2 */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
+}
 
 /*
  * 1. Font-size increased to compensate for change to html element font-size in
@@ -95,8 +95,13 @@ html {
  */
 
 body {
-    font-size: 160%; /* 1 */
-    margin: 0; /* 2 */
+  font-size: 160%; /* 1 */
+  margin: 0; /* 2 */
+}
+
+b,
+strong {
+  font-weight: 600;
 }
 
 @import "_buttons"
