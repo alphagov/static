@@ -331,27 +331,3 @@
 .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: 2.25em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 0; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; background: #d3d1c9; }
 .ui-accordion .ui-accordion-content-active { display: block; }
-/*
- * jQuery UI Tabs 1.8.14
- *
- * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
- *
- * http://docs.jquery.com/UI/Tabs#theming
- */
-.ui-tabs { font-size: 0.875em; position: relative; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-.ui-tabs .ui-tabs-nav { background: #efece0; margin: 0; padding: 0; }
-.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
-.ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
-.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-.ui-tabs .ui-tabs-panel { display: block; border: solid 1px #aaa; border-top: none; padding: 1em 0; background: none; }
-.ui-tabs .ui-tabs-hide { display: none !important; }
-
-.ui-tabs .ui-tabs-nav li.ui-state-default { background: #efece0; border: none; color: #1D97FF; }
-.ui-tabs .ui-tabs-nav li.ui-state-default a { color: #1D97FF; }
-
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected { background: #e2dfd7; border: 1px solid #aaa; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a { color: #444; }
