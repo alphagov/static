@@ -19,128 +19,168 @@ body {
 
 section > header {
   position: relative;
-}
 
-section > header h1 {
-  border-bottom: solid 1pt black;
-  font-family: "NTA", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18pt;
-  font-weight: normal;
-  font-weight:300;
-  line-height: 1.2;
-  padding-bottom: 6pt;
-  width: 80%;
-}
+  h1 {
+    border-bottom: solid 1pt black;
+    font-family: "NTA", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18pt;
+    font-weight: normal;
+    font-weight:300;
+    line-height: 1.2;
+    padding-bottom: 6pt;
+    width: 80%;
 
-section > header h1:after {
-  content: " from GOV.UK";
-}
+    &:after {
+      content: " from GOV.UK";
+    }
+  }
 
-section > header p {
-  border-bottom: solid 1pt black;
-  bottom: -11pt;
-  font-size: 11pt;
-  font-weight: bold;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  padding-bottom: 6pt;
-  right: 0;
-  width: 15%;
+  p {
+    border-bottom: solid 1pt black;
+    bottom: -11pt;
+    font-size: 11pt;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 6pt;
+    right: 0;
+    width: 15%;
+  }
 }
 
 article {
   margin-bottom: 1cm;
   width: 80%;
+
+  header h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+
+  h2,
+  h3,
+  h4,
+  p,
+  ul {
+      orphans: 3;
+      widows: 3;
+  }
+
+  h2,
+  h3,
+  h4,
+  .info-notice {
+      page-break-after: avoid;
+  }
+
+  header h1 {
+    border-bottom: 1pt solid rgb(225,225,225);
+    font-size: 14pt;
+    padding-top: 7pt;
+    padding-bottom: 7pt;
+  }
+
+  h2 {
+    font-size: 14pt;
+    padding-top: 7pt;
+  }
+
+  h3 {
+    font-size: 12pt;
+  }
+
+  h4 {
+    font-size: 11pt;
+  }
+
+  p {
+    font-size: 11pt;
+  }
+
+  ul,
+  ol {
+    font-size: 11pt;
+    padding-left: 13pt;
+  }
+
+  li {
+    line-height: 1.5em;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  table {
+    border: 1pt solid rgb(125,125,125);
+    border-collapse: collapse;
+    width: 100%;
+
+    thead {
+      display: table-header-group;
+    }
+
+    th,
+    td {
+      border: 1pt solid rgb(125,125,125);
+      padding: 0.25em 0.5em;
+      text-align: left;
+    }
+
+    td:nth-child(n+2) {
+      text-align: right;
+    }
+  }
+
+  .contact,
+  .info-notice {
+    border: 1pt solid rgb(125,125,125);
+    padding: 2pt;
+  }
+
+  .info-notice {
+    &:before {
+      content: "!";
+      float: left;
+      font-size: 24pt;
+      font-weight: bold;
+      margin: 10pt 0 0 6pt;
+    }
+
+    p {
+      margin-left: 22pt;
+    }
+  }
 }
 
-article header h1, article h2, article h3, article h4, article h5, article h6 {
-  font-weight: bold;
+a, a:visited {
+  text-decoration: underline;
+  word-wrap: break-word;
 }
 
-article header h1 {
-  border-bottom: 1pt solid rgb(225,225,225);
-  font-size: 14pt;
-  padding-top: 7pt;
-  padding-bottom: 7pt;
+a[href^="/"]:after {
+  content: " (https://www.gov.uk" attr(href) ")";
+  font-size: 90%;
 }
 
-article h2 {
-  font-size: 14pt;
-  padding-top: 7pt;
+a[href^="http://"]:after,
+a[href^="https://"]:after {
+  content: " (" attr(href) ")";
+  font-size: 90%;
 }
 
-article h3 {
-  font-size: 12pt;
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+    content: "";
 }
 
-article h4 {
-  font-size: 11pt;
-}
-
-article p {
-  font-size: 11pt;
-}
-
-article p, article ul, article h2, article h3, article h4 { orphans: 3; widows: 3; }
-article h2, article h3, article h4, article .info-notice { page-break-after: avoid; }
-
-article ul, article ol {
-  font-size: 11pt;
-  padding-left: 13pt;
-}
-
-article li {
-  line-height: 1.5em;
-}
-
-article li p {
-  margin: 0;
-}
-
-a, a:visited { text-decoration: underline; word-wrap: break-word; }
-a[href^="/"]:after { content: " (https://www.gov.uk" attr(href) ")"; font-size: 90%; }
-a[href^="http://"]:after, a[href^="https://"]:after { content: " (" attr(href) ")"; font-size: 90%; }
-
-a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-
-abbr[title]:after { content: " (" attr(title) ")"; }
-
-article table {
-  border: 1pt solid rgb(125,125,125);
-  border-collapse: collapse;
-  width: 100%;
-}
-
-article table thead { display: table-header-group; }
-
-article table th,
-article table td {
-  border: 1pt solid rgb(125,125,125);
-  padding: 0.25em 0.5em;
-  text-align: left;
-}
-
-article table td:nth-child(n+2) {
-  text-align: right;
-}
-
-article .contact,
-article .info-notice {
-  border: 1pt solid rgb(125,125,125);
-  padding: 2pt;
-}
-
-article .info-notice:before {
-  content: "!";
-  float: left;
-  font-size: 24pt;
-  font-weight: bold;
-  margin: 10pt 0 0 6pt;
-}
-
-article .info-notice p {
-  margin-left: 22pt;
+abbr[title]:after {
+  content: " (" attr(title) ")";
 }
 
 img { max-width: 100% !important; }
@@ -152,15 +192,14 @@ img { max-width: 100% !important; }
 .modified-date {
   color: rgb(225,225,225);
   font-size: 11pt;
-}
 
-.modified-date:after {
-  content: "© Crown Copyright";
-  float: right;
+  &:after {
+    content: "© Crown Copyright";
+    float: right;
+  }
 }
 
 /* hide the unnecessary page elements */
-
 body header#global-header,
 body footer,
 body #global-user-location,
