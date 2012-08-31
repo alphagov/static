@@ -30,21 +30,6 @@ body {
 #wrapper {
   background-color: #F2F2F2;
 }
-#wrapper header.page-header hgroup{
-  background-position:97% 1em;
-  background-repeat:no-repeat;
-}
-#wrapper.businesslink header.page-header hgroup{
-  background-image:url(<%= asset_path "business_link_logo.png" %>);
-}
-#wrapper.directgov header.page-header hgroup{
-  /*TODO: Put real image in here */
-  <%# background-image:url(http://placekitten.com/100/48); %>
-}
-#wrapper.businesslink.directgov header.page-header hgroup{
-  /*TODO: Put real image in here */
-  <%#background-image:url(http://placekitten.com/100/50);%>
-}
 
 #footer{
   background-color: #C9D0D0;
@@ -302,6 +287,58 @@ a[rel="external"]:after,
 
 #wrapper .related.sections-list li a {
   padding: 0.1em 0em;
+}
+
+/*
+ * Legacy sources thang
+ */
+
+#legacy-sources {
+	margin-left: 1.2em;
+	margin-top: 1em;
+  display: none;
+}
+
+#wrapper.businesslink #legacy-sources, #wrapper.directgov #legacy-sources {
+  display: block;
+}
+
+#legacy-sources p {
+	font-size: 1em;
+	margin-bottom: 0.3em;
+	padding: 0;
+	color: black;
+}
+
+#legacy-sources ul {
+	border-bottom: 1px solid #CCC;
+	margin: 0;
+	padding: 0;
+}
+
+#legacy-sources li {
+	text-indent: -5000px;
+	float: left;
+	background-repeat: no-repeat;
+  display: none;
+}
+
+#wrapper.businesslink #legacy-sources li.businesslink {
+	background-image: url(<%= asset_path "businesslink-logo.png" %>);
+	width: 84px;
+	height: 17px;
+	margin-top: 0.8em;
+	display: block;
+}
+
+
+#wrapper.directgov #legacy-sources li.directgov {
+	background-image: url(<%= asset_path "directgov-logo.png" %>);
+	width: 74px;
+	height: 14px;
+	margin-right: 1em;
+	margin-top: 1.1em;
+	display: block;
 }
 
 /*
