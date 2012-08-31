@@ -2,7 +2,7 @@
 
 section#homepage {
   /* July 4 Homepage Styles */
-  
+
   max-width: 960px;
   margin: 0 auto;
 
@@ -81,7 +81,7 @@ section#homepage {
       position: relative;
       z-index: 0;
 
-      @include ie-lte(7) { 
+      @include ie-lte(7) {
         width: 19.33em;
       }
     }
