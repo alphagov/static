@@ -104,4 +104,8 @@ strong {
   font-weight: 600;
 }
 
+button {
+  *overflow:visible;
+}
+
 @import "_buttons"
