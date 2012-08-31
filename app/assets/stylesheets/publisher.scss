@@ -433,16 +433,11 @@ ul.helpers li.active h3 a {
   }
 }
 
-#wrapper.programme article.tabs-panel-selected,
-.js-enabled #wrapper.programme article.tabs-panel-selected {
-  display:block;
-}
-
 .js-enabled #wrapper.programme {
 
   .part-pagination.return-to-top,
   article.tabs-panel {
-    display:none;
+    display: none;
   }
 
   article {
@@ -452,6 +447,11 @@ ul.helpers li.active h3 a {
       height: 20em;
     }
   }
+}
+
+#wrapper.programme article.tabs-panel-selected,
+.js-enabled #wrapper.programme article.tabs-panel-selected {
+  display:block;
 }
 
 div.further-information {
