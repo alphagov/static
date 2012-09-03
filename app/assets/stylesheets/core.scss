@@ -423,6 +423,12 @@ article {
     height: 30em;
   }
 
+  &.group {
+    @include ie-lte(7) {
+      height: auto;
+    }
+  }
+
   .inner {
     padding: 0 5em 2em 5em;
     width: auto;
