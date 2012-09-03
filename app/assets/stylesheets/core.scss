@@ -310,6 +310,58 @@ h4 {
 }
 
 /*
+ * Legacy sources thang
+ */
+
+#legacy-sources {
+	margin-left: 1.2em;
+	margin-top: 1em;
+  display: none;
+
+  p {
+	  font-size: 1em;
+	  margin-bottom: 0.3em;
+	  padding: 0;
+	  color: black;
+  }
+
+  ul {
+	  border-bottom: 1px solid #CCC;
+	  margin: 0;
+	  padding: 0;
+  }
+
+  li {
+	  text-indent: -5000px;
+	  float: left;
+	  background-repeat: no-repeat;
+    display: none;
+  }
+}
+
+#wrapper.businesslink #legacy-sources,
+#wrapper.directgov #legacy-sources {
+  display: block;
+}
+
+#wrapper.businesslink #legacy-sources li.businesslink {
+	background-image: image-url("businesslink-logo.png");
+	width: 84px;
+	height: 17px;
+	margin-top: 0.8em;
+	display: block;
+}
+
+#wrapper.directgov #legacy-sources li.directgov {
+	background-image: image-url("directgov-logo.png");
+	width: 74px;
+	height: 14px;
+	margin-right: 1em;
+	margin-top: 1.1em;
+	display: block;
+}
+
+/*
  * Page headers
  */
 /* Programmes */
