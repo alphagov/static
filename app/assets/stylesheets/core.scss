@@ -259,18 +259,18 @@ h4 {
 
 #wrapper .related {
   li {
-    .related-topic {
+    &.related-topic {
       border-top: 1px solid #C9D0D0;
       list-style: none outside none;
       margin: 1em 0 0;
       padding: 1em 0;
-    }
 
-    .related-topic span {
-      font-weight: bold;
+      span {
+        font-weight: bold;
 
-      .arrow {
-        display: none;
+        .arrow {
+          display: none;
+        }
       }
     }
 
@@ -298,10 +298,6 @@ h4 {
       cursor: default;
       text-decoration: none;
     }
-  }
-
-  li.related-topic a {
-    padding-left: 0;
   }
 }
 
