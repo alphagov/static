@@ -7,7 +7,10 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - This is a trial ‘beta’ version of the UK government's official website" %></title>
 
-    <%= stylesheet_link_tag local_assigns[:css_file] || 'application' %>
+    <!--[if gt IE 8]><!--><%= stylesheet_link_tag local_assigns[:css_file] || 'application' %><!--<![endif]-->
+    <!--[if IE 6]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie6' %><![endif]-->
+    <!--[if IE 7]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie7' %><![endif]-->
+    <!--[if IE 8]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie8' %><![endif]-->
 
     <%= stylesheet_link_tag "core-print", :media => "print" %>
 

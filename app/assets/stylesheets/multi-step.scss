@@ -1,0 +1,325 @@
+@import "_conditionals";
+
+/* This is basically Smart Answers */
+
+/*
+ * landing page
+ */
+.start {
+  display: inline-block;
+
+  a {
+    font-size: 1.5em;
+    margin: 0.5em 0 0 0;
+  }
+}
+
+/*
+ * questions
+ */
+.hint {
+  display: block;
+}
+
+.done-questions {
+  position: relative;
+}
+
+.start-again {
+  background: #fff;
+  position: absolute;
+  right: 0;
+  top: -2.5em;
+  height: 2.5em;
+  width: 11em;
+
+  a {
+    display: block;
+    line-height: 2.5em;
+    text-align: center;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.done-questions ol {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.done-questions ol > li {
+  list-style: none;
+  position: relative;
+  padding: 0.75em 1.5em 0.75em 5em;
+
+  &.done {
+    background: #D5ECEA;
+    border-bottom: solid 1px #b6d6d2;
+    overflow: hidden;
+
+    @include ie-lte(8) {
+      list-style: none;
+      position: relative;
+      padding: 0.5em 1.5em 0.5em 5em;
+      background: #D5ECEA;
+      border-bottom: solid 1px #b6d6d2;
+      overflow: hidden;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.question .question-number {
+  font-weight: normal;
+}
+
+li.done h3,
+li.upcoming h3 {
+  display: inline;
+  font-size: 1em;
+  margin: 0 0.5em 0 0;
+
+  @include ie-lte(8) {
+    line-height: 1.5em;
+    position: relative;
+  }
+}
+
+li.done h3.question {
+  display: inline-block;
+  padding-right: 12.5em;
+}
+
+li.done .answer {
+  color: #315843;
+  font-weight:400;
+  display: block;
+  margin-right: 0.5em;
+  padding-right: 9.5em;
+
+  &.multiple {
+    display: block;
+  }
+}
+
+li.done .undo {
+  position: absolute;
+  top: 0.833333em; /* 0.75em/0.9 (the font-size). Aren't ems lovely... */
+  right: 1.666667em; /* 1.5em/0.9 */
+  margin: 0;
+  font-size: 0.9em;
+
+  @include ie-lte(8) {
+    margin: 0;
+  }
+
+  @include ie-lte(6) {
+    position: absolute;
+    right: 1em;
+  }
+
+  a {
+    color: #333;
+    display: block;
+
+    @include ie-lte(6) {
+      color: #333;
+    }
+  }
+}
+
+li.done .answer ul {
+  margin: 0.5em 0 0 -2.1em;
+  padding-left: 2.1em;
+}
+
+li.done:hover .undo a {
+  color: inherit;
+}
+
+.step.current {
+  background-color: #fff;
+  margin-right: 15em;
+  padding: 0 2em 1em 5em;
+  position: relative;
+}
+
+.question-number {
+  display: inline-block;
+  margin-left: -1.5em;
+  width: 1.5em;
+
+  @include ie-lte(8) {
+    display: block;
+    position: absolute;
+  }
+}
+
+.question-body + p input.button {
+  margin-top: 0.5em;
+}
+
+.current-question {
+  padding: 1.5em 0 1em 0;
+
+  h2 {
+    border: none;
+    font-size: 1.16em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    position: relative;
+
+    @include ie-lte(8) {
+      line-height: 1.2em;
+    }
+  }
+
+  ul {
+    padding: 0; /* this is so the bullets hang */
+
+    label {
+      margin-left: 0.25em;
+    }
+
+    select {
+      margin-right: 0.25em;
+    }
+
+    /* this is the multiple choice selector */
+    &.options {
+      list-style: none;
+
+      li {
+        line-height: 1.5em;
+        margin: 0.5em 0;
+      }
+    }
+  }
+}
+
+.next-question {
+  margin: 1.5em 0 0.5em 0;
+}
+
+/*
+ * results / outcome
+ */
+.outcome {
+  background-color: #fff;
+  float: none;
+  margin-right: 0;
+  min-height: 480px;
+
+  .inner {
+    padding-top: 2em;
+  }
+}
+
+.next-steps {
+  right: -15em;
+  top: 2em;
+
+  .inner {
+    padding-top: 0;
+    padding-bottom: 1em;
+
+    ul {
+      padding: 0 0 0 0em;
+    }
+  }
+}
+
+#wrapper .related.next-steps .inner p,
+#wrapper .related.next-steps .inner li {
+  font-size: 100%;
+}
+
+.next-steps .inner li {
+  list-style-type: none;
+  margin: 0;
+}
+
+#wrapper .next-steps.related .inner li a {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  font-size: 100%;
+}
+
+.smart_answer .meta-data {
+  background: #fff;
+  float: none;
+}
+
+/*
+ * errors messages
+ */
+article .error {
+  border:1px solid #B01117;
+  background-color:#FFF3CF;
+  color:#B01117;
+  margin: 0 0 -0.5em -0.5em;
+  padding: 0.5em;
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.error-message {
+  margin-top: 0;
+  color:#B01117;
+}
+
+/*
+ * calculators
+ */
+.calculator article {
+  min-height: 0;
+}
+
+.upcoming-questions ol {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+
+  & > li {
+    list-style: none;
+    position: relative;
+    padding: 0.5em 1.5em 0.5em 5em;
+
+    &.upcoming {
+      background: #f0e7d7;
+      border-bottom: solid 1px #dac39c;
+      overflow: hidden;
+
+      @include ie-lte(8) {
+        background: #f0e7d7;
+        border-bottom: solid 1px #dac39c;
+        overflow: hidden;
+        list-style: none;
+        position: relative;
+        padding: 0.5em 1.5em 0.5em 5em;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+li.upcoming h3 {
+  display: inline;
+  font-size: 1em;
+  margin: 0 0.5em 0 0;
+}

@@ -1,0 +1,188 @@
+/* Global header */
+@import "_conditionals";
+
+@import "_header";
+
+.js-enabled #global-header {
+  position: fixed;
+  top: 0;
+}
+/* we don't want the header to be fixed on small iOS screens */
+@media only screen and (max-device-width:320px) {
+  .js-enabled #global-header {
+    position: absolute;
+  }
+}
+
+.lte-ie8 #global-header h1 {
+  height: 1.25em;
+}
+
+.lte-ie8 #global-header h1 a {
+  background-image: image-url("gov.uk_logotype_ie.png");
+}
+
+#global-header ul {
+  margin: 0;
+  padding: 0;
+}
+
+#global-header nav ul li,
+body.mainstream nav.header-context ol li {
+  float: left;
+  list-style: none;
+}
+
+#global-header .header-global nav ul {
+  float: left;
+  margin-right: 0;
+  line-height: 1.9em;
+  margin-left:1em
+}
+
+#global-header .header-global nav ul li {
+  /*line-height: 1.75em;*/
+  margin-right: 1.5em;
+  margin-bottom: 0;
+}
+
+#global-header .header-global nav ul li a {
+  font-size: 1em;
+  text-decoration: none;
+}
+
+#global-header .header-global nav ul li a:hover {
+  color: #fff
+}
+
+#global-header .header-global ul.ui-autocomplete a {
+  color: #333;
+}
+
+#global-header .header-global ul.ui-autocomplete a:hover {
+  text-decoration: none;
+}
+
+#global-header .header-global ul.ui-autocomplete {
+  position: absolute;
+}
+
+body.mainstream nav.header-context {
+  background-color: #F2F2F2;
+}
+
+body.mainstream nav.header-context ol {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0.5em 0 0.5em 0;
+}
+.lte-ie8 body.mainstream .header-context ol {
+  _padding: 0.25em 0;
+  _width: 960px;
+}
+
+body.mainstream nav.header-context ol li {
+  background-image: image-url("separator.png");
+  background-position: 0.2em 36%;
+  background-repeat: no-repeat;
+  padding-left: 1.3em;
+  margin-right: 0.5em;
+}
+
+body.mainstream nav.header-context ol li:first-child {
+  background: none;
+  margin-left: 0.75em;
+  padding-left: 0;
+}
+
+body.mainstream nav.header-context a {
+  white-space: nowrap;
+}
+
+body.mainstream nav.header-context a:last-child {
+  margin-right: 0
+}
+
+/* beta notice */
+
+body.mainstream nav.header-context .beta-notice {
+  display:none;
+}
+
+/*body.mainstream nav.header-context .beta-notice .inner {
+
+}
+
+body.mainstream nav.header-context .beta-notice p {
+  background-color: #F17921;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  position: fixed;
+  left: 20%;
+  top: 0.5em;
+  z-index:9999;
+}
+
+body.mainstream nav.header-context .beta-notice p a {
+  color: #000;
+  text-decoration: none;
+}
+body.mainstream nav.header-context .beta-notice p a:hover {
+  text-decoration: underline;
+}*/
+
+body.government #global-header .header-context {
+  border-color: #cdce00;
+  border-bottom-color: #9a9b00
+}
+
+body.government #global-header .header-context nav {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body.government #global-header .header-context nav a {
+  color: #777;
+}
+body.government #global-header .header-context nav a:hover {
+  color: #9a9b00
+}
+
+body.government #global-header .header-context {
+  border-color: #cdce00;
+  border-bottom-color: #9a9b00
+}
+
+
+body.government #global-header .header-context nav {
+  width: 79.5%;
+}
+
+
+/* Search form in global header */
+
+body.government .header-context .search-help {
+  border-color: #cdce00
+}
+
+
+@import "_footer";
+
+/* TODO: put this into the homepage.css */
+
+.home-tour {
+  position: fixed;
+  top: 0.5em;
+  right: 4%;
+  z-index: 1000;
+}
+
+.tour-label a {
+  background-color: #F17921;
+  color: #000;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+}
+.tour-label a:hover {
+  background-color: #fff;
+}

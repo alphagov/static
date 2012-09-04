@@ -1,0 +1,181 @@
+@import "_conditionals";
+
+#wrapper .ancillary {
+  header {
+    hgroup h1 {
+      padding: 0;
+    }
+
+    &.page-header hgroup {
+      background-color: transparent;
+      margin: 0;
+      padding-left: 5em;
+      padding-right: 5em;
+      padding-top: 3em;
+    }
+  }
+
+  &.section-page {
+    header {
+      margin: 0;
+
+      &.page-header hgroup {
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+      }
+    }
+
+    h2 {
+      @include ie-lte(8) {
+        clear: both;
+      }
+    }
+  }
+
+  .summary {
+    color: #2E3191;
+
+    p {
+      line-height: 1.5em;
+    }
+  }
+}
+
+/* static pages like platform and help */
+
+.ancillary .menu {
+  background-color: #E5E5E5;
+  float: right;
+  margin: -3em -15em 0 0;
+  padding: 1em;
+  width: 13em;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    margin: 0 0 0.5em 0;
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+.ancillary article {
+  section {
+    margin: 0 0 2.5em 0;
+  }
+
+  h1:first-child,
+  h2:first-child {
+    margin-top: 0;
+  }
+
+  dt {
+    font-size: 1em;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+}
+
+/* feedback page */
+
+.ancillary.feedback {
+  .pullout {
+    background-color: #D9E0E0;
+    margin: 1.5em 0;
+    padding: 1em;
+  }
+
+  .image-in-text {
+    float: right;
+    margin-left: 2em;
+
+    a[rel="external"]:after {
+      content: none;
+      margin: 0;
+    }
+  }
+}
+
+/* sections page */
+
+#wrapper .sections-page {
+  background: #fff;
+
+  header {
+    padding:0 1.75em 0;
+
+    &.page-header hgroup {
+      padding: 3em 0 1.5em;
+      margin: 0 0 0 33.3333333%;
+      background: none;
+    }
+
+    h1 {
+      font-size: 3em;
+      padding: 0;
+    }
+  }
+
+}
+
+#wrapper .browse-sections {
+  padding-bottom: 5em;
+
+  dl {
+    margin: 0;
+    padding: 0 1.75em;
+  }
+
+  dt,
+  dd {
+    border-top: 1px solid #c1cacb;
+  }
+
+  dt:nth-child(1),
+  dd:nth-child(2) {
+    border-top: none;
+  }
+
+  dt {
+    font-size: 2.25em;
+    font-weight: 300;
+
+    margin: 0;
+    width: 33.3333333%;
+    float: left;
+    clear: left;
+    padding: 0.5em 0;
+
+    a {
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #2e3191;
+
+      &:hover {
+        color: #2e8aca;
+        border-color: #2e8aca;
+      }
+    }
+  }
+
+  dd {
+    display: block;
+    overflow: hidden;
+    font-size: 1.1875em;
+    line-height: 1.315789474;
+    margin-left: 0;
+    padding: 1.25em 0;
+
+    p {
+      margin:0;
+    }
+  }
+}

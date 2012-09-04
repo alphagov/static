@@ -1,0 +1,37 @@
+/*
+ *
+ * File:
+ * admin-bootstrap-example.css
+ *
+ * Purpose:
+ * This is an example stylesheet to copy and paste into any new admin apps we
+ * build.
+ *
+ * This file is for Rails 3 admin apps that use the asset pipeline, rather than
+ * ones that are being Slimmed and serving assets through Static.
+ *
+ * Create your app, include the Twitter Bootstrap and formtastic-bootstrap
+ * assets, then copy the base styles below into the
+ * 'app/assets/stylesheets/application.css' file.
+ *
+ * Only the 'body' and '.navbar .brand' styles are required. Any other changes
+ * can be included below those where needed. The 'body' styles are overridden
+ * here to make sure that the space for the navbar is included.
+ *
+ * Currently the only overrides to Bootstrap to GDS-ify the apps are including
+ * the crown image and setting the brand type to Gill Sans. This may change in
+ * future.
+ *
+*/
+body {
+  padding-top: 40px;
+}
+
+.navbar .brand {
+  background-image: url("/assets/header-crown.png");
+  background-position: 0 0.25em;
+  background-repeat: no-repeat;
+  font-family: "GillSans", "Gill Sans", "Helvetica Neue", Helvetica, sans-serif;
+  margin-left: 0;
+  padding-left: 2em;
+}

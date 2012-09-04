@@ -15,7 +15,11 @@ end
 group :assets do
   gem "therubyracer", "~> 0.9.4"
   gem 'uglifier'
+  gem 'sass', '3.2.0'
+  gem 'sass-rails', '3.2.5'
 end
 
 gem 'plek', '~> 0'
 gem 'jasmine'
+
+gem 'govuk_frontend_toolkit', '0.0.2'
