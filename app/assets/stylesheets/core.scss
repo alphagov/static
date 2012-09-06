@@ -184,7 +184,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 7em;
+  top: 5.5em;
   width: 100%;
   z-index: 0;
 
@@ -229,7 +229,7 @@ h4 {
 
   .inner {
     background-color: #E5E5E5;
-    padding: 0 1em 0 1.2em;
+    padding: 0.5em 1em 0 1.2em;
     width: auto;
     border-left:1px solid #C9D0D0;
   }
@@ -237,12 +237,10 @@ h4 {
   h2 {
     color: #000;
     font-size: 1.1875em;
-    font-weight:300;
+    font-weight: 300;
     line-height: 1.25;
-    margin: 0 0 0 -21px;
-    padding: 30px 0 0 20px;
+    margin-bottom: 1em;
     position: relative;
-    top: -13px;
   }
 
   ul {
@@ -252,8 +250,8 @@ h4 {
   }
 
   li {
-    padding-bottom: 0.45em;
-    padding-left:0;
+    padding-bottom: 0.5em;
+    padding-left: 0;
 
     &.related-topic {
       border-top: 1px solid #C9D0D0;
@@ -279,7 +277,6 @@ h4 {
       background-repeat: no-repeat;
       display: block;
       line-height:1.25em;
-      padding: 0em 0 0.5em 0em;
       orphans: 2;
 
       &:hover {
