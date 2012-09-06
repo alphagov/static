@@ -45,7 +45,7 @@
   font-family: $NTA-Light;
   font-size: 48px;
   font-size: 4.8rem;
-  line-height: 1.0416666667; /* 50px */
+  line-height: 50 / 48;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -55,7 +55,7 @@
   padding-bottom: 0.8rem;
   @media (max-width: 640px) {
     font-size: 2.5rem;
-    line-height: 1.2;
+    line-height: 30 / 25;
     padding-top: 0.8rem;
     padding-bottom: 0.7rem;
   }
@@ -66,7 +66,7 @@
   font-family: $NTA-Light;
   font-size: 27px;
   font-size: 2.7rem;
-  line-height: 1.1111111111; /* 30px */
+  line-height: 30 / 27; 
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -76,7 +76,7 @@
   padding-bottom: 0.2rem;
   @media (max-width: 640px) {
     font-size: 1.9rem;
-    line-height: 1.3157894737;
+    line-height: 25 / 19;
     padding-top: 0.7rem;
     padding-bottom: 0.3rem;
   }
@@ -87,7 +87,7 @@
   font-family: $NTA-Light;
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 1.25; /* 30px */
+  line-height: 30 / 24;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -97,7 +97,7 @@
   padding-bottom: 0.2rem;
   @media (max-width: 640px) {
     font-size: 1.7rem;
-    line-height: 1.4705882353;
+    line-height: 25 / 17;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
   }
@@ -108,7 +108,7 @@
   font-family: $NTA-Light;
   font-size: 19px;
   font-size: 1.9rem;
-  line-height: 1.3157894737; /* 25px */
+  line-height: 25 / 19;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -118,7 +118,7 @@
   padding-bottom: 0.3rem;
   @media (max-width: 640px) {
     font-size: 1.3rem;
-    line-height: 1.5384615385;
+    line-height: 20 / 13;
     padding-top: 0.6rem;
     padding-bottom: 0.4rem;
   }
@@ -129,7 +129,7 @@
   font-family: $NTA-Light;
   font-size: 16px;
   font-size: 1.6rem;
-  line-height: 1.25; /* 20px */
+  line-height: 20 / 16;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -139,7 +139,7 @@
   padding-bottom: 0.5rem;
   @media (max-width: 640px) {
     font-size: 1.3rem;
-    line-height: 1.5384615385;
+    line-height: 20 / 13;
     padding-top: 0.6rem;
     padding-bottom: 0.4rem;
   }
@@ -150,7 +150,7 @@
   font-family: $NTA-Light;
   font-size: 14px;
   font-size: 1.4rem;
-  line-height: 1.4285714286; /* 20px */
+  line-height: 20 / 14; 
   font-weight: 400;
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 0;
@@ -161,7 +161,7 @@
   padding-bottom: 0.4rem;
   @media (max-width: 640px) {
     font-size: 1.2rem;
-    line-height: 1.25;
+    line-height: 15 / 12;
     padding-top: 0.4rem;
     padding-bottom: 0.1rem;
   }
