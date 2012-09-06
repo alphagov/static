@@ -2,14 +2,13 @@
 @import "_css3";
 
 body.mainstream nav.header-context {
-  // background-color: #F2F2F2;
-  margin: 0.25em auto;
+  margin: 0.5em auto 0.25em auto;
   max-width: 960px;
 
   ol {
     background-color: #fff;
-    margin-right: 15em;
-    padding: 0.5em 0 0.5em 0;
+    margin: 0 15em 0 0;
+    padding: 0.25em 0 0.5em 0;
   }
 
   ol li {
