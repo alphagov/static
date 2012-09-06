@@ -1,0 +1,1209 @@
+@import "_conditionals";
+@import "_css3";
+
+body.citizen nav.header-context {
+  background-color: #F2F2F2;
+
+  ol {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0.5em 0 0.5em 0;
+  }
+
+  ol li {
+    float: left;
+    list-style: none;
+  }
+
+  ol li {
+    background-image: image-url("separator.png");
+    background-position: 0.2em 36%;
+    background-repeat: no-repeat;
+    padding-left: 1.3em;
+    margin-right: 0.5em;
+  }
+
+  ol li:first-child {
+    background: none;
+    margin-left: 0.75em;
+    padding-left: 0;
+  }
+
+  a {
+    white-space: nowrap;
+  }
+
+  a:last-child {
+    margin-right: 0
+  }
+
+  /* beta notice */
+  .beta-notice {
+    display: none;
+  }
+}
+
+body.citizen .header-context ol {
+  @include ie-lte(7) {
+    padding: 0.25em 0;
+    width: 960px;
+  }
+}
+
+/*
+ * Core global styles
+ */
+
+#wrapper {
+  background-color: #F2F2F2;
+
+  header.page-header hgroup {
+    background-position: 97% 1em;
+    background-repeat: no-repeat;
+  }
+
+  &.businesslink header.page-header hgroup {
+    background-image: image-url("business_link_logo.png");
+  }
+
+  &.directgov header.page-header hgroup {
+    /* TODO: Put real image in here */
+    /* background-image:url(http://placekitten.com/100/48); */
+  }
+
+  &.businesslink.directgov header.page-header hgroup {
+    /* TODO: Put real image in here */
+    /* background-image:url(http://placekitten.com/100/50); */
+  }
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 1em;
+  position: relative;
+}
+
+section#content {
+  margin: 0 auto;
+  max-width: 960px;
+  position: relative;
+
+  @include ie-lte(7) {
+    width: 960px;
+  }
+}
+
+h2, h3, h4 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5em;
+  line-height: 1.18;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+h3 {
+  font-size: 1.3em;
+  line-height: 1.11;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+h4 {
+  font-size: 1.1875em;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+/*
+ * Locate me styles
+ */
+
+.popover-mask {
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  top: 30px;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 60;
+
+  @include ie-lte(7) {
+    position: absolute !important;
+  }
+
+  .popover {
+    background: #fafafa;
+    border: solid 2px #bbb;
+    @include border-radius(0.5em);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    margin: 4em auto 0 auto;
+    padding: 0 2.5em 2em 2.5em;
+    position: relative;
+  }
+}
+
+.popover  {
+  .close {
+    position: absolute;
+    top: -19px;
+    right: -19px;
+  }
+
+  h2 {
+    margin: 0.5em 0;
+    padding-bottom: 0.2em;
+  }
+}
+
+#global-locator-form {
+  label,
+  .ask_location {
+    display: inline;
+
+    &.hidden { display: none; }
+  }
+
+  .found_location p,
+  .finding_location p {
+    margin: 0em;
+  }
+}
+
+/*
+ * Related box
+ * this related stuff needs re-examining - might be a bit over the top
+ */
+.related-positioning {
+  height: 0;
+  left: 0;
+  position: fixed;
+  top: 8em;
+  width: 100%;
+  z-index: 0;
+
+  @include ie-lte(8) {
+    z-index: 0;
+  }
+
+  @include ie-lte(7) {
+    position: absolute !important;
+  }
+}
+
+/* the sidebar related box overlaps the main content when zoomed on iPhone */
+@media only screen and (max-device-width:320px) {
+  .related-positioning {
+    position: absolute !important;
+  }
+}
+
+.related-container {
+  height: 0;
+  margin: 0 auto;
+  max-width: 960px;
+  position: relative;
+  z-index: 50;
+
+  @include ie-lte(7) {
+    width: 960px;
+  }
+}
+
+.related {
+  position: absolute;
+  right: 0;
+  width: 15em;
+
+  @include ie-lte(8) {
+    display: inline;
+    height: 1%;
+    zoom: 1;
+  }
+
+  .inner {
+    background-color: #E5E5E5;
+    padding: 0 1em 0.25em 1.2em;
+    width: auto;
+    border-left:1px solid #C9D0D0;
+  }
+
+  h2 {
+    color: #000;
+    font-size: 1.1875em;
+    font-weight:300;
+    height: 30px;
+    line-height: 1.5em;
+    margin: 0 0 0 -21px;
+    padding: 30px 0 0 20px;
+    position: relative;
+    top: -13px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding-bottom: 0.45em;
+    padding-left:0;
+  }
+}
+
+#wrapper .related {
+  li {
+    &.related-topic {
+      border-top: 1px solid #C9D0D0;
+      list-style: none outside none;
+      margin: 1em 0 0;
+      padding: 1em 0;
+
+      span {
+        font-weight: bold;
+
+        .arrow {
+          display: none;
+        }
+      }
+    }
+
+    a {
+      background-position: 0 -287px;
+      background-repeat: no-repeat;
+      display: block;
+      line-height:1.25em;
+      padding: 0em 0 0.5em 0em;
+      orphans: 2;
+
+      &:hover {
+        background-position: 0 0;
+      }
+
+      @include ie-lte(8) {
+        height: 1%;
+      }
+    }
+
+    a[href*="#"] {
+      /* grey out stub links */
+      background: none;
+      color: #888;
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+}
+
+#wrapper .related.sections-list li a {
+  padding: 0.1em 0em;
+}
+
+/*
+ * Legacy sources thang
+ */
+
+#legacy-sources {
+	margin-left: 1.2em;
+	margin-top: 1em;
+  display: none;
+
+  p {
+	  font-size: 1em;
+	  margin-bottom: 0.3em;
+	  padding: 0;
+	  color: black;
+  }
+
+  ul {
+	  border-bottom: 1px solid #CCC;
+	  margin: 0;
+	  padding: 0;
+  }
+
+  li {
+	  text-indent: -5000px;
+	  float: left;
+	  background-repeat: no-repeat;
+    display: none;
+  }
+}
+
+#wrapper.businesslink #legacy-sources,
+#wrapper.directgov #legacy-sources {
+  display: block;
+}
+
+#wrapper.businesslink #legacy-sources li.businesslink {
+	background-image: image-url("businesslink-logo.png");
+	width: 84px;
+	height: 17px;
+	margin-top: 0.8em;
+	display: block;
+}
+
+#wrapper.directgov #legacy-sources li.directgov {
+	background-image: image-url("directgov-logo.png");
+	width: 74px;
+	height: 14px;
+	margin-right: 1em;
+	margin-top: 1.1em;
+	display: block;
+}
+
+/*
+ * Page headers
+ */
+/* Programmes */
+#wrapper.programme header.page-header hgroup h1 {
+  background-image: image-url("icon-programme-l.png");
+}
+
+/* Services */
+#wrapper.service header.page-header hgroup {
+  /*border-color: #2DA096;*/
+}
+
+#wrapper.service header.page-header hgroup h1 {
+  background-image: image-url("icon-service-l.png");
+}
+
+/* Quick answers */
+#wrapper.answer header.page-header hgroup h1 {
+  background-image: image-url("icon-answer-l.png");
+}
+
+/* Licence guidance */
+#wrapper.licence header.page-header hgroup h1 {
+  background-image: image-url("icon-licence-l.png");
+}
+
+/* Guides */
+#wrapper.guide header.page-header hgroup h1,
+#wrapper.video header.page-header hgroup h1 {
+  background-image: image-url("icon-guide-l.png");
+  background-repeat: no-repeat;
+}
+
+header {
+  &.page-header hgroup {
+    background-color: #fff;
+    display: block;
+    margin: 0 15em 0 0;
+    padding: 0.2em 1em 1.5em 0.5em;
+
+    h1 {
+      background-repeat: no-repeat;
+      color: #000;
+      font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-size: 2.75em;
+      font-weight: 400;
+      letter-spacing: 0em;
+      line-height: 1.041666667em;
+      padding: 0.3em 1.5em 0.35em 1.65em;
+
+      @include ie-lte(8) {
+        height: 1%;
+      }
+    }
+
+    h2 {
+      color: #666;
+      font-size: 1em;
+      margin: 0.75em 0 0 4.5em;
+    }
+
+    span {
+      display: block;
+      font-size: 0.42em;
+      line-height: 1em;
+      margin-bottom: 0.5em;
+      text-shadow: none;
+      font-weight:300;
+    }
+  }
+}
+
+.business header.page-header hgroup h1 {
+  padding-right: 3em;
+}
+.service header.page-header hgroup h1 {
+  background-position: 0 12px;
+}
+.guide header.page-header hgroup h1 {
+  background-position: 15px 14px;
+}
+.answer header.page-header hgroup h1 {
+  background-position: 12px 14px;
+}
+.programme header.page-header hgroup h1 {
+  background-position: 0 14px;
+}
+.licence header.page-header hgroup h1 {
+  background-position: 16px 14px;
+}
+
+/*
+  ============================== Stuff (mainly) used in publications =============================
+*/
+
+/* articles */
+article {
+  background: #fff;
+  float: left;
+  margin-right: 12em;
+  min-height: 30em;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include ie-lte(8) {
+    float: none;
+  }
+
+  @include ie-lte(7) {
+    height: 30em;
+  }
+
+  &.group {
+    @include ie-lte(7) {
+      height: auto;
+    }
+  }
+
+  .inner {
+    padding: 0 5em 2em 5em;
+    width: auto;
+  }
+}
+
+.article-container {
+  background-color: #fff;
+  margin-right: 15em;
+
+  article {
+    margin-right: 0;
+  }
+}
+
+/* Meta-data */
+.meta-data {
+  color: #333;
+  float: left;
+  width: 100%;
+
+  @include ie-lte(6) {
+    float: none;
+  }
+
+  .inner {
+    padding: 0 2em 0 2em;
+  }
+}
+
+.print-and-modified-date {
+  float: left;
+}
+
+.print-link {
+  float: right;
+
+  a, a:link, a:visited {
+    background: image-url("print.png") no-repeat 100% 50%;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 2em;
+    padding-top: 4px;
+  }
+}
+
+.modified-date {
+  float: left;
+}
+
+/*
+ * auto complete
+ * borrowed from the alpha
+ */
+.hint-suggest {
+  border: 1px solid #EEEEEE;
+  margin: 0;
+  background-color: #fff;
+  display: block;
+  left: 0;
+  padding: 0.5em;
+  position: relative;
+  top: 0;
+  width: 163px;
+  color: #666;
+  font-size: 0.95em;
+}
+
+.search-loading {
+  background: image-url("ajax-loader.gif") no-repeat 4px 50% #fff;
+  padding-left: 30px;
+  width: 133px;
+}
+
+#main_autocomplete {
+  color: inherit;
+}
+
+ul.ui-menu {
+  padding: 0;
+}
+
+ul.ui-widget {
+  font-size: 1em;
+}
+
+ul.ui-autocomplete {
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #8F8F8F;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1px;
+  position: absolute;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  top: 1.8em;
+  left: 0;
+  display: none;
+
+  li {
+    border-top: 1px solid #eee;
+    list-style-type: none;
+    margin: 0;
+
+    a,
+    a:hover {
+      background-position: 8px 50%;
+    }
+
+    a {
+      em {
+        font-style: normal;
+        font-weight: bold;
+        padding: 0.125em;
+      }
+    }
+  }
+
+  .search-site a,
+  .search-site a:hover {
+    border-top:3px solid #dedede;
+    background: image-url("search.png") no-repeat 12px 50% #eee;
+    padding-left: 3em;
+  }
+
+  &.ui-menu .ui-menu-item a,
+  .search-site a {
+    padding: 0.2em 1em;
+    display:block;
+    color: #333;
+    text-decoration:none;
+  }
+
+  &.ui-menu .ui-menu-item.search-site em {
+    font-style: italic;
+  }
+}
+
+ul.ui-menu .ui-menu-item a.ui-state-hover,
+ul.ui-menu .ui-menu-item a.ui-state-active,
+ul.ui-autocomplete .search-site a:hover {
+  margin: 0;
+  background-color:#ffffcc;
+}
+
+ul.ui-corner-all, ul li a.ui-corner-all {
+  border-radius: 0 0 0 0;
+}
+
+/* Location in header bar */
+#location-set-message,
+#location-unset-message {
+  background: image-url("location-pin_outline_tiny.png") no-repeat 0 50%;
+  position: fixed;
+  top: 0;
+  left: 20%;
+  display: block;
+  z-index: 100000;
+  line-height: 3.5em;
+  padding: 0 0 0 1.5em;
+  margin: 0;
+  color: #bbb;
+  font-size: 0.75em;
+
+  .removing {
+    display:none;
+  }
+
+  a {
+    color: #d8d8d8;
+  }
+
+  small {
+    font-size: inherit;
+  }
+
+  @include ie-lte(8) {
+    display: none;
+  }
+}
+
+/*
+ * Devolved content
+ */
+.devolved-content {
+  background: none repeat scroll 0 0 #fff;
+  border: solid 1px #ccc;
+  margin: 1em 0;
+  padding: 0 1em 1em 1em;
+}
+
+.devolved-header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  font-size: 0.85em;
+
+  a {
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
+    font-size: 0.75em;
+    background-color: #92AD54;
+    color: #fff;
+    margin-left: 0.5em;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+  }
+}
+
+.england .devolved-header {
+  padding: 0 0 0 18px;
+  background: image-url("flags.png") no-repeat scroll 0 -17px #fff;
+}
+.scotland .devolved-header {
+  padding: 0 0 0 18px;
+  background: image-url("flags.png") no-repeat scroll 0 -60px #fff;
+}
+
+.wales .devolved-header {
+  padding: 0 0 0 18px;
+  background: image-url("flags.png") no-repeat scroll 0 3px #fff;
+}
+.northern-ireland .devolved-header {
+  /* don't show a flag for NI */
+  padding: 0;
+  background: none;
+}
+
+/* Error messages */
+.error-notification,
+.error-area {
+  border: 1px solid #ffc946;
+  background-color: #fbedcd;
+  padding: 0 1em;
+
+  p {
+    font-size: 1em;
+  }
+}
+
+.error-area span {
+  display: block;
+  font-weight: bold;
+  font-size: 0.85em;
+}
+
+/* Feedback mechanism styles */
+#mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: #000;
+  display: none;
+}
+
+.js-enabled #popup,
+.js-enabled #feedback-popup,
+#govuk-feedback {
+  display: none;
+}
+
+#popup {
+  display: none;
+  overflow: visible;
+  clear: both;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 2em;
+  width: 60%;
+  z-index: 999999;
+  padding-bottom: 0.5em;
+
+  h2 {
+    outline: none;
+  }
+
+  h3 {
+    font-size: 1em;
+    font-weight: 300;
+    margin: 0.75em 0;
+  }
+
+  ul {
+    margin: 0 0 0 5em;
+    padding: 0;
+  }
+
+  p.geolocate-me {
+    border-top: 1px solid #ddd;
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+  }
+
+  #global-locator-form {
+    background: #f8f8f8 image-url("locator-icon.png") no-repeat 1em 1em;
+    border: none;
+    margin: 0 auto 1em auto;
+    padding: 1.2em 0.75em 1.2em 3.5em;
+    position: relative;
+  }
+
+  #global-set-theme .personalise-options {
+	  background: #d5ecea;
+	  padding: 1em;
+	  position: relative;
+  }
+
+  #global-set-theme .beta-notice {
+    font-size: 0.85em;
+    line-height: 1.5em;
+  }
+
+  &.customisation-tools,
+  &.feedback-tools {
+    background-color: #fff;
+    padding: 1em 1.5em;
+    width: 60%;
+    min-height: 26em;
+
+    h2 {
+      font-size: 1.75em;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
+
+  &.feedback-tools {
+    min-height: 22em;
+  }
+
+  .error-notification {
+    margin-bottom: 0.8em;
+    padding: 0 0.5em;
+  }
+
+  &.customisation-tools p.close,
+  &.feedback-tools p.close,
+  &.welcome-tour p.close {
+    padding: 0;
+  }
+
+  .inner {
+    background-color: #fff;
+  }
+
+  .intro {
+    background-color: #d5ecea;
+    padding: 1em;
+
+    p.explanation {
+      font-size: 1em;
+	    margin-bottom: 0;
+      padding-right: 8em;
+    }
+  }
+
+  .vcard span {
+    display: block;
+  }
+}
+
+/* welcome popup */
+#popup.welcome-tour {
+  top: 12px;
+  width: 80%;
+  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
+  padding: 0;
+  left: 10%;
+
+  h2 {
+    font-size: 2em;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 0.2em 0 0 0.5em;
+    color: #000;
+  }
+
+  .welcome-content {
+    background-color: #F27820;
+    padding: 0 5px 5px 5px;
+  }
+
+  .welcome-inner {
+    background-color: #FDE4D2;
+    color: #000;
+    padding: 1em 2em;
+  }
+
+  .close {
+    right: 0.5em;
+    top: 1.5em;
+  }
+}
+
+@media screen and (min-width:500px) {
+  #popup.welcome-tour {
+    width: 60%;
+    left: 20%;
+  }
+}
+
+.close {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  a {
+    background-color: transparent;
+    background-image: image-url("close.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0;
+    height: 2em;
+    width: 2em;
+    text-indent: -9999px;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.25);
+    }
+  }
+}
+
+/* feedback popup */
+#feedback-cta {
+  background-color: #333;
+  color: white;
+  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
+  z-index: 9999;
+
+  @include ie-lte(8) {
+    position: absolute;
+  }
+
+  h2 {
+    font-size: 0.85em;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    margin: 0.4em -2px 0.75em 0;
+    width: 10px;
+    text-transform: uppercase;
+	  -webkit-transform:rotate(90deg);
+	  -moz-transform:rotate(90deg);
+	  -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    display: absolute;
+    float: right;
+    color: #B4892D;
+  }
+
+  p {
+    line-height: 1.2;
+    padding: 0.5em;
+    margin: 0.2em 0;
+    color: inherit;
+  }
+
+  input {
+    border: none;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0.5em 0 0.3em 0.4em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #666;
+  }
+
+  #cta-yes {
+    background: #D33883;
+  }
+
+  &.bottom input,
+  &.bottom form,
+  &.bottom h2 {
+    display: inline;
+  }
+
+  &.hide{
+    left: -12em;
+
+    &:hover,
+    &:active,
+    &:focus {
+      left: 0px;
+    }
+  }
+
+  &.left {
+    position: fixed;
+    left: -0.5em;
+    display: block;
+    bottom: 5%;
+    width: 12em;
+    min-height: 10em;
+    padding: 0em 0.5em 0.5em 1em;
+    -webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+
+    @include ie-lte(8) {
+      display: none;
+    }
+  }
+
+  .inner {
+    padding: 0;
+    position: relative;
+
+    .close {
+      right: -1em;
+      top: -1em;
+
+      @include ie-lte(8) {
+        right: 0em;
+        top: -0.5em;
+      }
+    }
+  }
+
+  .sets-cookie {
+    background: none;
+    margin: 1em 0 0 0;
+    padding: 0.25em 0 0 0;
+
+    a {
+      color: inherit;
+      font-size:0.85em;
+      padding:0 0 0 0.5em;
+    }
+  }
+}
+
+#feedback-mechanism {
+  background-color: #EEE;
+  padding: 1em;
+
+}
+#feedback-options select,
+#feedback-mechanism textarea {
+  width: 90%;
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.4em;
+}
+.feedback-tools .feedback-thanks {
+  font-size: 1.7em;
+}
+
+#related-popup {
+  padding: 1em;
+  margin: 1em;
+  border-top: 1px solid #eee
+
+  h2 {
+    padding: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline;
+      padding: 0;
+      margin: 0;
+      margin-right: 1em;
+    }
+  }
+}
+
+.sets-cookie {
+  font-size: 0.85em;
+}
+
+.cookie-container {
+  margin: 0;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+
+  @include ie-lte(8) {
+    bottom: auto;
+    right: auto;
+    margin-top: 1em;
+    position: relative;
+  }
+}
+
+.find-location-for-service .cookie-container {
+  bottom: 1em;
+  right: 0.75em;
+}
+
+/*  ============================================================================
+    Tabs
+    ========================================================================  */
+
+.nav-tabs {
+  zoom: 1;
+  background: #fff;
+  padding: 0;
+  position: relative;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  ol,
+  ul {
+    background-color: #C9D0D0;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+
+    @include ie-lte(7) {
+      overflow: hidden;
+      padding: 1px 1px 0 0;
+    }
+
+    li {
+      float: left;
+
+      @include ie-lte(7) {
+        width: 7.5em;
+      }
+    }
+  }
+
+  li {
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+
+    &:first-child a {
+      border-left: solid 1px #E1E8E8;
+      margin-left: 0;
+    }
+
+    a {
+      background-color: #E1E8E8;
+      display: block;
+      height: 2.25em;
+      line-height: 2.25em;
+      margin-left: 1px;
+      padding: 0 1em 0 0.75em;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      top: 0;
+
+      @include ie-lte(7) {
+        background-image: none;
+        padding: 0 0.5em;
+      }
+
+      &:hover {
+        background-color: #97C5E5;
+        color: inherit;
+      }
+    }
+
+    .active a {
+      background-color: #fff;
+      border: solid 1px #C9D0D0;
+      border-bottom: solid 1px #fff;
+      color: #000;
+      margin: -1px -1px -1px 0;
+      position: relative;
+      z-index: 5;
+
+      @include ie-lte(7) {
+        bottom: -1px;
+      }
+
+      &:hover {
+        background-color: #fff;
+        color: #2E8ACA;
+      }
+    }
+  }
+}
+
+.tab-content {
+  margin: 0 -5em;
+
+  .tab-pane {
+    padding: 0.5em 5em 0 5em;
+    border-top: solid 1px #C9D0D0;
+    clear: both;
+  }
+
+  .inner {
+    padding: 0em 2.5em 1em;
+  }
+
+  h1.visuallyhidden + h2 {
+    margin-top: 2em;
+  }
+
+  p {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  em {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  nav {
+    margin: 1em -1.375em 0;
+  }
+}

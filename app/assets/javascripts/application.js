@@ -9,4 +9,5 @@
 //= require geo-locator
 //= require welcome
 //= require browse
-
+//= require jquery.history
+//= require jquery.tabs
