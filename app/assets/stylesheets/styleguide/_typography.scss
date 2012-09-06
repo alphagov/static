@@ -40,7 +40,6 @@
 
 // CORE FONTS - NEW TRANSPORT
 
-// Suitable for page headings
 @mixin core-48 {
   font-family: $NTA-Light;
   font-size: 48px;
@@ -49,19 +48,52 @@
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 2.5rem;
+    line-height: 30 / 25;
+  }
+}
+
+// Suitable for page headings
+@mixin heading-48 {
+  @include core-48
   padding-top: 12px;
   padding-top: 1.2rem;
   padding-bottom: 8px;
   padding-bottom: 0.8rem;
   @media (max-width: 640px) {
-    font-size: 2.5rem;
-    line-height: 30 / 25;
     padding-top: 0.8rem;
     padding-bottom: 0.7rem;
   }
 }
 
-// Suitable for body headings
+@mixin core-44 {
+  font-family: $NTA-Light;
+  font-size: 44px;
+  font-size: 4.4rem;
+  line-height: 50 / 44;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 2.5rem;
+    line-height: 30 / 25;
+  }
+}
+
+// Suitable for page headings
+@mixin heading-44 {
+  @include core-44;
+  padding-top: 13px;
+  padding-top: 1.3rem;
+  padding-bottom: 15px;
+  padding-bottom: 1.5rem;
+  @media (max-width: 640px) {
+    padding-top: 0.8rem;
+    padding-bottom: 0.7rem;
+  }
+}
+
 @mixin core-27 {
   font-family: $NTA-Light;
   font-size: 27px;
@@ -70,19 +102,25 @@
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.9rem;
+    line-height: 25 / 19;
+  }
+}
+
+// Suitable for body headings
+@mixin heading-27 {
+  @include core-27;
   padding-top: 3px;
   padding-top: 0.3rem;
   padding-bottom: 2px;
   padding-bottom: 0.2rem;
   @media (max-width: 640px) {
-    font-size: 1.9rem;
-    line-height: 25 / 19;
     padding-top: 0.7rem;
     padding-bottom: 0.3rem;
   }
 }
 
-// Suitable for short body copy
 @mixin core-24 {
   font-family: $NTA-Light;
   font-size: 24px;
@@ -91,19 +129,37 @@
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.7rem;
+    line-height: 25 / 17;
+  }
+}
+
+// Suitable for short body copy
+@mixin copy-24 {
+  @include core-24;
   padding-top: 3px;
   padding-top: 0.3rem;
   padding-bottom: 2px;
   padding-bottom: 0.2rem;
   @media (max-width: 640px) {
-    font-size: 1.7rem;
-    line-height: 25 / 17;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
   }
 }
 
-// Suitable for long body copy
+// Suitable for body headings
+@mixin heading-24 {
+  @include core-24;
+  padding-top: 0;
+  padding-bottom: 12px;
+  padding-bottom: 1.2rem;
+  @media (max-width: 640px) {
+    padding-top: 0;
+    padding-bottom: 0.8rem;
+  }
+}
+e
 @mixin core-19 {
   font-family: $NTA-Light;
   font-size: 19px;
@@ -112,40 +168,99 @@
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.3rem;
+    line-height: 20 / 13;
+  }
+}
+
+// Suitable for long body copy
+@mixin copy-19 {
+  @include core-19;
   padding-top: 7px;
   padding-top: 0.7rem;
   padding-bottom: 3px;
   padding-bottom: 0.3rem;
   @media (max-width: 640px) {
-    font-size: 1.3rem;
-    line-height: 20 / 13;
     padding-top: 0.6rem;
     padding-bottom: 0.4rem;
   }
 }
 
-// Suitable body pullouts and asides
+@mixin core-18 {
+  font-family: $NTA-Light;
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 18;
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.3rem;
+    line-height: 13;
+  }
+}
+
+// Suitable for page formats
+@mixin format-18 {
+  @include core-18;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 @mixin core-16 {
   font-family: $NTA-Light;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 20 / 16;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0;
   text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.3rem;
+    line-height: 20 / 13;
+  }
+}
+
+// Suitable for body pullouts and asides
+@mixin pullout-aside-16 {
+  @include core-16;
   padding-top: 5px;
   padding-top: 0.5rem;
   padding-bottom: 5px;
   padding-bottom: 0.5rem;
   @media (max-width: 640px) {
-    font-size: 1.3rem;
-    line-height: 20 / 13;
     padding-top: 0.6rem;
     padding-bottom: 0.4rem;
   }
 }
 
-// Suitable for captions, buttons etc
+@mixin core-15 {
+  font-family: $NTA-Light;
+  font-size: 15px;
+  font-size: 1.5rem;
+  line-height: 20 / 15; 
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  letter-spacing: 0;
+  text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+    line-height: 15 / 12;
+  }
+}
+
+// Suitable for body sub-headings
+@mixin sub-heading-15 {
+  @include core-15;
+  padding-top: 0;
+  padding-bottom: 0;
+  @media (max-width: 640px) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 @mixin core-14 {
   font-family: $NTA-Light;
   font-size: 14px;
@@ -155,13 +270,20 @@
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 0;
   text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+    line-height: 15 / 12;
+  }
+}
+
+// Suitable for captions, buttons etc
+@mixin caption-button-14 {
+  @include core-14;
   padding-top: 6px;
   padding-top: 0.6rem;
   padding-bottom: 4px;
   padding-bottom: 0.4rem;
   @media (max-width: 640px) {
-    font-size: 1.2rem;
-    line-height: 15 / 12;
     padding-top: 0.4rem;
     padding-bottom: 0.1rem;
   }
