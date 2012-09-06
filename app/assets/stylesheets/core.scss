@@ -1,12 +1,14 @@
 @import "_conditionals";
 @import "_css3";
 
-body.citizen nav.header-context {
-  background-color: #F2F2F2;
+body.mainstream nav.header-context {
+  // background-color: #F2F2F2;
+  margin: 0.25em auto;
+  max-width: 960px;
 
   ol {
-    margin: 0 auto;
-    max-width: 960px;
+    background-color: #fff;
+    margin-right: 15em;
     padding: 0.5em 0 0.5em 0;
   }
 
@@ -43,7 +45,7 @@ body.citizen nav.header-context {
   }
 }
 
-body.citizen .header-context ol {
+body.mainstream .header-context ol {
   @include ie-lte(7) {
     padding: 0.25em 0;
     width: 960px;
@@ -183,7 +185,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 8em;
+  top: 7em;
   width: 100%;
   z-index: 0;
 
@@ -235,9 +237,9 @@ h4 {
 
   h2 {
     color: #000;
-    font-size: 1em;
+    font-size: 1.1875em;
     font-weight:300;
-    line-height: 1.5em;
+    line-height: 1.25;
     margin: 0 0 0 -21px;
     padding: 30px 0 0 20px;
     position: relative;
