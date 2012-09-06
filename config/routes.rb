@@ -2,6 +2,7 @@ Static::Application.routes.draw do
   match "/templates/wrapper.html.erb", :to => "root#wrapper"
   match "/templates/print.html.erb", :to => "root#print"
   match "/templates/related.raw.html.erb", :to => "root#related"
+  match "/templates/report_a_problem.raw.html.erb", :to => "root#report_a_problem"
   match "/templates/homepage.html.erb", :to => "root#homepage"
   match "/templates/admin.html.erb", :to => "root#admin"
   match "/templates/404.html.erb", :to => "root#404"
