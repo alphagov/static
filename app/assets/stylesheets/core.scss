@@ -228,16 +228,15 @@ h4 {
 
   .inner {
     background-color: #E5E5E5;
-    padding: 0 1em 0.25em 1.2em;
+    padding: 0 1em 0 1.2em;
     width: auto;
     border-left:1px solid #C9D0D0;
   }
 
   h2 {
     color: #000;
-    font-size: 1.1875em;
+    font-size: 1em;
     font-weight:300;
-    height: 30px;
     line-height: 1.5em;
     margin: 0 0 0 -21px;
     padding: 30px 0 0 20px;
@@ -254,16 +253,16 @@ h4 {
   li {
     padding-bottom: 0.45em;
     padding-left:0;
-  }
-}
 
-#wrapper .related {
-  li {
     &.related-topic {
       border-top: 1px solid #C9D0D0;
       list-style: none outside none;
-      margin: 1em 0 0;
+      margin: 0.25em 0 0;
       padding: 1em 0;
+
+      a {
+        padding: 0;
+      }
 
       span {
         font-weight: bold;
