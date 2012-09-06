@@ -8,40 +8,36 @@ body.mainstream nav.header-context {
   ol {
     background-color: #fff;
     margin: 0 15em 0 0;
-    padding: 0.25em 0 0.5em 0;
+    padding: 0.25em 0 0.25em 0;
+
+    li {
+      background-image: image-url("separator.png");
+      background-position: 0.25em 50%;
+      background-repeat: no-repeat;
+      float: left;
+      font-size: 1.1875em;
+      list-style: none;
+      margin-right: 0.5em;
+      padding-left: 1.3em;
+
+      &:first-child {
+        background: none;
+        margin-left: 0.75em;
+        padding-left: 0;
+      }
+
+      a {
+        white-space: nowrap;
+      }
+
+      &:last-child {
+        margin-right: 0
+      }
+
+    }
+
   }
 
-  ol li {
-    float: left;
-    list-style: none;
-  }
-
-  ol li {
-    background-image: image-url("separator.png");
-    background-position: 0.2em 36%;
-    background-repeat: no-repeat;
-    padding-left: 1.3em;
-    margin-right: 0.5em;
-  }
-
-  ol li:first-child {
-    background: none;
-    margin-left: 0.75em;
-    padding-left: 0;
-  }
-
-  a {
-    white-space: nowrap;
-  }
-
-  a:last-child {
-    margin-right: 0
-  }
-
-  /* beta notice */
-  .beta-notice {
-    display: none;
-  }
 }
 
 body.mainstream .header-context ol {
