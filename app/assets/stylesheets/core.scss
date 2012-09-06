@@ -1,7 +1,7 @@
 @import "_conditionals";
 @import "_css3";
 
-body.citizen nav.header-context {
+body.mainstream nav.header-context {
   background-color: #F2F2F2;
 
   ol {
@@ -43,7 +43,7 @@ body.citizen nav.header-context {
   }
 }
 
-body.citizen .header-context ol {
+body.mainstream .header-context ol {
   @include ie-lte(7) {
     padding: 0.25em 0;
     width: 960px;
