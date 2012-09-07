@@ -44,19 +44,19 @@
   font-family: $NTA-Light;
   font-size: 48px;
   font-size: 4.8rem;
-  line-height: 50 / 48;
+  line-height: (50 / 48);
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 2.5rem;
-    line-height: 30 / 25;
+    line-height: (30 / 25);
   }
 }
 
 // Suitable for page headings
 @mixin heading-48 {
-  @include core-48
+  @include core-48;
   padding-top: 12px;
   padding-top: 1.2rem;
   padding-bottom: 8px;
@@ -71,13 +71,13 @@
   font-family: $NTA-Light;
   font-size: 44px;
   font-size: 4.4rem;
-  line-height: 50 / 44;
+  line-height: (50 / 44);
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 2.5rem;
-    line-height: 30 / 25;
+    line-height: (30 / 25);
   }
 }
 
@@ -98,13 +98,13 @@
   font-family: $NTA-Light;
   font-size: 27px;
   font-size: 2.7rem;
-  line-height: 30 / 27; 
+  line-height: (30 / 27); 
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.9rem;
-    line-height: 25 / 19;
+    line-height: (25 / 19);
   }
 }
 
@@ -125,13 +125,13 @@
   font-family: $NTA-Light;
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 30 / 24;
+  line-height: (30 / 24);
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.7rem;
-    line-height: 25 / 17;
+    line-height: (25 / 17);
   }
 }
 
@@ -159,18 +159,18 @@
     padding-bottom: 0.8rem;
   }
 }
-e
+
 @mixin core-19 {
   font-family: $NTA-Light;
   font-size: 19px;
   font-size: 1.9rem;
-  line-height: 25 / 19;
+  line-height: (25 / 19);
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.3rem;
-    line-height: 20 / 13;
+    line-height: (20 / 13);
   }
 }
 
@@ -212,13 +212,13 @@ e
   font-family: $NTA-Light;
   font-size: 16px;
   font-size: 1.6rem;
-  line-height: 20 / 16;
+  line-height: (20 / 16);
   font-weight: 300;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.3rem;
-    line-height: 20 / 13;
+    line-height: (20 / 13);
   }
 }
 
@@ -239,14 +239,14 @@ e
   font-family: $NTA-Light;
   font-size: 15px;
   font-size: 1.5rem;
-  line-height: 20 / 15; 
+  line-height: (20 / 15); 
   font-weight: 400;
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.2rem;
-    line-height: 15 / 12;
+    line-height: (15 / 12);
   }
 }
 
@@ -265,14 +265,14 @@ e
   font-family: $NTA-Light;
   font-size: 14px;
   font-size: 1.4rem;
-  line-height: 20 / 14; 
+  line-height: (20 / 14); 
   font-weight: 400;
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.2rem;
-    line-height: 15 / 12;
+    line-height: (15 / 12);
   }
 }
 
