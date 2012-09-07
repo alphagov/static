@@ -1207,3 +1207,36 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     margin: 1em -1.375em 0;
   }
 }
+
+/* report a problem */
+
+.report-a-problem-toggle{
+  margin:2em 4em 0.5em 5em;
+  clear:both;
+  a{
+    color:#999;
+  }
+}
+.js-enabled .report-a-problem-container{
+  display:none;
+}
+.report-a-problem-container{
+  font-size:1.1255em;
+  background-color:#D5E8F3;
+  margin:0 3.5em 2em 3.5em;
+  padding:0.5em 1em 1em 1em;
+  div{
+    width:98%;
+    padding-top:0.5em;
+    text-align:right;
+  }
+  label{
+    padding:0 0 0.5em 0;
+    display:block;
+    input{
+      margin:0;
+      display:block;
+      width:98%;
+    }
+  }
+}
