@@ -40,17 +40,17 @@
 
 // CORE FONTS - NEW TRANSPORT
 
-@mixin core-48 {
+@mixin core-48($line-height: (50 / 48), $line-height-640: (30 / 25)) {
   font-family: $NTA-Light;
   font-size: 48px;
   font-size: 4.8rem;
-  line-height: (50 / 48);
+  line-height: $line-height;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 2.5rem;
-    line-height: (30 / 25);
+    line-height: $line-height-640;
   }
 }
 
@@ -94,17 +94,17 @@
   }
 }
 
-@mixin core-27 {
+@mixin core-27($line-height: (30 / 27), $line-height-640: (25 / 19)) {
   font-family: $NTA-Light;
   font-size: 27px;
   font-size: 2.7rem;
-  line-height: (30 / 27); 
+  line-height: $line-height;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.9rem;
-    line-height: (25 / 19);
+    line-height: $line-height-640;
   }
 }
 
@@ -121,17 +121,17 @@
   }
 }
 
-@mixin core-24 {
+@mixin core-24($line-height: (30 / 24), $line-height-640: (25 / 17)) {
   font-family: $NTA-Light;
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: (30 / 24);
+  line-height: $line-height;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.7rem;
-    line-height: (25 / 17);
+    line-height: $line-height-640;
   }
 }
 
@@ -160,17 +160,17 @@
   }
 }
 
-@mixin core-19 {
+@mixin core-19($line-height: (25 / 19), $line-height-640: (20 / 13)) {
   font-family: $NTA-Light;
   font-size: 19px;
   font-size: 1.9rem;
-  line-height: (25 / 19);
+  line-height: $line-height;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.3rem;
-    line-height: (20 / 13);
+    line-height: $line-height-640;
   }
 }
 
@@ -208,17 +208,17 @@
   padding-bottom: 0;
 }
 
-@mixin core-16 {
+@mixin core-16($line-height: (20 / 16), $line-height-640: (20 / 13)) {
   font-family: $NTA-Light;
   font-size: 16px;
   font-size: 1.6rem;
-  line-height: (20 / 16);
+  line-height: $line-height;
   font-weight: 300;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.3rem;
-    line-height: (20 / 13);
+    line-height: $line-height-640;
   }
 }
 
@@ -261,18 +261,18 @@
   }
 }
 
-@mixin core-14 {
+@mixin core-14($line-height: (20 / 14), $line-height-640: (15 / 12)) {
   font-family: $NTA-Light;
   font-size: 14px;
   font-size: 1.4rem;
-  line-height: (20 / 14); 
+  line-height: $line-height; 
   font-weight: 400;
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
     font-size: 1.2rem;
-    line-height: (15 / 12);
+    line-height: $line-height-640;
   }
 }
 
