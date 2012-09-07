@@ -1,5 +1,7 @@
 @import "_conditionals";
 @import "_css3";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
 
 body.citizen nav.header-context {
   background-color: #F2F2F2;
@@ -98,21 +100,19 @@ h2, h3, h4 {
 }
 
 h2 {
-  font-size: 1.5em;
-  line-height: 1.18;
+  @include core-24;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
 h3 {
-  font-size: 1.3em;
-  line-height: 1.11;
+  @include core-19;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
 h4 {
-  font-size: 1.1875em;
+  @include core-19;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
@@ -234,11 +234,9 @@ h4 {
   }
 
   h2 {
+    @include core-19;
     color: #000;
-    font-size: 1.1875em;
-    font-weight:300;
     height: 30px;
-    line-height: 1.5em;
     margin: 0 0 0 -21px;
     padding: 30px 0 0 20px;
     position: relative;
@@ -310,27 +308,27 @@ h4 {
  */
 
 #legacy-sources {
-	margin-left: 1.2em;
-	margin-top: 1em;
-  display: none;
+    margin-left: 1.2em;
+    margin-top: 1em;
+    display: none;
 
   p {
-	  font-size: 1em;
-	  margin-bottom: 0.3em;
-	  padding: 0;
-	  color: black;
+    @include core-16;
+    margin-bottom: 0.3em;
+    padding: 0;
+    color: black;
   }
 
   ul {
-	  border-bottom: 1px solid #CCC;
-	  margin: 0;
-	  padding: 0;
+    border-bottom: 1px solid #CCC;
+    margin: 0;
+    padding: 0;
   }
 
   li {
-	  text-indent: -5000px;
-	  float: left;
-	  background-repeat: no-repeat;
+    text-indent: -5000px;
+    float: left;
+    background-repeat: no-repeat;
     display: none;
   }
 }
@@ -341,20 +339,20 @@ h4 {
 }
 
 #wrapper.businesslink #legacy-sources li.businesslink {
-	background-image: image-url("businesslink-logo.png");
-	width: 84px;
-	height: 17px;
-	margin-top: 0.8em;
-	display: block;
+    background-image: image-url("businesslink-logo.png");
+    width: 84px;
+    height: 17px;
+    margin-top: 0.8em;
+    display: block;
 }
 
 #wrapper.directgov #legacy-sources li.directgov {
-	background-image: image-url("directgov-logo.png");
-	width: 74px;
-	height: 14px;
-	margin-right: 1em;
-	margin-top: 1.1em;
-	display: block;
+    background-image: image-url("directgov-logo.png");
+    width: 74px;
+    height: 14px;
+    margin-right: 1em;
+    margin-top: 1.1em;
+    display: block;
 }
 
 /*
@@ -401,11 +399,7 @@ header {
     h1 {
       background-repeat: no-repeat;
       color: #000;
-      font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
-      font-size: 2.75em;
-      font-weight: 400;
-      letter-spacing: 0em;
-      line-height: 1.041666667em;
+      @include heading-48;
       padding: 0.3em 1.5em 0.35em 1.65em;
 
       @include ie-lte(8) {
@@ -414,18 +408,16 @@ header {
     }
 
     h2 {
+      @include core-16;
       color: #666;
-      font-size: 1em;
       margin: 0.75em 0 0 4.5em;
     }
 
     span {
+      @include core-19($line-height: 1);
       display: block;
-      font-size: 0.42em;
-      line-height: 1em;
       margin-bottom: 0.5em;
       text-shadow: none;
-      font-weight:300;
     }
   }
 }
@@ -542,7 +534,6 @@ article {
   top: 0;
   width: 163px;
   color: #666;
-  font-size: 0.95em;
 }
 
 .search-loading {
@@ -560,7 +551,7 @@ ul.ui-menu {
 }
 
 ul.ui-widget {
-  font-size: 1em;
+  @include core-16;
 }
 
 ul.ui-autocomplete {
@@ -713,14 +704,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding: 0 1em;
 
   p {
-    font-size: 1em;
+    @include core-16;
   }
 }
 
 .error-area span {
-  display: block;
+  @include core-14;
   font-weight: bold;
-  font-size: 0.85em;
+  display: block;
 }
 
 /* Feedback mechanism styles */
@@ -758,8 +749,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   h3 {
-    font-size: 1em;
-    font-weight: 300;
+    @include core-16;
     margin: 0.75em 0;
   }
 
@@ -769,8 +759,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   p.geolocate-me {
+    @include core-16;
     border-top: 1px solid #ddd;
-    font-size: 1em;
     margin-bottom: 0;
     margin-top: 0.5em;
     padding-top: 0.5em;
@@ -791,7 +781,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   #global-set-theme .beta-notice {
-    font-size: 0.85em;
+    @include core-14;
     line-height: 1.5em;
   }
 
@@ -803,8 +793,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     min-height: 26em;
 
     h2 {
-      font-size: 1.75em;
-      font-weight: normal;
+      @include core-27;
       margin: 0;
     }
   }
@@ -833,8 +822,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     padding: 1em;
 
     p.explanation {
-      font-size: 1em;
-	    margin-bottom: 0;
+      @include core-16;
+      margin-bottom: 0;
       padding-right: 8em;
     }
   }
@@ -853,8 +842,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   left: 10%;
 
   h2 {
-    font-size: 2em;
-    font-weight: normal;
+    @include core-27;
     text-transform: uppercase;
     padding: 0.2em 0 0 0.5em;
     color: #000;
@@ -919,15 +907,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   h2 {
-    font-size: 0.85em;
-    font-weight: normal;
-    letter-spacing: 0.15em;
+    @include core-14;
     margin: 0.4em -2px 0.75em 0;
     width: 10px;
     text-transform: uppercase;
-	  -webkit-transform:rotate(90deg);
-	  -moz-transform:rotate(90deg);
-	  -o-transform: rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform: rotate(90deg);
     transform: rotate(90deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
     display: absolute;
@@ -943,10 +929,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   input {
+    @include core-19;
     border: none;
     color: white;
-    font-size: 1.3em;
-    font-weight: bold;
     margin: 0.5em 0 0.3em 0.4em;
     padding: 0.5em 1em;
     text-align: center;
@@ -1010,8 +995,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     padding: 0.25em 0 0 0;
 
     a {
+      @include core-14;
       color: inherit;
-      font-size:0.85em;
       padding:0 0 0 0.5em;
     }
   }
@@ -1030,7 +1015,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   padding: 0.4em;
 }
 .feedback-tools .feedback-thanks {
-  font-size: 1.7em;
+  @include core-27;
 }
 
 #related-popup {
@@ -1057,7 +1042,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 .sets-cookie {
-  font-size: 0.85em;
+  @include core-14;
 }
 
 .cookie-container {
@@ -1122,9 +1107,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   li {
+    @include core-16;
     padding: 0;
     margin: 0;
-    font-size: 1em;
 
     &:first-child a {
       border-left: solid 1px #E1E8E8;
