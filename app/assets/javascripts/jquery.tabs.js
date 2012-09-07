@@ -20,7 +20,8 @@ jQuery.fn.tabs = function(settings){
 		trackState: true, //track tabs in history, url hash, back button, page load
 		srcPath: 'jQuery.history.blank.html',
 		autoRotate: false,
-		alwaysScrollToTop: true
+		alwaysScrollToTop: true,
+		selected: null
 	},settings);
 	
 	return $(this).each(function(){
@@ -71,23 +72,22 @@ jQuery.fn.tabs = function(settings){
 		
 		//generic select tab function
 		function selectTab(tab,fromHashChange){
-			if(o.trackState && !fromHashChange){ 
-			  var anchor = tab.attr('href').split("#")[1];
-				$.historyLoad(anchor); 
-			}
-			else{	
+			if(o.trackState && !fromHashChange){
+				var anchor = tab.attr('href').split("#")[1];
+				$.historyLoad(anchor);
+			} else {
 				//unselect tabs
 				tabsNav.find('li')
 					.attr('aria-selected', false)
 					.filter('.active')
 					.removeClass('active')
 					.find('a');
-				//set selected tab item	
+				//set selected tab item
 				tab
 					.parent()
 					.addClass('active')
 					.attr('aria-selected', true);
-				//unselect  panels
+				//unselect panels
 				tabsBody.find('.tabs-panel-selected')
 					.attr('aria-hidden',true)
 					.removeClass('tabs-panel-selected')
@@ -100,17 +100,67 @@ jQuery.fn.tabs = function(settings){
 					.attr('aria-hidden',false)
 					.show();
 
+				// set selected index
+				o.selected = tab.parent().index();
 			}
-		};			
+		}
 
+		tabsNav.on('click', 'a', function(){
+			selectTab($(this));
+			$(this).focus();
+			return false;
+		}).on('focus', 'a', function() {
+			o.selected = $(this).parent().index();
+		});
+		
+		// keyboard navigation
+		tabs.on('keydown', function(event) {
+			if (event.keyCode < $.ui.keyCode.PAGE_UP || event.keyCode > $.ui.keyCode.DOWN)
+				return;
+
+			var selectedIndex;
+			switch (event.keyCode) {
+				case $.ui.keyCode.RIGHT:
+				event.preventDefault();
+				selectedIndex = o.selected + 1;
+				break;
+				case $.ui.keyCode.DOWN:
+				selectedIndex = o.selected + 1;
+				break;
+				case $.ui.keyCode.UP:
+				selectedIndex = o.selected - 1;
+				break;
+				case $.ui.keyCode.LEFT:
+				selectedIndex = o.selected - 1;
+				break;
+				case $.ui.keyCode.END:
+				selectedIndex = that.anchors.length - 1;
+				break;
+				case $.ui.keyCode.HOME:
+				selectedIndex = 0;
+				break;
+				case $.ui.keyCode.PAGE_UP:
+				if (!event.ctrlKey)
+					return;
+				selectedIndex = o.selected + 1;
+				break;
+				case $.ui.keyCode.PAGE_DOWN:
+				if (!event.ctrlKey)
+					return;
+				selectedIndex = o.selected - 1;
+				break;
+			}
+			event.preventDefault();
+			event.stopPropagation();
+
+			if (selectedIndex !== undefined) {
+				selectedIndex = selectedIndex >= tabsNav.find('a').length ? 0 : selectedIndex < 0 ? tabsNav.find('a').length - 1 : selectedIndex;
 			
-		tabsNav.find('a')
-			.click(function(){
-				selectTab($(this));
-				$(this).focus();
-				return false;
-			});
-			
+				tabsNav.find('a').eq(selectedIndex).focus();
+			}
+			return false;
+		});
+
 		//if tabs are rotating, stop them upon user events	
 		tabs.bind('click keydown focus',function(){
 			if(o.autoRotate){ clearInterval(tabRotator); }
@@ -123,41 +173,24 @@ jQuery.fn.tabs = function(settings){
         currHash = currHash.split("#")[1];
       }
 			var hashedTab = tabsNav.find('a[href$=#'+ currHash +']');
-		    if( hashedTab.size() > 0){
-		    	selectTab(hashedTab,true);	
-		    }
-		    else {
-		    	selectTab( tabsNav.find('a:first'),true);
-		    }
-		    //return true/false
-		    return !!hashedTab.size();
+				if( hashedTab.size() > 0){
+					selectTab(hashedTab,true);
+				}
+				else {
+					selectTab( tabsNav.find('a:first'),true);
+				}
+				//return true/false
+				return !!hashedTab.size();
 		}
 		
 		//if state tracking is enabled, set up the callback
 		if(o.trackState){ $.historyInit(selectTabFromHash, o.srcPath); }
-		
-		
+				
 		//set tab from hash at page load, if no tab hash, select first tab
 		selectTabFromHash(null,true);
-
-		//auto rotate tabs
-		if(o.autoRotate){
-			var tabRotator = setInterval(function(){
-				var currentTabLI = tabsNav.find('li.active');
-				var nextTab = currentTabLI.next();
-				if(nextTab.length){
-					selectTab(nextTab.find('a'),false );
-				}
-				else{
-					selectTab( tabsNav.find('a:first'),false );
-				}
-			}, o.autoRotate);
-		}
 		
 		if(o.alwaysScrollToTop){
 			$(window)[0].scrollTo(0,0);
 		}
-		
-
 	});
 };
