@@ -1154,7 +1154,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       }
     }
 
-    .active a {
+    &.active a {
       background-color: #fff;
       border: solid 1px #C9D0D0;
       border-bottom: solid 1px #fff;
