@@ -67,33 +67,6 @@
   }
 }
 
-@mixin core-44 {
-  font-family: $NTA-Light;
-  font-size: 44px;
-  font-size: 4.4rem;
-  line-height: (50 / 44);
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  @media (max-width: 640px) {
-    font-size: 2.5rem;
-    line-height: (30 / 25);
-  }
-}
-
-// Suitable for page headings
-@mixin heading-44 {
-  @include core-44;
-  padding-top: 13px;
-  padding-top: 1.3rem;
-  padding-bottom: 15px;
-  padding-bottom: 1.5rem;
-  @media (max-width: 640px) {
-    padding-top: 0.8rem;
-    padding-bottom: 0.7rem;
-  }
-}
-
 @mixin core-27($line-height: (30 / 27), $line-height-640: (25 / 19)) {
   font-family: $NTA-Light;
   font-size: 27px;
@@ -187,27 +160,6 @@
   }
 }
 
-@mixin core-18 {
-  font-family: $NTA-Light;
-  font-size: 18px;
-  font-size: 1.8rem;
-  line-height: 18;
-  font-weight: 300;
-  letter-spacing: 0;
-  text-transform: none;
-  @media (max-width: 640px) {
-    font-size: 1.3rem;
-    line-height: 13;
-  }
-}
-
-// Suitable for page formats
-@mixin format-18 {
-  @include core-18;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
 @mixin core-16($line-height: (20 / 16), $line-height-640: (20 / 13)) {
   font-family: $NTA-Light;
   font-size: 16px;
@@ -232,32 +184,6 @@
   @media (max-width: 640px) {
     padding-top: 0.6rem;
     padding-bottom: 0.4rem;
-  }
-}
-
-@mixin core-15 {
-  font-family: $NTA-Light;
-  font-size: 15px;
-  font-size: 1.5rem;
-  line-height: (20 / 15); 
-  font-weight: 400;
-  -webkit-font-smoothing: subpixel-antialiased;
-  letter-spacing: 0;
-  text-transform: none;
-  @media (max-width: 640px) {
-    font-size: 1.2rem;
-    line-height: (15 / 12);
-  }
-}
-
-// Suitable for body sub-headings
-@mixin sub-heading-15 {
-  @include core-15;
-  padding-top: 0;
-  padding-bottom: 0;
-  @media (max-width: 640px) {
-    padding-top: 0;
-    padding-bottom: 0;
   }
 }
 
