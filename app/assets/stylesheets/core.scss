@@ -8,20 +8,18 @@ body.mainstream nav.header-context {
   ol {
     background-color: #fff;
     margin: 0 15em 0 0;
-    padding: 0.25em 0 0.25em 0;
+    padding: 0.25em 0.75em;
 
     li {
       background-image: image-url("separator.png");
-      background-position: 0.25em 50%;
+      background-position: 100% 50%;
       background-repeat: no-repeat;
       float: left;
       list-style: none;
-      margin-right: 0.5em;
-      padding-left: 1.3em;
+      margin-left: 0.5em;
+      padding-right: 1em;
 
       &:first-child {
-        background: none;
-        margin-left: 0.75em;
         padding-left: 0;
       }
 
@@ -30,6 +28,7 @@ body.mainstream nav.header-context {
       }
 
       &:last-child {
+        background: none;
         margin-right: 0
       }
 
