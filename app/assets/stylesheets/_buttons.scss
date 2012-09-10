@@ -1,4 +1,6 @@
 @import "_conditionals";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
 
 // global button styles
 
@@ -44,12 +46,11 @@
 .button,
 .button:visited {
   display: inline;
-  line-height: 0.8em;
   border: none;
   text-decoration: none;
   position: relative;
   top: -3px;
-  line-height: 1.3em;
+  line-height: (20 / 16);
   -webkit-box-shadow: 0 2px 0 #000, 0 8px 10px rgba(0,0,0,.05);
   -moz-box-shadow: 0 2px 0 #000, 0 8px 10px rgba(0,0,0,.05);
   box-shadow: 0 2px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
@@ -66,16 +67,14 @@
 }
 
 .button.medium {
-  font-size: 1.25em;
+  @include core-19($line-height: (26 / 19));
 }
 
 .get-started .button .call-to-action,
 .get-started .button.big,
 #search .button.big {
-  display:block;
-  font-size: 1.3162em;
+  @include core-19($line-height: (16 / 19));
   padding: 0.45em 1.7em 0.45em 0.5em;
-  line-height: 0.8em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
   background-repeat: no-repeat;
@@ -131,10 +130,9 @@
     }
  
     .destination {
+      @include core-14;
       color:#333;
       display: block;
-      font-size:0.7368em;
-      line-height: 1.5;
       margin-top:1em;
       max-width: 13em;
     }
@@ -154,11 +152,10 @@ input{
 
   &[type="text"],
   &[type="search"]{
+    @include core-16($line-height: (20 / 16));
     border: 1px solid #bbb;
     min-width: 8em;
     margin: 0 0.5em;
-    font-weight: 300;
-    line-height: 1.25;
     padding: 0.25em;
   
     @include ie-lte(7) {
