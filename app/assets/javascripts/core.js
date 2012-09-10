@@ -93,6 +93,22 @@ $(document).ready(function() {
       return false;
   });
 
+  // form submission for reporting a problem
+  $('.report-a-problem-container form').submit(function() {
+    $.ajax({
+      type: "POST",
+      url: "/feedback",
+      data: $('.report-a-problem-container form').serialize(),
+      success: function(data) {
+          $('.report-a-problem-container').html("<div id='message'>"+data+"</div>");
+          
+        }
+    });
+    return false;
+  });
+  
+  
+
 });
 
 
