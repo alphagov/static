@@ -22,7 +22,7 @@
     padding: 2.1875em 2.5em;
 
     h1 {
-      font-size: 2.75em;
+      @include core-48;
 
       em {
         color: #2E3191;
@@ -53,7 +53,7 @@
 ============================================================================ */
 form.search-header {
   display: block;
-  font-size: 1.1875em;
+  @include core-19;
   margin: 1em 10.5em 2em 0;
   text-align: right;
 
@@ -118,7 +118,7 @@ input[type="search"]::-webkit-search-results-decoration {
       width: auto;
 
       &.search-result-title {
-        font-size: 1.1875em;
+        @include core-19;
       }
     }
   }
@@ -126,11 +126,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .section-page .results-list li {
   a {
-    font-size: 1.1875em;
+    @include core-19;
   }
 
   p {
-    font-size: 1em;
+    @include core-16;
   }
 }
 
@@ -146,8 +146,7 @@ input[type="search"]::-webkit-search-results-decoration {
   p {
     margin: 0;
     padding: 0;
-    font-size: 1.1875em;
-    line-height: 1.315789474em;
+    @include core-19;
     background: transparent;
     color: #333;
   }
@@ -213,8 +212,7 @@ input[type="search"]::-webkit-search-results-decoration {
           color: #999;
           display: block;
           float: right;
-          font-size: 1em;
-          line-height: 1.4em;
+          @include core-16($line-height: (22 / 16));
           margin-top: -2px;
           min-width: 1.35em;
           padding: 3px 4px 1px 4px;
@@ -231,8 +229,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
   ul li {
     margin-left: 0;
-    font-size: 1.1875em;
-    line-height: 1.315789474em;
+    @include core-19;
 
     a {
       padding: 0;
@@ -250,7 +247,7 @@ input[type="search"]::-webkit-search-results-decoration {
       li {
         display: block;
         margin: 0;
-        font-size: .842105263em;
+        @include core-16;
 
         a {
           color: #333;
@@ -281,6 +278,6 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 0;
 
   p {
-    font-size: 1em;
+    @include core-16;
   }
 }
