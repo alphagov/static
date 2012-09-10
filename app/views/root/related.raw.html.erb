@@ -6,7 +6,7 @@
 
     <div class="related">
       <div class="inner group">
-        <h2>Related topics</h2>
+        <h2>More like this:</h2>
         <nav role="navigation">
           <ul>
             <% if artefact["related_items"].any? %>
@@ -22,7 +22,7 @@
             <% if artefact["section"] and artefact["section"] != "" %>
               <% section, subsection = artefact["section"].split(':', 2) %>
               <li class="related-topic"><a href="/browse/<%= h section.parameterize %>"
-                >More from the <span><%= h section %></span> section</a></li>
+                >More from the <span><%= h section %></span> category</a></li>
             <% end %>
           </ul>
         </nav>
