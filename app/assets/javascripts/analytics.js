@@ -7,7 +7,7 @@
 
     function trackFormatEntry(needID, format)
     {
-        _gaq.push(['_trackEvent', 'MS_'+format, needID, 'Entry']);
+        GOVUK.Analytics.push(['_trackEvent', 'MS_'+format, needID, 'Entry']);
     }
 
     function trackGuideFormatSuccess(needID)
@@ -30,7 +30,7 @@
             return;
         }
         dict.success = true;
-        _gaq.push(['_trackEvent', 'MS_guide', needID, 'Success']);
+        GOVUK.Analytics.push(['_trackEvent', 'MS_guide', needID, 'Success']);
     }
 
     function userCameFromThePageWithinTheSameArtefact() {
