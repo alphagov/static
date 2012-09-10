@@ -14,11 +14,10 @@ article h1 {
 }
 
 article header h1 {
-  @include core-24;
+  @include heading-24;
   color: #000;
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: 0.5em;
 
   @include ie-lte(8) {
     zoom: 1;
