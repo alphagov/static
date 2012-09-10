@@ -98,9 +98,10 @@ $(document).ready(function() {
     $.ajax({
       type: "POST",
       url: "/feedback",
+      dataType: "json",
       data: $('.report-a-problem-container form').serialize(),
       success: function(data) {
-          $('.report-a-problem-container').html("<div id='message'>"+data+"</div>");
+          $('.report-a-problem-container').html(data.message);
           
         }
     });
