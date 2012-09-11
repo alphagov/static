@@ -67,6 +67,21 @@
   }
 }
 
+// This is used on July 4th homepage & browse page
+@mixin core-36($line-height: (42 / 36), $line-height-640: (30 / 25)) {
+  font-family: $NTA-Light;
+  font-size: 36px;
+  font-size: 3.6rem;
+  line-height: $line-height;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  @media (max-width: 640px) {
+    font-size: 2.5rem;
+    line-height: $line-height-640;
+  }
+}
+
 @mixin core-27($line-height: (30 / 27), $line-height-640: (25 / 19)) {
   font-family: $NTA-Light;
   font-size: 27px;
