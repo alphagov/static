@@ -1,3 +1,5 @@
+@import "styleguide/_print.scss";
+
 //  GOV.UK typography palettes
 
 //  ANATOMY OF A TYPE STYLE
@@ -44,6 +46,9 @@
   font-family: $NTA-Light;
   font-size: 48px;
   font-size: 4.8rem;
+  @include print {
+    font-size: 18pt;
+  }
   line-height: $line-height;
   font-weight: 400;
   letter-spacing: 0;
@@ -152,6 +157,9 @@
   font-family: $NTA-Light;
   font-size: 19px;
   font-size: 1.9rem;
+  @include print {
+    font-size:14pt;
+  }
   line-height: $line-height;
   font-weight: 400;
   letter-spacing: 0;
@@ -179,6 +187,9 @@
   font-family: $NTA-Light;
   font-size: 16px;
   font-size: 1.6rem;
+  @include print {
+    font-size: 12pt;
+  }
   line-height: $line-height;
   font-weight: 300;
   letter-spacing: 0;
@@ -206,6 +217,9 @@
   font-family: $NTA-Light;
   font-size: 14px;
   font-size: 1.4rem;
+  @include print {
+    font-size: 11pt;
+  }
   line-height: $line-height; 
   font-weight: 400;
   -webkit-font-smoothing: subpixel-antialiased;
