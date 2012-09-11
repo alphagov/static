@@ -33,17 +33,12 @@ body.mainstream nav.header-context {
         background: none;
         margin-right: 0
       }
-
     }
 
-  }
-
-}
-
-body.mainstream .header-context ol {
-  @include ie-lte(7) {
-    padding: 0.25em 0;
-    width: 960px;
+    @include ie-lte(7) {
+      padding: 0.25em 0;
+      width: 960px;
+    }
   }
 }
 
