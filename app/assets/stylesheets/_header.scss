@@ -1,5 +1,12 @@
 @import "_css3";
 @import "_conditionals";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
+
+.js-enabled #global-header {
+  position: fixed;
+  top: 0;
+}
 
 #global-header {
   background-color: #303030;
@@ -9,20 +16,15 @@
   z-index: 1000;
 
   @include ie-lte(8) {
-    background-color: #0C0C0C;
-    position: fixed;
-    top: 0;
-    width: 100%;
     height: 1.9em;
-    z-index: 50;
   }
 
   @include box-shadow(0 0 5px rgba(0,0,0,0.3));
 
   h1 {
-    font-weight:400;
+    @include core-27;
     float: left;
-    margin-right: 1.5em;
+    margin-right: (48 / 27) * 1em;
     text-transform: uppercase;
 
     @include ie-lte(8) {
@@ -33,10 +35,11 @@
       background-image: image-url("gov.uk_logotype.png");
       background-position: 0 1px;
       background-repeat: no-repeat;
-      float: left;
-      padding: 0 0 0 1.7em;
+      display: block;
+      padding: 0 0 0 2em;
       width: 141px;
       height: 28px;
+      line-height: (20px / 16px);
       text-indent: -999px;
 
       &:hover {
@@ -47,7 +50,6 @@
         background-image: image-url("gov.uk_logotype_ie.png");
       }
     }
-
   }
 
   .header-global {
@@ -82,7 +84,7 @@
     }
   }
 
-  // this UL can be in both the auto-complete and the nav
+  /* this UL can be in both the auto-complete and the nav */
   ul {
     margin: 0;
     padding: 0;
@@ -90,9 +92,10 @@
 
   nav {
     ul {
-      margin-right: 1em;
+      @include core-16($line-height: (30 / 16));
+      margin-right: 0;
+      margin-left: 1em;
       float: left;
-      line-height: 1.9em;
 
       li {
         float: left;
@@ -100,7 +103,7 @@
         margin: 0 1.5em 0 0;
 
         a {
-          font-size: 1em;
+          @include core-16;
           text-decoration: none;
 
           &:hover {
@@ -115,8 +118,10 @@
     }
   }
 
-  // container for search form
-  // TODO: remove this, just use the form;
+  /*
+   * container for search form 
+   * TODO: remove this, just use the form
+   */
   .search-help {
     float: right;
   }
@@ -128,7 +133,7 @@
     top: -1px;
 
     .button {
-      // this inherits from the basic button styles
+      /* this inherits from the basic button styles */
       display:inline;
       padding: 0.25em 0.5em 0.2em;
       position: relative;
@@ -145,13 +150,12 @@
       }
     }
 
-    // search input
+    /* search input */
     #site-search-text {
-      font-weight:300;
+      @include core-16($line-height: 1);
       border: none;
       border-bottom: solid 1px #fff;
       border-top: solid 1px #fff;
-      line-height: 1;
       padding: 0.2em 0.25em;
       min-width: 8em;
       margin: 0 0.5em;
@@ -159,10 +163,42 @@
   }
 }
 
-// Global cookie message
+/* we don't want the header to be fixed on small iOS screens */
+@media only screen and (max-device-width:320px) {
+  .js-enabled #global-header {
+    position: absolute;
+  }
+}
+
+/* Inside government styles */
+body.government #global-header .header-context {
+  border-color: #cdce00;
+  border-bottom-color: #9a9b00;
+  
+  nav {
+    font-weight: bold;
+    text-decoration: none;
+    width: 79.5%;
+
+    a {
+      color: #777;
+
+      &:hover {
+        color: #9a9b00;
+      }
+    }
+  }
+
+  /* Search form in global header */
+  .search-help {
+    border-color: #cdce00;
+  }
+}
+
+/* Global cookie message */
 
 .js-enabled #global-cookie-message {
-  display: none; // shown with JS
+  display: none; /* shown with JS */
 }
 
 #global-cookie-message {
@@ -170,8 +206,12 @@
   padding: 0.5em 0;
 
   p {
-    font-size: 1.16em;
+    @include core-19;
     margin: 0 auto;
     max-width: 960px;
+
+    @include ie-lte(6) {
+      width: 960px;
+    }
   }
 }

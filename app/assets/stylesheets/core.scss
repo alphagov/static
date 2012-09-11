@@ -10,45 +10,40 @@ body.citizen nav.header-context {
     margin: 0 auto;
     max-width: 960px;
     padding: 0.5em 0 0.5em 0;
-  }
 
-  ol li {
-    float: left;
-    list-style: none;
-  }
+    @include ie-lte(7) {
+      padding: 0.25em 0;
+      width: 960px;
+    }
+    
+    li {
+      float: left;
+      list-style: none;
+      background-image: image-url("separator.png");
+      background-position: 0.2em 36%;
+      background-repeat: no-repeat;
+      padding-left: 1.3em;
+      margin-right: 0.5em;
 
-  ol li {
-    background-image: image-url("separator.png");
-    background-position: 0.2em 36%;
-    background-repeat: no-repeat;
-    padding-left: 1.3em;
-    margin-right: 0.5em;
-  }
-
-  ol li:first-child {
-    background: none;
-    margin-left: 0.75em;
-    padding-left: 0;
+      &:first-child {
+        background: none;
+        margin-left: 0.75em;
+        padding-left: 0;
+      }
+    }
   }
 
   a {
     white-space: nowrap;
-  }
 
-  a:last-child {
-    margin-right: 0
+    &:last-child {
+      margin-right: 0
+    }
   }
 
   /* beta notice */
   .beta-notice {
     display: none;
-  }
-}
-
-body.citizen .header-context ol {
-  @include ie-lte(7) {
-    padding: 0.25em 0;
-    width: 960px;
   }
 }
 
