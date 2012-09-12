@@ -242,15 +242,15 @@ article .summary h2,
 .mainstream .ancillary .summary h2 {
   border: none;
   margin: 0 0.75em 0 0;
-
-  @include ie-lte(7) {
-    height: 2.75em;
-  }
 }
 
 article .summary h2,
 .mainstream .ancillary .summary h2 {
   line-height: 1.35em;
+
+  @include ie-lte(7) {
+    height: 2.75em;
+  }
 }
 
 .licence-finder article.outcome ul {
