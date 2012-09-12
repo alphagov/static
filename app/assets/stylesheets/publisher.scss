@@ -319,7 +319,9 @@ ul.helpers li.active h3 a {
     width: 75%;
 
     @include ie-lte(8) {
-      height: none;
+      float:left;
+      clear:none;
+      width:74.9%;
     }
 
     .inner {
