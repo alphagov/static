@@ -4,12 +4,13 @@
 @import "styleguide/_typography.scss";
 
 body.mainstream nav.header-context {
-  background-color: #F2F2F2;
+  margin: 0.5em auto 0.25em auto;
+  max-width: 960px;
 
   ol {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 0.5em 0 0.5em 0;
+    background-color: #fff;
+    margin: 0 15em 0 0;
+    padding: 0.25em 0.75em;
 
     @include ie-lte(7) {
       padding: 0.25em 0;
@@ -17,17 +18,15 @@ body.mainstream nav.header-context {
     }
     
     li {
+      background-repeat: no-repeat;
+      background-image: image-url("separator.png");
+      background-position: 100% 50%;
       float: left;
       list-style: none;
-      background-image: image-url("separator.png");
-      background-position: 0.2em 36%;
-      background-repeat: no-repeat;
-      padding-left: 1.3em;
-      margin-right: 0.5em;
+      margin-left: 0.5em;
+      padding-right: 1em;
 
       &:first-child {
-        background: none;
-        margin-left: 0.75em;
         padding-left: 0;
       }
 
