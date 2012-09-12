@@ -10,7 +10,7 @@ describe("success event tracking", function() {
         GOVUK.Analytics.Format = 'guide';
         GOVUK.Analytics.NeedID = '99999';
         GOVUK.wireTrackingEvents();
-
+        
         $('#guide-link').click();
 
         var arguments = GOVUK.sendToAnalytics.argsForCall;
@@ -19,6 +19,19 @@ describe("success event tracking", function() {
         // using JSONEquals because there is a bug in the .toHaveBeenCalledWith() method
         // see: https://github.com/pivotal/jasmine/issues/45
         expect(arguments[0][0]).toBeEqualAsJSON(expectedDataToSendToGoogle);
+    });
+
+    it("should not register multiple guide success events when navigating to items on the same page", function() {
+        GOVUK.Analytics.Format = 'guide';
+        GOVUK.Analytics.NeedID = '99999';
+        GOVUK.wireTrackingEvents();
+
+        $('#guide-link').click();
+        $('#guide-link').click();
+        $('#guide-link').click();
+        $('#guide-link').click();
+
+        expect(GOVUK.sendToAnalytics.argsForCall.length).toBe(1);
     });
 
     it("should register success event for transaction format when a link inside #content is clicked", function() {
@@ -30,7 +43,21 @@ describe("success event tracking", function() {
 
         var arguments = GOVUK.sendToAnalytics.argsForCall;
         expect(arguments.length).toBe(1);
-        expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_transaction', 'fake need id', 'Success'])
+        expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_transaction', 'fake need id', 'Success']);
     });
+
+    it("should not register multiple transaction success events when navigating to items on the same page", function () {
+        GOVUK.Analytics.Format = 'transaction';
+        GOVUK.Analytics.NeedID = 'fake need id';
+        GOVUK.wireTrackingEvents();
+
+        $('#transaction-link').click();
+        $('#transaction-link').click();
+        $('#transaction-link').click();
+        $('#transaction-link').click();
+
+        expect(GOVUK.sendToAnalytics.argsForCall.length).toBe(1);
+    });
+
 
 });

@@ -53,7 +53,7 @@ GOVUK.wireTrackingEvents = (function() {
 
     function userCameFromThePageWithinTheSameArtefact() {
         var artefactURL = document.URL.split('/').slice(0,4).join('/');
-        return (document.referrer.indexOf(artefactURL) == 0);
+        return (document.referrer.indexOf(artefactURL) === 0);
     }
 
 
