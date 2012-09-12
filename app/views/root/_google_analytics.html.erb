@@ -1,48 +1,23 @@
 <script id="ga-params" type="text/javascript">
+//    var GOVUK = GOVUK || {};
+//    GOVUK.Analytics = GOVUK.Analytics || {};
     var _gaq = _gaq || [];
-    var GOVUK = GOVUK || {};
-    GOVUK.Analytics = GOVUK.Analytics || {};
-    GOVUK.Analytics.is_debug = window.location.href.match(/[\?&]google-analytics-debug([&#]|$)/);
-
-    GOVUK.Analytics.push = function () {
-        _gaq.push.apply(_gaq, arguments);
-
-        var args = arguments[0];
-        $(function () {
-            if (GOVUK.Analytics.is_debug) {
-                $("#debug-google-analytics ol").append('<li>').append(JSON.stringify(args));
-            }
-        });
+    _gaq.push(['_setAccount', 'UA-26179049-1']);
+    if(document.domain=='www.gov.uk') {
+        _gaq.push(['_setDomainName', '.www.gov.uk']);
+    } else {
+        _gaq.push(['_setDomainName', document.domain]);
     }
-
-    GOVUK.Analytics.init = function () {
-
-        $(function () {
-            if (GOVUK.Analytics.is_debug) {
-                $("#debug-google-analytics").removeClass('hidden');
-            }
-        });
-
-        var load_google_analytics = function () {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        };
-        load_google_analytics();
-    };
-
-    GOVUK.Analytics.push(['_setAccount', 'UA-26179049-1']);
-  if(document.domain=='www.gov.uk') {
-      GOVUK.Analytics.push(['_setDomainName', '.www.gov.uk']);
-  } else {
-      GOVUK.Analytics.push(['_setDomainName', document.domain]);
-  }
-    GOVUK.Analytics.push(['_setAllowLinker', true]);
+    _gaq.push(['_setAllowLinker', true]);
 </script>
 <%# This is here rather than in application to guarantee that GOVUK and _gaq exist %>
 <%= javascript_include_tag 'analytics' %>
 
 <script type="text/javascript">
-  GOVUK.Analytics.push(['_trackPageview']);
-  GOVUK.Analytics.init();
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 </script>
