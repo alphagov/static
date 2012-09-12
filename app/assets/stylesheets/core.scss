@@ -1072,10 +1072,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     li {
       float: left;
-
-      @include ie-lte(7) {
-        width: 7.5em;
-      }
     }
   }
 
