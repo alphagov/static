@@ -11,13 +11,11 @@ GOVUK.wireTrackingEvents = (function() {
         dictionaryOfTrackers[format](needID);
     }
 
-    function trackFormatEntry(needID, format)
-    {
+    function trackFormatEntry(needID, format) {
         GOVUK.sendToAnalytics(['_trackEvent', 'MS_'+format, needID, 'Entry']);
     }
 
-    function trackGuideFormatSuccess(needID)
-    {
+    function trackGuideFormatSuccess(needID) {
         var success = { "success": false };
         setTimeout(function() {
             onSuccess(success, needID);

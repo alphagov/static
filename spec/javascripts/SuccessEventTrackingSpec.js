@@ -34,7 +34,7 @@ describe("success event tracking", function() {
         expect(GOVUK.sendToAnalytics.argsForCall.length).toBe(1);
     });
 
-    it("should register success event for transaction format when a link inside #content is clicked", function() {
+    it("should register success event for transaction format when a link inside .article-container is clicked", function() {
         GOVUK.Analytics.Format = 'transaction';
         GOVUK.Analytics.NeedID = 'fake need id';
         GOVUK.wireTrackingEvents();
@@ -58,6 +58,5 @@ describe("success event tracking", function() {
 
         expect(GOVUK.sendToAnalytics.argsForCall.length).toBe(1);
     });
-
 
 });
