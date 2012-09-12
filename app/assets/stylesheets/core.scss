@@ -374,7 +374,7 @@ header {
       background-repeat: no-repeat;
       color: #000;
       @include heading-48;
-      padding: 0.3em 1.5em 0.35em 1.65em;
+      padding: (13 / 48) * 1em  (66 / 48) * 1em (15 / 48) * 1em (72 / 48) * 1em;
 
       @include ie-lte(8) {
         height: 1%;
