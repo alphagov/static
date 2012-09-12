@@ -1,4 +1,6 @@
 @import "_conditionals";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
 
 /* visited link colour overrides */
 #content.multi-page li a:visited,
@@ -58,9 +60,8 @@
       }
 
       a span {
+        @include core-16($line-height: (32 / 16));
         display: block;
-        font-size: 1em;
-        line-height: 2em;
         padding-left: 0.5em;
       }
 
@@ -72,10 +73,22 @@
   }
 }
 
+.video-guide {
+  article .inner {
+    padding-bottom: 2em;
+  }
+
+  .meta-data {
+    border-top: none;
+    margin: 1em 0 2em 2em;
+  }
+}
+
 #wrapper.video-guide article {
   /* get rid of border on video guide pages */
   border-left: none;
   margin-left: 0;
+  width: 100%;
 }
 
 .multi-page article .inner {
@@ -92,7 +105,6 @@ aside .page-navigation {
   width: 100%;
 
   ol {
-    font-size: 0.85em;
     margin: 0;
     padding: 0;
   }
@@ -129,11 +141,11 @@ aside .page-navigation {
     }
 
     a {
+      @include core-16;
       background-color: #E1E8E8;
       border-top: solid 1px #C9D0D0;
       display: block;
       padding: 0.75em 0.75em;
-      font-size: 1.176em;
       text-decoration: none;
 
       &:hover {
@@ -158,21 +170,6 @@ aside .page-navigation {
   }
 }
 
-#wrapper.video-guide article {
-  width: 100%;
-}
-
-.video-guide {
-  article .inner {
-    padding-bottom: 2em;
-  }
-
-  .meta-data {
-    border-top: none;
-    margin: 1em 0 2em 2em;
-  }
-}
-
 /* guides pagination */
 .pagination {
   display: block;
@@ -184,13 +181,13 @@ aside .page-navigation {
   }
 
   li {
+    @include core-16($line-height: (24 / 16));
     float: left;
     list-style: none;
     text-align: right;
     margin: 0;
     padding: 0;
     width: 48.5%;
-    font-size: 1em;
 
     &:first-child {
       margin-right: 3%;
@@ -255,8 +252,6 @@ aside .page-navigation {
 
     .pagination-label {
       display: block;
-      font-size: 0.85em;
-      line-height: 1em;
       margin-bottom: 0.5em;
     }
   }
@@ -283,7 +278,7 @@ aside .page-navigation {
 
   p.geolocate-me {
     border-top: 1px solid #ddd;
-    font-size: 1em;
+    @include core-16;
     margin-bottom: 0;
     padding-top: 1em;
   }
@@ -295,7 +290,7 @@ aside .page-navigation {
 }
 
 #wrapper.transaction .get-started .button .indicator:after {
-  font-size: 1.75em;
+  @include core-27;
   margin-top: -0.5em;
   position: absolute;
   right: 0.5em;
@@ -424,10 +419,9 @@ ul.helpers li.active h3 a {
       }
 
       a {
-        line-height: 2.15em;
+        @include core-16($line-height: (35 / 16));
         height: 2.15em;
         position: relative;
-        font-size: 0.862em;
       }
     }
   }
