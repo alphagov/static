@@ -83,8 +83,8 @@
 
 /* get started buttons */
 .get-started {
-  text-align:right;
   margin:1.5em 0 0 0;
+  text-align: right;
 
   .button {
     display: inline-block;
@@ -92,10 +92,6 @@
     background-color: transparent;
     box-shadow:none;
     text-align:left;
-
-    @include ie-lte(7) {
-      width: 60%;
-    }
 
     &:active {
       /* 
@@ -115,13 +111,6 @@
         -moz-transform: translate(0, -3px);
         -o-transform: translate(0, -3px);
         transform: translate(0, -3px);
-      }
-    }
-
-    &:hover {
-      /* this stops IE6 etc. getting a flash of green around their extra text */
-      @include ie-lte(8) {
-        background: #D5ECEA; /* this is the same as section.intro */
       }
     }
 
