@@ -18,8 +18,8 @@
         }, 7000);
         $("#content a").click(function() {
             onSuccess(success, needID);
-            if ($(this).data('events').click.length === 0) {
-              return true;
+            if ($(this).data('events').click.length === 1) {
+              setTimeout('document.location = "' + $(this).attr("href") + '"', 50)
             }
         });
     }
