@@ -182,6 +182,7 @@ article table {
 
   @include media(mobile) {
     margin: 1em 0 2em 0;
+    width: 100%;
   }
 }
 
@@ -570,5 +571,15 @@ article ol.steps {
 
   @include media(mobile) {
     margin: 0 0 1em 0;
+
+    @include core-48;
+
+    p {
+      font-size: 1em;
+      em {
+        font-size: 1em;
+        display: inline;
+      }
+    }
   }
 }
