@@ -1219,6 +1219,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   a{
     color:#999;
   }
+
+  @include media(mobile) {
+    margin: 0;
+  }
 }
 .js-enabled .report-a-problem-container{
   display:none;
