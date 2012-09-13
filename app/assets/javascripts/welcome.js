@@ -10,8 +10,6 @@ $(function() {
     "inaccuracies or be misleading. ",
     "<a href='http://www.direct.gov.uk'>Directgov</a> and <a href='http://businesslink.gov.uk'>Businesslink</a> remain the official ",
     "websites for government information and services.</strong></p>",
-    "<p>Your suggestions will help us make this site better, so if ",
-    "you have any comments please leave us feedback.</p>",
     "<p class='thanks'><a href='#' class='button thanks-dismiss' title='This will return you to the GOV.UK homepage'>Thanks, I\u2019ve ",
     "read the warning</a></p>",
     "<p><small>N.B. This site uses \u2018cookies\u2019 and Google Analytics. Closing ",
