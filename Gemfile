@@ -22,4 +22,8 @@ end
 gem 'plek', '~> 0'
 gem 'jasmine'
 
-gem 'govuk_frontend_toolkit', '0.0.2'
+if ENV['MOB_DEV']
+  gem 'govuk_frontend_toolkit', :path => '../govuk_frontend_toolkit'
+else
+  gem 'govuk_frontend_toolkit', '0.0.2'
+end
