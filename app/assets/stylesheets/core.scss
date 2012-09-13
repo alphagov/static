@@ -1,35 +1,47 @@
 @import "_conditionals";
 @import "_css3";
 
-body.mainstream nav.header-context {
-  margin: 0.5em auto 0.25em auto;
-  max-width: 960px;
+body.mainstream .header-context {
+  background-color: #fff;
+  padding: 0.25em 0;
+  z-index: 50;
 
-  ol {
-    background-color: #fff;
-    margin: 0 15em 0 0;
-    padding: 0.25em 0.75em;
+  &.content-fixed {
+    border-bottom: solid 3px #F2F2F2;
+  }
 
-    li {
-      background-image: image-url("separator.png");
-      background-position: 100% 50%;
-      background-repeat: no-repeat;
-      float: left;
-      list-style: none;
-      margin-left: 0.5em;
-      padding-right: 1em;
+  nav {
+    max-width: 960px;
+    margin: 0 auto;
 
-      &:first-child {
-        padding-left: 0;
-      }
+    ol {
+      margin: 0;
+      padding: 0;
 
-      a {
-        white-space: nowrap;
-      }
+      li {
+        background-image: image-url("separator.png");
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        float: left;
+        font-size: 1.1875em;
+        line-height: 1.7;
+        list-style: none;
+        margin-left: 0.5em;
+        padding-right: 1em;
 
-      &:last-child {
-        background: none;
-        margin-right: 0
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          white-space: nowrap;
+        }
+
+        &:last-child {
+          background: none;
+          margin-right: 0
+        }
+
       }
 
     }
@@ -40,7 +52,6 @@ body.mainstream nav.header-context {
 
 body.mainstream .header-context ol {
   @include ie-lte(7) {
-    padding: 0.25em 0;
     width: 960px;
   }
 }
@@ -65,7 +76,7 @@ body.mainstream .header-context ol {
 }
 
 section#content {
-  margin: 0 auto;
+  margin: 1em auto 0 auto;
   max-width: 960px;
   position: relative;
 
@@ -164,7 +175,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 5.25em;
+  top: 6.25em;
   width: 100%;
   z-index: 0;
 
@@ -294,13 +305,12 @@ h4 {
 
   p {
 	  font-size: 1em;
-	  margin-bottom: 0.3em;
+    margin-bottom: 0;
 	  padding: 0;
 	  color: black;
   }
 
   ul {
-	  border-bottom: 1px solid #CCC;
 	  margin: 0;
 	  padding: 0;
   }
@@ -321,8 +331,8 @@ h4 {
 #wrapper.businesslink #legacy-sources li.businesslink {
 	background-image: image-url("businesslink-logo.png");
 	width: 84px;
-	height: 17px;
-	margin-top: 0.8em;
+	height: 24px;
+	margin-top: 0.5em;
 	display: block;
 }
 
@@ -331,7 +341,7 @@ h4 {
 	width: 74px;
 	height: 14px;
 	margin-right: 1em;
-	margin-top: 1.1em;
+	margin-top: 0.8em;
 	display: block;
 }
 

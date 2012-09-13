@@ -3,21 +3,15 @@
 
 #global-header {
   background-color: #303030;
-  min-height: 1.9em;
-  padding: 0.4em 0;
+  height: 1.75em;
+  padding: 0.5em 0;
   width: 100%;
   z-index: 1000;
 
   @include ie-lte(8) {
     background-color: #0C0C0C;
-    position: fixed;
-    top: 0;
     width: 100%;
-    height: 1.9em;
-    z-index: 50;
   }
-
-  @include box-shadow(0 0 5px rgba(0,0,0,0.3));
 
   h1 {
     font-weight:400;
@@ -122,10 +116,9 @@
   }
 
   form.site-search {
-    padding-top: 0.2em;
     clear: both;
     position: relative;
-    top: -1px;
+    top: 1px;
 
     .button {
       // this inherits from the basic button styles

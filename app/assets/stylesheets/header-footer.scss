@@ -3,17 +3,6 @@
 
 @import "_header";
 
-.js-enabled #global-header {
-  position: fixed;
-  top: 0;
-}
-/* we don't want the header to be fixed on small iOS screens */
-@media only screen and (max-device-width:320px) {
-  .js-enabled #global-header {
-    position: absolute;
-  }
-}
-
 .lte-ie8 #global-header h1 {
   height: 1.25em;
 }
