@@ -1,6 +1,6 @@
 var GOVUK = GOVUK || {};
 
-GOVUK.wireTrackingEvents = (function() {
+GOVUK.wireTrackingEvents = (function () {
     function trackTaskCompletion(needID, format) {
 
         var dictionaryOfTrackers = {
@@ -8,49 +8,57 @@ GOVUK.wireTrackingEvents = (function() {
             "transaction":trackTransactionFormatSuccess
         }
 
-        dictionaryOfTrackers[format](needID);
+        try {
+            dictionaryOfTrackers[format](needID);
+        } catch (e) {
+            /* do nothing */
+        }
+
     }
+
+    function interceptHyperLinkAndFireSuccess(selector, success) {
+        $(selector).click(function () {
+            onSuccess(success);
+            if ($(this).data('events').click === 1) {
+                var timeout = GOVUK.Analytics.debugMode ? 1000 : 50;
+                setTimeout('document.location = "' + $(this).attr("href") + '"', timeout);
+                event.preventDefault();
+            }
+        });
+    };
 
     function trackFormatEntry(needID, format) {
-        GOVUK.sendToAnalytics(['_trackEvent', 'MS_'+format, needID, 'Entry']);
+        GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + format, needID, 'Entry']);
     }
 
-    function trackGuideFormatSuccess(needID) {
-        var success = { "success": false };
-        setTimeout(function() {
-            onSuccess(success, needID);
+    function trackGuideFormatSuccess() {
+        var success = { "success":false };
+        setTimeout(function () {
+            onSuccess(success);
         }, 7000);
-        $("#content a").click(function() {
-            onSuccess(success, needID);
-            try {
-                setTimeout('document.location = "' + $(this).attr("href") + '"', 50);
-            }catch(err){}
-            return false;
+        $(function(){
+            interceptHyperLinkAndFireSuccess("#content a",success);
         });
     }
 
-    function trackTransactionFormatSuccess(needID) {
-        var success = {"success": false};
+    function trackTransactionFormatSuccess() {
+        var success = {"success":false};
         // should this actually be article?
-        $('.article-container a').click(function () {
-            onSuccess(success, needID);
-            try {
-                setTimeout('document.location ="' + $(this).attr("href") + '"', 50);
-            } catch (err) { /* do nothing */}
-            return false;
+        $(function(){
+            interceptHyperLinkAndFireSuccess(".article-container a", success);
         });
     }
 
-    function onSuccess(dict, needID) {
+    function onSuccess(dict) {
         if (dict.success) {
             return;
         }
         dict.success = true;
-        GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + GOVUK.Analytics.Format, needID, 'Success']);
+        GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, 'Success']);
     }
 
     function userCameFromThePageWithinTheSameArtefact() {
-        var artefactURL = document.URL.split('/').slice(0,4).join('/');
+        var artefactURL = document.URL.split('/').slice(0, 4).join('/');
         return (document.referrer.indexOf(artefactURL) === 0);
     }
 
@@ -66,6 +74,7 @@ GOVUK.wireTrackingEvents = (function() {
         }
 
     }
+
     // Track format success on DOM ready
     $(wireTrackingEvents());
 

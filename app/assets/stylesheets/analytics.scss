@@ -1,16 +1,16 @@
 #debug-google-analytics {
     font-size: small;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     top: 55px;
     right: 10px;
     padding: 10px;
     min-width: 300px;
-    background: #ddd;
+    background: #F17921;
     -moz-border-radius: 15px;
     border-radius: 15px;
-    color: #666;
-    border: solid 2px #666;
+    color: #000;
+    border: solid 2px #000;
 }
 
 #debug-google-analytics  ol {
