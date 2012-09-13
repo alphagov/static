@@ -18,10 +18,9 @@
         }, 7000);
         $("#content a").click(function() {
             onSuccess(success, needID);
-            try {
-                setTimeout('document.location = "' + $(this).attr("href") + '"', 50)
-            }catch(err){}
-            return false;
+            if ($(this).data('events').click.length === 0) {
+              return true;
+            }
         });
     }
 
