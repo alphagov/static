@@ -179,6 +179,10 @@ article table {
     margin-bottom: 0.5em;
     padding-left: 1em;
   }
+
+  @include media(mobile) {
+    margin: 1em 0 2em 0;
+  }
 }
 
 article th, article td {
@@ -224,6 +228,10 @@ article th {
 
   p {
     @include core-24;
+  }
+
+  @include media(mobile) {
+    margin: 0 0 2em 0;
   }
 }
 
@@ -291,6 +299,10 @@ article .advisory {
     background-color: #F4DCDD;
     border-color: #C00;
   }
+
+  @include media(mobile) {
+    margin: 0 0 1em 0;
+  }
 }
 
 article .intro {
@@ -300,6 +312,10 @@ article .intro {
 
   p:first-child {
     margin-top: 0;
+  }
+
+  @include media(mobile) {
+    margin: 0 0 1.5em 0;
   }
 }
 
@@ -311,6 +327,10 @@ article .example {
   strong {
     display: block;
   }
+
+  @include media(mobile) {
+    margin: 0.75 0;
+  }
 }
 
 article .application-notice,
@@ -320,6 +340,10 @@ article .subscribe {
   background-color: #d5e8f3;
   margin: 1em -1em 1.5em -1em;
   padding: 0.25em 1em 0.25em 1em;
+
+  @include media(mobile) {
+    margin: 1em 0 1.5em 0;
+  }
 }
 
 article .advisory.minor {
@@ -389,6 +413,10 @@ article .intro ul {
       margin: 0 0 0.5em 0;
     }
   }
+
+  @include media(mobile) {
+    margin: 0.75em 0;
+  }
 }
 
 .meta-data .contact {
@@ -433,6 +461,10 @@ article .place {
   background-color: #f8f8f8;
   margin: 0.75em -1em;
   padding: 1em;
+
+  @include media(mobile) {
+    margin: 0.75em 0;
+  }
 }
 
 article .place .map {
@@ -534,5 +566,9 @@ article ol.steps {
       margin-bottom: 0.5em;
       color: #fff;
     }
+  }
+
+  @include media(mobile) {
+    margin: 0 0 1em 0;
   }
 }
