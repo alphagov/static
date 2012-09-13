@@ -9,39 +9,6 @@
  * New green: 008270
  */
 
-.get-started .button .call-to-action,
-.get-started .button.big,
-.button,
-.button:visited {
-  background-color: #008270;
-  color: #fff;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
-  -moz-box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
-  box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
-  font-weight: 300;
-}
-
-.get-started .button:hover span.call-to-action,
-.get-started .button.big:hover,
-.button:hover {
-  background-color: #3ABAA8;
-  color: #fff;
-}
-
-.button:active,
-.button.big:active,
-.button:active span.call-to-action {
-  -webkit-transform: translate(0, 3px);
-  -moz-transform: translate(0, 3px);
-  -o-transform: translate(0, 3px);
-  transform: translate(0, 3px);
-  box-shadow:none;
-  outline:none;
-}
-
 /* buttons! */
 .button,
 .button:visited {
@@ -68,17 +35,6 @@
 
 .button.medium {
   @include core-19($line-height: (26 / 19));
-}
-
-.get-started .button .call-to-action,
-.get-started .button.big,
-#search .button.big {
-  @include core-19($line-height: (16 / 19));
-  padding: 0.45em 1.7em 0.45em 0.5em;
-  background-image: image-url("icon-pointer.png");
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
-  display: inline-block;
 }
 
 /* get started buttons */
@@ -126,6 +82,57 @@
       max-width: 13em;
     }
   }
+}
+
+/* 
+ * In selectors such as .get-started .button.big the chained .button.big is read as
+ * .big by IE6 (see http://www.maxdesign.com.au/articles/multiple-classes/)
+ * If the multiple-selector blocks below are above the .get-started block above, they
+ * no longer have higher precedence and so are overwritten.
+ * Moving them below fixes this.
+*/
+.get-started .button .call-to-action,
+.get-started .button.big,
+.button,
+.button:visited {
+  background-color: #008270;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0,0,0,.05);
+  box-shadow: 0 3px 0 #000, 0 8px 10px rgba(0, 0, 0, 0.05);
+  font-weight: 300;
+}
+
+.get-started .button:hover span.call-to-action,
+.get-started .button.big:hover,
+.button:hover {
+  background-color: #3ABAA8;
+  color: #fff;
+}
+
+.button:active,
+.button.big:active,
+.button:active span.call-to-action {
+  -webkit-transform: translate(0, 3px);
+  -moz-transform: translate(0, 3px);
+  -o-transform: translate(0, 3px);
+  transform: translate(0, 3px);
+  box-shadow:none;
+  outline:none;
+}
+
+.get-started .button .call-to-action,
+.get-started .button.big,
+#search .button.big {
+  @include core-19($line-height: (16 / 19));
+  padding: 0.45em 1.7em 0.45em 0.5em;
+  background-image: image-url("icon-pointer.png");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  display: inline-block;
 }
 
 a.button[rel="external"]:after {

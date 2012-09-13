@@ -5,6 +5,11 @@
 
 .js-enabled #global-header {
   position: fixed;
+
+  @include ie-lte(6) {
+    position:absolute;
+  }
+
   top: 0;
 }
 

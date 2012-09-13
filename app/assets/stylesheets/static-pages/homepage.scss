@@ -3,6 +3,11 @@
 /* Take the tour button styles (in the header) */
 .home-tour { 
   position: fixed;
+
+  @include ie-lte(6) {
+    position:absolute;
+  }
+
   top: 0.5em;
   right: 4%;
   z-index: 1000;

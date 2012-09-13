@@ -39,8 +39,9 @@
 
 .ancillary .menu {
   background-color: #E5E5E5;
-  float: right;
-  margin: -3em -15em 0 0;
+  position:absolute;
+  right:0;
+  margin: -3em 0 0 0;
   padding: 1em;
   width: 13em;
 
