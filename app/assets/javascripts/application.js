@@ -11,3 +11,4 @@
 //= require browse
 //= require jquery.history
 //= require jquery.tabs
+//= require mobile

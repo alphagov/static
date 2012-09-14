@@ -1,44 +1,37 @@
 // Scripts for behaviour specific to use on mobile (non-desktop) devices
 
 (function () {
-  var $navbar = $('div.article-container aside nav.page-navigation'),
-      $navItems = $navbar.find('ol li')
-      $showAllLink = $('<a href="#" class="show-all-parts">Show all parts of this guide</a>'),
-      labelHTML = {
-        open : ['Part ', '<span class="visuallyhidden">:</span>'],
-        close : ['Part ', ' of ' + $navItems.length]
-      },
-      $activeTab = $navItems.filter('.active'),
-      activeIdx = $navItems.index($activeTab),
-      $nonActiveTabs = $navItems.not('.active'),
-      spanTxt = $navItems.eq(activeIdx).find('span.part-label').text(),
-      spanHTML = $navItems.eq(activeIdx).find('span.part-label').html(),
-      alterSpan = function ($link, action) {
-        var $span = $link.find('span.part-label');
-          
-        $span.html(labelHTML[action][0] + (activeIdx + 1) + labelHTML[action][1]);
-      };
+  var GOVUK = GOVUK || {};
 
+  GOVUK.mobileGuideTabs = {
+    init : function () {
+      var $navbar = $('div.article-container aside nav.page-navigation'),
+          $navList = $navbar.find('ol')
+          $showAllLink = $('<a href="#" class="show-all-parts">Show all parts of this guide</a>'),
+          $pageHeader = $('.multi-page article header h1 span');
 
-  $showAllLink.insertBefore($navbar);
-  $showAllLink.on('click', function (e) {
-    var $this = $(this);
+      $showAllLink.insertBefore($navbar);
+      $pageHeader.html($pageHeader.html().replace(/Part\s(\d+)/, 'Part $1 of ' + $navList.find('li').length));
+      $showAllLink.on('click', function (e) {
+        var $this = $(this);
 
-    if(!$this.hasClass('show-all-parts-open')) {
-      $this.addClass('show-all-parts-open');
-      alterSpan($activeTab.find('a'), 'open');
-      $nonActiveTabs.show();
-      $navbar.addClass('page-navigation-open');
-    } else {
-      $this.removeClass('show-all-parts-open');
-      alterSpan($activeTab.find('a'), 'close');
-      $nonActiveTabs.hide();
-      $navbar.removeClass('page-navigation-open');
+        if(!$this.hasClass('show-all-parts-open')) {
+          $this.addClass('show-all-parts-open');
+          $this.text($this.text().replace(/Show/, 'Hide'));
+          $navList.show();
+          $navbar.addClass('page-navigation-open');
+        } else {
+          $this.removeClass('show-all-parts-open');
+          $this.text($this.text().replace(/Hide/, 'Show'));
+          $navList.hide();
+          $navbar.removeClass('page-navigation-open');
+        }
+
+        return false;
+      });
+
+      $navList.hide();
     }
-
-    return false;
-  });
-
-  alterSpan($activeTab.find('a'), 'close');
-  $nonActiveTabs.hide();
+  };
+  GOVUK.mobileGuideTabs.init();
 }(jQuery));
