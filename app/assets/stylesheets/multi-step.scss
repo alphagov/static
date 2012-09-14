@@ -1,18 +1,6 @@
 @import "_conditionals";
 
-/* This is basically Smart Answers */
-
-/*
- * landing page
- */
-.start {
-  display: inline-block;
-
-  a {
-    font-size: 1.5em;
-    margin: 0.5em 0 0 0;
-  }
-}
+/* This is basically Smart Answers & Licence Finder & Finance Finder */
 
 /*
  * questions
@@ -84,7 +72,7 @@
 li.done h3,
 li.upcoming h3 {
   display: inline;
-  font-size: 1em;
+  @include core-16;
   margin: 0 0.5em 0 0;
 
   @include ie-lte(8) {
@@ -112,10 +100,10 @@ li.done .answer {
 
 li.done .undo {
   position: absolute;
-  top: 0.833333em; /* 0.75em/0.9 (the font-size). Aren't ems lovely... */
-  right: 1.666667em; /* 1.5em/0.9 */
+  top: (0.75em/0.9);
+  right: (1.5em/0.9);
   margin: 0;
-  font-size: 0.9em;
+  @include core-14;
 
   @include ie-lte(8) {
     margin: 0;
@@ -172,7 +160,7 @@ li.done:hover .undo a {
 
   h2 {
     border: none;
-    font-size: 1.16em;
+    @include core-19;
     margin-top: 0;
     margin-bottom: 0.5em;
     position: relative;
@@ -228,22 +216,23 @@ li.done:hover .undo a {
   top: 2em;
 
   .inner {
-    padding-top: 0;
+    padding-top: 0.5em;
     padding-bottom: 1em;
 
     ul {
-      padding: 0 0 0 0em;
+      padding: 0;
+      list-style: none;
+      list-style-image: none;
     }
   }
 }
 
 #wrapper .related.next-steps .inner p,
 #wrapper .related.next-steps .inner li {
-  font-size: 100%;
+  font-size: 1em;
 }
 
 .next-steps .inner li {
-  list-style-type: none;
   margin: 0;
 }
 
@@ -251,7 +240,7 @@ li.done:hover .undo a {
   margin: 0;
   padding: 0;
   display: inline;
-  font-size: 100%;
+  font-size: 1em;
 }
 
 .smart_answer .meta-data {

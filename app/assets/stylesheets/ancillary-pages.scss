@@ -1,4 +1,6 @@
 @import "_conditionals";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
 
 #wrapper .ancillary {
   header {
@@ -31,22 +33,15 @@
       }
     }
   }
-
-  .summary {
-    color: #2E3191;
-
-    p {
-      line-height: 1.5em;
-    }
-  }
 }
 
 /* static pages like platform and help */
 
 .ancillary .menu {
   background-color: #E5E5E5;
-  float: right;
-  margin: -3em -15em 0 0;
+  position:absolute;
+  right:0;
+  margin: -3em 0 0 0;
   padding: 1em;
   width: 13em;
 
@@ -76,7 +71,7 @@
   }
 
   dt {
-    font-size: 1em;
+    @include core-19;
   }
 
   dd {
@@ -119,7 +114,7 @@
     }
 
     h1 {
-      font-size: 3em;
+      @include core-48;
       padding: 0;
     }
   }
@@ -145,8 +140,7 @@
   }
 
   dt {
-    font-size: 2.25em;
-    font-weight: 300;
+    @include core-36;
 
     margin: 0;
     width: 33.3333333%;
@@ -167,10 +161,11 @@
   }
 
   dd {
+    @include core-19;
+
     display: block;
     overflow: hidden;
-    font-size: 1.1875em;
-    line-height: 1.315789474;
+    
     margin-left: 0;
     padding: 1.25em 0;
 
