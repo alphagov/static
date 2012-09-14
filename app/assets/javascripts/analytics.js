@@ -18,9 +18,13 @@
         }, 7000);
         $("#content a").click(function() {
             onSuccess(success, needID);
-            if ($(this).data('events').click.length === 1) {
-              setTimeout('document.location = "' + $(this).attr("href") + '"', 50)
-            }
+            try {
+              if ($(this).data('events').click.length === 1) {
+                window.setTimeout(function () {
+                  document.location = $(this).attr("href");
+                }, 50)
+              }
+            } catch(err) {}
         });
     }
 
