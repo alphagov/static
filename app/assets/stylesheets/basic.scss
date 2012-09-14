@@ -31,6 +31,10 @@ body {
   line-height: 1.5;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
+  padding-top:0;
+}
+
+body.js-enabled {
   padding-top: 2.5em;
 }
 
