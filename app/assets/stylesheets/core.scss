@@ -361,25 +361,25 @@ h4 {
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
+  background-position: 0 14px;
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup {
-  /*border-color: #2DA096;*/
-}
-
 #wrapper.service header.page-header hgroup h1 {
   background-image: image-url("icon-service-l.png");
+  background-position: 0 12px;
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
   background-image: image-url("icon-answer-l.png");
+  background-position: 12px 14px;
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
   background-image: image-url("icon-licence-l.png");
+  background-position: 16px 14px;
 }
 
 /* Guides */
@@ -387,6 +387,11 @@ h4 {
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
   background-repeat: no-repeat;
+  background-position: 15px 14px;
+}
+
+.business header.page-header hgroup h1 {
+  padding-right: 3em;
 }
 
 header {
@@ -428,24 +433,13 @@ header {
   }
 }
 
-.business header.page-header hgroup h1 {
-  padding-right: 3em;
+@media screen and (max-width: 640px) {
+  header.page-header hgroup h1 {
+    padding-left: (72em/25);
+    min-height: (61em/25);
+  }
 }
-.service header.page-header hgroup h1 {
-  background-position: 0 12px;
-}
-.guide header.page-header hgroup h1 {
-  background-position: 15px 14px;
-}
-.answer header.page-header hgroup h1 {
-  background-position: 12px 14px;
-}
-.programme header.page-header hgroup h1 {
-  background-position: 0 14px;
-}
-.licence header.page-header hgroup h1 {
-  background-position: 16px 14px;
-}
+
 
 /*
   ============================== Stuff (mainly) used in publications =============================
