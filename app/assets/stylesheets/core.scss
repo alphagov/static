@@ -11,7 +11,7 @@ body.mainstream .header-context {
   }
 
   nav {
-    max-width: 960px;
+    width: 960px;
     margin: 0 auto;
 
     ol {
@@ -23,6 +23,7 @@ body.mainstream .header-context {
         background-position: 100% 50%;
         background-repeat: no-repeat;
         float: left;
+        font-size: 1.1875em;
         line-height: 1.7;
         list-style: none;
         margin-left: 0.5em;
@@ -37,7 +38,6 @@ body.mainstream .header-context {
         }
 
         &:last-child {
-          background: none;
           margin-right: 0
         }
 
