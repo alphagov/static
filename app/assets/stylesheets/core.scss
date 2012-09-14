@@ -1208,6 +1208,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 /* report a problem */
 
 .report-a-problem-toggle{
+  @include core-19;
+
   margin:2em 4em 0.5em 5em;
   clear:both;
   a{
@@ -1215,17 +1217,19 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   @include media(mobile) {
-    margin: 0 0 0 1em;
+    margin: 0 0 0.5em 1em;
   }
 }
 .js-enabled .report-a-problem-container{
   display:none;
 }
 .report-a-problem-container{
-  font-size:1.16em;
+  @include core-19;
+
   background-color:#D5E8F3;
   margin:0 3.5em 2em 3.5em;
   padding:0.5em 1em 1em 1em;
+
   div{
     width:98%;
     padding-top:0.5em;
@@ -1239,5 +1243,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       display:block;
       width:98%;
     }
+  }
+
+  @include media(mobile) {
+    margin: 0 1em 2em 1em;
   }
 }
