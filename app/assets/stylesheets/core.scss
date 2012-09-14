@@ -69,6 +69,10 @@ section#content {
   @include ie-lte(7) {
     width: 960px;
   }
+
+  @include media(mobile) {
+    max-width: auto;
+  }
 }
 
 h2, h3, h4 {
@@ -170,6 +174,11 @@ h4 {
   @include ie-lte(7) {
     position: absolute !important;
   }
+
+  @include media(mobile) {
+    position: static;
+    height: auto;
+  }
 }
 
 /* the sidebar related box overlaps the main content when zoomed on iPhone */
@@ -189,6 +198,15 @@ h4 {
   @include ie-lte(7) {
     width: 960px;
   }
+
+  @include media(mobile) {
+    max-width: auto;
+    height: auto;
+
+    @include ie-lte(7) {
+      width: auto;
+    }
+  }
 }
 
 .related {
@@ -202,11 +220,20 @@ h4 {
     zoom: 1;
   }
 
+  @include media(mobile) {
+    position: static;
+    width: auto;
+  }
+
   .inner {
     background-color: #E5E5E5;
     padding: 0.5em 1em 0 1.2em;
     width: auto;
     border-left:1px solid #C9D0D0;
+
+    @include media(mobile) {
+      padding-left: 1em;
+    }
   }
 
   h2 {
@@ -393,6 +420,12 @@ header {
       text-shadow: none;
     }
   }
+
+  @include media(mobile) {
+    &.page-header hgroup {
+      margin: 0;
+    }
+  }
 }
 
 .business header.page-header hgroup h1 {
@@ -446,6 +479,12 @@ article {
     padding: 0 5em 2em 5em;
     width: auto;
   }
+
+  @include media(mobile) {
+    .inner {
+      padding: 0 1em 1em 1em;
+    }
+  }
 }
 
 .article-container {
@@ -453,6 +492,10 @@ article {
   margin-right: 15em;
 
   article {
+    margin-right: 0;
+  }
+
+  @include media(mobile) {
     margin-right: 0;
   }
 }
@@ -468,7 +511,13 @@ article {
   }
 
   .inner {
-    padding: 0 2em 0 2em;
+    padding: 0 2em;
+  }
+
+  @include media(mobile) {
+    .inner {
+      padding: 0 1em;
+    }
   }
 }
 
@@ -1170,12 +1219,16 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   a{
     color:#999;
   }
+
+  @include media(mobile) {
+    margin: 0 0 0 1em;
+  }
 }
 .js-enabled .report-a-problem-container{
   display:none;
 }
 .report-a-problem-container{
-  font-size:1.1255em;
+  font-size:1.16em;
   background-color:#D5E8F3;
   margin:0 3.5em 2em 3.5em;
   padding:0.5em 1em 1em 1em;
