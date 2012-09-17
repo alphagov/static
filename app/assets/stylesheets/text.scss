@@ -1,4 +1,6 @@
 @import "_conditionals";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
 
 /*
  * Text styles for articles.
@@ -6,32 +8,25 @@
 */
 
 article h1 {
-  font-size: 1.5em;
-  font-weight: 300;
-  line-height: 1.1em;
+  @include core-24;
   margin-top: 1.5em;
   margin-bottom: 0.75em;
 }
 
 article header h1 {
+  @include heading-24;
   color: #000;
-  font-size: 1.5em;
-  font-weight: 300;
-  line-height: 1.2em;
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: 0.5em;
 
   @include ie-lte(8) {
     zoom: 1;
   }
 
   span {
+    @include core-16;
     color: #333;
     display: block;
-    font-size: 0.64em;
-    font-weight: 300;
-    line-height: 1em;
     margin-bottom: 0.4em;
   }
 }
@@ -45,11 +40,9 @@ article h1 + h2 {
 }
 
 article h2 {
+  @include core-24;
   margin-bottom: 0.625em;
   margin-top: 2em;
-  font-size: 1.5em;
-  line-height: 1.2;
-  font-weight: 300;
 }
 
 article h2 + h3 {
@@ -57,9 +50,7 @@ article h2 + h3 {
 }
 
 article h3 {
-  font-size: 1.3em;
-  line-height: 1.11;
-  font-weight: 300;
+  @include core-19;
   margin-top: 2.4em;
   margin-bottom: 0.75em;
 }
@@ -99,7 +90,7 @@ article p, article ul, article ol {
 }
 
 article p {
-  font-size: 1.16em;
+  @include core-19;
 }
 
 article p + .help-notice{
@@ -107,7 +98,7 @@ article p + .help-notice{
 }
 
 article li {
-  font-size: 1.16em;
+  @include core-19;
   margin: 0.25em 0;
   padding-left: 0.3em;
 
@@ -118,12 +109,12 @@ article li {
   }
 
   li {
-    font-size: 100%;
+    @include core-19;
     list-style-type: circle;
   }
 
   p {
-    font-size: 100%;
+    @include core-19;
     margin: 0;
   }
 }
@@ -156,7 +147,6 @@ article ol {
 article table ul {
   padding-left: 0.75em;
   margin: 0;
-  font-weight: 400;
 }
 
 article table ul li:last-child {
@@ -169,9 +159,8 @@ article dl {
 }
 
 article dt {
+  @include core-19;
   margin-bottom: 0.25em;
-  font-size: 1.25em;
-  font-weight: bold;
 }
 
 article dd {
@@ -185,10 +174,9 @@ article table {
   width: 105.95%;
 
   caption {
+    @include core-19;
     text-align: left;
-    font-weight: 300;
     margin-bottom: 0.5em;
-    font-size: 1.16em;
     padding-left: 1em;
   }
 }
@@ -208,7 +196,7 @@ article td {
   border: dotted 1px #bbb;
 
   small {
-    font-size: 1em;
+    @include core-16;
   }
 }
 
@@ -228,7 +216,6 @@ article th {
 .mainstream article .summary {
   margin: 0 -1em 2em -1em;
   padding: 0 1em;
-  font-weight: 400;
   color: #000;
 
   @include ie-lte(8) {
@@ -236,7 +223,7 @@ article th {
   }
 
   p {
-    font-size: 1.5em;
+    @include core-24;
   }
 }
 
@@ -255,21 +242,18 @@ article .summary h2,
 .mainstream .ancillary .summary h2 {
   border: none;
   margin: 0 0.75em 0 0;
-  font-weight: 300;
+}
+
+article .summary h2,
+.mainstream .ancillary .summary h2 {
+  line-height: 1.35em;
 
   @include ie-lte(7) {
     height: 2.75em;
   }
 }
-
-article .summary h2,
-.mainstream .ancillary .summary h2 {
-  font-weight: 300;
-  line-height: 1.35em;
-}
-
 .licence-finder article.outcome ul {
-  background: image-url("icon-licence-m.png") no-repeat scroll 98% 1em #d5ecea;
+  background-color: #d5ecea;
   padding: 1em 1em;
   margin: 0 -1em;
 
@@ -458,7 +442,7 @@ article .place .map {
   }
 
   .view_map {
-    font-size: 0.85em;
+    @include core-14;
     margin-top: 1em;
   }
 }
@@ -492,7 +476,7 @@ article .place .url {
 
 article .place .additional-information {
   border-top: solid 1px #c9e0e0;
-  font-size: 0.85em;
+  @include core-16;
   margin-top: 1em;
   padding-top: 1em;
 
@@ -531,7 +515,6 @@ article ol.steps {
 }
 
 .highlight-answer {
-  font-size: 1.5em;
   background-color: #28a197;
   color: #fff;
   text-align: center;

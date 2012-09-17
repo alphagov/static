@@ -1,5 +1,29 @@
 @import "_conditionals";
 
+/* Take the tour button styles (in the header) */
+.home-tour { 
+  position: fixed;
+
+  @include ie-lte(6) {
+    position:absolute;
+  }
+
+  top: 0.5em;
+  right: 4%;
+  z-index: 1000;
+}
+
+.tour-label a {
+  background-color: #F17921;
+  color: #000;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #fff;
+  }
+}
+
 section#homepage {
   /* July 4 Homepage Styles */
 
@@ -15,13 +39,10 @@ section#homepage {
     padding-top: 3.75em;
 
     h1 {
-      font-size: 1.5em;
-      line-height: 1.25em;
-      font-weight: 300;
+      @include core-24;
 
       &.strap {
-        font-size: 3em;
-        line-height: 1.0416666667;
+        @include core-48;
         margin-bottom: .625em;
       }
     }
@@ -32,9 +53,7 @@ section#homepage {
     position: relative;
 
     .search-suggestions {
-      font-size: 1.1875em;
-      line-height: 1.25em;
-      font-weight: 300;
+      @include core-19;
       margin-bottom: .833333333em;
 
       /* search arrow as generated content */
@@ -73,11 +92,10 @@ section#homepage {
     }
 
     #main_autocomplete {
+      @include core-24;
       margin: 0 .416666667em 0 0;
       max-width: 19.33em;
       width: 77%;
-      font-size: 1.5em;
-      line-height: 1.25em;
       position: relative;
       z-index: 0;
 
@@ -87,9 +105,9 @@ section#homepage {
     }
 
     .button.search {
+      @include core-24($line-height: (18 / 24));
       background-image: image-url("icon-search.png");
       background-repeat: no-repeat;
-      font-size: 1.42em;
 
       /* overwriting erreneous styles from search.css */
       &:hover {
@@ -103,8 +121,7 @@ section#homepage {
     padding-bottom: 5em;
 
     h2 {
-      font-size: 2.25em;
-      font-weight: 300;
+      @include core-36;
       margin: 0;
       width: 33.3333333%;
       float: left;
@@ -135,8 +152,7 @@ section#homepage {
   }
 
   .sections-links {
-    font-size: 1.1875em;
-    line-height: 1.315789474;
+    @include core-19;
     margin-right: 1.5em;
   }
 }
