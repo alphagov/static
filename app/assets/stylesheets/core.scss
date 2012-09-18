@@ -59,6 +59,10 @@ body.mainstream .header-context {
 #wrapper {
   background-color: #F2F2F2;
 
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+
   header.page-header hgroup {
     background-position: 97% 1em;
     background-repeat: no-repeat;
