@@ -1252,7 +1252,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   @include media(mobile) {
-    margin: 0 0 0.5em 1em;
+    margin: 0 0 0.5em 16px;
+    margin: 0 0 0.5em 1.6rem;
   }
 }
 .js-enabled .report-a-problem-container{
