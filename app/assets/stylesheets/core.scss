@@ -35,6 +35,10 @@ body.mainstream .header-context {
           margin-left: 0;
         }
 
+        strong {
+          font-weight: normal;
+        }
+
         a {
           white-space: nowrap;
         }
@@ -43,10 +47,6 @@ body.mainstream .header-context {
           margin-right: 0
         }
 
-      }
-
-      a {
-        white-space: nowrap;
       }
     }
   }
