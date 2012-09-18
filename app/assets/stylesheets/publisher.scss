@@ -212,6 +212,17 @@ aside .page-navigation {
           color: #2E3191;
         }
       }
+
+      span.part-title {
+        color: #2E3191;
+        text-decoration: underline;
+      }
+
+      @include media(mobile) {
+        .part-label {
+          float:left;
+          width:20%;
+      }
     }
 
     &.active {
