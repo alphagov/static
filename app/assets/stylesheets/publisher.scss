@@ -98,10 +98,7 @@
 }
 
 aside .page-navigation {
-  display: block;
-  float: right;
   margin-top: 0.5em;
-  width: 100%;
 
   ol {
     margin: 0;
@@ -112,41 +109,19 @@ aside .page-navigation {
     border-top: solid 1px #C9D0D0;
     list-style: none;
 
-    &.active {
-      padding: 0.75em 0.75em;
-    }
-
-    &:last-child {
-      border-bottom: solid 1px #C9D0D0;
-    }
-
-    &.active {
-      background-color: #E1E8E8;
-      display: block;
-      position: relative;
-      text-decoration: none;
-      z-index: 2;
-
-      @include ie-lte(8) {
-        margin: 0;
-      }
-
-    }
-
-    .part-label {
-      color: #000;
-      display: block;
-      line-height: 1.5;
-    }
-
-    .part-title {
-      color: #000;
-      text-decoration: none;
-      line-height: 1.25;
-    }
-
     span {
       display: block;
+
+      &.part-label {
+        color: #000;
+        line-height: 1.5;
+      }
+
+      &.part-title {
+        color: #000;
+        text-decoration: none;
+        line-height: 1.25;
+      }
     }
 
     a {
@@ -167,6 +142,19 @@ aside .page-navigation {
         color: inherit;
         text-decoration: underline;
       }
+    }
+
+    &.active {
+      background-color: #E1E8E8;
+      padding: 0.75em 0.75em;
+
+      @include ie-lte(8) {
+        margin: 0;
+      }
+    }
+
+    &:last-child {
+      border-bottom: solid 1px #C9D0D0;
     }
   }
 }
