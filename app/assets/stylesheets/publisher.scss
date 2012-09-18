@@ -106,7 +106,7 @@ aside .page-navigation {
   }
 
   li {
-    border-top: solid 1px #C9D0D0;
+    border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
     span {
@@ -133,13 +133,13 @@ aside .page-navigation {
       &:hover {
         background-color: #E1E8E8;
 
-        .part-title {
+        span.part-title {
           color: #2E3191;
         }
       }
 
-      .part-title {
-        color: inherit;
+      span.part-title {
+        color: #2E3191;
         text-decoration: underline;
       }
     }
@@ -153,8 +153,8 @@ aside .page-navigation {
       }
     }
 
-    &:last-child {
-      border-bottom: solid 1px #C9D0D0;
+    &:first-child {
+      border-top: solid 1px #C9D0D0;
     }
   }
 }
@@ -328,7 +328,7 @@ ul.helpers li.active h3 a {
     }
 
     li {
-      border-top: solid 1px #C9D0D0;
+      border-bottom: solid 1px #C9D0D0;
       list-style: none;
 
       a {
@@ -350,8 +350,8 @@ ul.helpers li.active h3 a {
         }
       }
 
-      &:last-child {
-        border-bottom: solid 1px #C9D0D0;
+      &:first-child {
+        border-top: solid 1px #C9D0D0;
       }
     }
   }
