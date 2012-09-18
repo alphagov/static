@@ -164,10 +164,6 @@ aside .show-all-parts-open {
 aside .page-navigation {
   margin-top: 0.5em;
 
-  @include media(mobile) {
-    margin-top: 0;
-  }
-
   ol {
     margin: 0;
     padding: 0;
@@ -177,24 +173,17 @@ aside .page-navigation {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
-    @include media(mobile) {
-      border-bottom:none;
-      border-top: solid 1px #C9D0D0;
-    }
-
     span {
       display: block;
 
       &.part-label {
         color: #000;
         line-height: 1.5;
-        float:left;
-        width:20%;
       }
 
       &.part-title {
-        color: #2E3191;
-        text-decoration: underline;
+        color: #000;
+        text-decoration: none;
         line-height: 1.25;
       }
     }
@@ -212,6 +201,11 @@ aside .page-navigation {
           color: #2E3191;
         }
       }
+
+      span.part-title {
+        color: #2E3191;
+        text-decoration: underline;
+      }
     }
 
     &.active {
@@ -220,10 +214,6 @@ aside .page-navigation {
 
       @include ie-lte(8) {
         margin: 0;
-      }
-
-      @include media(mobile) {
-        padding:0;
       }
     }
 
