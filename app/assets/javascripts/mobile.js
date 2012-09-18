@@ -10,6 +10,11 @@
           $showAllLink = $('<a href="#" class="show-all-parts">Show all parts of this guide</a>'),
           $pageHeader = $('.multi-page article header h1 span');
 
+      // if the tabs are floated, quit (isn't small-screen)
+      if ($navbar.closest('aside').css('float') !== 'none') {
+        return;
+      }
+
       $showAllLink.insertBefore($navbar);
       $pageHeader.html($pageHeader.html().replace(/Part\s(\d+)/, 'Part $1 of ' + $navList.find('li').length));
       $showAllLink.on('click', function (e) {

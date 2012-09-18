@@ -187,8 +187,8 @@ article table {
 }
 
 article th, article td {
+  @include core-16;
   vertical-align: top;
-  line-height: 1.3em;
   padding: 0.7em 0.5em 0.7em 1em;
 }
 
