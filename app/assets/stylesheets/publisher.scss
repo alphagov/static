@@ -112,37 +112,34 @@ aside .page-navigation {
   li {
     list-style: none;
 
-    &:first-child a {
-      border-top: none;
+    &:last-child a {
+      border-bottom: solid 1px #C9D0D0;
     }
 
     &.active a {
-      background: #fff;
-      border: solid 1px #C9D0D0;
-      border-right: none;
+      background-color: #E1E8E8;
       display: block;
-      margin: 0 0 -1px -1px;
       position: relative;
+      text-decoration: none;
       z-index: 2;
 
       @include ie-lte(8) {
-        bottom: -1px;
         margin: 0;
       }
 
       &:hover {
-        background: #fff;
-        color: #1576FB;
+        background-color: #E1E8E8;
+        color: inherit;
       }
 
       .part-title {
         color: #000;
+        text-decoration: none;
       }
     }
 
     a {
       @include core-16;
-      background-color: #E1E8E8;
       border-top: solid 1px #C9D0D0;
       display: block;
       padding: 0.75em 0.75em;
@@ -158,13 +155,14 @@ aside .page-navigation {
       }
 
       .part-label {
-        color: #3f3f3f;
+        color: #000;
         display: block;
         line-height: 1.5em;
       }
 
       .part-title {
         line-height: 1.3em;
+        text-decoration: underline;
       }
     }
   }
