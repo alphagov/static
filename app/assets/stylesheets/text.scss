@@ -476,16 +476,6 @@ article ol.places {
   }
 }
 
-article .place {
-  background-color: #f8f8f8;
-  margin: 0.75em -1em;
-  padding: 1em;
-
-  @include media(mobile) {
-    margin: 0.75em 0;
-  }
-}
-
 section.places h3 {
   margin-top: 0;
 }
@@ -515,6 +505,10 @@ article .place {
     a {
       display: block;
     }
+  }
+
+  @include media(mobile) {
+    margin: 0.75em 0;
   }
 }
 
