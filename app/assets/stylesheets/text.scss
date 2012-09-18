@@ -302,6 +302,10 @@ article .intro {
   }
 }
 
+#wrapper.place article .intro {
+  margin-bottom: 0;
+}
+
 article .example {
   background: none repeat scroll 0 0 #e7ebda;
   margin: 0.75em -1em;
@@ -430,6 +434,10 @@ article ol.places {
     margin: 0;
     padding-left: 0;
   }
+}
+
+section.places h3 {
+  margin-top: 0;
 }
 
 article .place {
