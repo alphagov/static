@@ -489,6 +489,8 @@ article {
   }
 
   @include media(mobile) {
+    min-height: auto;
+
     .inner {
       padding: 0 1em 1em 1em;
     }
@@ -1100,6 +1102,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .find-location-for-service .cookie-container {
   bottom: 1em;
   right: 0.75em;
+
+  @include media(mobile) {
+    bottom: 20px;
+    bottom: 2rem;
+    right: 16px;
+    right: 1.6rem;
+  }
 }
 
 /*  ============================================================================
