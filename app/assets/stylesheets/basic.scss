@@ -116,4 +116,8 @@ button {
   *overflow:visible;
 }
 
-@import "_buttons"
+@import "_buttons";
+
+abbr[title] {
+  cursor: help;
+}
