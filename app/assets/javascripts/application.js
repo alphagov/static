@@ -12,3 +12,4 @@
 //= require jquery.history
 //= require jquery.tabs
 //= require mobile
+//= require js-stick-at-top-when-scrolling
