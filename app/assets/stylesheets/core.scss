@@ -248,6 +248,7 @@ h4 {
     list-style: none;
     margin: 0;
     padding: 0;
+    @include core-19;
   }
 
   li {
@@ -1113,8 +1114,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       padding: 1px 1px 0 0;
     }
 
-    li {
-      float: left;
+    @include media(mobile) {
+      float: none;
+      margin: 0 -16px;
+      margin: 0 -1.6rem;
     }
   }
 
@@ -1122,10 +1125,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     @include core-16;
     padding: 0;
     margin: 0;
+    float: left;
 
-    &:first-child a {
-      border-left: solid 1px #E1E8E8;
-      margin-left: 0;
+    @include media(mobile) {
+      float: none;
     }
 
     a {
@@ -1143,6 +1146,19 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       @include ie-lte(7) {
         background-image: none;
         padding: 0 0.5em;
+      }
+
+      @include media(mobile) {
+        display: block;
+        position: static;
+        float: none;
+        height: auto;
+        line-height: 3.5em;
+        padding: 0 16px;
+        padding: 0 1.6rem;
+        text-align: left;
+
+        border-bottom: 1px solid #C9D0D0;
       }
 
       &:hover {
@@ -1164,9 +1180,24 @@ ul.ui-corner-all, ul li a.ui-corner-all {
         bottom: -1px;
       }
 
+      @include media(mobile) {
+        border: none;
+        border-bottom: 1px solid  #C9D0D0;
+      }
+
       &:hover {
         background-color: #fff;
         color: #2E8ACA;
+      }
+    }
+
+    &:first-child a {
+      border-left: solid 1px #E1E8E8;
+      margin-left: 0;
+
+      @include media(mobile) {
+        border-left: none;
+        border-top: 1px solid #C9D0D0;
       }
     }
   }
@@ -1179,6 +1210,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     padding: 0.5em 5em 0 5em;
     border-top: solid 1px #C9D0D0;
     clear: both;
+
+    @include media(mobile) {
+      border-top: none;
+    }
   }
 
   .inner {
