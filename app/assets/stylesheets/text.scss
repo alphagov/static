@@ -423,65 +423,52 @@ article ol.places {
   margin-left: 0;
 
   &.answer_locations .information {
-    margin-left: 7.5em;
     min-height: 3em;
+  }
+
+  li {
+    margin: 0;
+    padding-left: 0;
   }
 }
 
 article .place {
-  background-color: #f8f8f8;
-  margin: 0.75em -1em;
-  padding: 1em;
-}
+  margin: 1.5em 0;
+  border-bottom: solid 1px #c9e0e0;
+  padding-bottom: 1.5em;
 
-article .place .map {
-  float: left;
-
-  img {
+  .address {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
     display: block;
   }
 
-  .view_map {
-    @include core-14;
-    margin-top: 1em;
+  .url {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .additional-information {
+    @include core-16;
+
+    a {
+      display: block;
+    }
   }
 }
 
-article .place .information {
-  margin-left: 11.5263158em; /* 219px */
-  min-height: 13em;
-
-  @include ie-lte(7) {
-    height: 13em;
-  }
-}
-
-article .place .address {
-  background: none;
-  border: none;
-  margin: 0;
+article ul.view-maps {
+  list-style: none;
   padding: 0;
-  width: auto;
-  display: block;
+  margin: 1em 0;
 
-  .address span {
-    display: block;
-  }
-}
-
-article .place .url {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-article .place .additional-information {
-  border-top: solid 1px #c9e0e0;
-  @include core-16;
-  margin-top: 1em;
-  padding-top: 1em;
-
-  a {
-    display: block;
+  li {
+    @include core-16;
+    display: inline-block;
+    margin-right: 1em;
   }
 }
 
