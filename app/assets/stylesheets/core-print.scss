@@ -1,3 +1,6 @@
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
+
 /* Global print stylesheet */
 
 /* reset everything */
@@ -209,6 +212,8 @@ body nav,
 .found_location,
 .loading_location,
 .location_error,
-#global-cookie-message {
+#global-cookie-message,
+.report-a-problem-toggle,
+.report-a-problem-container {
   display: none !important;
 }

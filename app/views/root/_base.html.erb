@@ -73,11 +73,13 @@
     <% end %>
 
     <% unless local_assigns[:hide_nav] %>
-      <nav role="navigation" class="header-context">
-        <ol class="group">
-          <li><a href="/">Home</a></li>
-        </ol>
-      </nav>
+      <div class="header-context js-stick-at-top-when-scrolling">
+        <nav role="navigation">
+          <ol class="group">
+            <li><a href="/">Home</a></li>
+          </ol>
+        </nav>
+      </div>
     <% end %>
 
     <div id="wrapper" class="group">

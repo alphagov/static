@@ -3,36 +3,46 @@
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
-body.mainstream nav.header-context {
-  margin: 0.5em auto 0.25em auto;
-  max-width: 960px;
+body.mainstream .header-context {
+  background-color: #fff;
+  padding: 0.25em 0;
+  z-index: 50;
 
-  ol {
-    background-color: #fff;
-    margin: 0 15em 0 0;
-    padding: 0.25em 0.75em;
+  &.content-fixed {
+    border-bottom: solid 3px #F2F2F2;
+  }
 
-    @include ie-lte(7) {
-      padding: 0.25em 0;
-      width: 960px;
-    }
-    
-    li {
-      background-repeat: no-repeat;
-      background-image: image-url("separator.png");
-      background-position: 100% 50%;
-      float: left;
-      list-style: none;
-      margin-left: 0.5em;
-      padding-right: 1em;
+  nav {
+    width: 960px;
+    margin: 0 auto;
 
-      &:first-child {
-        padding-left: 0;
-      }
+    ol {
+      margin: 0;
+      padding: 0;
 
-      &:last-child {
-        background: none;
-        margin-right: 0
+      li {
+        background-image: image-url("separator.png");
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        float: left;
+        font-size: 1.1875em;
+        line-height: 1.7;
+        list-style: none;
+        margin-left: 0.5em;
+        padding-right: 1em;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          white-space: nowrap;
+        }
+
+        &:last-child {
+          margin-right: 0
+        }
+
       }
 
       a {
@@ -49,6 +59,10 @@ body.mainstream nav.header-context {
 #wrapper {
   background-color: #F2F2F2;
 
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+
   header.page-header hgroup {
     background-position: 97% 1em;
     background-repeat: no-repeat;
@@ -62,7 +76,7 @@ body.mainstream nav.header-context {
 }
 
 section#content {
-  margin: 0 auto;
+  margin: 1em auto 0 auto;
   max-width: 960px;
   position: relative;
 
@@ -159,7 +173,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 5.25em;
+  top: 6.25em;
   width: 100%;
   z-index: 0;
 
@@ -224,7 +238,7 @@ h4 {
   }
 
   li {
-    padding-bottom: 0.5em;
+    margin-bottom: 1em;
     padding-left: 0;
 
     &.related-topic {
@@ -286,16 +300,15 @@ h4 {
     display: none;
 
   p {
-    @include core-16;
-    margin-bottom: 0.3em;
-    padding: 0;
-    color: black;
+	  font-size: 1em;
+    margin-bottom: 0;
+	  padding: 0;
+	  color: black;
   }
 
   ul {
-    border-bottom: 1px solid #CCC;
-    margin: 0;
-    padding: 0;
+	  margin: 0;
+	  padding: 0;
   }
 
   li {
@@ -312,20 +325,20 @@ h4 {
 }
 
 #wrapper.businesslink #legacy-sources li.businesslink {
-    background-image: image-url("businesslink-logo.png");
-    width: 84px;
-    height: 17px;
-    margin-top: 0.8em;
-    display: block;
+	background-image: image-url("businesslink-logo.png");
+	width: 84px;
+	height: 24px;
+	margin-top: 0.5em;
+	display: block;
 }
 
 #wrapper.directgov #legacy-sources li.directgov {
-    background-image: image-url("directgov-logo.png");
-    width: 74px;
-    height: 14px;
-    margin-right: 1em;
-    margin-top: 1.1em;
-    display: block;
+	background-image: image-url("directgov-logo.png");
+	width: 74px;
+	height: 14px;
+	margin-right: 1em;
+	margin-top: 0.8em;
+	display: block;
 }
 
 /*
@@ -994,7 +1007,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 #related-popup {
   padding: 1em;
   margin: 1em;
-  border-top: 1px solid #eee
+  border-top: 1px solid #eee;
 
   h2 {
     padding: 0;
