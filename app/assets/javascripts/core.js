@@ -69,7 +69,7 @@ $(document).ready(function() {
       }
     }
   }
-  
+ 
   // related box fixer
   if($(window).width() >= "670"){
     if($(".related-positioning").length !== 0){
