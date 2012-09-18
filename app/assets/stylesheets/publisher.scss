@@ -15,7 +15,6 @@
   }
 
   article {
-    margin-left: -1px;
     min-height: 40em;
     width: 75%;
 
@@ -157,11 +156,10 @@ aside .page-navigation {
       text-decoration: none;
 
       &:hover {
-        background-color: #97C5E5;
-        color: #fff;
+        background-color: #E1E8E8;
 
         .part-title {
-          text-decoration: none;
+          color: #2E3191;
         }
       }
 
