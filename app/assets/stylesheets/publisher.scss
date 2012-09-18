@@ -110,13 +110,18 @@ aside .page-navigation {
   }
 
   li {
+    border-top: solid 1px #C9D0D0;
     list-style: none;
 
-    &:last-child a {
+    &.active {
+      padding: 0.75em 0.75em;
+    }
+
+    &:last-child {
       border-bottom: solid 1px #C9D0D0;
     }
 
-    &.active a {
+    &.active {
       background-color: #E1E8E8;
       display: block;
       position: relative;
@@ -127,20 +132,26 @@ aside .page-navigation {
         margin: 0;
       }
 
-      &:hover {
-        background-color: #E1E8E8;
-        color: inherit;
-      }
+    }
 
-      .part-title {
-        color: #000;
-        text-decoration: none;
-      }
+    .part-label {
+      color: #000;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .part-title {
+      color: #000;
+      text-decoration: none;
+      line-height: 1.25;
+    }
+
+    span {
+      display: block;
     }
 
     a {
       @include core-16;
-      border-top: solid 1px #C9D0D0;
       display: block;
       padding: 0.75em 0.75em;
       text-decoration: none;
@@ -148,20 +159,14 @@ aside .page-navigation {
       &:hover {
         background-color: #97C5E5;
         color: #fff;
-      }
 
-      span {
-        display: block;
-      }
-
-      .part-label {
-        color: #000;
-        display: block;
-        line-height: 1.5em;
+        .part-title {
+          text-decoration: none;
+        }
       }
 
       .part-title {
-        line-height: 1.3em;
+        color: inherit;
         text-decoration: underline;
       }
     }
@@ -309,7 +314,7 @@ ul.helpers li.active h3 a {
 }
 
 /*
-  Programme format
+  Benefits and credits format
 */
 #wrapper.programme {
   article {
