@@ -164,6 +164,10 @@ aside .show-all-parts-open {
 aside .page-navigation {
   margin-top: 0.5em;
 
+  @include media(mobile) {
+    margin-top: 0;
+  }
+
   ol {
     margin: 0;
     padding: 0;
@@ -173,17 +177,24 @@ aside .page-navigation {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
+    @include media(mobile) {
+      border-bottom:none;
+      border-top: solid 1px #C9D0D0;
+    }
+
     span {
       display: block;
 
       &.part-label {
         color: #000;
         line-height: 1.5;
+        float:left;
+        width:20%;
       }
 
       &.part-title {
-        color: #000;
-        text-decoration: none;
+        color: #2E3191;
+        text-decoration: underline;
         line-height: 1.25;
       }
     }
@@ -201,11 +212,6 @@ aside .page-navigation {
           color: #2E3191;
         }
       }
-
-      span.part-title {
-        color: #2E3191;
-        text-decoration: underline;
-      }
     }
 
     &.active {
@@ -214,6 +220,10 @@ aside .page-navigation {
 
       @include ie-lte(8) {
         margin: 0;
+      }
+
+      @include media(mobile) {
+        padding:0;
       }
     }
 
@@ -377,14 +387,27 @@ ul.helpers li.active h3 a {
       width:74.5%;
     }
 
+    @include media(mobile) {
+      width:auto;
+    }
+
     .inner {
       padding: 0 2.5em 1em;
+
+      @include media(mobile) {
+        padding: 0 1em 1em;
+      }
     }
   }
 
   .programme-progression {
     width:25%;
     float:left;
+
+    @include media(mobile) {
+      width:auto;
+      float:none;
+    }
 
     ol {
       margin: 0;
@@ -396,8 +419,14 @@ ul.helpers li.active h3 a {
       list-style: none;
 
       a {
+        @include core-16($line-height: (24 / 16));
+        background-color: #FFF;
         display: block;
         padding: 0.75em 0.75em;
+        position: relative;
+        text-align: left;
+        text-decoration:underline;
+        top: 0;
 
         &:hover {
           background-color: #E1E8E8;
@@ -449,8 +478,12 @@ ul.helpers li.active h3 a {
       }
 
       a {
-        @include core-16($line-height: (35 / 16));
-        height: 2.15em;
+        @include core-16($line-height: (35 / 16), $line-height-640: (35 / 13));
+        height: (35 / 16) * 1em;
+
+        @include media(mobile) {
+          height: (35 / 13) * 1em;
+        }
         position: relative;
       }
     }
