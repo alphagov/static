@@ -3,40 +3,54 @@
 (function () {
   var GOVUK = GOVUK || {};
 
-  GOVUK.mobileGuideTabs = {
-    init : function () {
-      var $navbar = $('div.article-container aside nav.page-navigation'),
-          $navList = $navbar.find('ol')
-          $showAllLink = $('<a href="#" class="show-all-parts">Show all parts of this guide</a>'),
-          $pageHeader = $('.multi-page article header h1 span');
+  var guideTabs = function () {
+      this.$navbar = $('div.article-container aside nav.page-navigation');
+      this.$navlist = this.$navbar.find('ol');
+      this.$showAllLink = $('<a href="#" class="show-all-parts">Show all parts of this guide</a>');
+      this.$pageHeader = $('.multi-page article header h1 span');
 
-      // if the tabs are floated, quit (isn't small-screen)
-      if ($navbar.closest('aside').css('float') !== 'none') {
+      this.init();
+  };
+
+  guideTabs.prototype = {
+    init : function () {
+      // if the guideTabs are floated, quit (isn't small-screen)
+      if (this.$navbar.closest('aside').css('float') !== 'none') {
         return;
       }
 
-      $showAllLink.insertBefore($navbar);
-      $pageHeader.html($pageHeader.html().replace(/Part\s(\d+)/, 'Part $1 of ' + $navList.find('li').length));
-      $showAllLink.on('click', function (e) {
-        var $this = $(this);
+      this.setup();
+    },
+    control : function (e) {
+      var $this = $(e.target),
+          instance = this;
 
-        if(!$this.hasClass('show-all-parts-open')) {
-          $this.addClass('show-all-parts-open');
-          $this.text($this.text().replace(/Show/, 'Hide'));
-          $navList.show();
-          $navbar.addClass('page-navigation-open');
-        } else {
-          $this.removeClass('show-all-parts-open');
-          $this.text($this.text().replace(/Hide/, 'Show'));
-          $navList.hide();
-          $navbar.removeClass('page-navigation-open');
-        }
+      if(!$this.hasClass('show-all-parts-open')) {
+        $this.addClass('show-all-parts-open');
+        $this.text($this.text().replace(/Show/, 'Hide'));
+        instance.$navlist.show();
+        instance.$navbar.addClass('page-navigation-open');
+      } else {
+        $this.removeClass('show-all-parts-open');
+        $this.text($this.text().replace(/Hide/, 'Show'));
+        instance.$navlist.hide();
+        instance.$navbar.removeClass('page-navigation-open');
+      }
 
-        return false;
+      return false;
+    },
+    setup : function () {
+      var instance = this;
+
+      this.$showAllLink.insertBefore(this.$navbar);
+      this.$pageHeader.html(this.$pageHeader.html().replace(/Part\s(\d+)/, 'Part $1 of ' + this.$navlist.find('li').length));
+      this.$showAllLink.on('click', function (e) {
+        instance.control(e); 
       });
 
-      $navList.hide();
+      this.$navlist.hide();
     }
   };
-  GOVUK.mobileGuideTabs.init();
+
+  GOVUK.guideTabs = new guideTabs();
 }(jQuery));

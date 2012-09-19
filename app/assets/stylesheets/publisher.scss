@@ -372,6 +372,10 @@ ul.helpers li.active h3 a {
       width:74.5%;
     }
 
+    @include media(mobile) {
+      width:auto;
+    }
+
     .inner {
       padding: 0 2.5em 1em;
     }
@@ -388,6 +392,11 @@ ul.helpers li.active h3 a {
     position: relative;
     width:25%;
     float:left;
+
+    @include media(mobile) {
+      width:auto;
+      float:none;
+    }
 
     ol {
       background-color: #C9D0D0;
@@ -406,10 +415,14 @@ ul.helpers li.active h3 a {
       }
 
       a {
+        @include core-16($line-height: (36 / 16), $line-height-640: (36 / 13));
         background-color: #E1E8E8;
         display: block;
         height: 2.25em;
-        line-height: 2.25em;
+        @include media(mobile) {
+          height:2.77em; 
+        }
+
         border-top: 1px solid #C9D0D0;
         padding: 0 1em 0 0.75em;
         position: relative;
@@ -502,6 +515,10 @@ div.further-information {
   margin: 0;
   clear: both;
   padding-top: 2em;
+
+  @include media(mobile) {
+    padding:1em 0;
+  }
 
   a {
     padding: 0 0 0 0.8em;
