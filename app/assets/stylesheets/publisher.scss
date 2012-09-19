@@ -222,24 +222,25 @@ aside .page-navigation {
         .part-label {
           float:left;
           width:20%;
+        }
       }
-    }
 
-    &.active {
-      background-color: #E1E8E8;
-      padding: 0.75em 0.75em;
+      &.active {
+        background-color: #E1E8E8;
+        padding: 0.75em 0.75em;
 
-      @include ie-lte(8) {
-        margin: 0;
+        @include ie-lte(8) {
+          margin: 0;
+        }
       }
 
       @include media(mobile) {
         padding:0;
       }
-    }
 
-    &:first-child {
-      border-top: solid 1px #C9D0D0;
+      &:first-child {
+        border-top: solid 1px #C9D0D0;
+      }
     }
   }
 }
@@ -560,3 +561,4 @@ div.further-information {
 .contact-popup .contact {
   width: auto;
 }
+
