@@ -378,6 +378,10 @@ ul.helpers li.active h3 a {
 
     .inner {
       padding: 0 2.5em 1em;
+
+      @include media(mobile) {
+        padding: 0 1em 1em;
+      }
     }
   }
 
@@ -482,8 +486,12 @@ ul.helpers li.active h3 a {
       }
 
       a {
-        @include core-16($line-height: (35 / 16));
-        height: 2.15em;
+        @include core-16($line-height: (35 / 16), $line-height-640: (35 / 13));
+        height: (35 / 16) * 1em;
+
+        @include media(mobile) {
+          height: (35 / 13) * 1em;
+        }
         position: relative;
       }
     }

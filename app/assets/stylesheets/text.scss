@@ -130,6 +130,11 @@ article ul, article ol {
   margin-left: -2.4em;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+
+  @include media(mobile) {
+    padding-left: 0;
+    margin-left: 0;
+  }
 }
 
 /*
