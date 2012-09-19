@@ -262,6 +262,7 @@ h4 {
     list-style: none;
     margin: 0;
     padding: 0;
+    @include core-19;
   }
 
   li {
@@ -374,25 +375,25 @@ h4 {
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
+  background-position: 0 14px;
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup {
-  /*border-color: #2DA096;*/
-}
-
 #wrapper.service header.page-header hgroup h1 {
   background-image: image-url("icon-service-l.png");
+  background-position: 0 12px;
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
   background-image: image-url("icon-answer-l.png");
+  background-position: 12px 14px;
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
   background-image: image-url("icon-licence-l.png");
+  background-position: 16px 14px;
 }
 
 /* Guides */
@@ -400,6 +401,11 @@ h4 {
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
   background-repeat: no-repeat;
+  background-position: 15px 14px;
+}
+
+.business header.page-header hgroup h1 {
+  padding-right: 3em;
 }
 
 header {
@@ -441,24 +447,13 @@ header {
   }
 }
 
-.business header.page-header hgroup h1 {
-  padding-right: 3em;
+@media screen and (max-width: 640px) {
+  header.page-header hgroup h1 {
+    padding-left: (72em/25);
+    min-height: (61em/25);
+  }
 }
-.service header.page-header hgroup h1 {
-  background-position: 0 12px;
-}
-.guide header.page-header hgroup h1 {
-  background-position: 15px 14px;
-}
-.answer header.page-header hgroup h1 {
-  background-position: 12px 14px;
-}
-.programme header.page-header hgroup h1 {
-  background-position: 0 14px;
-}
-.licence header.page-header hgroup h1 {
-  background-position: 16px 14px;
-}
+
 
 /*
   ============================== Stuff (mainly) used in publications =============================
@@ -1132,8 +1127,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       padding: 1px 1px 0 0;
     }
 
-    li {
-      float: left;
+    @include media(mobile) {
+      float: none;
+      margin: 0 -16px;
+      margin: 0 -1.6rem;
     }
   }
 
@@ -1141,10 +1138,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     @include core-16;
     padding: 0;
     margin: 0;
+    float: left;
 
-    &:first-child a {
-      border-left: solid 1px #E1E8E8;
-      margin-left: 0;
+    @include media(mobile) {
+      float: none;
     }
 
     a {
@@ -1162,6 +1159,19 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       @include ie-lte(7) {
         background-image: none;
         padding: 0 0.5em;
+      }
+
+      @include media(mobile) {
+        display: block;
+        position: static;
+        float: none;
+        height: auto;
+        line-height: 3.5em;
+        padding: 0 16px;
+        padding: 0 1.6rem;
+        text-align: left;
+
+        border-bottom: 1px solid #C9D0D0;
       }
 
       &:hover {
@@ -1183,9 +1193,24 @@ ul.ui-corner-all, ul li a.ui-corner-all {
         bottom: -1px;
       }
 
+      @include media(mobile) {
+        border: none;
+        border-bottom: 1px solid  #C9D0D0;
+      }
+
       &:hover {
         background-color: #fff;
         color: #2E8ACA;
+      }
+    }
+
+    &:first-child a {
+      border-left: solid 1px #E1E8E8;
+      margin-left: 0;
+
+      @include media(mobile) {
+        border-left: none;
+        border-top: 1px solid #C9D0D0;
       }
     }
   }
@@ -1198,6 +1223,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     padding: 0.5em 5em 0 5em;
     border-top: solid 1px #C9D0D0;
     clear: both;
+
+    @include media(mobile) {
+      border-top: none;
+    }
   }
 
   .inner {
@@ -1227,6 +1256,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 /* report a problem */
 
 .report-a-problem-toggle{
+  @include core-19;
+
   margin:2em 4em 0.5em 5em;
   clear:both;
   a{
@@ -1234,17 +1265,20 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   @include media(mobile) {
-    margin: 0 0 0 1em;
+    margin: 0 0 0.5em 16px;
+    margin: 0 0 0.5em 1.6rem;
   }
 }
 .js-enabled .report-a-problem-container{
   display:none;
 }
 .report-a-problem-container{
-  font-size:1.16em;
+  @include core-19;
+
   background-color:#D5E8F3;
   margin:0 3.5em 2em 3.5em;
   padding:0.5em 1em 1em 1em;
+
   div{
     width:98%;
     padding-top:0.5em;
@@ -1258,5 +1292,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       display:block;
       width:98%;
     }
+  }
+
+  @include media(mobile) {
+    margin: 0 1em 2em 1em;
   }
 }
