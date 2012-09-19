@@ -177,12 +177,19 @@ aside .page-navigation {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
+    @include media(mobile) {
+      border-bottom:none;
+      border-top: solid 1px #C9D0D0;
+    }
+
     span {
       display: block;
 
       &.part-label {
         color: #000;
         line-height: 1.5;
+        float:left;
+        width:20%;
       }
 
       &.part-title {
@@ -213,6 +220,10 @@ aside .page-navigation {
 
       @include ie-lte(8) {
         margin: 0;
+      }
+
+      @include media(mobile) {
+        padding:0;
       }
     }
 
