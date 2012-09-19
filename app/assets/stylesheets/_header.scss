@@ -50,6 +50,10 @@
       width: 960px;
     }
 
+    @media screen and (max-width: 960px) {
+      padding: 0 1em;
+    }
+
     a {
       color: #fff;
       text-decoration: none;
@@ -151,6 +155,10 @@
       padding: 0.2em 0.25em;
       min-width: 8em;
       margin: 0 0.5em;
+
+      @media screen and (max-width: 440px) {
+        min-width: 2em;
+      }
     }
   }
 }
