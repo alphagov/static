@@ -6,14 +6,11 @@
  * licensed under MIT (filamentgroup.com/examples/mit-license.txt)
  * --------------------------------------------------------------------
  */
-/* August 2011
- * Frances Berriman
- * Minor changes to support GovUK specific markup
+
+/*
+ * Edited to support GOV.UK markup and add acccessibility features
 */
-/* July 2012
- * Tom Byers
- * Minor changes to support Trade tariff specific markup
-*/
+
 jQuery.fn.tabs = function(settings){
 	//configurable options
 	var o = $.extend({
@@ -47,7 +44,8 @@ jQuery.fn.tabs = function(settings){
 			.attr('role','tablist');
 			
 		tabsBody
-			.addClass('tabs-body');
+			.addClass('tabs-body')
+			.attr('aria-live', 'polite');
 		
 		//find tab panels, add class and aria
 		tabsBody.find('.js-tab-pane').each(function(){
@@ -55,16 +53,21 @@ jQuery.fn.tabs = function(settings){
 				.addClass('tabs-panel')
 				.attr('role','tabpanel')
 				.attr('aria-hidden', true)
+				.attr('aria-expanded', false)
 				.attr('aria-labelledby', tabIDprefix + $(this).attr('id'))
 				.attr('id', $(this).attr('id') + tabIDsuffix)
 				.hide();
 		});
 		
 		//set role of each tab
-		tabsNav.find('li').each(function(){
+		tabsNav.find('li').find('a').each(function(){
+			var id = $(this).attr('href').split('#')[1];
+
 			$(this)
 				.attr('role','tab')
-				.attr('id', tabIDprefix+$(this).find('a').attr('href').split('#')[1]);
+				.attr('id', tabIDprefix+id)
+				.attr('aria-controls', id)
+				.attr('aria-flowto', id);
 		});
 
 		//switch selected on click
@@ -77,19 +80,19 @@ jQuery.fn.tabs = function(settings){
 				$.historyLoad(anchor);
 			} else {
 				//unselect tabs
-				tabsNav.find('li')
+				tabsNav.find('li').find('a')
 					.attr('aria-selected', false)
-					.filter('.active')
-					.removeClass('active')
-					.find('a');
+					.attr('tabindex', -1)
+					.parent().filter('.active').removeClass('active');
 				//set selected tab item
 				tab
-					.parent()
-					.addClass('active')
-					.attr('aria-selected', true);
+					.attr('aria-selected', true)
+					.attr('tabindex', 0)
+					.parent().addClass('active');
 				//unselect panels
 				tabsBody.find('.tabs-panel-selected')
 					.attr('aria-hidden',true)
+					.attr('aria-expanded', false)
 					.removeClass('tabs-panel-selected')
 					.hide();
 					
@@ -98,6 +101,7 @@ jQuery.fn.tabs = function(settings){
 				$( "#" + anchor + tabIDsuffix )
 					.addClass('tabs-panel-selected')
 					.attr('aria-hidden',false)
+					.attr('aria-expanded', true)
 					.show();
 
 				// set selected index
@@ -156,7 +160,7 @@ jQuery.fn.tabs = function(settings){
 			if (selectedIndex !== undefined) {
 				selectedIndex = selectedIndex >= tabsNav.find('a').length ? 0 : selectedIndex < 0 ? tabsNav.find('a').length - 1 : selectedIndex;
 			
-				tabsNav.find('a').eq(selectedIndex).focus();
+				selectTab(tabsNav.find('a').eq(selectedIndex).focus());
 			}
 			return false;
 		});
