@@ -35,6 +35,10 @@ body.mainstream .header-context {
           margin-left: 0;
         }
 
+        strong {
+          font-weight: normal;
+        }
+
         a {
           white-space: nowrap;
         }
@@ -43,10 +47,6 @@ body.mainstream .header-context {
           margin-right: 0
         }
 
-      }
-
-      a {
-        white-space: nowrap;
       }
     }
   }
@@ -259,10 +259,10 @@ h4 {
   }
 
   ul {
+    @include core-16;
     list-style: none;
     margin: 0;
     padding: 0;
-    @include core-19;
   }
 
   li {
@@ -510,7 +510,7 @@ article {
 
 /* Meta-data */
 .meta-data {
-  @include core-19;
+  @include core-16;
   color: #333;
   float: left;
   width: 100%;
@@ -543,8 +543,8 @@ article {
     background: image-url("print.png") no-repeat 100% 50%;
     display: inline-block;
     padding-left: 30px;
-    padding-right: 38px;
-    padding-top: 4px;
+    padding-right: 32px;
+    padding-top: 5px;
 
     @include media(mobile) {
       padding-bottom:4px;
@@ -1264,7 +1264,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 /* report a problem */
 
 .report-a-problem-toggle{
-  @include core-19;
+  @include core-16;
 
   margin:2em 4em 0.5em 5em;
   clear:both;

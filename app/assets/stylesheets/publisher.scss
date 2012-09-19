@@ -15,7 +15,6 @@
   }
 
   article {
-    margin-left: -1px;
     min-height: 40em;
     width: 75%;
 
@@ -116,8 +115,6 @@
 aside .page-navigation a,
 aside .show-all-parts {
   @include core-16;
-  background-color: #E1E8E8;
-  border-top: solid 1px #C9D0D0;
   display: block;
   padding: 0.75em 0.75em;
   text-decoration: none;
@@ -147,6 +144,7 @@ aside .show-all-parts {
 }
 
 aside .show-all-parts {
+  border-top: solid 1px #C9D0D0;
   display:block;
   padding:0.75em 3em 0.75em 0.75em;
   border-top:solid 1px #C9D0D0;
@@ -164,10 +162,7 @@ aside .show-all-parts-open {
 }
 
 aside .page-navigation {
-  display: block;
-  float: right;
   margin-top: 0.5em;
-  width: 100%;
 
   @include media(mobile) {
     margin-top: 0;
@@ -179,41 +174,50 @@ aside .page-navigation {
   }
 
   li {
+    border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
-    &:first-child a {
-      border-top: none;
+    span {
+      display: block;
+
+      &.part-label {
+        color: #000;
+        line-height: 1.5;
+      }
+
+      &.part-title {
+        color: #2E3191;
+        text-decoration: underline;
+        line-height: 1.25;
+      }
     }
 
-    &.active a {
-      background: #fff;
-      border: solid 1px #C9D0D0;
-      border-right: none;
+    a {
+      @include core-16;
       display: block;
-      margin: 0 0 -1px -1px;
-      position: relative;
-      z-index: 2;
-
-      @include ie-lte(8) {
-        bottom: -1px;
-        margin: 0;
-      }
+      padding: 0.75em 0.75em;
+      text-decoration: none;
 
       &:hover {
-        background: #fff;
-        color: #1576FB;
-      }
+        background-color: #E1E8E8;
 
-      .part-title {
-        color: #000;
+        span.part-title {
+          color: #2E3191;
+        }
       }
     }
 
-    @include media(mobile) {
-      .part-label {
-        float:left;
-        width:20%;
+    &.active {
+      background-color: #E1E8E8;
+      padding: 0.75em 0.75em;
+
+      @include ie-lte(8) {
+        margin: 0;
       }
+    }
+
+    &:first-child {
+      border-top: solid 1px #C9D0D0;
     }
   }
 }
@@ -359,7 +363,7 @@ ul.helpers li.active h3 a {
 }
 
 /*
-  Programme format
+  Benefits and credits format
 */
 #wrapper.programme {
   article {
@@ -385,15 +389,7 @@ ul.helpers li.active h3 a {
     }
   }
 
-  .programme-progression li a:hover,
-  .part-pagination li:first-child a:hover {
-    background-color: #97C5E5;
-    color: inherit;
-  }
-
   .programme-progression {
-    padding: 0;
-    position: relative;
     width:25%;
     float:left;
 
@@ -403,56 +399,41 @@ ul.helpers li.active h3 a {
     }
 
     ol {
-      background-color: #C9D0D0;
-      float: left;
-      list-style: none;
       margin: 0;
       padding: 0;
-      width:100%;
-      z-index: 5;
     }
 
     li {
-      &:first-child a {
-        border-left: solid 1px #E1E8E8;
-        margin-left: 0;
-      }
+      border-bottom: solid 1px #C9D0D0;
+      list-style: none;
 
       a {
-        @include core-16($line-height: (36 / 16), $line-height-640: (36 / 13));
-        background-color: #E1E8E8;
+        @include core-16($line-height: (24 / 16));
+        background-color: #FFF;
         display: block;
-        height: 2.25em;
-        @include media(mobile) {
-          height:2.77em; 
-        }
-
-        border-top: 1px solid #C9D0D0;
-        padding: 0 1em 0 0.75em;
+        padding: 0.75em 0.75em;
         position: relative;
         text-align: left;
-        text-decoration: none;
+        text-decoration:underline;
         top: 0;
 
-        @include ie-lte(7) {
-          background-image: none;
-          padding: 0 0.5em;
+        &:hover {
+          background-color: #E1E8E8;
         }
       }
 
-      &.active a {
-        background-color: #fff;
-        border-color: #C9D0D0;
-        border-style: solid none solid solid;
-        border-width: 1px medium 1px 1px;
-        color: #000;
-        margin: -1px -1px -1px 0;
-        position: relative;
-        z-index: 5;
+      &.active {
+        text-decoration: none;
 
-        &:hover {
-          color: #2E8ACA;
+        a {
+          background-color: #E1E8E8;
+          color: #000;
+          text-decoration: none;
         }
+      }
+
+      &:first-child {
+        border-top: solid 1px #C9D0D0;
       }
     }
   }
