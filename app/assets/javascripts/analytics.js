@@ -19,11 +19,13 @@
         $("#content a").click(function() {
             onSuccess(success, needID);
             try {
+              /*
               if ($(this).data('events').click.length === 1) {
                 window.setTimeout(function () {
                   document.location = $(this).attr("href");
                 }, 50)
               }
+              */
             } catch(err) {}
         });
     }
