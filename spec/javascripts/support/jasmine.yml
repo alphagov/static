@@ -18,6 +18,7 @@ src_files:
   - app/assets/javascripts/core.js
   - app/assets/javascripts/geo-locator.js
   - app/assets/javascripts/devolution.js
+  - app/assets/javascripts/event-ice-bucket.js
   - app/assets/javascripts/analytics.js
 # stylesheets
 #

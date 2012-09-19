@@ -18,55 +18,17 @@ GOVUK.wireTrackingEvents = (function () {
 
     var successful = false;
 
-    function cacheEvent(event) {
-        var newEvent = {};
-        var target = event.target;
-        var shouldOpenInNewWindow = event.originalEvent.metaKey || event.originalEvent.ctrlKey;
-
-        if (event.originalEvent.initMouseEvent) {
-            newEvent = document.createEvent('MouseEvents');
-            newEvent.initMouseEvent(
-                event.originalEvent.type,
-                event.originalEvent.bubbles,
-                event.originalEvent.cancelable,
-                event.originalEvent.view,
-                event.originalEvent.detail,
-                event.originalEvent.screenX,
-                event.originalEvent.screenY,
-                event.originalEvent.clientX,
-                event.originalEvent.clientY,
-                event.originalEvent.ctrlKey,
-                event.originalEvent.altKey,
-                event.originalEvent.shiftKey,
-                event.originalEvent.metaKey,
-                event.originalEvent.button,
-                event.originalEvent.relatedTarget);
-        }
-
-        return {fire:function () {
-            if (event.originalEvent.initMouseEvent) {
-                target.dispatchEvent(newEvent);
-            } else {
-                if (shouldOpenInNewWindow) {
-                    $(target).attr('target', '_blank');
-                }
-                target.click();
-            }
-        }
-        };
-    }
-
     function interceptHyperLinkAndFireSuccess(selector, success) {
         $(selector).click(function (event) {
             onSuccess(success);
             if (!successful) {
                 successful = true;
-                var cachedEvent = cacheEvent(event);
+                var frozenEvent = $.freezeEvent(event);
                 event.stopImmediatePropagation();
                 event.preventDefault();
                 var delay = GOVUK.Analytics.debugMode ? 1000 : 50;
                 setTimeout(function () {
-                    cachedEvent.fire();
+                    frozenEvent.unfreeze();
                 }, delay);
             }
         });
