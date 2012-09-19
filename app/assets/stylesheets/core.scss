@@ -510,6 +510,7 @@ article {
 
 /* Meta-data */
 .meta-data {
+  @include core-19;
   color: #333;
   float: left;
   width: 100%;
@@ -535,18 +536,25 @@ article {
 
 .print-link {
   float: right;
+  text-align:right;
+  width:60%;
 
   a, a:link, a:visited {
     background: image-url("print.png") no-repeat 100% 50%;
     display: inline-block;
     padding-left: 30px;
-    padding-right: 2em;
+    padding-right: 38px;
     padding-top: 4px;
+
+    @include media(mobile) {
+      padding-bottom:4px;
+    }
   }
 }
 
 .modified-date {
   float: left;
+  width:40%;
 }
 
 /*
