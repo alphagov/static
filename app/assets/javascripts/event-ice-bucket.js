@@ -3,7 +3,7 @@ var registerEventIceBucket = function () {
     $.extend({
         freezeEvent:function (event) {
             var newEventTrigger = {};
-
+            var isDomLevel2Supported = function() { return (event.originalEvent.initMouseEvent) && 1; }
             var cloneBrowserEvent = function (originalEvent) {
                 var newEvent = document.createEvent('MouseEvents');
                 newEvent.initMouseEvent(
@@ -25,7 +25,7 @@ var registerEventIceBucket = function () {
                 return newEvent;
             };
 
-            if ((event.originalEvent !== undefined) && event.originalEvent.initMouseEvent) {
+            if ((event.originalEvent !== undefined) && isDomLevel2Supported()) {
                 var newEvent = cloneBrowserEvent(event.originalEvent);
                 newEventTrigger = function () {
                     event.target.dispatchEvent(newEvent);
