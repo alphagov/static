@@ -62,23 +62,6 @@
         text-decoration: underline;
       }
     }
-
-    ul.ui-autocomplete {
-      position: absolute;
-      right: 4.3em;
-      left: -moz-initial;
-      left: initial;
-      width: 415px;
-      display: block;
-
-      a {
-        color: #333;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
   }
 
   /* this UL can be in both the auto-complete and the nav */
