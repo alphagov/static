@@ -46,7 +46,6 @@
       float:none;
       width:auto;
       overflow:hidden;
-      border-bottom:solid 1px #C9D0D0;
     }
   }
 }
@@ -112,42 +111,15 @@
   padding-top: 0;
 }
 
-aside .page-navigation a,
 aside .show-all-parts {
-  @include core-16;
+  @include core-16($line-height: (45/16), $line-height-640: (45/13));
+  border: solid 1px #C9D0D0;
+  border-width: 1px 0;
   display: block;
-  padding: 0.75em 0.75em;
-  text-decoration: none;
 
-  &:hover {
-    background-color: #97C5E5;
-    color: #fff;
-  }
+  padding: 0 16px;
+  padding: 0 1.6rem;
 
-  span {
-    display: block;
-  }
-
-  .part-label {
-    color: #3f3f3f;
-    display: block;
-    line-height: 1.5em;
-  }
-
-  .part-title {
-    line-height: 1.3em;
-
-    @include media(mobile) {
-      line-height:1.5em;
-    }
-  }
-}
-
-aside .show-all-parts {
-  border-top: solid 1px #C9D0D0;
-  display:block;
-  padding:0.75em 3em 0.75em 0.75em;
-  border-top:solid 1px #C9D0D0;
   background: transparent image-url("arrows.png") 95% -24px no-repeat;
 
   &,
@@ -155,10 +127,11 @@ aside .show-all-parts {
   &:focus {
     text-decoration:none;
   }
-}
 
-aside .show-all-parts-open {
-  background-position: 95% 4px;
+  &.show-all-parts-open {
+    background-position: 95% 4px;
+    border-bottom: none;
+  }
 }
 
 aside .page-navigation {
@@ -177,32 +150,10 @@ aside .page-navigation {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
-    @include media(mobile) {
-      border-bottom:none;
-      border-top: solid 1px #C9D0D0;
-    }
-
-    span {
-      display: block;
-
-      &.part-label {
-        color: #000;
-        line-height: 1.5;
-        float:left;
-        width:20%;
-      }
-
-      &.part-title {
-        color: #2E3191;
-        text-decoration: underline;
-        line-height: 1.25;
-      }
-    }
-
     a {
       @include core-16;
       display: block;
-      padding: 0.75em 0.75em;
+      padding: 0.75em;
       text-decoration: none;
 
       &:hover {
@@ -213,34 +164,52 @@ aside .page-navigation {
         }
       }
 
+      span {
+        display: block;
+
+        &.part-label {
+          color: #000;
+          line-height: 1.5;
+        }
+
+        &.part-title {
+          color: #2E3191;
+          text-decoration: underline;
+          line-height: 1.25;
+        }
+      }
+
+      @include media(mobile) {
+        @include core-16($line-height: (45/16), $line-height-640: (45/13));
+        padding: 0 16px;
+        padding: 0 1.6rem;
+        
+        span {
+          display: inline;
+        }
+      }
+    }
+
+    &.active {
+      background-color: #E1E8E8;
+      padding: 0.75em 0.75em;
+
       span.part-title {
-        color: #2E3191;
-        text-decoration: underline;
+        color: #000;
+        text-decoration: none;
+      }
+
+      @include ie-lte(8) {
+        margin: 0;
       }
 
       @include media(mobile) {
-        .part-label {
-          float:left;
-          width:20%;
-        }
+        padding: 0;
       }
+    }
 
-      &.active {
-        background-color: #E1E8E8;
-        padding: 0.75em 0.75em;
-
-        @include ie-lte(8) {
-          margin: 0;
-        }
-      }
-
-      @include media(mobile) {
-        padding:0;
-      }
-
-      &:first-child {
-        border-top: solid 1px #C9D0D0;
-      }
+    &:first-child {
+      border-top: solid 1px #C9D0D0;
     }
   }
 }
@@ -249,6 +218,10 @@ aside .page-navigation {
 .pagination {
   display: block;
   margin: 2em -1em 0 -1em;
+
+  @include media(mobile) {
+    margin: 2em 0 0 0;
+  }
 
   ul {
     margin: 0;
@@ -295,15 +268,26 @@ aside .page-navigation {
         text-decoration: underline;
       }
     }
+
+    &.previous a {
+      padding: 0.75em 5% 0.75em 1em;
+    }
+    
+    &.next a {
+      padding: 0.75em 1em 0.75em 5%;
+    }
+
+    @include media(mobile) {
+      &.previous a {
+        float: left;
+      }
+      
+      &.next a {
+        float: right;
+      }
+    }
   }
 
-  .previous a {
-    padding: 0.75em 5% 0.75em 1em;
-  }
-
-  .next a {
-    padding: 0.75em 1em 0.75em 5%;
-  }
 
   .first,
   .last {
