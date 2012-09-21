@@ -69,7 +69,7 @@ section#homepage,
   }
 }
 
-.intro{
+header.intro{
   min-height:29em;
   h1{
     @include core-19;
@@ -90,7 +90,7 @@ section#homepage,
   }
 }
 
-.intro,
+header.intro,
 .homepage-sections ul,
 .minor-campaigns article{
   width:30%;
