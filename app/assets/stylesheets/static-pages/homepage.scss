@@ -21,7 +21,7 @@
   }
 }
 section#homepage{
-  min-height:32em;
+  min-height:33em;
 }
 section#homepage,
 .main-campaign,
@@ -70,13 +70,24 @@ section#homepage,
 }
 
 .intro{
+  min-height:29em;
   h1{
     @include core-19;
     &.strap{
       @include core-48;
+      padding-bottom:0.25em;
     }
+
   }
-  
+  ul{
+    list-style-type:none;
+    padding:0;
+    margin:0 0 2em 0;
+  }
+  ul li{
+    display:inline;
+    padding-right:1em;
+  }
 }
 
 .intro,
@@ -92,7 +103,17 @@ section#homepage,
 .minor-campaigns article{
   border-bottom:none;
   border-top: 4px solid #197873;
-
+  &.most-popular{
+    ul{
+      list-style: none;
+      li{
+        padding-bottom:0.5em;
+        a{
+        color: #197873;
+      }
+      }
+    }
+  }
   &.inside-gov{
     background-color:#333;
     color:#fff;
@@ -148,3 +169,4 @@ section#homepage,
   clear:both;
   padding:0;
 }
+
