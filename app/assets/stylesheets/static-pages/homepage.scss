@@ -95,12 +95,13 @@ section#homepage,
 .minor-campaigns article{
   width:30%;
   float:left;
-  margin:1em 1em 1em 1em;
+  margin:2em 1em 1em 1em;
   border-bottom:1px solid #ccc;
   padding-top:1em;
 }
 
 .minor-campaigns article{
+  margin-top:1em;
   border-bottom:none;
   border-top: 4px solid #197873;
   &.most-popular{
