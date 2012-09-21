@@ -3,28 +3,12 @@
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
-.js-enabled #global-header {
-  position: fixed;
-
-  @include ie-lte(6) {
-    position:absolute;
-  }
-
-  top: 0;
-}
-
 #global-header {
   background-color: #303030;
-  min-height: 1.9em;
-  padding: 0.4em 0;
+  min-height: 1.75em;
+  padding: 0.5em 0;
   width: 100%;
   z-index: 1000;
-
-  @include ie-lte(8) {
-    height: 1.9em;
-  }
-
-  @include box-shadow(0 0 5px rgba(0,0,0,0.3));
 
   h1 {
     @include core-27;
@@ -62,29 +46,16 @@
     max-width: 960px;
     position: relative;
 
+    @include ie-lte(7) {
+      width: 960px;
+    }
+
     a {
       color: #fff;
       text-decoration: none;
 
       &:hover {
         text-decoration: underline;
-      }
-    }
-
-    ul.ui-autocomplete {
-      position: absolute;
-      right: 4.3em;
-      left: -moz-initial;
-      left: initial;
-      width: 415px;
-      display: block;
-
-      a {
-        color: #333;
-
-        &:hover {
-          text-decoration: none;
-        }
       }
     }
   }
@@ -124,7 +95,7 @@
   }
 
   /*
-   * container for search form 
+   * container for search form
    * TODO: remove this, just use the form
    */
   .search-help {
@@ -132,10 +103,9 @@
   }
 
   form.site-search {
-    padding-top: 0.2em;
     clear: both;
     position: relative;
-    top: -1px;
+    top: 1px;
 
     .button {
       /* this inherits from the basic button styles */
@@ -179,7 +149,7 @@
 body.government #global-header .header-context {
   border-color: #cdce00;
   border-bottom-color: #9a9b00;
-  
+
   nav {
     font-weight: bold;
     text-decoration: none;

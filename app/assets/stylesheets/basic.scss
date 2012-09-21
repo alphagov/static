@@ -21,6 +21,15 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
     zoom: 1;
 }
 
+// make elements stick at top of viewport when scrolling
+.content-fixed {
+  top: 0;
+  position: fixed;
+}
+.shim {
+  display: block;
+}
+
 html {
   background: #F2F2F2;
 }
@@ -31,11 +40,6 @@ body {
   line-height: 1.5;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  padding-top:0;
-}
-
-body.js-enabled {
-  padding-top: 2.5em;
 }
 
 input,
@@ -112,4 +116,8 @@ button {
   *overflow:visible;
 }
 
-@import "_buttons"
+@import "_buttons";
+
+abbr[title] {
+  cursor: help;
+}
