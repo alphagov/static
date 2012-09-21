@@ -21,7 +21,7 @@
   }
 }
 section#homepage{
-  min-height:27em;
+  min-height:32em;
 }
 section#homepage,
 .main-campaign,
@@ -50,6 +50,7 @@ section#homepage,
     li {
       @include core-19;
       display: block;
+      min-height:5em;
       border-top:1px solid #ccc;
       a{
         color: #197873;
