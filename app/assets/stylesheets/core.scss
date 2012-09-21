@@ -1330,18 +1330,19 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 /* bunting lol */
-.epic-bunting{
-  width:100%;
-  position:fixed;
-  left:0;
-  top:5em;
-  overflow:visible;
-}
-.epic-bunting span{
-  background-image: url(<%= asset_path "bunting.png" %>);
-  background-color:transparent;
-  background-repeat:repeat-x;
-  width:99.9%;
-  position:absolute;
-  height:60px;
+.epic-bunting {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 5em;
+  overflow: visible;
+  
+  span {
+    background-image: image-url("bunting.png");
+    background-color: transparent;
+    background-repeat: repeat-x;
+    width: 99.9%;
+    position: absolute;
+    height: 60px;
+  }
 }
