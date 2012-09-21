@@ -85,13 +85,65 @@ section#homepage,
   float:left;
   margin:1em 1em 1em 1em;
   border-bottom:1px solid #ccc;
-  border-top: 4px solid #197873;
   padding-top:1em;
 }
 
+.minor-campaigns article{
+  border-bottom:none;
+  border-top: 4px solid #197873;
+
+  &.inside-gov{
+    background-color:#333;
+    color:#fff;
+    border:none;
+    padding-top:0;
+    
+    p{
+      @include core-16;
+      padding:0 1.2em;
+    }
+
+    a{
+      color:#fff;
+    }
+    
+    header{
+      background-color:#000;
+      color:#fff;
+      padding-top:1em;
+      background-image: image-url("homepage-cabinet.jpg");
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      padding-bottom:140px;
+      
+      h1, p{
+        color:#fff;
+        @include core-19;
+        padding:0 1em;
+        margin:0;
+      }
+      h1{
+        @include core-24;
+        padding:0 0.825em;
+      }
+    }
+  }
+
+  &.mini-promo{
+    header{
+      background-image: image-url("homepage-karen-promo.jpg");
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      padding-bottom:160px;
+    }
+    p{
+      @include core-16;
+    }
+  }
+}
 
 .main-campaign{
-  background-color:#d9e7fb;
-  height:300px;
+  background-color:#fff;
   clear:both;
+  padding:0;
 }
