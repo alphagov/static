@@ -547,16 +547,19 @@ article {
 .print-link {
   float: right;
   text-align:right;
-  width:60%;
 
-  a, a:link, a:visited {
+  a, a:link, a:visited {  
     background: image-url("print.png") no-repeat 100% 50%;
     display: inline-block;
     padding-left: 30px;
     padding-right: 32px;
     padding-top: 5px;
+  }
 
-    @include media(mobile) {
+  @include media(mobile) {
+    width:60%;
+
+    a, a:link, a:visited {
       padding-bottom:4px;
     }
   }
@@ -564,7 +567,10 @@ article {
 
 .modified-date {
   float: left;
-  width:40%;
+
+  @include media(mobile) {
+    width:40%;
+  }
 }
 
 /*
