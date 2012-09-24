@@ -5,7 +5,7 @@
 
 #global-header {
   background-color: #303030;
-  height: 1.75em;
+  min-height: 1.75em;
   padding: 0.5em 0;
   width: 100%;
   z-index: 1000;
@@ -99,7 +99,7 @@
   }
 
   /*
-   * container for search form 
+   * container for search form
    * TODO: remove this, just use the form
    */
   .search-help {
@@ -157,7 +157,7 @@
 body.government #global-header .header-context {
   border-color: #cdce00;
   border-bottom-color: #9a9b00;
-  
+
   nav {
     font-weight: bold;
     text-decoration: none;
