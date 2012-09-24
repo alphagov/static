@@ -1290,6 +1290,63 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 }
 
+.js-tab-content {
+  .programme-progression li,
+  .js-heading-tab {
+    border-bottom: solid 1px #C9D0D0;
+    list-style: none;
+
+    a,
+    h1 {
+      @include core-16($line-height: (24 / 16));
+      background-color: #FFF;
+      display: block;
+      padding: 0.75em 0.75em;
+      position: relative;
+      text-align: left;
+      text-decoration:underline;
+      top: 0;
+
+      &:hover {
+        background-color: #E1E8E8;
+      }
+    }
+
+    &.active {
+      text-decoration: none;
+
+      a {
+        background-color: #E1E8E8;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .js-heading-tab {
+    margin:0;
+    clear:both;
+
+    h1:focus {
+      outline: 3px solid #FFBF47;
+    }
+  }
+
+  @include media(mobile) {
+    .js-tab-container {
+      min-height:0;
+    }
+
+    .js-tab-pane {
+      border-bottom:solid 1px #C9D0D0;
+    }
+
+    .js-tab-container:first-child {
+      border-top: solid 1px #C9D0D0;
+    }
+  }
+}
+
 /* report a problem */
 
 .report-a-problem-toggle{
