@@ -1305,9 +1305,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     margin: 0 0 0.5em 1.6rem;
   }
 }
+
+.js-tab-content .report-a-problem-toggle {
+  @include media(mobile) {
+    margin-top:2em;
+  }
+}
+
 .js-enabled .report-a-problem-container{
   display:none;
 }
+
 .report-a-problem-container{
   @include core-19;
 

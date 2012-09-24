@@ -398,7 +398,8 @@ ul.helpers li.active h3 a {
     }
 
     @include media(mobile) {
-      width:auto;
+      width: auto;
+      float: none;
     }
 
     .inner {
@@ -431,7 +432,8 @@ ul.helpers li.active h3 a {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
 
-    a {
+    a,
+    h1 {
       @include core-16($line-height: (24 / 16));
       background-color: #FFF;
       display: block;
@@ -455,20 +457,33 @@ ul.helpers li.active h3 a {
         text-decoration: none;
       }
     }
-
-    &:first-child {
-      border-top: solid 1px #C9D0D0;
-    }
+  }
+    
+  .tab-shiftlink {
+    @include core-19();
   }
   
   .js-heading-tab {
     margin:0;
     clear:both;
+
+    h1:focus {
+      outline: 3px solid #FFBF47;
+    }
+  }
+
+  
+  .programme-progression li:first-child {
+    border-top: solid 1px #C9D0D0;
   }
 
   @include media(mobile) {
     .js-tab-pane {
       border-bottom:solid 1px #C9D0D0;
+    }
+
+    .js-tab-container:first-child {
+      border-top: solid 1px #C9D0D0;
     }
   }
 
@@ -525,6 +540,10 @@ ul.helpers li.active h3 a {
 
     @include ie-lte(7) {
       height: 20em;
+    }
+
+    @include media(mobile) {
+      min-height: 0;
     }
   }
 }
