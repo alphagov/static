@@ -1251,7 +1251,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   margin: 0 -5em;
 
   @include media(mobile) {
-    margin: 0;
+    margin: 0 -1em;
   }
 
   .tab-pane {
@@ -1268,6 +1268,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   .inner {
     padding: 0em 2.5em 1em;
+
+    @include media(mobile) {
+      padding:0 1em 1em;
+    }
   }
 
   h1.visuallyhidden + h2 {
@@ -1327,9 +1331,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     margin:0;
     clear:both;
 
-    h1:focus {
-      outline: 3px solid #FFBF47;
+    h1 {
+      padding:0;
     }
+  }
+
+
+  .tab-shiftlink {
+    @include core-19();
   }
 
   @include media(mobile) {
@@ -1345,6 +1354,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       border-top: solid 1px #C9D0D0;
     }
   }
+}
+
+.transaction .js-tab-content {
+  overflow: hidden;
 }
 
 /* report a problem */
