@@ -22,8 +22,4 @@ end
 gem 'plek', '~> 0'
 gem 'jasmine'
 
-if ENV['FE_TOOLKIT_DEV']
-  gem 'govuk_frontend_toolkit', :path => '../govuk_frontend_toolkit'
-else
-  gem 'govuk_frontend_toolkit', '0.0.2'
-end
+gem 'govuk_frontend_toolkit', '0.0.3'
