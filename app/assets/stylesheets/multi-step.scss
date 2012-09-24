@@ -47,6 +47,10 @@
   position: relative;
   padding: 0.75em 1.5em 0.75em 5em;
 
+  @include media(mobile) {
+    padding: 0.75em 1em 0.75em 1em;
+  }
+
   &.done {
     background: #D5ECEA;
     border-bottom: solid 1px #b6d6d2;
@@ -65,10 +69,6 @@
       border-bottom: none;
     }
   }
-}
-
-.question .question-number {
-  font-weight: normal;
 }
 
 li.done h3,
@@ -140,6 +140,11 @@ li.done:hover .undo a {
   margin-right: 15em;
   padding: 0 2em 1em 5em;
   position: relative;
+
+  @include media(mobile) {
+    margin-right: 0;
+    padding: 0 1em 1em 1em;
+  }
 }
 
 .question-number {
@@ -150,6 +155,10 @@ li.done:hover .undo a {
   @include ie-lte(8) {
     display: block;
     position: absolute;
+  }
+
+  @include media(mobile) {
+    margin-left: 0;
   }
 }
 
