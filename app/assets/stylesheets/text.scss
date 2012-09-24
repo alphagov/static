@@ -553,7 +553,8 @@ article ol.steps {
   }
 }
 
-.highlight-answer {
+.highlight-answer,
+.highlighted-event {
   background-color: #28a197;
   color: #fff;
   text-align: center;
@@ -589,4 +590,8 @@ article ol.steps {
       }
     }
   }
+}
+
+.clocks-calendar .equal-width {
+  width: 50%;
 }

@@ -547,16 +547,19 @@ article {
 .print-link {
   float: right;
   text-align:right;
-  width:60%;
 
-  a, a:link, a:visited {
+  a, a:link, a:visited {  
     background: image-url("print.png") no-repeat 100% 50%;
     display: inline-block;
     padding-left: 30px;
     padding-right: 32px;
     padding-top: 5px;
+  }
 
-    @include media(mobile) {
+  @include media(mobile) {
+    width:60%;
+
+    a, a:link, a:visited {
       padding-bottom:4px;
     }
   }
@@ -564,7 +567,10 @@ article {
 
 .modified-date {
   float: left;
-  width:40%;
+
+  @include media(mobile) {
+    width:40%;
+  }
 }
 
 /*
@@ -1244,6 +1250,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .tab-content {
   margin: 0 -5em;
 
+  @include media(mobile) {
+    margin: 0;
+  }
+
   .tab-pane {
     padding: 0.5em 5em 0 5em;
     border-top: solid 1px #C9D0D0;
@@ -1251,6 +1261,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     @include media(mobile) {
       border-top: none;
+      padding: 0;
     }
   }
 
@@ -1321,5 +1332,23 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   @include media(mobile) {
     margin: 0 1em 2em 1em;
+  }
+}
+
+/* bunting lol */
+.epic-bunting {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 5em;
+  overflow: visible;
+  
+  span {
+    background-image: image-url("bunting.png");
+    background-color: transparent;
+    background-repeat: repeat-x;
+    width: 99.9%;
+    position: absolute;
+    height: 60px;
   }
 }
