@@ -20,24 +20,30 @@ jQuery.fn.tabs = function(settings){
 		alwaysScrollToTop: true,
 		selected: null,
 		wrapperTag : 'section',
-		defaultTab : -1
+		defaultTab : 0
 	},settings);
 
 	var tabFormat = 'tabset',
 	    checkFormat = function ($tabsNav) {
-            var $navContainer = $tabsNav.closest('nav');
+	        var format = tabFormat,
+                $navContainer = $tabsNav.closest('nav');
 
             if ($navContainer.hasClass('programme-progression')) {
                 if ($tabsNav.closest('nav').css('float') === 'none') {
-                    return 'accordion';
+                    format = 'accordion';
                 }
             } else { // is transaction start page tabs
                 if ($tabsNav.find('li').css('float') === 'none') {
-                    return 'accordion';
+                    format = 'accordion';
                 }
             }
 
-            return 'tabset';
+            // accordions have no default tab by default
+            if (format === 'accordion') {
+                o.defaultTab = -1;
+            }
+
+            return format; 
         };
 
     var setTabItems = function ($tabsBody, $tabsNav) {
@@ -287,7 +293,7 @@ jQuery.fn.tabs = function(settings){
                 selectTab(hashedTab,true);
             }
             else {
-                if (o.defaultTab > -1) {
+                if ((tabFormat === 'tabset') || o.defaultTab > -1) {
                   selectTab( tabItems.find('a').eq(o.defaultTab), true);
                 }
             }
