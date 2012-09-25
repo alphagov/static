@@ -190,7 +190,7 @@ jQuery.fn.tabs = function(settings){
                 if (isMobile) {
                     tab.closest('.js-heading-tab').addClass('active');
                 } else {
-					tab.parent().filter('.active').addClass('active');
+					tab.parent().addClass('active');
                 }
 				//unselect panels
 				tabsBody.find('.tabs-panel-selected')
