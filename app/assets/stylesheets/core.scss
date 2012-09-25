@@ -1251,7 +1251,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   margin: 0 -5em;
 
   @include media(mobile) {
-    margin: 0;
+    margin: 0 -1em;
   }
 
   .tab-pane {
@@ -1268,6 +1268,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   .inner {
     padding: 0em 2.5em 1em;
+
+    @include media(mobile) {
+      padding:0 1em 1em;
+    }
   }
 
   h1.visuallyhidden + h2 {
@@ -1288,6 +1292,72 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   nav {
     margin: 1em -1.375em 0;
   }
+}
+
+.js-tab-content {
+  .programme-progression li,
+  .js-heading-tab {
+    border-bottom: solid 1px #C9D0D0;
+    list-style: none;
+
+    a,
+    h1 {
+      @include core-16($line-height: (24 / 16));
+      background-color: #FFF;
+      display: block;
+      padding: 0.75em 0.75em;
+      position: relative;
+      text-align: left;
+      text-decoration:underline;
+      top: 0;
+
+      &:hover {
+        background-color: #E1E8E8;
+      }
+    }
+
+    &.active {
+      text-decoration: none;
+
+      a {
+        background-color: #E1E8E8;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .js-heading-tab {
+    margin:0;
+    clear:both;
+
+    h1 {
+      padding:0;
+    }
+  }
+
+
+  .tab-shiftlink {
+    @include core-19();
+  }
+
+  @include media(mobile) {
+    .js-tab-container {
+      min-height:0;
+    }
+
+    .js-tab-pane {
+      border-bottom:solid 1px #C9D0D0;
+    }
+
+    .js-tab-container:first-child {
+      border-top: solid 1px #C9D0D0;
+    }
+  }
+}
+
+.transaction .js-tab-content {
+  overflow: hidden;
 }
 
 /* report a problem */

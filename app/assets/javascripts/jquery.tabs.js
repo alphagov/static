@@ -39,31 +39,6 @@ jQuery.fn.tabs = function(settings){
             return false;
         };
 
-    var getTabFromHash = function ($tabItems, hash) {
-        var $hashTab;
-
-        if (isMobile) {
-            $tabItems.children().each(function (idx) {
-                if ($(this).data('fragment') === hash) {
-                    $hashTab = $(this);
-                    return false;
-                } 
-            });
-        } else {
-            $hashTab = $tabItems.find('a[href$=#'+ hash +']');
-        }
-
-        return $hashTab
-    }
-
-    var getHashFromTab = function ($tab) {
-        if (isMobile) {
-            return $tab.data('fragment');
-        } else {
-            return $tab.attr('href').split('#')[1];
-        }
-    }
-
     var setTabItems = function ($tabsBody, $tabsNav) {
         if (isMobile) {
             return $tabsBody.find('header.js-heading-tab');
@@ -75,14 +50,14 @@ jQuery.fn.tabs = function(settings){
 	var adapt = function ($tabs, $tabsNav, $tabsBody) {
         var $tabItems = $tabsNav.find('li'),
             $container = $tabsNav.closest('nav').parent(),
-            tabIds = [],
             $relatedArticle, 
             $articleHeading,
             $articleInner;
 
         $.each($tabItems, function (idx) {
-            var headingId = 'heading-tab-' + (idx + 1),
-                tabId = $(this).find('a').attr('href').split('#')[1],
+            var $tabAnchor = $(this).find('a'),
+                tabId = $tabAnchor.attr('href').split('#')[1],
+                headingId = tabId + '-heading',
                 $shiftLink = $('<a href="#' + headingId  + '" class="tab-shiftlink">Jump back a section ↑</a>');
 
             // make the shiftLink scroll the page without affecting the URL hash
@@ -96,11 +71,11 @@ jQuery.fn.tabs = function(settings){
             $articleHeading = $relatedArticle.find('header');
             $articleHeading
                 .addClass('js-heading-tab')
-                .attr('id', headingId)
+                .removeClass('visuallyhidden')
+                .attr('id', headingId);
             $articleHeading = $articleHeading.remove();
-            $articleHeading.children()
-                                .data('fragment', tabId);
-            $articleInner = $relatedArticle.find('.inner').attr('id', tabId);
+            $articleHeading.children().html('').append($tabAnchor);
+            $articleInner = $relatedArticle.find('.inner');
 
             // if article has no inner div, add one & move the content into it
             if (!$articleInner.length) {
@@ -109,19 +84,17 @@ jQuery.fn.tabs = function(settings){
                 $articleInner.addClass('js-tab-pane');
             }
 
+            $articleInner.attr('id', tabId);
+
             // create a new blank article with the original's inner div
             $relatedArticle.replaceWith($('<article />').append($articleInner));
             $relatedArticle = $articleInner.parent();
             $relatedArticle.prepend($articleHeading);
             $relatedArticle.addClass('js-tab-container');
             $articleInner.append($shiftLink);
-
-            tabIds.push(tabId);
         });
 
         $tabsNav.closest('nav').remove();
-
-        return tabIds;
     };
 	
 	return $(this).each(function(){
@@ -148,7 +121,7 @@ jQuery.fn.tabs = function(settings){
         // check for mobile and adapt DOM if required
         isMobile = checkMobile(tabsNav);        
         if (isMobile) {
-            var tabIds = adapt(tabs, tabsNav);
+            adapt(tabs, tabsNav);
         } else {
             //add class to nav, tab body
             tabsNav
@@ -171,18 +144,12 @@ jQuery.fn.tabs = function(settings){
         var tabItems = setTabItems(tabsBody, tabsNav);
 
 		//set role of each tab
-		tabItems.children().each(function(idx){
-		    var id;
-
-		    if (isMobile) {
-		        id = tabIds[idx]; 
-            } else {
-                id = $(this).attr('href').split('#')[1];
-            }
+		tabItems.find('a').each(function(idx){
+		    var id = $(this).attr('href').split('#')[1];
 
 			$(this)
 				.attr('role','tab')
-				.attr('id', tabIDprefix+id)
+				.attr('id', tabIDprefix + id)
 				.attr('aria-controls', id)
 				.attr('aria-flowto', id);
 		});
@@ -193,19 +160,27 @@ jQuery.fn.tabs = function(settings){
 		//generic select tab function
 		function selectTab(tab,fromHashChange){
 			if(o.trackState && !fromHashChange){
-				var anchor = getHashFromTab(tab);
+				var anchor = tab.attr('href').split('#')[1];
 				$.historyLoad(anchor);
 			} else {
 				//unselect tabs
-				tabItems.children()
+				tabItems.find('a')
 					.attr('aria-selected', false)
-					.attr('tabindex', -1)
-					.parent().filter('.active').removeClass('active');
+					.attr('tabindex', -1);
+                if (isMobile) {
+                    tabItems.find('a').closest('.js-heading-tab').removeClass('active');
+                } else {
+					tabItems.find('a').parent().filter('.active').removeClass('active');
+                }
 				//set selected tab item
 				tab
 					.attr('aria-selected', true)
-					.attr('tabindex', 0)
-					.parent().addClass('active');
+					.attr('tabindex', 0);
+                if (isMobile) {
+                    tab.closest('.js-heading-tab').addClass('active');
+                } else {
+					tab.parent().filter('.active').addClass('active');
+                }
 				//unselect panels
 				tabsBody.find('.tabs-panel-selected')
 					.attr('aria-hidden',true)
@@ -214,7 +189,8 @@ jQuery.fn.tabs = function(settings){
 					.hide();
 					
 				//select active panel
-				var anchor = getHashFromTab(tab);
+				var anchor = tab.attr('href').split('#')[1];
+
 				$( "#" + anchor + tabIDsuffix )
 					.addClass('tabs-panel-selected')
 					.attr('aria-hidden',false)
@@ -222,7 +198,7 @@ jQuery.fn.tabs = function(settings){
 					.show();
 
 				// set selected index
-				o.selected = tabItems.index(tab.parent());
+				o.selected = tabItems.find('a').index(tab);
 			}
 		}
 
@@ -274,7 +250,7 @@ jQuery.fn.tabs = function(settings){
 			if (selectedIndex !== undefined) {
 				selectedIndex = selectedIndex >= tabItems.length ? 0 : selectedIndex < 0 ? tabItems.length - 1 : selectedIndex;
                 
-                selectedTabItem = tabItems.children().eq(selectedIndex);
+                selectedTabItem = tabItems.find('a').eq(selectedIndex);
 				selectTab(selectedTabItem);
 			    selectedTabItem.focus();
 			}
@@ -293,30 +269,30 @@ jQuery.fn.tabs = function(settings){
 			if(currHash.indexOf("#") == 0){
               currHash = currHash.split("#")[1];
             }
-			var hashedTab = getTabFromHash(tabItems, currHash);
+			var hashedTab = tabItems.find('a[href$=#' +  currHash + ']');
 
-            if( hashedTab && hashedTab.size() > 0){
+            if(hashedTab.size() > 0){
                 selectTab(hashedTab,true);
             }
             else {
-                selectTab( tabItems.children(':first'),true);
+                selectTab( tabItems.find('a').eq(0), true);
             }
             //return true/false
-            return (hash === undefined);
+            return !!hashedTab.size();
 		}
 		
 		//if state tracking is enabled, set up the callback
 		if(o.trackState){ $.historyInit(selectTabFromHash, o.srcPath); }
 
 		//set tab from hash at page load, if no tab hash, select first tab
-		selectTabFromHash(null,true);
+		selectTabFromHash(null, true);
 		
-		tabItems.on('click', 'a, h1', function(){
+		tabItems.on('click', 'a', function(){
 			selectTab($(this));
 			$(this).focus();
 			return false;
-		}).on('focus', 'a, h1', function() {
-			o.selected = tabItems.index($(this).parent());
+		}).on('focus', 'a', function() {
+			o.selected = tabItems.find('a').index($(this));
 		});
 		
 		if(o.alwaysScrollToTop){

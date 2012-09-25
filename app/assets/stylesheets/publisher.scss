@@ -425,68 +425,12 @@ ul.helpers li.active h3 a {
       padding: 0;
     }
 
-  }
-
-  .programme-progression li,
-  .js-heading-tab {
-    border-bottom: solid 1px #C9D0D0;
-    list-style: none;
-
-    a,
-    h1 {
-      @include core-16($line-height: (24 / 16));
-      background-color: #FFF;
-      display: block;
-      padding: 0.75em 0.75em;
-      position: relative;
-      text-align: left;
-      text-decoration:underline;
-      top: 0;
-
-      &:hover {
-        background-color: #E1E8E8;
-      }
-    }
-
-    &.active {
-      text-decoration: none;
-
-      a {
-        background-color: #E1E8E8;
-        color: #000;
-        text-decoration: none;
-      }
-    }
-  }
-    
-  .tab-shiftlink {
-    @include core-19();
-  }
-  
-  .js-heading-tab {
-    margin:0;
-    clear:both;
-
-    h1:focus {
-      outline: 3px solid #FFBF47;
-    }
-  }
-
-  
-  .programme-progression li:first-child {
-    border-top: solid 1px #C9D0D0;
-  }
-
-  @include media(mobile) {
-    .js-tab-pane {
-      border-bottom:solid 1px #C9D0D0;
-    }
-
-    .js-tab-container:first-child {
+    li:first-child {
       border-top: solid 1px #C9D0D0;
     }
-  }
 
+  }
+  
   .part-pagination {
     margin-top: 3em;
 
