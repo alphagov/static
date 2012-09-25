@@ -19,28 +19,29 @@ jQuery.fn.tabs = function(settings){
 		autoRotate: false,
 		alwaysScrollToTop: true,
 		selected: null,
-		wrapperTag : 'section'
+		wrapperTag : 'section',
+		defaultTab : -1
 	},settings);
 
-	var isMobile = false,
-	    checkMobile = function ($tabsNav) {
+	var tabFormat = 'tabset',
+	    checkFormat = function ($tabsNav) {
             var $navContainer = $tabsNav.closest('nav');
 
             if ($navContainer.hasClass('programme-progression')) {
                 if ($tabsNav.closest('nav').css('float') === 'none') {
-                    return true;
+                    return 'accordion';
                 }
             } else { // is transaction start page tabs
                 if ($tabsNav.find('li').css('float') === 'none') {
-                    return true;
+                    return 'accordion';
                 }
             }
 
-            return false;
+            return 'tabset';
         };
 
     var setTabItems = function ($tabsBody, $tabsNav) {
-        if (isMobile) {
+        if (tabFormat === 'accordion') {
             return $tabsBody.find('header.js-heading-tab');
         }
 
@@ -130,8 +131,8 @@ jQuery.fn.tabs = function(settings){
 			.attr('aria-live', 'polite');
 
         // check for mobile and adapt DOM if required
-        isMobile = checkMobile(tabsNav);        
-        if (isMobile) {
+        tabFormat = checkFormat(tabsNav);        
+        if (tabFormat === 'accordion') {
             adapt(tabs, tabsNav);
         } else {
             //add class to nav, tab body
@@ -178,7 +179,7 @@ jQuery.fn.tabs = function(settings){
 				tabItems.find('a')
 					.attr('aria-selected', false)
 					.attr('tabindex', -1);
-                if (isMobile) {
+                if (tabFormat === 'accordion') {
                     tabItems.find('a').closest('.js-heading-tab').removeClass('active');
                 } else {
 					tabItems.find('a').parent().filter('.active').removeClass('active');
@@ -187,7 +188,7 @@ jQuery.fn.tabs = function(settings){
 				tab
 					.attr('aria-selected', true)
 					.attr('tabindex', 0);
-                if (isMobile) {
+                if (tabFormat === 'accordion') {
                     tab.closest('.js-heading-tab').addClass('active');
                 } else {
 					tab.parent().addClass('active');
@@ -286,7 +287,9 @@ jQuery.fn.tabs = function(settings){
                 selectTab(hashedTab,true);
             }
             else {
-                selectTab( tabItems.find('a').eq(0), true);
+                if (o.defaultTab > -1) {
+                  selectTab( tabItems.find('a').eq(o.defaultTab), true);
+                }
             }
             //return true/false
             return !!hashedTab.size();

@@ -497,7 +497,7 @@ article {
   }
 
   @include media(mobile) {
-    min-height: auto;
+    min-height: 0;
 
     .inner {
       padding: 0 1em 1em 1em;
