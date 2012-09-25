@@ -19,7 +19,7 @@ jQuery.fn.tabs = function(settings){
 		autoRotate: false,
 		alwaysScrollToTop: true,
 		selected: null,
-		mobileHeadingTag: 'h1'
+		wrapperTag : 'section'
 	},settings);
 
 	var isMobile = false,
@@ -68,13 +68,24 @@ jQuery.fn.tabs = function(settings){
             });
 
             $relatedArticle = $container.find('#' + tabId);
+
+            // get heading & store
             $articleHeading = $relatedArticle.find('header');
+
+            if (!$articleHeading.length) {
+                $articleHeading = $('<header><h1 /></header>');
+            } else {
+                $articleHeading = $articleHeading.remove();
+            }
+
             $articleHeading
                 .addClass('js-heading-tab')
                 .removeClass('visuallyhidden')
                 .attr('id', headingId);
-            $articleHeading = $articleHeading.remove();
+
             $articleHeading.children().html('').append($tabAnchor);
+
+            // get div.inner
             $articleInner = $relatedArticle.find('.inner');
 
             // if article has no inner div, add one & move the content into it
@@ -87,7 +98,7 @@ jQuery.fn.tabs = function(settings){
             $articleInner.attr('id', tabId);
 
             // create a new blank article with the original's inner div
-            $relatedArticle.replaceWith($('<article />').append($articleInner));
+            $relatedArticle.replaceWith($('<' + o.wrapperTag  + ' />').append($articleInner));
             $relatedArticle = $articleInner.parent();
             $relatedArticle.prepend($articleHeading);
             $relatedArticle.addClass('js-tab-container');
