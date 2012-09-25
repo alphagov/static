@@ -1,0 +1,96 @@
+@import "_conditionals";
+
+section {
+  &#content {
+	  background-color: #fff;
+	  padding-bottom: 3em;
+  }
+
+  &#landing {
+    position: relative;
+    display: block;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-bottom: 2.5em;
+    background-color: #fff;
+
+    @include ie-lte(7) {
+      width: 960px;
+    }
+
+    p {
+	    max-width: 662px;
+	    font-size: 1.16em;
+    }
+  }
+}
+
+#landing h1,
+#landing h2 {
+	color:#000;
+}
+
+#landing h1 {
+	float: left;
+	padding-top: 0.65em;
+	padding-bottom: 0.4em;
+	padding-left: 0.8em;
+	margin-left: -3px;
+  font-size: 2.75em;
+  line-height: 1.1;
+  font-weight: 300;
+  max-width: 500px;
+}
+
+.campaign-image {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 300px;
+}
+
+.organisation {
+	float: right;
+  padding: 2em 2em 0 0;
+}
+
+.campaign-links {
+	position: absolute;
+	right: 2em;
+	bottom: 2em;
+	min-width: 240px;
+	background-color: #fff;
+
+  h2 {
+	  margin: 0;
+	  padding-bottom: 0.5em;
+  }
+
+  nav {
+	  margin: 0;
+	  padding: 0;
+  }
+}
+
+article.campaign {
+  width: auto;
+	display: block;
+	float: left;
+  margin: 0 2em;
+	border-bottom: solid 1px #d5d5d5;
+
+  h2:first-of-type {
+    margin-top: 1.5em;
+  }
+}
+
+ul.links {
+	list-style: none;
+	margin: 0;
+  padding: 0;
+
+  li {
+  	margin: 0;
+    padding: 0;
+  }
+}
