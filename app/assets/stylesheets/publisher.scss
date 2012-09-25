@@ -51,9 +51,16 @@
 }
 
 .alternative-guide {
+  @include core-16;
   margin: 0 auto 0.5em;
   overflow: hidden;
   width: 9.5em;
+
+  @include media(mobile) {
+    margin: 1em;
+    width: auto;
+    text-align: left;
+  }
 
   &.video {
     .video-wrapper {
@@ -74,9 +81,28 @@
         padding-left: 0.5em;
       }
 
+      @include media(mobile) {
+        width: 68px;
+        height: 40px;
+        float: left;
+        margin-right: 1em;
+        background-position: -34px -100px;
+
+        &:hover {
+          background-position: -34px -20px;
+        }
+      }
+
       img {
         display: none;
         margin-top: -0.5em;
+      }
+    }
+
+    @include media(mobile) {
+      a span {
+        line-height: 40px;
+        line-height: 4rem;
       }
     }
   }
@@ -129,7 +155,7 @@ aside .show-all-parts {
   }
 
   &.show-all-parts-open {
-    background-position: 95% 4px;
+    background-position: 95% 8px;
     border-bottom: none;
   }
 }
@@ -186,6 +212,10 @@ aside .page-navigation {
         
         span {
           display: inline;
+
+          &.part-label {
+            padding-right: 1em;
+          }
         }
       }
     }
@@ -204,7 +234,13 @@ aside .page-navigation {
       }
 
       @include media(mobile) {
-        padding: 0;
+        @include core-16;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        span.part-label {
+          padding-right: 1em;
+        }
       }
     }
 

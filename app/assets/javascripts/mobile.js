@@ -43,9 +43,11 @@
       var instance = this;
 
       this.$showAllLink.insertBefore(this.$navbar);
+      this.$navbar.prepend(this.$navbar.find('ol').remove());
       this.$pageHeader.html(this.$pageHeader.html().replace(/Part\s(\d+)/, 'Part $1 of ' + this.$navlist.find('li').length));
       this.$showAllLink.on('click', function (e) {
         instance.control(e); 
+        return false;
       });
 
       this.$navlist.hide();
