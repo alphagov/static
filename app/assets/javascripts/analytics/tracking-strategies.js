@@ -27,3 +27,9 @@ GOVUK.Analytics.Trackers.answer = function (control) {
     control.trackTimeBasedSuccess(7000);
     control.trackLinks("#content a");
 };
+
+GOVUK.Analytics.Trackers.local_transaction = function(control) {
+    control.trackLinks("#get-started a");
+    control.trackLinks("#content a[rel='external']");
+};
+
