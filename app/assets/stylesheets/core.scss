@@ -202,11 +202,11 @@ h4 {
  * this related stuff needs re-examining - might be a bit over the top
  */
 .related-positioning {
-  height: 0;
-  left: 0;
   position: fixed;
+  left: 0;
   top: 6.25em;
   width: 100%;
+  height: 0;
   z-index: 0;
 
   @include ie-lte(8) {
@@ -219,6 +219,7 @@ h4 {
 
   @include media(mobile) {
     position: static;
+    top: auto;
     height: auto;
   }
 }
@@ -231,10 +232,10 @@ h4 {
 }
 
 .related-container {
-  height: 0;
-  margin: 0 auto;
-  max-width: 960px;
   position: relative;
+  height: 0;
+  max-width: 960px;
+  margin: 0 auto;
   z-index: 50;
 
   @include ie-lte(7) {
@@ -264,6 +265,7 @@ h4 {
 
   @include media(mobile) {
     position: static;
+    right: auto;
     width: auto;
   }
 
