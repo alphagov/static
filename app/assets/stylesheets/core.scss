@@ -378,6 +378,27 @@ header {
   background-position: 16px 14px;
 }
 
+/* Licence Application */
+
+.relevant-authority {
+  margin: 0 0 2em 5.125em;
+  h2 {
+    margin: 0;
+  }
+}
+
+.licence .intro form {
+  ul { padding-left: 0.925em; }
+  li { list-style: none; }
+  label { padding-left: 0.325em; }
+}
+
+.licence {
+  article header h1 {
+    margin-top: 0.75em;
+  }
+}
+
 /*
   ============================== Stuff (mainly) used in publications =============================
 */
