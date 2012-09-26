@@ -209,8 +209,12 @@ body.government #global-header .header-context {
   }
 
   nav {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
+
+    @include ie-lte(6) {
+      width: 960px;
+    }
 
     ol {
       margin: 0;
