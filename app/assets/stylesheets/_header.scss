@@ -217,12 +217,11 @@ body.government #global-header .header-context {
       padding: 0;
 
       li {
+        @include core-19;
         background-image: image-url("separator.png");
         background-position: 100% 50%;
         background-repeat: no-repeat;
         float: left;
-        font-size: 1.1875em;
-        line-height: 1.7;
         list-style: none;
         margin-left: 0.5em;
         padding-right: 1em;
