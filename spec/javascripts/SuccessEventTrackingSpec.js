@@ -19,6 +19,38 @@ describe("success event tracking", function () {
         Alphagov.delete_cookie("successEvents")
     });
 
+    it("should support basic case", function() {
+        var result = GOVUK.Analytics.isTheSameArtefact(
+            "http://www.gov.uk/claim-tax/first",
+            "http://www.gov.uk/claim-tax/second");
+
+        expect(result).toBeTruthy();
+    });
+
+    it("should support coming to very same url", function() {
+        var result = GOVUK.Analytics.isTheSameArtefact(
+            "http://www.gov.uk/claim-tax/first",
+            "http://www.gov.uk/claim-tax/first");
+
+        expect(result).toBeTruthy();
+    });
+
+    it("should support local anchor on previous url", function() {
+        var result = GOVUK.Analytics.isTheSameArtefact(
+            "http://www.gov.uk/claim-tax",
+            "http://www.gov.uk/claim-tax#foobar");
+
+        expect(result).toBeTruthy();
+    });
+
+    it("should support local anchor on current url", function() {
+        var result = GOVUK.Analytics.isTheSameArtefact(
+            "http://www.gov.uk/claim-tax#foobar",
+            "http://www.gov.uk/claim-tax");
+
+        expect(result).toBeTruthy();
+    });
+
     describe("analytics integration", function () {
         it("should register entry event", function () {
             GOVUK.Analytics.Format = 'guide';

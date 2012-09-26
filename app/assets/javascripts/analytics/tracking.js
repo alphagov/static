@@ -1,11 +1,16 @@
 var GOVUK = GOVUK || {};
 GOVUK.Analytics = GOVUK.Analytics || {};
 
+GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl) {
+    var currentSlug = currentUrl.split('/').slice(0, 4).join('/').replace(/#.*$/, '');
+    var previousSlug = previousUrl.split('/').slice(0, 4).join('/').replace(/#.*$/, '');
+    return currentSlug === previousSlug;
+};
+
 GOVUK.Analytics.startAnalytics = function () {
     var shouldIDoAnalyticsForThisPage = function () {
         if (!GOVUK.Analytics.NeedID) return false;
-        var artefactURL = document.URL.split('/').slice(0, 4).join('/');
-        return (document.referrer.substr(0, artefactURL.length) !== artefactURL);
+        return !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
     };
 
     var success = false;
