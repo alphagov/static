@@ -14,13 +14,13 @@
   display: block;
   border-left: 2px solid #bbb;
   background: image-url("coa-default-24.gif") no-repeat 8px 0;
+  height: auto;
+  width: auto;
 
-  @media (max-width: 640px) {
+  @include media (mobile) {
     font-size: 1.3rem;
     line-height: (15/13);
     background-image: image-url("coa-default-18.gif");
-    padding-top: 20px;
-    padding-top: 2rem;
   }
 
   span {
@@ -41,7 +41,7 @@
       position: static;
     }
 
-    @media (max-width: 640px) {
+    @include media (mobile) {
       padding: 1px 0 1px 31px;
       padding: 0.1rem 0 0.1rem 3.1rem;
       background-position: 5px 50%;
