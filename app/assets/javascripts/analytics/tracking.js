@@ -15,10 +15,14 @@ GOVUK.Analytics.startAnalytics = function () {
 
     var success = false;
 
+    var createEvent = function(type) {
+        return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, type];
+    };
+
     var trackSuccess = function () {
         if (success) return;
         success = true;
-        GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, 'Success']);
+        GOVUK.sendToAnalytics(createEvent("Success"));
     };
 
     var handleExternalLink = function() {
@@ -33,7 +37,7 @@ GOVUK.Analytics.startAnalytics = function () {
     var handleInternalLink = function () {
         if (success) return;
         success = true;
-        GOVUK.Analytics.internalSiteEvents.push(['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, 'Success'])
+        GOVUK.Analytics.internalSiteEvents.push(createEvent("Success"));
     };
 
     var control = {
@@ -56,7 +60,7 @@ GOVUK.Analytics.startAnalytics = function () {
 
     var format = GOVUK.Analytics.Format;
     if (shouldIDoAnalyticsForThisPage() && trackingStrategies[format]) {
-        GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + format, GOVUK.Analytics.NeedID, 'Entry']);
+        GOVUK.sendToAnalytics(createEvent("Entry"));
         trackingStrategies[format](control);
     }
 
