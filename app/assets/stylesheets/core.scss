@@ -381,21 +381,24 @@ header {
 /* Licence Application */
 
 .relevant-authority {
-  margin: 0 0 2em 5.125em;
+  margin: 0 0 20px 84px;
+  margin: 0 0 2rem 8.4rem;
+
   h2 {
     margin: 0;
   }
 }
 
 .licence .intro form {
-  ul { padding-left: 0.925em; }
-  li { list-style: none; }
-  label { padding-left: 0.325em; }
-}
-
-.licence {
-  article header h1 {
-    margin-top: 0.75em;
+  ul {
+    padding-left: 12px;
+    padding-left: 1.2rem;
+  }
+  li { list-style: none;
+    label {
+      padding-left: 5px;
+      padding-left: 0.5rem;
+    }
   }
 }
 
