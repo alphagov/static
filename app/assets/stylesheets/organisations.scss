@@ -29,6 +29,11 @@
     margin-left: 10px;
     margin-left: 1rem;
     display: block;
+
+    @include media (mobile) {
+      padding-top: 23px;
+      padding-top: 2.3rem;
+    }
   }
 
   &.single-line {
