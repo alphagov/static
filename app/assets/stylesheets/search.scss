@@ -1,6 +1,7 @@
 @import "_conditionals";
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
+@import "_colours";
 
 /* ----- search results page ----- */
 
@@ -54,8 +55,8 @@
 form.search-header {
   display: block;
   @include core-19;
-  margin: 1em 10.5em 2em 0;
-  text-align: right;
+  margin: 1em 10.5em 1em 2em;
+
 
   #search-main {
     font-size:1em;
@@ -120,6 +121,17 @@ input[type="search"]::-webkit-search-results-decoration {
 
       &.search-result-title {
         @include core-19;
+      }
+    }
+
+    ul.result-meta {
+      padding: 0;
+
+      li {
+        @include core-16;
+        width: auto;
+        color: $grey-63;
+
       }
     }
   }
