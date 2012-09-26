@@ -243,7 +243,7 @@ jQuery.fn.tabs = function(settings){
 				selectedIndex = o.selected - 1;
 				break;
 				case $.ui.keyCode.END:
-				selectedIndex = that.anchors.length - 1;
+				selectedIndex = tabItems.length - 1;
 				break;
 				case $.ui.keyCode.HOME:
 				selectedIndex = 0;
