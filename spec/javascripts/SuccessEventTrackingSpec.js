@@ -75,6 +75,20 @@ describe("success event tracking", function () {
     });
 
     describe("user interactions", function () {
+        it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function() {
+            GOVUK.Analytics.Format = 'guide';
+            GOVUK.Analytics.NeedID = '99999';
+            GOVUK.Analytics.startAnalytics();
+
+            var e = jQuery.Event("keypress");
+            e.which = 13;
+            e.keyCode = 13;
+            $("#guide-internal-link").trigger(e);
+
+            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
+            expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+        });
+
         it("should register success event for guide format when an internal link inside #content is clicked", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.NeedID = '99999';

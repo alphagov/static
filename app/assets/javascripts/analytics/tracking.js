@@ -40,6 +40,8 @@ GOVUK.Analytics.startAnalytics = function () {
         GOVUK.Analytics.internalSiteEvents.push(createEvent("Success"));
     };
 
+    var enterKey = 13;
+
     var control = {
         trackLinks:function (selector) {
             $(selector).each(function () {
@@ -51,6 +53,11 @@ GOVUK.Analytics.startAnalytics = function () {
                     trackingFunction = handleInternalLink;
                 }
                 linkToTrack.click(trackingFunction);
+                linkToTrack.keypress(function(event) {
+                   if (event.which == enterKey) {
+                       trackingFunction.call(this);
+                   }
+                });
             });
         },
         trackTimeBasedSuccess:function (time) {
