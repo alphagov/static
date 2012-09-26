@@ -193,6 +193,10 @@ article table {
   @include media(mobile) {
     margin: 1em 0 2em 0;
     width: 100%;
+
+    caption {
+      padding-left: 0;
+    }
   }
 }
 
@@ -250,6 +254,7 @@ article th {
 
   @include media(mobile) {
     margin: 0 0 2em 0;
+    padding: 0;
   }
 }
 
