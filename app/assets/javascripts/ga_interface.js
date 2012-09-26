@@ -21,7 +21,6 @@ NB: the .js to set up google analytics is currently in a view file
  */
 
 GOVUK.sendToAnalytics = function (analyticsData) {
-    console.log("GOOOOOOO", analyticsData[3]);
     _gaq.push(analyticsData);
     if (GOVUK.Analytics.debugMode) {
         $(function () {

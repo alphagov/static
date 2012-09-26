@@ -21,20 +21,12 @@ GOVUK.Analytics.internalSiteEvents = function() {
             GOVUK.sendToAnalytics(this);
         });
         eventQueue = [];
-        saveCookie();
-    };
-
-    var saveCookie = function() {
-        if (eventQueue.length > 0) {
-            Alphagov.write_cookie("successEvents", $.base64Encode(JSON.stringify(eventQueue)));
-        } else {
-            Alphagov.delete_cookie("successEvents");
-        }
+        Alphagov.delete_cookie("successEvents");
     };
 
     var pushCookieEvent = function(event) {
         eventQueue.push(event);
-        saveCookie();
+        Alphagov.write_cookie("successEvents", jQuery.base64Encode(JSON.stringify(eventQueue)));
     };
 
     return {

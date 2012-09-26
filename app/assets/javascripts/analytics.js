@@ -2,11 +2,10 @@ var GOVUK = GOVUK || {};
 GOVUK.Analytics = GOVUK.Analytics || {};
 
 GOVUK.Analytics.startAnalytics = function () {
-    var shouldIDoAnalyticsForThisPage = function() {
+    var shouldIDoAnalyticsForThisPage = function () {
         if (!GOVUK.Analytics.NeedID) return false;
         var artefactURL = document.URL.split('/').slice(0, 4).join('/');
-        // TODO: indexof doesn't work in older browsers.
-        return (document.referrer.indexOf(artefactURL) !== 0);
+        return (document.referrer.substr(0, artefactURL.length) !== artefactURL);
     };
 
     var trackingStrategies = {
@@ -14,14 +13,56 @@ GOVUK.Analytics.startAnalytics = function () {
         "transaction":GOVUK.Analytics.transactionTracking
     };
 
+    var success = false;
 
-    if (shouldIDoAnalyticsForThisPage()) {
-        var format = GOVUK.Analytics.Format;
+    var trackSuccess = function () {
+        if (success) return;
+        success = true;
+        GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, 'Success']);
+    };
+
+    var handleExternalLink = function() {
+        if (success) return;
+        success = true;
+        var slug = document.URL.split('/')[3];
+        var target = $(this).attr('href');
+        var exitLink = '/exit?slug=' + slug + '&target=' + target + '&needId=' + GOVUK.Analytics.NeedID;
+        $(this).prop('href', exitLink);
+    };
+
+    var handleInternalLink = function () {
+        if (success) return;
+        success = true;
+        GOVUK.Analytics.internalSiteEvents.push(['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, 'Success'])
+    };
+
+    var control = {
+        trackLinks:function (selector) {
+            $(selector).each(function () {
+                var linkToTrack = $(this);
+                var trackingFunction;
+                if (linkToTrack.attr('rel') === 'external') {
+                    trackingFunction = handleExternalLink;
+                } else {
+                    trackingFunction = handleInternalLink;
+                }
+                linkToTrack.click(trackingFunction);
+            });
+        },
+        trackTimeBasedSuccess:function (time) {
+            setTimeout(trackSuccess, time);
+        }
+    };
+
+    var format = GOVUK.Analytics.Format;
+    if (shouldIDoAnalyticsForThisPage() && trackingStrategies[format]) {
         GOVUK.sendToAnalytics(['_trackEvent', 'MS_' + format, GOVUK.Analytics.NeedID, 'Entry']);
-        trackingStrategies[format]();
+        trackingStrategies[format](control);
     }
 
     GOVUK.Analytics.internalSiteEvents.sendAll();
+
+    return control;
 };
 
 $(GOVUK.Analytics.startAnalytics);
