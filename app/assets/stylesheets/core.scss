@@ -1333,10 +1333,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     a,
     h1 {
-      @include core-16($line-height: (24 / 16));
-      background-color: #FFF;
+      @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
+      background: #FFF image-url('accordian-arrow.png') no-repeat 100% 0;
       display: block;
-      padding: 0.75em 0.75em;
+      padding: 0 1.6rem;
       position: relative;
       text-align: left;
       text-decoration:underline;
@@ -1350,7 +1350,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     &.active {
       text-decoration: none;
 
-      a {
+      a, h1 {
+        background-position: 100% 100%;
         background-color: #E1E8E8;
         color: #000;
         text-decoration: none;

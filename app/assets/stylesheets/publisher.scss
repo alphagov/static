@@ -146,7 +146,7 @@ aside .show-all-parts {
   padding: 0 16px;
   padding: 0 1.6rem;
 
-  background: transparent image-url("arrows.png") 95% -24px no-repeat;
+  background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
 
   &,
   &:hover,
@@ -155,7 +155,7 @@ aside .show-all-parts {
   }
 
   &.show-all-parts-open {
-    background-position: 95% 8px;
+    background-position: 100% 100%;
     border-bottom: none;
   }
 }
@@ -234,9 +234,7 @@ aside .page-navigation {
       }
 
       @include media(mobile) {
-        @include core-16;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding: 0;
 
         span.part-label {
           padding-right: 1em;
