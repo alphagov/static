@@ -8,11 +8,6 @@ GOVUK.Analytics.startAnalytics = function () {
         return (document.referrer.substr(0, artefactURL.length) !== artefactURL);
     };
 
-    var trackingStrategies = {
-        "guide":GOVUK.Analytics.guideTracking,
-        "transaction":GOVUK.Analytics.transactionTracking
-    };
-
     var success = false;
 
     var createEvent = function(type) {
@@ -66,6 +61,7 @@ GOVUK.Analytics.startAnalytics = function () {
     };
 
     var format = GOVUK.Analytics.Format;
+    var trackingStrategies = GOVUK.Analytics.Trackers;
     if (shouldIDoAnalyticsForThisPage() && trackingStrategies[format]) {
         GOVUK.sendToAnalytics(createEvent("Entry"));
         trackingStrategies[format](control);

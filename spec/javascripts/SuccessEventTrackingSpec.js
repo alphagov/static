@@ -45,25 +45,25 @@ describe("success event tracking", function () {
         it("should only call guide strategy when format is guide", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.NeedID = '99999';
-            spyOn(GOVUK.Analytics, 'guideTracking');
-            spyOn(GOVUK.Analytics, 'transactionTracking');
+            spyOn(GOVUK.Analytics.Trackers, 'guide');
+            spyOn(GOVUK.Analytics.Trackers, 'transaction');
 
             GOVUK.Analytics.startAnalytics();
 
-            expect(GOVUK.Analytics.transactionTracking).not.toHaveBeenCalled();
-            expect(GOVUK.Analytics.guideTracking).toHaveBeenCalled();
+            expect(GOVUK.Analytics.Trackers.transaction).not.toHaveBeenCalled();
+            expect(GOVUK.Analytics.Trackers.guide).toHaveBeenCalled();
         });
 
         it("should only call transaction strategy when format is transaction", function () {
             GOVUK.Analytics.Format = 'transaction';
             GOVUK.Analytics.NeedID = '99999';
-            spyOn(GOVUK.Analytics, 'transactionTracking');
-            spyOn(GOVUK.Analytics, 'guideTracking');
+            spyOn(GOVUK.Analytics.Trackers, 'guide');
+            spyOn(GOVUK.Analytics.Trackers, 'transaction');
 
             GOVUK.Analytics.startAnalytics();
 
-            expect(GOVUK.Analytics.transactionTracking).toHaveBeenCalled();
-            expect(GOVUK.Analytics.guideTracking).not.toHaveBeenCalled();
+            expect(GOVUK.Analytics.Trackers.transaction).toHaveBeenCalled();
+            expect(GOVUK.Analytics.Trackers.guide).not.toHaveBeenCalled();
         });
 
         it("should not error if format is not supported", function () {
