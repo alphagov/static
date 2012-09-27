@@ -349,6 +349,7 @@ h4 {
 
   .return-to-top {
     @include core-16;
+    margin-bottom: 0.5em;
     position: absolute;
     left: -9999em;
 
