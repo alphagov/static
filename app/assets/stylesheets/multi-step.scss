@@ -24,13 +24,23 @@
   width: 11em;
 
   a {
+    @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
     display: block;
-    line-height: 2.5em;
     text-align: center;
     text-decoration: underline;
 
     &:hover {
       text-decoration: none;
+    }
+  }
+
+  @include media(mobile) {
+    position: static;
+    width: auto;
+    padding: 0 1em;
+
+    a {
+      text-align: right;
     }
   }
 }
