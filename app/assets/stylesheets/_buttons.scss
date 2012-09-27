@@ -71,14 +71,17 @@
 }
 
 .get-started .button .call-to-action,
-.get-started .button.big,
-#search .button.big {
+.get-started .button.big {
   @include core-24($line-height: (16 / 24)); 
+  padding: 0.45em 0.5em 0.45em 0.5em;
+  display: inline-block;
+}
+
+.transaction .get-started .button .call-to-action {
   padding: 0.45em 1.7em 0.45em 0.5em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
   background-repeat: no-repeat;
-  display: inline-block;
 }
 
 @media screen and (max-width: 640px) {
