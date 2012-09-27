@@ -64,15 +64,7 @@ jQuery.fn.tabs = function(settings){
         $.each($tabItems, function (idx) {
             var $tabAnchor = $(this).find('a'),
                 tabId = $tabAnchor.attr('href').split('#')[1],
-                headingId = tabId + '-heading',
-                $shiftLink = $('<a href="#' + headingId  + '" class="tab-shiftlink">Jump back a section ↑</a>');
-
-            // make the shiftLink scroll the page without affecting the URL hash
-            $shiftLink.on('click', function (e) {
-                $(window).scrollTop($('#' + tabId).offset().top);
-
-                return false;
-            });
+                $shiftLink = $('<a href="#' + tabId  + '" class="tab-shiftlink">Return to top of section ↑</a>');
 
             $relatedArticle = $container.find('#' + tabId);
 
@@ -88,7 +80,6 @@ jQuery.fn.tabs = function(settings){
             $articleHeading
                 .addClass('js-heading-tab')
                 .removeClass('visuallyhidden')
-                .attr('id', headingId);
 
             $articleHeading.children().html('').append($tabAnchor);
 
@@ -107,7 +98,8 @@ jQuery.fn.tabs = function(settings){
             // create a new blank article with the original's inner div
             $relatedArticle.replaceWith($('<' + o.wrapperTag  + ' />').append($articleInner));
             $relatedArticle = $articleInner.parent();
-            $relatedArticle.prepend($articleHeading);
+            $relatedArticle.prepend($articleHeading)
+                .attr('id', tabId);
             $relatedArticle.addClass('js-tab-container');
             $articleInner.append($shiftLink);
         });
@@ -269,8 +261,8 @@ jQuery.fn.tabs = function(settings){
 				selectedIndex = selectedIndex >= tabItems.length ? 0 : selectedIndex < 0 ? tabItems.length - 1 : selectedIndex;
                 
                 selectedTabItem = tabItems.find('a').eq(selectedIndex);
-				selectTab(selectedTabItem);
 			    selectedTabItem.focus();
+			    o.selected = selectedIndex;
 			}
 
 			return false;
@@ -278,7 +270,7 @@ jQuery.fn.tabs = function(settings){
 
 		//if tabs are rotating, stop them upon user events	
 		tabs.bind('click keydown focus',function(){
-			if(o.autoRotate){ clearInterval(tabRotator); }
+	        if(o.autoRotate){ clearInterval(tabRotator); }
 		});
 		
 		//function to select a tab from the url hash
@@ -312,7 +304,7 @@ jQuery.fn.tabs = function(settings){
 			$(this).focus();
 			return false;
 		}).on('focus', 'a', function() {
-			o.selected = tabItems.find('a').index($(this));
+			// o.selected = tabItems.find('a').index($(this));
 		});
 		
 		if(o.alwaysScrollToTop){
@@ -320,3 +312,5 @@ jQuery.fn.tabs = function(settings){
 		}
 	});
 };
+
+$(function () { console.log('page loaded'); });
