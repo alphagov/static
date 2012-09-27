@@ -8,6 +8,7 @@
   top: 0.5em;
   right: 4%;
   z-index: 1000;
+  display:none;
 }
 
 .tour-label a {
@@ -20,8 +21,13 @@
     background-color: #fff;
   }
 }
+
+
 section#homepage{
-  min-height:33em;
+  overflow:auto;
+  @include media(desktop) {
+    min-height:33em;
+  }
 }
 section#homepage,
 .main-campaign,
@@ -38,8 +44,6 @@ section#homepage,
   .homepage-sections {
     h2 {
       @include core-19;
-      
-      
     }
   }
 
@@ -70,7 +74,9 @@ section#homepage,
 }
 
 header.intro{
-  min-height:29em;
+  min-height:0;
+  margin:1em 0 1em 1em;
+  
   h1{
     @include core-19;
     &.strap{
@@ -90,14 +96,33 @@ header.intro{
   }
 }
 
-header.intro,
+
+
+.homepage-sections{
+  clear:both;
+  background-color:#fff;
+  overflow:auto;
+  display:inline;
+}
 .homepage-sections ul,
 .minor-campaigns article{
-  width:30%;
+  width: 44%;
   float:left;
-  margin:2em 1em 1em 1em;
+  margin:2em 0.5em 1em 0.5em;
   border-bottom:1px solid #ccc;
   padding-top:1em;
+}
+
+@include media(desktop){
+  header.intro,
+  .homepage-sections ul,
+  .minor-campaigns article{
+    width:29%;
+    float:left;
+    margin:1em 1em 1em 1em;
+    border-bottom:1px solid #ccc;
+    padding-top:1em;
+  }
 }
 
 .minor-campaigns article{
@@ -112,6 +137,17 @@ header.intro,
         a{
         color: #197873;
       }
+      }
+    }
+    @include media(mobile){
+      width:96%;
+      min-height:2em;
+      ul{
+        list-style: none;
+        li{
+         display:inline-block;
+   
+        }
       }
     }
   }
@@ -165,9 +201,32 @@ header.intro,
   }
 }
 
+
 .main-campaign{
-  background-color:#fff;
-  clear:both;
-  padding:0;
+  a{
+    display:block;
+    text-indent:-9999px;
+    height:272px;
+    background-image: image-url('homepage/govuk-500px.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+
+    @include media($min-width: 500px){
+      height:543px;
+      background-image: image-url('homepage/govuk-935px.png');
+      background-position: bottom right;
+    }
+
+
+    @include media($min-width: 936px){
+      height:300px;
+      background-image: image-url('homepage/govuk-960px.png');
+      background-position: top left;
+    }
+
+  }
+  
 }
+
 
