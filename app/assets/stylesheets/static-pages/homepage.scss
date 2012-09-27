@@ -75,8 +75,8 @@ section#homepage,
 
 header.intro{
   min-height:0;
-  margin:1em 0 1em 1em;
-  
+  margin:1em 0.5em 0em 0.5em;
+
   h1{
     @include core-19;
     &.strap{
@@ -106,11 +106,17 @@ header.intro{
 }
 .homepage-sections ul,
 .minor-campaigns article{
-  width: 44%;
+  width: 96%;
   float:left;
-  margin:2em 0.5em 1em 0.5em;
-  border-bottom:1px solid #ccc;
+  margin:0em 0.5em 0em 0.5em;
+  border-bottom:none;
   padding-top:1em;
+  min-height:0;
+  @include media(desktop){
+    margin:2em 0.5em 1em 0.5em;
+    border-bottom:1px solid #ccc;
+  }
+
 }
 
 @include media(desktop){
@@ -141,7 +147,6 @@ header.intro{
     }
     @include media(mobile){
       width:96%;
-      min-height:2em;
       ul{
         list-style: none;
         li{
@@ -195,6 +200,9 @@ header.intro{
       background-repeat: no-repeat;
       padding-bottom:160px;
     }
+    a{
+        color: #197873;
+      }
     p{
       @include core-16;
     }
