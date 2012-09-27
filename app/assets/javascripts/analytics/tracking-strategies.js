@@ -28,10 +28,10 @@ GOVUK.Analytics.Trackers.answer = function (control) {
     control.trackLinks("#content a");
 };
 
-GOVUK.Analytics.Trackers.local_transaction = function(control) {
-    control.trackLinks("#get-started a");
-    control.trackLinks("#content a[rel='external']");
-};
+//GOVUK.Analytics.Trackers.local_transaction = function(control) {
+//    control.trackLinks("#get-started a");
+//    control.trackLinks("#content a[rel='external']");
+//};
 
 GOVUK.Analytics.Trackers.smart_answer = function(control) {
     $(document).bind("smartanswerOutcome", control.trackSuccess);

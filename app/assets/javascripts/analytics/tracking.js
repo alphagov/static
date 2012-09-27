@@ -22,8 +22,8 @@ GOVUK.Analytics.startAnalytics = function () {
     var handleExternalLink = function() {
         if (success) return;
         success = true;
-        var slug = document.URL.split('/')[3];
-        var target = $(this).attr('href');
+        var slug = encodeURIComponent(document.URL.split('/')[3]);
+        var target = encodeURIComponent($(this).attr('href'));
         var exitLink = '/exit?slug=' + slug + '&target=' + target + '&needId=' + GOVUK.Analytics.NeedID;
         $(this).prop('href', exitLink);
     };

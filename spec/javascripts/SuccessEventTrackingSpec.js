@@ -8,7 +8,7 @@ describe("success event tracking", function () {
         // create a guide internal and external link
         var guideMarkup = "<div id='content'>" +
             "<a id='guide-internal-link' href='#'>link</a>" +
-            "<a id='guide-external-link' href='#' rel='external'>link</a>" +
+            "<a id='guide-external-link' href='#this-is-a-test' rel='external'>link</a>" +
             "</div>";
         $(guideMarkup).appendTo('body');
         $("<div class='article-container'><a id='transaction-link' href='#'>link</a></div>").appendTo('body');
@@ -141,7 +141,8 @@ describe("success event tracking", function () {
 
             var href = $("#guide-external-link").prop("href");
             var parts = href.split("/");
-            expect(parts[3]).toEqual("exit?slug=?&target=#&needId=99999")
+            var expected = "exit?slug=&target=%23this-is-a-test&needId=99999";
+            expect(parts[3]).toEqual(expected)
         });
 
         it("should not register multiple guide success events when navigating to items on the same page", function () {
@@ -168,7 +169,7 @@ describe("success event tracking", function () {
 
             var href = $("#guide-external-link").prop("href");
             var parts = href.split("/");
-            expect(parts[3]).toEqual("?#");
+            expect(parts[3]).toEqual("#this-is-a-test");
         });
 
         it("should not register internal click if external link has been clicked", function () {
