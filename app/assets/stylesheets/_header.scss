@@ -5,7 +5,7 @@
 
 #global-header {
   background-color: #303030;
-  height: 1.75em;
+  min-height: 1.75em;
   padding: 0.5em 0;
   width: 100%;
   z-index: 1000;
@@ -58,23 +58,6 @@
         text-decoration: underline;
       }
     }
-
-    ul.ui-autocomplete {
-      position: absolute;
-      right: 4.3em;
-      left: -moz-initial;
-      left: initial;
-      width: 415px;
-      display: block;
-
-      a {
-        color: #333;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
   }
 
   /* this UL can be in both the auto-complete and the nav */
@@ -112,7 +95,7 @@
   }
 
   /*
-   * container for search form 
+   * container for search form
    * TODO: remove this, just use the form
    */
   .search-help {
@@ -166,7 +149,7 @@
 body.government #global-header .header-context {
   border-color: #cdce00;
   border-bottom-color: #9a9b00;
-  
+
   nav {
     font-weight: bold;
     text-decoration: none;
@@ -204,6 +187,55 @@ body.government #global-header .header-context {
 
     @include ie-lte(6) {
       width: 960px;
+    }
+  }
+}
+
+#global-breadcrumb {
+  background-color: #fff;
+  padding: 0.25em 0;
+  z-index: 50;
+
+  &.content-fixed {
+    border-bottom: solid 3px #F2F2F2;
+  }
+
+  nav {
+    width: 960px;
+    margin: 0 auto;
+
+    ol {
+      margin: 0;
+      padding: 0;
+
+      li {
+        background-image: image-url("separator.png");
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        float: left;
+        font-size: 1.1875em;
+        line-height: 1.7;
+        list-style: none;
+        margin-left: 0.5em;
+        padding-right: 1em;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        strong {
+          font-weight: normal;
+        }
+
+        a {
+          white-space: nowrap;
+        }
+
+        &:last-child {
+          margin-right: 0
+        }
+
+      }
     }
   }
 }
