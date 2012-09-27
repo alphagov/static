@@ -19,12 +19,6 @@ GOVUK.Analytics.startAnalytics = function () {
         return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, type];
     };
 
-    var trackSuccess = function () {
-        if (success) return;
-        success = true;
-        GOVUK.sendToAnalytics(createEvent("Success"));
-    };
-
     var handleExternalLink = function() {
         if (success) return;
         success = true;
@@ -43,6 +37,11 @@ GOVUK.Analytics.startAnalytics = function () {
     var enterKey = 13;
 
     var control = {
+        trackSuccess: function () {
+            if (success) return;
+            success = true;
+            GOVUK.sendToAnalytics(createEvent("Success"));
+        },
         trackLinks:function (selector) {
             $(selector).each(function () {
                 var linkToTrack = $(this);
@@ -61,7 +60,7 @@ GOVUK.Analytics.startAnalytics = function () {
             });
         },
         trackTimeBasedSuccess:function (time) {
-            setTimeout(trackSuccess, time);
+            setTimeout(control.trackSuccess, time);
         }
     };
 

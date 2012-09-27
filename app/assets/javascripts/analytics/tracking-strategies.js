@@ -33,3 +33,7 @@ GOVUK.Analytics.Trackers.local_transaction = function(control) {
     control.trackLinks("#content a[rel='external']");
 };
 
+GOVUK.Analytics.Trackers.smart_answer = function(control) {
+    $(document).bind("smartanswerOutcome", control.trackSuccess);
+};
+

@@ -19,7 +19,7 @@ describe("success event tracking", function () {
         Alphagov.delete_cookie("successEvents")
     });
 
-    it("should support basic case", function() {
+    it("should support basic case", function () {
         var result = GOVUK.Analytics.isTheSameArtefact(
             "http://www.gov.uk/claim-tax/first",
             "http://www.gov.uk/claim-tax/second");
@@ -27,7 +27,7 @@ describe("success event tracking", function () {
         expect(result).toBeTruthy();
     });
 
-    it("should support coming to very same url", function() {
+    it("should support coming to very same url", function () {
         var result = GOVUK.Analytics.isTheSameArtefact(
             "http://www.gov.uk/claim-tax/first",
             "http://www.gov.uk/claim-tax/first");
@@ -35,7 +35,7 @@ describe("success event tracking", function () {
         expect(result).toBeTruthy();
     });
 
-    it("should support local anchor on previous url", function() {
+    it("should support local anchor on previous url", function () {
         var result = GOVUK.Analytics.isTheSameArtefact(
             "http://www.gov.uk/claim-tax",
             "http://www.gov.uk/claim-tax#foobar");
@@ -43,7 +43,7 @@ describe("success event tracking", function () {
         expect(result).toBeTruthy();
     });
 
-    it("should support local anchor on current url", function() {
+    it("should support local anchor on current url", function () {
         var result = GOVUK.Analytics.isTheSameArtefact(
             "http://www.gov.uk/claim-tax#foobar",
             "http://www.gov.uk/claim-tax");
@@ -107,7 +107,7 @@ describe("success event tracking", function () {
     });
 
     describe("user interactions", function () {
-        it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function() {
+        it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
@@ -158,7 +158,7 @@ describe("success event tracking", function () {
             expect(cookie.length).toBe(1);
         });
 
-        it("should not register external click if internal link has been clicked", function() {
+        it("should not register external click if internal link has been clicked", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
@@ -171,7 +171,7 @@ describe("success event tracking", function () {
             expect(parts[3]).toEqual("?#");
         });
 
-        it("should not register internal click if external link has been clicked", function() {
+        it("should not register internal click if external link has been clicked", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
@@ -181,5 +181,30 @@ describe("success event tracking", function () {
 
             expect(Alphagov.read_cookie("successEvents")).toBe(null);
         });
+
+        it("should register a smart answer success if the smartanswerOutcome event is fired", function () {
+            GOVUK.Analytics.Format = 'smart_answer';
+            GOVUK.Analytics.NeedID = '99999';
+            GOVUK.Analytics.startAnalytics();
+
+            $.event.trigger("smartanswerOutcome");
+
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+            expect(arguments.length).toBe(2);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+        });
+
+        it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function() {
+            GOVUK.Analytics.Format = 'smart_answer';
+            GOVUK.Analytics.NeedID = '99999';
+            GOVUK.Analytics.startAnalytics();
+
+            $.event.trigger("smartanswerOutcome");
+            $.event.trigger("smartanswerOutcome");
+
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+            expect(arguments.length).toBe(2);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+        })
     });
 });
