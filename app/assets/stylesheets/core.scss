@@ -77,7 +77,6 @@ body.mainstream .header-context {
   }
 
   header.page-header .skip-to-related {
-    @include core-19;
     position:absolute;
     left:-9999em;
 
@@ -89,6 +88,7 @@ body.mainstream .header-context {
       background: #FFF;
 
       a {
+        @include core-19;
         display: block;
         padding: 1em;
         background: #F2F2F2;
@@ -202,11 +202,11 @@ h4 {
  * this related stuff needs re-examining - might be a bit over the top
  */
 .related-positioning {
-  height: 0;
-  left: 0;
   position: fixed;
+  left: 0;
   top: 6.4em;
   width: 100%;
+  height: 0;
   z-index: 0;
 
   @include ie-lte(8) {
@@ -219,6 +219,7 @@ h4 {
 
   @include media(mobile) {
     position: static;
+    top: auto;
     height: auto;
   }
 }
@@ -231,10 +232,10 @@ h4 {
 }
 
 .related-container {
-  height: 0;
-  margin: 0 auto;
-  max-width: 960px;
   position: relative;
+  height: 0;
+  max-width: 960px;
+  margin: 0 auto;
   z-index: 50;
 
   @include ie-lte(7) {
@@ -264,6 +265,7 @@ h4 {
 
   @include media(mobile) {
     position: static;
+    right: auto;
     width: auto;
   }
 
@@ -354,7 +356,10 @@ h4 {
     left: -9999em;
 
     @include media(mobile) {
-      position:static;
+      position: relative;
+      left: 0;
+      top: -2.2em;
+      float: right;
     }
   }
 }
@@ -1367,10 +1372,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     a,
     h1 {
-      @include core-16($line-height: (24 / 16));
-      background-color: #FFF;
+      @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
+      background: #FFF image-url('accordian-arrow.png') no-repeat 100% 0;
       display: block;
-      padding: 0.75em 0.75em;
+      padding: 0 1.6rem;
       position: relative;
       text-align: left;
       text-decoration:underline;
@@ -1384,7 +1389,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     &.active {
       text-decoration: none;
 
-      a {
+      a, h1 {
+        background-position: 100% 100%;
         background-color: #E1E8E8;
         color: #000;
         text-decoration: none;
