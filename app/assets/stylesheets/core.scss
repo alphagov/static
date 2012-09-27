@@ -76,7 +76,7 @@ body.mainstream .header-context {
     background-repeat: no-repeat;
   }
 
-  header.page-header .related-skiplink {
+  header.page-header .skip-to-related {
     @include core-19;
     position:absolute;
     left:-9999em;
@@ -344,6 +344,16 @@ h4 {
       color: #888;
       cursor: default;
       text-decoration: none;
+    }
+  }
+
+  .return-to-top {
+    @include core-16;
+    position: absolute;
+    left: -9999em;
+
+    @include media(mobile) {
+      position:static;
     }
   }
 }
