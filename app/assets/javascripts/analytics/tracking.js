@@ -31,7 +31,11 @@ GOVUK.Analytics.startAnalytics = function () {
     var handleInternalLink = function () {
         if (success) return;
         success = true;
-        GOVUK.Analytics.internalSiteEvents.push(createEvent("Success"));
+        if (this.baseURI == document.URL.split("#")[0]) {
+            GOVUK.sendToAnalytics(createEvent("Success"));
+        } else {
+            GOVUK.Analytics.internalSiteEvents.push(createEvent("Success"));
+        }
     };
 
     var enterKey = 13;

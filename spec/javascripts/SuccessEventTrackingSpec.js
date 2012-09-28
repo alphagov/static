@@ -19,36 +19,39 @@ describe("success event tracking", function () {
         Alphagov.delete_cookie("successEvents")
     });
 
-    it("should support basic case", function () {
-        var result = GOVUK.Analytics.isTheSameArtefact(
-            "http://www.gov.uk/claim-tax/first",
-            "http://www.gov.uk/claim-tax/second");
+    describe("isTheSameArtefact", function () {
+        it("should support basic case", function () {
+            var result = GOVUK.Analytics.isTheSameArtefact(
+                "http://www.gov.uk/claim-tax/first",
+                "http://www.gov.uk/claim-tax/second");
 
-        expect(result).toBeTruthy();
-    });
+            expect(result).toBeTruthy();
+        });
 
-    it("should support coming to very same url", function () {
-        var result = GOVUK.Analytics.isTheSameArtefact(
-            "http://www.gov.uk/claim-tax/first",
-            "http://www.gov.uk/claim-tax/first");
+        it("should support coming to very same url", function () {
+            var result = GOVUK.Analytics.isTheSameArtefact(
+                "http://www.gov.uk/claim-tax/first",
+                "http://www.gov.uk/claim-tax/first");
 
-        expect(result).toBeTruthy();
-    });
+            expect(result).toBeTruthy();
+        });
 
-    it("should support local anchor on previous url", function () {
-        var result = GOVUK.Analytics.isTheSameArtefact(
-            "http://www.gov.uk/claim-tax",
-            "http://www.gov.uk/claim-tax#foobar");
+        it("should support local anchor on previous url", function () {
+            var result = GOVUK.Analytics.isTheSameArtefact(
+                "http://www.gov.uk/claim-tax",
+                "http://www.gov.uk/claim-tax#foobar");
 
-        expect(result).toBeTruthy();
-    });
+            expect(result).toBeTruthy();
+        });
 
-    it("should support local anchor on current url", function () {
-        var result = GOVUK.Analytics.isTheSameArtefact(
-            "http://www.gov.uk/claim-tax#foobar",
-            "http://www.gov.uk/claim-tax");
+        it("should support local anchor on current url", function () {
+            var result = GOVUK.Analytics.isTheSameArtefact(
+                "http://www.gov.uk/claim-tax#foobar",
+                "http://www.gov.uk/claim-tax");
 
-        expect(result).toBeTruthy();
+            expect(result).toBeTruthy();
+        });
+
     });
 
     describe("analytics integration", function () {
@@ -117,8 +120,9 @@ describe("success event tracking", function () {
             e.keyCode = 13;
             $("#guide-internal-link").trigger(e);
 
-            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
-            expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+            expect(arguments.length).toBe(2);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
         });
 
         it("should register success event for guide format when an internal link inside #content is clicked", function () {
@@ -128,8 +132,9 @@ describe("success event tracking", function () {
 
             $('#guide-internal-link').click();
 
-            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
-            expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+            expect(arguments.length).toBe(2);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
         });
 
         it("should redirect through the exit action when an external link inside #content is clicked", function () {
@@ -155,8 +160,9 @@ describe("success event tracking", function () {
             $('#guide-internal-link').click();
             $('#guide-internal-link').click();
 
-            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
-            expect(cookie.length).toBe(1);
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+            expect(arguments.length).toBe(2);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
         });
 
         it("should not register external click if internal link has been clicked", function () {
@@ -195,7 +201,7 @@ describe("success event tracking", function () {
             expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
         });
 
-        it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function() {
+        it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function () {
             GOVUK.Analytics.Format = 'smart_answer';
             GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
