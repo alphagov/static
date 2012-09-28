@@ -36,4 +36,3 @@ GOVUK.Analytics.Trackers.answer = function (control) {
 GOVUK.Analytics.Trackers.smart_answer = function(control) {
     $(document).bind("smartanswerOutcome", control.trackSuccess);
 };
-

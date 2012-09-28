@@ -1,22 +1,22 @@
 describe("success event tracking", function () {
 
+    var guideMarkup = $("<div id='content' class='test-stub'>" +
+        "<a id='guide-internal-link' href='#'>link</a>" +
+        "<a id='guide-external-link' href='#this-is-a-test' rel='external'>link</a>" +
+        "</div>");
+
+    var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>")
+
     beforeEach(function () {
-        // unbind the jQuery auto-wiring
         $('a').unbind();
-        $("#content").remove();
-        $("#article-content").remove();
-        // create a guide internal and external link
-        var guideMarkup = "<div id='content'>" +
-            "<a id='guide-internal-link' href='#'>link</a>" +
-            "<a id='guide-external-link' href='#this-is-a-test' rel='external'>link</a>" +
-            "</div>";
-        $(guideMarkup).appendTo('body');
-        $("<div class='article-container'><a id='transaction-link' href='#'>link</a></div>").appendTo('body');
+        articleContainer.clone().appendTo('body');
+        guideMarkup.clone().appendTo('body');
         spyOn(GOVUK, 'sendToAnalytics');
     });
 
     afterEach(function () {
         Alphagov.delete_cookie("successEvents")
+        $(".test-stub").remove();
     });
 
     it("should support basic case", function () {
