@@ -107,29 +107,49 @@ describe("success event tracking", function () {
     });
 
     describe("user interactions", function () {
-        it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function () {
-            GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
-            GOVUK.Analytics.startAnalytics();
+        describe("firefox only tests...", function () {
+            if (!$.browser.webkit) {
+                it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function () {
+                    GOVUK.Analytics.Format = 'guide';
+                    GOVUK.Analytics.NeedID = '99999';
+                    GOVUK.Analytics.startAnalytics();
 
-            var e = jQuery.Event("keypress");
-            e.which = 13;
-            e.keyCode = 13;
-            $("#guide-internal-link").trigger(e);
+                    var e = jQuery.Event("keypress");
+                    e.which = 13;
+                    e.keyCode = 13;
+                    $("#guide-internal-link").trigger(e);
 
-            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
-            expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
-        });
+                    var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
+                    expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+                });
 
-        it("should register success event for guide format when an internal link inside #content is clicked", function () {
-            GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
-            GOVUK.Analytics.startAnalytics();
+                it("should register success event for guide format when an internal link inside #content is clicked", function () {
+                    GOVUK.Analytics.Format = 'guide';
+                    GOVUK.Analytics.NeedID = '99999';
+                    GOVUK.Analytics.startAnalytics();
 
-            $('#guide-internal-link').click();
+                    $('#guide-internal-link').click();
 
-            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
-            expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+                    var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
+                    expect(cookie[0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+                });
+
+                it("should not register multiple guide success events when navigating to items on the same page", function () {
+                    GOVUK.Analytics.Format = 'guide';
+                    GOVUK.Analytics.NeedID = '99999';
+                    GOVUK.Analytics.startAnalytics();
+
+                    $('#guide-internal-link').click();
+                    $('#guide-internal-link').click();
+                    $('#guide-internal-link').click();
+                    $('#guide-internal-link').click();
+
+                    var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
+                    expect(cookie.length).toBe(1);
+                });
+            } else {
+                console.log("Caution - not all tests will run on webkit browsers");
+            }
         });
 
         it("should redirect through the exit action when an external link inside #content is clicked", function () {
@@ -145,19 +165,6 @@ describe("success event tracking", function () {
             expect(parts[3]).toEqual(expected)
         });
 
-        it("should not register multiple guide success events when navigating to items on the same page", function () {
-            GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
-            GOVUK.Analytics.startAnalytics();
-
-            $('#guide-internal-link').click();
-            $('#guide-internal-link').click();
-            $('#guide-internal-link').click();
-            $('#guide-internal-link').click();
-
-            var cookie = jQuery.parseJSON(jQuery.base64Decode(Alphagov.read_cookie("successEvents")));
-            expect(cookie.length).toBe(1);
-        });
 
         it("should not register external click if internal link has been clicked", function () {
             GOVUK.Analytics.Format = 'guide';
@@ -195,7 +202,7 @@ describe("success event tracking", function () {
             expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
         });
 
-        it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function() {
+        it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function () {
             GOVUK.Analytics.Format = 'smart_answer';
             GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
