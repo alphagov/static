@@ -124,7 +124,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 6.25em;
+  top: 6.4em;
   width: 100%;
   z-index: 0;
 
@@ -376,6 +376,30 @@ header {
 }
 .licence header.page-header hgroup h1 {
   background-position: 16px 14px;
+}
+
+/* Licence Application */
+
+.relevant-authority {
+  margin: 0 0 20px 84px;
+  margin: 0 0 2rem 8.4rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.licence .intro form {
+  ul {
+    padding-left: 12px;
+    padding-left: 1.2rem;
+  }
+  li { list-style: none;
+    label {
+      padding-left: 5px;
+      padding-left: 0.5rem;
+    }
+  }
 }
 
 /*
