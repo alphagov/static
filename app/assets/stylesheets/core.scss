@@ -13,11 +13,6 @@
   @include ie-lte(7) {
     zoom: 1;
   }
-
-  header.page-header hgroup {
-    background-position: 97% 1em;
-    background-repeat: no-repeat;
-  }
 }
 
 .inner {
@@ -327,11 +322,19 @@ h4 {
 }
 
 header {
+
   &.page-header hgroup {
+    background-position: 97% 1em;
+    background-repeat: no-repeat;
     background-color: #fff;
     display: block;
     margin: 0 15em 0 0;
     padding: 0.2em 1em 1.5em 0.5em;
+
+    &.full-width {
+      margin: 0;
+      padding: 0;
+    }
 
     h1 {
       background-repeat: no-repeat;
