@@ -26,7 +26,7 @@
 section#homepage{
   overflow:auto;
   @include media(desktop) {
-    min-height:33em;
+    min-height:26em;
   }
 }
 section#homepage,
@@ -43,7 +43,7 @@ section#homepage,
 
   .homepage-sections {
     h2 {
-      @include core-19;
+      @include core-16;
     }
   }
 
@@ -54,8 +54,7 @@ section#homepage,
     li {
       @include core-19;
       display: block;
-      min-height:5em;
-      border-top:1px solid #ccc;
+      border-bottom:1px solid #ccc;
       a{
         color: #197873;
       }
@@ -64,6 +63,9 @@ section#homepage,
         padding:0 0 0.85em 0;
         margin:0;
       }
+    }
+    li:last-child {
+      border:none;
     }
   }
 
@@ -114,7 +116,7 @@ header.intro{
   min-height:0;
   @include media(desktop){
     margin:2em 0.5em 1em 0.5em;
-    border-bottom:1px solid #ccc;
+   
   }
 
 }
@@ -126,7 +128,6 @@ header.intro{
     width:29%;
     float:left;
     margin:1em 1em 1em 1em;
-    border-bottom:1px solid #ccc;
     padding-top:1em;
   }
 }
