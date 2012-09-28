@@ -201,27 +201,27 @@ body.government #global-header .header-context {
   }
 
   nav {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
+
+    @include ie(6) {
+      width: 960px;
+    }
 
     ol {
       margin: 0;
       padding: 0;
 
       li {
+        @include core-19;
         background-image: image-url("separator.png");
         background-position: 100% 50%;
         background-repeat: no-repeat;
         float: left;
-        font-size: 1.1875em;
-        line-height: 1.7;
         list-style: none;
-        margin-left: 0.5em;
+        margin-left: 0;
+        margin-right: 0.5em;
         padding-right: 1em;
-
-        &:first-child {
-          margin-left: 0;
-        }
 
         strong {
           font-weight: normal;
