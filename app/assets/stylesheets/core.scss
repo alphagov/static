@@ -13,11 +13,6 @@
   @include ie-lte(7) {
     zoom: 1;
   }
-
-  header.page-header hgroup {
-    background-position: 97% 1em;
-    background-repeat: no-repeat;
-  }
 }
 
 .inner {
@@ -295,39 +290,12 @@ h4 {
 /*
  * Page headers
  */
-/* Programmes */
-#wrapper.programme header.page-header hgroup h1 {
-  background-image: image-url("icon-programme-l.png");
-}
-
-/* Services */
-#wrapper.service header.page-header hgroup {
-  /*border-color: #2DA096;*/
-}
-
-#wrapper.service header.page-header hgroup h1 {
-  background-image: image-url("icon-service-l.png");
-}
-
-/* Quick answers */
-#wrapper.answer header.page-header hgroup h1 {
-  background-image: image-url("icon-answer-l.png");
-}
-
-/* Licence guidance */
-#wrapper.licence header.page-header hgroup h1 {
-  background-image: image-url("icon-licence-l.png");
-}
-
-/* Guides */
-#wrapper.guide header.page-header hgroup h1,
-#wrapper.video header.page-header hgroup h1 {
-  background-image: image-url("icon-guide-l.png");
-  background-repeat: no-repeat;
-}
 
 header {
+
   &.page-header hgroup {
+    background-position: 97% 1em;
+    background-repeat: no-repeat;
     background-color: #fff;
     display: block;
     margin: 0 15em 0 0;
@@ -357,6 +325,44 @@ header {
       text-shadow: none;
     }
   }
+}
+
+body.full-width {
+
+  header.page-header hgroup {
+    margin-right: 0;
+  }
+}
+
+/* Programmes */
+#wrapper.programme header.page-header hgroup h1 {
+  background-image: image-url("icon-programme-l.png");
+}
+
+/* Services */
+#wrapper.service header.page-header hgroup {
+  /*border-color: #2DA096;*/
+}
+
+#wrapper.service header.page-header hgroup h1 {
+  background-image: image-url("icon-service-l.png");
+}
+
+/* Quick answers */
+#wrapper.answer header.page-header hgroup h1 {
+  background-image: image-url("icon-answer-l.png");
+}
+
+/* Licence guidance */
+#wrapper.licence header.page-header hgroup h1 {
+  background-image: image-url("icon-licence-l.png");
+}
+
+/* Guides */
+#wrapper.guide header.page-header hgroup h1,
+#wrapper.video header.page-header hgroup h1 {
+  background-image: image-url("icon-guide-l.png");
+  background-repeat: no-repeat;
 }
 
 .business header.page-header hgroup h1 {
