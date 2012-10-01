@@ -196,10 +196,13 @@ header.intro{
 
   &.mini-promo{
     header{
-      background-image: image-url("homepage-karen-promo.jpg");
-      background-position: bottom left;
+      background-image: image-url("homepage-clocks-promo.jpg");
+      background-position: 50% bottom;
       background-repeat: no-repeat;
       padding-bottom:160px;
+      @include media(mobile){
+        background-position: left bottom;
+      }
     }
     a{
         color: #197873;
