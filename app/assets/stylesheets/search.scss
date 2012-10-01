@@ -7,7 +7,7 @@
 
 #wrapper .ancillary.search .search-container {
   background-color: #fff;
-  padding: 1em 2.5em 1em 2.5em;
+  padding: 2em 2.5em 1em 2.5em;
 }
 
 /* Header
@@ -49,6 +49,23 @@
 
     &.active {
       background: #fff;
+    }
+  }
+}
+
+#wrapper .search-container {
+  .internal-links {
+    float: left;
+    width: 32.5em;
+  }
+
+  .external-links {
+    float: right;
+
+    h2 {
+      @include core-19;
+
+      margin: 0 0 1em 0;
     }
   }
 }
