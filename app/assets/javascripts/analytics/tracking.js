@@ -13,15 +13,12 @@ GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl) {
 };
 
 GOVUK.Analytics.startAnalytics = function () {
-
     var ENTER_KEYCODE = 13;
     var success = false;
 
     var shouldIDoAnalyticsForThisPage = function () {
-        if (!GOVUK.Analytics.NeedID) return false;
-        return !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
+        return (GOVUK.Analytics.NeedID && !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer))
     };
-
 
     var createEvent = function(type) {
         return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, type];
