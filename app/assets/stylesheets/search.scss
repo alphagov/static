@@ -2,6 +2,7 @@
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 @import "_colours";
+@import "_css3";
 
 /* ----- search results page ----- */
 
@@ -38,7 +39,7 @@
 
 #search-index-navigation {
   overflow: hidden;
-  padding: 0 0 0 1em;
+  padding: 0;
   margin: 0;
 
   li {
@@ -46,9 +47,23 @@
     display: block;
     margin: 0;
     padding: 0.5em;
+    @include border-radius(10px 10px 0 0);
+
+    background: $grey-88;
+
+    a {
+      text-decoration: none;
+      color: $grey-40;
+      @include core-19;
+      display: block;
+      padding: 0.25em (16/19) * 2em; // core is 19, body is 16, we want 2ems worth of 16
+      cursor: pointer;
+    }
 
     &.active {
       background: #fff;
+      color: $grey-20;
+
     }
   }
 }
@@ -61,6 +76,7 @@
 
   .external-links {
     float: right;
+    width: 21.5em;
 
     h2 {
       @include core-19;
@@ -144,6 +160,10 @@ input[type="search"]::-webkit-search-results-decoration {
     max-width: 32.5em;
     padding: 0;
     overflow: hidden;
+
+    li {
+      margin: 0;
+    }
 
     a {
       margin: 0; padding: 0;
