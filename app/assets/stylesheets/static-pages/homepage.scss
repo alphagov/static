@@ -98,27 +98,17 @@ header.intro{
   }
 }
 
-
-
 .homepage-sections{
-  clear:both;
-  background-color:#fff;
   overflow:auto;
   display:inline;
 }
 .homepage-sections ul,
 .minor-campaigns article{
   width: 98%;
-  float:left;
   margin:0em 1% 0em 1%;
   border-bottom:none;
-  padding-top:1em;
   min-height:0;
-  @include media(desktop){
-    margin:2em 1% 1em 1%;
-   
-  }
-
+  padding-top:1em;
 }
 
 @include media(desktop){
@@ -128,7 +118,6 @@ header.intro{
     width:29.3%;
     float:left;
     margin:1em 2% 1em 2%;
-    padding-top:1em;
   }
 }
 
@@ -139,6 +128,7 @@ header.intro{
   &.most-popular{
     ul{
       list-style: none;
+      list-style-image: none;
       li{
         padding-bottom:0.5em;
         a{
@@ -146,17 +136,8 @@ header.intro{
       }
       }
     }
-    @include media(mobile){
-      width:98%;
-      ul{
-        list-style: none;
-        li{
-         display:inline-block;
-   
-        }
-      }
-    }
   }
+  
   &.inside-gov{
     background-color:#333;
     color:#fff;
