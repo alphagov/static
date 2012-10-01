@@ -290,6 +290,50 @@ h4 {
 /*
  * Page headers
  */
+
+header {
+
+  &.page-header hgroup {
+    background-position: 97% 1em;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    display: block;
+    margin: 0 15em 0 0;
+    padding: 0.2em 1em 1.5em 0.5em;
+
+    h1 {
+      background-repeat: no-repeat;
+      color: #000;
+      @include heading-48;
+      padding: (13 / 48) * 1em  (66 / 48) * 1em (15 / 48) * 1em (72 / 48) * 1em;
+
+      @include ie-lte(8) {
+        height: 1%;
+      }
+    }
+
+    h2 {
+      @include core-16;
+      color: #666;
+      margin: 0.75em 0 0 4.5em;
+    }
+
+    span {
+      @include core-19($line-height: 1);
+      display: block;
+      margin-bottom: 0.5em;
+      text-shadow: none;
+    }
+  }
+}
+
+body.full-width {
+
+  header.page-header hgroup {
+    margin-right: 0;
+  }
+}
+
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
@@ -319,47 +363,6 @@ h4 {
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
   background-repeat: no-repeat;
-}
-
-header {
-
-  &.page-header hgroup {
-    background-position: 97% 1em;
-    background-repeat: no-repeat;
-    background-color: #fff;
-    display: block;
-    margin: 0 15em 0 0;
-    padding: 0.2em 1em 1.5em 0.5em;
-
-    &.full-width {
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      background-repeat: no-repeat;
-      color: #000;
-      @include heading-48;
-      padding: (13 / 48) * 1em  (66 / 48) * 1em (15 / 48) * 1em (72 / 48) * 1em;
-
-      @include ie-lte(8) {
-        height: 1%;
-      }
-    }
-
-    h2 {
-      @include core-16;
-      color: #666;
-      margin: 0.75em 0 0 4.5em;
-    }
-
-    span {
-      @include core-19($line-height: 1);
-      display: block;
-      margin-bottom: 0.5em;
-      text-shadow: none;
-    }
-  }
 }
 
 .business header.page-header hgroup h1 {
