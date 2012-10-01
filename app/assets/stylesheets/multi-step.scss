@@ -105,6 +105,10 @@ li.done .answer {
   margin-right: 0.5em;
   padding-right: 9.5em;
 
+  @include media(mobile) {
+    padding-right: 0;
+  }
+
   &.multiple {
     display: block;
   }
@@ -306,6 +310,10 @@ article .error {
     list-style: none;
     position: relative;
     padding: 0.5em 1.5em 0.5em 5em;
+
+    @include media(mobile) {
+      padding: 0.5em 1em;
+    }
 
     &.upcoming {
       background: #f0e7d7;
