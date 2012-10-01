@@ -138,7 +138,7 @@
 }
 
 aside .show-all-parts {
-  @include core-16($line-height: (45/16), $line-height-640: (45/13));
+  @include core-19($line-height: (45/19), $line-height-640: (45/13));
   border: solid 1px #C9D0D0;
   border-width: 1px 0;
   display: block;
@@ -175,9 +175,9 @@ aside .page-navigation {
   li {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
+    @include core-16;
 
     a {
-      @include core-16;
       display: block;
       padding: 0.75em;
       text-decoration: none;
@@ -189,34 +189,20 @@ aside .page-navigation {
           color: #2E3191;
         }
       }
+    }
 
-      span {
-        display: block;
+    span {
+      display: block;
 
-        &.part-label {
-          color: #000;
-          line-height: 1.5;
-        }
-
-        &.part-title {
-          color: #2E3191;
-          text-decoration: underline;
-          line-height: 1.25;
-        }
+      &.part-label {
+        color: #000;
+        line-height: 1.5;
       }
 
-      @include media(mobile) {
-        @include core-16($line-height: (45/16), $line-height-640: (45/13));
-        padding: 0 16px;
-        padding: 0 1.6rem;
-        
-        span {
-          display: inline;
-
-          &.part-label {
-            padding-right: 1em;
-          }
-        }
+      &.part-title {
+        color: #2E3191;
+        text-decoration: underline;
+        line-height: 1.25;
       }
     }
 
@@ -232,18 +218,32 @@ aside .page-navigation {
       @include ie-lte(8) {
         margin: 0;
       }
-
-      @include media(mobile) {
-        padding: 0;
-
-        span.part-label {
-          padding-right: 1em;
-        }
-      }
     }
 
     &:first-child {
       border-top: solid 1px #C9D0D0;
+    }
+
+    @include media(mobile) {
+      @include core-19($line-height: (45/19), $line-height-640: (45/13));
+
+      a {
+        padding: 0 16px;
+        padding: 0 1.6rem;
+      }
+
+      span {
+          display: inline;
+
+          &.part-label {
+            padding-right: 1em;
+          }
+        }
+      
+      &.active {
+        padding: 0 16px;
+        padding: 0 1.6rem;
+      }
     }
   }
 }

@@ -216,7 +216,7 @@ body.government #global-header .header-context {
     max-width: 960px;
     margin: 0 auto;
 
-    @include ie-lte(6) {
+    @include ie(6) {
       width: 960px;
     }
 
