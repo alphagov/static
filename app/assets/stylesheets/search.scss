@@ -36,6 +36,23 @@
   margin: 0 0 0 (320 / 48) * 1em;
 }
 
+#search-index-navigation {
+  overflow: hidden;
+  padding: 0 0 0 1em;
+  margin: 0;
+
+  li {
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0.5em;
+
+    &.active {
+      background: #fff;
+    }
+  }
+}
+
 /* Search results [this needs merging with "Results" section below!]
 ============================================================================ */
 
@@ -126,6 +143,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
     ul.result-meta {
       padding: 0;
+      margin: 0.3em 0;
 
       li {
         @include core-16;
