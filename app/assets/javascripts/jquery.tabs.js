@@ -163,9 +163,6 @@ jQuery.fn.tabs = function(settings){
 				.attr('aria-controls', id)
 				.attr('aria-flowto', id);
 		});
-
-		//switch selected on click
-        // tabItems.find('a').attr('tabindex','-1');
 		
 		//generic select tab function
 		function selectTab(tab,fromHashChange){
@@ -210,6 +207,22 @@ jQuery.fn.tabs = function(settings){
 				// set selected index
 				o.selected = tabItems.find('a').index(tab);
 			}
+		}
+
+		//deselect tab function
+		function deselectTab(tab){
+            tabItems.find('a')
+                .attr('aria-selected', false)
+                .attr('tabindex', -1);
+
+            tabItems.find('a').closest('.js-heading-tab').removeClass('active');
+
+            //unselect panels
+            tabsBody.find('.tabs-panel-selected')
+                .attr('aria-hidden',true)
+                .attr('aria-expanded', false)
+                .removeClass('tabs-panel-selected')
+                .hide();
 		}
 
 		// keyboard navigation
@@ -300,11 +313,13 @@ jQuery.fn.tabs = function(settings){
 		selectTabFromHash(null, true);
 		
 		tabItems.on('click', 'a', function(){
-			selectTab($(this));
+		    if ($(this).closest('.js-heading-tab').hasClass('active')) {
+		        deselectTab($(this));
+            } else {
+                selectTab($(this));
+            }
 			$(this).focus();
 			return false;
-		}).on('focus', 'a', function() {
-			// o.selected = tabItems.find('a').index($(this));
 		});
 		
 		if(o.alwaysScrollToTop){
