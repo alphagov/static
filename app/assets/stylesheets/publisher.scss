@@ -234,7 +234,7 @@ aside .page-navigation {
       }
 
       @include media(mobile) {
-        padding: 0;
+        padding: 0.75em 1em;
 
         span.part-label {
           padding-right: 1em;
