@@ -2,6 +2,26 @@ var GOVUK = GOVUK || {};
 GOVUK.Analytics = GOVUK.Analytics || {};
 GOVUK.Analytics.Trackers = {};
 
+GOVUK.Analytics.shouldITrackEntryForThisPage = function (format) {
+    var userCameFromBaseSmartAnswerPage = function () {
+      return document.referrer !== "" && document.URL.indexOf(document.referrer) !== -1;
+    };
+
+    var userRestartedSmartAnswerFlow = function () {
+      return document.referrer !== "" && document.referrer.indexOf(document.URL) !== -1;
+    };
+
+    if (format === "smart_answer") {
+      return !userCameFromBaseSmartAnswerPage() && !userRestartedSmartAnswerFlow();
+    }
+    return !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
+};
+
+GOVUK.Analytics.shouldITrackSuccessForThisPage = function (format) {
+    return !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
+};
+
+
 /*
  * Available methods on control:
  * - trackTimeBasedSuccess(millisecondsUntilSuccess)

@@ -17,7 +17,7 @@ GOVUK.Analytics.startAnalytics = function () {
     var success = false;
 
     var shouldIDoAnalyticsForThisPage = function () {
-        return (GOVUK.Analytics.NeedID && !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer))
+        return GOVUK.Analytics.NeedID;
     };
 
     var createEvent = function(type) {
@@ -74,8 +74,12 @@ GOVUK.Analytics.startAnalytics = function () {
     var format = GOVUK.Analytics.Format;
     var trackingStrategies = GOVUK.Analytics.Trackers;
     if (shouldIDoAnalyticsForThisPage() && trackingStrategies[format]) {
-        GOVUK.sendToAnalytics(createEvent("Entry"));
-        trackingStrategies[format](trackingApi);
+      if (GOVUK.Analytics.shouldITrackEntryForThisPage(format)) {
+          GOVUK.sendToAnalytics(createEvent("Entry"));
+      }
+      if (GOVUK.Analytics.shouldITrackSuccessForThisPage(format)) {
+          trackingStrategies[format](trackingApi);
+      }
     }
 
     GOVUK.Analytics.internalSiteEvents.sendAll();
