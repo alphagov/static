@@ -3,25 +3,6 @@
 @import "styleguide/_typography.scss";
 
 /* Take the tour button styles (in the header) */
-.home-tour { 
-  position: absolute;
-  top: 0.5em;
-  right: 4%;
-  z-index: 1000;
-  display:none;
-}
-
-.tour-label a {
-  background-color: #F17921;
-  color: #000;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-
-  &:hover {
-    background-color: #fff;
-  }
-}
-
 
 section#homepage{
   overflow:auto;
@@ -56,7 +37,7 @@ section#homepage,
       display: block;
       border-bottom:1px solid #ccc;
       a{
-        color: #197873;
+        color: darken($turquoise, 10%);
       }
       p{
         @include core-16;
@@ -129,16 +110,16 @@ header.intro{
 .minor-campaigns article{
   margin-top:1em;
   border-bottom:none;
-  border-top: 4px solid #197873;
+  border-top: 4px solid $turquoise;
   &.most-popular{
     ul{
       list-style: none;
       list-style-image: none;
       li{
         padding-bottom:0.5em;
-        a{
-        color: #197873;
-      }
+        a {
+          color: darken($turquoise, 10%);
+        }
       }
     }
   }
@@ -181,18 +162,21 @@ header.intro{
   }
 
   &.mini-promo{
-    overflow: hidden;
 
     p {
+      text-align: center;
 
       a {
-        background-image: image-url("homepage-clocks-promo.jpg");
-        background-position: 50% bottom;
-        background-repeat: no-repeat;
+        @include core-24;
+        background-color: $turquoise;
+        color: #fff;
         display: block;
-        height: 165px;
-        @include media(mobile){
-          background-position: left bottom;
+        padding: 1em;
+        text-decoration: none;
+
+        span {
+          @include core-36;
+          display: block;
         }
       }
     }
