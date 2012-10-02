@@ -1,3 +1,3 @@
 $(function() {
-  $('#content.search').tabs();
+  $('#content.search.js-tabs-content').tabs();
 });
