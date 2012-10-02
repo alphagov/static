@@ -1,12 +1,14 @@
 @import "_conditionals";
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
+@import "_colours";
+@import "_css3";
 
 /* ----- search results page ----- */
 
 #wrapper .ancillary.search .search-container {
   background-color: #fff;
-  padding: 1em 2.5em 1em 2.5em;
+  padding: 2em 2.5em 1em 2.5em;
 }
 
 /* Header
@@ -35,6 +37,55 @@
   margin: 0 0 0 (320 / 48) * 1em;
 }
 
+#search-index-navigation {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+
+  li {
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0.5em;
+    @include border-radius(10px 10px 0 0);
+
+    background: $grey-88;
+
+    a {
+      text-decoration: none;
+      color: $grey-40;
+      @include core-19;
+      display: block;
+      padding: 0.25em (16/19) * 2em; // core is 19, body is 16, we want 2ems worth of 16
+      cursor: pointer;
+    }
+
+    &.active {
+      background: #fff;
+      color: $grey-20;
+
+    }
+  }
+}
+
+#wrapper .search-container {
+  .internal-links {
+    float: left;
+    width: 32.5em;
+  }
+
+  .external-links {
+    float: right;
+    width: 21.5em;
+
+    h2 {
+      @include core-19;
+
+      margin: 0 0 1em 0;
+    }
+  }
+}
+
 /* Search results [this needs merging with "Results" section below!]
 ============================================================================ */
 
@@ -54,8 +105,8 @@
 form.search-header {
   display: block;
   @include core-19;
-  margin: 1em 10.5em 2em 0;
-  text-align: right;
+  margin: 1em 10.5em 1em 2em;
+
 
   #search-main {
     font-size:1em;
@@ -110,6 +161,10 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 0;
     overflow: hidden;
 
+    li {
+      margin: 0;
+    }
+
     a {
       margin: 0; padding: 0;
     }
@@ -120,6 +175,18 @@ input[type="search"]::-webkit-search-results-decoration {
 
       &.search-result-title {
         @include core-19;
+      }
+    }
+
+    ul.result-meta {
+      padding: 0;
+      margin: 0.3em 0;
+
+      li {
+        @include core-16;
+        width: auto;
+        color: $grey-63;
+
       }
     }
   }
