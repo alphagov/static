@@ -79,14 +79,19 @@ header.intro{
   min-height:0;
   margin:1em 0.5em 0em 0.5em;
 
-  h1{
-    @include core-19;
-    &.strap{
-      @include core-48;
-      padding-bottom:0.25em;
+  hgroup {
+    h1{
+      &.strap{
+        @include core-48;
+        padding-bottom:0.25em;
+      }
     }
-
+    p {
+      @include core-19;
+      margin-top: 0;
+    }
   }
+
   ul{
     list-style-type:none;
     padding:0;
@@ -179,12 +184,16 @@ header.intro{
     overflow: hidden;
 
     p {
-      background-image: image-url("homepage-clocks-promo.jpg");
-      background-position: 50% bottom;
-      background-repeat: no-repeat;
-      height: 165px;
-      @include media(mobile){
-        background-position: left bottom;
+
+      a {
+        background-image: image-url("homepage-clocks-promo.jpg");
+        background-position: 50% bottom;
+        background-repeat: no-repeat;
+        display: block;
+        height: 165px;
+        @include media(mobile){
+          background-position: left bottom;
+        }
       }
     }
   }
