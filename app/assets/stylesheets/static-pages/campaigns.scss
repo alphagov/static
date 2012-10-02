@@ -66,6 +66,7 @@ section {
     p {
       max-width: 662px;
     }
+
   }
 }
 
@@ -75,9 +76,34 @@ section {
   width: 100%;
   height: 300px;
 
-  @include media (mobile) {
+  @include media ($max-width: 900px) {
     position: static;
     height: auto;
+  }
+
+  #banner {
+    display: block;
+    text-indent: -9999px;
+    width: 100%;
+    height: 300px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    background-size:cover;
+
+    @include media($min-width: 0px) {
+      height: 236px;
+      margin: 0;
+    }
+
+    @include media($min-width: 500px) {
+      height: 566px;
+    }
+
+    @include media($min-width: 900px) {
+      height: 300px;
+    }
   }
 
   .campaign-links {
@@ -87,7 +113,7 @@ section {
     width: 240px;
     background-color: #fff;
 
-    @include media (mobile) {
+    @include media ($max-width: 900px) {
       position: static;
       float: left;
       width: auto;
@@ -130,7 +156,7 @@ article.campaign {
   height: auto;
   min-height: 0;
   width: auto;
-  max-width: 80%;
+  max-width: 95%;
   margin: 0 2em;
   padding: 0 2em 1em 0;
   border-bottom: solid 1px #d5d5d5;
