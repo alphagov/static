@@ -125,13 +125,13 @@ header.intro{
   }
   
   &.inside-gov{
-    background-color:#333;
-    color:#fff;
+    background-color:#303030;
     border:none;
     padding-top:0;
     
     p{
       @include core-16;
+      color:#fff;
       padding:0 1.2em;
     }
 
@@ -140,8 +140,6 @@ header.intro{
     }
     
     header{
-      background-color:#000;
-      color:#fff;
       padding-top:1em;
       background-image: image-url("homepage-cabinet.jpg");
       background-position: bottom left;
@@ -149,8 +147,8 @@ header.intro{
       padding-bottom:140px;
       
       h1, p{
-        color:#fff;
         @include core-19;
+        color:#fff;
         padding:0 1em;
         margin:0;
       }
