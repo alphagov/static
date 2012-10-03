@@ -2,11 +2,9 @@
 @import "../styleguide/_font-stacks";
 @import "../styleguide/_typography";
 
-section {
-  &#content {
-    background-color: #fff;
-    padding-bottom: 3em;
-  }
+.campaign section#content{
+
+  padding-bottom: 3em;
 
   &#extra-links {
     float: left;
