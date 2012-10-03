@@ -146,7 +146,7 @@ describe("success event tracking", function () {
 
             var href = $("#guide-external-link").prop("href");
             var parts = href.split("/");
-            var expected = "exit?slug=&target=%23this-is-a-test&needId=99999&format=guide";
+            var expected = "exit?slug=&target=%23this-is-a-test&need_id=99999&format=guide";
             expect(parts[3]).toEqual(expected)
         });
 

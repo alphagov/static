@@ -29,7 +29,7 @@ GOVUK.Analytics.startAnalytics = function () {
         success = true;
         var slug = encodeURIComponent(document.URL.split('/')[3]);
         var target = encodeURIComponent($(this).attr('href'));
-        var exitLink = '/exit?slug=' + slug + '&target=' + target + '&needId=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
+        var exitLink = '/exit?slug=' + slug + '&target=' + target + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
         $(this).prop('href', exitLink);
     };
 
