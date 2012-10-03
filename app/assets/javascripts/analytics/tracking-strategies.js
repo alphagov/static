@@ -2,25 +2,6 @@ var GOVUK = GOVUK || {};
 GOVUK.Analytics = GOVUK.Analytics || {};
 GOVUK.Analytics.Trackers = {};
 
-GOVUK.Analytics.shouldITrackEntryForThisPage = function (format) {
-    var userCameFromBaseSmartAnswerPage = function () {
-      return document.referrer !== "" && document.URL.indexOf(document.referrer) !== -1;
-    };
-
-    var userRestartedSmartAnswerFlow = function () {
-      return document.referrer !== "" && document.referrer.indexOf(document.URL) !== -1;
-    };
-
-    if (format === "smart_answer") {
-      return !userCameFromBaseSmartAnswerPage() && !userRestartedSmartAnswerFlow();
-    }
-    return !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
-};
-
-GOVUK.Analytics.shouldITrackSuccessForThisPage = function (format) {
-    return !GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
-};
-
 
 /*
  * Available methods on control:
@@ -53,6 +34,20 @@ GOVUK.Analytics.Trackers.answer = function (control) {
 };
 
 /* Smart Answer */
-GOVUK.Analytics.Trackers.smart_answer = function(control) {
+/**
+ * The Entry event should only be fired on the first page of the smart answer (the one with the get started button).
+ * The Success event should only be fired if the user is coming from the first page and the 'smartanswerOutcome' custom
+ *   event has been fired.
+ *
+ */
+GOVUK.Analytics.Trackers.smart_answer = function (control) {
     $(document).bind("smartanswerOutcome", control.trackSuccess);
+};
+
+GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry = function() {
+    return GOVUK.Analytics.isRootOfArtefact(document.URL);
+};
+
+GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
+    return GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
 };

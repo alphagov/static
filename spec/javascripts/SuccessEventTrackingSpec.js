@@ -17,6 +17,7 @@ describe("success event tracking", function () {
     afterEach(function () {
         Alphagov.delete_cookie("successEvents")
         $(".test-stub").remove();
+        $.event.trigger("smartanswerOutcome");
     });
 
     describe("isTheSameArtefact", function () {
@@ -51,7 +52,26 @@ describe("success event tracking", function () {
 
             expect(result).toBeTruthy();
         });
+    });
 
+    describe("isRootArtefact", function () {
+        it("should be true for standard artefact url", function () {
+            var result = GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator");
+
+            expect(result).toBeTruthy();
+        });
+
+        it("should be true for standard artefact url ending with a slash", function () {
+            var result = GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/");
+
+            expect(result).toBeTruthy();
+        });
+
+        it("should be false for non-root artefact url", function () {
+            var result = GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/y");
+
+            expect(result).toBeFalsy();
+        });
     });
 
     describe("analytics integration", function () {
@@ -192,26 +212,40 @@ describe("success event tracking", function () {
         it("should register a smart answer success if the smartanswerOutcome event is fired", function () {
             GOVUK.Analytics.Format = 'smart_answer';
             GOVUK.Analytics.NeedID = '99999';
+            spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackSuccess').andReturn(true);
             GOVUK.Analytics.startAnalytics();
 
             $.event.trigger("smartanswerOutcome");
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
-            expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+            expect(arguments.length).toBe(1);
+            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
         });
 
         it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function () {
             GOVUK.Analytics.Format = 'smart_answer';
             GOVUK.Analytics.NeedID = '99999';
+            spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackSuccess').andReturn(true);
             GOVUK.Analytics.startAnalytics();
 
             $.event.trigger("smartanswerOutcome");
             $.event.trigger("smartanswerOutcome");
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
-            expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+            expect(arguments.length).toBe(1);
+            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+        });
+
+        it("should register custom condition for entry and success tracking for smart answers", function () {
+            GOVUK.Analytics.Format = 'smart_answer';
+            GOVUK.Analytics.NeedID = '99999';
+            spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackEntry');
+            spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackSuccess');
+
+            GOVUK.Analytics.startAnalytics();
+
+            expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry).toHaveBeenCalled();
+            expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess).toHaveBeenCalled();
         })
     });
 });

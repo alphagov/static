@@ -7,9 +7,17 @@ GOVUK.sendToAnalytics = function (analyticsData) {
 };
 
 GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl) {
-    var currentSlug = currentUrl.split('/').slice(0, 4).join('/').replace(/#.*$/, '');
-    var previousSlug = previousUrl.split('/').slice(0, 4).join('/').replace(/#.*$/, '');
+    var rootOfArtefact = function(url) {
+        return url.split("/").slice(0, 4).join("/");
+    };
+
+    var currentSlug = rootOfArtefact(currentUrl).replace(/#.*$/, '');
+    var previousSlug = rootOfArtefact(previousUrl).replace(/#.*$/, '');
     return currentSlug === previousSlug;
+};
+
+GOVUK.Analytics.isRootOfArtefact = function(url) {
+    return url.replace(/\/$/, "").split("/").slice(3).length === 1;
 };
 
 GOVUK.Analytics.startAnalytics = function () {
@@ -19,6 +27,21 @@ GOVUK.Analytics.startAnalytics = function () {
     var shouldIDoAnalyticsForThisPage = function () {
         return GOVUK.Analytics.NeedID;
     };
+
+    /**
+     * Decide whether we should track an event based on a condition function.
+     * If the condition function isn't defined then the default condition is used.
+     *
+     * @param condition, an optional function that returns a boolean
+     * @return bool
+     */
+    var shouldTrackEvent = function(condition, defaultValue) {
+        if (condition) {
+            return condition();
+        } else {
+            return defaultValue;
+        }
+    }
 
     var createEvent = function(type) {
         return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, type];
@@ -72,13 +95,14 @@ GOVUK.Analytics.startAnalytics = function () {
     };
 
     var format = GOVUK.Analytics.Format;
-    var trackingStrategies = GOVUK.Analytics.Trackers;
-    if (shouldIDoAnalyticsForThisPage() && trackingStrategies[format]) {
-      if (GOVUK.Analytics.shouldITrackEntryForThisPage(format)) {
+    var trackingStrategy = GOVUK.Analytics.Trackers[format];
+    if (shouldIDoAnalyticsForThisPage() && trackingStrategy) {
+      var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
+      if (shouldTrackEvent(trackingStrategy.shouldTrackEntry, !isTheSameArtefact)) {
           GOVUK.sendToAnalytics(createEvent("Entry"));
       }
-      if (GOVUK.Analytics.shouldITrackSuccessForThisPage(format)) {
-          trackingStrategies[format](trackingApi);
+      if (shouldTrackEvent(trackingStrategy.shouldTrackSuccess, !isTheSameArtefact)) {
+          trackingStrategy(trackingApi);
       }
     }
 
