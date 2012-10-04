@@ -50,7 +50,7 @@ GOVUK.Analytics.startAnalytics = function () {
     var handleExternalLink = function() {
         if (success) return;
         success = true;
-        var slug = encodeURIComponent(document.URL.split('/')[3]);
+        var slug = encodeURIComponent(document.URL.split('/')[3].split("#")[0]);
         var target = encodeURIComponent($(this).attr('href'));
         var exitLink = '/exit?slug=' + slug + '&target=' + target + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
         $(this).prop('href', exitLink);
