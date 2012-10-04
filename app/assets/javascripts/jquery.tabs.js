@@ -116,7 +116,12 @@ jQuery.fn.tabs = function(settings){
 		
 		//nav is first ul or ol
 		var tabsNav = tabs.find('.js-tabs ul, .js-tabs ol');
-		
+
+        // exit early if there isn't anything to click
+        if (tabsNav.length === 0) {
+          return tabs;
+        }
+
 		//body is nav's next sibling
 		var tabsBody = $(".js-tab-content");
 

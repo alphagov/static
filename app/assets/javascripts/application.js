@@ -7,6 +7,7 @@
 //= require geo-locator
 //= require welcome
 //= require browse
+//= require search
 //= require jquery.history
 //= require jquery.tabs
 //= require mobile

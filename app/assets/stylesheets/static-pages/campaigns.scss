@@ -1,0 +1,178 @@
+@import "_conditionals";
+@import "../styleguide/_font-stacks";
+@import "../styleguide/_typography";
+
+section.campaign {
+  &#content {
+    background-color: #fff;
+    padding-bottom: 3em;
+  }
+
+  #extra-links {
+    float: left;
+    margin-left: 2em;
+    max-width: 960px;
+
+    @include ie(6) {
+      width:928px;
+    }
+
+    p.introduction {
+      font-size: 24px;
+      font-size: 2.4rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  #landing {
+    position: relative;
+    display: block;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-bottom: 2.5em;
+    background-color: #fff;
+
+    @include ie-lte(7) {
+      width: 960px;
+    }
+
+    h1,
+    h2 {
+      color: #000;
+    }
+
+    h1 {
+      @include heading-48;
+
+      float: left;
+      padding: 0.65em 0 0.4em 0.8em;
+      margin-left: -3px;
+      max-width: 700px;
+
+      @include media (mobile) {
+        padding-left: 1.5em;
+      }
+
+      @include ie(6) {
+        width: 500px;
+      }
+    }
+
+    p {
+      max-width: 662px;
+    }
+
+  }
+}
+
+.campaign-image {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 300px;
+
+  @include media ($max-width: 900px) {
+    position: static;
+    height: auto;
+  }
+
+  #banner {
+    display: block;
+    text-indent: -9999px;
+    width: 100%;
+    height: 300px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    background-size:cover;
+
+    @include media($min-width: 0px) {
+      height: 236px;
+      margin: 0;
+    }
+
+    @include media($min-width: 500px) {
+      height: 566px;
+    }
+
+    @include media($min-width: 900px) {
+      height: 300px;
+    }
+  }
+
+  .campaign-links {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    width: 240px;
+    background-color: #fff;
+
+    @include media ($max-width: 900px) {
+      position: static;
+      float: left;
+      width: auto;
+      padding: 2em 0 0 2em;
+    }
+
+    h2 {
+      margin: 0;
+      padding-bottom: 0.5em;
+    }
+
+    nav {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.organisation {
+  float: right;
+  padding: 2.5em 2em 0 0;
+
+  @include media (mobile) {
+    float: left;
+    margin: 1em 0 1.5em 2em;
+    padding: 0;
+  }
+
+  a.organisation-logo {
+    span {
+      @include media (mobile) {
+        top: 0;
+        position: static;
+      }
+    }
+  }
+}
+
+article.campaign {
+  height: auto;
+  min-height: 0;
+  width: auto;
+  max-width: 95%;
+  margin: 0 2em;
+  padding: 0 2em 1em 0;
+  border-bottom: solid 1px #d5d5d5;
+
+  h2:first-of-type {
+    margin-top: 1.5em;
+  }
+}
+
+ul.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
