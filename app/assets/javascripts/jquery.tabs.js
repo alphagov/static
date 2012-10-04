@@ -327,5 +327,3 @@ jQuery.fn.tabs = function(settings){
 		}
 	});
 };
-
-$(function () { console.log('page loaded'); });
