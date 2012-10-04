@@ -8,6 +8,13 @@ GOVUK.Analytics.Trackers = {};
  * - trackTimeBasedSuccess(millisecondsUntilSuccess)
  * - trackLinks(linkSelector)
  * - trackSuccess()
+ *
+ * Additional methods:
+ * Trackers can optionally add functions to override control over whether we fire
+ * entry or success events.
+ *
+ * - shouldTrackEntry() bool
+ * - shouldTrackSuccess() bool
  */
 
 /* Guide */
