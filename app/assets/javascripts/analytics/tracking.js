@@ -36,30 +36,31 @@ GOVUK.Analytics.startAnalytics = function () {
      * @return bool
      */
     var shouldTrackEvent = function(condition, defaultValue) {
-        if (condition) {
+        if (typeof condition === "function") {
             return condition();
         } else {
             return defaultValue;
         }
-    }
+    };
 
     var createEvent = function(type) {
         return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, type];
     };
 
-    var handleExternalLink = function() {
+    var handleExternalLink = function(e) {
         if (success) return;
         success = true;
-        var slug = encodeURIComponent(document.URL.split('/')[3].split("#")[0]);
-        var target = encodeURIComponent($(this).attr('href'));
-        var exitLink = '/exit?slug=' + slug + '&target=' + target + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
+        var slug = encodeURIComponent(document.URL.split('/')[3].split("#")[0]),
+            target = encodeURIComponent($(this).attr('href')),
+            exitLink = '/exit?slug=' + slug + '&target=' + target + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
+
         $(this).prop('href', exitLink);
     };
 
-    var handleInternalLink = function () {
+    var handleInternalLink = function (e) {
         if (success) return;
         success = true;
-        if (this.baseURI === document.URL.split("#")[0]) {
+        if (this.baseURI === document.URL.split("#")[0] && this.hash !== "") {
             GOVUK.sendToAnalytics(createEvent("Success"));
         } else {
             GOVUK.Analytics.internalSiteEvents.push(createEvent("Success"));
@@ -73,18 +74,19 @@ GOVUK.Analytics.startAnalytics = function () {
             GOVUK.sendToAnalytics(createEvent("Success"));
         },
         trackLinks:function (selector) {
+            // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
             $(selector).each(function () {
                 var linkToTrack = $(this);
                 var trackingFunction;
-                if (linkToTrack.attr('rel') === 'external') {
-                    trackingFunction = handleExternalLink;
-                } else {
+                if (this.host === document.location.host) {
                     trackingFunction = handleInternalLink;
+                } else {
+                    trackingFunction = handleExternalLink;
                 }
                 linkToTrack.click(trackingFunction);
-                linkToTrack.keypress(function(event) {
+                linkToTrack.keypress(function(e) {
                    if (event.which === ENTER_KEYCODE) {
-                       trackingFunction.call(this);
+                       trackingFunction.call(this, e);
                    }
                 });
             });
@@ -94,9 +96,9 @@ GOVUK.Analytics.startAnalytics = function () {
         }
     };
 
-    var format = GOVUK.Analytics.Format;
-    var trackingStrategy = GOVUK.Analytics.Trackers[format];
-    if (shouldIDoAnalyticsForThisPage() && trackingStrategy) {
+    var format = GOVUK.Analytics.Format,
+        trackingStrategy = GOVUK.Analytics.Trackers[format];
+    if (shouldIDoAnalyticsForThisPage() && typeof trackingStrategy === "function") {
       var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
       if (shouldTrackEvent(trackingStrategy.shouldTrackEntry, !isTheSameArtefact)) {
           GOVUK.sendToAnalytics(createEvent("Entry"));
