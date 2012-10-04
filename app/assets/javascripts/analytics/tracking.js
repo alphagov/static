@@ -84,7 +84,7 @@ GOVUK.Analytics.startAnalytics = function () {
                     trackingFunction = handleExternalLink;
                 }
                 linkToTrack.click(trackingFunction);
-                linkToTrack.keypress(function(e) {
+                linkToTrack.keydown(function(e) {
                    if (event.which === ENTER_KEYCODE) {
                        trackingFunction.call(this, e);
                    }
