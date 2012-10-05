@@ -11,3 +11,4 @@
 //= require jquery.history
 //= require jquery.tabs
 //= require js-stick-at-top-when-scrolling
+//= require js-breadcrumb-truncate
