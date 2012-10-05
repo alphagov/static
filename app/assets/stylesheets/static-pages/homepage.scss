@@ -39,6 +39,9 @@ section#homepage,
       border-bottom:1px solid #ccc;
       a{
         color: darken($turquoise, 10%);
+        &:hover {
+          color: $turquoise;
+        }
       }
       p{
         @include core-16;
@@ -121,6 +124,9 @@ header.intro{
         padding-bottom:0.5em;
         a {
           color: darken($turquoise, 10%);
+          &:hover {
+            color: $turquoise;
+          }
         }
       }
     }
@@ -139,6 +145,10 @@ header.intro{
 
     a{
       color:#fff;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
     
     header{
@@ -177,6 +187,10 @@ header.intro{
         span {
           @include core-36;
           display: block;
+        }
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
