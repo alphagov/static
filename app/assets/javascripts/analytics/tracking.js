@@ -76,9 +76,11 @@ GOVUK.Analytics.startAnalytics = function () {
         trackLinks:function (selector) {
             // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
             $(selector).each(function () {
-                var linkToTrack = $(this);
-                var trackingFunction;
-                if (this.host === document.location.host || this.host === "") {
+                var linkToTrack = $(this),
+                    trackingFunction,
+                    linkHost = this.host.split(":")[0]; // ie9 bug: ignore the appended port
+
+                if (linkHost === document.location.host || linkHost === "") {
                     trackingFunction = handleInternalLink;
                 } else {
                     trackingFunction = handleExternalLink;
