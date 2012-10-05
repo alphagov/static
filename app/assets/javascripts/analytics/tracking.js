@@ -78,7 +78,7 @@ GOVUK.Analytics.startAnalytics = function () {
             $(selector).each(function () {
                 var linkToTrack = $(this);
                 var trackingFunction;
-                if (this.host === document.location.host) {
+                if (this.host === document.location.host || this.host === "") {
                     trackingFunction = handleInternalLink;
                 } else {
                     trackingFunction = handleExternalLink;
