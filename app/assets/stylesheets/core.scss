@@ -1068,7 +1068,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   ol,
   ul {
-    // background-color: #C9D0D0;
     float: left;
     list-style: none;
     margin: 0;
@@ -1091,13 +1090,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     padding: 0;
     margin: 0;
 
-    &:first-child a {
-      // border-left: solid 1px #E1E8E8;
-      // margin-left: 0;
-    }
-
     a {
-      border-top: solid 1px #fff;
+      border: solid 1px #fff;
+      border-bottom: none;
       float:left;
       height: 2.25em;
       line-height: 2.25em;
