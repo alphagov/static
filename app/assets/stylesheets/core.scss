@@ -23,11 +23,11 @@
 
 section#content {
   margin: 1em auto 0 auto;
-  max-width: 960px;
+  max-width: 1020px;
   position: relative;
 
   @include ie-lte(7) {
-    width: 960px;
+    width: 1020px;
   }
 }
 
@@ -142,12 +142,12 @@ h4 {
 .related-container {
   height: 0;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1020px;
   position: relative;
   z-index: 50;
 
   @include ie-lte(7) {
-    width: 960px;
+    width: 1020px;
   }
 }
 
