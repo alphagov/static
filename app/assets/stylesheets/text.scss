@@ -213,8 +213,8 @@ article th {
  */
 
 .mainstream article .summary {
-  margin: 0 -1em 2em -1em;
-  padding: 0 1em;
+  margin: 0 0 2em 0;
+  padding: 0;
   color: #000;
 
   @include ie-lte(8) {
