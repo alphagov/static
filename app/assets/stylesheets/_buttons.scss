@@ -77,7 +77,8 @@
   display: inline-block;
 }
 
-.transaction .get-started .button .call-to-action {
+.transaction .get-started .button .call-to-action,
+.local_transaction .get-started .button .call-to-action {
   padding: 0.45em 1.7em 0.45em 0.67em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;

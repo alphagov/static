@@ -252,19 +252,24 @@ aside .page-navigation {
  * Transactions and local transactions styles
  */
 
-#wrapper.transaction .continue,
-#wrapper.local_transaction .continue {
-  background: #F9F9F9 image-url("info-icon.png") no-repeat 1% 50%;
-  border: 1px solid #586E75;
-  margin-bottom: 1.2em;
-  padding: 0.15em 1em;
+.local_transaction {
+
+  .contact-container {
+
+    .contact {
+      margin: 0 -1em;
+
+      p:first-child {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 .find-location-for-service {
-  background: #f8f8f8 image-url("locator-icon.png") no-repeat 1em 1em;
-  border: none;
-  margin: 1.2em 0;
-  padding: 1.2em 0.75em 1.2em 3.5em;
+  background: #F2F2F2 image-url("locator-icon.png") no-repeat 1em 1em;
+  margin: 2em -1em 0 -1em;
+  padding: 1em 0.75em 1em 3.5em;
   position: relative;
 
   p.geolocate-me {
