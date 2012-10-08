@@ -22,10 +22,9 @@
 }
 
 section#content {
-  margin: 1em auto 0 auto;
+  margin: 1em auto;
   max-width: 1020px;
   position: relative;
-
   @include ie-lte(7) {
     width: 1020px;
   }
@@ -119,7 +118,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 6.4em;
+  top: 7em;
   width: 100%;
   z-index: 0;
 
