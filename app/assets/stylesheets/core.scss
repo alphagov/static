@@ -441,6 +441,25 @@ article {
   }
 }
 
+#wrapper.answer,
+#wrapper.transaction,
+#wrapper.local_transaction{
+  article{
+    .inner{
+      padding-right:10em;
+    }
+  }
+}
+
+#wrapper.guide
+#wrapper.programme{
+  article{
+    .inner{
+      padding-right:3em;
+    }
+  }
+}
+
 .article-container {
   background-color: #fff;
   margin-right: 15em;
