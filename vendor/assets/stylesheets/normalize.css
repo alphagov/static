@@ -154,11 +154,11 @@ h6 {
 }
 
 /*
- * Addresses styling not present in IE 7/8/9, Safari 5, and Chrome.
+ * Make abbr consistent across browsers. There is no border as users found it confusing as to whether it was a link or not.
  */
 
 abbr[title] {
-    border-bottom: 1px dotted;
+    border-bottom: none;
 }
 
 /*

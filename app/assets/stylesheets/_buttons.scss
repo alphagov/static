@@ -91,14 +91,13 @@
 /* get started buttons */
 .get-started {
   margin:1.5em 0 0 0;
-  text-align: right;
 
   .button {
     display: inline-block;
     text-decoration:none;
     background-color: transparent;
     box-shadow:none;
-    text-align:left;
+    padding: 0;
 
     &:active {
       /* 
