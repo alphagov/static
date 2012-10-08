@@ -15,23 +15,26 @@
   }
 
   article {
+    float: left;
+    margin-left: -13em;
     min-height: 40em;
-    width: 75%;
-
-    @include ie-lte(8) {
-      width: 74.999%;
-      float: left;
-    }
+    width: 100%;
 
     @include ie-lte(7) {
       min-height: 40em;
+    }
+
+    .inner {
+      margin-left: 13em;
     }
   }
 
   aside {
     float: left;
     margin-bottom: 1em;
+    position: relative;
     width: 13em;
+    z-index: 10;
 
     .inner {
       padding: 0;
@@ -91,14 +94,13 @@
 }
 
 .multi-page article .inner {
-  padding: 0.5em 2.5em 1em 2.5em;
+  padding: 0 3em 1em 3em;
 }
 .licence article .inner {
   padding-top: 0;
 }
 
 aside .page-navigation {
-  margin-top: 0.5em;
 
   ol {
     margin: 0;
@@ -127,7 +129,7 @@ aside .page-navigation {
     a {
       @include core-16;
       display: block;
-      padding: 0.75em 0.75em;
+      padding: 0.75em 2em;
       text-decoration: none;
 
       &:hover {
@@ -146,7 +148,7 @@ aside .page-navigation {
 
     &.active {
       background-color: #E1E8E8;
-      padding: 0.75em 0.75em;
+      padding: 0.75em 2em;
 
       @include ie-lte(8) {
         margin: 0;
@@ -303,22 +305,8 @@ ul.helpers li.active h3 a {
   Benefits and credits format
 */
 #wrapper.programme {
-  article {
-    min-height: 20em;
-    width: 75%;
 
-    @include ie-lte(8) {
-      float:left;
-      clear:none;
-      width:74.5%;
-    }
-
-    .inner {
-      padding: 0 2.5em 1em;
-    }
-  }
-
-  .programme-progression {
+  .guide-progression {
     width:25%;
     float:left;
 
