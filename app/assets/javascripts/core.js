@@ -43,6 +43,13 @@ function recordOutboundLink(e) {
 
 $(document).ready(function() {
   $('.print-link a').attr('target', '_blank');
+
+  // header search toggle
+  $('.search-toggle').on('click', function(e) {
+    e.preventDefault();
+    $('#search').toggleClass('js-visible');
+    $(this).addClass('js-hidden');
+  });
   
   if(window.location.hash && $(".design-principles").length != 1 && $('.section-page').length != 1) {
     contentNudge(window.location.hash);
