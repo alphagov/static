@@ -1,12 +1,11 @@
-@import "styleguide/_font-stacks.scss";
-@import "styleguide/_typography.scss";
+@import "styleguide/_colours.scss";
+@import "_typography";
 
 /* Global footer */
 
 #footer {
-  background-color: #C9D0D0;
-  position: relative;
-  z-index: 0;
+  background-color: $grey-8;
+  border-top: 1px solid $grey-6;
 
   .beta-notice {
     background: #F17921;
@@ -23,53 +22,133 @@
     }
   }
 
-  .inner {
-    padding: 1em 4%;
+  .footer-wrapper {
+    max-width: 58em;
     margin: 0 auto;
-    max-width: 960px;
-  }
+    padding: 6rem 1em 0 1em;
 
-  .colophon-and-help {
-    float: left;
-    width: 50%;
-  }
-
-  .help {
-    ul {
-      margin: 0;
-      padding: 0;
-
-      li {
-        display: inline;
-        list-style: none;
-        margin-right: 0.75em;
-      }
+    @include ie-lte(7) {
+      width: 58em;
     }
   }
 
-  .colophon {
-    margin: 1.5em 0 0 0;
+  h2 {
+    color: $grey-3;
+    margin: 0;
+  }
 
-    p {
-      @include core-14;
+  .footer-categories {
+    font-size: 0;
+  }
+
+  .footer-categories ul {
+    @include core-16;
+    list-style: none;
+    
+    padding: 2rem 0 1.5rem 0;
+    padding: 20px 0 15px 0;
+    margin: 3rem 3rem 3rem 0;
+    margin: 30px 30px 30px 0;
+    border: 1px solid $grey-6;
+    border-width: 1px 0;
+
+    display: inline-block;
+    width: 29rem;
+    width: 290px;
+    min-height: 21rem;
+    min-height: 210px;
+
+    vertical-align: top;
+  
+    li {
+      margin: 0 20% 1.5rem 0;
+    }
+
+    a {
+      color: $grey-3;
+    }
+
+    a:hover {
+      color: $grey-1;
     }
   }
 
   .copyright {
-    float: left;
-    text-align: right;
-    width: 50%;
+    @include core-16;
+
+    display: inline-block;
+    float: none;
+    text-align: inherit;
+    width: 28.8rem;
+    width: 288px;
+    min-height: 21rem;
+    min-height: 210px;
+
+    margin: 3.2rem 0;
+    margin: 32px 0;
+    padding: 20px 0 15px 0;
+    border: 1px solid $grey-6;
+    border-width: 1px 0;
 
     a {
       display: block;
-      background-image: image-url("coat-of-arms.png");
-      background-position: 100% 0;
-      background-repeat: no-repeat;
-      color: #7F7F7F;
-      margin: 4.3em 0 0 0;
-      padding: 1em 4.5em 1em 0;
-      margin-left: 50%;
-      text-decoration: none;
+      color: $grey-3;
+
+      margin: 3.5rem 0 0 0;
+      margin: 35px 0 0 0;
+      padding: 11.5rem 0 0 0;
+      padding: 115px 0 0 0;
+
+      background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
+      text-align: center;
+    }
+
+    a:hover {
+      color: $grey-1;
+    }
+  }
+
+  .footer-meta {
+    font-size: 0;
+    color: $grey-3;
+    padding: 3rem 0 6rem;
+    padding: 30px 0 60px;
+
+    ul {
+      @include core-16;
+      display: inline-block;
+      list-style: none;
+      margin: 0 3rem 3rem 0;
+      margin: 0 30px 30px 0;
+      padding: 0;
+
+      width: 29rem;
+      width: 290px;
+
+       li {
+        display: inline-block;
+        margin: 0 1.5rem 0 0;
+      }
+    }
+
+    .colophon {
+      @include core-16;
+      display: inline-block;
+      margin: 0 0 3rem 0;
+    }
+
+    p {
+      @include core-16;
+      display: block;
+      clear: left;
+    }
+
+    a {
+      color: $grey-3;
+    }
+
+    a:hover {
+      color: $grey-1;
     }
   }
 }
