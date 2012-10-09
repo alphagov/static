@@ -17,8 +17,15 @@
     p {
       display: inline-block;
       margin: 0.7em auto;
-      max-width:960px;
+      
+      max-width: 58em;
+      padding: 0 1em;
+
       text-align:left;
+
+      @include ie-lte(7) {
+        width: 58em;
+      }
     }
   }
 
@@ -31,85 +38,129 @@
     @include ie-lte(7) {
       width: 58em;
     }
+
+    @include media(mobile) {
+      padding-top: 20px;
+      padding-top: 2rem;
+    }
   }
 
   h2 {
     color: $grey-3;
     margin: 0;
+
+    @include media(mobile) {
+      margin-bottom: 32px;
+    }
   }
 
   .footer-categories {
     font-size: 0;
-  }
 
-  .footer-categories ul {
-    @include core-16;
-    list-style: none;
-    
-    padding: 20px 0 15px 0;
-    padding: 2rem 0 1.5rem 0;
+    @include media(mobile) {
+      border: 1px solid $grey-6;
+      border-width: 0 0 1px 0;
 
-    margin: 30px 30px 30px 0;
-    margin: 3rem 3rem 3rem 0;
-
-    border: 1px solid $grey-6;
-    border-width: 1px 0;
-
-    display: inline-block;
-    width: 290px;
-    width: 29rem;
-
-    min-height: 210px;
-    min-height: 21rem;
-
-    vertical-align: top;
+      padding: 20px 0;
+      padding: 2rem 0;
+    }
   
-    li {
-      margin: 0 20% 1.5rem 0;
+    ul {
+      @include core-16;
+      list-style: none;
+      
+      padding: 20px 0 15px 0;
+      padding: 2rem 0 1.5rem 0;
+
+      margin: 30px 30px 30px 0;
+      margin: 3rem 3rem 3rem 0;
+
+      border: 1px solid $grey-6;
+      border-width: 1px 0;
+
+      display: inline-block;
+      width: 290px;
+      width: 29rem;
+
+      min-height: 210px;
+      min-height: 21rem;
+
+      vertical-align: top;
+    
+      li {
+        margin: 0 20% 1.5rem 0;
+      }
+
+      a {
+        color: $grey-3;
+      }
+
+      a:hover {
+        color: $grey-1;
+      }
+
+      @include media($max-width: 960px) {
+        width: 31.25%;
+        margin-right: 3.125%;
+      }
+
+      @include media(mobile) {
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        min-height: 0;
+      }
     }
 
-    a {
-      color: $grey-3;
-    }
+    .copyright {
+      @include core-16;
 
-    a:hover {
-      color: $grey-1;
-    }
-  }
+      display: inline-block;
+      float: none;
+      text-align: inherit;
+      width: 290px;
+      width: 29rem;
+      min-height: 210px;
+      min-height: 21rem;
 
-  .copyright {
-    @include core-16;
+      margin: 32px 0;
+      margin: 3.2rem 0;
+      padding: 20px 0 15px 0;
+      padding: 2rem 0 1.5rem 0;
+      border: 1px solid $grey-6;
+      border-width: 1px 0;
 
-    display: inline-block;
-    float: none;
-    text-align: inherit;
-    width: 288px;
-    width: 28.8rem;
-    min-height: 210px;
-    min-height: 21rem;
+      a {
+        display: block;
+        color: $grey-3;
 
-    margin: 32px 0;
-    margin: 3.2rem 0;
-    padding: 20px 0 15px 0;
-    padding: 2rem 0 1.5rem 0;
-    border: 1px solid $grey-6;
-    border-width: 1px 0;
+        margin: 35px 0 0 0;
+        margin: 3.5rem 0 0 0;
+        padding: 115px 0 0 0;
+        padding: 11.5rem 0 0 0;
 
-    a {
-      display: block;
-      color: $grey-3;
+        background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
+        text-align: center;
+      }
 
-      margin: 35px 0 0 0;
-      margin: 3.5rem 0 0 0;
-      padding: 115px 0 0 0;
-      padding: 11.5rem 0 0 0;
+      a:hover {
+        color: $grey-1;
+      }
 
-      background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
-      text-align: center;
-    }
+      @include media($max-width: 960px) {
+        width: 31.25%;
+      }
 
-    a:hover {
-      color: $grey-1;
+      @include media(mobile) {
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        min-height: 0;
+      }
     }
   }
 
@@ -134,12 +185,21 @@
         display: inline-block;
         margin: 0 1.5rem 0 0;
       }
+
+      @include media(mobile) {
+        width: auto;
+        margin: 0 0 1.5em 0;
+      }
     }
 
     .colophon {
       @include core-16;
       display: inline-block;
       margin: 0 0 3rem 0;
+
+      @include media(mobile) {
+        margin: 0 0 1.5em 0;
+      }
     }
 
     p {
