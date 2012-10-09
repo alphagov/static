@@ -40,13 +40,13 @@ GOVUK.Analytics.entryTokens = function () {
     var COOKIE_NAME = 'analyticsTokens';
 
     var valueIsInArray = function (value, arr) {
-        return $.inArray(value, arr) === -1;
+        return $.inArray(value, arr) !== -1;
     };
 
     var assignToken = function () {
         var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
         if (!tokens) tokens = [];
-        if (valueIsInArray(GOVUK.Analytics.NeedID, tokens))
+        if (!valueIsInArray(GOVUK.Analytics.NeedID, tokens))
         {
             tokens.push(GOVUK.Analytics.NeedID);
             Alphagov.write_cookie(COOKIE_NAME, JSON.stringify(tokens));
@@ -62,9 +62,15 @@ GOVUK.Analytics.entryTokens = function () {
         }
     };
 
+    var tokenExists = function () {
+        var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
+        return valueIsInArray(GOVUK.Analytics.NeedID, tokens);
+    };
+
     return {
         assignToken:assignToken,
         revokeToken:revokeToken,
+        tokenExists:tokenExists,
         COOKIE_NAME:COOKIE_NAME
     };
 }();

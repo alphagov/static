@@ -48,13 +48,35 @@ GOVUK.Analytics.Trackers.answer = function (control) {
  *
  */
 GOVUK.Analytics.Trackers.smart_answer = function (control) {
-    $(document).bind("smartanswerOutcome", control.trackSuccess);
+    if (GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation()) {
+        // For AJAX navigation we expect an event on success
+        $(document).bind("smartanswerOutcome", control.trackSuccess);
+    } else {
+        // For multi-page navigation, we need to check if this page has an outcome
+        $(function () {
+            if ($("article.outcome").length === 1) {
+                control.trackSuccess();
+            }
+        });
+    }
 };
 
-GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry = function() {
+var browserSupportsHtml5HistoryApi = browserSupportsHtml5HistoryApi || function () {
+    return !!(history && history.replaceState && history.pushState);
+};
+
+GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation = browserSupportsHtml5HistoryApi;
+
+GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry = function () {
     return GOVUK.Analytics.isRootOfArtefact(document.URL);
 };
 
 GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
-    return GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
+    if (GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation()) {
+        // For AJAX navigation we should track success on the smart answers flow page (non-root page)
+        return GOVUK.Analytics.entryTokens.tokenExists() && !GOVUK.Analytics.isRootOfArtefact(document.URL);
+    } else {
+        // For multi-page navigation, we should track success if entry event has been fired (token exists)
+        return GOVUK.Analytics.entryTokens.tokenExists() && $("article.outcome").length === 1;
+    }
 };

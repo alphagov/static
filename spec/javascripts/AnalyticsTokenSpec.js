@@ -67,4 +67,17 @@ describe("analytics cookie tokens", function () {
 
         expect(Alphagov.read_cookie(cookieName)).toBe("[21]");
     });
+
+    it("should return true if token has been assigned", function () {
+        GOVUK.Analytics.NeedID = 25;
+        GOVUK.Analytics.entryTokens.assignToken();
+
+        expect(GOVUK.Analytics.entryTokens.tokenExists()).toBeTruthy();
+    });
+
+    it("should return false if token has not been assigned", function () {
+        GOVUK.Analytics.NeedID = 35;
+
+        expect(GOVUK.Analytics.entryTokens.tokenExists()).toBeFalsy();
+    });
 });

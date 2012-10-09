@@ -105,9 +105,11 @@ GOVUK.Analytics.startAnalytics = function () {
       var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
       if (shouldTrackEvent(trackingStrategy.shouldTrackEntry, !isTheSameArtefact)) {
           GOVUK.sendToAnalytics(createEvent("Entry"));
+          GOVUK.Analytics.entryTokens.assignToken();
       }
       if (shouldTrackEvent(trackingStrategy.shouldTrackSuccess, !isTheSameArtefact)) {
           trackingStrategy(trackingApi);
+          GOVUK.Analytics.entryTokens.revokeToken();
       }
     }
 
