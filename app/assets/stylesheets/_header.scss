@@ -218,6 +218,10 @@ body.government #global-header .header-context {
       width: 960px;
     }
   }
+
+  @include media(mobile) {
+    padding: 0.5em 1em;
+  }
 }
 
 #global-breadcrumb {

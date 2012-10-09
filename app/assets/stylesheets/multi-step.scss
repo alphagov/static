@@ -24,13 +24,23 @@
   width: 11em;
 
   a {
+    @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
     display: block;
-    line-height: 2.5em;
     text-align: center;
     text-decoration: underline;
 
     &:hover {
       text-decoration: none;
+    }
+  }
+
+  @include media(mobile) {
+    position: static;
+    width: auto;
+    padding: 0 1em;
+
+    a {
+      text-align: right;
     }
   }
 }
@@ -46,6 +56,10 @@
   list-style: none;
   position: relative;
   padding: 0.75em 1.5em 0.75em 5em;
+
+  @include media(mobile) {
+    padding: 0.75em 1em 0.75em 1em;
+  }
 
   &.done {
     background: #D5ECEA;
@@ -65,10 +79,6 @@
       border-bottom: none;
     }
   }
-}
-
-.question .question-number {
-  font-weight: normal;
 }
 
 li.done h3,
@@ -94,6 +104,10 @@ li.done .answer {
   display: block;
   margin-right: 0.5em;
   padding-right: 9.5em;
+
+  @include media(mobile) {
+    padding-right: 0;
+  }
 
   &.multiple {
     display: block;
@@ -140,6 +154,11 @@ li.done:hover .undo a {
   margin-right: 15em;
   padding: 0 2em 1em 5em;
   position: relative;
+
+  @include media(mobile) {
+    margin-right: 0;
+    padding: 0 1em 1em 1em;
+  }
 }
 
 .question-number {
@@ -150,6 +169,10 @@ li.done:hover .undo a {
   @include ie-lte(8) {
     display: block;
     position: absolute;
+  }
+
+  @include media(mobile) {
+    margin-left: 0;
   }
 }
 
@@ -287,6 +310,10 @@ article .error {
     list-style: none;
     position: relative;
     padding: 0.5em 1.5em 0.5em 5em;
+
+    @include media(mobile) {
+      padding: 0.5em 1em;
+    }
 
     &.upcoming {
       background: #f0e7d7;

@@ -101,6 +101,12 @@ article li {
   margin: 0.25em 0;
   padding-left: 0.3em;
 
+  @include media(mobile) {
+    margin-left: 16px;
+    margin-left: 1.6rem;
+    padding-left: 0;
+  }
+
   ul,
   ol {
     margin: 0;
@@ -123,6 +129,11 @@ article ul, article ol {
   margin-left: -2.4em;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+
+  @include media(mobile) {
+    padding-left: 0;
+    margin-left: 0;
+  }
 }
 
 /*
@@ -178,11 +189,20 @@ article table {
     margin-bottom: 0.5em;
     padding-left: 1em;
   }
+
+  @include media(mobile) {
+    margin: 1em 0 2em 0;
+    width: 100%;
+
+    caption {
+      padding-left: 0;
+    }
+  }
 }
 
 article th, article td {
+  @include core-16;
   vertical-align: top;
-  line-height: 1.3em;
   padding: 0.7em 0.5em 0.7em 1em;
 }
 
@@ -196,6 +216,13 @@ article td {
 
   small {
     @include core-16;
+  }
+}
+
+/* reduce table font size on very small screens */
+@media screen and (max-width: 320px) {
+  article th, article td, article td small {
+    font-size: 1rem;
   }
 }
 
@@ -223,6 +250,11 @@ article th {
 
   p {
     @include core-24;
+  }
+
+  @include media(mobile) {
+    margin: 0 0 2em 0;
+    padding: 0;
   }
 }
 
@@ -289,6 +321,10 @@ article .advisory {
     background-color: #F4DCDD;
     border-color: #C00;
   }
+
+  @include media(mobile) {
+    margin: 0 0 1em 0;
+  }
 }
 
 article .intro {
@@ -298,6 +334,11 @@ article .intro {
 
   p:first-child {
     margin-top: 0;
+  }
+
+  @include media(mobile) {
+    margin: 0 0 1.5em 0;
+    padding: 0;
   }
 }
 
@@ -313,6 +354,10 @@ article .example {
   strong {
     display: block;
   }
+
+  @include media(mobile) {
+    margin: 0.75 0;
+  }
 }
 
 article .application-notice,
@@ -322,6 +367,10 @@ article .subscribe {
   background-color: #d5e8f3;
   margin: 1em -1em 1.5em -1em;
   padding: 0.25em 1em 0.25em 1em;
+
+  @include media(mobile) {
+    margin: 1em 0 1.5em 0;
+  }
 }
 
 article .advisory.minor {
@@ -390,6 +439,10 @@ article .intro ul {
     dd {
       margin: 0 0 0.5em 0;
     }
+  }
+
+  @include media(mobile) {
+    margin: 0.75em 0;
   }
 }
 
@@ -465,6 +518,10 @@ article .place {
       display: block;
     }
   }
+
+  @include media(mobile) {
+    margin: 0.75em 0;
+  }
 }
 
 article ul.view-maps {
@@ -508,7 +565,8 @@ article ol.steps {
   }
 }
 
-.highlight-answer {
+.highlight-answer,
+.highlighted-event {
   background-color: #28a197;
   color: #fff;
   text-align: center;
@@ -528,4 +586,24 @@ article ol.steps {
       color: #fff;
     }
   }
+
+  @include media(mobile) {
+    margin: 0 0 1em 0;
+
+    @include core-48;
+
+    p {
+      font-size: 1em;
+      line-height: inherit;
+      
+      em {
+        font-size: 1em;
+        display: inline;
+      }
+    }
+  }
+}
+
+.clocks-calendar .equal-width {
+  width: 50%;
 }

@@ -1,5 +1,6 @@
 @import "styleguide/_colours.scss";
 @import "_typography";
+@import "_conditionals";
 
 /* Global footer */
 
@@ -8,6 +9,7 @@
   border-top: 1px solid $grey-6;
 
   .beta-notice {
+    @include core-16;
     background: #F17921;
     color: #000;
     float: none;
@@ -120,8 +122,8 @@
       display: inline-block;
       float: none;
       text-align: inherit;
-      width: 290px;
-      width: 29rem;
+      width: 288px;
+      width: 28.8rem;
       min-height: 210px;
       min-height: 21rem;
 

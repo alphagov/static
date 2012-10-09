@@ -76,24 +76,7 @@ $(document).ready(function() {
       }
     }
   }
- 
-  // related box fixer
-  if($(window).width() >= "670"){
-    if($(".related-positioning").length !== 0){
-      $(".related-positioning").css("position", "absolute");
-      var viewPort = $(window).height();
-      var relatedBox = $(".related").height();
-      var boxOffset = $(".related-positioning").position();
-      var topBoxOffset = boxOffset.top;
-      if(relatedBox > (viewPort - topBoxOffset)){
-        $(".related-positioning").css("position", "absolute");
-      }
-      else{
-        $(".related-positioning").css("position", "fixed");
-      }
-    }
-  }
- 
+
   // toggle for reporting a problem (on all content pages)
   $('.report-a-problem-toggle a').on('click', function() {
     $('.report-a-problem-container').toggle();
