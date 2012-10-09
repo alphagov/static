@@ -14,6 +14,14 @@
       padding-left: 5em;
       padding-right: 5em;
       padding-top: 3em;
+
+      @include media(mobile) {
+        padding:1em;
+        
+        h1 {
+          min-height: 0;
+        }
+      }
     }
   }
 
@@ -45,6 +53,12 @@
   padding: 1em;
   width: 13em;
 
+  @include media(mobile) {
+    position: static;
+    margin: 0;
+    width: auto;
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -61,6 +75,9 @@
 }
 
 .ancillary article {
+  @include media(mobile) {
+    padding-top: 1em; 
+  }
   section {
     margin: 0 0 2.5em 0;
   }
