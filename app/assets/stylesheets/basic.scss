@@ -1,3 +1,7 @@
+@import "styleguide/_font-stacks.scss";
+
+html, body, button, input, table, td, th { font-family: $NTA-Light; }
+
 // basic styles for HTML5 and other elements
 html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup, nav, section {
   margin: 0;
@@ -36,15 +40,9 @@ html {
 
 body {
   color: #333;
-  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-}
-
-input,
-button {
-  font-family:"NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 ol, ul, nav ol, nav ul {
