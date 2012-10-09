@@ -403,7 +403,8 @@ header {
 
   &.page-header {
 
-    .skip-to-related {
+    .skip-to-related,
+    .related-skiplink {
       position:absolute;
       left:-9999em;
 /*
