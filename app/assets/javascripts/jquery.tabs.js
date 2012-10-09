@@ -26,7 +26,7 @@ jQuery.fn.tabs = function(settings){
 	var tabFormat = 'tabset',
 	    checkFormat = function ($tabsNav) {
 	        var format = tabFormat,
-                $navContainer = $tabsNav.closest('nav');
+                    $navContainer = $tabsNav.closest('nav');
 
             if ($navContainer.hasClass('programme-progression')) {
                 if ($tabsNav.closest('nav').css('float') === 'none') {

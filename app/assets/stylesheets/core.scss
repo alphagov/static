@@ -403,26 +403,9 @@ header {
 
   &.page-header {
 
-    .skip-to-related,
-    .related-skiplink {
+    .skip-to-related {
       position:absolute;
       left:-9999em;
-/*
-      @include media(mobile) {
-        position:static;
-        left:auto;
-        padding:0 1em 1.5em;
-        margin: 0;
-        background: #FFF;
-
-        a {
-          @include core-19;
-          display: block;
-          padding: 1em;
-          background: #F2F2F2;
-        }
-      }
-*/
     }
 
     hgroup {
@@ -637,7 +620,7 @@ article {
   float: right;
   text-align:right;
 
-  a, a:link, a:visited {  
+  a, a:link, a:visited {
     background: image-url("print.png") no-repeat 100% 50%;
     display: inline-block;
     padding-left: 30px;
@@ -1290,7 +1273,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
         padding: 0 16px;
         padding: 0 1.6rem;
         text-align: left;
-
         border-bottom: 1px solid #C9D0D0;
       }
 
