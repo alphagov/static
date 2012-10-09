@@ -303,10 +303,6 @@ header {
       background-repeat: no-repeat;
       color: #000;
 
-      /* to pull the icons out of the edge of the page - when we move to 15px units this needs adjusting */
-      margin-left: -96px;
-      padding-left: 128px;
-
       @include ie-lte(8) {
         height: 1%;
       }
@@ -338,32 +334,41 @@ body.full-width {
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
   background-position: 15px 18px;
+  margin-left: -96px;
+  padding-left: 128px;
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
   background-image: image-url("icon-service-l.png");
   background-position: 15px 29px;
+  margin-left: -96px;
+  padding-left: 128px;
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
   background-image: image-url("icon-answer-l.png");
   background-position: 40px 14px;
+  margin-left: -96px;
+  padding-left: 128px;
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
   background-image: image-url("icon-licence-l.png");
   background-position: 16px 14px;
+  margin-left: -96px;
+  padding-left: 128px;
 }
 
 /* Guides */
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
-  background-repeat: no-repeat;
   background-position: 40px 14px;
+  margin-left: -96px;
+  padding-left: 128px;
 }
 
 /* Licence Application */
