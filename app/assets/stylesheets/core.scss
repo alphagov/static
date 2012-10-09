@@ -406,7 +406,7 @@ header {
     .skip-to-related {
       position:absolute;
       left:-9999em;
-
+/*
       @include media(mobile) {
         position:static;
         left:auto;
@@ -421,6 +421,7 @@ header {
           background: #F2F2F2;
         }
       }
+*/
     }
 
     hgroup {
