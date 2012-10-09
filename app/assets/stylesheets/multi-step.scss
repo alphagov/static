@@ -35,41 +35,63 @@
   }
 }
 
-.done-questions ol {
-  background-color: #fff;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  z-index: 1;
+.question-number {
+  padding-right: 0.5em;
 }
 
-.done-questions ol > li {
-  list-style: none;
+.done-questions ol,
+.upcoming-questions ol {
+  background-color: #fff;
+  margin: 0;
+  padding: 0 0 0 1em;
   position: relative;
-  margin-left: 1em;
-  padding: 0.75em 1.5em 0.75em 1em;
+  z-index: 1;
 
-  &.done {
-    background: #D5ECEA;
-    border-bottom: solid 1px #b6d6d2;
-    overflow: hidden;
+  li {
+    list-style: none;
+    position: relative;
+    padding: 0.75em 1.5em 0.75em 1em;
 
-    .question-number {
-      padding-right: 0.5em;
-    }
-
-    @include ie-lte(8) {
-      list-style: none;
-      position: relative;
-      padding: 0.5em 1.5em 0.5em 5em;
+    &.done {
       background: #D5ECEA;
       border-bottom: solid 1px #b6d6d2;
       overflow: hidden;
-    }
 
-    &:last-child {
-      border-bottom: none;
+      .answer {
+        color: #315843;
+        font-weight:400;
+        display: block;
+        margin: 0 0.5em 0 1em;
+        padding-right: 9.5em;
+
+        &.multiple {
+          display: block;
+
+          ul {
+            margin-top: 0;
+
+            li {
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      @include ie-lte(8) {
+        list-style: none;
+        position: relative;
+        overflow: hidden;
+      }
     }
+  }
+}
+
+.upcoming-questions ol {
+
+  li {
+    background-color: #f0e7d7;
+    border-bottom: solid 1px #dac39c;
   }
 }
 
@@ -92,18 +114,6 @@ li.upcoming h3 {
 li.done h3.question {
   display: inline-block;
   padding-right: 12.5em;
-}
-
-li.done .answer {
-  color: #315843;
-  font-weight:400;
-  display: block;
-  margin: 0 0.5em 0 1em;
-  padding-right: 9.5em;
-
-  &.multiple {
-    display: block;
-  }
 }
 
 li.done .undo {
@@ -237,13 +247,6 @@ li.done:hover .undo a {
   }
 }
 
-// #wrapper .next-steps.related .inner li a {
-//   margin: 0;
-//   padding: 0;
-//   display: inline;
-//   font-size: 1em;
-// }
-
 .smart_answer .meta-data {
   background: #fff;
   float: none;
@@ -274,38 +277,6 @@ article .error {
  */
 .calculator article {
   min-height: 0;
-}
-
-.upcoming-questions ol {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  z-index: 1;
-
-  & > li {
-    list-style: none;
-    position: relative;
-    padding: 0.5em 1.5em 0.5em 5em;
-
-    &.upcoming {
-      background: #f0e7d7;
-      border-bottom: solid 1px #dac39c;
-      overflow: hidden;
-
-      @include ie-lte(8) {
-        background: #f0e7d7;
-        border-bottom: solid 1px #dac39c;
-        overflow: hidden;
-        list-style: none;
-        position: relative;
-        padding: 0.5em 1.5em 0.5em 5em;
-      }
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-  }
 }
 
 li.upcoming h3 {
