@@ -78,16 +78,17 @@ GOVUK.Analytics.startAnalytics = function () {
             $(selector).each(function () {
                 var linkToTrack = $(this),
                     trackingFunction,
-                    linkHost = this.host.split(":")[0]; // ie9 bug: ignore the appended port
+                    linkHost = this.host.split(":")[0], // ie9 bug: ignore the appended port
+                    docHost = document.location.host.split(":")[0];
 
-                if (linkHost === document.location.host || linkHost === "") {
+                if (linkHost === docHost || linkHost === "") {
                     trackingFunction = handleInternalLink;
                 } else {
                     trackingFunction = handleExternalLink;
                 }
                 linkToTrack.click(trackingFunction);
                 linkToTrack.keydown(function(e) {
-                   if (event.which === ENTER_KEYCODE) {
+                   if (e.which === ENTER_KEYCODE) {
                        trackingFunction.call(this, e);
                    }
                 });

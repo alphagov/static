@@ -1,8 +1,8 @@
 describe("success event tracking", function () {
 
     var guideMarkup = $("<div id='content' class='test-stub'>" +
-        "<a id='guide-internal-link' href='#'>link</a>" +
-        "<a id='guide-external-link' href='#this-is-a-test' rel='external'>link</a>" +
+        "<a id='guide-internal-link' href='#this-is-a-test'>link</a>" +
+        "<a id='guide-external-link' href='http://www.google.com/' rel='external'>link</a>" +
         "</div>");
 
     var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>")
@@ -135,7 +135,7 @@ describe("success event tracking", function () {
             GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
-            var e = jQuery.Event("keypress");
+            var e = jQuery.Event("keydown");
             e.which = 13;
             e.keyCode = 13;
             $("#guide-internal-link").trigger(e);
@@ -166,7 +166,7 @@ describe("success event tracking", function () {
 
             var href = $("#guide-external-link").prop("href");
             var parts = href.split("/");
-            var expected = "exit?slug=&target=%23this-is-a-test&need_id=99999&format=guide";
+            var expected = "exit?slug=&target=http%3A%2F%2Fwww.google.com%2F&need_id=99999&format=guide";
             expect(parts[3]).toEqual(expected)
         });
 
@@ -194,8 +194,7 @@ describe("success event tracking", function () {
             $('#guide-external-link').click();
 
             var href = $("#guide-external-link").prop("href");
-            var parts = href.split("/");
-            expect(parts[3]).toEqual("#this-is-a-test");
+                expect(href).toEqual("http://www.google.com/");
         });
 
         it("should not register internal click if external link has been clicked", function () {
