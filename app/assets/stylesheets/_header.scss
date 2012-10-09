@@ -15,7 +15,7 @@
     line-height: 2em;
     padding: 0.5em 1em;
 
-    @include media($max-width: 499px) {
+    @include media(mobile) {
       height: auto;
     }
 
@@ -73,7 +73,7 @@
   .search-toggle {
     display: none;
 
-    @include media($max-width: 379px) {
+    @media screen and (max-width: 379px) {
       display: block;
       float: right;
       top: 0;
@@ -129,7 +129,7 @@
         @include translate(0, 0);
       }
 
-      @include media($max-width: 499px) {
+      @include media(mobile) {
         overflow: hidden;
         text-indent: -5000px;
 
@@ -147,7 +147,7 @@
         @include border-radius(0);
       }
 
-      @include media($max-width: 379px) {
+      @media screen and (max-width: 379px) {
         float: right;
         margin: 0.3em 0;
       }
@@ -161,7 +161,7 @@
       -webkit-appearance: none;
     }
 
-    @include media($max-width: 379px) {
+    @media screen and (max-width: 379px) {
       display: none;
       width: 100%;
 
