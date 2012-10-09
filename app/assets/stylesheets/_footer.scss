@@ -25,6 +25,7 @@
   .footer-wrapper {
     max-width: 58em;
     margin: 0 auto;
+    padding: 60px 1em 0 1em;
     padding: 6rem 1em 0 1em;
 
     @include ie-lte(7) {
@@ -45,18 +46,21 @@
     @include core-16;
     list-style: none;
     
-    padding: 2rem 0 1.5rem 0;
     padding: 20px 0 15px 0;
-    margin: 3rem 3rem 3rem 0;
+    padding: 2rem 0 1.5rem 0;
+
     margin: 30px 30px 30px 0;
+    margin: 3rem 3rem 3rem 0;
+
     border: 1px solid $grey-6;
     border-width: 1px 0;
 
     display: inline-block;
-    width: 29rem;
     width: 290px;
-    min-height: 21rem;
+    width: 29rem;
+
     min-height: 210px;
+    min-height: 21rem;
 
     vertical-align: top;
   
@@ -79,14 +83,15 @@
     display: inline-block;
     float: none;
     text-align: inherit;
-    width: 28.8rem;
     width: 288px;
-    min-height: 21rem;
+    width: 28.8rem;
     min-height: 210px;
+    min-height: 21rem;
 
-    margin: 3.2rem 0;
     margin: 32px 0;
+    margin: 3.2rem 0;
     padding: 20px 0 15px 0;
+    padding: 2rem 0 1.5rem 0;
     border: 1px solid $grey-6;
     border-width: 1px 0;
 
@@ -94,10 +99,10 @@
       display: block;
       color: $grey-3;
 
-      margin: 3.5rem 0 0 0;
       margin: 35px 0 0 0;
-      padding: 11.5rem 0 0 0;
+      margin: 3.5rem 0 0 0;
       padding: 115px 0 0 0;
+      padding: 11.5rem 0 0 0;
 
       background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
       text-align: center;
@@ -111,19 +116,19 @@
   .footer-meta {
     font-size: 0;
     color: $grey-3;
-    padding: 3rem 0 6rem;
     padding: 30px 0 60px;
+    padding: 3rem 0 6rem;
 
     ul {
       @include core-16;
       display: inline-block;
       list-style: none;
-      margin: 0 3rem 3rem 0;
       margin: 0 30px 30px 0;
+      margin: 0 3rem 3rem 0;
       padding: 0;
 
-      width: 29rem;
       width: 290px;
+      width: 29rem;
 
        li {
         display: inline-block;
