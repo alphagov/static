@@ -1,3 +1,5 @@
+@import "styleguide/_device-pixels.scss";
+
 /*
  * Text styles for articles.
  * It's kind of like typography innit.
@@ -297,6 +299,10 @@ article .advisory {
   padding: 1em;
   text-align: left;
 
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-information-2x");
+  }
+
   p {
     margin: 0 0.75em 0 0;
     min-height: 1.75em;
@@ -541,6 +547,10 @@ article ol.steps {
     @for $i from 1 through 7 {
       &:nth-child(#{$i}) {
         background-image: image-url("icon-step-#{$i}.png");
+        
+        @include device-pixel-ratio() {
+          background-image: image-url("icon-step-#{$i}-2x.png");
+        }
       }
     }
 
