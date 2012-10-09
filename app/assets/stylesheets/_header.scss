@@ -1,15 +1,15 @@
 @import "_css3";
 @import "_conditionals";
 @import "_colours";
-@import "styleguide/_font-stacks.scss";
-@import "styleguide/_typography.scss";
+@import "_typography";
+@import "styleguide/_colours.scss";
 
 #global-header {
   background-color: #0b0c0c;
   width: 100%;
 
   .header-wrapper {
-    max-width: 62em;
+    max-width: 58em;
     margin: 0 auto;
     height: 2em;
     line-height: 2em;
@@ -20,7 +20,7 @@
     }
 
     @include ie-lte(7) {
-      width: 62em;
+      width: 58em;
       height: auto;
     }
   }
@@ -156,7 +156,7 @@
     /* search input */
     #site-search-text {
       @include core-16($line-height: (18/16), $line-height-640: (18/13));
-      margin: 0 0 0 0.25em;
+      margin: 0 0.25em 0 0;
 
       -webkit-appearance: none;
     }
