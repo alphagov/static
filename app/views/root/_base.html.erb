@@ -44,30 +44,28 @@
     <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
 
     <header role="banner" class="group" id="global-header">
-      <div class="header-global group">
-        <h1><a href="/" title="Go to the gov.uk homepage">GOV.UK</a></h1>
-        <nav role="navigation">
-          <ul>
-            <li><a href="/help">Help</a></li>
-          </ul>
-        </nav>
+      <div class="header-wrapper group">
+        <a href="/" title="Go to the gov.uk homepage" id="logo"><img src="<%= asset_path 'gov.uk_logotype.png' %>" alt="GOV.UK Logo"></a>
+
+        <a href="#footer" class="visuallyhidden">Skip to footer navigation</a>
+
+        <a href="#search" class="button search-toggle">Search</a>
+
         <%- unless local_assigns[:no_search] -%>
-          <div class="search-help">
-            <form id="search" class="site-search" action="/search" method="get" role="search">
-              <label for="site-search-text" class="visuallyhidden">
-                <span>Search</span>
-              </label>
-              <input type="search" name="q" id="site-search-text" />
-              <input type="submit" value="Search" class="button" />
-            </form>
-          </div>
+        <form id="search" class="site-search" action="/search" method="get" role="search">
+          <label for="site-search-text" class="visuallyhidden">Search</label>
+          <input type="search" name="q" id="site-search-text" title="Search">
+          <input class="button" type="submit" value="Search" />
+        </form>
         <%- end -%>
       </div>
-    </header><!--end header-->
+    </header>
+
+    <!--end header-->
+    
     <div id="global-cookie-message">
       <p>GOV.UK uses cookies to make the site simpler. <a href="/help/cookies">Find out more about cookies</a></p>
     </div>
-
 
     <% unless local_assigns[:hide_nav] %>
       <div id="global-breadcrumb" class="header-context">
