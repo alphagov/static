@@ -59,6 +59,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
+  - 'ShouldOnlyRunTestsOnFirefox.js'
   - '**/*[sS]pec.js'
 
 # src_dir
