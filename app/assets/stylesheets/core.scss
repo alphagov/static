@@ -293,18 +293,19 @@ h4 {
 header {
 
   &.page-header hgroup {
-    background-position: 97% 1em;
-    background-repeat: no-repeat;
     background-color: #fff;
     display: block;
     margin: 0 15em 0 0;
-    padding: 0.2em 1em 1.5em 0.5em;
+    padding: 1em 2em 2em 0;
 
     h1 {
+      @include heading-48;
       background-repeat: no-repeat;
       color: #000;
-      @include heading-48;
-      padding: (13 / 48) * 1em  (66 / 48) * 1em (15 / 48) * 1em (72 / 48) * 1em;
+
+      /* to pull the icons out of the edge of the page - when we move to 15px units this needs adjusting */
+      margin-left: -96px;
+      padding-left: 128px;
 
       @include ie-lte(8) {
         height: 1%;
@@ -320,7 +321,7 @@ header {
     span {
       @include core-19($line-height: 1);
       display: block;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.25em;
       text-shadow: none;
     }
   }
@@ -336,25 +337,25 @@ body.full-width {
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
+  background-position: 15px 18px;
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup {
-  /*border-color: #2DA096;*/
-}
-
 #wrapper.service header.page-header hgroup h1 {
   background-image: image-url("icon-service-l.png");
+  background-position: 15px 29px;
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
   background-image: image-url("icon-answer-l.png");
+  background-position: 40px 14px;
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
   background-image: image-url("icon-licence-l.png");
+  background-position: 16px 14px;
 }
 
 /* Guides */
@@ -362,25 +363,7 @@ body.full-width {
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
   background-repeat: no-repeat;
-}
-
-.business header.page-header hgroup h1 {
-  padding-right: 3em;
-}
-.service header.page-header hgroup h1 {
-  background-position: 0 12px;
-}
-.guide header.page-header hgroup h1 {
-  background-position: 15px 14px;
-}
-.answer header.page-header hgroup h1 {
-  background-position: 12px 14px;
-}
-.programme header.page-header hgroup h1 {
-  background-position: 0 14px;
-}
-.licence header.page-header hgroup h1 {
-  background-position: 16px 14px;
+  background-position: 40px 14px;
 }
 
 /* Licence Application */
