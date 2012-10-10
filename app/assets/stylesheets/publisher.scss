@@ -170,6 +170,10 @@ aside .page-navigation {
   ol {
     margin: 0;
     padding: 0;
+
+    @include ie(6) {
+      zoom: 1;
+    }
   }
 
   li {
