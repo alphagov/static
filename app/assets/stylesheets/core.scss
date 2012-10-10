@@ -80,8 +80,11 @@ body.mainstream .header-context {
 
 section#content {
   margin: 1em auto;
-  max-width: 960px;
+  max-width: 1020px;
   position: relative;
+  @include ie-lte(7) {
+    width: 1020px;
+  }
 
   @include ie-lte(7) {
     width: 960px;
@@ -90,6 +93,10 @@ section#content {
   @include media(mobile) {
     max-width: auto;
   }
+}
+
+p {
+  @include core-19;
 }
 
 h2, h3, h4 {
@@ -209,8 +216,9 @@ h4 {
 .related-container {
   position: relative;
   height: 0;
-  max-width: 960px;
   margin: 0 auto;
+  max-width: 1020px;
+  position: relative;
   z-index: 50;
 
   @include ie-lte(7) {
@@ -401,7 +409,7 @@ h4 {
 
 header {
 
-  &.page-header {
+  &.page-header 
 
     .skip-to-related {
       position:absolute;
@@ -409,39 +417,29 @@ header {
     }
 
     hgroup {
-      background-position: 97% 1em;
-      background-repeat: no-repeat;
       background-color: #fff;
       display: block;
       margin: 0 15em 0 0;
-      padding: 0.2em 1em 1.5em 0.5em;
+      padding: 1em 2em 2em 0;
 
       @include media(mobile) {
         margin: 0;
       }
 
       h1 {
+        @include heading-48;
         background-repeat: no-repeat;
         color: #000;
-        @include heading-48;
-        padding: (13 / 48) * 1em  (66 / 48) * 1em (15 / 48) * 1em (72 / 48) * 1em;
+
+        span {
+          @include core-19($line-height: 1);
+          display: block;
+          margin-bottom: 0.25em;
+          text-shadow: none;
 
         @include ie-lte(8) {
           height: 1%;
         }
-      }
-
-      h2 {
-        @include core-16;
-        color: #666;
-        margin: 0.75em 0 0 4.5em;
-      }
-
-      span {
-        @include core-19($line-height: 1);
-        display: block;
-        margin-bottom: 0.5em;
-        text-shadow: none;
       }
     }
   }
@@ -455,57 +453,61 @@ body.full-width {
 
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
-  background-image: image-url("icon-programme-l.png");
+  @include media(desktop) {
+    background-image: image-url("icon-programme-l.png");
+    background-position: 15px 18px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup {
-  /*border-color: #2DA096;*/
-}
-
 #wrapper.service header.page-header hgroup h1 {
-  background-image: image-url("icon-service-l.png");
+  @include media(desktop) {
+    background-image: image-url("icon-service-l.png");
+    background-position: 15px 29px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
-  background-image: image-url("icon-answer-l.png");
+  @include media(desktop) {
+    background-image: image-url("icon-answer-l.png");
+    background-position: 40px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
-  background-image: image-url("icon-licence-l.png");
+  @include media(desktop) {
+    background-image: image-url("icon-licence-l.png");
+    background-position: 16px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Guides */
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
-  background-image: image-url("icon-guide-l.png");
-  background-repeat: no-repeat;
-}
-
-.business header.page-header hgroup h1 {
-  padding-right: 3em;
-}
-.service header.page-header hgroup h1 {
-  background-position: 0 12px;
-}
-.guide header.page-header hgroup h1 {
-  background-position: 15px 14px;
-}
-.answer header.page-header hgroup h1 {
-  background-position: 12px 14px;
-}
-.programme header.page-header hgroup h1 {
-  background-position: 0 14px;
+  @include media(desktop) {
+    background-image: image-url("icon-guide-l.png");
+    background-position: 40px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 @include media(mobile) {
   header.page-header hgroup {
+    padding-left: 1em;
     padding-bottom: 1em;
 
     h1 {
-      padding-left: (72em/25);
       min-height: (61em/25);
     }
   }
@@ -580,7 +582,6 @@ body.full-width {
 
 /* articles */
 article {
-  background: #fff;
   float: left;
   margin-right: 12em;
   min-height: 30em;
@@ -603,7 +604,7 @@ article {
   }
 
   .inner {
-    padding: 0 5em 2em 5em;
+    padding: 0 10em 2em 2em;
     width: auto;
   }
 
@@ -616,9 +617,37 @@ article {
   }
 }
 
+#wrapper.answer,
+#wrapper.transaction,
+#wrapper.local_transaction{
+  article{
+    .inner{
+      padding-right:10em;
+
+      @include media(mobile) {
+        padding-right: 1em;
+      }
+    }
+  }
+}
+
+#wrapper.guide
+#wrapper.programme{
+  article{
+    .inner{
+      padding-right:3em;
+
+      @include media(mobile) {
+        padding-right: 1em;
+      }
+    }
+  }
+}
+
 .article-container {
   background-color: #fff;
   margin-right: 15em;
+  min-height: 35em;
 
   article {
     margin-right: 0;
@@ -1256,7 +1285,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   ol,
   ul {
-    background-color: #C9D0D0;
     float: left;
     list-style: none;
     margin: 0;
@@ -1287,15 +1315,15 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     }
 
     a {
-      background-color: #E1E8E8;
+      border: solid 1px #fff;
+      border-bottom: none;
       float:left;
       height: 2.25em;
       line-height: 2.25em;
-      margin-left: 1px;
-      padding: 0 1em 0 0.75em;
+      margin-bottom: -1px;
+      padding: 0 1em 0 1em;
       position: relative;
       text-align: center;
-      text-decoration: none;
       top: 0;
 
       @include ie-lte(7) {
@@ -1316,8 +1344,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       }
 
       &:hover {
-        background-color: #97C5E5;
-        color: inherit;
+        background-color: #E1E8E8;
       }
     }
 
@@ -1326,8 +1353,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       border: solid 1px #C9D0D0;
       border-bottom: solid 1px #fff;
       color: #000;
-      margin: -1px -1px -1px 0;
       position: relative;
+      text-decoration: none;
       z-index: 5;
 
       @include ie-lte(7) {
@@ -1340,13 +1367,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       }
 
       &:hover {
-        background-color: #fff;
-        color: #2E8ACA;
+        color: inherit;
       }
     }
 
     &:first-child a {
-      border-left: solid 1px #E1E8E8;
       margin-left: 0;
 
       @include media(mobile) {
@@ -1358,14 +1383,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 }
 
 .tab-content {
-  margin: 0 -5em;
+  margin: 0 -10em 0 -2em;
 
   @include media(mobile) {
     margin: 0 -1em;
   }
 
   .tab-pane {
-    padding: 0.5em 5em 0 5em;
+    padding: 1em 10em 0 2em;
     border-top: solid 1px #C9D0D0;
     clear: both;
     width:auto;

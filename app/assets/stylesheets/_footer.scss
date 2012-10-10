@@ -32,13 +32,13 @@
   }
 
   .footer-wrapper {
-    max-width: 58em;
+    max-width: 60em;
     margin: 0 auto;
     padding: 60px 1em 0 1em;
     padding: 6rem 1em 0 1em;
 
     @include ie-lte(7) {
-      width: 58em;
+      width: 928px; /* we want the width for IE to max out at 960px total (including padding) */
     }
 
     @include media(mobile) {
@@ -71,18 +71,17 @@
       @include core-16;
       list-style: none;
       
-      padding: 20px 0 15px 0;
-      padding: 2rem 0 1.5rem 0;
+      padding: 20px 0 0 0;
+      padding: 2rem 0 0 0;
 
-      margin: 30px 30px 30px 0;
-      margin: 3rem 3rem 3rem 0;
+      margin: 30px 3.5% 0 0;
+      margin: 3rem 3.5% 0 0;
 
       border: 1px solid $grey-6;
-      border-width: 1px 0;
+      border-width: 1px 0 0 0;
 
       display: inline-block;
-      width: 290px;
-      width: 29rem;
+      width: 31%;
 
       min-height: 210px;
       min-height: 21rem;
@@ -101,11 +100,6 @@
         color: $grey-1;
       }
 
-      @include media($max-width: 960px) {
-        width: 31.25%;
-        margin-right: 3.125%;
-      }
-
       @include media(mobile) {
         width: 100%;
         display: block;
@@ -122,17 +116,16 @@
       display: inline-block;
       float: none;
       text-align: inherit;
-      width: 288px;
-      width: 28.8rem;
+      width: 31%;
       min-height: 210px;
       min-height: 21rem;
 
-      margin: 32px 0;
-      margin: 3.2rem 0;
-      padding: 20px 0 15px 0;
-      padding: 2rem 0 1.5rem 0;
+      margin: 32px 0 0 0;
+      margin: 3.2rem 0 0 0;
+      padding: 20px 0 0 0;
+      padding: 2rem 0 0 0;
       border: 1px solid $grey-6;
-      border-width: 1px 0;
+      border-width: 1px 0 0 0;
 
       a {
         display: block;
@@ -150,10 +143,6 @@
 
       a:hover {
         color: $grey-1;
-      }
-
-      @include media($max-width: 960px) {
-        width: 31.25%;
       }
 
       @include media(mobile) {
@@ -177,12 +166,11 @@
       @include core-16;
       display: inline-block;
       list-style: none;
-      margin: 0 30px 30px 0;
-      margin: 0 3rem 3rem 0;
+      margin: 0 3.1% 30px 0;
+      margin: 0 3.1% 3rem 0;
       padding: 0;
 
-      width: 290px;
-      width: 29rem;
+      width: 31%;
 
        li {
         display: inline-block;
