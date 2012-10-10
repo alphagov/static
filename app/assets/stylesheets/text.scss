@@ -300,7 +300,7 @@ article .advisory {
   text-align: left;
 
   @include device-pixel-ratio() {
-    background-image: image-url("icon-information-2x");
+    background-image: image-url("icon-information-2x.png");
   }
 
   p {
@@ -388,6 +388,10 @@ article .subscribe {
 
 article .info-notice{
   background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-information-2x.png");
+  }
 }
 
 article .help-notice p,
