@@ -70,13 +70,39 @@
       list-style: none;
       position: relative;
       padding: 0.5em 1.5em 0.5em 5em;
-      background: #D5ECEA;
-      border-bottom: solid 1px #b6d6d2;
-      overflow: hidden;
     }
 
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+@include ie(6) {
+  .done-questions ol li {
+    list-style: none;
+    position: relative;
+    padding: 0.75em 1.5em 0.75em 5em;
+
+    @include media(mobile) {
+      padding: 0.75em 1em 0.75em 1em;
+    }
+
+    &.done {
+      list-style: none;
+      position: relative;
+      padding: 0.5em 1.5em 0.5em 5em;
+      background: #D5ECEA;
+      border-bottom: solid 1px #b6d6d2;
+      overflow: hidden;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    li {
+      padding: 0;
     }
   }
 }
@@ -158,6 +184,16 @@ li.done:hover .undo a {
   @include media(mobile) {
     margin-right: 0;
     padding: 0 1em 1em 1em;
+  }
+}
+
+@include ie(6) {
+  .smart-answer-questions .current {
+    background-color: #fff;
+    margin-right: 15em;
+    padding: 0 2em 1em 5em;
+    position: relative;
+    zoom: 1;
   }
 }
 

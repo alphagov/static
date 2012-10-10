@@ -170,6 +170,10 @@ aside .page-navigation {
   ol {
     margin: 0;
     padding: 0;
+
+    @include ie(6) {
+      zoom: 1;
+    }
   }
 
   li {
@@ -322,7 +326,6 @@ aside .page-navigation {
     }
   }
 
-
   .first,
   .last {
     background-color: #E1E8E8;
@@ -346,6 +349,12 @@ aside .page-navigation {
     .pagination-label {
       display: block;
       margin-bottom: 0.5em;
+    }
+  }
+
+  @include ie(6) {
+    .first {
+      text-align: left;
     }
   }
 }
