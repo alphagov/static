@@ -1372,7 +1372,6 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     }
 
     &:first-child a {
-      border-left: solid 1px #E1E8E8;
       margin-left: 0;
 
       @include media(mobile) {
