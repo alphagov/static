@@ -54,13 +54,32 @@
         stopRelatedScrolling.$related.css({ 'position': '', 'top': '' });
         stopRelatedScrolling.state = 'fixed';
       }
+    },
+    checkOverflow: function(){
+      if($(window).width() >= "768"){
+        if($(".related-positioning").length !== 0){
+          $(".related-positioning").css("position", "absolute");
+          var viewPort = $(window).height();
+          var relatedBox = $(".related").height();
+          var boxOffset = $(".related-positioning").position();
+          var topBoxOffset = boxOffset.top;
+          if(relatedBox > (viewPort - topBoxOffset)){
+            $(".related-positioning").css("position", "absolute");
+            return true;
+          }
+          else{
+            $(".related-positioning").css("position", "fixed");
+            return false;
+          }
+        }
+      }
     }
   }
   root.GOVUK.stopRelatedScrolling = stopRelatedScrolling;
 }).call(this);
 
 $(function(){
-  if($(".related-positioning").css("position") != "absolute"){
+  if(!window.GOVUK.stopRelatedScrolling.checkOverflow()){
     window.GOVUK.stopRelatedScrolling.init();
   }
 })
