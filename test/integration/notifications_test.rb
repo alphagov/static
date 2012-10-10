@@ -7,7 +7,9 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   context "given view files are empty" do
   	setup do
-  		File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner.erb")
+  		File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+				.returns('')
+			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
 				.returns('')
   	end
 
@@ -17,9 +19,9 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 	  end
 	end
 
-	context "given view files are present" do
+	context "given view files are present for a category one notification" do
 		setup do
-			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner.erb")
+			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('<p>Everything is fine</p>')
 		end
 

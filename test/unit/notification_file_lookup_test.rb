@@ -7,19 +7,19 @@ describe NotificationFileLookup do
 		end
 
 		it "returns nil if the banner content file is empty" do
-			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner.erb")
+			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('')
 			assert_nil NotificationFileLookup.banner_content
 		end
 
 		it "returns the banner content if present" do
-			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner.erb")
+			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('<p>Keep calm and carry on.</p>')
 			assert_equal "<p>Keep calm and carry on.</p>", NotificationFileLookup.banner_content
 		end
 
 		it "opens banner content file only once" do
-			File.expects(:open).with("#{Rails.root}/app/views/notifications/banner.erb")
+			File.expects(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('Test')
 
 			3.times do
@@ -28,7 +28,7 @@ describe NotificationFileLookup do
 		end
 
 		it "returns nil if the banner content only contains whitespace" do
-			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner.erb")
+			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns("\n\n\r\n\r\n\n\n")
 			assert_nil NotificationFileLookup.banner_content
 		end
