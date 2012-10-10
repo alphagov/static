@@ -27,6 +27,10 @@
     .inner {
       margin-left: 13em;
     }
+
+    @include media(mobile) {
+      width:auto;
+    }
   }
 
   aside {
@@ -40,13 +44,26 @@
       padding: 0;
       width: 100%;
     }
+
+    @include media(mobile) {
+      float:none;
+      width:auto;
+      overflow:hidden;
+    }
   }
 }
 
 .alternative-guide {
+  @include core-16;
   margin: 0 auto 0.5em;
   overflow: hidden;
   width: 9.5em;
+
+  @include media(mobile) {
+    margin: 1em;
+    width: auto;
+    text-align: left;
+  }
 
   &.video {
     .video-wrapper {
@@ -67,9 +84,28 @@
         padding-left: 0.5em;
       }
 
+      @include media(mobile) {
+        width: 68px;
+        height: 40px;
+        float: left;
+        margin-right: 1em;
+        background-position: -34px -100px;
+
+        &:hover {
+          background-position: -34px -20px;
+        }
+      }
+
       img {
         display: none;
         margin-top: -0.5em;
+      }
+    }
+
+    @include media(mobile) {
+      a span {
+        line-height: 40px;
+        line-height: 4rem;
       }
     }
   }
@@ -95,12 +131,43 @@
 
 .multi-page article .inner {
   padding: 0 3em 1em 3em;
+
+  @include media(mobile) {
+    padding: 0 1em 1em;
+  }
 }
 .licence article .inner {
   padding-top: 0;
 }
 
+aside .show-all-parts {
+  @include core-19($line-height: (45/19), $line-height-640: (45/13));
+  border: solid 1px #C9D0D0;
+  border-width: 1px 0;
+  display: block;
+
+  padding: 0 16px;
+  padding: 0 1.6rem;
+
+  background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
+
+  &,
+  &:hover,
+  &:focus {
+    text-decoration:none;
+  }
+
+  &.show-all-parts-open {
+    background-position: 100% 100%;
+    border-bottom: none;
+  }
+}
+
 aside .page-navigation {
+
+  @include media(mobile) {
+    margin-top: 0;
+  }
 
   ol {
     margin: 0;
@@ -110,24 +177,9 @@ aside .page-navigation {
   li {
     border-bottom: solid 1px #C9D0D0;
     list-style: none;
-
-    span {
-      display: block;
-
-      &.part-label {
-        color: #000;
-        line-height: 1.5;
-      }
-
-      &.part-title {
-        color: #000;
-        text-decoration: none;
-        line-height: 1.25;
-      }
-    }
+    @include core-16;
 
     a {
-      @include core-16;
       display: block;
       padding: 0.75em 2em;
       text-decoration: none;
@@ -139,16 +191,31 @@ aside .page-navigation {
           color: #2E3191;
         }
       }
+    }
 
-      span.part-title {
+    span {
+      display: block;
+
+      &.part-label {
+        color: #000;
+        line-height: 1.5;
+      }
+
+      &.part-title {
         color: #2E3191;
         text-decoration: underline;
+        line-height: 1.25;
       }
     }
 
     &.active {
       background-color: #E1E8E8;
       padding: 0.75em 2em;
+
+      span.part-title {
+        color: #000;
+        text-decoration: none;
+      }
 
       @include ie-lte(8) {
         margin: 0;
@@ -158,6 +225,28 @@ aside .page-navigation {
     &:first-child {
       border-top: solid 1px #C9D0D0;
     }
+
+    @include media(mobile) {
+      @include core-19($line-height: (45/19), $line-height-640: (45/13));
+
+      a {
+        padding: 0 16px;
+        padding: 0 1.6rem;
+      }
+
+      span {
+          display: inline;
+
+          &.part-label {
+            padding-right: 1em;
+          }
+        }
+      
+      &.active {
+        padding: 0 16px;
+        padding: 0 1.6rem;
+      }
+    }
   }
 }
 
@@ -165,6 +254,10 @@ aside .page-navigation {
 .pagination {
   display: block;
   margin: 2em -1em 0 -1em;
+
+  @include media(mobile) {
+    margin: 2em 0 0 0;
+  }
 
   ul {
     margin: 0;
@@ -211,15 +304,26 @@ aside .page-navigation {
         text-decoration: underline;
       }
     }
+
+    &.previous a {
+      padding: 0.75em 5% 0.75em 1em;
+    }
+    
+    &.next a {
+      padding: 0.75em 1em 0.75em 5%;
+    }
+
+    @include media(mobile) {
+      &.previous a {
+        float: left;
+      }
+      
+      &.next a {
+        float: right;
+      }
+    }
   }
 
-  .previous a {
-    padding: 0.75em 5% 0.75em 1em;
-  }
-
-  .next a {
-    padding: 0.75em 1em 0.75em 5%;
-  }
 
   .first,
   .last {
@@ -268,17 +372,33 @@ aside .page-navigation {
 
 .find-location-for-service {
   background: #F2F2F2 image-url("locator-icon.png") no-repeat 1em 1em;
-  height: 2em;
-  line-height: 2em;
+  min-height: 2em;
+  line-height: 2;
   margin: 2em -1em 0 -1em;
   padding: 1em 0.75em 1em 3.5em;
   position: relative;
+
+  @include ie-lte(7) {
+    height: 2em;
+  }
+
+  @include media(mobile) {
+    margin: 1.2em -1em;
+    margin: 2rem -1.6rem;
+  }
 
   p.geolocate-me {
     border-top: 1px solid #ddd;
     @include core-16;
     margin-bottom: 0;
     padding-top: 1em;
+
+    @include media(mobile) {
+      margin-left: -2.5em;
+      margin-left: -4rem;
+      padding-right: 2.5em;
+      padding-right: 4rem;
+    }
   }
 }
 
@@ -313,44 +433,50 @@ ul.helpers li.active h3 a {
 */
 #wrapper.programme {
 
+  article {
+    min-height: 20em;
+    width: 75%;
+
+    @include ie-lte(8) {
+      float:left;
+      clear:none;
+      width:74.5%;
+    }
+
+    @include media(mobile) {
+      width: auto;
+      float: none;
+    }
+
+    .inner {
+      padding: 0 2.5em 1em;
+
+      @include media(mobile) {
+        padding: 0 1em 1em;
+      }
+    }
+  }
+
   .guide-progression {
     width:25%;
     float:left;
+
+    @include media(mobile) {
+      width:auto;
+      float:none;
+    }
 
     ol {
       margin: 0;
       padding: 0;
     }
 
-    li {
-      border-bottom: solid 1px #C9D0D0;
-      list-style: none;
-
-      a {
-        display: block;
-        padding: 0.75em 0.75em;
-
-        &:hover {
-          background-color: #E1E8E8;
-        }
-      }
-
-      &.active {
-        text-decoration: none;
-
-        a {
-          background-color: #E1E8E8;
-          color: #000;
-          text-decoration: none;
-        }
-      }
-
-      &:first-child {
-        border-top: solid 1px #C9D0D0;
-      }
+    li:first-child {
+      border-top: solid 1px #C9D0D0;
     }
-  }
 
+  }
+  
   .part-pagination {
     margin-top: 3em;
 
@@ -380,8 +506,12 @@ ul.helpers li.active h3 a {
       }
 
       a {
-        @include core-16($line-height: (35 / 16));
-        height: 2.15em;
+        @include core-16($line-height: (35 / 16), $line-height-640: (35 / 13));
+        height: (35 / 16) * 1em;
+
+        @include media(mobile) {
+          height: (35 / 13) * 1em;
+        }
         position: relative;
       }
     }
@@ -401,6 +531,10 @@ ul.helpers li.active h3 a {
     @include ie-lte(7) {
       height: 20em;
     }
+
+    @include media(mobile) {
+      min-height: 0;
+    }
   }
 }
 
@@ -413,6 +547,10 @@ div.further-information {
   margin: 0;
   clear: both;
   padding-top: 2em;
+
+  @include media(mobile) {
+    padding:1em 0;
+  }
 
   a {
     padding: 0 0 0 0.8em;
@@ -429,3 +567,4 @@ div.further-information {
 .contact-popup .contact {
   width: auto;
 }
+

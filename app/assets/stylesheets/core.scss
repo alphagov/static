@@ -3,6 +3,63 @@
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
+body.mainstream .header-context {
+  background-color: #fff;
+  padding: 0.25em 0;
+  z-index: 50;
+
+  &.content-fixed {
+    border-bottom: solid 3px #F2F2F2;
+  }
+
+  nav {
+    max-width: 960px;
+    margin: 0 auto;
+
+    @include ie-lte(7) {
+      width: 960px;
+    }
+
+    @media screen and (max-width: 960px) {
+      padding: 0 1em;
+    }
+
+    ol {
+      margin: 0;
+      padding: 0;
+
+      li {
+        background-image: image-url("separator.png");
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        float: left;
+
+        @include core-19($line-height: (32/19));
+        list-style: none;
+        margin-left: 0.5em;
+        padding-right: 1em;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        strong {
+          font-weight: normal;
+        }
+
+        a {
+          white-space: nowrap;
+        }
+
+        &:last-child {
+          margin-right: 0
+        }
+
+      }
+    }
+  }
+}
+
 /*
  * Core global styles
  */
@@ -28,6 +85,18 @@ section#content {
   @include ie-lte(7) {
     width: 1020px;
   }
+
+  @include ie-lte(7) {
+    width: 960px;
+  }
+
+  @include media(mobile) {
+    max-width: auto;
+  }
+}
+
+p {
+  @include core-19;
 }
 
 h2, h3, h4 {
@@ -129,6 +198,12 @@ h4 {
   @include ie-lte(7) {
     position: absolute !important;
   }
+
+  @include media(mobile) {
+    position: static;
+    top: auto;
+    height: auto;
+  }
 }
 
 /* the sidebar related box overlaps the main content when zoomed on iPhone */
@@ -139,6 +214,7 @@ h4 {
 }
 
 .related-container {
+  position: relative;
   height: 0;
   margin: 0 auto;
   max-width: 1020px;
@@ -146,7 +222,16 @@ h4 {
   z-index: 50;
 
   @include ie-lte(7) {
-    width: 1020px;
+    width: 960px;
+  }
+
+  @include media(mobile) {
+    max-width: auto;
+    height: auto;
+
+    @include ie-lte(7) {
+      width: auto;
+    }
   }
 }
 
@@ -161,11 +246,21 @@ h4 {
     zoom: 1;
   }
 
+  @include media(mobile) {
+    position: static;
+    right: auto;
+    width: auto;
+  }
+
   .inner {
     background-color: #E5E5E5;
     padding: 0.5em 1em 0 1.2em;
     width: auto;
     border-left:1px solid #C9D0D0;
+
+    @include media(mobile) {
+      padding-left: 1em;
+    }
   }
 
   h2 {
@@ -174,9 +269,16 @@ h4 {
     margin-top: 0.3em;
     margin-bottom: 0.5em;
     position: relative;
+
+    @include media(mobile) {
+      font-size: 17px;
+      font-size: 1.7rem;
+      margin-bottom: 0.625em;
+    }
   }
 
   ul {
+    @include core-16;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -229,6 +331,20 @@ h4 {
       text-decoration: none;
     }
   }
+
+  .return-to-top {
+    @include core-16;
+    margin-bottom: 0.5em;
+    position: absolute;
+    left: -9999em;
+
+    @include media(mobile) {
+      position: relative;
+      left: 0;
+      top: -2.2em;
+      float: right;
+    }
+  }
 }
 
 #wrapper .related.sections-list li a {
@@ -254,6 +370,7 @@ h4 {
   ul {
 	  margin: 0;
 	  padding: 0;
+	  overflow:hidden;
   }
 
   li {
@@ -292,39 +409,43 @@ h4 {
 
 header {
 
-  &.page-header hgroup {
-    background-color: #fff;
-    display: block;
-    margin: 0 15em 0 0;
-    padding: 1em 2em 2em 0;
+  &.page-header 
 
-    h1 {
-      @include heading-48;
-      background-repeat: no-repeat;
-      color: #000;
-
-      @include ie-lte(8) {
-        height: 1%;
-      }
+    .skip-to-related {
+      position:absolute;
+      left:-9999em;
     }
 
-    h2 {
-      @include core-16;
-      color: #666;
-      margin: 0.75em 0 0 4.5em;
-    }
-
-    span {
-      @include core-19($line-height: 1);
+    hgroup {
+      background-color: #fff;
       display: block;
-      margin-bottom: 0.25em;
-      text-shadow: none;
+      margin: 0 15em 0 0;
+      padding: 1em 2em 2em 0;
+
+      @include media(mobile) {
+        margin: 0;
+      }
+
+      h1 {
+        @include heading-48;
+        background-repeat: no-repeat;
+        color: #000;
+
+        span {
+          @include core-19($line-height: 1);
+          display: block;
+          margin-bottom: 0.25em;
+          text-shadow: none;
+
+        @include ie-lte(8) {
+          height: 1%;
+        }
+      }
     }
   }
 }
 
 body.full-width {
-
   header.page-header hgroup {
     margin-right: 0;
   }
@@ -332,43 +453,103 @@ body.full-width {
 
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
-  background-image: image-url("icon-programme-l.png");
-  background-position: 15px 18px;
-  margin-left: -96px;
-  padding-left: 128px;
+  @include media(desktop) {
+    background-image: image-url("icon-programme-l.png");
+    background-position: 15px 18px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
-  background-image: image-url("icon-service-l.png");
-  background-position: 15px 29px;
-  margin-left: -96px;
-  padding-left: 128px;
+  @include media(desktop) {
+    background-image: image-url("icon-service-l.png");
+    background-position: 15px 29px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
-  background-image: image-url("icon-answer-l.png");
-  background-position: 40px 14px;
-  margin-left: -96px;
-  padding-left: 128px;
+  @include media(desktop) {
+    background-image: image-url("icon-answer-l.png");
+    background-position: 40px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
-  background-image: image-url("icon-licence-l.png");
-  background-position: 16px 14px;
-  margin-left: -96px;
-  padding-left: 128px;
+  @include media(desktop) {
+    background-image: image-url("icon-licence-l.png");
+    background-position: 16px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
 }
 
 /* Guides */
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
-  background-image: image-url("icon-guide-l.png");
-  background-position: 40px 14px;
-  margin-left: -96px;
-  padding-left: 128px;
+  @include media(desktop) {
+    background-image: image-url("icon-guide-l.png");
+    background-position: 40px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+  }
+}
+
+@include media(mobile) {
+  header.page-header hgroup {
+    padding-left: 1em;
+    padding-bottom: 1em;
+
+    h1 {
+      min-height: (61em/25);
+    }
+  }
+}
+
+/* Business support format */
+.business_support article.tab-pane { 
+  width: auto; 
+}
+.business_support .support-info {
+  background: #E1E8E8;
+  border-left: 1px solid #BBB;
+}
+.business_support section.support-info:last-child { 
+  border-bottom: 1px dotted #BBB; 
+}
+.business_support .support-info h2 {
+  @include core-16($line-height: 1.25);
+  margin: 0;
+  text-align: left;
+  color: black;
+  background-color: #E1E8E8;
+  border-top: solid 1px #BBB;
+  float: left;
+  width: 30%;
+  padding: 0.25em;
+}
+.business_support .faux-cell,
+.business_support .faux-cell p,
+.business_support .faux-cell li,
+.business_support .long-description p,
+.business_support .long-description li {
+  @include core-16;
+}
+.business_support .faux-cell {
+  background: #FFF;
+  overflow: hidden;
+  border-left: 1px solid #BBB;
+  border-top: 1px dotted #BBB;
+  border-right: 1px dotted #BBB;
+  margin: 0;
+  padding: 0.25em;
 }
 
 /* Licence Application */
@@ -426,6 +607,14 @@ article {
     padding: 0 10em 2em 2em;
     width: auto;
   }
+
+  @include media(mobile) {
+    min-height: 0;
+
+    .inner {
+      padding: 0 1em 1em 1em;
+    }
+  }
 }
 
 #wrapper.answer,
@@ -434,6 +623,10 @@ article {
   article{
     .inner{
       padding-right:10em;
+
+      @include media(mobile) {
+        padding-right: 1em;
+      }
     }
   }
 }
@@ -443,6 +636,10 @@ article {
   article{
     .inner{
       padding-right:3em;
+
+      @include media(mobile) {
+        padding-right: 1em;
+      }
     }
   }
 }
@@ -455,10 +652,15 @@ article {
   article {
     margin-right: 0;
   }
+
+  @include media(mobile) {
+    margin-right: 0;
+  }
 }
 
 /* Meta-data */
 .meta-data {
+  @include core-16;
   color: #333;
   float: left;
   width: 100%;
@@ -468,7 +670,13 @@ article {
   }
 
   .inner {
-    padding: 0 2em 0 2em;
+    padding: 0 2em;
+  }
+
+  @include media(mobile) {
+    .inner {
+      padding: 0 1em;
+    }
   }
 }
 
@@ -478,18 +686,31 @@ article {
 
 .print-link {
   float: right;
+  text-align:right;
 
   a, a:link, a:visited {
     background: image-url("print.png") no-repeat 100% 50%;
     display: inline-block;
     padding-left: 30px;
-    padding-right: 2em;
-    padding-top: 4px;
+    padding-right: 32px;
+    padding-top: 5px;
+  }
+
+  @include media(mobile) {
+    width:60%;
+
+    a, a:link, a:visited {
+      padding-bottom:4px;
+    }
   }
 }
 
 .modified-date {
   float: left;
+
+  @include media(mobile) {
+    width:40%;
+  }
 }
 
 /*
@@ -1035,6 +1256,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .find-location-for-service .cookie-container {
   bottom: 1em;
   right: 0.75em;
+
+  @include media(mobile) {
+    bottom: 20px;
+    bottom: 2rem;
+    right: 16px;
+    right: 1.6rem;
+  }
 }
 
 /*  ============================================================================
@@ -1069,8 +1297,10 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       padding: 1px 1px 0 0;
     }
 
-    li {
-      float: left;
+    @include media(mobile) {
+      float: none;
+      margin: 0 -16px;
+      margin: 0 -1.6rem;
     }
   }
 
@@ -1078,6 +1308,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     @include core-16;
     padding: 0;
     margin: 0;
+    float: left;
+
+    @include media(mobile) {
+      float: none;
+    }
 
     a {
       border: solid 1px #fff;
@@ -1094,6 +1329,18 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       @include ie-lte(7) {
         background-image: none;
         padding: 0 0.5em;
+      }
+
+      @include media(mobile) {
+        display: block;
+        position: static;
+        float: none;
+        height: auto;
+        line-height: 3.5em;
+        padding: 0 16px;
+        padding: 0 1.6rem;
+        text-align: left;
+        border-bottom: 1px solid #C9D0D0;
       }
 
       &:hover {
@@ -1114,8 +1361,23 @@ ul.ui-corner-all, ul li a.ui-corner-all {
         bottom: -1px;
       }
 
+      @include media(mobile) {
+        border: none;
+        border-bottom: 1px solid  #C9D0D0;
+      }
+
       &:hover {
         color: inherit;
+      }
+    }
+
+    &:first-child a {
+      border-left: solid 1px #E1E8E8;
+      margin-left: 0;
+
+      @include media(mobile) {
+        border-left: none;
+        border-top: 1px solid #C9D0D0;
       }
     }
   }
@@ -1124,14 +1386,28 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .tab-content {
   margin: 0 -10em 0 -2em;
 
+  @include media(mobile) {
+    margin: 0 -1em;
+  }
+
   .tab-pane {
     padding: 1em 10em 0 2em;
     border-top: solid 1px #C9D0D0;
     clear: both;
+    width:auto;
+
+    @include media(mobile) {
+      border-top: none;
+      padding: 0;
+    }
   }
 
   .inner {
     padding: 0em 2.5em 1em;
+
+    @include media(mobile) {
+      padding:0 1em 1em;
+    }
   }
 
   h1.visuallyhidden + h2 {
@@ -1154,23 +1430,107 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 }
 
+.js-tab-content {
+  .programme-progression li,
+  .js-heading-tab {
+    border-bottom: solid 1px #C9D0D0;
+    list-style: none;
+
+    a,
+    h1 {
+      @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
+      background: #FFF image-url('accordian-arrow.png') no-repeat 100% 0;
+      display: block;
+      padding: 0 1.6rem;
+      position: relative;
+      text-align: left;
+      text-decoration:underline;
+      top: 0;
+
+      &:hover {
+        background-color: #E1E8E8;
+      }
+    }
+
+    &.active {
+      text-decoration: none;
+
+      a, h1 {
+        background-position: 100% 100%;
+        background-color: #E1E8E8;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .js-heading-tab {
+    margin:0;
+    clear:both;
+
+    h1 {
+      padding:0;
+    }
+  }
+
+
+  .tab-shiftlink {
+    @include core-19();
+  }
+
+  @include media(mobile) {
+    .js-tab-container {
+      min-height:0;
+    }
+
+    .js-tab-pane {
+      border-bottom:solid 1px #C9D0D0;
+    }
+
+    .js-tab-container:first-child {
+      border-top: solid 1px #C9D0D0;
+    }
+  }
+}
+
+.transaction .js-tab-content {
+  overflow: hidden;
+}
+
 /* report a problem */
 
 .report-a-problem-toggle{
+  @include core-16;
+
   margin:2em 4em 0.5em 5em;
   clear:both;
   a{
     color:#999;
   }
+
+  @include media(mobile) {
+    margin: 0 0 0.5em 16px;
+    margin: 0 0 0.5em 1.6rem;
+  }
 }
+
+.js-tab-content .report-a-problem-toggle {
+  @include media(mobile) {
+    margin-top:2em;
+  }
+}
+
 .js-enabled .report-a-problem-container{
   display:none;
 }
+
 .report-a-problem-container{
-  font-size:1.16em;
+  @include core-19;
+
   background-color:#D5E8F3;
   margin:0 3.5em 2em 3.5em;
   padding:0.5em 1em 1em 1em;
+
   div{
     width:98%;
     padding-top:0.5em;
@@ -1184,5 +1544,27 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       display:block;
       width:98%;
     }
+  }
+
+  @include media(mobile) {
+    margin: 0 1em 2em 1em;
+  }
+}
+
+/* bunting lol */
+.epic-bunting {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 5em;
+  overflow: visible;
+  
+  span {
+    background-image: image-url("bunting.png");
+    background-color: transparent;
+    background-repeat: repeat-x;
+    width: 99.9%;
+    position: absolute;
+    height: 60px;
   }
 }

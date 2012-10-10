@@ -8,6 +8,7 @@
  * questions
  */
 .hint {
+  @include core-16;
   display: block;
 }
 
@@ -24,13 +25,23 @@
   width: 11em;
 
   a {
+    @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
     display: block;
-    line-height: 2.5em;
     text-align: center;
     text-decoration: underline;
 
     &:hover {
       text-decoration: none;
+    }
+  }
+
+  @include media(mobile) {
+    position: static;
+    width: auto;
+    padding: 0 1em;
+
+    a {
+      text-align: right;
     }
   }
 }
@@ -52,17 +63,30 @@
     position: relative;
     padding: 0.75em 1.5em 0.75em 1em;
 
-    &.done {
-      background: #D5ECEA;
-      border-bottom: solid 1px #b6d6d2;
-      overflow: hidden;
+    @include media(mobile) {
+      padding: 0.5em 1em;
+    }
+
+    h3 {
+      @include core-16;
+    }
+
+  &.done {
+    background: #D5ECEA;
+    border-bottom: solid 1px #b6d6d2;
+    overflow: hidden;
+    padding-right: 9.5em;
 
       .answer {
+        @include core-16;
         color: #315843;
         font-weight:400;
         display: block;
         margin: 0 0.5em 0 1em;
-        padding-right: 9.5em;
+
+        @include media(mobile) {
+          
+        }
 
         &.multiple {
           display: block;
@@ -97,23 +121,6 @@
 
 .question .question-number {
   font-weight: normal;
-}
-
-li.done h3,
-li.upcoming h3 {
-  display: inline;
-  @include core-16;
-  margin: 0 0.5em 0 0;
-
-  @include ie-lte(8) {
-    line-height: 1.5em;
-    position: relative;
-  }
-}
-
-li.done h3.question {
-  display: inline-block;
-  padding-right: 12.5em;
 }
 
 li.done .undo {
@@ -156,6 +163,11 @@ li.done:hover .undo a {
   margin-right: 15em;
   padding: 0 10em 1em 2em;
   position: relative;
+
+  @include media(mobile) {
+    margin-right: 0;
+    padding: 0 1em 1em 1em;
+  }
 }
 
 .question-body + p input.button {
@@ -241,6 +253,7 @@ li.done:hover .undo a {
         li {
           font-size: 1em;
           margin-top: 0;
+          margin-left: 0;
         }
       }
     }
@@ -279,8 +292,8 @@ article .error {
   min-height: 0;
 }
 
-li.upcoming h3 {
-  display: inline;
-  font-size: 1em;
-  margin: 0 0.5em 0 0;
-}
+// li.upcoming h3 {
+//   display: inline;
+//   font-size: 1em;
+//   margin: 0 0.5em 0 0;
+// }

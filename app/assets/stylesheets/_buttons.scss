@@ -83,6 +83,10 @@
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
   background-repeat: no-repeat;
+
+  @include media(mobile) {
+    background-position: 110% 50%;
+  }
 }
 
 /* get started buttons */
