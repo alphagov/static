@@ -264,6 +264,10 @@ body.government #global-header .header-context {
           white-space: nowrap;
         }
 
+        .shrunk {
+          display: none;
+        }
+
         &:last-child {
           background-image: none;
           margin-right: 0
