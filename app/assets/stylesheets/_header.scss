@@ -28,20 +28,25 @@
   #logo {
     position: relative;
     float: left;
-    width: 195px;
+    width: 183px;
     height: 28px;
 
     overflow: hidden;
   
     img {
       position: absolute;
-      left: 0; top: 0;
+      left: -183px; top: 0;
       border: none;
+
+      @include ie(6) {
+        left: 0;
+      }
     }
 
     &:hover img {
       top: -44px;
     }
+
   }
 
   nav {
