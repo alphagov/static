@@ -1,124 +1,125 @@
 @import "_css3";
 @import "_conditionals";
-@import "styleguide/_font-stacks.scss";
-@import "styleguide/_typography.scss";
+@import "_colours";
+@import "_typography";
+@import "styleguide/_colours.scss";
 
 #global-header {
-  background-color: #303030;
-  min-height: 1.75em;
-  padding: 0.5em 0;
+  background-color: #0b0c0c;
   width: 100%;
-  z-index: 1000;
 
-  h1 {
-    @include core-27;
-    float: left;
-    margin-right: (48 / 27) * 1em;
-    text-transform: uppercase;
-
-    @include ie-lte(8) {
-      height: 1.25em;
-    }
-
-    a {
-      background-image: image-url("gov.uk_logotype.png");
-      background-position: 0 1px;
-      background-repeat: no-repeat;
-      display: block;
-      padding: 0 0 0 2em;
-      width: 99px;
-      height: 28px;
-      line-height: (20px / 16px);
-      text-indent: -999px;
-
-      &:hover {
-        background-position: 0 -43px;
-      }
-
-      @include ie-lte(8) {
-        background-image: image-url("gov.uk_logotype_ie.png");
-      }
-    }
-  }
-
-  .header-global {
+  .header-wrapper {
+    max-width: 58em;
     margin: 0 auto;
-    max-width: 960px;
-    position: relative;
+    height: 2em;
+    line-height: 2em;
+    padding: 0.5em 1em;
+
+    @include media(mobile) {
+      height: auto;
+    }
 
     @include ie-lte(7) {
-      width: 960px;
-    }
-
-    @media screen and (max-width: 960px) {
-      padding: 0 1em;
-    }
-
-    a {
-      color: #fff;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
+      width: 58em;
+      height: auto;
     }
   }
 
-  /* this UL can be in both the auto-complete and the nav */
-  ul {
-    margin: 0;
-    padding: 0;
+  #logo {
+    position: relative;
+    float: left;
+    width: 195px;
+    height: 28px;
+
+    overflow: hidden;
+  
+    img {
+      position: absolute;
+      left: 0; top: 0;
+      border: none;
+    }
+
+    &:hover img {
+      top: -44px;
+    }
   }
 
   nav {
     ul {
       @include core-16($line-height: (30 / 16));
-      margin-right: 0;
-      margin-left: 1em;
+      margin: 0 0 0 1em;
+      padding: 0;
+      
       float: left;
+      list-style: none;
 
       li {
         float: left;
-        list-style: none;
         margin: 0 1.5em 0 0;
 
         a {
-          @include core-16;
+          @include core-16($line-height: (30/16), $line-height-640: (30/13));
+          color: #fff;
           text-decoration: none;
 
           &:hover {
             color: #fff
-          }
-
-          &.home {
-            margin-right: 4%;
           }
         }
       }
     }
   }
 
-  /*
-   * container for search form
-   * TODO: remove this, just use the form
-   */
-  .search-help {
-    float: right;
+  .search-toggle {
+    display: none;
+
+    @media screen and (max-width: 379px) {
+      display: block;
+      float: right;
+      top: 0;
+
+      @include core-16($line-height: (20/16), $line-height-640: (20/13));
+
+      overflow: hidden;
+      text-indent: -5000px;
+
+      width: 1.8em;
+      padding: 0.35em 0.5em;
+
+      background-image: url(icon-search.png);
+      background-repeat: no-repeat;
+      background-position: 75% 50%;
+
+      @include border-radius(0);
+      @include box-shadow(none);
+
+      &:active {
+        @include translate(0, 0);
+      }
+    }
+
+    &.js-hidden { display: none; }
   }
 
-  form.site-search {
-    clear: both;
-    position: relative;
-    top: 1px;
+  form#search {
+    float: right;
+    // max-width: 18em;
+    margin: 0;
 
-    .button {
+    input.button {
+      @include core-16($line-height: (20/16), $line-height-640: (20/13));
       /* this inherits from the basic button styles */
-      display:inline;
-      padding: 0.25em 0.5em 0.2em;
-      position: relative;
-      top: 0;
-      border-radius: 0;
+      display: inline;
+      margin: 0;
+      padding: 0.25em 0.5em;
+
+      position: static;
+ 
+      
+      @include border-radius(0);
       @include box-shadow(none);
+      
+      -webkit-appearance: none;
 
       &:hover {
         background-color: #3ABAA8;
@@ -127,29 +128,49 @@
       &:active {
         @include translate(0, 0);
       }
+
+      @include media(mobile) {
+        overflow: hidden;
+        text-indent: -5000px;
+
+        width: 1.8em;
+        padding: 0.25em 0.5em;
+
+        background-image: url(icon-search.png);
+        background-repeat: no-repeat;
+        background-position: 75% 50%;
+
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+
+        @include border-radius(0);
+      }
+
+      @media screen and (max-width: 379px) {
+        float: right;
+        margin: 0.3em 0;
+      }
     }
 
     /* search input */
     #site-search-text {
-      @include core-16($line-height: 1);
-      border: none;
-      border-bottom: solid 1px #fff;
-      border-top: solid 1px #fff;
-      padding: 0.2em 0.25em;
-      min-width: 8em;
-      margin: 0 0.5em;
+      @include core-16($line-height: (18/16), $line-height-640: (18/13));
+      margin: 0 0.25em 0 0;
 
-      @media screen and (max-width: 440px) {
-        min-width: 2em;
+      -webkit-appearance: none;
+    }
+
+    @media screen and (max-width: 379px) {
+      display: none;
+      width: 100%;
+
+      #site-search-text {
+        margin: 0.3em 0;
+        width: 80%;
       }
     }
-  }
-}
-
-/* we don't want the header to be fixed on small iOS screens */
-@media only screen and (max-device-width:320px) {
-  .js-enabled #global-header {
-    position: absolute;
+    &.js-visible { display: block; }
   }
 }
 
