@@ -146,6 +146,10 @@
         background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
         text-align: center;
         text-decoration: none;
+
+        @include ie(6) {
+          background-image: image-url("govuk-crest-ie.png");
+        }
       }
 
       a:hover {
