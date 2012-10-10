@@ -1,6 +1,6 @@
 describe("analytics cookie tokens", function () {
 
-    var cookieName = GOVUK.Analytics.entryTokens.COOKIE_NAME;
+    var cookieName = "GDS_analyticsTokens";
 
     beforeEach(function () {
         Alphagov.delete_cookie(cookieName)

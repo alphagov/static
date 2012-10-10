@@ -3,10 +3,11 @@ GOVUK.Analytics = GOVUK.Analytics || {};
 
 GOVUK.Analytics.internalSiteEvents = function () {
 
+    var COOKIE_NAME = "GDS_successEvents";
     var eventQueue = [];
 
     var loadCookie = function () {
-        var value = Alphagov.read_cookie("successEvents");
+        var value = Alphagov.read_cookie(COOKIE_NAME);
         if (value) {
             value = jQuery.parseJSON(jQuery.base64Decode(value));
         } else {
@@ -21,12 +22,12 @@ GOVUK.Analytics.internalSiteEvents = function () {
             GOVUK.sendToAnalytics(this);
         });
         eventQueue = [];
-        Alphagov.delete_cookie("successEvents");
+        Alphagov.delete_cookie(COOKIE_NAME);
     };
 
     var pushCookieEvent = function (event) {
         eventQueue.push(event);
-        Alphagov.write_cookie("successEvents", jQuery.base64Encode(JSON.stringify(eventQueue)));
+        Alphagov.write_cookie(COOKIE_NAME, jQuery.base64Encode(JSON.stringify(eventQueue)));
     };
 
     return {
@@ -37,7 +38,7 @@ GOVUK.Analytics.internalSiteEvents = function () {
 
 GOVUK.Analytics.entryTokens = function () {
 
-    var COOKIE_NAME = 'analyticsTokens';
+    var COOKIE_NAME = "GDS_analyticsTokens";
 
     var valueIsInArray = function (value, arr) {
         return $.inArray(value, arr) !== -1;
@@ -70,7 +71,6 @@ GOVUK.Analytics.entryTokens = function () {
     return {
         assignToken:assignToken,
         revokeToken:revokeToken,
-        tokenExists:tokenExists,
-        COOKIE_NAME:COOKIE_NAME
+        tokenExists:tokenExists
     };
 }();
