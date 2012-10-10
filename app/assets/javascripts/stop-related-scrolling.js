@@ -60,5 +60,7 @@
 }).call(this);
 
 $(function(){
-  window.GOVUK.stopRelatedScrolling.init();
+  if($(".related-positioning").css("position") != "absolute"){
+    window.GOVUK.stopRelatedScrolling.init();
+  }
 })
