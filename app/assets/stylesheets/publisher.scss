@@ -322,7 +322,6 @@ aside .page-navigation {
     }
   }
 
-
   .first,
   .last {
     background-color: #E1E8E8;
@@ -346,6 +345,12 @@ aside .page-navigation {
     .pagination-label {
       display: block;
       margin-bottom: 0.5em;
+    }
+  }
+
+  @include ie(6) {
+    .first {
+      text-align: left;
     }
   }
 }
