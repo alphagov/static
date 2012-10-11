@@ -183,10 +183,18 @@ aside .page-navigation {
     list-style: none;
     @include core-16;
 
+    @include ie(6) {
+      float: left;
+      clear: left;
+      width: 100%;
+    }
+
     a {
       display: block;
       padding: 0.75em 2em;
+      margin-bottom:-0.25em;
       text-decoration: none;
+      zoom: 1;
 
       &:hover {
         background-color: #E1E8E8;
@@ -216,13 +224,18 @@ aside .page-navigation {
       background-color: #E1E8E8;
       padding: 0.75em 2em;
 
-      span.part-title {
-        color: #000;
-        text-decoration: none;
+      @include ie(6) {
+        width: auto;
+        float: none;
       }
 
       @include ie-lte(8) {
         margin: 0;
+      }
+
+      span.part-title {
+        color: #000;
+        text-decoration: none;
       }
     }
 
