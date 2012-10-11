@@ -240,8 +240,8 @@ article th {
  */
 
 .mainstream article .summary {
-  margin: 0 -1em 2em -1em;
-  padding: 0 1em;
+  margin: 0 0 2em 0;
+  padding: 0;
   color: #000;
 
   @include ie-lte(8) {
@@ -397,7 +397,8 @@ article .subscribe p {
 }
 
 article p + .help-notice,
-article p + .info-notice{
+article p + .info-notice,
+article p + .contact {
   margin-top: 2em;
 }
 
@@ -425,8 +426,7 @@ article .intro ul {
 }
 .contact {
   background-color: #d5e8f3;
-  box-sizing: border-box;
-  margin: 0.75em -1em;
+  margin: 1em -1em;
   padding: 0.25em 1em;
   min-width: 60%;
 
@@ -544,6 +544,7 @@ article ol.steps {
     background-position: 0 0.87em;
     background-repeat: no-repeat;
     list-style-type: none;
+    margin-left: 0;
     padding: 0.75em 0 0.75em 2.2em;
 
     @for $i from 1 through 7 {
