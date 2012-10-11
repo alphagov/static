@@ -10,4 +10,14 @@ module NotificationHelper
 			''
 		end
 	end
+
+  def campaign_notification
+		campaign_content = NotificationFileLookup.campaign_content
+    campaign_colour = NotificationFileLookup.campaign_colour
+		if campaign_content
+			content_tag(:section, campaign_content, {:id => "campaign-notification", :class => campaign_colour}, false)
+		else
+			''
+		end
+	end
 end
