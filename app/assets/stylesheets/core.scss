@@ -466,6 +466,8 @@ body.full-width {
 /* Guides */
 #wrapper.guide header.page-header hgroup,
 #wrapper.video header.page-header hgroup {
+  padding-left: 0;
+
   h1 {
     background-image: image-url("icon-guide-l.png");
     background-position: 40px 14px;
