@@ -2,14 +2,14 @@ require 'integration_test_helper'
 
 class NotificationsTest < ActionDispatch::IntegrationTest
 	setup do
-		NotificationFileLookup.banner_file = nil
+    NotificationFileLookup.banner_file = nil
 	end
 
   context "given view files are empty" do
   	setup do
-  		File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('')
-			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
 				.returns('')
   	end
 
@@ -21,15 +21,15 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
 	context "given view files are present for a category one notification" do
 		setup do
-			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('<p>Everything is fine</p>')
-      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
 				.returns('')
 		end
 
     context "given view files are present for a category one notification" do
       setup do
-        File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
           .returns('<p>Everything is fine</p>')
       end
 
@@ -42,7 +42,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
     context "given view files are present for a category two notification" do
       setup do
-        File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
           .returns('<p>Everything is fine</p>')
       end
 

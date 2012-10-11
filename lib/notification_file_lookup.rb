@@ -14,12 +14,12 @@ class NotificationFileLookup
   private
 
   def self.identify_banner_file
-    category_2 = File.open("#{Rails.root}/app/views/notifications/banner_category_2.erb").to_s.strip
+    category_2 = File.read("#{Rails.root}/app/views/notifications/banner_category_2.erb").strip
     unless category_2.blank?
       return { :file => category_2, :category => :category_2 }
     end
 
-    category_1 = File.open("#{Rails.root}/app/views/notifications/banner_category_1.erb").to_s.strip
+    category_1 = File.read("#{Rails.root}/app/views/notifications/banner_category_1.erb").strip
     unless category_1.blank?
       return { :file => category_1, :category => :category_1 }
     end
