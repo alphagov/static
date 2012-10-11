@@ -19,7 +19,8 @@ body.mainstream .header-context {
     margin: 0 auto;
 
     @include ie-lte(7) {
-      width: 960px;
+      padding: 0 32px;
+      width: 896px;
     }
 
     @media screen and (max-width: 960px) {
@@ -298,12 +299,6 @@ h4 {
 
       a {
         padding: 0;
-      }
-
-      span {
-        .arrow {
-          display: none;
-        }
       }
     }
 
