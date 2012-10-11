@@ -1,10 +1,12 @@
 @import "_conditionals";
 @import "_css3";
+@import "styleguide/_colours";
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
 body.mainstream .header-context {
   background-color: #fff;
+  border-bottom: 1px solid $grey-8;
   padding: 0.25em 0;
   z-index: 50;
 
@@ -17,7 +19,8 @@ body.mainstream .header-context {
     margin: 0 auto;
 
     @include ie-lte(7) {
-      width: 960px;
+      padding: 0 32px;
+      width: 896px;
     }
 
     @media screen and (max-width: 960px) {
@@ -79,7 +82,7 @@ body.mainstream .header-context {
 }
 
 section#content {
-  margin: 1em auto;
+  margin: 0 auto;
   max-width: 1020px;
   position: relative;
   @include ie-lte(7) {
@@ -297,14 +300,6 @@ h4 {
       a {
         padding: 0;
       }
-
-      span {
-        font-weight: bold;
-
-        .arrow {
-          display: none;
-        }
-      }
     }
 
     a {
@@ -420,7 +415,7 @@ header {
       background-color: #fff;
       display: block;
       margin: 0 15em 0 0;
-      padding: 1em 2em 2em 0;
+      padding: 1em 2em 2em 2em;
 
       @include media(mobile) {
         margin: 0;
@@ -449,56 +444,78 @@ body.full-width {
   header.page-header hgroup {
     margin-right: 0;
   }
+
+  .article-container {
+    margin-right: 0;
+  }
 }
 
 /* Programmes */
-#wrapper.programme header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-programme-l.png");
-    background-position: 15px 18px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.programme header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-programme-l.png");
+      background-position: 15px 18px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-service-l.png");
-    background-position: 15px 29px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.service header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-service-l.png");
+      background-position: 15px 29px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Quick answers */
-#wrapper.answer header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-answer-l.png");
-    background-position: 40px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.answer header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-answer-l.png");
+      background-position: 40px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Licence guidance */
-#wrapper.licence header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-licence-l.png");
-    background-position: 16px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.licence header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-licence-l.png");
+      background-position: 16px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Guides */
-#wrapper.guide header.page-header hgroup h1,
-#wrapper.video header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-guide-l.png");
-    background-position: 40px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.guide header.page-header hgroup,
+#wrapper.video header.page-header hgroup {
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-guide-l.png");
+      background-position: 40px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
@@ -660,9 +677,18 @@ article {
 /* Meta-data */
 .meta-data {
   @include core-16;
-  color: #333;
-  float: left;
-  width: 100%;
+  color: $grey-3;
+  float: right;
+  width: 60%;
+  background-color:transparent;
+  display:inline;
+  margin-top:-2.7em;
+  p{
+    a{
+      color: $grey-3;
+    }
+    @include core-16
+  }
 
   @include ie-lte(6) {
     float: none;
@@ -693,6 +719,7 @@ article {
     padding-left: 30px;
     padding-right: 32px;
     padding-top: 5px;
+    margin-top:-5px;
   }
 
   @include media(mobile) {
@@ -1499,16 +1526,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .report-a-problem-toggle{
   @include core-16;
-
-  margin:2em 4em 0.5em 5em;
+  float:left;
+  margin:2em 4em 0.5em 2em;
   clear:both;
   a{
-    color:#999;
+    color: $grey-3;
   }
 
   @include media(mobile) {
-    margin: 0 0 0.5em 16px;
-    margin: 0 0 0.5em 1.6rem;
+    margin: -16px 0 0.5em 16px;
+    margin: -1.6rem 0 0.5em 1.6rem;
+    width:33%;
   }
 }
 
@@ -1524,7 +1552,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .report-a-problem-container{
   @include core-19;
-
+  clear:both;
   background-color:#D5E8F3;
   margin:0 3.5em 2em 3.5em;
   padding:0.5em 1em 1em 1em;
