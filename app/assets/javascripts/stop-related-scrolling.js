@@ -12,6 +12,8 @@
     init: function(){
       stopRelatedScrolling.$related = $('.related-positioning');
       stopRelatedScrolling.footerTop = $('#footer').offset().top - 10;
+
+      if (!stopRelatedScrolling.$related.length) { return; }
       
       var relatedOffset = stopRelatedScrolling.$related.css('top');
       relatedOffset = parseInt(relatedOffset.substr(0, relatedOffset.length-2));
