@@ -422,7 +422,7 @@ header {
       background-color: #fff;
       display: block;
       margin: 0 15em 0 0;
-      padding: 1em 2em 2em 0;
+      padding: 1em 2em 2em 2em;
 
       @include media(mobile) {
         margin: 0;
@@ -454,53 +454,71 @@ body.full-width {
 }
 
 /* Programmes */
-#wrapper.programme header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-programme-l.png");
-    background-position: 15px 18px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.programme header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-programme-l.png");
+      background-position: 15px 18px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-service-l.png");
-    background-position: 15px 29px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.service header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-service-l.png");
+      background-position: 15px 29px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Quick answers */
-#wrapper.answer header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-answer-l.png");
-    background-position: 40px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.answer header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-answer-l.png");
+      background-position: 40px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Licence guidance */
-#wrapper.licence header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-licence-l.png");
-    background-position: 16px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.licence header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-licence-l.png");
+      background-position: 16px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Guides */
-#wrapper.guide header.page-header hgroup h1,
-#wrapper.video header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-guide-l.png");
-    background-position: 40px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.guide header.page-header hgroup,
+#wrapper.video header.page-header hgroup {
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-guide-l.png");
+      background-position: 40px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
