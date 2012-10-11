@@ -4,65 +4,6 @@
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
-body.mainstream .header-context {
-  background-color: #fff;
-  border-bottom: 1px solid $grey-8;
-  padding: 0.25em 0;
-  z-index: 50;
-
-  &.content-fixed {
-    border-bottom: solid 3px #F2F2F2;
-  }
-
-  nav {
-    max-width: 960px;
-    margin: 0 auto;
-
-    @include ie-lte(7) {
-      padding: 0 32px;
-      width: 896px;
-    }
-
-    @media screen and (max-width: 960px) {
-      padding: 0 1em;
-    }
-
-    ol {
-      margin: 0;
-      padding: 0;
-
-      li {
-        background-image: image-url("separator.png");
-        background-position: 100% 50%;
-        background-repeat: no-repeat;
-        float: left;
-
-        @include core-19($line-height: (32/19));
-        list-style: none;
-        margin-left: 0.5em;
-        padding-right: 1em;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        strong {
-          font-weight: normal;
-        }
-
-        a {
-          white-space: nowrap;
-        }
-
-        &:last-child {
-          margin-right: 0
-        }
-
-      }
-    }
-  }
-}
-
 /*
  * Core global styles
  */
