@@ -1,11 +1,35 @@
 require 'integration_test_helper'
 
 class NotificationsTest < ActionDispatch::IntegrationTest
-	setup do
-    NotificationFileLookup.banner_file = nil
-	end
+  context "banner files" do
+    should "have a green file" do
+      assert File.exist? "#{Rails.root}/app/views/notifications/banner_green.erb"
+    end
+
+    should "have a red file" do
+      assert File.exist? "#{Rails.root}/app/views/notifications/banner_red.erb"
+    end
+  end
+
+  context "campaign files" do
+    should "have a green file" do
+      assert File.exist? "#{Rails.root}/app/views/notifications/campaign_green.erb"
+    end
+
+    should "have a red file" do
+      assert File.exist? "#{Rails.root}/app/views/notifications/campaign_red.erb"
+    end
+
+    should "have a black file" do
+      assert File.exist? "#{Rails.root}/app/views/notifications/campaign_black.erb"
+    end
+  end
 
   context "banner notifications" do
+    setup do
+      NotificationFileLookup.banner_file = nil
+    end
+
     context "given view files are empty" do
       setup do
         File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
