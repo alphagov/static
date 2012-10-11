@@ -43,12 +43,54 @@ describe NotificationFileLookup do
 		end
 
 		it "falls back to banner category 1 if the category 2 file is empty" do
-			File.expects(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
-				.returns('')
-			File.expects(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+      File.expects(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('<p>Nothing to see here.</p>')
+      File.expects(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+				.returns('')
 
 			assert_equal "<p>Nothing to see here.</p>", NotificationFileLookup.banner_content
 		end
 	end
+
+  describe "banner category" do
+  	before do
+  		NotificationFileLookup.banner_file = nil
+  	end
+
+    it "should return nil if both banner files are blank" do
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+				.returns('')
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+				.returns('')
+
+      assert_nil NotificationFileLookup.banner_category
+    end
+
+    it "should return :category_1 if the category two file is empty and the category one file is not empty" do
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+				.returns('<p>Category one message</p>')
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+				.returns('')
+
+      assert_equal :category_1, NotificationFileLookup.banner_category
+    end
+
+    it "should return :category_2 if a category two file is not empty and the category one file is empty" do
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+			  .returns('')
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+				.returns('<p>Meh</p>')
+
+      assert_equal :category_2, NotificationFileLookup.banner_category
+    end
+
+    it "should return :category_2 if both category two and category one files are not empty" do
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+				.returns('<p>One</p>')
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+				.returns('<p>Two</p>')
+
+      assert_equal :category_2, NotificationFileLookup.banner_category
+    end
+  end
 end
