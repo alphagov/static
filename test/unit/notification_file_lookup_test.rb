@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe NotificationFileLookup do
-	describe "banner content" do
+	describe "banner_content" do
 		before do
 			NotificationFileLookup.banner_file = nil
 		end
@@ -92,5 +92,64 @@ describe NotificationFileLookup do
 
       assert_equal :red, NotificationFileLookup.banner_colour
     end
+  end
+
+  describe "campaign_content" do
+    before do
+			NotificationFileLookup.campaign_file = nil
+		end
+
+    it "returns nil if all three campaign content files are empty" do
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns('')
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('')
+
+			assert_nil NotificationFileLookup.campaign_content
+		end
+
+    it "returns the black campaign content if present" do
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('<p>Black message.</p>')
+
+			assert_equal "<p>Black message.</p>", NotificationFileLookup.campaign_content
+		end
+
+		it "opens each campaign content file only once" do
+			File.expects(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns('Test')
+			File.expects(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+      File.expects(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('')
+
+			3.times do
+				assert_equal "Test", NotificationFileLookup.campaign_content
+			end
+		end
+
+		it "returns nil if the campaign content only contains whitespace" do
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns("\n\n\r\n\r\n\n\n")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns("\n\n\r\n\r\n\n\n")
+
+			assert_nil NotificationFileLookup.campaign_content
+		end
+
+		it "falls back to green if the red and black files are empty" do
+      File.expects(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns('<p>Nothing to see here.</p>')
+      File.expects(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+      File.expects(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('')
+
+			assert_equal "<p>Nothing to see here.</p>", NotificationFileLookup.campaign_content
+		end
   end
 end
