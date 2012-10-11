@@ -152,4 +152,65 @@ describe NotificationFileLookup do
 			assert_equal "<p>Nothing to see here.</p>", NotificationFileLookup.campaign_content
 		end
   end
+
+  describe "campaign colour" do
+  	before do
+  		NotificationFileLookup.campaign_file = nil
+  	end
+
+    it "should return nil if all three campaign files are blank" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('')
+
+      assert_nil NotificationFileLookup.campaign_colour
+    end
+
+    it "should return :green if the red and black files are empty and the green file is not empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns('<p>Green message</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('')
+
+      assert_equal :green, NotificationFileLookup.campaign_colour
+    end
+
+    it "should return :red if the red file is not empty and the green and black files are empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+			  .returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('<p>Red message</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('')
+
+      assert_equal :red, NotificationFileLookup.campaign_colour
+    end
+
+    it "should return :black if the black file is not empty and the red and black files are empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+			  .returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('<p>Black message</p>')
+
+      assert_equal :black, NotificationFileLookup.campaign_colour
+    end
+
+    it "should return :black if all black, red and green files are not empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+				.returns('<p>One</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+				.returns('<p>Two</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+				.returns('<p>Three</p>')
+
+      assert_equal :black, NotificationFileLookup.campaign_colour
+    end
+  end
 end

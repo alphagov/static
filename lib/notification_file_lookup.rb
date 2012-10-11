@@ -16,6 +16,11 @@ class NotificationFileLookup
   	@@campaign_file[:file].blank? ? nil : @@campaign_file[:file]
   end
 
+  def self.campaign_colour
+    @@campaign_file ||= self.identify_campaign_file
+    @@campaign_file[:colour]
+  end
+
   private
 
   def self.identify_banner_file
