@@ -683,7 +683,7 @@ article {
   width: 60%;
   background-color:transparent;
   display:inline;
-  margin-top:-2.6em;
+  margin-top:-2.7em;
   p{
     a{
       color: $grey-3;
@@ -1535,8 +1535,9 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   }
 
   @include media(mobile) {
-    margin: 0 0 0.5em 16px;
-    margin: 0 0 0.5em 1.6rem;
+    margin: -16px 0 0.5em 16px;
+    margin: -1.6rem 0 0.5em 1.6rem;
+    width:33%;
   }
 }
 
