@@ -23,6 +23,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 		setup do
 			File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
 				.returns('<p>Everything is fine</p>')
+      File.stubs(:open).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+				.returns('')
 		end
 
 		should "show a banner notification on the page" do
