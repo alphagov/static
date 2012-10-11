@@ -107,6 +107,13 @@ form.search-header {
   @include core-19;
   margin: 1em 10.5em 1em 2em;
 
+  label h1 {
+    @include core-19;
+    padding: 0;
+    margin: 0;
+    display: inline;
+  }
+
 
   #search-main {
     font-size:1em;
