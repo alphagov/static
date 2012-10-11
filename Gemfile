@@ -22,4 +22,4 @@ end
 gem 'plek', '~> 0'
 gem 'jasmine'
 
-gem 'govuk_frontend_toolkit', '0.3.1'
+gem 'govuk_frontend_toolkit', '0.4.0'
