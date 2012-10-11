@@ -55,4 +55,22 @@ class NotificationsTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "campaign notifications" do
+    context "given view files are empty" do
+      setup do
+        File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_green.erb")
+          .returns('')
+        File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_red.erb")
+          .returns('')
+        File.stubs(:read).with("#{Rails.root}/app/views/notifications/campaign_black.erb")
+          .returns('')
+      end
+
+      should "should not show a campaign notification on the page" do
+        visit "/templates/campaign.html.erb"
+        refute page.has_selector? "#campaign-notification"
+      end
+    end
+  end
 end
