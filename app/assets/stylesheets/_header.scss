@@ -31,6 +31,7 @@
     float: left;
     width: 183px;
     height: 28px;
+    margin-left: 2em;
 
     overflow: hidden;
 
@@ -235,19 +236,21 @@ body.government #global-header .header-context {
 
 #global-breadcrumb {
   background-color: #fff;
+  border-bottom: 1px solid $grey-8;
   padding: 0.75em 0;
   z-index: 50;
 
-  &.content-fixed {
-    border-bottom: solid 3px #F2F2F2;
+  @include media(mobile) {
+    padding: 0.75em 1em;
   }
 
   nav {
     max-width: 960px;
     margin: 0 auto;
 
-    @include ie(6) {
-      width: 960px;
+    @include ie-lte(7) {
+      padding: 0 32px;
+      width: 896px;
     }
 
     ol {
@@ -267,10 +270,6 @@ body.government #global-header .header-context {
 
         strong {
           font-weight: normal;
-        }
-
-        a {
-          white-space: nowrap;
         }
 
         &:last-child {
