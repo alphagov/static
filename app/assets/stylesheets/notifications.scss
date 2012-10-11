@@ -35,3 +35,55 @@
     background: #b10e1e;
   }
 }
+
+#campaign-notification {
+  clear:both;
+  background-color: #aaa;
+  color: #fff;
+  padding: 2em 2em 0.5em;
+
+  h1 {
+    @include core-80;
+  }
+
+  p {
+    @include core-24;
+  }
+
+  a {
+    color: #fff;
+
+    &.right {
+      float: right;
+      display: block;
+    }
+  }
+
+  @include ie-lte(7){
+    width: 960px;
+  }
+
+  &.green {
+    background: #fff;
+    border: 10px solid #28a197;
+    color: #28a197;
+
+    a {
+      color: #28a197;
+    }
+  }
+
+  &.red {
+    background: #b10e1e;
+  }
+
+  &.black {
+    background: #fff;
+    border: 10px solid #000;
+    color: #000;
+
+    a {
+      color: #000;
+    }
+  }
+}
