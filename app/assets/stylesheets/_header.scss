@@ -9,18 +9,19 @@
   width: 100%;
 
   .header-wrapper {
-    max-width: 58em;
+    max-width: 1020px;
     margin: 0 auto;
     height: 2em;
     line-height: 2em;
-    padding: 0.5em 1em;
+    padding: 0.5em 0;
 
     @include media(mobile) {
       height: auto;
+      padding: 0.5em 1em;
     }
 
     @include ie-lte(7) {
-      width: 58em;
+      width: 960px; /* we want the width for IE to max out at 960px total (including padding) */
       height: auto;
     }
   }
@@ -28,10 +29,15 @@
   #logo {
     position: relative;
     float: left;
+    margin-left: 2em;
     width: 195px;
     height: 28px;
 
     overflow: hidden;
+
+    @include media(mobile) {
+      margin-left: 0;
+    }
   
     img {
       position: absolute;
