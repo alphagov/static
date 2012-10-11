@@ -611,7 +611,6 @@ article {
   }
 
   @include ie-lte(7) {
-    height: 30em;
   }
 
   &.group {

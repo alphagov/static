@@ -46,8 +46,9 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.1.5)
-    govuk_frontend_toolkit (0.3.1)
+    govuk_frontend_toolkit (0.4.0)
       rails (>= 3.1.0)
+      sass (>= 3.2.0)
     hike (1.2.1)
     i18n (0.6.1)
     jasmine (1.2.1)
@@ -150,7 +151,7 @@ PLATFORMS
 DEPENDENCIES
   aws-ses
   exception_notification
-  govuk_frontend_toolkit (= 0.3.1)
+  govuk_frontend_toolkit (= 0.4.0)
   jasmine
   lograge
   plek (~> 0)
