@@ -1,10 +1,12 @@
 @import "_conditionals";
 @import "_css3";
+@import "styleguide/_colours";
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
 body.mainstream .header-context {
   background-color: #fff;
+  border-bottom: 1px solid $grey-8;
   padding: 0.25em 0;
   z-index: 50;
 
@@ -17,7 +19,8 @@ body.mainstream .header-context {
     margin: 0 auto;
 
     @include ie-lte(7) {
-      width: 960px;
+      padding: 0 32px;
+      width: 896px;
     }
 
     @media screen and (max-width: 960px) {
@@ -79,7 +82,7 @@ body.mainstream .header-context {
 }
 
 section#content {
-  margin: 1em auto;
+  margin: 0 auto;
   max-width: 1020px;
   position: relative;
   @include ie-lte(7) {
@@ -297,14 +300,6 @@ h4 {
       a {
         padding: 0;
       }
-
-      span {
-        font-weight: bold;
-
-        .arrow {
-          display: none;
-        }
-      }
     }
 
     a {
@@ -420,7 +415,7 @@ header {
       background-color: #fff;
       display: block;
       margin: 0 15em 0 0;
-      padding: 1em 2em 2em 0;
+      padding: 1em 2em 2em 2em;
 
       @include media(mobile) {
         margin: 0;
@@ -449,56 +444,78 @@ body.full-width {
   header.page-header hgroup {
     margin-right: 0;
   }
+
+  .article-container {
+    margin-right: 0;
+  }
 }
 
 /* Programmes */
-#wrapper.programme header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-programme-l.png");
-    background-position: 15px 18px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.programme header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-programme-l.png");
+      background-position: 15px 18px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Services */
-#wrapper.service header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-service-l.png");
-    background-position: 15px 29px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.service header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-service-l.png");
+      background-position: 15px 29px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Quick answers */
-#wrapper.answer header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-answer-l.png");
-    background-position: 40px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.answer header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-answer-l.png");
+      background-position: 40px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Licence guidance */
-#wrapper.licence header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-licence-l.png");
-    background-position: 16px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.licence header.page-header hgroup {
+  padding-left: 0;
+
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-licence-l.png");
+      background-position: 16px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 
 /* Guides */
-#wrapper.guide header.page-header hgroup h1,
-#wrapper.video header.page-header hgroup h1 {
-  @include media(desktop) {
-    background-image: image-url("icon-guide-l.png");
-    background-position: 40px 14px;
-    margin-left: -96px;
-    padding-left: 128px;
+#wrapper.guide header.page-header hgroup,
+#wrapper.video header.page-header hgroup {
+  h1 {
+    @include media(desktop) {
+      background-image: image-url("icon-guide-l.png");
+      background-position: 40px 14px;
+      margin-left: -96px;
+      padding-left: 128px;
+    }
   }
 }
 

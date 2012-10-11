@@ -125,8 +125,7 @@ article li {
 }
 
 article ul, article ol {
-  padding-left: 2.1em;
-  margin-left: -2.4em;
+  padding-left: 1em;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 
@@ -418,12 +417,7 @@ article .form-download {
   }
 }
 
-article .help-notice ul,
-article .info-notice ul,
-article .subscribe ul,
-article .intro ul {
-  margin-left: -1em;
-}
+
 .contact {
   background-color: #d5e8f3;
   margin: 1em -1em;
