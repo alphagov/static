@@ -1,10 +1,12 @@
 @import "_conditionals";
 @import "_css3";
+@import "styleguide/_colours";
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
 
 body.mainstream .header-context {
   background-color: #fff;
+  border-bottom: 1px solid $grey-8;
   padding: 0.25em 0;
   z-index: 50;
 
@@ -79,7 +81,7 @@ body.mainstream .header-context {
 }
 
 section#content {
-  margin: 1em auto;
+  margin: 0 auto;
   max-width: 1020px;
   position: relative;
   @include ie-lte(7) {
