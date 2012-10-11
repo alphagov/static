@@ -6,24 +6,24 @@ class NotificationFileLookup
   	@@banner_file[:file].blank? ? nil : @@banner_file[:file]
   end
 
-  def self.banner_category
+  def self.banner_colour
     @@banner_file ||= self.identify_banner_file
-    @@banner_file[:category]
+    @@banner_file[:colour]
   end
 
   private
 
   def self.identify_banner_file
-    category_2 = File.read("#{Rails.root}/app/views/notifications/banner_category_2.erb").strip
-    unless category_2.blank?
-      return { :file => category_2, :category => :category_2 }
+    red = File.read("#{Rails.root}/app/views/notifications/banner_red.erb").strip
+    unless red.blank?
+      return { :file => red, :colour => :red }
     end
 
-    category_1 = File.read("#{Rails.root}/app/views/notifications/banner_category_1.erb").strip
-    unless category_1.blank?
-      return { :file => category_1, :category => :category_1 }
+    green = File.read("#{Rails.root}/app/views/notifications/banner_green.erb").strip
+    unless green.blank?
+      return { :file => green, :colour => :green }
     end
 
-    { :file => nil, :category => nil }
+    { :file => nil, :colour => nil }
   end
 end

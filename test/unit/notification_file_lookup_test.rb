@@ -7,25 +7,25 @@ describe NotificationFileLookup do
 		end
 
 		it "returns nil if both banner content files are empty" do
-			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 				.returns('')
-			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('')
 
 			assert_nil NotificationFileLookup.banner_content
 		end
 
-		it "returns the category 2 banner content if present" do
-			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+		it "returns the red banner content if present" do
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('<p>Keep calm and carry on.</p>')
 
 			assert_equal "<p>Keep calm and carry on.</p>", NotificationFileLookup.banner_content
 		end
 
 		it "opens banner content file only once" do
-			File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+			File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 				.returns('Test')
-			File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+			File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('')
 
 			3.times do
@@ -34,63 +34,63 @@ describe NotificationFileLookup do
 		end
 
 		it "returns nil if the banner content only contains whitespace" do
-			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 				.returns("\n\n\r\n\r\n\n\n")
-			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+			File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('')
 
 			assert_nil NotificationFileLookup.banner_content
 		end
 
-		it "falls back to banner category 1 if the category 2 file is empty" do
-      File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+		it "falls back to green if the red file is empty" do
+      File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 				.returns('<p>Nothing to see here.</p>')
-      File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+      File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('')
 
 			assert_equal "<p>Nothing to see here.</p>", NotificationFileLookup.banner_content
 		end
 	end
 
-  describe "banner category" do
+  describe "banner colour" do
   	before do
   		NotificationFileLookup.banner_file = nil
   	end
 
     it "should return nil if both banner files are blank" do
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 				.returns('')
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('')
 
-      assert_nil NotificationFileLookup.banner_category
+      assert_nil NotificationFileLookup.banner_colour
     end
 
-    it "should return :category_1 if the category two file is empty and the category one file is not empty" do
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
-				.returns('<p>Category one message</p>')
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+    it "should return :green if the red file is empty and the green file is not empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
+				.returns('<p>Green message</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('')
 
-      assert_equal :category_1, NotificationFileLookup.banner_category
+      assert_equal :green, NotificationFileLookup.banner_colour
     end
 
-    it "should return :category_2 if a category two file is not empty and the category one file is empty" do
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+    it "should return :red if the red file is not empty and the green file is empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 			  .returns('')
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
-				.returns('<p>Meh</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
+				.returns('<p>Red message</p>')
 
-      assert_equal :category_2, NotificationFileLookup.banner_category
+      assert_equal :red, NotificationFileLookup.banner_colour
     end
 
-    it "should return :category_2 if both category two and category one files are not empty" do
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_1.erb")
+    it "should return :red if both red and green files are not empty" do
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
 				.returns('<p>One</p>')
-      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_category_2.erb")
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
 				.returns('<p>Two</p>')
 
-      assert_equal :category_2, NotificationFileLookup.banner_category
+      assert_equal :red, NotificationFileLookup.banner_colour
     end
   end
 end

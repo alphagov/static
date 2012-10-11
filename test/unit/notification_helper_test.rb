@@ -17,9 +17,9 @@ describe "Notification Helper" do
 
       it "should have a section wrapper with the banner category" do
         NotificationFileLookup.stubs(:banner_content).returns("<p>You've got notifications!</p>")
-        NotificationFileLookup.stubs(:banner_category).returns(:category_1)
+        NotificationFileLookup.stubs(:banner_colour).returns(:green)
 
-        assert_equal "<section class=\"category-1\" id=\"banner-notification\"><p>You've got notifications!</p></section>",
+        assert_equal "<section class=\"green\" id=\"banner-notification\"><p>You've got notifications!</p></section>",
                      banner_notification
       end
     end
