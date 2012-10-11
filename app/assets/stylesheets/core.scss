@@ -455,11 +455,15 @@ body.full-width {
   padding-left: 0;
 
   h1 {
-    @include media(desktop) {
-      background-image: image-url("icon-programme-l.png");
-      background-position: 15px 18px;
-      margin-left: -96px;
-      padding-left: 128px;
+    background-image: image-url("icon-programme-l.png");
+    background-position: 15px 18px;
+    margin-left: -96px;
+    padding-left: 128px;
+
+    @include ie(6) {
+      position: relative;
+      z-index: 1;
+      zoom: 1;
     }
   }
 }
@@ -469,11 +473,15 @@ body.full-width {
   padding-left: 0;
 
   h1 {
-    @include media(desktop) {
-      background-image: image-url("icon-service-l.png");
-      background-position: 15px 29px;
-      margin-left: -96px;
-      padding-left: 128px;
+    background-image: image-url("icon-service-l.png");
+    background-position: 15px 29px;
+    margin-left: -96px;
+    padding-left: 128px;
+
+    @include ie(6) {
+      position: relative;
+      z-index: 1;
+      zoom: 1;
     }
   }
 }
@@ -483,11 +491,15 @@ body.full-width {
   padding-left: 0;
 
   h1 {
-    @include media(desktop) {
-      background-image: image-url("icon-answer-l.png");
-      background-position: 40px 14px;
-      margin-left: -96px;
-      padding-left: 128px;
+    background-image: image-url("icon-answer-l.png");
+    background-position: 40px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+
+    @include ie(6) {
+      position: relative;
+      z-index: 1;
+      zoom: 1;
     }
   }
 }
@@ -497,11 +509,15 @@ body.full-width {
   padding-left: 0;
 
   h1 {
-    @include media(desktop) {
-      background-image: image-url("icon-licence-l.png");
-      background-position: 16px 14px;
-      margin-left: -96px;
-      padding-left: 128px;
+    background-image: image-url("icon-licence-l.png");
+    background-position: 16px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+
+    @include ie(6) {
+      position: relative;
+      z-index: 1;
+      zoom: 1;
     }
   }
 }
@@ -510,11 +526,15 @@ body.full-width {
 #wrapper.guide header.page-header hgroup,
 #wrapper.video header.page-header hgroup {
   h1 {
-    @include media(desktop) {
-      background-image: image-url("icon-guide-l.png");
-      background-position: 40px 14px;
-      margin-left: -96px;
-      padding-left: 128px;
+    background-image: image-url("icon-guide-l.png");
+    background-position: 40px 14px;
+    margin-left: -96px;
+    padding-left: 128px;
+
+    @include ie(6) {
+      position: relative;
+      z-index: 1;
+      zoom: 1;
     }
   }
 }
