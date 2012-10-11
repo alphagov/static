@@ -1,0 +1,37 @@
+#banner-notification {
+  background-color: #aaa;
+  border-top: 2px solid white;
+  padding: 0.5em 1em;
+  color: #fff;
+
+  p {
+    @include core-19;
+    margin: 0 auto;
+    max-width: 960px;
+
+    @include ie-lte(6) {
+      width: 960px;
+    }
+  }
+
+  a {
+    color: #fff;
+
+    &.right {
+      float: right;
+      display: block;
+    }
+  }
+
+  @include media(mobile) {
+    padding: 0.5em 1em;
+  }
+
+  &.category-1 {
+    background: #28a197;
+  }
+
+  &.category-2 {
+    background: #b10e1e;
+  }
+}
