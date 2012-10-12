@@ -33,12 +33,27 @@
     	width: 625px;
     	float:left;
     	margin-bottom:1.5em;
+
     	figure{
     		height: 380px;
     		background-color: pink;
+    		margin-bottom:1em;
     	}
     	figcaption{
     		clear:both;
+    		.video-transcript{
+    			margin-top:1em;
+    			p{
+    				margin-bottom:0.5em;
+    			}
+    		}
+    		p{
+    			margin-top:0;
+    			margin-bottom:0;
+    		}
+    		a{
+    			@include core-16
+    		}
     		
     	}
     }
@@ -124,4 +139,7 @@
       }
     }
   }
+}
+.js-enabled .video-transcript{
+	display:none;
 }
