@@ -12,7 +12,8 @@ module NotificationHelper
 		end
 	end
 
-  def campaign_notification
+  # This is only used to replace homepage campaigns for urgent matters.
+  def campaign_replacement_notification
 		campaign = NotificationFileLookup.instance.campaign
 		if campaign
 			content_tag(:section, "<div>#{campaign[:file]}</div>", {:id => "campaign-notification", :class => campaign[:colour]}, false)

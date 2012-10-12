@@ -34,17 +34,17 @@ describe "Notification Helper" do
     end
   end
 
-  describe "campaign_notification" do
+  describe "campaign_replacement_notification" do
     it "should return an empty string if no campaign is present" do
       NotificationFileLookup.any_instance.stubs(:campaign).returns(nil)
-      assert_equal "", campaign_notification
+      assert_equal "", campaign_replacement_notification
     end
 
     describe "when a campaign is present" do
       it "should return a campaign notification" do
         campaign = {:file => "<p>You've got notifications!</p>", :colour => :green}
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
-        assert_match "<p>You've got notifications!</p>", campaign_notification
+        assert_match "<p>You've got notifications!</p>", campaign_replacement_notification
       end
 
       it "should have a section wrapper with the campaign colour for a green notification" do
@@ -52,7 +52,7 @@ describe "Notification Helper" do
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
 
         assert_equal "<section class=\"green\" id=\"campaign-notification\"><div><p>You've got notifications!</p></div></section>",
-                     campaign_notification
+                     campaign_replacement_notification
       end
 
       it "should have a section wrapper with the campaign colour for a red notification" do
@@ -60,7 +60,7 @@ describe "Notification Helper" do
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
 
         assert_equal "<section class=\"red\" id=\"campaign-notification\"><div><p>You've got notifications!</p></div></section>",
-                     campaign_notification
+                     campaign_replacement_notification
       end
 
       it "should have a section wrapper with the campaign colour for a black notification" do
@@ -68,7 +68,7 @@ describe "Notification Helper" do
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
 
         assert_equal "<section class=\"black\" id=\"campaign-notification\"><div><p>You've got notifications!</p></div></section>",
-                     campaign_notification
+                     campaign_replacement_notification
       end
     end
   end
