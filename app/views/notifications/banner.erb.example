@@ -8,6 +8,6 @@ banner_{colour}.erb file, depending on the kind of
 notification that you would like to show.
 -->
 <p>Your message goes here<br />
-This is the second line of your message!
+This is the second line of your message!</p>
 
-<a href="#" class="right">More information</a></p>
+<a href="#" class="right">More information</a>
