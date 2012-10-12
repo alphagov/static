@@ -1,77 +1,39 @@
-<% content_for :title do %><%= local_assigns[:title] %> | GOV.UK<% end %>
+<% content_for :title do %><%= local_assigns[:title] %> - GOV.UK<% end %>
 
-<% content_for :html_classes do %>error error-404<% end %>
+<% content_for :html_classes do %>error error-40X<% end %>
 
 <% content_for :body_classes do %>mainstream error<% end %>
 
 <% content_for :content do %>
-  <section id="content" role="main" class="group ancillary">
-    <div class="article-container">
+<section id="content" role="main" class="group">
 
-      <header class="page-header group">
-        <hgroup>
-          <h1><span>Error </span>Page not found</h1>
-        </hgroup>
-      </header>
+  <header class="page-header group">
+      <hgroup>
+        <h1><%= local_assigns[:heading] %></h1>
+      </hgroup>
+  </header>
+	<div class="article-container group ancillary">
+	  	<article role="article" class="group">
+	     <div class="inner">
+         <%= raw local_assigns[:intro] %>
 
-      <article role="article" class="group">
-        <div class="inner">
+         <h2>Search GOV.UK</h2>
+         <form class="search-box" action="/search" method="get" role="search">
+         	<p>
+           	<label for="main_autocomplete2" class="visuallyhidden">Try searching</label>
+           	<input type="text" id="main_autocomplete2" value="" placeholder="Enter search text">
+           	<input type="submit" value="Search" class="button">
+         	</p>
+         </form>
 
-          <div class="intro">
-            <p>The page you are looking for does not exist.</p>
+         <h2>Explore GOV.UK</h2>
+         <p><a href="http://gov.uk">Go to the GOV.UK home page</a></p>
+       </div>
+     </article>
+   </div>
+</section>
 
-            <p>This might happen from time to time, since this is an incomplete trial (‘beta’) site. You can help us improve GOV.UK by <a href="/feedback" id="gs-feedback-banner">telling us what you were doing</a>.</p>
-
-            <form id="search2" class="site-search" action="/search" method="get" role="search">
-              <fieldset>
-                <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
-                <p>
-                  <label for="main_autocomplete2">Try searching</label>
-                  <input type="text" id="main_autocomplete2" name="q" value="<%=h @query %>">
-                  <input type="submit" value="Search" class="button">
-                </p>
-              </fieldset>
-            </form>
-          </div>
-
-          <div class="sections group">
-            <div class="popular section">
-              <h2>Popular tools and topics</h2>
-              <ul>
-                <li><a href="/vat-rates">VAT rates</a></li>
-                <li><a href="/bank-holidays">UK bank holidays</a></li>
-                <li><a href="/licence-finder">Licence finder</a></li>
-                <li><a href="/student-finance-calculator">Student Finance &ndash; how much you can get for 2012/13</a></li>
-                <li><a href="/driving-theory-test/overview">The driving theory test for cars and motorcycles</a></li>
-                <li><a href="/stamp-duty-land-tax-rates">Stamp Duty Land Tax rates</a></li>
-                <li><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
-                <li><a href="/check-mot-status-vehicle">Check the MOT status of a vehicle</a></li>
-                <li><a href="/pension-credit">Pension Credit</a></li>
-              </ul>
-
-            </div>
-            <div class="browse section">
-              <h2>Browse</h2>
-              <ul>
-                <li><a href="/browse/business">Business</a></li>
-                <li><a href="/browse/crime-and-justice">Crime and justice</a></li>
-                <li><a href="/browse/driving">Driving</a></li>
-                <li><a href="/browse/education">Education</a></li>
-                <li><a href="/browse/family">Family</a></li>
-                <li><a href="/browse/housing">Housing</a></li>
-                <li><a href="/browse/life-in-the-uk">Life in the UK</a></li>
-                <li><a href="/browse/money-and-tax">Money and tax</a></li>
-                <li><a href="/browse/neighbourhoods">Neighbourhoods</a></li>
-                <li><a href="/browse/travel">Travel</a></li>
-                <li><a href="/browse/work">Work</a></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </article>
-    </div>
-  </section>
+<div id="related-items"></div>
 <% end %>
 
 <%= render partial: 'base' %>
