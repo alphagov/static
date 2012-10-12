@@ -1,4 +1,5 @@
 require 'test_helper'
+require_relative '../../lib/notification_file_lookup'
 
 describe NotificationFileLookup do
 	describe "banner" do

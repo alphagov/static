@@ -1,3 +1,5 @@
+require_relative "../../lib/notification_file_lookup"
+
 module NotificationHelper
   include ActionView::Helpers::TagHelper
 
