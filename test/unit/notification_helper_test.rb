@@ -51,7 +51,7 @@ describe "Notification Helper" do
         campaign = {:file => "<p>You've got notifications!</p>", :colour => :green}
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
 
-        assert_equal "<section class=\"green\" id=\"campaign-notification\"><p>You've got notifications!</p></section>",
+        assert_equal "<section class=\"green\" id=\"campaign-notification\"><div><p>You've got notifications!</p></div></section>",
                      campaign_notification
       end
 
@@ -59,7 +59,7 @@ describe "Notification Helper" do
         campaign = {:file => "<p>You've got notifications!</p>", :colour => :red}
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
 
-        assert_equal "<section class=\"red\" id=\"campaign-notification\"><p>You've got notifications!</p></section>",
+        assert_equal "<section class=\"red\" id=\"campaign-notification\"><div><p>You've got notifications!</p></div></section>",
                      campaign_notification
       end
 
@@ -67,7 +67,7 @@ describe "Notification Helper" do
         campaign = {:file => "<p>You've got notifications!</p>", :colour => :black}
         NotificationFileLookup.any_instance.stubs(:campaign).returns(campaign)
 
-        assert_equal "<section class=\"black\" id=\"campaign-notification\"><p>You've got notifications!</p></section>",
+        assert_equal "<section class=\"black\" id=\"campaign-notification\"><div><p>You've got notifications!</p></div></section>",
                      campaign_notification
       end
     end

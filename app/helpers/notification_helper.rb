@@ -15,7 +15,7 @@ module NotificationHelper
   def campaign_notification
 		campaign = NotificationFileLookup.instance.campaign
 		if campaign
-			content_tag(:section, campaign[:file], {:id => "campaign-notification", :class => campaign[:colour]}, false)
+			content_tag(:section, "<div>#{campaign[:file]}</div>", {:id => "campaign-notification", :class => campaign[:colour]}, false)
 		else
 			''
 		end
