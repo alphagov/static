@@ -1,6 +1,6 @@
 class RootController < ApplicationController
 
-  caches_page :wrapper, :print, :related, :report_a_problem, :homepage, :admin
+  caches_page :campaign, :wrapper, :print, :related, :report_a_problem, :homepage, :admin
   caches_page *%w(404 406 418 500 501 503 504)
 
   def related
