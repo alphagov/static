@@ -19,6 +19,12 @@ group :assets do
   gem 'sass-rails', '3.2.5'
 end
 
+group :test do
+  gem 'capybara', '1.1.0'
+  gem 'mocha', '0.10.0'
+  gem 'shoulda', '2.11.3'
+end
+
 gem 'plek', '~> 0'
 gem 'jasmine'
 
