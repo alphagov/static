@@ -43,6 +43,9 @@
     	}
     }
 
+    form{
+    	margin-left:-0.5em;
+    }
     .tour-intro{
     	float: right;
     	width:31%;
@@ -83,6 +86,9 @@
           word-wrap: break-word;
           padding-right:1em;
         }
+        form{
+        	padding-top:1em;
+        }
       }
 
       &.tour-topics {
@@ -95,7 +101,7 @@
           margin-bottom: 1.5em;
           width: 31%;
           padding-bottom: 1.5em;
-           
+
           &:nth-child(3n) {
             margin-right: 0;
           }
