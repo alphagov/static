@@ -1,10 +1,121 @@
 .tour {
-  .article-container img {
-    max-width: 100%;
+
+  header.page-header {
+
+    hgroup {
+      padding-bottom: 0;
+      padding-left:0;
+
+      h1 {
+        @include core-48;
+        width: 90%;
+        margin-bottom:0.5em;
+
+        @include media(mobile) {
+          width: auto;
+        }
+      }
+
+      h2 {
+        @include core-24;
+        color: inherit;
+        margin: 0;
+      }
+    }
   }
 
-  article h2{
-    margin-top: 3em;
-    padding: 0;
+  .tour-container {
+    background-color: #fff;
+    min-height: 35em;
+    padding: 0 2em 2em 2em;
+
+    .tour-video{
+    	width: 625px;
+    	float:left;
+    	margin-bottom:1.5em;
+    	figure{
+    		height: 380px;
+    		background-color: pink;
+    	}
+    	figcaption{
+    		clear:both;
+    		
+    	}
+    }
+
+    .tour-intro{
+    	float: right;
+    	width:31%;
+    	margin-top: -1.3em;
+    }
+
+    .category-description {
+      margin-bottom: 2em;
+      width: 65.5%;
+
+      @include media(mobile) {
+        margin-bottom: 1em;
+        width: auto;
+      }
+
+      p {
+        @include core-16;
+        margin: 0;
+      }
+
+    }
+
+
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin-bottom: 1em;
+        h2{
+        	margin-bottom:0.55em;
+        }
+        p {
+          @include core-16;
+          margin: 0 0 1em 0;
+          word-wrap: break-word;
+          padding-right:1em;
+        }
+      }
+
+      &.tour-topics {
+        padding: 0;
+
+        li {
+          border-top: solid 1px #C9D0D0;
+          float: left;
+          margin-right: 3.5%;
+          margin-bottom: 1.5em;
+          width: 31%;
+          padding-bottom: 1.5em;
+           
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+
+          &:nth-child(3n+1) {
+            clear: left;
+          }
+
+          @include media(mobile) {
+            float: none;
+            margin-right: 0;
+            width: auto;
+          }
+
+          @include ie-lte(7) {
+            min-height: 9em;
+            width: 30.9%;
+          }
+        }
+      }
+    }
   }
 }
