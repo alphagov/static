@@ -78,7 +78,9 @@
 }
 
 .transaction .get-started .button,
-.local_transaction .get-started .button {
+.local_transaction .get-started .button,
+.business_support .get-started .button,
+.licence .get-started .button {
   padding: 0.45em 1.7em 0.45em 0.67em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
