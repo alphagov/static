@@ -25,7 +25,6 @@
 
     &.right {
       display: block;
-      width: 20%;
       padding: 0 0 0 80%;
       margin-top: (25 / 19) * -1em;
       text-align: right;
@@ -49,7 +48,7 @@
   clear:both;
   background-color: #aaa;
   color: #fff;
-  padding: 2em 2em 0.5em;
+  padding: 2em;
 
   h1 {
     @include core-80;
@@ -57,13 +56,18 @@
 
   p {
     @include core-24;
+    padding-right: 25%;
+    margin-bottom: 0;
   }
 
   a {
     color: #fff;
 
     &.right {
-      float: right;
+      @include core-24;
+      text-align: right;
+      padding: 0 0 0 75%;
+      margin-top: (25 / 19) * -1em;
       display: block;
     }
   }
