@@ -283,7 +283,6 @@ article .summary h2,
   }
 }
 .licence-finder article.outcome ul {
-  background-color: #d5ecea;
   padding: 1em 1em;
   margin: 0 -1em;
 
@@ -527,6 +526,12 @@ article ul.view-maps {
     @include core-16;
     display: inline-block;
     margin-right: 1em;
+
+    @include ie-lte(7) {
+      display: inline;
+      padding-right: 1em;
+      margin-right: 0;
+    }
   }
 }
 

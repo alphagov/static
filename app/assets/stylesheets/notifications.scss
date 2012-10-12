@@ -1,0 +1,102 @@
+#banner-notification {
+  background-color: #aaa;
+  border-top: 2px solid white;
+
+  div {
+    @include core-19;
+    color: #fff;
+    margin: 0 auto;
+    padding:0.5em 0;
+    max-width: 1020px;
+    overflow: hidden;
+
+    @include ie-lte(7) {
+      width: 956px;
+    }
+  }
+
+  p {
+    padding: 0 22% 0 (16 / 19) * 2em;
+    margin: 0;
+  }
+
+  a {
+    color: #fff;
+
+    &.right {
+      display: block;
+      padding: 0 0 0 80%;
+      margin-top: (25 / 19) * -1em;
+      text-align: right;
+    }
+  }
+
+  @include media(mobile) {
+    padding: 0.5em 1em;
+  }
+
+  &.green {
+    background: #28a197;
+  }
+
+  &.red {
+    background: #b10e1e;
+  }
+}
+
+#campaign-notification {
+  clear:both;
+  background-color: #aaa;
+  color: #fff;
+  padding: 2em;
+
+  h1 {
+    @include core-80;
+  }
+
+  p {
+    @include core-24;
+    padding-right: 25%;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: #fff;
+
+    &.right {
+      @include core-24;
+      text-align: right;
+      padding: 0 0 0 75%;
+      margin-top: (25 / 19) * -1em;
+      display: block;
+    }
+  }
+
+  @include ie-lte(7){
+    width: 960px;
+  }
+
+  &.green {
+    background: #fff;
+    border: 10px solid #28a197;
+    color: #28a197;
+
+    a {
+      color: #28a197;
+    }
+  }
+
+  &.red {
+    background: #b10e1e;
+  }
+
+  &.black {
+    background: #fff;
+    border: 10px solid #000;
+    color: #000;
+
+    a {
+      color: #000;
+    }
+  }
+}

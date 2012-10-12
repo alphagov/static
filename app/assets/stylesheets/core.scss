@@ -318,7 +318,7 @@ h4 {
 #wrapper.businesslink #legacy-sources li.businesslink {
 	background-image: image-url("businesslink-logo.png");
 	width: 84px;
-	height: 24px;
+	height: 33px;
 	margin-top: 0.5em;
 	display: block;
 }
@@ -548,7 +548,6 @@ article {
   }
 
   @include ie-lte(7) {
-    height: 30em;
   }
 
   &.group {
@@ -616,12 +615,25 @@ article {
 /* Meta-data */
 .meta-data {
   @include core-16;
-  color: #333;
-  float: left;
-  width: 100%;
+  color: $grey-3;
+  float: right;
+  width: 60%;
+  background-color:transparent;
+  display:inline;
+  margin-top:-2.7em;
 
-  @include ie-lte(6) {
-    float: none;
+  p{
+    line-height: 1.8em;
+    a{
+      color: $grey-3;
+      height: 1.8em;
+    }
+    @include core-16
+  }
+
+  @include ie(6) {
+    display: inline;
+    zoom: 1;
   }
 
   .inner {
@@ -649,6 +661,7 @@ article {
     padding-left: 30px;
     padding-right: 32px;
     padding-top: 5px;
+    margin-top:-5px;
   }
 
   @include media(mobile) {
@@ -1455,16 +1468,23 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .report-a-problem-toggle{
   @include core-16;
-
-  margin:2em 4em 0.5em 5em;
+  float:left;
+  margin:2em 4em 0.5em 2em;
   clear:both;
   a{
-    color:#999;
+    color: $grey-3;
   }
 
   @include media(mobile) {
-    margin: 0 0 0.5em 16px;
-    margin: 0 0 0.5em 1.6rem;
+    margin: -16px 0 0.5em 16px;
+    margin: -1.6rem 0 0.5em 1.6rem;
+    width:33%;
+  }
+
+  @include ie-lte(7) {
+    float: none;
+    display: inline;
+    zoom: 1;
   }
 }
 
@@ -1480,7 +1500,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
 .report-a-problem-container{
   @include core-19;
-
+  clear:both;
   background-color:#D5E8F3;
   margin:0 3.5em 2em 3.5em;
   padding:0.5em 1em 1em 1em;
