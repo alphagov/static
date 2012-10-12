@@ -27,7 +27,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   context "banner notifications" do
     setup do
-      NotificationFileLookup.banner_file = nil
+      NotificationFileLookup.instance.banner = nil
     end
 
     context "given view files are empty" do
@@ -82,7 +82,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   context "campaign notifications" do
     setup do
-      NotificationFileLookup.campaign_file = nil
+      NotificationFileLookup.instance.campaign = nil
     end
 
     context "given view files are empty" do
