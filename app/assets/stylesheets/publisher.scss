@@ -189,10 +189,13 @@ aside .page-navigation {
       width: 100%;
     }
 
+    @include ie(7) {
+      zoom: 1;
+    }
+
     a {
       display: block;
       padding: 0.75em 2em;
-      margin-bottom:-0.25em;
       text-decoration: none;
       zoom: 1;
 

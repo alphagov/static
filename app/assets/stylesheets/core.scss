@@ -646,15 +646,19 @@ article {
   background-color:transparent;
   display:inline;
   margin-top:-2.7em;
+
   p{
+    line-height: 1.8em;
     a{
       color: $grey-3;
+      height: 1.8em;
     }
     @include core-16
   }
 
-  @include ie-lte(6) {
-    float: none;
+  @include ie(6) {
+    display: inline;
+    zoom: 1;
   }
 
   .inner {
@@ -1500,6 +1504,12 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     margin: -16px 0 0.5em 16px;
     margin: -1.6rem 0 0.5em 1.6rem;
     width:33%;
+  }
+
+  @include ie-lte(7) {
+    float: none;
+    display: inline;
+    zoom: 1;
   }
 }
 
