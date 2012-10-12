@@ -635,6 +635,7 @@ article {
 
   @include media(mobile) {
     margin-right: 0;
+    min-height: 0;
   }
 }
 

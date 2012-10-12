@@ -30,6 +30,7 @@
 
     @include media(mobile) {
       width:auto;
+      min-height: 0;
     }
   }
 
