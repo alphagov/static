@@ -30,41 +30,41 @@
     padding: 0 2em 2em 2em;
 
     .tour-video{
-    	width: 625px;
-    	float:left;
-    	margin-bottom:1.5em;
+      width: 625px;
+      float:left;
+      margin-bottom:1.5em;
 
-    	figure{
-    		height: 380px;
-    		background-color: pink;
-    		margin-bottom:1em;
-    	}
-    	figcaption{
-    		clear:both;
-    		.video-transcript{
-    			margin-top:1em;
-    			p{
-    				margin-bottom:0.5em;
-    			}
-    		}
-    		p{
-    			margin-top:0;
-    			margin-bottom:0;
-    		}
-    		a{
-    			@include core-16
-    		}
-    		
-    	}
+      figure{
+        height: 380px;
+        background-color: pink;
+        margin-bottom:1em;
+      }
+      figcaption{
+        clear:both;
+        .video-transcript{
+          margin-top:1em;
+          p{
+            margin-bottom:0.5em;
+          }
+        }
+        p{
+          margin-top:0;
+          margin-bottom:0;
+        }
+        a{
+          @include core-16
+        }
+        
+      }
     }
 
     form{
-    	margin-left:-0.5em;
+      margin-left:-0.5em;
     }
     .tour-intro{
-    	float: right;
-    	width:31%;
-    	margin-top: -1.3em;
+      float: right;
+      width:31%;
+      margin-top: -1.3em;
     }
 
     .category-description {
@@ -93,7 +93,7 @@
         list-style: none;
         margin-bottom: 1em;
         h2{
-        	margin-bottom:0.55em;
+          margin-bottom:0.55em;
         }
         p {
           @include core-16;
@@ -102,7 +102,7 @@
           padding-right:1em;
         }
         form{
-        	padding-top:1em;
+          padding-top:1em;
         }
       }
 
@@ -141,5 +141,5 @@
   }
 }
 .js-enabled .video-transcript{
-	display:none;
+  display:none;
 }
