@@ -464,7 +464,7 @@ ul.helpers li.active h3 a {
   article {
     min-height: 20em;
 
-    @include ie-lte(7) {
+    @include ie(6) {
       height: 20em;
     }
 

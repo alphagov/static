@@ -617,7 +617,8 @@ article {
   @include core-16;
   color: $grey-3;
   float: right;
-  width: 60%;
+  width: 62%;
+  margin-left: 2em;
   background-color:transparent;
   display:inline;
   margin-top:-2.7em;
@@ -1469,7 +1470,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .report-a-problem-toggle{
   @include core-16;
   float:left;
-  margin:6em 4em 0.5em 2em;
+  margin:6em 0 0.5em 2em;
   clear:both;
   a{
     color: $grey-3;
