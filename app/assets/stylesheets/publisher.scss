@@ -404,7 +404,7 @@ aside .page-navigation {
   padding: 1em 0.75em 1em 3.5em;
   position: relative;
 
-  @include ie-lte(7) {
+  @include ie(6) {
     height: 2em;
   }
 
