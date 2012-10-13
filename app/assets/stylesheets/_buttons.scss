@@ -37,7 +37,7 @@
   @include core-19($line-height: (26 / 19));
 }
 
-.get-started .button .call-to-action,
+.get-started .button,
 .get-started .button.big,
 .button,
 .button:visited {
@@ -52,7 +52,7 @@
   font-weight: 300;
 }
 
-.get-started .button:hover span.call-to-action,
+.get-started .button:hover,
 .get-started .button.big:hover,
 .button:hover {
   background-color: #3ABAA8;
@@ -70,15 +70,17 @@
   outline:none;
 }
 
-.get-started .button .call-to-action,
+.get-started .button,
 .get-started .button.big {
   @include core-24($line-height: (16 / 24)); 
   padding: 0.45em 0.5em 0.45em 0.5em;
   display: inline-block;
 }
 
-.transaction .get-started .button .call-to-action,
-.local_transaction .get-started .button .call-to-action {
+.transaction .get-started .button,
+.local_transaction .get-started .button,
+.business_support .get-started .button,
+.licence .get-started .button {
   padding: 0.45em 1.7em 0.45em 0.67em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
@@ -92,47 +94,15 @@
 /* get started buttons */
 .get-started {
   margin:1.5em 0 0 0;
-
-  .button {
-    display: inline-block;
-    text-decoration:none;
-    background-color: transparent;
-    box-shadow:none;
-    padding: 0;
-
-    &:active {
-      /* 
-       * this compensates for this style being pushed down twice by keeping 
-       * the inner span still 
-       */
-      .call-to-action {
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
-      }
-
-      /* this compensates for the whole thing being pushed down by pushing back up */
-      .destination {
-        -webkit-transform: translate(0, -3px);
-        -moz-transform: translate(0, -3px);
-        -o-transform: translate(0, -3px);
-        transform: translate(0, -3px);
-      }
-    }
-
-    span {
-      cursor: pointer;
-    }
  
-    .destination {
-      @include core-14;
-      color:#333;
-      display: block;
-      margin-top: 0.5em;
-      max-width: 13em;
-    }
+  .destination {
+    @include core-14;
+    color:#333;
+    display: block;
+    margin-top: 0.5em;
+    max-width: 13em;
   }
+
   /* 
    * In selectors such as .get-started .button.big the chained .button.big is read as
    * .big by IE6 (see http://www.maxdesign.com.au/articles/multiple-classes/)
