@@ -150,7 +150,9 @@ aside .show-all-parts {
   padding: 0 16px;
   padding: 0 1.6rem;
 
-  background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
+  @include media(mobile) {
+    background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
+  }
 
   &,
   &:hover,
