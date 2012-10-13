@@ -62,10 +62,15 @@
     form{
       margin-left:-0.5em;
     }
+
     .tour-intro{
       float: right;
-      width:31%;
+      width: 31%;
       margin-top: -1.3em;
+
+      @include ie-lte(7) {
+        width: 27%;
+      }
     }
 
     .category-description {
@@ -104,18 +109,23 @@
         }
         form{
           padding-top:1em;
+
+          @include ie-lte(7) {
+            margin-left:0;
+          }
         }
       }
 
       &.tour-topics {
         padding: 0;
+        clear: both;
 
         li {
           border-top: solid 1px #C9D0D0;
           float: left;
           margin-right: 3.5%;
           margin-bottom: 1.5em;
-          width: 31%;
+          width: 30%;
           padding-bottom: 1.5em;
 
           &:nth-child(3n) {
@@ -132,9 +142,28 @@
             width: auto;
           }
 
+          @include ie-lte(8) {
+            float: none;
+            display: inline-block;
+            vertical-align: top;
+            width: 30.5%;
+
+            &.last {
+              width: 30%;
+              margin-right: 0;
+            }
+          }
+
           @include ie-lte(7) {
             min-height: 9em;
-            width: 30.9%;
+            display: inline;
+            zoom: 1;
+            width: 33%;
+            margin-right: 3.5%;
+
+            &.last {
+              width: 27%;
+            }
           }
         }
       }
