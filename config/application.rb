@@ -49,6 +49,8 @@ module Static
       *.css
     }
 
+    config.assets.css_compressor = :yui
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
