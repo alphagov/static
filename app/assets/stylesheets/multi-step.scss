@@ -266,6 +266,12 @@ li.done:hover .undo a {
           margin-left: 0;
         }
       }
+
+      @include media(mainstream_tablet) {
+        margin: 1em -1em 1.5em -1em;
+        padding: 0.25em 1em 0.25em 1em;
+      }
+
     }
   }
 }
