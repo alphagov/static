@@ -164,7 +164,7 @@ li.done:hover .undo a {
   padding: 0 10em 1em 2em;
   position: relative;
 
-  @include media(mobile) {
+  @include media(mainstream_tablet) {
     margin-right: 0;
     padding: 0 1em 1em 1em;
   }
