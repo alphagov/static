@@ -102,51 +102,6 @@
     margin-top: 0.5em;
     max-width: 13em;
   }
-
-  /* 
-   * In selectors such as .get-started .button.big the chained .button.big is read as
-   * .big by IE6 (see http://www.maxdesign.com.au/articles/multiple-classes/)
-   * This means it no longer has the precedence given by 2 classes and gets overwritten
-   * by the .get-started .button classes that follow.
-   * Just for IE6, add styles to this block to re-assert the styles after those that overwrite.
-   *
-   * Note: as the blocks below are copies of those above targeted at .get-started .button & 
-   * .get-started .big, any changes to those blocks should be repelicated here.
-  */
-  @include ie-lte(6) {
-    .button:hover {
-      background: transparent;
-    }
-
-    .big {
-      @include core-19($line-height: (16 / 19));
-      padding: 0.45em 1.7em 0.45em 0.5em;
-      background: #008270;
-      display: inline-block;
-      color: #fff;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-      -webkit-box-shadow: 0 3px 0 #000;
-      -moz-box-shadow: 0 3px 0 #000;
-      box-shadow: 0 3px 0 #000;
-      font-weight: 300;
-
-      &:hover {
-        background-color: #3ABAA8;
-        color: #fff;
-      }
-
-      &:active {
-        -webkit-transform: translate(0, 3px);
-        -moz-transform: translate(0, 3px);
-        -o-transform: translate(0, 3px);
-        transform: translate(0, 3px);
-        box-shadow:none;
-        outline:none;
-      }
-    }
-  }
 }
 
 a.button[rel="external"]:after {
