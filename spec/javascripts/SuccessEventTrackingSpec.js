@@ -3,9 +3,12 @@ describe("success event tracking", function () {
     var guideMarkup = $("<div id='content' class='test-stub'>" +
         "<a id='guide-internal-link' href='#this-is-a-test'>link</a>" +
         "<a id='guide-external-link' href='http://www.google.com/' rel='external'>link</a>" +
+        "<div id='get-started'>" +
+        "<a id='transaction-external-link' href='http://www.google.com/' rel='external'>link</a>" +
+        "</div>" +
         "</div>");
 
-    var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>")
+    var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>");
 
     beforeEach(function () {
         $('a').unbind();
@@ -15,7 +18,7 @@ describe("success event tracking", function () {
     });
 
     afterEach(function () {
-        Alphagov.delete_cookie("successEvents")
+        Alphagov.delete_cookie("successEvents");
         $(".test-stub").remove();
         $.event.trigger("smartanswerOutcome");
     });
@@ -232,6 +235,19 @@ describe("success event tracking", function () {
 
             expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry).toHaveBeenCalled();
             expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess).toHaveBeenCalled();
-        })
+        });
+
+        it("should track clicks on the get started link for transactions", function() {
+            GOVUK.Analytics.Format = "transaction";
+            GOVUK.Analytics.NeedID = "99999";
+            GOVUK.Analytics.startAnalytics();
+
+            $('#transaction-external-link').click();
+
+            var href = $("#transaction-external-link").prop("href");
+            var parts = href.split("/");
+            var expected = "exit?slug=&need_id=99999&format=transaction";
+            expect(parts[3]).toEqual(expected)
+        });
     });
 });
