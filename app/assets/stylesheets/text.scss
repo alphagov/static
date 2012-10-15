@@ -554,14 +554,9 @@ article ol.steps {
 
     @include ie-lte(8) {
       list-style-type: decimal;
-      margin: 0;
-      padding: 0;
+      margin-left: 1.5em;
+      padding-left: 0;
     }
-  }
-
-  @include ie-lte(8) {
-    border-left: solid 3px #ccc;
-    padding: 0 0 0 2.5em;
   }
 }
 
