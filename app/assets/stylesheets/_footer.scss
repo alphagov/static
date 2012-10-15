@@ -11,7 +11,7 @@
   .beta-notice {
     @include core-16;
     background: #F17921;
-    color: #000;
+    color: $black;
     float: none;
     width: auto;
     text-align: center;

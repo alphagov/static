@@ -1,6 +1,7 @@
 @import "_conditionals";
 @import "_colours";
 @import "styleguide/_font-stacks";
+@import "styleguide/_colours.scss";
 
 @mixin organisation-logo-19 {
   font-family: $Helvetica-Regular;
@@ -11,7 +12,7 @@
   letter-spacing: 0;
   text-transform: none;
   text-decoration: none;
-  color: #000;
+  color: $grey-0;
   display: block;
   border-left: 2px solid #bbb;
   background: image-url("coa-default-24.gif") no-repeat 8px 0;
@@ -54,7 +55,7 @@
     }
   }
   &:visited {
-    color: #000;
+    color: $grey-0;
   }
 }
 

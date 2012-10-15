@@ -97,7 +97,7 @@
  
   .destination {
     @include core-14;
-    color:#333;
+    color:$grey-2;
     display: block;
     margin-top: 0.5em;
     max-width: 13em;

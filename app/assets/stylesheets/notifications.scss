@@ -1,7 +1,8 @@
 @import "_typography";
+@import "styleguide/_colours.scss";
 
 #banner-notification {
-  background-color: #aaa;
+  background-color: $grey-6;
   border-top: 2px solid white;
 
   div {
@@ -48,7 +49,7 @@
 
 #campaign-notification {
   clear:both;
-  background-color: #aaa;
+  background-color: $grey-6;
   color: #fff;
   padding: 2em;
 
@@ -94,11 +95,11 @@
 
   &.black {
     background: #fff;
-    border: 10px solid #000;
-    color: #000;
+    border: 10px solid $black;
+    color: $black;
 
     a {
-      color: #000;
+      color: $black;
     }
   }
 }

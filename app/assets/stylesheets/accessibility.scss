@@ -1,3 +1,5 @@
+@import "styleguide/_colours.scss";
+
 /* For image replacement */
 .ir {
   display: block;
@@ -63,6 +65,6 @@ select:focus,
   }
 
   a:focus {
-	  color: #000;
+	  color: $black;
   }
 }

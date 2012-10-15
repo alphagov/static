@@ -1,6 +1,7 @@
 @import "_conditionals";
 @import "styleguide/_font-stacks.scss";
 @import "styleguide/_typography.scss";
+@import "styleguide/_colours.scss";
 
 /*
  * Text styles for articles.
@@ -15,7 +16,7 @@ article h1 {
 
 article header h1 {
   @include heading-24;
-  color: #000;
+  color: $grey-0;
   margin-top: 0;
   margin-bottom: 0;
 
@@ -81,7 +82,7 @@ article h1,
 article h2,
 article h3,
 article h4 {
-  color: #000;
+  color: $grey-0;
 }
 
 article p, article ul, article ol {
@@ -210,8 +211,8 @@ article tr:nth-child(even) td {
 }
 
 article td {
-  background: #fafafa;
-  border: dotted 1px #bbb;
+  background: $grey-9;
+  border: dotted 1px $grey-7;
 
   small {
     @include core-16;
@@ -228,10 +229,10 @@ article td {
 article th {
   line-height: 1.25em;
   text-align: left;
-  color: #000;
+  color: $grey-0;
   font-weight: normal;
-  background-color: #e1e8e8;
-  border: solid 1px #bbb;
+  background-color: $grey-8;
+  border: solid 1px $grey-6;
 }
 
 /*
@@ -241,7 +242,7 @@ article th {
 .mainstream article .summary {
   margin: 0 0 2em 0;
   padding: 0;
-  color: #000;
+  color: $grey-0;
 
   @include ie-lte(8) {
     zoom: 1;
@@ -258,7 +259,7 @@ article th {
 }
 
 .mainstream .answer article .summary {
-  border-bottom: solid 1px #C9D0D0;
+  border-bottom: solid 1px $grey-6;
   padding-bottom: 3em;
 }
 
@@ -316,7 +317,7 @@ article .advisory {
   }
 
   &.high-alert {
-    background-color: #F4DCDD;
+    background-color: $grey-9;
     border-color: #C00;
   }
 
@@ -345,7 +346,7 @@ article .intro {
 }
 
 article .example {
-  background: none repeat scroll 0 0 #e7ebda;
+  background: $grey-9;
   margin: 0.75em -1em;
   padding: 0.5em 1em;
 
@@ -377,7 +378,7 @@ article .advisory.minor {
 }
 
 article .help-notice {
-  background: image-url("icon-important.png") no-repeat scroll 98% 1em #f2f2f2;
+  background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
 }
 
 article .subscribe {
@@ -455,8 +456,8 @@ article .form-download {
 }
 
 article .address {
-  background: #f2f2f2 image-url("stamp.png") 95% 1em no-repeat;
-  border: solid 1px #d6d6d6;
+  background: $grey-9 image-url("stamp.png") 95% 1em no-repeat;
+  border: solid 1px $grey-6;
   margin: 0.75em 0;
   padding: 2em 16% 2em 15%;
   min-width: 35%;
@@ -487,7 +488,7 @@ section.places h3 {
 
 article .place {
   margin: 1.5em 0;
-  border-bottom: solid 1px #c9e0e0;
+  border-bottom: solid 1px $grey-6;
   padding-bottom: 1.5em;
 
   .address {

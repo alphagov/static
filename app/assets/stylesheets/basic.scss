@@ -1,4 +1,5 @@
 @import "styleguide/_font-stacks.scss";
+@import "styleguide/_colours.scss";
 
 html, body, button, input, table, td, th { font-family: $NTA-Light; }
 
@@ -35,11 +36,11 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
 }
 
 html {
-  background: #F2F2F2;
+  background: $grey-9;
 }
 
 body {
-  color: #333;
+  color: $text-colour;
   line-height: 1.5;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
@@ -56,15 +57,15 @@ fieldset {
 
 a,
 a:visited {
-  color: #2E3191;
+  color: $link-colour;
 }
 
 a:hover {
-  color: #2E8ACA;
+  color: $link-hover-colour;
 }
 
 a:active {
-  color: #2E8ACA;
+  color: $link-active-colour;
 }
 
 a[rel="external"]:after,
