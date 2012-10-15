@@ -17,6 +17,6 @@ $(function(){
     return false;
   }
   if(!checkOverflow()){
-    window.GOVUK.stopScrollingAtFooter.addEl($('.related-positioning'), $('#related').height());
+    window.GOVUK.stopScrollingAtFooter.addEl($('.related-positioning'), $('#related .inner').height());
   }
 });
