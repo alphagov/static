@@ -51,7 +51,6 @@ GOVUK.Analytics.startAnalytics = function () {
         if (success) return;
         success = true;
         var slug = encodeURIComponent(document.URL.split('/')[3].split("#")[0]),
-            target = encodeURIComponent($(this).attr('href')),
             exitLink = '/exit?slug=' + slug + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
 
         $(this).prop('href', exitLink);
