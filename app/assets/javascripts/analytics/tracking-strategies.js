@@ -26,6 +26,7 @@ GOVUK.Analytics.Trackers.guide = function (control) {
 /* Transaction (services) */
 GOVUK.Analytics.Trackers.transaction = function (control) {
     control.trackInternalLinks("#content a");
+    control.trackLinks("#get-started a");
 };
 
 /* Benefit */
