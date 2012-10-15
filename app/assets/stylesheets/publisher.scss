@@ -150,7 +150,9 @@ aside .show-all-parts {
   padding: 0 16px;
   padding: 0 1.6rem;
 
-  background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
+  @include media(mobile) {
+    background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
+  }
 
   &,
   &:hover,
@@ -404,7 +406,7 @@ aside .page-navigation {
   padding: 1em 0.75em 1em 3.5em;
   position: relative;
 
-  @include ie-lte(7) {
+  @include ie(6) {
     height: 2em;
   }
 
@@ -464,7 +466,7 @@ ul.helpers li.active h3 a {
   article {
     min-height: 20em;
 
-    @include ie-lte(7) {
+    @include ie(6) {
       height: 20em;
     }
 
