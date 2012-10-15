@@ -238,6 +238,10 @@ body.government #global-header .header-context {
     padding: 0.75em 1em;
   }
 
+  @include ie-lte(7) {
+    padding: 0.75em 0;
+  }
+ 
   nav {
     max-width: 960px;
     margin: 0 auto;
