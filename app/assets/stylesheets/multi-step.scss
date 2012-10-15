@@ -1,7 +1,3 @@
-@import "_conditionals";
-@import "styleguide/_font-stacks.scss";
-@import "styleguide/_typography.scss";
-
 /* This is basically Smart Answers & Licence Finder & Finance Finder */
 
 /*
@@ -164,7 +160,7 @@ li.done:hover .undo a {
   padding: 0 10em 1em 2em;
   position: relative;
 
-  @include media(mainstream_tablet) {
+  @include media(tablet) {
     margin-right: 0;
     padding: 0 1em 1em 1em;
   }
@@ -267,7 +263,7 @@ li.done:hover .undo a {
         }
       }
 
-      @include media(mainstream_tablet) {
+      @include media(tablet) {
         margin: 1em -1em 1.5em -1em;
         padding: 0.25em 1em 0.25em 1em;
       }
