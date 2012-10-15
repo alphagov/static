@@ -67,32 +67,41 @@ GOVUK.Analytics.startAnalytics = function () {
         }
     };
 
+    var trackLinks = function(selector, trackExternal) {
+        // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
+        $(selector).each(function () {
+            var linkToTrack = $(this),
+                trackingFunction,
+                linkHost = this.host.split(":")[0], // ie9 bug: ignore the appended port
+                docHost = document.location.host.split(":")[0];
+
+            if (linkHost === docHost || linkHost === "") {
+                trackingFunction = handleInternalLink;
+            } else if (trackExternal) {
+                trackingFunction = handleExternalLink;
+            }
+            if (trackingFunction) {
+                linkToTrack.click(trackingFunction);
+                linkToTrack.keydown(function(e) {
+                    if (e.which === ENTER_KEYCODE) {
+                        trackingFunction.call(this, e);
+                    }
+                });
+            }
+        });
+    };
+
     var trackingApi = {
         trackSuccess: function () {
             if (success) return;
             success = true;
             GOVUK.sendToAnalytics(createEvent("Success"));
         },
+        trackInternalLinks: function(selector) {
+            trackLinks(selector, false);
+        },
         trackLinks:function (selector) {
-            // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
-            $(selector).each(function () {
-                var linkToTrack = $(this),
-                    trackingFunction,
-                    linkHost = this.host.split(":")[0], // ie9 bug: ignore the appended port
-                    docHost = document.location.host.split(":")[0];
-
-                if (linkHost === docHost || linkHost === "") {
-                    trackingFunction = handleInternalLink;
-                } else {
-                    trackingFunction = handleExternalLink;
-                }
-                linkToTrack.click(trackingFunction);
-                linkToTrack.keydown(function(e) {
-                   if (e.which === ENTER_KEYCODE) {
-                       trackingFunction.call(this, e);
-                   }
-                });
-            });
+            trackLinks(selector, true);
         },
         trackTimeBasedSuccess:function (time) {
             setTimeout(trackingApi.trackSuccess, time);
