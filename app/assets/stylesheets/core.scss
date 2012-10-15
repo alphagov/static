@@ -389,11 +389,11 @@ body.full-width {
 #wrapper.licence header.page-header hgroup,
 #wrapper.guide header.page-header hgroup,
 #wrapper.video header.page-header hgroup {
-  padding-left: 0;
+  padding-left: 2em;
 
   h1 {
-    margin-left: -96px;
-    padding-left: 128px;
+    margin-left: 0;
+    padding-left: 68px;
 
     @include ie(6) {
       position: relative;
@@ -404,12 +404,19 @@ body.full-width {
   }
 
   @include media(mobile) {
-    padding-bottom: 1em;
+    padding-left: 1em;
 
     h1 {
-      margin-left: 0;
-      padding-left: 80px;
       min-height: (61em/25);
+    }
+  }
+
+  @include media($min-width: 1020px) {
+    padding-left: 0;
+
+    h1 {
+      margin-left: -96px;
+      padding-left: 128px;
     }
   }
 }
@@ -417,40 +424,40 @@ body.full-width {
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
-  background-position: 15px 18px;
+  background-position: 0 5px;
 
-  @include media(mobile) {
-    background-position: 8px 5px;
+  @include media($min-width: 1020px) {
+    background-position: 15px 18px;
   }
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
   background-image: image-url("icon-service-l.png");
-  background-position: 15px 29px;
+  background-position: 0 12px;
 
-  @include media(mobile) {
-    background-position: 9px 12px;
+  @include media($min-width: 1020px) {
+    background-position: 15px 29px;
   }
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
   background-image: image-url("icon-answer-l.png");
-  background-position: 40px 14px;
+  background-position: 0 14px;
 
-  @include media(mobile) {
-    background-position: 20px 14px;
+  @include media($min-width: 1020px) {
+    background-position: 40px 14px;
   }
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
   background-image: image-url("icon-licence-l.png");
-  background-position: 16px 14px;
-
-  @include media(mobile) {
-    background-position: 20px 14px;
+  background-position: 0 14px;
+  
+  @include media($min-width: 1020px) {
+    background-position: 16px 14px;
   }
 }
 
@@ -458,10 +465,10 @@ body.full-width {
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
-  background-position: 40px 14px;
+  background-position: 0 14px;
 
-  @include media(mobile) {
-    background-position: 20px 14px;
+  @include media($min-width: 1020px) {
+    background-position: 40px 14px;
   }
 }
 
