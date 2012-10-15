@@ -46,7 +46,14 @@ module Static
     config.assets.precompile += %w{
       favicon.ico
       *.js
-      *.css
+      application*.css
+      print.css
+      fonts*.css
+      normalize.css
+      admin/jquery*.css
+      core-admin.css
+      guides-print.css
+      header-footer-only*.css
     }
 
     config.assets.css_compressor = :yui
