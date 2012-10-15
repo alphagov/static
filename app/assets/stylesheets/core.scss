@@ -137,7 +137,7 @@ h4 {
     position: absolute !important;
   }
 
-  @include media(mainstream_tablet) {
+  @include media(tablet) {
     position: static;
     top: auto;
     height: auto;
@@ -156,7 +156,7 @@ h4 {
     width: 960px;
   }
 
-  @include media(mainstream_tablet) {
+  @include media(tablet) {
     max-width: auto;
     height: auto;
 
@@ -177,7 +177,7 @@ h4 {
     zoom: 1;
   }
 
-  @include media(mainstream_tablet) {
+  @include media(tablet) {
     position: static;
     right: auto;
     width: auto;
@@ -189,7 +189,7 @@ h4 {
     width: auto;
     border-left:1px solid #C9D0D0;
 
-    @include media(mainstream_tablet) {
+    @include media(tablet) {
       padding-left: 2em;
       border: none;
     }
@@ -350,7 +350,7 @@ header {
       margin: 0 15em 0 0;
       padding: 1em 2em 2em 2em;
 
-      @include media(mainstream_tablet) {
+      @include media(tablet) {
         margin: 0;
       }
 
@@ -560,9 +560,15 @@ article {
     width: auto;
   }
 
-  @include media(mainstream_tablet) {
+  @include media(tablet) {
     min-height: 0;
 
+    .inner {
+      padding: 0 2em 1em 2em;
+    }
+  }
+
+  @include media(mobile) {
     .inner {
       padding: 0 1em 1em 1em;
     }
@@ -605,7 +611,7 @@ article {
     margin-right: 0;
   }
 
-  @include media(mainstream_tablet) {
+  @include media(tablet) {
     margin-right: 0;
     min-height: 0;
   }
