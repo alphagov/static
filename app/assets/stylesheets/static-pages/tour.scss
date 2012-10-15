@@ -33,12 +33,20 @@
       width: 625px;
       float:left;
       margin-bottom:1.5em;
-
+      @include media(mobile) {
+        width: auto;
+        float: none;
+      }
+      
       #govuk-tour-video {
         width: 625px;
+        @include media(mobile) {
+          width: 320px;
+        }
       }
       figure{
         margin-bottom:1em;
+        
       }
       figcaption{
         clear:both;
@@ -67,6 +75,11 @@
       float: right;
       width: 31%;
       margin-top: -1.3em;
+      @include media(mobile) {
+        float: right;
+        width: 100%;
+        margin-top: 0;
+      }
 
       @include ie-lte(7) {
         width: 27%;
