@@ -629,10 +629,41 @@ article {
   @include core-16;
   color: $grey-3;
   float: right;
-  width: 60%;
+  width: 62%;
+  margin-left: 2em;
   background-color:transparent;
   display:inline;
   margin-top:-2.7em;
+
+  .inner {
+    padding: 0 2em;
+  }
+
+  @include media(mobile) {
+    margin-left: 0;
+    margin-top: 0;
+    width: 50%;
+
+    .inner {
+      padding: 0 2em 0 0;
+    }
+
+    p {
+      margin-top: 0;
+      float: none;
+      width: 100%;
+      text-align: right;
+
+      &.print-link a {
+        padding-left: 0;
+      }
+    }
+  }
+
+  @include ie(6) {
+    display: inline;
+    zoom: 1;
+  }
 
   p{
     line-height: 1.8em;
@@ -641,21 +672,6 @@ article {
       height: 1.8em;
     }
     @include core-16
-  }
-
-  @include ie(6) {
-    display: inline;
-    zoom: 1;
-  }
-
-  .inner {
-    padding: 0 2em;
-  }
-
-  @include media(mobile) {
-    .inner {
-      padding: 0 1em;
-    }
   }
 }
 
@@ -876,6 +892,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   border: 1px solid #ffc946;
   background-color: #fbedcd;
   padding: 0 1em;
+  margin-bottom: 1em;
 
   p {
     @include core-16;
@@ -1481,16 +1498,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .report-a-problem-toggle{
   @include core-16;
   float:left;
-  margin:6em 4em 0.5em 2em;
+  width: 35%;
+  margin:6em 0 0.5em 2em;
   clear:both;
   a{
     color: $grey-3;
   }
 
   @include media(mobile) {
-    margin: -16px 0 0.5em 16px;
-    margin: -1.6rem 0 0.5em 1.6rem;
-    width:33%;
+    margin: 0 0.5em 16px 16px;
+    margin: 0 0.5em 1.6rem 1.6em;
+    width:40%;
   }
 
   @include ie-lte(7) {
