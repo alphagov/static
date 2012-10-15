@@ -48,7 +48,7 @@ module Static
       *.js
       application*.css
       print.css
-      fonts.css
+      fonts*.css
       normalize.css
       admin/jquery*.css
       core-admin.css
