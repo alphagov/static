@@ -3,9 +3,12 @@ describe("success event tracking", function () {
     var guideMarkup = $("<div id='content' class='test-stub'>" +
         "<a id='guide-internal-link' href='#this-is-a-test'>link</a>" +
         "<a id='guide-external-link' href='http://www.google.com/' rel='external'>link</a>" +
+        "<div id='get-started'>" +
+        "<a id='transaction-external-link' href='http://www.google.com/' rel='external'>link</a>" +
+        "</div>" +
         "</div>");
 
-    var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>")
+    var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>");
 
     beforeEach(function () {
         $('a').unbind();
@@ -15,7 +18,7 @@ describe("success event tracking", function () {
     });
 
     afterEach(function () {
-        Alphagov.delete_cookie("successEvents")
+        Alphagov.delete_cookie("successEvents");
         $(".test-stub").remove();
         $.event.trigger("smartanswerOutcome");
     });
@@ -157,19 +160,6 @@ describe("success event tracking", function () {
             expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
         });
 
-        it("should redirect through the exit action when an external link inside #content is clicked", function () {
-            GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
-            GOVUK.Analytics.startAnalytics();
-
-            $('#guide-external-link').click();
-
-            var href = $("#guide-external-link").prop("href");
-            var parts = href.split("/");
-            var expected = "exit?slug=&target=http%3A%2F%2Fwww.google.com%2F&need_id=99999&format=guide";
-            expect(parts[3]).toEqual(expected)
-        });
-
         it("should not register multiple guide success events when navigating to items on the same page", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.NeedID = '99999';
@@ -245,6 +235,19 @@ describe("success event tracking", function () {
 
             expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry).toHaveBeenCalled();
             expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess).toHaveBeenCalled();
-        })
+        });
+
+        it("should track clicks on the get started link for transactions", function() {
+            GOVUK.Analytics.Format = "transaction";
+            GOVUK.Analytics.NeedID = "99999";
+            GOVUK.Analytics.startAnalytics();
+
+            $('#transaction-external-link').click();
+
+            var href = $("#transaction-external-link").prop("href");
+            var parts = href.split("/");
+            var expected = "exit?slug=&need_id=99999&format=transaction";
+            expect(parts[3]).toEqual(expected)
+        });
     });
 });
