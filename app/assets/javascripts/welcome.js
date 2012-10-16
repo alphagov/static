@@ -91,9 +91,11 @@ $(function() {
   }
 
   function showPopup() {
-    if (getUrlVar('nopopup') != "true") {
-      if(getCookie(activeCookieName()) != "dismiss"){
-        BetaPopup.popup(popupCopy(), "welcome-tour");
+    if(onDesignPrinciples()) {
+      if (getUrlVar('nopopup') != "true") {
+        if(getCookie(activeCookieName()) != "dismiss"){
+          BetaPopup.popup(popupCopy(), "welcome-tour");
+        }
       }
     }
   }
