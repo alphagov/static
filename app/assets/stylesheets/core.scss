@@ -1443,6 +1443,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   .tab-shiftlink {
     @include core-19();
+    position: absolute;
+    left: -9999em;
+
+    @include media(mobile) {
+      position: static;
+      left: auto;
+    }
   }
 
   @include media(mobile) {

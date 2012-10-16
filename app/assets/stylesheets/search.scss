@@ -6,11 +6,6 @@
 
 /* ----- search results page ----- */
 
-#wrapper .ancillary.search .search-container {
-  background-color: #fff;
-  padding: 2em 2.5em 1em 2.5em;
-}
-
 /* Header
 ============================================================================ */
 
@@ -37,51 +32,63 @@
   margin: 0 0 0 (320 / 48) * 1em;
 }
 
-#search-index-navigation {
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+.search .nav-tabs {
+  padding: 0 2em;
 
-  li {
-    float: left;
-    display: block;
-    margin: 0;
-    padding: 0.5em;
-    @include border-radius(10px 10px 0 0);
-
-    background: $grey-88;
-
-    a {
-      text-decoration: none;
-      color: $grey-40;
-      @include core-19;
-      display: block;
-      padding: 0.25em (16/19) * 2em; // core is 19, body is 16, we want 2ems worth of 16
-      cursor: pointer;
-    }
-
-    &.active {
-      background: #fff;
-      color: $grey-20;
-
+  @include ie-lte(7) {
+    ul {
+      margin-bottom: -1px;
     }
   }
 }
 
-#wrapper .search-container {
+.search-container {
+  background: #fff;
+  margin: 0;
+
+  .js-heading-tab h1 a {
+    @include core-16;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  .tab-pane {
+    padding: 1em 2em 0;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
   .internal-links {
     float: left;
-    width: 32.5em;
+    width: 55%;
+
+    @include media(mobile) {
+      float: none;
+      width: auto;
+    }
   }
 
   .external-links {
     float: right;
-    width: 21.5em;
+    width: 36%;
+    padding-top: 1em;
+
+    @include media(mobile) {
+      float: none;
+      width: auto;
+      border-bottom: solid 1px #C9D0D0;
+    }
 
     h2 {
       @include core-19;
 
       margin: 0 0 1em 0;
+
+      @include media(mobile) {
+        display: none;
+      }
     }
   }
 }
@@ -103,21 +110,38 @@
 /* Search Form
 ============================================================================ */
 form.search-header {
+  background: #fff;
   display: block;
-  @include core-19;
-  margin: 1em 10.5em 1em 2em;
+  padding: 1em 10.5em 1em 2em;
+
+  @include media(mobile) {
+    padding: 1em;
+  }
+
+  fieldset {
+    margin: 0;
+  }
 
   label h1 {
     @include core-19;
     padding: 0;
     margin: 0;
     display: inline;
+
+    @include media(mobile) {
+      display: block;
+      margin-bottom: 0.5em;
+    }
   }
 
 
   #search-main {
     font-size:1em;
     width: (266 / 19) * 1em;
+
+    @include media(mobile) {
+      margin-left: 0;
+    }
   }
 }
 
@@ -133,9 +157,6 @@ input[type="search"]::-webkit-search-results-decoration {
 ============================================================================ */
 .search .results {
   padding: 0;
-  margin-left: -20em;
-  float: right;
-  width: 100%;
 
   li.filtered {
     display:none;
@@ -156,17 +177,26 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-.search .results-list {
-  padding: 0; margin: 0;
-  list-style: none;
+.search .tabs-panel {
+  ul {
+    list-style: none;
+  }
 
   li {
     display: block;
     list-style: none;
-    margin-bottom: 1.5em;
     max-width: 32.5em;
     padding: 0;
+    margin-bottom: 1.5em;
     overflow: hidden;
+
+    @include media(mobile) {
+      margin: 0;
+    }
+
+    @include ie(6) {
+      max-width: 32.5em;
+    }
 
     li {
       margin: 0;
@@ -188,6 +218,11 @@ input[type="search"]::-webkit-search-results-decoration {
     ul.result-meta {
       padding: 0;
       margin: 0.3em 0;
+      line-height: 1.3;
+
+      @include media(mobile) {
+        margin-top: 0;
+      }
 
       li {
         @include core-16;
@@ -200,20 +235,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
     ul.result-sections {
       li {
-        display: inline-block;
-
-        @include ie-lte(8) {
-          &.result-subsection,
-          &.result-subsubsection {
-            margin-left: 0.5em;
-            border-left: 1px solid $grey-63;
-          }
-        }
+        display: inline;
       }
-      li + li:before {
-        content: ">";
-        display: inline-block;
-        padding: 0 0.2em;
+      li.result-section {
+          background: transparent url("separator.png") 100% 50% no-repeat;
+          padding-right: 1em;
+          margin-right: 0.5em;
       }
     }
   }
@@ -371,6 +398,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .no-results article {
   margin: 0;
+  padding: 0 2em;
+  width: auto;
+
+  @include media(mobile) {
+    padding: 0 1em;
+  }
 
   p {
     @include core-16;
