@@ -8,7 +8,7 @@ describe("internal site events", function () {
             it("should store an event in the cookie on push", function () {
                 GOVUK.Analytics.internalSiteEvents.push("event");
 
-                expect(Alphagov.read_cookie("successEvents"))
+                expect(Alphagov.read_cookie("GDS_successEvents"))
                     .toEqual(jQuery.base64Encode(JSON.stringify(["event"])));
             });
 
@@ -23,7 +23,7 @@ describe("internal site events", function () {
                 expect(arguments.length).toBe(2);
                 expect(arguments[0][0]).toBeEqualAsJSON("event1");
                 expect(arguments[1][0]).toBeEqualAsJSON("event2");
-                expect(Alphagov.read_cookie("successEvents"))
+                expect(Alphagov.read_cookie("GDS_successEvents"))
                     .toBe(null);
             });
         } else {
