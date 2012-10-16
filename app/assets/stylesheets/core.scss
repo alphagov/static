@@ -3,7 +3,7 @@
  */
 
 #wrapper {
-  background-color: #F2F2F2;
+  background-color: $grey-9;
 
   @include ie-lte(7) {
     zoom: 1;
@@ -184,10 +184,10 @@ h4 {
   }
 
   .inner {
-    background-color: #E5E5E5;
+    background-color: $grey-8;
     padding: 0.5em 1em 0 1.2em;
     width: auto;
-    border-left:1px solid #C9D0D0;
+    border-left:1px solid $grey-6;
 
     @include media(tablet) {
       padding-left: 2em;
@@ -201,7 +201,7 @@ h4 {
 
   h2 {
     @include core-19;
-    color: #000;
+    color: $text-colour;
     margin-top: 0.3em;
     margin-bottom: 0.5em;
     position: relative;
@@ -225,7 +225,7 @@ h4 {
     padding-left: 0;
 
     &.related-topic {
-      border-top: 1px solid #C9D0D0;
+      border-top: 1px solid $grey-6;
       list-style: none outside none;
       margin: 0.25em 0 0;
       padding: 0.75em 0;
@@ -268,7 +268,7 @@ h4 {
 
     @include media(mobile) {
       position: static;
-      border-top: 1px solid #C9D0D0;
+      border-top: 1px solid $grey-6;
       margin: 0.25em 0 0;
       padding: 0.75em 0;
     }
@@ -357,7 +357,7 @@ header {
       h1 {
         @include heading-48;
         background-repeat: no-repeat;
-        color: #000;
+        color: $text-colour;
 
         span {
           @include core-19($line-height: 1);
@@ -709,183 +709,6 @@ article {
   }
 }
 
-/*
- * auto complete
- * borrowed from the alpha
- */
-.hint-suggest {
-  border: 1px solid #EEEEEE;
-  margin: 0;
-  background-color: #fff;
-  display: block;
-  left: 0;
-  padding: 0.5em;
-  position: relative;
-  top: 0;
-  width: 163px;
-  color: #666;
-}
-
-.search-loading {
-  background: image-url("ajax-loader.gif") no-repeat 4px 50% #fff;
-  padding-left: 30px;
-  width: 133px;
-}
-
-#main_autocomplete {
-  color: inherit;
-}
-
-ul.ui-menu {
-  padding: 0;
-}
-
-ul.ui-widget {
-  @include core-16;
-}
-
-ul.ui-autocomplete {
-  background: none repeat scroll 0 0 #fff;
-  border: 1px solid #8F8F8F;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 1px;
-  position: absolute;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
-  top: 1.8em;
-  left: 0;
-  display: none;
-
-  li {
-    border-top: 1px solid #eee;
-    list-style-type: none;
-    margin: 0;
-
-    a,
-    a:hover {
-      background-position: 8px 50%;
-    }
-
-    a {
-      em {
-        font-style: normal;
-        font-weight: bold;
-        padding: 0.125em;
-      }
-    }
-  }
-
-  .search-site a,
-  .search-site a:hover {
-    border-top:3px solid #dedede;
-    background: image-url("search.png") no-repeat 12px 50% #eee;
-    padding-left: 3em;
-  }
-
-  &.ui-menu .ui-menu-item a,
-  .search-site a {
-    padding: 0.2em 1em;
-    display:block;
-    color: #333;
-    text-decoration:none;
-  }
-
-  &.ui-menu .ui-menu-item.search-site em {
-    font-style: italic;
-  }
-}
-
-ul.ui-menu .ui-menu-item a.ui-state-hover,
-ul.ui-menu .ui-menu-item a.ui-state-active,
-ul.ui-autocomplete .search-site a:hover {
-  margin: 0;
-  background-color:#ffffcc;
-}
-
-ul.ui-corner-all, ul li a.ui-corner-all {
-  border-radius: 0 0 0 0;
-}
-
-/* Location in header bar */
-#location-set-message,
-#location-unset-message {
-  background: image-url("location-pin_outline_tiny.png") no-repeat 0 50%;
-  position: fixed;
-  top: 0;
-  left: 20%;
-  display: block;
-  z-index: 100000;
-  line-height: 3.5em;
-  padding: 0 0 0 1.5em;
-  margin: 0;
-  color: #bbb;
-  font-size: 0.75em;
-
-  .removing {
-    display:none;
-  }
-
-  a {
-    color: #d8d8d8;
-  }
-
-  small {
-    font-size: inherit;
-  }
-
-  @include ie-lte(8) {
-    display: none;
-  }
-}
-
-/*
- * Devolved content
- */
-.devolved-content {
-  background: none repeat scroll 0 0 #fff;
-  border: solid 1px #ccc;
-  margin: 1em 0;
-  padding: 0 1em 1em 1em;
-}
-
-.devolved-header {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  font-size: 0.85em;
-
-  a {
-    -moz-border-radius: 0.25em;
-    -webkit-border-radius: 0.25em;
-    border-radius: 0.25em;
-    font-size: 0.75em;
-    background-color: #92AD54;
-    color: #fff;
-    margin-left: 0.5em;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-  }
-}
-
-.england .devolved-header {
-  padding: 0 0 0 18px;
-  background: image-url("flags.png") no-repeat scroll 0 -17px #fff;
-}
-.scotland .devolved-header {
-  padding: 0 0 0 18px;
-  background: image-url("flags.png") no-repeat scroll 0 -60px #fff;
-}
-
-.wales .devolved-header {
-  padding: 0 0 0 18px;
-  background: image-url("flags.png") no-repeat scroll 0 3px #fff;
-}
-.northern-ireland .devolved-header {
-  /* don't show a flag for NI */
-  padding: 0;
-  background: none;
-}
-
 /* Error messages */
 .error-notification,
 .error-area {
@@ -951,14 +774,14 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   p.geolocate-me {
     @include core-16;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $grey-6;
     margin-bottom: 0;
     margin-top: 0.5em;
     padding-top: 0.5em;
   }
 
   #global-locator-form {
-    background: #f8f8f8 image-url("locator-icon.png") no-repeat 1em 1em;
+    background: $grey-9 image-url("locator-icon.png") no-repeat 1em 1em;
     border: none;
     margin: 0 auto 1em auto;
     padding: 1.2em 0.75em 1.2em 3.5em;
@@ -1036,7 +859,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     @include core-27;
     text-transform: uppercase;
     padding: 0.2em 0 0 0.5em;
-    color: #000;
+    color: $text-colour;
   }
 
   .welcome-content {
@@ -1046,7 +869,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   .welcome-inner {
     background-color: #FDE4D2;
-    color: #000;
+    color: $text-colour;
     padding: 1em 2em;
   }
 
@@ -1337,19 +1160,19 @@ ul.ui-corner-all, ul li a.ui-corner-all {
         padding: 0 16px;
         padding: 0 1.6rem;
         text-align: left;
-        border-bottom: 1px solid #C9D0D0;
+        border-bottom: 1px solid $grey-6;
       }
 
       &:hover {
-        background-color: #E1E8E8;
+        background-color: $grey-9;
       }
     }
 
     &.active a {
       background-color: #fff;
-      border: solid 1px #C9D0D0;
+      border: solid 1px $grey-6;
       border-bottom: solid 1px #fff;
-      color: #000;
+      color: $text-colour;
       position: relative;
       text-decoration: none;
       z-index: 5;
@@ -1360,7 +1183,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
       @include media(mobile) {
         border: none;
-        border-bottom: 1px solid  #C9D0D0;
+        border-bottom: 1px solid  $grey-6;
       }
 
       &:hover {
@@ -1373,7 +1196,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
       @include media(mobile) {
         border-left: none;
-        border-top: 1px solid #C9D0D0;
+        border-top: 1px solid $grey-8;
       }
     }
   }
@@ -1388,7 +1211,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   .tab-pane {
     padding: 1em 10em 0 2em;
-    border-top: solid 1px #C9D0D0;
+    border-top: solid 1px $grey-6;
     clear: both;
     width:auto;
 
@@ -1429,7 +1252,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .js-tab-content {
   .programme-progression li,
   .js-heading-tab {
-    border-bottom: solid 1px #C9D0D0;
+    border-bottom: solid 1px $grey-6;
     list-style: none;
 
     a,
@@ -1444,7 +1267,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
       top: 0;
 
       &:hover {
-        background-color: #E1E8E8;
+        background-color: $grey-9;
       }
     }
 
@@ -1453,8 +1276,8 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
       a, h1 {
         background-position: 100% 100%;
-        background-color: #E1E8E8;
-        color: #000;
+        background-color: $grey-9;
+        color: $text-colour;
         text-decoration: none;
       }
     }
@@ -1480,11 +1303,11 @@ ul.ui-corner-all, ul li a.ui-corner-all {
     }
 
     .js-tab-pane {
-      border-bottom:solid 1px #C9D0D0;
+      border-bottom:solid 1px $grey-6;
     }
 
     .js-tab-container:first-child {
-      border-top: solid 1px #C9D0D0;
+      border-top: solid 1px $grey-6;
     }
   }
 }
