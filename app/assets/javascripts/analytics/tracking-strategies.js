@@ -20,24 +20,25 @@ GOVUK.Analytics.Trackers = {};
 /* Guide */
 GOVUK.Analytics.Trackers.guide = function (control) {
     control.trackTimeBasedSuccess(7000);
-    control.trackLinks("#content a");
+    control.trackInternalLinks("#content a");
 };
 
 /* Transaction (services) */
 GOVUK.Analytics.Trackers.transaction = function (control) {
-    control.trackLinks("#content a");
+    control.trackInternalLinks("#content a");
+    control.trackLinks("#get-started a");
 };
 
 /* Benefit */
 GOVUK.Analytics.Trackers.programme = function (control) {
     control.trackTimeBasedSuccess(7000);
-    control.trackLinks("#content a");
+    control.trackInternalLinks("#content a");
 };
 
 /* Quick answer */
 GOVUK.Analytics.Trackers.answer = function (control) {
     control.trackTimeBasedSuccess(7000);
-    control.trackLinks("#content a");
+    control.trackInternalLinks("#content a");
 };
 
 /* Smart Answer */
