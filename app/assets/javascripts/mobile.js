@@ -28,13 +28,13 @@
       if(!$this.hasClass('show-all-parts-open')) {
         $this.addClass('show-all-parts-open');
         $this.text($this.text().replace(/Show/, 'Hide'));
-        instance.$navlist.show();
+        instance.$navbar.removeClass('page-navigation-closed');
         instance.$navbar.addClass('page-navigation-open');
       } else {
         $this.removeClass('show-all-parts-open');
         $this.text($this.text().replace(/Hide/, 'Show'));
-        instance.$navlist.hide();
         instance.$navbar.removeClass('page-navigation-open');
+        instance.$navbar.addClass('page-navigation-closed');
       }
 
       return false;
@@ -54,7 +54,7 @@
         return false;
       });
 
-      this.$navlist.hide();
+      this.$navbar.addClass('page-navigation-closed');
     }
   };
 
