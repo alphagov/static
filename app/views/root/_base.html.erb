@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - This is a trial ‘beta’ version of the UK government's official website" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %></title>
 
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag local_assigns[:css_file] || 'application' %><!--<![endif]-->
     <!--[if IE 6]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie6' %><![endif]-->
@@ -47,7 +47,7 @@
 
     <header role="banner" class="group" id="global-header">
       <div class="header-wrapper group">
-        <a href="/" title="Go to the gov.uk homepage" id="logo"><img src="<%= asset_path 'gov.uk_logotype_beta.png' %>" alt="GOV.UK Logo"></a>
+        <a href="/" title="Go to the gov.uk homepage" id="logo"><img src="<%= asset_path 'gov.uk_logotype.png' %>" alt="GOV.UK"></a>
 
         <a href="#search" class="button search-toggle">Search</a>
 
@@ -84,10 +84,6 @@
 
     <footer class="group" id="footer" role="contentinfo">
 
-      <div class="beta-notice">
-        <p>This is a <a href="http://digital.cabinetoffice.gov.uk/2012/01/31/beta/">test website</a>, so may be inaccurate or misleading. The official websites remain <a href="http://www.direct.gov.uk">Directgov</a>, <a href="http://www.businesslink.gov.uk/">Business Link</a>, and the website of the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">relevant government department or organisation</a></p>
-      </div>
-
       <div class="footer-wrapper">
         <nav class="footer-categories">
           <h2>Explore GOV.UK</h2>
@@ -121,6 +117,7 @@
             <li><a href="/help">Help</a></li>
             <li><a href="/help/cookies">Cookies</a></li>
             <li><a href="/feedback">Feedback</a></li>
+            <li><a href="/cymraeg">Cymraeg</a></li>
           </ul>
 
           <div class="colophon">Built by the <a href="http://digital.cabinetoffice.gov.uk/">Government Digital Service</a></div>

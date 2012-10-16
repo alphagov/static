@@ -1,9 +1,3 @@
-@import "_conditionals";
-@import "_css3";
-@import "styleguide/_colours";
-@import "styleguide/_font-stacks.scss";
-@import "styleguide/_typography.scss";
-
 /*
  * Core global styles
  */
@@ -143,7 +137,7 @@ h4 {
     position: absolute !important;
   }
 
-  @include media(mobile) {
+  @include media(tablet) {
     position: static;
     top: auto;
     height: auto;
@@ -162,7 +156,7 @@ h4 {
     width: 960px;
   }
 
-  @include media(mobile) {
+  @include media(tablet) {
     max-width: auto;
     height: auto;
 
@@ -183,7 +177,7 @@ h4 {
     zoom: 1;
   }
 
-  @include media(mobile) {
+  @include media(tablet) {
     position: static;
     right: auto;
     width: auto;
@@ -194,6 +188,11 @@ h4 {
     padding: 0.5em 1em 0 1.2em;
     width: auto;
     border-left:1px solid #C9D0D0;
+
+    @include media(tablet) {
+      padding-left: 2em;
+      border: none;
+    }
 
     @include media(mobile) {
       padding-left: 1em;
@@ -351,7 +350,7 @@ header {
       margin: 0 15em 0 0;
       padding: 1em 2em 2em 2em;
 
-      @include media(mobile) {
+      @include media(tablet) {
         margin: 0;
       }
 
@@ -390,11 +389,11 @@ body.full-width {
 #wrapper.licence header.page-header hgroup,
 #wrapper.guide header.page-header hgroup,
 #wrapper.video header.page-header hgroup {
-  padding-left: 0;
+  padding-left: 2em;
 
   h1 {
-    margin-left: -96px;
-    padding-left: 128px;
+    margin-left: 0;
+    padding-left: 68px;
 
     @include ie(6) {
       position: relative;
@@ -405,12 +404,19 @@ body.full-width {
   }
 
   @include media(mobile) {
-    padding-bottom: 1em;
+    padding-left: 1em;
 
     h1 {
-      margin-left: 0;
-      padding-left: 80px;
       min-height: (61em/25);
+    }
+  }
+
+  @include media($min-width: 1020px) {
+    padding-left: 0;
+
+    h1 {
+      margin-left: -96px;
+      padding-left: 128px;
     }
   }
 }
@@ -418,40 +424,40 @@ body.full-width {
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
   background-image: image-url("icon-programme-l.png");
-  background-position: 15px 18px;
+  background-position: 0 5px;
 
-  @include media(mobile) {
-    background-position: 8px 5px;
+  @include media($min-width: 1020px) {
+    background-position: 15px 18px;
   }
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
   background-image: image-url("icon-service-l.png");
-  background-position: 15px 29px;
+  background-position: 0 12px;
 
-  @include media(mobile) {
-    background-position: 9px 12px;
+  @include media($min-width: 1020px) {
+    background-position: 15px 29px;
   }
 }
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
   background-image: image-url("icon-answer-l.png");
-  background-position: 40px 14px;
+  background-position: 0 14px;
 
-  @include media(mobile) {
-    background-position: 20px 14px;
+  @include media($min-width: 1020px) {
+    background-position: 40px 14px;
   }
 }
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
   background-image: image-url("icon-licence-l.png");
-  background-position: 16px 14px;
-
-  @include media(mobile) {
-    background-position: 20px 14px;
+  background-position: 0 14px;
+  
+  @include media($min-width: 1020px) {
+    background-position: 16px 14px;
   }
 }
 
@@ -459,10 +465,10 @@ body.full-width {
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
   background-image: image-url("icon-guide-l.png");
-  background-position: 40px 14px;
+  background-position: 0 14px;
 
-  @include media(mobile) {
-    background-position: 20px 14px;
+  @include media($min-width: 1020px) {
+    background-position: 40px 14px;
   }
 }
 
@@ -561,9 +567,15 @@ article {
     width: auto;
   }
 
-  @include media(mobile) {
+  @include media(tablet) {
     min-height: 0;
 
+    .inner {
+      padding: 0 2em 1em 2em;
+    }
+  }
+
+  @include media(mobile) {
     .inner {
       padding: 0 1em 1em 1em;
     }
@@ -606,7 +618,7 @@ article {
     margin-right: 0;
   }
 
-  @include media(mobile) {
+  @include media(tablet) {
     margin-right: 0;
     min-height: 0;
   }
@@ -617,10 +629,41 @@ article {
   @include core-16;
   color: $grey-3;
   float: right;
-  width: 60%;
+  width: 62%;
+  margin-left: 2em;
   background-color:transparent;
   display:inline;
   margin-top:-2.7em;
+
+  .inner {
+    padding: 0 2em;
+  }
+
+  @include media(mobile) {
+    margin-left: 0;
+    margin-top: 0;
+    width: 50%;
+
+    .inner {
+      padding: 0 2em 0 0;
+    }
+
+    p {
+      margin-top: 0;
+      float: none;
+      width: 100%;
+      text-align: right;
+
+      &.print-link a {
+        padding-left: 0;
+      }
+    }
+  }
+
+  @include ie(6) {
+    display: inline;
+    zoom: 1;
+  }
 
   p{
     line-height: 1.8em;
@@ -629,21 +672,6 @@ article {
       height: 1.8em;
     }
     @include core-16
-  }
-
-  @include ie(6) {
-    display: inline;
-    zoom: 1;
-  }
-
-  .inner {
-    padding: 0 2em;
-  }
-
-  @include media(mobile) {
-    .inner {
-      padding: 0 1em;
-    }
   }
 }
 
@@ -864,6 +892,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
   border: 1px solid #ffc946;
   background-color: #fbedcd;
   padding: 0 1em;
+  margin-bottom: 1em;
 
   p {
     @include core-16;
@@ -1476,16 +1505,17 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 .report-a-problem-toggle{
   @include core-16;
   float:left;
-  margin:6em 4em 0.5em 2em;
+  width: 35%;
+  margin:6em 0 0.5em 2em;
   clear:both;
   a{
     color: $grey-3;
   }
 
   @include media(mobile) {
-    margin: -16px 0 0.5em 16px;
-    margin: -1.6rem 0 0.5em 1.6rem;
-    width:33%;
+    margin: 0 0.5em 16px 16px;
+    margin: 0 0.5em 1.6rem 1.6em;
+    width:40%;
   }
 
   @include ie-lte(7) {
