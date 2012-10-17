@@ -1414,6 +1414,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
     @include media(mobile) {
       padding:0 1em 1em;
+      border-bottom: solid 1px #C9D0D0;
     }
   }
 
