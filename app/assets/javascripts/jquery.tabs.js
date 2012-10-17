@@ -20,7 +20,7 @@ jQuery.fn.tabs = function(settings){
 		alwaysScrollToTop: true,
 		selected: null,
 		wrapperTag : 'section',
-		defaultTab : 0
+		defaultTab : null
 	},settings);
 
 	var tabFormat = 'tabset',
@@ -38,9 +38,15 @@ jQuery.fn.tabs = function(settings){
                 }
             }
 
-            // accordions have no default tab by default
+            // accordions default to all tabs closed, tabsets to open at the 1st
             if (format === 'accordion') {
-                o.defaultTab = -1;
+                if (o.defaultTab === null) {
+                  o.defaultTab = -1;
+                }
+            } else {
+                if (o.defaultTab === null) {
+                  o.defaultTab = 0;
+                }
             }
 
             return format; 
@@ -303,7 +309,7 @@ jQuery.fn.tabs = function(settings){
                 selectTab(hashedTab,true);
             }
             else {
-                if ((tabFormat === 'tabset') || o.defaultTab > -1) {
+                if (o.defaultTab > -1) {
                   selectTab( tabItems.find('a').eq(o.defaultTab), true);
                 }
             }

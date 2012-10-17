@@ -45,7 +45,7 @@
   margin: 0;
 
   .js-heading-tab h1 a {
-    @include core-16;
+    @include core-19;
     padding-top: 11px;
     padding-bottom: 11px;
   }
@@ -134,7 +134,7 @@ form.search-header {
 
   #search-main {
     font-size:1em;
-    width: (266 / 19) * 1em;
+    width: (240 / 19) * 1em;
 
     @include media(mobile) {
       margin-left: 0;
