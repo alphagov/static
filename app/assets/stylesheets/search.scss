@@ -34,6 +34,10 @@
       margin-bottom: -1px;
     }
   }
+
+  @include media(mobile) {
+    margin: 0 -1em;
+  }
 }
 
 .search-container {
@@ -189,7 +193,7 @@ input[type="search"]::-webkit-search-results-decoration {
     }
 
     @include ie(6) {
-      max-width: 32.5em;
+      width: 32.5em;
     }
 
     li {
