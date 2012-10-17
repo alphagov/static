@@ -634,9 +634,34 @@ article {
   background-color:transparent;
   display:inline;
   margin-top:-2.7em;
+  text-align: right;
 
   .inner {
-    padding: 0 2em;
+    padding: 0 2em 0 0;
+  }
+
+  @include ie-lte(7) {
+    width: 60%;
+  }
+
+  @include ie(6) {
+    display: inline;
+    zoom: 1;
+  }
+
+  p{
+    display: inline-block;
+    text-align: left;
+
+    @include ie-lte(7) {
+      display: inline;
+      zoom: 1;
+    }
+
+    a{
+      color: $grey-3;
+    }
+    @include core-16
   }
 
   @include media(mobile) {
@@ -659,37 +684,24 @@ article {
       }
     }
   }
-
-  @include ie(6) {
-    display: inline;
-    zoom: 1;
-  }
-
-  p{
-    line-height: 1.8em;
-    a{
-      color: $grey-3;
-      height: 1.8em;
-    }
-    @include core-16
-  }
-}
-
-.print-and-modified-date {
-  float: left;
 }
 
 .print-link {
-  float: right;
   text-align:right;
+  margin: 0.5em 0;
+  padding-left: 1.4em;
+
+  @include ie-lte(7) {
+    padding-left: 0.2em;
+  }
 
   a, a:link, a:visited {
     background: image-url("print.png") no-repeat 100% 50%;
-    display: inline-block;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     padding-left: 30px;
     padding-right: 32px;
-    padding-top: 5px;
-    margin-top:-5px;
+    zoom: 1;
   }
 
   @include media(mobile) {
@@ -702,8 +714,6 @@ article {
 }
 
 .modified-date {
-  float: left;
-
   @include media(mobile) {
     width:40%;
   }
@@ -1338,6 +1348,7 @@ ul.ui-corner-all, ul li a.ui-corner-all {
         padding: 0 1.6rem;
         text-align: left;
         border-bottom: 1px solid #C9D0D0;
+        margin-bottom: 0;
       }
 
       &:hover {
@@ -1472,6 +1483,13 @@ ul.ui-corner-all, ul li a.ui-corner-all {
 
   .tab-shiftlink {
     @include core-19();
+    position: absolute;
+    left: -9999em;
+
+    @include media(mobile) {
+      position: static;
+      left: auto;
+    }
   }
 
   @include media(mobile) {
