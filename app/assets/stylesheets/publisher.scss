@@ -141,12 +141,13 @@ aside .show-all-parts {
   @include core-19($line-height: (45/19), $line-height-640: (45/13));
   border: solid 1px #C9D0D0;
   border-width: 1px 0;
-  display: block;
 
   padding: 0 16px;
   padding: 0 1.6rem;
+  display: none;
 
   @include media(mobile) {
+    display: block;
     background: transparent image-url("accordian-arrow.png") 100% 0 no-repeat;
   }
 
@@ -267,6 +268,14 @@ aside .page-navigation {
       }
     }
   }
+}
+
+aside .page-navigation-open ol {
+  display: block;
+}
+
+aside .page-navigation-closed ol {
+  display: none;
 }
 
 /* guides pagination */
