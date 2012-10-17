@@ -166,9 +166,8 @@ DEPENDENCIES
   aws-ses
   capybara (= 1.1.0)
   exception_notification
-  jasmine (= 1.1.2)
   govuk_frontend_toolkit (= 0.6.2)
-  jasmine
+  jasmine (= 1.1.2)
   lograge
   mocha (= 0.10.0)
   plek (~> 0)
