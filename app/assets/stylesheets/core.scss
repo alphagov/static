@@ -20,9 +20,6 @@ section#content {
   margin: 0 auto;
   max-width: 1020px;
   position: relative;
-  @include ie-lte(7) {
-    width: 1020px;
-  }
 
   @include ie-lte(7) {
     width: 960px;
