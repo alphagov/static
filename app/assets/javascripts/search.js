@@ -1,3 +1,3 @@
 $(function() {
-  $('#search-results-tabs').tabs();
+  $('#search-results-tabs').tabs({ 'defaultTab' : 0 });
 });

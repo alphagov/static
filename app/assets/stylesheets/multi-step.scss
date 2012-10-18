@@ -80,10 +80,6 @@
         display: block;
         margin: 0 0.5em 0 1em;
 
-        @include media(mobile) {
-          
-        }
-
         &.multiple {
           display: block;
 
