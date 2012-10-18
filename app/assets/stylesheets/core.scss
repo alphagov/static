@@ -1234,6 +1234,7 @@ article {
 
     @include media(mobile) {
       padding:0 1em 1em;
+      border-bottom: solid 1px #C9D0D0;
     }
   }
 
@@ -1283,7 +1284,7 @@ article {
       text-decoration: none;
 
       a, h1 {
-        background-position: 100% 100%;
+        background-position: 100% -48px;
         background-color: $grey-9;
         color: $text-colour;
         text-decoration: none;

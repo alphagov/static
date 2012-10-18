@@ -15,16 +15,19 @@
 /* styles */
 @import "normalize";
 @import "basic";
-@import "core";
-@import "header-footer";
 @import "text";
-@import "ancillary-pages";
+@import "core";
+
 @import "accessibility";
+@import "ancillary-pages";
+@import "header-footer";
+@import "notifications";
 @import "organisations";
+@import "publisher";
 @import "search";
+
 @import "static-pages/campaigns";
 @import "static-pages/error-pages";
 @import "static-pages/tour";
-@import "publisher";
+
 @import "multi-step";
-@import "notifications";
