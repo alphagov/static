@@ -1,7 +1,3 @@
-@import "_conditionals";
-@import "../styleguide/_font-stacks";
-@import "../styleguide/_typography";
-
 section.campaign {
   &#content {
     background-color: #fff;
@@ -43,7 +39,7 @@ section.campaign {
 
     h1,
     h2 {
-      color: #000;
+      color: $text-colour;
     }
 
     h1 {
@@ -159,7 +155,7 @@ article.campaign {
   max-width: 95%;
   margin: 0 2em;
   padding: 0 2em 1em 0;
-  border-bottom: solid 1px #d5d5d5;
+  border-bottom: solid 1px $grey-6;
 
   h2:first-of-type {
     margin-top: 1.5em;
