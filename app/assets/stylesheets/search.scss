@@ -52,10 +52,19 @@
 
   .tab-pane {
     padding: 1em 2em 0;
+    border-top: solid 1px #A1ACB2;
+    border-bottom: none;
+  }
+
+  @include media(mobile) {
+    .tabs-panel {
+      border-top: none;
+    }
   }
 
   ul {
     padding-left: 0;
+    list-style: none;
   }
 
   .internal-links {
@@ -91,8 +100,13 @@
   }
 }
 
-.search .js-tab-container:last-child .js-heading-tab {
+.search .js-tab-container:last-child .js-heading-tab,
+.search .js-tab-container:last-child .tabs-panel-selected {
   border-bottom: none;
+}
+
+.search .js-tab-container:last-child header.active {
+  border-bottom: solid 1px #A1ACB2;
 }
 
 /* Search results [this needs merging with "Results" section below!]
@@ -139,6 +153,7 @@ form.search-header {
   #search-main {
     font-size:1em;
     width: (240 / 19) * 1em;
+    -webkit-appearance: none;
 
     @include media(mobile) {
       margin-left: 0;
@@ -178,10 +193,8 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-.search .tabs-panel {
-  ul {
-    list-style: none;
-  }
+.search .tab-pane {
+  overflow: hidden;
 
   li {
     display: block;
