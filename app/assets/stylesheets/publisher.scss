@@ -64,7 +64,7 @@
 
   &.video {
     .video-wrapper {
-      background: image-url("play-video-cta.png")  no-repeat scroll 0 -80px #E5E5E5;
+      background: image-url("play-video-cta.png")  no-repeat scroll 0 -80px $grey-9;
       height: 5em;
       margin: 0 auto;
       overflow: hidden;
@@ -72,7 +72,7 @@
       width: 8.5em;
 
       &:hover {
-        background: image-url("play-video-cta.png") no-repeat scroll 0 0 #e5e5e5;
+        background: image-url("play-video-cta.png") no-repeat scroll 0 0 $grey-9;
       }
 
       a span {
@@ -139,7 +139,7 @@
 
 aside .show-all-parts {
   @include core-19($line-height: (45/19), $line-height-640: (45/13));
-  border: solid 1px #C9D0D0;
+  border: solid 1px $grey-6;
   border-width: 1px 0;
 
   padding: 0 16px;
@@ -179,7 +179,7 @@ aside .page-navigation {
   }
 
   li {
-    border-bottom: solid 1px #C9D0D0;
+    border-bottom: solid 1px $grey-6;
     list-style: none;
     @include core-16;
 
@@ -200,7 +200,7 @@ aside .page-navigation {
       zoom: 1;
 
       &:hover {
-        background-color: #E1E8E8;
+        background-color: $grey-9;
 
         span.part-title {
           color: #2E3191;
@@ -212,7 +212,7 @@ aside .page-navigation {
       display: block;
 
       &.part-label {
-        color: #000;
+        color: $grey-0;
         line-height: 1.5;
       }
 
@@ -224,7 +224,7 @@ aside .page-navigation {
     }
 
     &.active {
-      background-color: #E1E8E8;
+      background-color: $grey-8;
       padding: 0.75em 2em;
 
       @include ie(6) {
@@ -237,13 +237,13 @@ aside .page-navigation {
       }
 
       span.part-title {
-        color: #000;
+        color: $grey-0;
         text-decoration: none;
       }
     }
 
     &:first-child {
-      border-top: solid 1px #C9D0D0;
+      border-top: solid 1px $grey-6;
     }
 
     @include media(mobile) {
@@ -300,6 +300,7 @@ aside .page-navigation-closed ol {
     margin: 0;
     padding: 0;
     width: 48.5%;
+    background-color: $grey-8;
 
     &:first-child {
       margin-right: 3%;
@@ -307,12 +308,10 @@ aside .page-navigation-closed ol {
     }
 
     a {
-      background-color: #E1E8E8;
+      background-color: transparent;
       display: block;
-      float: left;
       min-height: 4.5em;
       text-decoration: none;
-      width: 87%;
 
       @include ie-lte(7) {
         height: 4.5em;
@@ -324,7 +323,7 @@ aside .page-navigation-closed ol {
       }
 
       .pagination-label {
-        color: #000;
+        color: $grey-0;
         display: block;
       }
 
@@ -354,7 +353,6 @@ aside .page-navigation-closed ol {
 
   .first,
   .last {
-    background-color: #E1E8E8;
     min-height: 4.5em;
 
     @include ie-lte(7) {
@@ -404,7 +402,7 @@ aside .page-navigation-closed ol {
 }
 
 .find-location-for-service {
-  background: #F2F2F2 image-url("locator-icon.png") no-repeat 1em 1em;
+  background: $grey-9 image-url("locator-icon.png") no-repeat 1em 1em;
   min-height: 2em;
   line-height: 2;
   margin: 2em -1em 0 -1em;
@@ -417,7 +415,7 @@ aside .page-navigation-closed ol {
   }
 
   p.geolocate-me {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $grey-6;
     @include core-16;
     margin-bottom: 0;
     padding-top: 1em;

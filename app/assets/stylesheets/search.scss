@@ -132,7 +132,6 @@ form.search-header {
     }
   }
 
-
   #search-main {
     font-size:1em;
     width: (266 / 19) * 1em;
@@ -236,39 +235,11 @@ input[type="search"]::-webkit-search-results-decoration {
         display: inline;
       }
       li.result-section {
-          background: transparent url("separator.png") 100% 50% no-repeat;
-          padding-right: 1em;
-          margin-right: 0.5em;
+        background: transparent url("separator.png") 100% 50% no-repeat;
+        padding-right: 1em;
+        margin-right: 0.5em;
       }
     }
-  }
-}
-
-.section-page .results-list li {
-  a {
-    @include core-19;
-  }
-
-  p {
-    @include core-16;
-  }
-}
-
-/* Browse Summary
-============================================================================ */
-.section-page.ancillary .summary {
-  padding: 0 0 1.5em 0;
-  border-bottom: .0625em solid #ccc;
-  margin: 0 0 1.4375em 0;
-  background-color: transparent;
-  max-width: 32.5em;
-
-  p {
-    margin: 0;
-    padding: 0;
-    @include core-19;
-    background: transparent;
-    color: #333;
   }
 }
 
@@ -338,53 +309,6 @@ input[type="search"]::-webkit-search-results-decoration {
           padding: 3px 4px 1px 4px;
           text-align: center;
           text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-.section-page .filters {
-  margin-top: -5em;
-
-  ul li {
-    margin-left: 0;
-    @include core-19;
-
-    a {
-      padding: 0;
-
-      &:hover {
-        background-color: transparent;
-        text-decoration: underline;
-      }
-    }
-
-    ul {
-      border-top: .0625em solid #ccc;
-      margin-bottom: 1.5625em;
-
-      li {
-        display: block;
-        margin: 0;
-        @include core-16;
-
-        a {
-          color: #333;
-          border-radius: 2px;
-          display: block;
-          padding: 2px 2px 2px 5px;
-          text-decoration: none;
-
-          &:hover {
-            background-color: #eee;
-          }
-        }
-
-        &.active a,
-        &.active a:hover {
-          background-color: #999;
-          color: #fff;
         }
       }
     }
