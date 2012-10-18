@@ -132,12 +132,8 @@ li.done .undo {
   }
 
   a {
-    color: #333;
+    color: $grey-2;
     display: block;
-
-    @include ie-lte(6) {
-      color: #333;
-    }
   }
 }
 
