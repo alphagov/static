@@ -54,6 +54,14 @@
     padding: 1em 2em 0;
     border-top: solid 1px #A1ACB2;
     border-bottom: none;
+
+    @include media(mobile) {
+      padding: 1em 1em 0;
+    }
+  }
+
+  .single-item-pane {
+    border-top: none;
   }
 
   @include media(mobile) {
