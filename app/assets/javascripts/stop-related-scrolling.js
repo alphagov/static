@@ -18,6 +18,6 @@ $(function(){
   }
 
   if(!checkOverflow()){
-    window.GOVUK.stopScrollingAtFooter.addEl($('.related-positioning'), $('#related .inner').height());
+    window.GOVUK.stopScrollingAtFooter.addEl($('.related-positioning'), $('#related').height());
   }
 });

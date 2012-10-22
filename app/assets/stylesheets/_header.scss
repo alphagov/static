@@ -144,10 +144,7 @@
         background-repeat: no-repeat;
         background-position: 75% 50%;
 
-        -webkit-box-sizing: content-box;
-        -moz-box-sizing: content-box;
-        box-sizing: content-box;
-
+        @include box-sizing(content-box);
         @include border-radius(0);
       }
 
