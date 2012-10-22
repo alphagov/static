@@ -84,7 +84,9 @@ $(document).ready(function() {
   });
 
   // form submission for reporting a problem
-  $('.report-a-problem-container form').submit(function() {
+  $('.report-a-problem-container form').append(
+    '<input type="hidden" name="javascript_enabled" value="true"/>'
+  ).submit(function() {
     $.ajax({
       type: "POST",
       url: "/feedback",
