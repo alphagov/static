@@ -149,6 +149,7 @@ aside .show-all-parts {
   @include media(mobile) {
     display: block;
     background: transparent image-url("accordian-arrow.png") 100% 6px no-repeat;
+    background-position: 100% 0.6rem;
   }
 
   &,
@@ -159,6 +160,7 @@ aside .show-all-parts {
 
   &.show-all-parts-open {
     background-position: 100% -40px;
+    background-position: 100% -4rem;
     border-bottom: none;
   }
 }
