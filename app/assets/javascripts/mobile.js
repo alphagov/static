@@ -1,6 +1,6 @@
 // Scripts for behaviour specific to use on mobile (non-desktop) devices
 
-(function () {
+$(function () {
   var GOVUK = GOVUK || {};
 
   var guideTabs = function () {
@@ -59,4 +59,4 @@
   };
 
   GOVUK.guideTabs = new guideTabs();
-}(jQuery));
+});
