@@ -273,11 +273,15 @@ aside .page-navigation {
 }
 
 aside .page-navigation-open ol {
-  display: block;
+  position: static;
+  left: auto;
 }
 
-aside .page-navigation-closed ol {
-  display: none;
+@include media(mobile) {
+  aside .page-navigation-closed ol {
+    position: absolute;
+    left: -9999em;
+  }
 }
 
 /* guides pagination */
