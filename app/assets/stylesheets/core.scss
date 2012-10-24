@@ -1210,6 +1210,13 @@ article {
   }
 }
 
+/* give tabs the whole width of the central column in 2-column grids */ 
+#wrapper.answer article .inner .nav-tabs,
+#wrapper.transaction article .inner .nav-tabs,
+#wrapper.local_transaction article .inner .nav-tabs {
+  margin-right: -10em;
+}
+
 .tab-content {
   margin: 0 -10em 0 -2em;
 
