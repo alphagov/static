@@ -87,6 +87,7 @@ $(document).ready(function() {
   $('.report-a-problem-container form').append(
     '<input type="hidden" name="javascript_enabled" value="true"/>'
   ).submit(function() {
+    $('.report-a-problem-container .error-notification').remove();
     $.ajax({
       type: "POST",
       url: "/feedback",
@@ -94,12 +95,18 @@ $(document).ready(function() {
       data: $('.report-a-problem-container form').serialize(),
       success: function(data) {
           $('.report-a-problem-container').html(data.message);
-          
+        },
+      error: function(req,data) {
+          if (req.status == 422) {
+            $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container p:first-child');
+          } else if (data.message !== '') {
+            $('.report-a-problem-container').html(data.message);
+          }
         }
     });
     return false;
   });
-  
+
 });
 
 
