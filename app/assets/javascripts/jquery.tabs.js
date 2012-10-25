@@ -336,11 +336,11 @@ jQuery.fn.tabs = function(settings){
 		if(o.alwaysScrollToTop){
 			$(window)[0].scrollTo(0,0);
 		}
-	});
 	
-	// related content box needs to know the top position of the footer
-	// this changes when content is split into tabs
-	if (typeof GOVUK.stopScrollingAtFooter !== 'undefined') {
-		GOVUK.stopScrollingAtFooter.updateFooterTop();
-	}
+            // related content box needs to know the top position of the footer
+            // this changes when content is split into tabs
+            if (typeof GOVUK.stopScrollingAtFooter !== 'undefined') {
+                    GOVUK.stopScrollingAtFooter.updateFooterTop();
+            }
+	});
 };
