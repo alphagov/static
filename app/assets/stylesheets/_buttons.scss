@@ -56,10 +56,15 @@
 .button.big:active,
 .button:active span.call-to-action {
   top: 0;
+  box-shadow:none;
+}
+
+input.button:active,
+input.button.big:active,
+input.button:active span.call-to-action {
   margin-top: -3px;
   border-top: 3px solid #fff;
   border-radius: 6px 6px 3px 3px;
-  box-shadow:none;
 }
 
 /* 
