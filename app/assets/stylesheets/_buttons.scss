@@ -13,10 +13,8 @@
   text-decoration: none;
   position: relative;
   top: -3px;
+  margin-bottom: 3px;
   line-height: (20 / 16);
-  -webkit-box-shadow: 0 2px 0 #000;
-  -moz-box-shadow: 0 2px 0 #000;
-  box-shadow: 0 2px 0 #000;
 }
 
 .button:active,
@@ -58,12 +56,10 @@
 .button:active,
 .button.big:active,
 .button:active span.call-to-action {
-  -webkit-transform: translate(0, 3px);
-  -moz-transform: translate(0, 3px);
-  -o-transform: translate(0, 3px);
-  transform: translate(0, 3px);
+  margin-bottom: 0;
+  border-top: 3px solid #fff;
+  border-radius: 6px 6px 3px 3px;
   box-shadow:none;
-  outline:none;
 }
 
 /* 
