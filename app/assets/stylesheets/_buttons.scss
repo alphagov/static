@@ -66,6 +66,29 @@
   outline:none;
 }
 
+/* 
+ * making a click target which is bigger than the button 
+ * (and fills the space made when the button moves) 
+ */
+.button:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button:active:before {
+  -webkit-transform: translate(0, -10%);
+  -moz-transform: translate(0, -10%);
+  -o-transform: translate(0, -10%);
+  transform: translate(0, -10%);
+  height: 120%;
+}
+
 .get-started .button,
 .get-started .button.big {
   @include core-24($line-height: (16 / 24)); 
