@@ -77,6 +77,32 @@ describe("success event tracking", function () {
         });
     });
 
+    describe("getSlug", function() {
+        it("should return the slug from a url", function() {
+           var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator");
+
+           expect(result).toEqual("student-finance-calculator");
+        });
+
+        it("should return slug even if there is a fragment", function() {
+            var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator#foobar");
+
+            expect(result).toEqual("student-finance-calculator");
+        });
+
+        it("should return slug even if there is more of the request path", function() {
+            var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator/foobar");
+
+            expect(result).toEqual("student-finance-calculator");
+        });
+
+        it("should return slug even if there is a query string", function() {
+            var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator?foobar=barfoo");
+
+            expect(result).toEqual("student-finance-calculator");
+        });
+    });
+
     describe("analytics integration", function () {
         it("should register entry event", function () {
             GOVUK.Analytics.Format = 'guide';
@@ -84,7 +110,7 @@ describe("success event tracking", function () {
             GOVUK.Analytics.startAnalytics();
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
-            var expectedDataToSendToGoogle = ['_trackEvent', 'MS_guide', '99999', 'Entry'];
+            var expectedDataToSendToGoogle = ['_trackEvent', 'MS_guide', '', 'Entry'];
             expect(arguments.length).toBe(1);
             // using JSONEquals because there is a bug in the .toHaveBeenCalledWith() method
             // see: https://github.com/pivotal/jasmine/issues/45
@@ -145,7 +171,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success']);
         });
 
         it("should register success event for guide format when an internal link inside #content is clicked", function () {
@@ -157,7 +183,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success']);
         });
 
         it("should not register multiple guide success events when navigating to items on the same page", function () {
@@ -172,7 +198,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '99999', 'Success']);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success']);
         });
 
         it("should not register external click if internal link has been clicked", function () {
@@ -208,7 +234,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(1);
-            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '', 'Success']);
         });
 
         it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function () {
@@ -222,7 +248,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(1);
-            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '99999', 'Success']);
+            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '', 'Success']);
         });
 
         it("should register custom condition for entry and success tracking for smart answers", function () {
