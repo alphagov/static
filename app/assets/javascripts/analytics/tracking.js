@@ -16,6 +16,10 @@ GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl) {
     return currentSlug === previousSlug;
 };
 
+GOVUK.Analytics.getSlug = function(url) {
+    return url.split('/')[3].split("#")[0].split("?")[0];
+};
+
 GOVUK.Analytics.isRootOfArtefact = function(url) {
     return url.replace(/\/$/, "").split("/").slice(3).length === 1;
 };
@@ -44,13 +48,13 @@ GOVUK.Analytics.startAnalytics = function () {
     };
 
     var createEvent = function(type) {
-        return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.NeedID, type];
+        return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.getSlug(document.URL), type];
     };
 
     var handleExternalLink = function(e) {
         if (success) return;
         success = true;
-        var slug = encodeURIComponent(document.URL.split('/')[3].split("#")[0]),
+        var slug = encodeURIComponent(GOVUK.Analytics.getSlug(document.URL)),
             exitLink = '/exit?slug=' + slug + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
 
         $(this).prop('href', exitLink);

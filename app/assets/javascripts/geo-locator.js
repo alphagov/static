@@ -131,6 +131,34 @@ var AlphaGeoForm = function(selector) {
     show_ui(ask_ui);
   }
 
+  // Safari >5.0's Geolocation implementation is broken on windows 
+  // see http://www.quirksmode.org/webkit.html
+  function geoImplementationWorks() {
+    var agentString = navigator.userAgent,
+        isWindows = (agentString.match(/Windows/) !== null),
+        isSafari = agentString.match(/Safari/),
+        safariVersion;
+
+    if (!isWindows || !isSafari) {
+      return true;
+    } else {
+      // Some versions of webkit (such as Chrome) still report as Safari so check version as well
+      safariVersion = agentString.match(/Version\/([\d\.]+)/)
+      if (safariVersion === null) {
+        return true;
+      } else {
+        safariVersion = parseFloat(safariVersion[1]);
+      }
+    }
+
+    // assume next update will fix this
+    if (safariVersion >= 5 && safariVersion <= 5.1) {
+      return false;
+    }
+
+    return true;
+  }
+
   function show_ui(selector) {
     $(all_ui).each(function(k, item){
       item.hide().css('visibility','hidden');
@@ -142,7 +170,7 @@ var AlphaGeoForm = function(selector) {
     $('<p class="cookie-container"><span class="sets-cookie"><a href="/help/cookies/#locationcookies" title="This form sets a location cookie">Sets a cookie</a></span></p>').appendTo(ask_ui);
   }
 
-  if (navigator.geolocation) {
+  if (navigator.geolocation && geoImplementationWorks()) {
     $('<p class="geolocate-me">or <a href="#">locate me automatically</a></p>').appendTo(ask_ui);
     append_cookie_notice();
 
