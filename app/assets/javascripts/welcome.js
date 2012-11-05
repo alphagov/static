@@ -164,10 +164,10 @@ $(function() {
       $relatedColumn = $('#wrapper .related-positioning');
 
   addStyle = function (rule) {
-    var sheet = document.styleSheets[document.styleSheets.length - 1],
-        rulesLen = sheet.cssRules ? sheet.cssRules.length : sheet.rules.length;
+    var sheet = document.styleSheets[document.styleSheets.length - 1], 
+        rulesLen = sheet.cssRules ? sheet.cssRules.length : sheet.rules.length; 
 
-    if (sheet.insertRule) {
+    if (typeof sheet.insertRule !== 'undefined') {
       sheet.insertRule(rule.selector + '{' + rule.styles + '}', rulesLen);
     } else {
       sheet.addRule(rule.selector, rule.styles);
