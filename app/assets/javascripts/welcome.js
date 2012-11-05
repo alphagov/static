@@ -159,11 +159,25 @@ function getCookie(name){
 }
 
 $(function() {
-  var $message = $('#global-cookie-message'),
+  var addStyle,
+      $message = $('#global-cookie-message'),
       $relatedColumn = $('#wrapper .related-positioning');
+
+  addStyle = function (rule) {
+    var sheet = document.styleSheets[document.styleSheets.length - 1],
+        rulesLen = sheet.cssRules ? sheet.cssRules.length : sheet.rules.length;
+
+    if (sheet.insertRule) {
+      sheet.insertRule(rule.selector + '{' + rule.styles + '}', rulesLen);
+    } else {
+      sheet.addRule(rule.selector, rule.styles);
+    }
+  };
 
   if ($message.length && getCookie('seen_cookie_message') === null) {
     if ($relatedColumn.length) {
+      // correct the related module top position to consider the cookie bar
+      addStyle({ selector : '.related-positioning', styles : 'top : ' + (parseFloat($relatedColumn.css('top')) + $message.innerHeight()) + 'px;' });
       // related content box needs to know the top position of the footer
       // this changes when content is split into tabs
       if (typeof GOVUK.stopScrollingAtFooter !== 'undefined') {
