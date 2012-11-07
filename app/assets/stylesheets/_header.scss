@@ -116,9 +116,22 @@
       display: inline;
       margin: 0;
       padding: 0.25em 0.5em;
+      
+      @include ie(8) {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      @include ie-lte(7) {
+        background-image: none;
+        padding: 0.25em 0.5em;
+      }
+
+      @include ie(6) {
+        padding: 0.25em 0em;
+      }
 
       position: static;
- 
       
       @include border-radius(0);
       @include box-shadow(none);
