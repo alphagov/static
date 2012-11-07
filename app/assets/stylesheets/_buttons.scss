@@ -15,11 +15,9 @@
   top: -3px;
   line-height: (20 / 16);
   cursor: pointer;
-  -webkit-box-shadow: 0 2px 0 #000;
-  -moz-box-shadow: 0 2px 0 #000;
-  box-shadow: 0 2px 0 #000;
 
   @include ie-lte(8) {
+    top: 0;
     border-bottom: solid 3px #000;
     margin-bottom: -3px;
   }
