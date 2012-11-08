@@ -99,7 +99,7 @@
       @include box-shadow(none);
 
       &:active {
-        @include translate(0, 0);
+        top: 0;
       }
     }
 
@@ -143,7 +143,7 @@
       }
 
       &:active {
-        @include translate(0, 0);
+        top: 0;
       }
 
       @include media(mobile) {
@@ -164,6 +164,17 @@
       @media screen and (max-width: 379px) {
         float: right;
         margin: 0.3em 0;
+      }
+    }
+
+    @include ie-lte(7) {
+      input.button-active {
+        background-color: #28A197;
+        top: 0;
+      }
+
+      input.button-hover {
+        background-color: #3ABAA8;
       }
     }
 
