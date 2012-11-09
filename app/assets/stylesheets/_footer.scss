@@ -66,18 +66,14 @@
     ul {
       @include core-16;
       list-style: none;
-      
-      padding: 20px 0 0 0;
-      padding: 2rem 0 0 0;
 
-      margin: 30px 3.5% 0 0;
-      margin: 3rem 3.5% 0 0;
-
-      border: 1px solid $grey-6;
-      border-width: 1px 0 0 0;
+      margin: 30px 0 0 0;
+      margin: 3rem 0 0 0;
 
       display: inline-block;
-      width: 31%;
+      width: 69%;
+
+      padding: 0;
 
       min-height: 210px;
       min-height: 21rem;
@@ -89,8 +85,43 @@
       }
     
       li {
-        margin: 0 20% 15px 0;
-        margin: 0 20% 1.5rem 0;
+        display: block;
+
+        float: left;
+        clear: left;
+
+        margin: 0 4.5% 15px 0;
+        margin: 0 4.5% 1.5rem 0;
+        width: 45.5%;
+
+        &:nth-child(even) {
+          float: right;
+          clear: none;
+        }
+
+        &:first-child,
+        &:nth-child(2) {
+          border: 1px solid $grey-6;
+          border-width: 1px 0 0 0;
+          padding: 20px 0 0 0;
+          padding: 2rem 0 0 0;
+        }
+
+        @include media(mobile) {
+          float: none;
+          width: 100%;
+          margin-left: 0;
+
+          &:nth-child(even) {
+            float: none;
+          }
+
+          &:first-child,
+          &:nth-child(2) {
+            border-top: none;
+            padding-top: 0;
+          }
+        }
       }
 
       a {
