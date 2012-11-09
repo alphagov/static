@@ -99,7 +99,7 @@
       @include box-shadow(none);
 
       &:active {
-        @include translate(0, 0);
+        top: 0;
       }
     }
 
@@ -116,9 +116,22 @@
       display: inline;
       margin: 0;
       padding: 0.25em 0.5em;
+      
+      @include ie(8) {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      @include ie-lte(7) {
+        background-image: none;
+        padding: 0.25em 0.5em;
+      }
+
+      @include ie(6) {
+        padding: 0.25em 0em;
+      }
 
       position: static;
- 
       
       @include border-radius(0);
       @include box-shadow(none);
@@ -130,7 +143,7 @@
       }
 
       &:active {
-        @include translate(0, 0);
+        top: 0;
       }
 
       @include media(mobile) {
@@ -151,6 +164,17 @@
       @media screen and (max-width: 379px) {
         float: right;
         margin: 0.3em 0;
+      }
+    }
+
+    @include ie-lte(7) {
+      input.button-active {
+        background-color: #28A197;
+        top: 0;
+      }
+
+      input.button-hover {
+        background-color: #3ABAA8;
       }
     }
 
