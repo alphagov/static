@@ -124,11 +124,6 @@
 
       @include ie-lte(7) {
         background-image: none;
-        padding: 0.25em 0.5em;
-      }
-
-      @include ie(6) {
-        padding: 0.25em 0em;
       }
 
       position: static;
