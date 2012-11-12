@@ -32,13 +32,13 @@ GOVUK.Analytics.Trackers.transaction = function (control) {
 /* Benefit */
 GOVUK.Analytics.Trackers.programme = function (control) {
     control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks("#content a");
+    control.trackInternalLinks($("#content a"));
 };
 
 /* Quick answer */
 GOVUK.Analytics.Trackers.answer = function (control) {
     control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks("#content a");
+    control.trackInternalLinks($("#content a"));
 };
 
 /* Smart Answer */
@@ -80,4 +80,9 @@ GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
         // For multi-page navigation, we should track success if entry event has been fired (token exists)
         return GOVUK.Analytics.entryTokens.tokenExists() && $("article.outcome").length === 1;
     }
+};
+
+GOVUK.Analytics.Trackers.inside_gov.policy = function(control) {
+    control.trackTimeBasedSuccess(7000);
+    control.trackInternalLinks($("#page a"));
 };

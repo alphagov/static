@@ -70,9 +70,9 @@ GOVUK.Analytics.startAnalytics = function () {
         }
     };
 
-    var trackLinks = function(selector, trackExternal) {
+    var trackLinks = function(selection, trackExternal) {
         // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
-        $(selector).each(function () {
+        selection.each(function () {
             var linkToTrack = $(this),
                 trackingFunction,
                 linkHost = this.host.split(":")[0], // ie9 bug: ignore the appended port
@@ -100,11 +100,11 @@ GOVUK.Analytics.startAnalytics = function () {
             success = true;
             GOVUK.sendToAnalytics(createEvent("Success"));
         },
-        trackInternalLinks: function(selector) {
-            trackLinks(selector, false);
+        trackInternalLinks: function(selection) {
+            trackLinks(selection, false);
         },
-        trackLinks:function (selector) {
-            trackLinks(selector, true);
+        trackLinks:function (selection) {
+            trackLinks(selection, true);
         },
         trackTimeBasedSuccess:function (time) {
             setTimeout(trackingApi.trackSuccess, time);
