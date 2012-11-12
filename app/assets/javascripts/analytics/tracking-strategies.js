@@ -20,13 +20,13 @@ GOVUK.Analytics.Trackers = {};
 /* Guide */
 GOVUK.Analytics.Trackers.guide = function (control) {
     control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks("#content a");
+    control.trackInternalLinks($("#content a"));
 };
 
 /* Transaction (services) */
 GOVUK.Analytics.Trackers.transaction = function (control) {
-    control.trackInternalLinks("#content a");
-    control.trackLinks("#get-started a");
+    control.trackInternalLinks($("#content a"));
+    control.trackLinks($("#get-started a"));
 };
 
 /* Benefit */
