@@ -82,7 +82,9 @@ GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
     }
 };
 
-GOVUK.Analytics.Trackers.inside_gov.policy = function(trackingApi) {
+GOVUK.Analytics.Trackers.policy = function(trackingApi) {
     trackingApi.trackTimeBasedSuccess(7000);
-    trackingApi.trackInternalLinks($("#page a"));
+    trackingApi.trackInternalLinks($("#page a").filter(function () {
+        return !(this.baseURI === document.URL.split('#')[0] && this.hash !== "")
+    }));
 };

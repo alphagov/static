@@ -276,4 +276,47 @@ describe("success event tracking", function () {
             expect(parts[3]).toEqual(expected)
         });
     });
+
+    describe("Success tracking for inside gov. policy format", function () {
+        var policyMarkup = $("<div id='page' class='policy-stub'>" +
+            "<a id='policy-in-page-link' href='#foo'></a>" +
+            "<a id='policy-internal-link' href='/foobar'></a>" +
+            "</div>");
+
+        beforeEach(function () {
+            policyMarkup.clone().appendTo('body');
+        });
+
+        afterEach(function () {
+            $('.policy-stub').remove();
+        });
+
+        it("should register a success event for internal (GOV.UK) links", function () {
+            GOVUK.Analytics.Format = 'policy';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            spyOn(GOVUK.Analytics.internalSiteEvents, 'push');
+
+            $('#policy-internal-link').click();
+
+            expect(GOVUK.Analytics.internalSiteEvents.push).toHaveBeenCalled();
+        });
+
+        it("should not register a success event for in-page links", function () {
+            GOVUK.Analytics.Format = 'policy';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            $('#policy-in-page-link').click();
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+
+            // should only get entry event, not success.
+            expect(arguments.length).toBe(1);
+            expect(arguments[0][0][3]).toBe('Entry')
+            expect(arguments[0][0][1]).toBe('MS_policy')
+        });
+
+
+    });
 });
