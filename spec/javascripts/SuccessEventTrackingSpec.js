@@ -325,7 +325,69 @@ describe("success event tracking", function () {
 
             expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
         });
+    });
 
+    describe("Success tracking for inside gov. detailed-guidance format", function () {
+        var detailedGuidanceMarkup = $("<div id='page' class='guidance-stub'>" +
+            "<a id='detailed-guide-in-page-link' href='#foo'></a>" +
+            "<a id='detailed-guide-internal-link' href='/foobar'></a>" +
+            "<a id='detailed-guide-external-link' href='http://www.google.com/foobar'></a>" +
+            "</div>");
 
+        beforeEach(function () {
+            detailedGuidanceMarkup.clone().appendTo('body');
+        });
+
+        afterEach(function () {
+            $('.guidance-stub').remove();
+        });
+
+        it("should register a success event for internal (GOV.UK) links", function () {
+            GOVUK.Analytics.Format = 'detailed_guidance';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            spyOn(GOVUK.Analytics.internalSiteEvents, 'push');
+
+            $('#detailed-guide-internal-link').click();
+
+            expect(GOVUK.Analytics.internalSiteEvents.push).toHaveBeenCalled();
+        });
+
+        it("should register a success event for in-page links", function () {
+            GOVUK.Analytics.Format = 'detailed_guidance';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            $('#detailed-guide-in-page-link').click();
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+
+            expect(arguments.length).toBe(2);
+            expect(arguments[0][0][3]).toBe('Entry');
+            expect(arguments[0][0][1]).toBe('MS_detailed_guidance');
+            expect(arguments[1][0][3]).toBe('Success');
+            expect(arguments[1][0][1]).toBe('MS_detailed_guidance');
+        });
+
+        it("should not attempt to rewrite the href for external links", function () {
+            GOVUK.Analytics.Format = 'detailed_guidance';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            var currentHref = $('#detailed-guide-external-link').attr('href');
+
+            $('#detailed-guide-external-link').click();
+
+            expect($('#detailed-guide-external-link').attr('href')).toBe(currentHref);
+        });
+
+        it("should register a success timeout for thirty seconds", function () {
+            spyOn(window, 'setTimeout');
+            GOVUK.Analytics.Format = 'detailed_guidance';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
+        });
     });
 });

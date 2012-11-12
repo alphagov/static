@@ -88,3 +88,8 @@ GOVUK.Analytics.Trackers.policy = function(trackingApi) {
         return !(this.baseURI === document.URL.split('#')[0] && this.hash !== "")
     }));
 };
+
+GOVUK.Analytics.Trackers.detailed_guidance = function(trackingApi) {
+    trackingApi.trackTimeBasedSuccess(30000);
+    trackingApi.trackInternalLinks($("#page a"));
+};
