@@ -18,27 +18,27 @@ GOVUK.Analytics.Trackers = {};
  */
 
 /* Guide */
-GOVUK.Analytics.Trackers.guide = function (control) {
-    control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks($("#content a"));
+GOVUK.Analytics.Trackers.guide = function (trackingApi) {
+    trackingApi.trackTimeBasedSuccess(7000);
+    trackingApi.trackInternalLinks($("#content a"));
 };
 
 /* Transaction (services) */
-GOVUK.Analytics.Trackers.transaction = function (control) {
-    control.trackInternalLinks($("#content a"));
-    control.trackLinks($("#get-started a"));
+GOVUK.Analytics.Trackers.transaction = function (trackingApi) {
+    trackingApi.trackInternalLinks($("#content a"));
+    trackingApi.trackLinks($("#get-started a"));
 };
 
 /* Benefit */
-GOVUK.Analytics.Trackers.programme = function (control) {
-    control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks($("#content a"));
+GOVUK.Analytics.Trackers.programme = function (trackingApi) {
+    trackingApi.trackTimeBasedSuccess(7000);
+    trackingApi.trackInternalLinks($("#content a"));
 };
 
 /* Quick answer */
-GOVUK.Analytics.Trackers.answer = function (control) {
-    control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks($("#content a"));
+GOVUK.Analytics.Trackers.answer = function (trackingApi) {
+    trackingApi.trackTimeBasedSuccess(7000);
+    trackingApi.trackInternalLinks($("#content a"));
 };
 
 /* Smart Answer */
@@ -48,15 +48,15 @@ GOVUK.Analytics.Trackers.answer = function (control) {
  *   event has been fired.
  *
  */
-GOVUK.Analytics.Trackers.smart_answer = function (control) {
+GOVUK.Analytics.Trackers.smart_answer = function (trackingApi) {
     if (GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation()) {
         // For AJAX navigation we expect an event on success
-        $(document).bind("smartanswerOutcome", control.trackSuccess);
+        $(document).bind("smartanswerOutcome", trackingApi.trackSuccess);
     } else {
         // For multi-page navigation, we need to check if this page has an outcome
         $(function () {
             if ($("article.outcome").length === 1) {
-                control.trackSuccess();
+                trackingApi.trackSuccess();
             }
         });
     }
@@ -82,7 +82,7 @@ GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
     }
 };
 
-GOVUK.Analytics.Trackers.inside_gov.policy = function(control) {
-    control.trackTimeBasedSuccess(7000);
-    control.trackInternalLinks($("#page a"));
+GOVUK.Analytics.Trackers.inside_gov.policy = function(trackingApi) {
+    trackingApi.trackTimeBasedSuccess(7000);
+    trackingApi.trackInternalLinks($("#page a"));
 };
