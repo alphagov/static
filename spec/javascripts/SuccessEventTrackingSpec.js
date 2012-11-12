@@ -317,6 +317,15 @@ describe("success event tracking", function () {
             expect(arguments[0][0][1]).toBe('MS_policy')
         });
 
+        it("should register a success timeout for thirty seconds", function () {
+            spyOn(window, 'setTimeout');
+            GOVUK.Analytics.Format = 'policy';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
+        });
+
 
     });
 });
