@@ -2,7 +2,6 @@ var GOVUK = GOVUK || {};
 GOVUK.Analytics = GOVUK.Analytics || {};
 GOVUK.Analytics.Trackers = {};
 
-
 /*
  * Available methods on control:
  * - trackTimeBasedSuccess(millisecondsUntilSuccess)
@@ -98,3 +97,18 @@ GOVUK.Analytics.Trackers.news = function(trackingApi) {
     trackingApi.trackInternalLinks($("#page a"));
     trackingApi.trackTimeBasedSuccess(30000);
 };
+
+GOVUK.Analytics.trackingPrefixes = {
+    MAINSTREAM: 'MS_',
+    INSIDE_GOV: 'IG_'
+};
+
+GOVUK.Analytics.Trackers.news.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
+GOVUK.Analytics.Trackers.detailed_guidance.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
+GOVUK.Analytics.Trackers.policy.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
+
+GOVUK.Analytics.Trackers.smart_answer.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.guide.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.programme.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.transaction.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.answer.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;

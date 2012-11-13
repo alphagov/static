@@ -314,7 +314,7 @@ describe("success event tracking", function () {
             // should only get entry event, not success.
             expect(arguments.length).toBe(1);
             expect(arguments[0][0][3]).toBe('Entry')
-            expect(arguments[0][0][1]).toBe('MS_policy')
+            expect(arguments[0][0][1]).toBe('IG_policy')
         });
 
         it("should register a success timeout for thirty seconds", function () {
@@ -364,9 +364,9 @@ describe("success event tracking", function () {
 
             expect(arguments.length).toBe(2);
             expect(arguments[0][0][3]).toBe('Entry');
-            expect(arguments[0][0][1]).toBe('MS_detailed_guidance');
+            expect(arguments[0][0][1]).toBe('IG_detailed_guidance');
             expect(arguments[1][0][3]).toBe('Success');
-            expect(arguments[1][0][1]).toBe('MS_detailed_guidance');
+            expect(arguments[1][0][1]).toBe('IG_detailed_guidance');
         });
 
         it("should not attempt to rewrite the href for external links", function () {
@@ -428,9 +428,9 @@ describe("success event tracking", function () {
 
             expect(argumentsForGoogleAnalytics.length).toBe(2);
             expect(argumentsForGoogleAnalytics[0][0][3]).toBe('Entry');
-            expect(argumentsForGoogleAnalytics[0][0][1]).toBe('MS_news');
+            expect(argumentsForGoogleAnalytics[0][0][1]).toBe('IG_news');
             expect(argumentsForGoogleAnalytics[1][0][3]).toBe('Success');
-            expect(argumentsForGoogleAnalytics[1][0][1]).toBe('MS_news');
+            expect(argumentsForGoogleAnalytics[1][0][1]).toBe('IG_news');
         });
 
         it("should not attempt to rewrite the href for external links", function () {

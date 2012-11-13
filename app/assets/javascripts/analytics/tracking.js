@@ -27,6 +27,7 @@ GOVUK.Analytics.isRootOfArtefact = function(url) {
 GOVUK.Analytics.startAnalytics = function () {
     var ENTER_KEYCODE = 13;
     var success = false;
+    var prefix = 'none';
 
     var shouldIDoAnalyticsForThisPage = function () {
         return GOVUK.Analytics.NeedID;
@@ -48,7 +49,7 @@ GOVUK.Analytics.startAnalytics = function () {
     };
 
     var createEvent = function(type) {
-        return ['_trackEvent', 'MS_' + GOVUK.Analytics.Format, GOVUK.Analytics.getSlug(document.URL), type];
+        return ['_trackEvent', prefix + GOVUK.Analytics.Format, GOVUK.Analytics.getSlug(document.URL), type];
     };
 
     var handleExternalLink = function(e) {
@@ -113,6 +114,7 @@ GOVUK.Analytics.startAnalytics = function () {
 
     var format = GOVUK.Analytics.Format,
         trackingStrategy = GOVUK.Analytics.Trackers[format];
+    if (GOVUK.Analytics.Trackers[format] !== undefined) prefix = GOVUK.Analytics.Trackers[format].prefix;
     if (shouldIDoAnalyticsForThisPage() && typeof trackingStrategy === "function") {
       var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
       if (shouldTrackEvent(trackingStrategy.shouldTrackEntry, !isTheSameArtefact)) {
