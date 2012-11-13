@@ -40,6 +40,8 @@
     padding: 0 0 60px 0;
     padding: 0 0 6rem 0;
 
+    width: 100%;
+
     @include media(mobile) {
       padding: 20px 0;
       padding: 2rem 0;
@@ -71,7 +73,8 @@
       margin: 20px 0 0 0;
       margin: 2rem 0 0 0;
 
-      padding: 0;
+      padding: 20px 0 0 0;
+      padding: 2rem 0 0 0;
 
       min-height: 210px;
       min-height: 21rem;
@@ -89,8 +92,9 @@
         float: left;
         clear: left;
 
-        margin: 0 4.5% 15px 0;
-        margin: 0 4.5% 1.5rem 0;
+        margin: 0 0 15px 0;
+        margin: 0 0 1.5rem 0;
+
         width: 45.5%;
 
         &:nth-child(even) {
@@ -98,21 +102,14 @@
           clear: none;
         }
 
-        &:first-child,
-        &:nth-child(2) {
-          padding: 20px 0 0 0;
-          padding: 2rem 0 0 0;
-        }
-
         @include ie-lte(8) {
           display: inline;
-          min-height: 4.5em;
+          min-height: 1.5em;
           clear: none;
         }
 
         @include ie(6) {
-          height: 4.5em;
-          border: solid 1px red;
+          height: 1.5em;
         }
 
         @include media(mobile) {
@@ -130,6 +127,11 @@
             padding-top: 0;
           }
         }
+      }
+
+      @include ie(6) {
+        border-top: none;
+        zoom: 1;
       }
     }
 
@@ -230,6 +232,12 @@
         display: block;
         clear: left;
       }
+    
+      @include ie-lte(7) {
+        display: block;
+        float: left;
+      }
+
     }
 
     .copyright {
@@ -243,7 +251,8 @@
       min-height: 15rem;
 
       @include ie-lte(7) {
-        // float: left;
+        display: block;
+        float: right;
         height: 150px;
         width: 29%;
       }
