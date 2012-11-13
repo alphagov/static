@@ -390,4 +390,69 @@ describe("success event tracking", function () {
             expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
         });
     });
+
+    describe("success tracking for inside-gov news format", function () {
+        var newsMarkup = $("<div id='page' class='page-stub'>" +
+            "<a id='news-in-page-link' href='#foo'></a>" +
+            "<a id='news-internal-link' href='/foobar'></a>" +
+            "<a id='news-external-link' href='http://www.google.com/foobar'></a>" +
+            "</div>");
+
+        beforeEach(function () {
+            newsMarkup.clone().appendTo('body');
+        });
+
+        afterEach(function () {
+            $('.page-stub').remove();
+        });
+
+        it("should register a success event when an internal link is clicked inside the format content", function () {
+            GOVUK.Analytics.Format = 'news';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            spyOn(GOVUK.Analytics.internalSiteEvents, 'push');
+
+            $('#news-internal-link').click();
+
+            expect(GOVUK.Analytics.internalSiteEvents.push).toHaveBeenCalled();
+        });
+
+        it("should register a success event for in-page links", function () {
+            GOVUK.Analytics.Format = 'news';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            $('#news-in-page-link').click();
+            var argumentsForGoogleAnalytics = GOVUK.sendToAnalytics.argsForCall;
+
+            expect(argumentsForGoogleAnalytics.length).toBe(2);
+            expect(argumentsForGoogleAnalytics[0][0][3]).toBe('Entry');
+            expect(argumentsForGoogleAnalytics[0][0][1]).toBe('MS_news');
+            expect(argumentsForGoogleAnalytics[1][0][3]).toBe('Success');
+            expect(argumentsForGoogleAnalytics[1][0][1]).toBe('MS_news');
+        });
+
+        it("should not attempt to rewrite the href for external links", function () {
+            GOVUK.Analytics.Format = 'news';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            var currentHref = $('#news-external-link').attr('href');
+
+            $('#news-external-link').click();
+
+            expect($('#news-external-link').attr('href')).toBe(currentHref);
+        });
+
+        it("should register a callback for success after 30 seconds", function () {
+            spyOn(window, "setTimeout");
+            GOVUK.Analytics.Format = 'news';
+            GOVUK.Analytics.NeedID = '-1';
+            GOVUK.Analytics.startAnalytics();
+
+            var argumentsForSetTimeout = window.setTimeout.argsForCall;
+            expect(argumentsForSetTimeout[0][1]).toBe(30000);
+        });
+    });
 });

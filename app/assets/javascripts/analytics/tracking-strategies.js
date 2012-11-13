@@ -93,3 +93,8 @@ GOVUK.Analytics.Trackers.detailed_guidance = function(trackingApi) {
     trackingApi.trackTimeBasedSuccess(30000);
     trackingApi.trackInternalLinks($("#page a"));
 };
+
+GOVUK.Analytics.Trackers.news = function(trackingApi) {
+    trackingApi.trackInternalLinks($("#page a"));
+    trackingApi.trackTimeBasedSuccess(30000);
+};
