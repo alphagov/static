@@ -4,29 +4,6 @@
   background-color: $grey-8;
   border-top: 1px solid $grey-6;
 
-  .beta-notice {
-    @include core-16;
-    background: #F17921;
-    color: $black;
-    float: none;
-    width: auto;
-    text-align: center;
-
-    p {
-      display: inline-block;
-      margin: 0.7em auto;
-      
-      max-width: 58em;
-      padding: 0 1em;
-
-      text-align:left;
-
-      @include ie-lte(7) {
-        width: 58em;
-      }
-    }
-  }
-
   .footer-wrapper {
     max-width: 60em;
     margin: 0 auto;
@@ -43,116 +20,144 @@
     }
   }
 
+  a {
+    color: $grey-3;
+
+    &:hover {
+      color: $grey-1;
+    }
+  }
+
   h2 {
     color: $grey-3;
     margin: 0;
-
-    @include media(mobile) {
-      margin-bottom: 32px;
-    }
   }
 
   .footer-categories {
     font-size: 0;
+    float: left;
+
+    padding: 0 0 60px 0;
+    padding: 0 0 6rem 0;
+
+    width: 100%;
 
     @include media(mobile) {
-      border: 1px solid $grey-6;
-      border-width: 0 0 1px 0;
-
       padding: 20px 0;
       padding: 2rem 0;
+    }
+
+    .footer-explore {
+      float: left;
+
+      margin-right: 7%;
+      width: 62%;
+
+      @include media(mobile) {
+        display: block;
+        
+        margin: 0 0 30px 0;
+        margin: 0 0 3rem 0;
+
+        width: 100%;
+      }
     }
   
     ul {
       @include core-16;
       list-style: none;
-      
-      padding: 20px 0 0 0;
-      padding: 2rem 0 0 0;
-
-      margin: 30px 3.5% 0 0;
-      margin: 3rem 3.5% 0 0;
 
       border: 1px solid $grey-6;
       border-width: 1px 0 0 0;
 
-      display: inline-block;
-      width: 31%;
+      margin: 20px 0 0 0;
+      margin: 2rem 0 0 0;
+
+      padding: 20px 0 0 0;
+      padding: 2rem 0 0 0;
 
       min-height: 210px;
       min-height: 21rem;
 
       vertical-align: top;
 
-      @include ie-lte(7) {
-        float: left;
+      @include media(mobile) {
+        border-width: 0;
+        min-height: 0;
       }
     
       li {
-        margin: 0 20% 15px 0;
-        margin: 0 20% 1.5rem 0;
-      }
-
-      a {
-        color: $grey-3;
-      }
-
-      a:hover {
-        color: $grey-1;
-      }
-
-      @include media(mobile) {
-        width: 100%;
         display: block;
-        padding: 0;
-        margin: 0;
-        border: none;
-        min-height: 0;
-      }
-    }
 
-    .copyright {
-      @include core-16;
-
-      display: inline-block;
-      float: none;
-      text-align: inherit;
-      width: 31%;
-      min-height: 210px;
-      min-height: 21rem;
-
-      margin: 30px 0 0 0;
-      margin: 3rem 0 0 0;
-      padding: 20px 0 0 0;
-      padding: 2rem 0 0 0;
-      border: 1px solid $grey-6;
-      border-width: 1px 0 0 0;
-
-      @include ie-lte(7) {
         float: left;
-        width: 30%;
-      }
+        clear: left;
 
-      a {
-        display: block;
-        color: $grey-3;
+        margin: 0 0 15px 0;
+        margin: 0 0 1.5rem 0;
 
-        margin: 35px 0 0 0;
-        margin: 3.5rem 0 0 0;
-        padding: 115px 0 0 0;
-        padding: 11.5rem 0 0 0;
+        width: 45.5%;
 
-        background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
-        text-align: center;
-        text-decoration: none;
+        &:nth-child(even) {
+          float: right;
+          clear: none;
+        }
+
+        @include ie-lte(8) {
+          display: inline;
+          min-height: 1.5em;
+          clear: none;
+        }
 
         @include ie(6) {
-          background-image: image-url("govuk-crest-ie.png");
+          height: 1.5em;
+        }
+
+        @include media(mobile) {
+          float: none;
+          width: 100%;
+          margin-left: 0;
+
+          &:nth-child(even) {
+            float: none;
+          }
+
+          &:first-child,
+          &:nth-child(2) {
+            border-top: none;
+            padding-top: 0;
+          }
         }
       }
 
-      a:hover {
-        color: $grey-1;
+      @include ie(6) {
+        border-top: none;
+        zoom: 1;
+      }
+    }
+
+    .footer-inside-government {
+      float: left;
+      width: 31%;
+
+      ul {
+        margin-right: 0;
+
+        @include media(mobile) {
+          margin: 20px 0 0 0;
+          margin: 2rem 0 0 0;
+
+          width: 100%;
+        }
+
+        li {
+          margin-right: 0;
+          width: 100%;
+
+          &:nth-child(even) {
+            float: none;
+            clear: none;
+          }
+        }
       }
 
       @include media(mobile) {
@@ -170,49 +175,113 @@
     clear: both;
     font-size: 0;
     color: $grey-3;
+
+    border: 1px solid $grey-6;
+    border-width: 1px 0 0 0;
+
+    margin: 60px 0 0 0;
+    margin: 6rem 0 0 0;
+
     padding: 30px 0 60px;
     padding: 3rem 0 6rem;
 
-    ul {
-      @include core-16;
-      display: inline-block;
-      list-style: none;
-      padding: 0;
+    @include media(mobile) {
+      margin: 0;
+    }
 
+    nav {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 69%;
+
+      @include media(mobile) {
+        display: block;
+        width: 100%;
+      }
+
+      ul {
+        @include core-16($line-height: (24/16), $line-height-640: (24/16));
+        display: inline-block;
+        list-style: none;
+        margin-top: 0;
+        padding: 0;
+
+        @include ie-lte(7) {
+
+        }
+
+        li {
+          display: inline-block;
+          margin: 0 1.5rem 0 0;
+
+          @include ie-lte(7) {
+            display: inline;
+            margin-right: 0;
+            padding-right: 15px;
+          }
+        }
+
+        @include media(mobile) {
+          width: auto;
+          margin: 0 0 1.5em 0;
+        }
+      }
+
+      p {
+        @include core-16;
+        display: block;
+        clear: left;
+      }
+    
       @include ie-lte(7) {
-        display: inline;
+        display: block;
         float: left;
       }
 
-      li {
-        display: inline-block;
-        margin: 0 1.5rem 0 0;
+    }
 
-        @include ie-lte(7) {
-          display: inline;
-          margin-right: 0;
-          padding-right: 15px;
+    .copyright {
+      @include core-16;
+
+      display: inline-block;
+      float: none;
+      text-align: inherit;
+      width: 30%;
+      min-height: 150px;
+      min-height: 15rem;
+
+      @include ie-lte(7) {
+        display: block;
+        float: right;
+        height: 150px;
+        width: 29%;
+      }
+
+      a {
+        display: block;
+
+        padding: 115px 0 0 0;
+        padding: 11.5rem 0 0 0;
+
+        background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
+        text-align: center;
+        text-decoration: none;
+
+        @include ie(6) {
+          background-image: image-url("govuk-crest-ie.png");
         }
       }
 
       @include media(mobile) {
-        width: auto;
-        margin: 0 0 1.5em 0;
+        width: 100%;
+        display: block;
+        padding: 0;
+
+        margin: 30px 0 0 0;
+        margin: 3rem 0 0 0;
+
+        min-height: 0;
       }
-    }
-
-    p {
-      @include core-16;
-      display: block;
-      clear: left;
-    }
-
-    a {
-      color: $grey-3;
-    }
-
-    a:hover {
-      color: $grey-1;
     }
   }
 }
