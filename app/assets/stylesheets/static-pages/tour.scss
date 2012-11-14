@@ -30,7 +30,10 @@
     background-color: #fff;
     min-height: 35em;
     padding: 0 2em 2em 2em;
-
+    #inside-government{
+      border-top:1px solid $grey-6;
+      margin-top:2em;
+    }
     .tour-video{
       width: 625px;
       float:left;
@@ -113,8 +116,10 @@
       li {
         list-style: none;
         margin-bottom: 1em;
+        padding-left:0;
         h2{
           margin-bottom:0.55em;
+          margin-top:0.5em;
         }
         p {
           @include core-16;
