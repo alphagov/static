@@ -5,6 +5,7 @@ describe("analytics cookie tokens", function () {
     beforeEach(function () {
         Alphagov.delete_cookie(cookieName);
         spyOn(GOVUK.Analytics, "getSlug").andCallFake(function () { return getSlugResult; });
+        GOVUK.Analytics.Format = "guide";
     });
 
     it("should write a token into a cookie array", function () {

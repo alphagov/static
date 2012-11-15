@@ -27,7 +27,8 @@ describe("success event tracking", function () {
         it("should support basic case", function () {
             var result = GOVUK.Analytics.isTheSameArtefact(
                 "http://www.gov.uk/claim-tax/first",
-                "http://www.gov.uk/claim-tax/second");
+                "http://www.gov.uk/claim-tax/second",
+                0);
 
             expect(result).toBeTruthy();
         });
@@ -35,7 +36,8 @@ describe("success event tracking", function () {
         it("should support coming to very same url", function () {
             var result = GOVUK.Analytics.isTheSameArtefact(
                 "http://www.gov.uk/claim-tax/first",
-                "http://www.gov.uk/claim-tax/first");
+                "http://www.gov.uk/claim-tax/first",
+                0);
 
             expect(result).toBeTruthy();
         });
@@ -43,7 +45,8 @@ describe("success event tracking", function () {
         it("should support local anchor on previous url", function () {
             var result = GOVUK.Analytics.isTheSameArtefact(
                 "http://www.gov.uk/claim-tax",
-                "http://www.gov.uk/claim-tax#foobar");
+                "http://www.gov.uk/claim-tax#foobar",
+                0);
 
             expect(result).toBeTruthy();
         });
@@ -51,59 +54,88 @@ describe("success event tracking", function () {
         it("should support local anchor on current url", function () {
             var result = GOVUK.Analytics.isTheSameArtefact(
                 "http://www.gov.uk/claim-tax#foobar",
-                "http://www.gov.uk/claim-tax");
-
-            expect(result).toBeTruthy();
-        });
-    });
-
-    describe("isRootArtefact", function () {
-        it("should be true for standard artefact url", function () {
-            var result = GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator");
+                "http://www.gov.uk/claim-tax",
+                0);
 
             expect(result).toBeTruthy();
         });
 
-        it("should be true for standard artefact url ending with a slash", function () {
-            var result = GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/");
+        it("should support different slug locations", function () {
+            var result = GOVUK.Analytics.isTheSameArtefact(
+                "https://www.gov.uk/government/policies/making-sure-council-tax-payers-get-good-value-for-money",
+                "https://www.gov.uk/government/policies/making-sure-council-tax-payers-get-good-value-for-money/foo",
+                2);
 
             expect(result).toBeTruthy();
         });
 
-        it("should be false for non-root artefact url", function () {
-            var result = GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/y");
+        it("should support different slug locations", function () {
+            var result = GOVUK.Analytics.isTheSameArtefact(
+                "https://www.gov.uk/government/policies/making-sure-council-tax-payers-get-good-value-for-money",
+                "https://www.gov.uk/government/policies/something-different",
+                2);
 
             expect(result).toBeFalsy();
         });
     });
 
-    describe("getSlug", function() {
-        it("should return the slug from a url", function() {
-           var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator");
-
-           expect(result).toEqual("student-finance-calculator");
+    describe("isRootArtefact", function () {
+        it("should be true for standard artefact url", function () {
+            expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator", 0))
+                .toBeTruthy();
+            expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo", 2))
+                .toBeTruthy();
         });
 
-        it("should return slug even if there is a fragment", function() {
-            var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator#foobar");
+        it("should be true for standard artefact url ending with a slash", function () {
+            expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/", 0))
+                .toBeTruthy();
+            expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo/", 2))
+                .toBeTruthy();
+        });
+
+        it("should be false for non-root artefact url", function () {
+            expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/y", 0))
+                .toBeFalsy();
+            expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo/bar", 2))
+                .toBeFalsy();
+        });
+
+    });
+
+    describe("getSlug", function () {
+        it("should return the slug from a url", function () {
+            var mainstreamSlug = GOVUK.Analytics.getSlug("https://www.gov.uk/student-finance-calculator", 0);
+            var insideGovPolicySlug = GOVUK.Analytics.getSlug("https://www.gov.uk/government/policies/making-sure-council-tax-payers-get-good-value-for-money", 2);
+
+            expect(mainstreamSlug).toEqual("student-finance-calculator");
+            expect(insideGovPolicySlug).toEqual("making-sure-council-tax-payers-get-good-value-for-money");
+        });
+
+        it("should return slug even if there is a fragment", function () {
+            var result = GOVUK.Analytics.getSlug("https://www.gov.uk/student-finance-calculator#foobar", 0);
 
             expect(result).toEqual("student-finance-calculator");
         });
 
-        it("should return slug even if there is more of the request path", function() {
-            var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator/foobar");
+        it("should return slug even if there is more of the request path", function () {
+            var result = GOVUK.Analytics.getSlug("https://www.gov.uk/student-finance-calculator/foobar", 0);
 
             expect(result).toEqual("student-finance-calculator");
         });
 
-        it("should return slug even if there is a query string", function() {
-            var result = GOVUK.Analytics.getSlug("http://www.gov.uk/student-finance-calculator?foobar=barfoo");
+        it("should return slug even if there is a query string", function () {
+            var result = GOVUK.Analytics.getSlug("https://www.gov.uk/student-finance-calculator?foobar=barfoo", 0);
 
             expect(result).toEqual("student-finance-calculator");
         });
     });
 
     describe("analytics integration", function () {
+        beforeEach(function() {
+            spyOn(GOVUK.Analytics, "getSlug").andReturn("");
+        });
+
         it("should register entry event", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.startAnalytics();
@@ -119,6 +151,7 @@ describe("success event tracking", function () {
         it("should only call guide strategy when format is guide", function () {
             GOVUK.Analytics.Format = 'guide';
             spyOn(GOVUK.Analytics.Trackers, 'guide');
+            GOVUK.Analytics.Trackers.guide.slugLocation = 0;
             spyOn(GOVUK.Analytics.Trackers, 'transaction');
 
             GOVUK.Analytics.startAnalytics();
@@ -131,6 +164,7 @@ describe("success event tracking", function () {
             GOVUK.Analytics.Format = 'transaction';
             spyOn(GOVUK.Analytics.Trackers, 'guide');
             spyOn(GOVUK.Analytics.Trackers, 'transaction');
+            GOVUK.Analytics.Trackers.transaction.slugLocation = 0;
 
             GOVUK.Analytics.startAnalytics();
 
@@ -146,6 +180,10 @@ describe("success event tracking", function () {
     });
 
     describe("user interactions", function () {
+        beforeEach(function() {
+            spyOn(GOVUK.Analytics, "getSlug").andReturn("");
+        });
+
         it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function () {
             GOVUK.Analytics.Format = 'guide';
             GOVUK.Analytics.startAnalytics();
@@ -193,7 +231,7 @@ describe("success event tracking", function () {
             $('#guide-external-link').click();
 
             var href = $("#guide-external-link").prop("href");
-                expect(href).toEqual("http://www.google.com/");
+            expect(href).toEqual("http://www.google.com/");
         });
 
         it("should not register internal click if external link has been clicked", function () {
@@ -242,7 +280,7 @@ describe("success event tracking", function () {
             expect(GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess).toHaveBeenCalled();
         });
 
-        it("should track clicks on the get started link for transactions", function() {
+        it("should track clicks on the get started link for transactions", function () {
             GOVUK.Analytics.Format = "transaction";
             GOVUK.Analytics.startAnalytics();
 
@@ -262,6 +300,7 @@ describe("success event tracking", function () {
             "</div>");
 
         beforeEach(function () {
+            spyOn(GOVUK.Analytics, "getSlug").andReturn("");
             policyMarkup.clone().appendTo('body');
         });
 
@@ -311,6 +350,7 @@ describe("success event tracking", function () {
 
         beforeEach(function () {
             detailedGuidanceMarkup.clone().appendTo('body');
+            spyOn(GOVUK.Analytics, "getSlug").andReturn("");
         });
 
         afterEach(function () {
@@ -371,6 +411,7 @@ describe("success event tracking", function () {
 
         beforeEach(function () {
             newsMarkup.clone().appendTo('body');
+            spyOn(GOVUK.Analytics, "getSlug").andReturn("");
         });
 
         afterEach(function () {

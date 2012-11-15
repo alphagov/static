@@ -45,7 +45,7 @@ GOVUK.Analytics.entryTokens = function () {
     };
 
     var uniqueIdentifierOfArtifact = function () {
-        return GOVUK.Analytics.getSlug(document.URL);
+        return GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers[GOVUK.Analytics.Format].slugLocation);
     };
 
     var assignToken = function () {

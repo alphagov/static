@@ -16,11 +16,19 @@ GOVUK.Analytics.Trackers = {};
  * - shouldTrackSuccess() bool
  */
 
+GOVUK.Analytics.trackingPrefixes = {
+    MAINSTREAM: 'MS_',
+    INSIDE_GOV: 'IG_'
+};
+
 /* Guide */
 GOVUK.Analytics.Trackers.guide = function (trackingApi) {
     trackingApi.trackTimeBasedSuccess(7000);
     trackingApi.trackInternalLinks($("#content a"));
 };
+
+GOVUK.Analytics.Trackers.guide.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.guide.slugLocation = 0;
 
 /* Transaction (services) */
 GOVUK.Analytics.Trackers.transaction = function (trackingApi) {
@@ -28,17 +36,26 @@ GOVUK.Analytics.Trackers.transaction = function (trackingApi) {
     trackingApi.trackLinks($("#get-started a"));
 };
 
+GOVUK.Analytics.Trackers.transaction.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.transaction.slugLocation = 0;
+
 /* Benefit */
 GOVUK.Analytics.Trackers.programme = function (trackingApi) {
     trackingApi.trackTimeBasedSuccess(7000);
     trackingApi.trackInternalLinks($("#content a"));
 };
 
+GOVUK.Analytics.Trackers.programme.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.programme.slugLocation = 0;
+
 /* Quick answer */
 GOVUK.Analytics.Trackers.answer = function (trackingApi) {
     trackingApi.trackTimeBasedSuccess(7000);
     trackingApi.trackInternalLinks($("#content a"));
 };
+
+GOVUK.Analytics.Trackers.answer.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.answer.slugLocation = 0;
 
 /* Smart Answer */
 /**
@@ -68,18 +85,21 @@ var browserSupportsHtml5HistoryApi = browserSupportsHtml5HistoryApi || function 
 GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation = browserSupportsHtml5HistoryApi;
 
 GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry = function () {
-    return GOVUK.Analytics.isRootOfArtefact(document.URL);
+    return GOVUK.Analytics.isRootOfArtefact(document.URL, GOVUK.Analytics.Trackers.smart_answer.slugLocation);
 };
 
 GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
     if (GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation()) {
         // For AJAX navigation we should track success on the smart answers flow page (non-root page)
-        return GOVUK.Analytics.entryTokens.tokenExists() && !GOVUK.Analytics.isRootOfArtefact(document.URL);
+        return GOVUK.Analytics.entryTokens(GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers.smart_answer.slugLocation)).tokenExists() && !GOVUK.Analytics.isRootOfArtefact(document.URL);
     } else {
         // For multi-page navigation, we should track success if entry event has been fired (token exists)
-        return GOVUK.Analytics.entryTokens.tokenExists() && $("article.outcome").length === 1;
+        return GOVUK.Analytics.entryTokens(GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers.smart_answer.slugLocation)).tokenExists() && $("article.outcome").length === 1;
     }
 };
+
+GOVUK.Analytics.Trackers.smart_answer.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.smart_answer.slugLocation = 0;
 
 GOVUK.Analytics.Trackers.policy = function(trackingApi) {
     trackingApi.trackTimeBasedSuccess(30000);
@@ -88,27 +108,21 @@ GOVUK.Analytics.Trackers.policy = function(trackingApi) {
     }));
 };
 
+GOVUK.Analytics.Trackers.policy.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
+GOVUK.Analytics.Trackers.policy.slugLocation = 2;
+
 GOVUK.Analytics.Trackers.detailed_guidance = function(trackingApi) {
     trackingApi.trackTimeBasedSuccess(30000);
     trackingApi.trackInternalLinks($("#page a"));
 };
+
+GOVUK.Analytics.Trackers.detailed_guidance.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
+GOVUK.Analytics.Trackers.detailed_guidance.slugLocation = 0;
 
 GOVUK.Analytics.Trackers.news = function(trackingApi) {
     trackingApi.trackInternalLinks($("#page a"));
     trackingApi.trackTimeBasedSuccess(30000);
 };
 
-GOVUK.Analytics.trackingPrefixes = {
-    MAINSTREAM: 'MS_',
-    INSIDE_GOV: 'IG_'
-};
-
 GOVUK.Analytics.Trackers.news.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
-GOVUK.Analytics.Trackers.detailed_guidance.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
-GOVUK.Analytics.Trackers.policy.prefix = GOVUK.Analytics.trackingPrefixes.INSIDE_GOV;
-
-GOVUK.Analytics.Trackers.smart_answer.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
-GOVUK.Analytics.Trackers.guide.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
-GOVUK.Analytics.Trackers.programme.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
-GOVUK.Analytics.Trackers.transaction.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
-GOVUK.Analytics.Trackers.answer.prefix = GOVUK.Analytics.trackingPrefixes.MAINSTREAM;
+GOVUK.Analytics.Trackers.news.slugLocation = 2;

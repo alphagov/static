@@ -6,9 +6,9 @@ GOVUK.sendToAnalytics = function (analyticsData) {
     _gaq.push(analyticsData);
 };
 
-GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl) {
+GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl, slugLocation) {
     var rootOfArtefact = function(url) {
-        return url.split("/").slice(0, 4).join("/");
+        return url.split("/").slice(0, 4 + slugLocation).join("/");
     };
 
     var currentSlug = rootOfArtefact(currentUrl).replace(/#.*$/, '');
@@ -16,18 +16,20 @@ GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl) {
     return currentSlug === previousSlug;
 };
 
-GOVUK.Analytics.getSlug = function(url) {
-    return url.split('/')[3].split("#")[0].split("?")[0];
+GOVUK.Analytics.getSlug = function(url, slugLocation) {
+    return url.split('/')[3 + slugLocation].split("#")[0].split("?")[0];
 };
 
-GOVUK.Analytics.isRootOfArtefact = function(url) {
-    return url.replace(/\/$/, "").split("/").slice(3).length === 1;
+GOVUK.Analytics.isRootOfArtefact = function(url, slugLocation) {
+    return url.replace(/\/$/, "").split("/").slice(3 + slugLocation).length === 1;
 };
 
 GOVUK.Analytics.startAnalytics = function () {
     var ENTER_KEYCODE = 13;
     var success = false;
     var prefix = 'none';
+    var format = GOVUK.Analytics.Format,
+        trackingStrategy = GOVUK.Analytics.Trackers[format];
 
     /**
      * Decide whether we should track an event based on a condition function.
@@ -45,19 +47,19 @@ GOVUK.Analytics.startAnalytics = function () {
     };
 
     var createEvent = function(type) {
-        return ['_trackEvent', prefix + GOVUK.Analytics.Format, GOVUK.Analytics.getSlug(document.URL), type];
+        return ['_trackEvent', prefix + GOVUK.Analytics.Format, GOVUK.Analytics.getSlug(document.URL, trackingStrategy.slugLocation), type];
     };
 
-    var handleExternalLink = function(e) {
+    var handleExternalLink = function() {
         if (success) return;
         success = true;
-        var slug = encodeURIComponent(GOVUK.Analytics.getSlug(document.URL)),
+        var slug = encodeURIComponent(GOVUK.Analytics.getSlug(document.URL, trackingStrategy.slugLocation)),
             exitLink = '/exit?slug=' + slug + '&format=' + GOVUK.Analytics.Format;
 
         $(this).prop('href', exitLink);
     };
 
-    var handleInternalLink = function (e) {
+    var handleInternalLink = function () {
         if (success) return;
         success = true;
         if (this.baseURI === document.URL.split("#")[0] && this.hash !== "") {
@@ -108,11 +110,9 @@ GOVUK.Analytics.startAnalytics = function () {
         }
     };
 
-    var format = GOVUK.Analytics.Format,
-        trackingStrategy = GOVUK.Analytics.Trackers[format];
     if (GOVUK.Analytics.Trackers[format] !== undefined) prefix = GOVUK.Analytics.Trackers[format].prefix;
     if (typeof trackingStrategy === "function") {
-      var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
+      var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer, trackingStrategy.slugLocation);
       if (shouldTrackEvent(trackingStrategy.shouldTrackEntry, !isTheSameArtefact)) {
           GOVUK.sendToAnalytics(createEvent("Entry"));
           GOVUK.Analytics.entryTokens.assignToken();
