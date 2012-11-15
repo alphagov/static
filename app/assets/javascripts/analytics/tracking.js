@@ -29,10 +29,6 @@ GOVUK.Analytics.startAnalytics = function () {
     var success = false;
     var prefix = 'none';
 
-    var shouldIDoAnalyticsForThisPage = function () {
-        return GOVUK.Analytics.NeedID;
-    };
-
     /**
      * Decide whether we should track an event based on a condition function.
      * If the condition function isn't defined then the default condition is used.
@@ -56,7 +52,7 @@ GOVUK.Analytics.startAnalytics = function () {
         if (success) return;
         success = true;
         var slug = encodeURIComponent(GOVUK.Analytics.getSlug(document.URL)),
-            exitLink = '/exit?slug=' + slug + '&need_id=' + GOVUK.Analytics.NeedID + '&format=' + GOVUK.Analytics.Format;
+            exitLink = '/exit?slug=' + slug + '&format=' + GOVUK.Analytics.Format;
 
         $(this).prop('href', exitLink);
     };
@@ -115,7 +111,7 @@ GOVUK.Analytics.startAnalytics = function () {
     var format = GOVUK.Analytics.Format,
         trackingStrategy = GOVUK.Analytics.Trackers[format];
     if (GOVUK.Analytics.Trackers[format] !== undefined) prefix = GOVUK.Analytics.Trackers[format].prefix;
-    if (shouldIDoAnalyticsForThisPage() && typeof trackingStrategy === "function") {
+    if (typeof trackingStrategy === "function") {
       var isTheSameArtefact = GOVUK.Analytics.isTheSameArtefact(document.URL, document.referrer);
       if (shouldTrackEvent(trackingStrategy.shouldTrackEntry, !isTheSameArtefact)) {
           GOVUK.sendToAnalytics(createEvent("Entry"));

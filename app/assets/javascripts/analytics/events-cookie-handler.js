@@ -44,28 +44,32 @@ GOVUK.Analytics.entryTokens = function () {
         return $.inArray(value, arr) !== -1;
     };
 
+    var uniqueIdentifierOfArtifact = function () {
+        return GOVUK.Analytics.getSlug(document.URL);
+    };
+
     var assignToken = function () {
         var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
         if (!tokens) tokens = [];
-        if (!valueIsInArray(GOVUK.Analytics.NeedID, tokens))
+        if (!valueIsInArray(uniqueIdentifierOfArtifact(), tokens))
         {
-            tokens.push(GOVUK.Analytics.NeedID);
+            tokens.push(uniqueIdentifierOfArtifact());
             Alphagov.write_cookie(COOKIE_NAME, JSON.stringify(tokens));
         }
     };
 
     var revokeToken = function () {
         var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
-        var positionOfToken = $.inArray(GOVUK.Analytics.NeedID,tokens);
+        var positionOfToken = $.inArray(uniqueIdentifierOfArtifact(),tokens);
         if (positionOfToken !== -1) {
             tokens.splice(positionOfToken,1);
-            Alphagov.write_cookie(COOKIE_NAME,JSON.stringify(tokens));
+            Alphagov.write_cookie(COOKIE_NAME, JSON.stringify(tokens));
         }
     };
 
     var tokenExists = function () {
         var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
-        return valueIsInArray(GOVUK.Analytics.NeedID, tokens);
+        return valueIsInArray(uniqueIdentifierOfArtifact(), tokens);
     };
 
     return {

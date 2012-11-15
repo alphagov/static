@@ -3,28 +3,28 @@ describe("analytics cookie tokens", function () {
     var cookieName = "GDS_analyticsTokens";
 
     beforeEach(function () {
-        Alphagov.delete_cookie(cookieName)
-
+        Alphagov.delete_cookie(cookieName);
+        spyOn(GOVUK.Analytics, "getSlug").andCallFake(function () { return getSlugResult; });
     });
 
     it("should write a token into a cookie array", function () {
-        GOVUK.Analytics.NeedID = 12;
+        getSlugResult = 12;
         GOVUK.Analytics.entryTokens.assignToken();
 
         expect(Alphagov.read_cookie(cookieName)).toBe("[12]");
     });
 
     it("should write multiple tokens to the array", function () {
-        GOVUK.Analytics.NeedID = 12;
+        getSlugResult = 12;
         GOVUK.Analytics.entryTokens.assignToken();
-        GOVUK.Analytics.NeedID = 42;
+        getSlugResult = 42;
         GOVUK.Analytics.entryTokens.assignToken();
 
         expect(Alphagov.read_cookie(cookieName)).toBe("[12,42]");
     });
 
     it("should not write the same token multiple times", function () {
-        GOVUK.Analytics.NeedID = 15;
+        getSlugResult = 15;
         GOVUK.Analytics.entryTokens.assignToken();
         GOVUK.Analytics.entryTokens.assignToken();
 
@@ -32,7 +32,7 @@ describe("analytics cookie tokens", function () {
     });
 
     it("should remove a token from the cookie array", function () {
-        GOVUK.Analytics.NeedID = 20;
+        getSlugResult = 20;
         GOVUK.Analytics.entryTokens.assignToken();
 
         GOVUK.Analytics.entryTokens.revokeToken();
@@ -41,9 +41,9 @@ describe("analytics cookie tokens", function () {
     });
 
     it("should preserve the remaining tokens when one is removed", function () {
-        GOVUK.Analytics.NeedID = 16;
+        getSlugResult = 16;
         GOVUK.Analytics.entryTokens.assignToken();
-        GOVUK.Analytics.NeedID = 19;
+        getSlugResult = 19;
         GOVUK.Analytics.entryTokens.assignToken();
 
         GOVUK.Analytics.entryTokens.revokeToken();
@@ -52,16 +52,16 @@ describe("analytics cookie tokens", function () {
     });
 
     it("should not blow up if a token is revoked when the cookie array is empty", function () {
-        GOVUK.Analytics.NeedID = 33;
+        getSlugResult = 33;
         GOVUK.Analytics.entryTokens.revokeToken();
 
         // should not throw any error
     });
 
     it("should not blow up if a nonexistent token is revoked", function () {
-        GOVUK.Analytics.NeedID = 21;
+        getSlugResult = 21;
         GOVUK.Analytics.entryTokens.assignToken();
-        GOVUK.Analytics.NeedID = 42;
+        getSlugResult = 42;
 
         GOVUK.Analytics.entryTokens.revokeToken();
 
@@ -69,14 +69,14 @@ describe("analytics cookie tokens", function () {
     });
 
     it("should return true if token has been assigned", function () {
-        GOVUK.Analytics.NeedID = 25;
+        getSlugResult = 25;
         GOVUK.Analytics.entryTokens.assignToken();
 
         expect(GOVUK.Analytics.entryTokens.tokenExists()).toBeTruthy();
     });
 
     it("should return false if token has not been assigned", function () {
-        GOVUK.Analytics.NeedID = 35;
+        getSlugResult = 35;
 
         expect(GOVUK.Analytics.entryTokens.tokenExists()).toBeFalsy();
     });

@@ -106,7 +106,6 @@ describe("success event tracking", function () {
     describe("analytics integration", function () {
         it("should register entry event", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
@@ -117,18 +116,8 @@ describe("success event tracking", function () {
             expect(arguments[0][0]).toBeEqualAsJSON(expectedDataToSendToGoogle);
         });
 
-        it("should not register an entry event if there is no need id", function () {
-            GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = undefined;
-            GOVUK.Analytics.startAnalytics();
-
-            var arguments = GOVUK.sendToAnalytics.argsForCall;
-            expect(arguments.length).toBe(0);
-        });
-
         it("should only call guide strategy when format is guide", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             spyOn(GOVUK.Analytics.Trackers, 'guide');
             spyOn(GOVUK.Analytics.Trackers, 'transaction');
 
@@ -140,7 +129,6 @@ describe("success event tracking", function () {
 
         it("should only call transaction strategy when format is transaction", function () {
             GOVUK.Analytics.Format = 'transaction';
-            GOVUK.Analytics.NeedID = '99999';
             spyOn(GOVUK.Analytics.Trackers, 'guide');
             spyOn(GOVUK.Analytics.Trackers, 'transaction');
 
@@ -152,7 +140,6 @@ describe("success event tracking", function () {
 
         it("should not error if format is not supported", function () {
             GOVUK.Analytics.Format = 'blahblah';
-            GOVUK.Analytics.NeedID = '99999';
 
             GOVUK.Analytics.startAnalytics();
         });
@@ -161,7 +148,6 @@ describe("success event tracking", function () {
     describe("user interactions", function () {
         it("should register success event for guide format when an internal link inside #content receives a 'return' key press", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
             var e = jQuery.Event("keydown");
@@ -176,7 +162,6 @@ describe("success event tracking", function () {
 
         it("should register success event for guide format when an internal link inside #content is clicked", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
             $('#guide-internal-link').click();
@@ -188,7 +173,6 @@ describe("success event tracking", function () {
 
         it("should not register multiple guide success events when navigating to items on the same page", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
             $('#guide-internal-link').click();
@@ -203,7 +187,6 @@ describe("success event tracking", function () {
 
         it("should not register external click if internal link has been clicked", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
             $('#guide-internal-link').click();
@@ -215,7 +198,6 @@ describe("success event tracking", function () {
 
         it("should not register internal click if external link has been clicked", function () {
             GOVUK.Analytics.Format = 'guide';
-            GOVUK.Analytics.NeedID = '99999';
             GOVUK.Analytics.startAnalytics();
 
             $('#guide-external-link').click();
@@ -226,7 +208,6 @@ describe("success event tracking", function () {
 
         it("should register a smart answer success if the smartanswerOutcome event is fired", function () {
             GOVUK.Analytics.Format = 'smart_answer';
-            GOVUK.Analytics.NeedID = '99999';
             spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackSuccess').andReturn(true);
             GOVUK.Analytics.startAnalytics();
 
@@ -239,7 +220,6 @@ describe("success event tracking", function () {
 
         it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function () {
             GOVUK.Analytics.Format = 'smart_answer';
-            GOVUK.Analytics.NeedID = '99999';
             spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackSuccess').andReturn(true);
             GOVUK.Analytics.startAnalytics();
 
@@ -253,7 +233,6 @@ describe("success event tracking", function () {
 
         it("should register custom condition for entry and success tracking for smart answers", function () {
             GOVUK.Analytics.Format = 'smart_answer';
-            GOVUK.Analytics.NeedID = '99999';
             spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackEntry');
             spyOn(GOVUK.Analytics.Trackers.smart_answer, 'shouldTrackSuccess');
 
@@ -265,14 +244,13 @@ describe("success event tracking", function () {
 
         it("should track clicks on the get started link for transactions", function() {
             GOVUK.Analytics.Format = "transaction";
-            GOVUK.Analytics.NeedID = "99999";
             GOVUK.Analytics.startAnalytics();
 
             $('#transaction-external-link').click();
 
             var href = $("#transaction-external-link").prop("href");
             var parts = href.split("/");
-            var expected = "exit?slug=&need_id=99999&format=transaction";
+            var expected = "exit?slug=&format=transaction";
             expect(parts[3]).toEqual(expected)
         });
     });
@@ -293,7 +271,6 @@ describe("success event tracking", function () {
 
         it("should register a success event for internal (GOV.UK) links", function () {
             GOVUK.Analytics.Format = 'policy';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             spyOn(GOVUK.Analytics.internalSiteEvents, 'push');
@@ -305,7 +282,6 @@ describe("success event tracking", function () {
 
         it("should not register a success event for in-page links", function () {
             GOVUK.Analytics.Format = 'policy';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             $('#policy-in-page-link').click();
@@ -320,7 +296,6 @@ describe("success event tracking", function () {
         it("should register a success timeout for thirty seconds", function () {
             spyOn(window, 'setTimeout');
             GOVUK.Analytics.Format = 'policy';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
@@ -344,7 +319,6 @@ describe("success event tracking", function () {
 
         it("should register a success event for internal (GOV.UK) links", function () {
             GOVUK.Analytics.Format = 'detailed_guidance';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             spyOn(GOVUK.Analytics.internalSiteEvents, 'push');
@@ -356,7 +330,6 @@ describe("success event tracking", function () {
 
         it("should register a success event for in-page links", function () {
             GOVUK.Analytics.Format = 'detailed_guidance';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             $('#detailed-guide-in-page-link').click();
@@ -371,7 +344,6 @@ describe("success event tracking", function () {
 
         it("should not attempt to rewrite the href for external links", function () {
             GOVUK.Analytics.Format = 'detailed_guidance';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             var currentHref = $('#detailed-guide-external-link').attr('href');
@@ -384,7 +356,6 @@ describe("success event tracking", function () {
         it("should register a success timeout for thirty seconds", function () {
             spyOn(window, 'setTimeout');
             GOVUK.Analytics.Format = 'detailed_guidance';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
@@ -408,7 +379,6 @@ describe("success event tracking", function () {
 
         it("should register a success event when an internal link is clicked inside the format content", function () {
             GOVUK.Analytics.Format = 'news';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             spyOn(GOVUK.Analytics.internalSiteEvents, 'push');
@@ -420,7 +390,6 @@ describe("success event tracking", function () {
 
         it("should register a success event for in-page links", function () {
             GOVUK.Analytics.Format = 'news';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             $('#news-in-page-link').click();
@@ -435,7 +404,6 @@ describe("success event tracking", function () {
 
         it("should not attempt to rewrite the href for external links", function () {
             GOVUK.Analytics.Format = 'news';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             var currentHref = $('#news-external-link').attr('href');
@@ -448,7 +416,6 @@ describe("success event tracking", function () {
         it("should register a callback for success after 30 seconds", function () {
             spyOn(window, "setTimeout");
             GOVUK.Analytics.Format = 'news';
-            GOVUK.Analytics.NeedID = '-1';
             GOVUK.Analytics.startAnalytics();
 
             var argumentsForSetTimeout = window.setTimeout.argsForCall;
