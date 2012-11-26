@@ -141,7 +141,7 @@ describe("success event tracking", function () {
             GOVUK.Analytics.startAnalytics();
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
-            var expectedDataToSendToGoogle = ['_trackEvent', 'MS_guide', '', 'Entry'];
+            var expectedDataToSendToGoogle = ['_trackEvent', 'MS_guide', '', 'Entry', 0, true];
             expect(arguments.length).toBe(1);
             // using JSONEquals because there is a bug in the .toHaveBeenCalledWith() method
             // see: https://github.com/pivotal/jasmine/issues/45
@@ -195,7 +195,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success']);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success', 0, false]);
         });
 
         it("should register success event for guide format when an internal link inside #content is clicked", function () {
@@ -206,7 +206,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success']);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success', 0, false]);
         });
 
         it("should not register multiple guide success events when navigating to items on the same page", function () {
@@ -220,7 +220,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(2);
-            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success']);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'MS_guide', '', 'Success', 0, false]);
         });
 
         it("should not register external click if internal link has been clicked", function () {
@@ -253,7 +253,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(1);
-            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '', 'Success']);
+            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '', 'Success', 0, false]);
         });
 
         it("should not register a smart answer success if a smartanswerOutcome event has already been fired", function () {
@@ -266,7 +266,7 @@ describe("success event tracking", function () {
 
             var arguments = GOVUK.sendToAnalytics.argsForCall;
             expect(arguments.length).toBe(1);
-            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '', 'Success']);
+            expect(arguments[0][0]).toBeEqualAsJSON(['_trackEvent', 'MS_smart_answer', '', 'Success', 0, false]);
         });
 
         it("should register custom condition for entry and success tracking for smart answers", function () {
@@ -328,8 +328,9 @@ describe("success event tracking", function () {
 
             // should only get entry event, not success.
             expect(arguments.length).toBe(1);
-            expect(arguments[0][0][3]).toBe('Entry')
-            expect(arguments[0][0][1]).toBe('IG_policy')
+            expect(arguments[0][0][3]).toBe('Entry');
+            expect(arguments[0][0][1]).toBe('IG_policy');
+            expect(arguments[0][0][5]).toBe(true);
         });
 
         it("should register a success timeout for thirty seconds", function () {
@@ -338,6 +339,13 @@ describe("success event tracking", function () {
             GOVUK.Analytics.startAnalytics();
 
             expect(window.setTimeout.argsForCall[0][1]).toBe(30000);
+
+            // call the timeout function
+            window.setTimeout.argsForCall[0][0]();
+
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
+            expect(arguments.length).toBe(2);
+            expect(arguments[1][0]).toBeEqualAsJSON(['_trackEvent', 'IG_policy', '', 'Success', 0, true]);
         });
     });
 
@@ -378,8 +386,10 @@ describe("success event tracking", function () {
             expect(arguments.length).toBe(2);
             expect(arguments[0][0][3]).toBe('Entry');
             expect(arguments[0][0][1]).toBe('IG_detailed_guidance');
+            expect(arguments[0][0][5]).toBe(true);
             expect(arguments[1][0][3]).toBe('Success');
             expect(arguments[1][0][1]).toBe('IG_detailed_guidance');
+            expect(arguments[1][0][5]).toBe(false);
         });
 
         it("should not attempt to rewrite the href for external links", function () {
@@ -434,13 +444,15 @@ describe("success event tracking", function () {
             GOVUK.Analytics.startAnalytics();
 
             $('#news-in-page-link').click();
-            var argumentsForGoogleAnalytics = GOVUK.sendToAnalytics.argsForCall;
+            var arguments = GOVUK.sendToAnalytics.argsForCall;
 
-            expect(argumentsForGoogleAnalytics.length).toBe(2);
-            expect(argumentsForGoogleAnalytics[0][0][3]).toBe('Entry');
-            expect(argumentsForGoogleAnalytics[0][0][1]).toBe('IG_news');
-            expect(argumentsForGoogleAnalytics[1][0][3]).toBe('Success');
-            expect(argumentsForGoogleAnalytics[1][0][1]).toBe('IG_news');
+            expect(arguments.length).toBe(2);
+            expect(arguments[0][0][3]).toBe('Entry');
+            expect(arguments[0][0][1]).toBe('IG_news');
+            expect(arguments[0][0][5]).toBe(true);
+            expect(arguments[1][0][3]).toBe('Success');
+            expect(arguments[1][0][1]).toBe('IG_news');
+            expect(arguments[1][0][5]).toBe(false);
         });
 
         it("should not attempt to rewrite the href for external links", function () {

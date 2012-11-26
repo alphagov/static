@@ -6,7 +6,7 @@ GOVUK.Analytics.Trackers = {};
  * Available methods on control:
  * - trackTimeBasedSuccess(millisecondsUntilSuccess)
  * - trackLinks(linkSelector)
- * - trackSuccess()
+ * - trackSuccess(isNonInteraction) (see: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide#non-interaction)
  *
  * Additional methods:
  * Trackers can optionally add functions to override control over whether we fire
@@ -77,12 +77,12 @@ GOVUK.Analytics.Trackers.smart_answer = new GOVUK.Analytics.Tracker(
     function (trackingApi) {
         if (GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation()) {
             // For AJAX navigation we expect an event on success
-            $(document).bind("smartanswerOutcome", trackingApi.trackSuccess);
+            $(document).bind("smartanswerOutcome", trackingApi.trackSuccessFunc(false));
         } else {
             // For multi-page navigation, we need to check if this page has an outcome
             $(function () {
                 if ($("article.outcome").length === 1) {
-                    trackingApi.trackSuccess();
+                    trackingApi.trackSuccess(true);
                 }
             });
         }
