@@ -70,9 +70,9 @@ GOVUK.Analytics.startAnalytics = function () {
         success = true;
         var event = createEvent("Success");
         if (GOVUK.Analytics.isLinkToFragmentInCurrentDocument(this)) {
-            GOVUK.Analytics.internalSiteEvents.push(event);
-        } else {
             GOVUK.sendToAnalytics(event);
+        } else {
+            GOVUK.Analytics.internalSiteEvents.push(event);
         }
     };
 
