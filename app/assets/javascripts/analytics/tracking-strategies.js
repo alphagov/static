@@ -115,9 +115,11 @@ GOVUK.Analytics.Trackers.policy =
         2,
         function (trackingApi) {
             trackingApi.trackTimeBasedSuccess(30000);
+
             trackingApi.trackInternalLinks($("#page a").filter(function () {
-                return !(this.baseURI === document.URL.split('#')[0] && this.hash !== "")
+                return !GOVUK.Analytics.isLinkToFragmentInCurrentDocument(this);
             }));
+
         }
     );
 

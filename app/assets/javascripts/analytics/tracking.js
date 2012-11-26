@@ -24,6 +24,12 @@ GOVUK.Analytics.isRootOfArtefact = function(url, slugLocation) {
     return url.replace(/\/$/, "").split("/").slice(3 + slugLocation).length === 1;
 };
 
+GOVUK.Analytics.isLinkToFragmentInCurrentDocument = function(anchorElement) {
+    var linksToCurrentDocument = anchorElement.href.split("#")[0] === document.URL.split("#")[0];
+    var hasFragment = anchorElement.hash !== "";
+    return linksToCurrentDocument && hasFragment;
+}
+
 GOVUK.Analytics.startAnalytics = function () {
     var ENTER_KEYCODE = 13;
     var success = false;
@@ -62,10 +68,11 @@ GOVUK.Analytics.startAnalytics = function () {
     var handleInternalLink = function () {
         if (success) return;
         success = true;
-        if (this.baseURI === document.URL.split("#")[0] && this.hash !== "") {
-            GOVUK.sendToAnalytics(createEvent("Success"));
+        var event = createEvent("Success");
+        if (GOVUK.Analytics.isLinkToFragmentInCurrentDocument(this)) {
+            GOVUK.Analytics.internalSiteEvents.push(event);
         } else {
-            GOVUK.Analytics.internalSiteEvents.push(createEvent("Success"));
+            GOVUK.sendToAnalytics(event);
         }
     };
 
@@ -73,11 +80,9 @@ GOVUK.Analytics.startAnalytics = function () {
         // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
         selection.each(function () {
             var linkToTrack = $(this),
-                trackingFunction,
-                linkHost = this.host.split(":")[0], // ie9 bug: ignore the appended port
-                docHost = document.location.host.split(":")[0];
+                trackingFunction;
 
-            if (linkHost === docHost || linkHost === "") {
+            if (this.hostname === window.location.hostname) {
                 trackingFunction = handleInternalLink;
             } else if (trackExternal) {
                 trackingFunction = handleExternalLink;
