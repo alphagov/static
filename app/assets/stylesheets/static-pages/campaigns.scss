@@ -89,7 +89,7 @@ section.campaign {
     background-size:cover;
 
     @include media($min-width: 0px) {
-      height: 270px;
+      min-height: 270px;
       margin: 0;
     }
 
