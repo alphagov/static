@@ -172,12 +172,6 @@ h4 {
   right: 0;
   width: 15em;
 
-  @include ie-lte(8) {
-    display: inline;
-    height: 1%;
-    zoom: 1;
-  }
-
   @include media(tablet) {
     position: static;
     right: auto;
