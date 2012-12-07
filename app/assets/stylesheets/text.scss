@@ -456,10 +456,6 @@ article .address {
   margin: 0.75em 0;
   padding: 2em 16% 2em 15%;
   min-width: 35%;
-
-  @include ie-lte(8) {
-    width: 35%;
-  }
 }
 
 article ol.places {
