@@ -101,10 +101,10 @@ GOVUK.Analytics.Trackers.smart_answer.shouldTrackEntry = function () {
 GOVUK.Analytics.Trackers.smart_answer.shouldTrackSuccess = function () {
     if (GOVUK.Analytics.Trackers.smart_answer.isAjaxNavigation()) {
         // For AJAX navigation we should track success on the smart answers flow page (non-root page)
-        return GOVUK.Analytics.entryTokens(GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers.smart_answer.slugLocation)).tokenExists() && !GOVUK.Analytics.isRootOfArtefact(document.URL);
+        return GOVUK.Analytics.entryTokens.tokenExists() && !GOVUK.Analytics.isRootOfArtefact(document.URL, GOVUK.Analytics.Trackers.smart_answer.slugLocation);
     } else {
         // For multi-page navigation, we should track success if entry event has been fired (token exists)
-        return GOVUK.Analytics.entryTokens(GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers.smart_answer.slugLocation)).tokenExists() && $("article.outcome").length === 1;
+        return GOVUK.Analytics.entryTokens.tokenExists() && $("article.outcome").length === 1;
     }
 };
 
