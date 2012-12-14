@@ -217,6 +217,10 @@ jQuery.fn.tabs = function(settings){
 
 				// set selected index
 				o.selected = tabItems.find('a').index(tab);
+
+				// fire tab changed event
+				tabs.trigger('tabChanged', anchor);
+
 			}
 		}
 
