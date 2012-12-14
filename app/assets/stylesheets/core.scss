@@ -182,11 +182,9 @@ h4 {
     background-color: $grey-8;
     padding: 0.5em 1em 0 1.2em;
     width: auto;
-    border-left:1px solid $grey-6;
 
     @include media(tablet) {
       padding-left: 2em;
-      border: none;
     }
 
     @include media(mobile) {
