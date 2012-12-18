@@ -7,5 +7,5 @@ GOVUK.UserSatisfaction.prototype = {
   cookieNameTakenSurvey: "takenUserSatisfactionSurvey",
 
   setCookieSeenBar: function () { return Alphagov.write_cookie(this.cookieNameSeenBar, true); },
-  setCookieTakenSurvey: function () { return Alphagov.write_cookie(this.cookieNameTakenSurvey, true); },
+  setCookieTakenSurvey: function () { return Alphagov.write_cookie(this.cookieNameTakenSurvey, true); }
 };
