@@ -1,3 +1,5 @@
+//= require cookies
+
 /**
   @name Alphageo V2
   @description Methods to handle geolocation across gov.uk
@@ -33,13 +35,16 @@ var AlphaGeo = {
   },
 
   read_and_parse_json_cookie: function(name) {
-    var cookie = GOVUK.Cookie.read(name);
-    if (cookie) {
-      var json_cookie = $.base64Decode(cookie);
+    var cookie = new GOVUK.Cookie();
+    var value = cookie.read(name);
+
+    if (value !== null) {
+      var json_cookie = $.base64Decode(value);
+      console.log(json_cookie);
       var geo_json = jQuery.parseJSON(json_cookie);
-          return geo_json;
-      }
-      return false;
+      return geo_json;
+    }
+    return false;
   },
 
   lookup_full_location: function(callback) {
@@ -101,12 +106,14 @@ var AlphaGeo = {
   },
 
   save_location_to_cookie: function() {
-    var cookie = $.base64Encode(JSON.stringify(AlphaGeo.full_location));
-    GOVUK.Cookie.write('govukgeo', cookie);
+    var value = $.base64Encode(JSON.stringify(AlphaGeo.full_location));
+    var cookie = new GOVUK.Cookie();
+    cookie.write('govukgeo', value);
   },
 
   remove: function() {
-    GOVUK.Cookie.delete('govukgeo');
+    var cookie = new GOVUK.Cookie();
+    cookie.delete('govukgeo');
     AlphaGeo.location = false;
     AlphaGeo.full_location = false;
 

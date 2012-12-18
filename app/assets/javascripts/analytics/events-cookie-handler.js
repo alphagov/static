@@ -1,3 +1,5 @@
+//= require ../cookies
+
 var GOVUK = GOVUK || {};
 GOVUK.Analytics = GOVUK.Analytics || {};
 
