@@ -10,6 +10,8 @@ describe("success event tracking", function () {
 
     var articleContainer = $("<div class='article-container test-stub'><a id='transaction-link' href='#'>link</a></div>");
 
+    var cookie = new GOVUK.Cookie();
+
     beforeEach(function () {
         $('a').unbind();
         articleContainer.clone().appendTo('body');
@@ -18,7 +20,7 @@ describe("success event tracking", function () {
     });
 
     afterEach(function () {
-        Alphagov.delete_cookie("successEvents");
+        cookie.delete("successEvents");
         $(".test-stub").remove();
         $.event.trigger("smartanswerOutcome");
     });
@@ -241,7 +243,7 @@ describe("success event tracking", function () {
             $('#guide-external-link').click();
             $('#guide-internal-link').click();
 
-            expect(Alphagov.read_cookie("successEvents")).toBe(null);
+            expect(cookie.read("successEvents")).toBe(null);
         });
 
         it("should register a smart answer success if the smartanswerOutcome event is fired", function () {

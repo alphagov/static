@@ -1,6 +1,7 @@
 describe("User Satisfaction Survery", function () {
   describe("Cookies", function () {
     var survey;
+    var cookie = new GOVUK.Cookie();
 
     beforeEach(function () {
       survey = new GOVUK.UserSatisfaction();
@@ -8,20 +9,20 @@ describe("User Satisfaction Survery", function () {
 
     afterEach(function () {
       // Remove the cookie that we're setting.
-      Alphagov.delete_cookie(survey.cookieNameSeenBar);
-      Alphagov.delete_cookie(survey.cookieNameTakenSurvey);
+      cookie.delete(survey.cookieNameSeenBar);
+      cookie.delete(survey.cookieNameTakenSurvey);
     });
 
     it("should set a cookie when we've seen the bar", function () {
-      expect(Alphagov.read_cookie(survey.cookieNameSeenBar)).toBe(null);
+      expect(cookie.read(survey.cookieNameSeenBar)).toBe(null);
       survey.setCookieSeenBar();
-      expect(Alphagov.read_cookie(survey.cookieNameSeenBar)).toBe('true');
+      expect(cookie.read(survey.cookieNameSeenBar)).toBe('true');
     });
 
     it("should set a cookie when we've taken the survey", function () {
-      expect(Alphagov.read_cookie(survey.cookieNameTakenSurvey)).toBe(null);
+      expect(cookie.read(survey.cookieNameTakenSurvey)).toBe(null);
       survey.setCookieTakenSurvey();
-      expect(Alphagov.read_cookie(survey.cookieNameTakenSurvey)).toBe('true');
+      expect(cookie.read(survey.cookieNameTakenSurvey)).toBe('true');
     });
   });
 });

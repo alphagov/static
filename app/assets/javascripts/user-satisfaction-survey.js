@@ -1,11 +1,14 @@
 var GOVUK = GOVUK || {};
-GOVUK.UserSatisfaction = GOVUK.UserSatisfaction || function () {
-};
+GOVUK.UserSatisfaction = GOVUK.UserSatisfaction || function () {};
 
-GOVUK.UserSatisfaction.prototype = {
-  cookieNameSeenBar: "seenSurveyBar",
-  cookieNameTakenSurvey: "takenUserSatisfactionSurvey",
+GOVUK.UserSatisfaction.prototype = (function () {
+  var cookie = new GOVUK.Cookie();
 
-  setCookieSeenBar: function () { return Alphagov.write_cookie(this.cookieNameSeenBar, true); },
-  setCookieTakenSurvey: function () { return Alphagov.write_cookie(this.cookieNameTakenSurvey, true); }
-};
+  return {
+    cookieNameSeenBar: "seenSurveyBar",
+    cookieNameTakenSurvey: "takenUserSatisfactionSurvey",
+
+    setCookieSeenBar: function () { cookie.write(this.cookieNameSeenBar, true); },
+    setCookieTakenSurvey: function () { cookie.write(this.cookieNameTakenSurvey, true); }
+  };
+})();
