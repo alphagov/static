@@ -17,7 +17,7 @@ GOVUK.UserSatisfaction.prototype = (function () {
       cookie.write(this.cookieNameTakenSurvey, true);
     },
     showSurveyBar: function () {
-      document.getElementByID("user-satisfaction-survey").style.display = "block";
+      // document.getElementByID("user-satisfaction-survey").style.display = "block";
     }
   };
 })();
