@@ -12,6 +12,7 @@
 #
 src_files:
   - app/assets/javascripts/core.js
+  - app/assets/javascripts/cookies.js
   - app/assets/javascripts/devolution.js
   - app/assets/javascripts/geo-locator.js
   - app/assets/javascripts/user-satisfaction-survey.js
