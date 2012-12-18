@@ -19,23 +19,23 @@ GOVUK.Cookie.prototype = (function() {
     },
     read: function (key) {
       var keyEQ = key + "=";
-	    var ca = document.cookie.split(';');
-	    for (var i = 0; i < ca.length; i++) {
-		    var c = ca[i];
-		    while (c.charAt(0) == " ") c = c.substring(1, c.length);
-		    if (c.indexOf(keyEQ) == 0) return c.substring(keyEQ.length, c.length);
-	    }
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(keyEQ) == 0) return c.substring(keyEQ.length, c.length);
+      }
 
-	    return null;
+      return null;
     },
     write: function (key, value, days) {
       var duration;
 
-	    if (days) {
-		    var date = new Date();
-		    date.setTime(date.getTime() + daysInMilliseconds(days));
-		    duration = date.toGMTString();
-	    } else {
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + daysInMilliseconds(days));
+        duration = date.toGMTString();
+      } else {
         // 4 nominal 30-day months in the future.
         duration = daysInMilliseconds(4 * 30);
       }
@@ -97,17 +97,17 @@ $(document).ready(function() {
     $('#search').toggleClass('js-visible');
     $(this).addClass('js-hidden');
   });
-  
+
   if(window.location.hash && $(".design-principles").length != 1 && $('.section-page').length != 1) {
     contentNudge(window.location.hash);
-  } 
+  }
 
   $("nav").delegate('a', 'click', function(){
     var hash;
     var href = $(this).attr('href');
     if(href.charAt(0) === '#'){
-      hash = href; 
-    } 
+      hash = href;
+    }
     else if(href.indexOf("#") > 0){
       hash = "#" + href.split("#")[1];
     }
@@ -115,7 +115,7 @@ $(document).ready(function() {
       $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
     }
   });
-  
+
   function contentNudge(hash){
     if($(hash).length == 1){
       if($(hash).css("top") == "auto" || "0"){
