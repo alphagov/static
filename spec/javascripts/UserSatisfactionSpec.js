@@ -2,8 +2,14 @@ describe("User Satisfaction Survery", function () {
   describe("Cookies", function () {
     var survey;
     var cookie = new GOVUK.Cookie();
+    var surveyElement;
 
     beforeEach(function () {
+      surveyElement = document.createElement("div");
+      document.body.appendChild(surveyElement);
+      surveyElement.id = "user-satisfaction-survey";
+      surveyElement.style.display = "none";
+
       survey = new GOVUK.UserSatisfaction();
     });
 
@@ -11,6 +17,8 @@ describe("User Satisfaction Survery", function () {
       // Remove the cookie that we're setting.
       cookie.delete(survey.cookieNameSeenBar);
       cookie.delete(survey.cookieNameTakenSurvey);
+
+      (elem = document.getElementById("user-satisfaction-survey")).parentNode.removeChild(elem);
 
       survey = null;
     });
@@ -28,14 +36,24 @@ describe("User Satisfaction Survery", function () {
     });
 
     it("should display the user satisfaction div", function () {
-      var surveyElement = document.createElement("div");
-      surveyElement.id = "user-satisfaction-survey";
-      surveyElement.style.display = "none";
-      document.body.appendChild(surveyElement);
-
       expect(surveyElement.style.display).toBe("none");
       survey.showSurveyBar();
       expect(surveyElement.style.display).toBe("block");
+    });
+
+    it("should randomly display the user satisfaction div", function () {
+      var counter = 0;
+      for (var i = 0; i < 50; i++) {
+        surveyElement.style.display = "none";
+        survey.randomlyShowSurveyBar();
+
+        if (surveyElement.style.display == "block") {
+          counter += 1;
+        }
+      }
+
+      expect(counter).toBeGreaterThan(0);
+      expect(counter).toBeLessThan(15);
     });
   });
 });
