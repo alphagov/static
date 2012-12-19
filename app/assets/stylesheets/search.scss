@@ -271,7 +271,7 @@ input[type="search"]::-webkit-search-results-decoration {
     ul.result-sections li {
       display: inline;
 
-      &.result-subsection {
+      &.result-subsection, &.result-subsubsection {
         background: transparent url("separator.png") 0 50% no-repeat;
         padding-left: 1em;
         margin-left: 0.5em;
