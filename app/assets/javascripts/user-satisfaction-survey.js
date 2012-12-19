@@ -1,7 +1,5 @@
 var GOVUK = GOVUK || {};
-GOVUK.UserSatisfaction = GOVUK.UserSatisfaction || function () {
-  this.showSurveyBar();
-};
+GOVUK.UserSatisfaction = GOVUK.UserSatisfaction || function () {};
 
 GOVUK.UserSatisfaction.prototype = (function () {
   var cookie = new GOVUK.Cookie();
@@ -17,7 +15,11 @@ GOVUK.UserSatisfaction.prototype = (function () {
       cookie.write(this.cookieNameTakenSurvey, true);
     },
     showSurveyBar: function () {
-      // document.getElementByID("user-satisfaction-survey").style.display = "block";
+      var survey = document.getElementById("user-satisfaction-survey");
+
+      if (survey) {
+        survey.style.display = "block";
+      }
     }
   };
 })();

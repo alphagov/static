@@ -105,6 +105,8 @@ $(document).ready(function() {
         $(this).removeClass('button-hover');
       });
   }
+
+  var survey = new GOVUK.UserSatisfaction();
 });
 
 

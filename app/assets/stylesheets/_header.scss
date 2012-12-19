@@ -220,7 +220,6 @@ body.government #global-header .header-context {
 }
 
 /* Global cookie message */
-
 .js-enabled #global-cookie-message {
   display: none; /* shown with JS */
 }
@@ -297,5 +296,48 @@ body.government #global-header .header-context {
 
       }
     }
+  }
+}
+
+#user-satisfaction-survey {
+  // Hidden by default as we only want to show it to users
+  // who have JavaScript enabled.
+  display: none;
+  background-color: #2B358B;
+  padding: 0.5em 0;
+  color: #fff;
+
+  div.wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+  }
+
+  h1, p {
+    @include ie-lte(6) {
+      width: 960px;
+    }
+
+    display: inline-block;
+  }
+
+  h1 {
+    @include core-19;
+  }
+
+  p {
+    @include core-14;
+
+    a {
+      &:link { color: #fff; }
+      &:hover { color: #333; }
+
+      &.button {
+        @include core-19;
+      }
+    }
+  }
+
+  @include media(mobile) {
+    padding: 0.5em 1em;
   }
 }
