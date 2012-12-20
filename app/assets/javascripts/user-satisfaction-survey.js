@@ -16,6 +16,10 @@ GOVUK.UserSatisfaction.prototype = {
       cookie.write(this.cookieNameTakenSurvey, true);
     },
     showSurveyBar: function () {
+      if (cookie.read(this.cookieNameTakenSurvey) === "true") {
+        return;
+      }
+
       var survey = document.getElementById("user-satisfaction-survey");
       var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
 
@@ -24,10 +28,6 @@ GOVUK.UserSatisfaction.prototype = {
       }
     },
     randomlyShowSurveyBar: function () {
-      if (cookie.read(this.cookieNameTakenSurvey) === "true") {
-        return;
-      }
-
       var min = 0;
       var max = 100;
       var random = Math.floor(Math.random() * (max - min + 1)) + min;
