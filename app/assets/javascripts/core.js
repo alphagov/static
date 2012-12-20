@@ -171,6 +171,7 @@ $(document).ready(function() {
   }());
 
   var survey = new GOVUK.UserSatisfaction();
+  survey.randomlyShowSurveyBar();
 });
 
 
