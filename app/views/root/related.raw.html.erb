@@ -1,5 +1,5 @@
 <%# Whilst they are both in use, this and the test copy in slimmer should be kept in sync %>
-<% if artefact %>
+<% if artefact and artefact.related_artefacts.any? %>
 
 <!-- related -->
 <div class="related-positioning">
