@@ -338,9 +338,4 @@ body.government #global-header .header-context {
       }
     }
   }
-
-  @include media(mobile) {
-    /* Mobile users shouldn't ever see this element. */
-    display: none;
-  }
 }
