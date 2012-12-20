@@ -16,8 +16,9 @@ GOVUK.UserSatisfaction.prototype = (function () {
     },
     showSurveyBar: function () {
       var survey = document.getElementById("user-satisfaction-survey");
+      var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/);
 
-      if (survey) {
+      if (survey && isMobile) {
         survey.style.display = "block";
       }
     },
