@@ -24,6 +24,10 @@ GOVUK.UserSatisfaction.prototype = {
       }
     },
     randomlyShowSurveyBar: function () {
+      if (cookie.read(this.cookieNameTakenSurvey) === "true") {
+        return;
+      }
+
       var min = 0;
       var max = 100;
       var random = Math.floor(Math.random() * (max - min + 1)) + min;

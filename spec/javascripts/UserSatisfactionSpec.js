@@ -56,5 +56,21 @@ describe("User Satisfaction Survery", function () {
       expect(counter).toBeGreaterThan(0);
       expect(counter).toBeLessThan(15);
     });
+
+    it("shouldn't show the user satisfaction div if the 'survey taken' cookie is set", function () {
+      cookie.write(survey.cookieNameTakenSurvey, true);
+
+      var counter = 0;
+      for (var i = 0; i < 100; i++) {
+        survey.randomlyShowSurveyBar();
+
+        if (surveyElement.style.display == "block") {
+          counter += 1;
+          break;
+        }
+      }
+
+      expect(counter).toBe(0);
+    });
   });
 });
