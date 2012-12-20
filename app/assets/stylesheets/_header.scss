@@ -474,8 +474,10 @@
 }
 
 #user-satisfaction-survey {
-  // Hidden by default as we only want to show it to users
-  // who have JavaScript enabled.
+  /**
+   * Hidden by default as we only want to show it to users who have
+   * JavaScript enabled.
+   */
   display: none;
   background-color: #2B358B;
   padding: 0.5em 0;
@@ -512,6 +514,7 @@
   }
 
   @include media(mobile) {
-    padding: 0.5em 1em;
+    /* Mobile users shouldn't ever see this element. */
+    display: none;
   }
 }
