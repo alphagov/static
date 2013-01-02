@@ -21,9 +21,10 @@ GOVUK.UserSatisfaction.prototype = {
       }
 
       var survey = document.getElementById("user-satisfaction-survey");
-      var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
+      var isMobileUA = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
+      var isMobileScreen = screen.availWidth < 900;
 
-      if (survey && survey.style.display === "none" && !isMobile) {
+      if (survey && survey.style.display === "none" && !isMobileUA && !isMobileScreen) {
         survey.style.display = "block";
       }
     },
