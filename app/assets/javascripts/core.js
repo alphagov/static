@@ -43,6 +43,8 @@ function recordOutboundLink(e) {
 
 function submitAProblemReport() {
   $('.report-a-problem-container .error-notification').remove();
+  var submitButton = $(this).find('.button');
+  submitButton.attr("disabled", true);
   $.ajax({
     type: "POST",
     url: "/feedback",
@@ -53,6 +55,7 @@ function submitAProblemReport() {
       },
     error: function(req,data) {
         if (req.status == 422) {
+          submitButton.attr("disabled", false);
           $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container p:first-child');
         } else if (data.message !== '') {
           $('.report-a-problem-container').html(data.message);
