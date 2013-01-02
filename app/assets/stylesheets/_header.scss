@@ -486,29 +486,39 @@
   div.wrapper {
     margin: 0 auto;
     max-width: 960px;
+    clear: both;
 
     @include ie-lte(6) {
       width: 960px;
     }
-  }
 
-  h1, p {
-    display: inline-block;
-  }
+    h1, p {
+      display: inline-block;
+    }
 
-  h1 {
-    @include core-19;
-  }
+    h1 {
+      @include core-19;
 
-  p {
-    @include core-14;
+      margin-right: 15px;
+    }
 
-    a {
-      &:link { color: #fff; }
-      &:hover { color: #333; }
+    p {
+      @include core-14;
 
-      &.button {
-        @include core-19;
+      a {
+        &:link { color: #fff; }
+        &:hover { color: #333; }
+
+        &.button {
+          @include core-19;
+        }
+
+        margin-left: 15px;
+      }
+
+      &.right {
+        float: right;
+        margin-right: 0;
       }
     }
   }
