@@ -1,4 +1,4 @@
-describe("User Satisfaction Survery", function () {
+describe("User Satisfaction Survey", function () {
   describe("Cookies", function () {
     var survey;
 
