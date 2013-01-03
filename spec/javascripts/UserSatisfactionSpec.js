@@ -111,6 +111,24 @@ describe("User Satisfaction Survery", function () {
 
         expect(cookie.read(survey.cookieNameTakenSurvey)).toBe('true');
       });
+
+      it("should hide the satisfaction survey bar after click 'take survey'", function () {
+        survey.showSurveyBar();
+
+        var takeSurvey = document.getElementById("take-survey");
+        clickElem(takeSurvey);
+
+        expect(surveyElement.style.display).toBe("none");
+      });
+
+      it("should hide the satisfaction survey bar after click 'no thanks'", function () {
+        survey.showSurveyBar();
+
+        var noThanks = document.getElementById("survey-no-thanks");
+        clickElem(noThanks);
+
+        expect(surveyElement.style.display).toBe("none");
+      });
     });
   });
 });
