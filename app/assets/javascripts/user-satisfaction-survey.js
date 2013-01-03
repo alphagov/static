@@ -13,6 +13,9 @@ GOVUK.UserSatisfaction.prototype = (function () {
       var setCookie = function (name) {
         return function () {
           cookie.write(name, true);
+
+          var survey = document.getElementById("user-satisfaction-survey");
+          survey.style.display = "none";
         }
       }
 
