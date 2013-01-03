@@ -50,12 +50,6 @@ describe("User Satisfaction Survery", function () {
       survey = null;
     });
 
-    it("should set a cookie when we've seen the bar", function () {
-      expect(cookie.read(survey.cookieNameSeenBar)).toBe(null);
-      survey.setCookieSeenBar();
-      expect(cookie.read(survey.cookieNameSeenBar)).toBe('true');
-    });
-
     it("should set a cookie when we've taken the survey", function () {
       expect(cookie.read(survey.cookieNameTakenSurvey)).toBe(null);
       survey.setCookieTakenSurvey();
