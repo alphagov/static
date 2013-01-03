@@ -112,7 +112,7 @@ describe("User Satisfaction Survery", function () {
         expect(cookie.read(survey.cookieNameTakenSurvey)).toBe('true');
       });
 
-      it("should hide the satisfaction survey bar after click 'take survey'", function () {
+      it("should hide the satisfaction survey bar after clicking 'take survey'", function () {
         survey.showSurveyBar();
 
         var takeSurvey = document.getElementById("take-survey");
@@ -121,7 +121,7 @@ describe("User Satisfaction Survery", function () {
         expect(surveyElement.style.display).toBe("none");
       });
 
-      it("should hide the satisfaction survey bar after click 'no thanks'", function () {
+      it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {
         survey.showSurveyBar();
 
         var noThanks = document.getElementById("survey-no-thanks");
