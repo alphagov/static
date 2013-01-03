@@ -14,10 +14,25 @@ GOVUK.UserSatisfaction.prototype = (function () {
     setCookieTakenSurvey: function () {
       cookie.write(this.cookieNameTakenSurvey, true);
     },
+    setEventHandlers: function () {
+      var setCookie = function (name) {
+        return function () {
+          cookie.write(name, true);
+        }
+      }
+
+      var noThanks = document.getElementById("survey-no-thanks");
+      var takeSurvey = document.getElementById("take-survey");
+
+      noThanks.addEventListener('click', setCookie(this.cookieNameTakenSurvey));
+      takeSurvey.addEventListener('click', setCookie(this.cookieNameTakenSurvey));
+    },
     showSurveyBar: function () {
       if (cookie.read(this.cookieNameTakenSurvey) === "true") {
         return;
       }
+
+      this.setEventHandlers();
 
       var survey = document.getElementById("user-satisfaction-survey");
       var isMobileUA = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
