@@ -315,8 +315,8 @@ body.government #global-header .header-context {
     height: 45px;
     clear: both;
 
-    @include ie-lte(6) {
-      width: 960px;
+    @include ie-lte(7) {
+      width: 900px;
     }
 
     h1, p {
