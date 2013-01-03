@@ -6,7 +6,7 @@ describe("form submission for reporting a problem", function () {
     beforeEach(function() {
         setFixtures(FORM_TEXT);
         form = $('form');
-        form.submit(submitAProblemReport);
+        form.submit(ReportAProblem.submit);
     });
 
     describe("while the request is being handled", function() {
@@ -45,10 +45,10 @@ describe("form submission for reporting a problem", function () {
         });
     });
 
-    describe("if the request has failed for some other reason", function() {
+    describe("if the request has failed with a status 500", function() {
         it("should replace the form with the error message from the AJAX call", function() {
             spyOn($, "ajax").andCallFake(function(options) {
-                options.error({status: 500}, {message: "big failure"});
+                options.statusCode[500]({responseText: '{"message": "big failure"}'});
             });
 
             form.triggerHandler('submit');

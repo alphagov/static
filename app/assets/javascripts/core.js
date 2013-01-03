@@ -41,28 +41,40 @@ function recordOutboundLink(e) {
   return false;
 }
 
-function submitAProblemReport() {
-  $('.report-a-problem-container .error-notification').remove();
-  var submitButton = $(this).find('.button');
-  submitButton.attr("disabled", true);
-  $.ajax({
-    type: "POST",
-    url: "/feedback",
-    dataType: "json",
-    data: $('.report-a-problem-container form').serialize(),
-    success: function(data) {
+var ReportAProblem = {
+  handleErrorInSubmission: function (jqXHR) {
+    var response = $.parseJSON(jqXHR.responseText);
+    if (response.message !== '') {
+      $('.report-a-problem-container').html(response.message);
+    }
+  },
+
+  submit: function() {
+    $('.report-a-problem-container .error-notification').remove();
+    var submitButton = $(this).find('.button');
+    submitButton.attr("disabled", true);
+    $.ajax({
+      type: "POST",
+      url: "/feedback",
+      dataType: "json",
+      data: $('.report-a-problem-container form').serialize(),
+      success: function(data) {
         $('.report-a-problem-container').html(data.message);
       },
-    error: function(req,data) {
-        if (req.status == 422) {
+      error: function(jqXHR) {
+        if (jqXHR.status == 422) {
           submitButton.attr("disabled", false);
           $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container p:first-child');
-        } else if (data.message !== '') {
-          $('.report-a-problem-container').html(data.message);
+        } else {
+          ReportAProblem.handleErrorInSubmission(jqXHR);
         }
+      },
+      statusCode: {
+        500: ReportAProblem.handleErrorInSubmission
       }
-  });
-  return false;
+    });
+    return false;
+  }
 }
 
 $(document).ready(function() {
@@ -110,7 +122,7 @@ $(document).ready(function() {
   // form submission for reporting a problem
   $('.report-a-problem-container form').append(
     '<input type="hidden" name="javascript_enabled" value="true"/>'
-  ).submit(submitAProblemReport);
+  ).submit(ReportAProblem.submit);
 
   // hover, active and focus states for buttons in IE<8
   if ($.browser.msie && $.browser.version < 8) {
