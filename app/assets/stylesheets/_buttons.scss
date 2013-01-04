@@ -160,6 +160,11 @@
   @include ie(6) {
     background-image: url('icon-pointer-indexed.png');
   }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-pointer-2x.png");
+    background-size: 30px 19px;
+  }
 }
 
 /* IE6 adds its own side padding so requires no extra */
@@ -186,6 +191,7 @@
 }
 
 a.button[rel="external"]:after {
+  display: none;
   content: none;
   margin-left: 0;
   margin-right: 0;

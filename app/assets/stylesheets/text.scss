@@ -299,6 +299,7 @@ article .advisory {
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-information-2x.png");
+    background-size: 27px 27px;
   }
 
   p {
@@ -378,10 +379,21 @@ article .advisory.minor {
 
 article .help-notice {
   background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-important-2x.png");
+    background-size: 29px 24px;
+  }
 }
 
 article .subscribe {
-  background: image-url("calendar-icon.png") no-repeat scroll 98% 1em #D5E8F3;
+  background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-calendar-2x.png");
+    background-size: 27px 27px;
+  }
+
 }
 
 article .info-notice{
@@ -389,6 +401,7 @@ article .info-notice{
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-information-2x.png");
+    background-size: 27px 27px;
   }
 }
 
@@ -410,6 +423,11 @@ article .info-notice a[rel="external"] {
 
 article .form-download {
   background: image-url("icon-file-download.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-file-download-2x.png");
+    background-size: 25px 25px;
+  }
 
   p {
     padding-right: 3em;
