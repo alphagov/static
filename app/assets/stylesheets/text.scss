@@ -376,11 +376,15 @@ article .help-notice {
   background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
 }
 
+article a.important {
+  background: image-url("icon-important.png") no-repeat scroll 100% 0 #FFF;
+}
+
 article .subscribe {
   background: image-url("calendar-icon.png") no-repeat scroll 98% 1em #D5E8F3;
 }
 
-article .info-notice{
+article .info-notice {
   background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
 }
 
