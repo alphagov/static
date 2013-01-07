@@ -820,7 +820,7 @@ article {
     padding: 1.2em 0.75em 1.2em 3.5em;
     position: relative;
 
-      @include device-pixel-ratio() {
+    @include device-pixel-ratio() {
       background-image: image-url("icon-locator-2x.png");
       background-size: 25px 25px;
     }
