@@ -132,12 +132,16 @@ article {
   }
 
   .contact,
-  .info-notice {
+  .info-notice,
+  .help-notice,
+  a.important {
     border: 1pt solid rgb(125,125,125);
     padding: 2pt;
   }
 
-  .info-notice {
+  .info-notice,
+  .help-notice,
+  a.important {
     &:before {
       content: "!";
       float: left;
