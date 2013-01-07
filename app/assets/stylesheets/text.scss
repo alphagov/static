@@ -35,7 +35,7 @@ article h1 + h2 {
 }
 
 article h2 {
-  @include core-24;
+  @include core-27;
   margin-bottom: 0.625em;
   margin-top: 2em;
 }
@@ -45,7 +45,7 @@ article h2 + h3 {
 }
 
 article h3 {
-  @include core-19;
+  @include core-24;
   margin-top: 2.4em;
   margin-bottom: 0.75em;
 }
