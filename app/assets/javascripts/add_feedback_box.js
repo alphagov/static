@@ -19,14 +19,15 @@
  */
 (function($) {
   $.fn.addFeedbackBox = function(options) {
-    
-    if(Alphagov.read_cookie('feedback_shown') != null){
+    var cookie = new GOVUK.Cookie();
+
+    if(cookie.read('feedback_shown') != null){
       return false;
     }
-    
-    Alphagov.write_permanent_cookie('feedback_shown', 'true');
-    
-    
+
+    // Value lasts for 2 years.
+    cookie.write('feedback_shown', 'true', 730);
+
     var settings = {
       // feedback_url: "http://stats.alpha.gov.uk/pepper/tonytrupp/behavior/api.php",
       delay_before_showing: 1800,
