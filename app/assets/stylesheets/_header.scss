@@ -1,5 +1,5 @@
 #global-header {
-  background-color: $grey-1;
+  background-color: $black;
   width: 100%;
 
   .header-wrapper {
@@ -23,8 +23,8 @@
   #logo {
     position: relative;
     float: left;
-    width: 183px;
-    height: 28px;
+    width: 166px;
+    height: 30px;
     margin-left: 2em;
 
     overflow: hidden;
@@ -35,8 +35,11 @@
   
     img {
       position: absolute;
-      left: -183px; top: 0;
+      left: -166px; top: 0;
       border: none;
+
+      /* scale oversized image to container bounds */
+      width: 200%; height: 200%;
 
       @include ie(6) {
         left: 0;
@@ -44,7 +47,7 @@
     }
 
     &:hover img {
-      top: -44px;
+      top: -30px;
     }
 
   }
@@ -91,9 +94,14 @@
       width: 1.8em;
       padding: 0.35em 0.5em;
 
-      background-image: url(icon-search.png);
+      background-image: url("icon-search.png");
       background-repeat: no-repeat;
       background-position: 75% 50%;
+
+      @include device-pixel-ratio() {
+        background-image: image-url("icon-search-2x.png");
+        background-size: 30px 22px;
+      }
 
       @include border-radius(0);
       @include box-shadow(none);
@@ -148,9 +156,14 @@
         width: 1.8em;
         padding: 0.25em 0.5em;
 
-        background-image: url(icon-search.png);
+        background-image: url("icon-search.png");
         background-repeat: no-repeat;
         background-position: 75% 50%;
+
+        @include device-pixel-ratio() {
+          background-image: image-url("icon-search-2x.png");
+          background-size: 30px 22px;
+        }
 
         @include box-sizing(content-box);
         @include border-radius(0);
@@ -281,6 +294,11 @@ body.government #global-header .header-context {
         margin-left: 0;
         margin-right: 0.5em;
         padding-right: 1em;
+
+        @include device-pixel-ratio() {
+          background-image: image-url("separator-2x.png");
+          background-size: 6px 11px;
+        }
 
         a {
           color: $text-colour;

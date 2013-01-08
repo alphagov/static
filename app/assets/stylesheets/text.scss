@@ -297,6 +297,11 @@ article .advisory {
   padding: 1em;
   text-align: left;
 
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-information-2x.png");
+    background-size: 27px 27px;
+  }
+
   p {
     margin: 0 0.75em 0 0;
     min-height: 1.75em;
@@ -374,6 +379,11 @@ article .advisory.minor {
 
 article .help-notice {
   background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-important-2x.png");
+    background-size: 29px 24px;
+  }
 }
 
 article a.important {
@@ -381,11 +391,22 @@ article a.important {
 }
 
 article .subscribe {
-  background: image-url("calendar-icon.png") no-repeat scroll 98% 1em #D5E8F3;
+  background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-calendar-2x.png");
+    background-size: 27px 27px;
+  }
+
 }
 
 article .info-notice {
   background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-information-2x.png");
+    background-size: 27px 27px;
+  }
 }
 
 article .help-notice p,
@@ -406,6 +427,11 @@ article .info-notice a[rel="external"] {
 
 article .form-download {
   background: image-url("icon-file-download.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-file-download-2x.png");
+    background-size: 25px 25px;
+  }
 
   p {
     padding-right: 3em;
@@ -542,9 +568,14 @@ article ol.steps {
     margin-left: 0;
     padding: 0.75em 0 0.75em 2.2em;
 
-    @for $i from 1 through 7 {
+    @for $i from 1 through 14 {
       &:nth-child(#{$i}) {
         background-image: image-url("icon-step-#{$i}.png");
+        
+        @include device-pixel-ratio() {
+          background-image: image-url("icon-step-#{$i}-2x.png");
+          background-size: 24px 24px;
+        }
       }
     }
 

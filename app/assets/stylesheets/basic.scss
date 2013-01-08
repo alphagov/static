@@ -67,11 +67,22 @@ a:active {
 
 a[rel="external"]:after,
 .external-link:after {
-  content: image-url("external-link.png");
-  margin-right: 0.2em;
-  margin-left: -0.2em
-}
+  content: "";
+  display: inline-block;
 
+  width: 20px;
+  height: 12px;
+
+  margin-right: 0.2em;
+  margin-left: -0.2em;
+
+  background: image-url("external-link.png") no-repeat;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("external-link-2x.png");
+    background-size: 20px 12px;
+  }
+}
 
 // adjustments to normalize.css
 
