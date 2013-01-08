@@ -152,6 +152,11 @@ aside .show-all-parts {
     background-position: 100% 0.6rem;
   }
 
+  @include device-pixel-ratio() {
+    background-image: image-url("accordian-arrow-2x.png");
+    background-size: 45px 90px;
+  }
+
   &,
   &:hover,
   &:focus {

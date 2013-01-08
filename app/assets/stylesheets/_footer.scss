@@ -270,6 +270,11 @@
         @include ie(6) {
           background-image: image-url("govuk-crest-ie.png");
         }
+
+        @include device-pixel-ratio() {
+          background-image: image-url("govuk-crest-2x.png");
+          background-size: 125px 102px;
+        }
       }
 
       @include media(mobile) {
