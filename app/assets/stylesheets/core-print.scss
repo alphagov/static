@@ -133,15 +133,13 @@ article {
 
   .contact,
   .info-notice,
-  .help-notice,
-  a.important {
+  .help-notice {
     border: 1pt solid rgb(125,125,125);
     padding: 2pt;
   }
 
   .info-notice,
-  .help-notice,
-  a.important {
+  .help-notice {
     &:before {
       content: "!";
       float: left;
