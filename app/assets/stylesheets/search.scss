@@ -249,7 +249,7 @@ input[type="search"]::-webkit-search-results-decoration {
       li {
         @include core-16;
         width: auto;
-        color: $grey-63;
+        color: $secondary-text-colour;
 
         a, 
         a:focus,
