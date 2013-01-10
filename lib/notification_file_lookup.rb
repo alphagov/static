@@ -1,11 +1,11 @@
 class NotificationFileLookup
   include Singleton
 
-	cattr_accessor :banner_file, :campaign_file
+  cattr_accessor :banner_file, :campaign_file
 
   def banner
-  	@banner_file ||= identify_banner_file
-  	@banner_file[:file].blank? ? nil : @banner_file
+    @banner_file ||= identify_banner_file
+    @banner_file[:file].blank? ? nil : @banner_file
   end
 
   def banner=(file)
@@ -14,7 +14,7 @@ class NotificationFileLookup
 
   def campaign
     @campaign_file ||= identify_campaign_file
-  	@campaign_file[:file].blank? ? nil : @campaign_file
+    @campaign_file[:file].blank? ? nil : @campaign_file
   end
 
   def campaign=(file)
