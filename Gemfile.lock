@@ -70,7 +70,7 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
-    lograge (0.0.6)
+    lograge (0.1.2)
       actionpack
       activesupport
     mail (2.4.4)
