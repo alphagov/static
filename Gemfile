@@ -6,7 +6,7 @@ gem 'unicorn', '4.3.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
-gem 'lograge'
+gem 'lograge', '~> 0.1.0'
 
 group :router do
   gem 'router-client', '2.0.3', :require => 'router/client'
