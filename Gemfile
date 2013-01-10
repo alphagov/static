@@ -1,7 +1,7 @@
 source :rubygems
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.11'
 gem 'unicorn', '4.3.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
