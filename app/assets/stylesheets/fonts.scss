@@ -10,6 +10,12 @@
 }
 
 @font-face {
+  font-family: 'nta';
+  src: asset_data_url('nta-b.woff') format('woff');
+  font-weight: bold;
+}
+
+@font-face {
   font-family: 'ntatabularnumbers';
   src: asset_data_url('NTATabularNumbers-Light.woff') format('woff');
   font-weight: normal;
