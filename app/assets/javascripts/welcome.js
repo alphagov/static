@@ -28,8 +28,8 @@ function getCookie(name){
 
 $(function() {
   var addStyle,
-  $message = $('#global-cookie-message'),
-  $relatedColumn = $('#wrapper .related-positioning');
+      $message = $('#global-cookie-message'),
+      $relatedColumn = $('#wrapper .related-positioning');
 
   if ($message.length && getCookie('seen_cookie_message') === null) {
     if ($relatedColumn.length) {
