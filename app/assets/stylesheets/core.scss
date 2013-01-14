@@ -60,46 +60,6 @@ h4 {
  * Locate me styles
  */
 
-.popover-mask {
-  background-color: rgba(0,0,0,0.5);
-  display: none;
-  height: 100%;
-  left: 0;
-  margin: 0;
-  top: 30px;
-  padding: 0;
-  position: fixed;
-  width: 100%;
-  z-index: 60;
-
-  @include ie-lte(7) {
-    position: absolute !important;
-  }
-
-  .popover {
-    background: #fafafa;
-    border: solid 2px #bbb;
-    @include border-radius(0.5em);
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-    margin: 4em auto 0 auto;
-    padding: 0 2.5em 2em 2.5em;
-    position: relative;
-  }
-}
-
-.popover  {
-  .close {
-    position: absolute;
-    top: -19px;
-    right: -19px;
-  }
-
-  h2 {
-    margin: 0.5em 0;
-    padding-bottom: 0.2em;
-  }
-}
-
 #global-locator-form {
   label,
   .ask_location {
@@ -762,33 +722,42 @@ article {
 }
 
 /* Feedback mechanism styles */
-#mask {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99999;
-  background-color: #000;
+.popover-mask {
+  background-color: rgba(0,0,0,0.5);
   display: none;
-}
 
-.js-enabled #popup,
-.js-enabled #feedback-popup,
-#govuk-feedback {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  z-index: 60;
+
+  @include ie-lte(7) {
+    position: absolute !important;
+  }
 }
 
 #popup {
   display: none;
+
   overflow: visible;
   clear: both;
-  padding: 0;
+  
   position: absolute;
-  left: 0;
   top: 2em;
+  left: 0;
+  
   width: 60%;
+  
   z-index: 999999;
+  
+  padding: 0;
   padding-bottom: 0.5em;
 
   h2 {
@@ -805,122 +774,13 @@ article {
     padding: 0;
   }
 
-  p.geolocate-me {
-    @include core-16;
-    border-top: 1px solid $grey-6;
-    margin-bottom: 0;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
-  }
-
-  #global-locator-form {
-    background: $grey-9 image-url("icon-locator.png") no-repeat 1em 1em;
-    border: none;
-    margin: 0 auto 1em auto;
-    padding: 1.2em 0.75em 1.2em 3.5em;
-    position: relative;
-
-    @include device-pixel-ratio() {
-      background-image: image-url("icon-locator-2x.png");
-      background-size: 25px 25px;
-    }
-  }
-
-  #global-set-theme .personalise-options {
-	  background: #d5ecea;
-	  padding: 1em;
-	  position: relative;
-  }
-
-  #global-set-theme .beta-notice {
-    @include core-14;
-    line-height: 1.5em;
-  }
-
-  &.customisation-tools,
-  &.feedback-tools {
-    background-color: #fff;
-    padding: 1em 1.5em;
-    width: 60%;
-    min-height: 26em;
-
-    h2 {
-      @include core-27;
-      margin: 0;
-    }
-  }
-
-  &.feedback-tools {
-    min-height: 22em;
-  }
-
   .error-notification {
     margin-bottom: 0.8em;
     padding: 0 0.5em;
   }
 
-  &.customisation-tools p.close,
-  &.feedback-tools p.close,
-  &.welcome-tour p.close {
-    padding: 0;
-  }
-
   .inner {
     background-color: #fff;
-  }
-
-  .intro {
-    background-color: #d5ecea;
-    padding: 1em;
-
-    p.explanation {
-      @include core-16;
-      margin-bottom: 0;
-      padding-right: 8em;
-    }
-  }
-
-  .vcard span {
-    display: block;
-  }
-}
-
-/* welcome popup */
-#popup.welcome-tour {
-  top: 12px;
-  width: 80%;
-  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
-  padding: 0;
-  left: 10%;
-
-  h2 {
-    @include core-27;
-    text-transform: uppercase;
-    padding: 0.2em 0 0 0.5em;
-    color: $text-colour;
-  }
-
-  .welcome-content {
-    background-color: #F27820;
-    padding: 0 5px 5px 5px;
-  }
-
-  .welcome-inner {
-    background-color: #FDE4D2;
-    color: $text-colour;
-    padding: 1em 2em;
-  }
-
-  .close {
-    right: 0.5em;
-    top: 1.5em;
-  }
-}
-
-@media screen and (min-width:500px) {
-  #popup.welcome-tour {
-    width: 60%;
-    left: 20%;
   }
 }
 
@@ -943,152 +803,6 @@ article {
 
     &:hover {
       background-color: rgba(0,0,0,0.25);
-    }
-  }
-}
-
-/* feedback popup */
-#feedback-cta {
-  background-color: #333;
-  color: white;
-  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
-  z-index: 9999;
-
-  @include ie-lte(8) {
-    position: absolute;
-  }
-
-  h2 {
-    @include core-14;
-    margin: 0.4em -2px 0.75em 0;
-    width: 10px;
-    text-transform: uppercase;
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-    display: absolute;
-    float: right;
-    color: #B4892D;
-  }
-
-  p {
-    line-height: 1.2;
-    padding: 0.5em;
-    margin: 0.2em 0;
-    color: inherit;
-  }
-
-  input {
-    @include core-19;
-    border: none;
-    color: white;
-    margin: 0.5em 0 0.3em 0.4em;
-    padding: 0.5em 1em;
-    text-align: center;
-    background: #666;
-  }
-
-  #cta-yes {
-    background: #D33883;
-  }
-
-  &.bottom input,
-  &.bottom form,
-  &.bottom h2 {
-    display: inline;
-  }
-
-  &.hide{
-    left: -12em;
-
-    &:hover,
-    &:active,
-    &:focus {
-      left: 0px;
-    }
-  }
-
-  &.left {
-    position: fixed;
-    left: -0.5em;
-    display: block;
-    bottom: 5%;
-    width: 12em;
-    min-height: 10em;
-    padding: 0em 0.5em 0.5em 1em;
-    -webkit-transition: left 0.5s ease-in-out;
-    -moz-transition: left 0.5s ease-in-out;
-
-    @include ie-lte(8) {
-      display: none;
-    }
-  }
-
-  .inner {
-    padding: 0;
-    position: relative;
-
-    .close {
-      right: -1em;
-      top: -1em;
-
-      @include ie-lte(8) {
-        right: 0em;
-        top: -0.5em;
-      }
-    }
-  }
-
-  .sets-cookie {
-    background: none;
-    margin: 1em 0 0 0;
-    padding: 0.25em 0 0 0;
-
-    a {
-      @include core-14;
-      color: inherit;
-      padding:0 0 0 0.5em;
-    }
-  }
-}
-
-#feedback-mechanism {
-  background-color: #EEE;
-  padding: 1em;
-
-}
-#feedback-options select,
-#feedback-mechanism textarea {
-  width: 90%;
-  display: block;
-  margin: 0.5em 0;
-  padding: 0.4em;
-}
-.feedback-tools .feedback-thanks {
-  @include core-27;
-}
-
-#related-popup {
-  padding: 1em;
-  margin: 1em;
-  border-top: 1px solid #eee;
-
-  h2 {
-    padding: 0;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      display: inline;
-      padding: 0;
-      margin: 0;
-      margin-right: 1em;
     }
   }
 }
