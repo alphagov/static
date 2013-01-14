@@ -9,6 +9,10 @@
     _gaq.push(['_setDomainName', document.domain]);
   }
   _gaq.push(['_setAllowLinker', true]);
+    // track pixel density ratio
+  if (window.devicePixelRatio) {
+    _gaq.push(['_setCustomVar', 11, 'Pixel Ratio', String(window.devicePixelRatio), 2 ]);
+  }
 </script>
 <%# This is here rather than in application to guarantee that GOVUK and _gaq exist %>
 <%= javascript_include_tag 'analytics' %>
