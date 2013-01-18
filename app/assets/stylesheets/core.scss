@@ -273,6 +273,11 @@ h4 {
 	height: 33px;
 	margin-top: 0.5em;
 	display: block;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("businesslink-logo-2x.png");
+    background-size: 84px 33px;
+  }
 }
 
 #wrapper.directgov #legacy-sources li.directgov {
@@ -282,6 +287,11 @@ h4 {
 	margin-right: 1em;
 	margin-top: 0.8em;
 	display: block;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("directgov-logo-2x.png");
+    background-size: 74px 14px;
+  }
 }
 
 /*
