@@ -367,7 +367,8 @@ body.full-width {
 #wrapper.programme header.page-header hgroup,
 #wrapper.service header.page-header hgroup {
   h1 {
-    padding-left: 95px;
+    margin-left: -12px;
+    padding-left: 80px;
   }
 
   @include media(mobile) {
