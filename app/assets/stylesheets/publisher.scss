@@ -202,7 +202,7 @@ aside .page-navigation {
 
     a {
       display: block;
-      padding: 0.75em 2em;
+      padding: 0.75em 1em 0.75em 2em;
       text-decoration: none;
       zoom: 1;
 
@@ -239,7 +239,7 @@ aside .page-navigation {
 
     &.active {
       background-color: $grey-8;
-      padding: 0.75em 2em;
+      padding: 0.75em 1em 0.75em 2em;
 
       @include ie(6) {
         width: auto;
