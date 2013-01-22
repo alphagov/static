@@ -223,6 +223,13 @@ aside .page-navigation {
         line-height: 1.5;
       }
 
+      &.part-description {
+        color: $grey-0;
+        line-height: 1.25;
+        margin-top: 10px;
+        margin-top: 1rem;
+      }
+
       &.part-title {
         color: #2E3191;
         text-decoration: underline;
