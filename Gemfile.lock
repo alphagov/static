@@ -84,7 +84,7 @@ GEM
     multi_json (1.5.0)
     nokogiri (1.5.5)
     null_logger (0.0.1)
-    plek (0.5.0)
+    plek (1.0.0)
       builder
     polyglot (0.3.3)
     rack (1.4.3)
@@ -171,7 +171,7 @@ DEPENDENCIES
   jasmine (= 1.1.2)
   lograge (~> 0.1.0)
   mocha (= 0.10.0)
-  plek (~> 0)
+  plek (= 1.0.0)
   rails (= 3.2.11)
   router-client (= 2.0.3)
   sass (= 3.2.0)
