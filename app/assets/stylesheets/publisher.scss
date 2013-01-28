@@ -202,7 +202,7 @@ aside .page-navigation {
 
     a {
       display: block;
-      padding: 0.75em 2em;
+      padding: 0.75em 1em 0.75em 2em;
       text-decoration: none;
       zoom: 1;
 
@@ -218,21 +218,30 @@ aside .page-navigation {
     span {
       display: block;
 
+      &.part-label,
+      &.part-title {
+        line-height: 1.5;
+      }
+
       &.part-label {
         color: $grey-0;
-        line-height: 1.5;
+      }
+
+      &.part-description {
+        color: $grey-0;
+        line-height: 1.25;
       }
 
       &.part-title {
         color: #2E3191;
         text-decoration: underline;
-        line-height: 1.25;
+        line-height: 1.5;
       }
     }
 
     &.active {
       background-color: $grey-8;
-      padding: 0.75em 2em;
+      padding: 0.75em 1em 0.75em 2em;
 
       @include ie(6) {
         width: auto;

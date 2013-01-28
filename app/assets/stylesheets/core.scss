@@ -273,6 +273,11 @@ h4 {
 	height: 33px;
 	margin-top: 0.5em;
 	display: block;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("businesslink-logo-2x.png");
+    background-size: 84px 33px;
+  }
 }
 
 #wrapper.directgov #legacy-sources li.directgov {
@@ -282,6 +287,11 @@ h4 {
 	margin-right: 1em;
 	margin-top: 0.8em;
 	display: block;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("directgov-logo-2x.png");
+    background-size: 74px 14px;
+  }
 }
 
 /*
@@ -334,12 +344,11 @@ body.full-width {
   }
 }
 
-#wrapper.programme header.page-header hgroup,
 #wrapper.service header.page-header hgroup,
-#wrapper.answer header.page-header hgroup,
 #wrapper.licence header.page-header hgroup,
-#wrapper.guide header.page-header hgroup,
-#wrapper.video header.page-header hgroup {
+#wrapper.video header.page-header hgroup,
+#wrapper.answer header.page-header hgroup,
+#wrapper.guide header.page-header hgroup {
   padding-left: 2em;
 
   h1 {
@@ -361,8 +370,41 @@ body.full-width {
       min-height: (61em/25);
     }
   }
+}
 
-  @include media($min-width: 1020px) {
+#wrapper.programme header.page-header hgroup,
+#wrapper.service header.page-header hgroup {
+  h1 {
+    margin-left: -12px;
+    padding-left: 80px;
+  }
+
+  @include media(mobile) {
+    padding-left: 1em;
+
+    h1 {
+      min-height: (61em/25);
+    }
+  }
+}
+
+#wrapper.programme header.page-header hgroup,
+#wrapper.service header.page-header hgroup,
+#wrapper.licence header.page-header hgroup,
+#wrapper.video header.page-header hgroup {
+  @include media($min-width: 1182px) {
+    padding-left: 0;
+
+    h1 {
+      margin-left: -96px;
+      padding-left: 128px;
+    }
+  }
+}
+
+#wrapper.answer header.page-header hgroup,
+#wrapper.guide header.page-header hgroup {
+  @include media($min-width: 1132px) {
     padding-left: 0;
 
     h1 {
@@ -377,7 +419,7 @@ body.full-width {
   background-image: image-url("icon-programme-l.png");
   background-position: 0 5px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1182px) {
     background-position: 15px 18px;
   }
 
@@ -392,7 +434,7 @@ body.full-width {
   background-image: image-url("icon-service-l.png");
   background-position: 0 12px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1182px) {
     background-position: 15px 29px;
   }
 
@@ -407,7 +449,7 @@ body.full-width {
   background-image: image-url("icon-answer-l.png");
   background-position: 0 14px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1132px) {
     background-position: 40px 14px;
   }
 
@@ -422,7 +464,7 @@ body.full-width {
   background-image: image-url("icon-licence-l.png");
   background-position: 0 14px;
   
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1182px) {
     background-position: 16px 14px;
   }
 
@@ -438,7 +480,7 @@ body.full-width {
   background-image: image-url("icon-guide-l.png");
   background-position: 0 14px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1132px) {
     background-position: 40px 14px;
   }
 
