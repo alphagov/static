@@ -74,9 +74,8 @@
     padding-right: 9.5em;
 
       .answer {
-        @include core-16;
+        @include bold-16;
         color: #315843;
-        font-weight:400;
         display: block;
         margin: 0 0.5em 0 1em;
 
@@ -177,13 +176,14 @@ li.done:hover .undo a {
 
   h2 {
     border: none;
-    @include core-19;
+    @include bold-19;
     margin-top: 0;
     margin-bottom: 1em;
     position: relative;
 
     .question-number {
       padding-right: 0.25em;
+      font-weight: 400;
     }
 
     @include ie-lte(8) {

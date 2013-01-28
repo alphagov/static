@@ -35,7 +35,7 @@ p {
 }
 
 h2, h3, h4 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h2 {
@@ -298,10 +298,7 @@ h4 {
  * Page headers
  */
 
-header {
-
-  &.page-header 
-
+header.page-header {
     .skip-to-related {
       position:absolute;
       left:-9999em;
@@ -321,6 +318,7 @@ header {
         @include heading-48;
         background-repeat: no-repeat;
         color: $text-colour;
+        font-weight: 400;
 
         span {
           @include core-19($line-height: 1);
