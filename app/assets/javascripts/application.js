@@ -1,6 +1,7 @@
 //= require libs/jquery/jquery-ui-1.8.16.custom.min
 //= require libs/jquery/plugins/jquery.base64
 //= require libs/jquery/plugins/jquery.mustache.js
+//= require libs/jquery/plugins/jquery.player.min
 //= require govuk_toolkit
 //= require core
 //= require devolution
