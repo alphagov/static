@@ -311,7 +311,7 @@ header.page-header {
         font-weight: 400;
 
         span {
-          @include bold-19($line-height: 1);
+          @include core-19($line-height: 1);
           display: block;
           margin-bottom: 0.25em;
           text-shadow: none;
