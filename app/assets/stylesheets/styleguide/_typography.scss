@@ -23,7 +23,7 @@
 //      _ Unit-less, relative leading value.
 //        line-height (52px) / font-size (45px) = relative line-height
 //
-//      font-weight: 300;
+//      font-weight: 400;
 //      letter-spacing: 0.01em;
 //      text-transform: none;
 //      _ Again, we cant assume anything about pre-exising CSS on the
@@ -191,7 +191,7 @@
     font-size: 12pt;
   }
   line-height: $line-height;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   @media (max-width: 640px) {
