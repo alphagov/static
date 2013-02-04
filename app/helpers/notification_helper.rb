@@ -4,19 +4,20 @@ module NotificationHelper
   include ActionView::Helpers::TagHelper
 
   def banner_notification
-    banner = NotificationFileLookup.instance.banner
-    if banner
-      content_tag(:section, "<div>#{banner[:file]}</div>", {:id => "banner-notification", :class => banner[:colour]}, false)
-    else
-      ''
-    end
+    node_replacement_notification(NotificationFileLookup.instance.banner, "banner")
   end
 
-  # This is only used to replace homepage campaigns for urgent matters.
+  # Only used to replace homepage campaigns for urgent matters.
   def campaign_replacement_notification
-    campaign = NotificationFileLookup.instance.campaign
-    if campaign
-      content_tag(:section, "<div>#{campaign[:file]}</div>", {:id => "campaign-notification", :class => campaign[:colour]}, false)
+    node_replacement_notification(NotificationFileLookup.instance.campaign, "campaign")
+  end
+
+  private
+
+  def node_replacement_notification(node, type)
+    if node
+      content_tag(:section, "<div>#{node[:file]}</div>",
+        {:id => "#{type}-notification", :class => node[:colour]}, false)
     else
       ''
     end
