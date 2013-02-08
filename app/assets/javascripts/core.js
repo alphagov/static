@@ -145,7 +145,7 @@ $(document).ready(function() {
 
   // fix for printing bug in Windows Safari
   (function () {
-    var windows_safari = (window.navigator.userAgent.match(/(\(Windows[\s\w\.;]+\))[\/\(\s\w\.\,\)]+(Version\/[\d\.]+)\s(Safari\/[\d\.]+)/) !== null),
+    var windows_safari = (window.navigator.userAgent.match(/(\(Windows[\s\w\.]+\))[\/\(\s\w\.\,\)]+(Version\/[\d\.]+)\s(Safari\/[\d\.]+)/) !== null),
         $new_styles;
 
     if (windows_safari) {
