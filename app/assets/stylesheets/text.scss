@@ -253,10 +253,6 @@ article th {
   }
 }
 
-/* .mainstream .answer article .summary {
-  padding-bottom: 3em; 
-} */
-
 .mainstream .ancillary .summary {
   margin-bottom: 2em;
 }
@@ -414,11 +410,6 @@ article .subscribe p {
   padding-right: 4em;
 }
 
-/* article p + .help-notice,
-article p + .info-notice,
-article p + .contact {
-  margin-top: 2em;
-} */
 
 article p + .help-notice,
 article p + .info-notice {
@@ -448,9 +439,7 @@ article .form-download {
 
 
 .contact {
-  /* background-color: #d5e8f3; */
   margin: 0.75em 0;
-  /* padding: 0.25em 1em; */
   min-width: 60%;
 
   dl {
@@ -485,8 +474,7 @@ article .form-download {
 }
 
 article .address {
-  background: $grey-9;  /* image-url("stamp.png") 95% 1em no-repeat; */
-  /* border: solid 1px $grey-6; */
+  background: $grey-9;  
   margin: 0.75em 0 1.5em 0;
   padding: 1em 0 1em 2em;
   min-width: 35%;
