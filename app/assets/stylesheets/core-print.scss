@@ -195,8 +195,16 @@ img { max-width: 100% !important; }
   }
 }
 
+#global-header {
+  background: transparent image-url('gov.uk_logotype_print.png') no-repeat 0 50%;
+  height: 2cm;
+
+  .header-wrapper {
+    display: none;
+  }
+}
+
 /* hide the unnecessary page elements */
-body header#global-header,
 body footer,
 body #global-user-location,
 body .related-positioning,
