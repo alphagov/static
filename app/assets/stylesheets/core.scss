@@ -718,7 +718,7 @@ article {
 
     @include device-pixel-ratio() {
       background-image: image-url("icon-print-2x.png");
-      background-size: 32px 36px;
+      background-size: 16px 18px;
     }
 
     zoom: 1;
