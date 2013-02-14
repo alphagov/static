@@ -100,6 +100,8 @@ article {
   ol {
     @include core-14;
     padding-left: 13pt;
+    list-style-image: none;
+    list-style-type: disc;
   }
 
   li {
