@@ -131,6 +131,11 @@ article {
     td:nth-child(n+2) {
       text-align: right;
     }
+
+    caption {
+      @include core-19;
+      margin: 14pt 0;
+    }
   }
 
   .contact,
