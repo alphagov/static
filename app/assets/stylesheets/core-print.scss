@@ -224,6 +224,20 @@ img { max-width: 100% !important; }
   }
 }
 
+.done-questions {
+  .start-again {
+    display: none;
+  }
+
+  .question-number {
+    display: none;
+  }
+
+  li.done .undo {
+    display: none;
+  }
+}
+
 /* hide the unnecessary page elements */
 body footer,
 body #global-user-location,
