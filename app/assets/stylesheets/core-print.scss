@@ -143,6 +143,7 @@ article {
   .help-notice {
     border: 1pt solid rgb(125,125,125);
     padding: 2pt;
+    margin: 14pt 0;
   }
 
   .info-notice,
@@ -157,6 +158,18 @@ article {
 
     p {
       margin-left: 22pt;
+    }
+  }
+
+  .highlight-answer,
+  .highlighted-event {
+    p {
+      @include core-19;
+
+      em {
+        font-style: normal;
+        font-weight: 700;
+      }
     }
   }
 }
@@ -197,7 +210,7 @@ img { max-width: 100% !important; }
   @include core-14;
 
   &:after {
-    content: "© Crown Copyright";
+    content: "\00A9  Crown Copyright";
     float: right;
   }
 }
