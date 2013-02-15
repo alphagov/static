@@ -216,11 +216,15 @@ img { max-width: 100% !important; }
 }
 
 #global-header {
-  background: transparent image-url('gov.uk_logotype_print.png') no-repeat 0 50%;
-  height: 2cm;
+  background: transparent;
 
   .header-wrapper {
     display: none;
+  }
+
+  &:after {
+    content: image-url('gov.uk_logotype_print.png');
+    margin: 0.5cm 0;
   }
 }
 
