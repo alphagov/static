@@ -708,10 +708,6 @@ article {
   margin: 0.5em 0;
   padding-left: 2em;
 
-  @include ie-lte(7) {
-    padding-left: 0.2em;
-  }
-
   a, a:link, a:visited {
     background: image-url("icon-print.png") no-repeat 0% 50%;
     padding: 0.5em 0 0.5em 28px;
