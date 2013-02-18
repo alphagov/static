@@ -218,13 +218,33 @@ img { max-width: 100% !important; }
 #global-header {
   background: transparent;
 
-  .header-wrapper {
-    display: none;
+  #logo {
+    position: relative;
+    display: block;
+    width: 166px;
+    height: 30px;
+
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: -60px;
+
+      /* scale oversized image to container bounds */
+      max-width: none !important;
+      width: 200%; height: 300%;
+
+      border: none;
+    }
+
+    &:after {
+      display: none;
+    }
   }
 
-  &:after {
-    content: image-url('gov.uk_logotype_print.png');
-    margin: 0.5cm 0;
+  #search, .search-toggle {
+    display: none;
   }
 }
 

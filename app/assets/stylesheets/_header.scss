@@ -39,7 +39,7 @@
       border: none;
 
       /* scale oversized image to container bounds */
-      width: 200%; height: 200%;
+      width: 200%; height: 300%;
 
       @include ie(6) {
         left: 0;
