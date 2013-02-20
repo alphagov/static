@@ -72,9 +72,6 @@
 
     <%= banner_notification %>
 
-    <div class="beta-notice">
-      <p>We are testing this page in public, so it may contain inaccurate information.</p>
-    </div>
     <% unless local_assigns[:hide_nav] %>
       <div id="global-breadcrumb" class="header-context">
         <nav role="navigation">
@@ -89,9 +86,6 @@
       <%= yield :content %>
     </div>
 
-    <div class="beta-notice">
-      <p>We are testing this page in public, so it may contain inaccurate information.</p>
-    </div>
     <footer class="group" id="footer" role="contentinfo">
 
       <div class="footer-wrapper">
