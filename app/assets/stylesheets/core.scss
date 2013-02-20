@@ -1205,3 +1205,21 @@ article {
     height: 60px;
   }
 }
+
+
+/* status warnings */
+
+body.beta{
+  .beta-notice{
+    text-align:center;
+    background-color:$orange;
+    padding:0.5em 0 0.5em 4em;
+    p{
+      padding:0 auto;
+      margin:0 auto;
+      color:$white;
+      width:1024px;
+      text-align:left;
+    }
+  }
+}
