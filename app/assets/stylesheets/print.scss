@@ -6,8 +6,7 @@
 
 $is-print: true;
 @import "styleguide/_print.scss";
-@import "styleguide/_font-stacks.scss";
-@import "styleguide/_typography.scss";
+@import "_typography";
 
 // OUTPUT
 // The following files and inline CSS will form the output of print.css
