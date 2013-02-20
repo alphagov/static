@@ -6,9 +6,12 @@
   <%= stylesheet_link_tag 'guides-print', media: 'all' %>
 </head>
 <body>
+  <header role="banner" class="group" id="global-header">
+    <div id="logo"><img src="<%= asset_path 'gov.uk_logotype-2x.png' %>" alt="GOV.UK"></div>
+  </header>
+
   <div id="wrapper">
     <section id="content" role="main" class="group">
-      <h1 class="govuk">GOV.UK</h1>
     </section>
   </div>
 </body>
