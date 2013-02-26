@@ -82,7 +82,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 7em;
+  top: 9.5em;
   width: 100%;
   z-index: 0;
 
@@ -101,11 +101,16 @@ h4 {
   }
 }
 
-.related-beta-with-cookie {
+.js-enabled .related-positioning {
+  top: 7em;
+}
+
+.beta .related-positioning {
   top: 12em;
 }
-.related-live-with-cookie,
-.related-beta {
+
+.js-enabled .related-with-cookie,
+.js-enabled .related-beta {
   top: 9.5em;
 }
 
