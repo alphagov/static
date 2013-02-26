@@ -29,12 +29,28 @@ function getCookie(name){
 $(function() {
   var addStyle,
       $message = $('#global-cookie-message'),
-      $relatedColumn = $('#wrapper .related-positioning');
+      $relatedColumn = $('#wrapper .related-positioning'),
+      hasCookieMessage = ($message.length && getCookie('seen_cookie_message') === null),
+      release = ($('.beta-notice').length) ? 'beta' : 'live';
+      addRelatedClass;
 
-  if ($message.length && getCookie('seen_cookie_message') === null) {
-    if ($relatedColumn.length) {
+  function addRelatedClass() {
+    var relatedClass = 'related-' + release;
+
+    if (hasCookieMessage) {
       // correct the related module top position to consider the cookie bar
-      $relatedColumn.addClass('related-with-cookie');
+      relatedClass = relatedClass + '-with-cookie';
+    } else if (release === 'live') {
+      return;
+    }
+
+    if ($relatedColumn.length) {
+      $relatedColumn.addClass(relatedClass);
+    }
+  };
+
+  if (hasCookieMessage) {
+    if ($relatedColumn.length) {
       // related content box needs to know the top position of the footer
       // this changes when content is split into tabs
       if (typeof GOVUK.stopScrollingAtFooter !== 'undefined') {
@@ -44,4 +60,6 @@ $(function() {
     $message.show();
     setCookie('seen_cookie_message', 'yes', 28);
   }
+
+  addRelatedClass();
 });
