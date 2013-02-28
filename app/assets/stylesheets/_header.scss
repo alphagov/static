@@ -238,8 +238,8 @@ body.government #global-header .header-context {
   display: none; /* shown with JS */
 }
 
-#global-cookie-message {
-  background-color: #D5E8F3;
+#global-cookie-message,
+.beta-notice {
   padding: 0.5em 0;
 
   p {
@@ -255,6 +255,15 @@ body.government #global-header .header-context {
   @include media(mobile) {
     padding: 0.5em 1em;
   }
+}
+
+#global-cookie-message {
+  background-color: $light-blue-25;
+}
+
+.beta-notice{
+  background-color: $orange;
+  color: #fff;
 }
 
 #global-breadcrumb {

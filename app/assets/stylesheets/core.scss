@@ -636,13 +636,12 @@ article {
 }
 
 #wrapper.travel-advice p img {
-  @include ie(6) {
-    display: block;
-    margin: 0 -1em;
-    padding-left: 1em;
-  }
-  @include media(mobile) {
-    width: 100%;
+  display: block;
+  margin: 0 -1em;
+  padding-left: 1em;
+
+  @include media(tablet) {
+    max-width: 100%;
   }
 }
 
@@ -742,6 +741,7 @@ article {
 
   @include media(mobile) {
     width:60%;
+    padding-left: 1em;
 
     a, a:link, a:visited {
       padding-bottom:4px;
@@ -1223,23 +1223,5 @@ article {
     width: 99.9%;
     position: absolute;
     height: 60px;
-  }
-}
-
-
-/* status warnings */
-
-body.beta{
-  .beta-notice{
-    text-align:center;
-    background-color:$orange;
-    padding:0.5em 0 0.5em 4em;
-    p{
-      padding:0 auto;
-      margin:0 auto;
-      color:$white;
-      width:1024px;
-      text-align:left;
-    }
   }
 }
