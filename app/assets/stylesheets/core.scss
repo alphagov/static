@@ -650,6 +650,11 @@ article {
   margin-right: 15em;
   min-height: 35em;
 
+  /* Make webkit browsers contain the margin-bottom of report-a-problem */
+  .travel-advice & {
+    padding-bottom: 0.01em;
+  }
+
   article {
     margin-right: 0;
   }
