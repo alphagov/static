@@ -82,7 +82,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 7em;
+  top: 9.5em;
   width: 100%;
   z-index: 0;
 
@@ -101,11 +101,16 @@ h4 {
   }
 }
 
-.related-beta-with-cookie {
+.js-enabled .related-positioning {
+  top: 7em;
+}
+
+.beta .related-positioning {
   top: 12em;
 }
-.related-live-with-cookie,
-.related-beta {
+
+.js-enabled .related-with-cookie,
+.js-enabled .related-beta {
   top: 9.5em;
 }
 
@@ -617,7 +622,7 @@ article {
   }
 }
 
-#wrapper.guide
+#wrapper.guide,
 #wrapper.programme{
   article{
     .inner{
@@ -630,10 +635,25 @@ article {
   }
 }
 
+#wrapper.travel-advice p img {
+  display: block;
+  margin: 0 -1em;
+  padding-left: 1em;
+
+  @include media(tablet) {
+    max-width: 100%;
+  }
+}
+
 .article-container {
   background-color: #fff;
   margin-right: 15em;
   min-height: 35em;
+
+  /* Make webkit browsers contain the margin-bottom of report-a-problem */
+  .travel-advice & {
+    padding-bottom: 0.01em;
+  }
 
   article {
     margin-right: 0;
@@ -726,6 +746,7 @@ article {
 
   @include media(mobile) {
     width:60%;
+    padding-left: 1em;
 
     a, a:link, a:visited {
       padding-bottom:4px;
@@ -1207,23 +1228,5 @@ article {
     width: 99.9%;
     position: absolute;
     height: 60px;
-  }
-}
-
-
-/* status warnings */
-
-body.beta{
-  .beta-notice{
-    text-align:center;
-    background-color:$orange;
-    padding:0.5em 0 0.5em 4em;
-    p{
-      padding:0 auto;
-      margin:0 auto;
-      color:$white;
-      width:1024px;
-      text-align:left;
-    }
   }
 }

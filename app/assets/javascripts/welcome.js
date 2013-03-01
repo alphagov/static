@@ -31,20 +31,18 @@ $(function() {
       $message = $('#global-cookie-message'),
       $relatedColumn = $('#wrapper .related-positioning'),
       hasCookieMessage = ($message.length && getCookie('seen_cookie_message') === null),
-      release = ($('.beta-notice').length) ? 'beta' : 'live';
+      release = ($('.beta-notice').length) ? 'beta' : null;
       addRelatedClass;
 
   function addRelatedClass() {
-    var relatedClass = 'related-' + release;
+    var relatedClass = release ? 'related-' + release : 'related';
 
     if (hasCookieMessage) {
       // correct the related module top position to consider the cookie bar
       relatedClass = relatedClass + '-with-cookie';
-    } else if (release === 'live') {
-      return;
     }
 
-    if ($relatedColumn.length) {
+    if ($relatedColumn.length && (relatedClass !== 'related')) {
       $relatedColumn.addClass(relatedClass);
     }
   };
