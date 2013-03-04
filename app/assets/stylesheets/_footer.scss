@@ -29,6 +29,7 @@
   }
 
   h2 {
+    @include core-24;
     color: $grey-3;
     margin: 0;
   }
