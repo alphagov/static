@@ -1230,3 +1230,39 @@ article {
     height: 60px;
   }
 }
+
+.next-steps-promo {
+  border-top: solid 5px $yellow;
+  border-bottom: solid 5px $yellow;
+  position: relative;
+  margin-top: 1.5em;
+  padding: 1em 200px 1em 0;
+
+  @include media(mobile) {
+    padding-right: 0;
+  }
+
+  @include ie(6) {
+    zoom: 1;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  img {
+    position: absolute;
+    top: 1em;
+    right: 0;
+
+    @include media(mobile) {
+      position: static;
+      display: block;
+    }
+  }
+}
+
+.linear-promo {
+  position: static;
+  padding-right: 0;
+}
