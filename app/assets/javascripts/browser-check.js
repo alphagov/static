@@ -1,3 +1,5 @@
 if ( suchi.isOld(navigator.userAgent) ) {
-	$("#global-browser-prompt").show();
+	if($("#global-cookie-warning").length == "0"){
+		$("#global-browser-prompt").show();
+	}
 }
