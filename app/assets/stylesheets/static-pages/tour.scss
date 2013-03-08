@@ -66,9 +66,12 @@
           margin-bottom:0;
         }
         a{
-          @include core-16
+          @include core-16;
+          &[rel="external"]:after {
+            content: "\A0\A0\A0\A0\A0";
+            background-position: right 0.2em;
+          }
         }
-        
       }
     }
 

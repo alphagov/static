@@ -67,20 +67,27 @@ a:active {
 
 a[rel="external"]:after,
 .external-link:after {
-  content: "";
-  display: inline-block;
+  content: "\A0\A0\A0\A0";
 
-  width: 20px;
-  height: 12px;
-
-  margin-right: 0.2em;
-  margin-left: -0.2em;
-
-  background: image-url("external-link.png") no-repeat;
+  background: url("external-link-12x12.png") no-repeat right 0.3em;
 
   @include device-pixel-ratio() {
-    background-image: image-url("external-link-2x.png");
-    background-size: 20px 12px;
+    background-image: url("external-link-24x24.png");
+    background-size: 12px 12px;
+  }
+
+  @include media(mobile) {
+    content: "\A0\A0\A0\A0\A0";
+    background-position: right 0.2em;
+  }
+}
+
+a[rel="external"]:hover:after,
+.external-link:hover:after {
+  background-image:url("external-link-blue-12x12.png");
+
+  @include device-pixel-ratio() {
+    background-image: image-url("external-link-blue-24x24.png");
   }
 }
 
