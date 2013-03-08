@@ -235,7 +235,8 @@ body.government #global-header .header-context {
 /* Global cookie message
    Global browser prompt message */
 
-.js-enabled #global-cookie-message {
+.js-enabled #global-cookie-message,
+.js-enabled #global-browser-prompt {
   display: none; /* shown with JS */
 }
 
@@ -264,11 +265,7 @@ body.government #global-header .header-context {
   background-color: $light-blue-25;
 }
 
-/* browser upgrade prompt */
 
-.js-enabled #global-browser-prompt {
-  display: block; /* shown with JS */
-}
 
 
 

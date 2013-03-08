@@ -2,6 +2,7 @@
 //= require libs/jquery/plugins/jquery.base64
 //= require libs/jquery/plugins/jquery.mustache.js
 //= require libs/jquery/plugins/jquery.player.min
+//= require libs/suchi/isOld.js
 //= require govuk_toolkit
 //= require core
 //= require devolution
@@ -13,3 +14,4 @@
 //= require jquery.tabs
 //= require mobile
 //= require stop-related-scrolling
+//= require browser-check
