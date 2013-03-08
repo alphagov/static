@@ -36,6 +36,8 @@
     <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } unless local_assigns[:js_at_the_end] %>
   </head>
 
   <body<%= content_for?(:body_classes) ? " class=\"#{yield(:body_classes)}\"".html_safe : '' %>>
@@ -142,9 +144,6 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
-    <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.js' %>
-    <%= javascript_include_tag local_assigns[:js_file] || 'application', :defer => 'defer' %>
-    <%= render partial: "google_analytics" %>
-
+    <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } if local_assigns[:js_at_the_end] %>
   </body>
 </html>
