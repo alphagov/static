@@ -4,7 +4,7 @@ $(function() {
 	// we don't show the message when the cookie warning is also there
 	if($("#global-cookie-warning").length === 0){
 		if ( suchi.isOld(navigator.userAgent) ) {
-			if(getCookie('not_first_visit') !== null && getCookie('browser_upgrade_dismissed') === null){
+			if(getCookie('not_first_visit') !== null && getCookie('govuk_browser_upgrade_dismissed') === null){
 				$prompt.show();
 				$prompt.find(".dismiss").on("click", function(){
 					$prompt.hide();
@@ -16,6 +16,6 @@ $(function() {
 		};
 	
 		// We're not showing the message on first visit
-		setCookie('not_first_visit', 'yes', 28);
+		setCookie('govuk_not_first_visit', 'yes', 28);
 	};
 });
