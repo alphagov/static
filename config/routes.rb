@@ -1,6 +1,7 @@
 Static::Application.routes.draw do
   match "/templates/campaign.html.erb", :to => "root#campaign"
   match "/templates/wrapper.html.erb", :to => "root#wrapper"
+  match "/templates/wrapper_with_js_last.html.erb", :to => "root#wrapper_with_js_last"
   match "/templates/print.html.erb", :to => "root#print"
   match "/templates/related.raw.html.erb", :to => "root#related"
   match "/templates/report_a_problem.raw.html.erb", :to => "root#report_a_problem"

@@ -8,7 +8,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %></title>
 
     <script type="text/javascript">
-      (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})(); 
+      (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
     </script>
 
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag local_assigns[:css_file] || 'application' %><!--<![endif]-->
@@ -19,9 +19,6 @@
     <%= stylesheet_link_tag "print", :media => "print" %>
 
     <%= render partial: "fonts" %>
-
-    <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.js' %>
-    <%= javascript_include_tag local_assigns[:js_file] || 'application', :defer => 'defer' %>
 
     <!--[if lt IE 9]>
       <%= javascript_include_tag 'ie.js' %>
@@ -41,8 +38,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="og:image" content="<%= asset_path "opengraph-image.png" %>">
 
-    <%= render partial: "google_analytics" %>
-
+    <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } unless local_assigns[:js_at_the_end] %>
   </head>
 
   <body<%= content_for?(:body_classes) ? " class=\"#{yield(:body_classes)}\"".html_safe : '' %>>
@@ -149,5 +145,6 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
+    <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } if local_assigns[:js_at_the_end] %>
   </body>
 </html>
