@@ -267,15 +267,16 @@ body.government #global-header .header-context {
 
 
 #global-browser-prompt .dismiss{
-   background-image: image-url("close.png");
-   background-color:transparent;
-   background-position:left bottom;
-   text-decoration:none;
-   height:10px;
-   width:10px;
-   text-indent:-9999px;
-   display:block;
-   float:right;
+  background-image: image-url("close.png");
+  background-color:transparent;
+  background-repeat: no-repeat;
+  background-position: center right;
+  text-decoration:none;
+  height:22px;
+  width:10px;
+  text-indent:-9999px;
+  display:block;
+  float:right;
 }
 
 

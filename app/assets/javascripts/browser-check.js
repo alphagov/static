@@ -15,4 +15,5 @@ $(function() {
 	
 		setCookie('not_first_visit', 'yes', 28);
 	}
+	$prompt.show();
 });
