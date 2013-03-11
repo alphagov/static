@@ -13,3 +13,4 @@
 //= require jquery.tabs
 //= require mobile
 //= require stop-related-scrolling
+//= require analytics
