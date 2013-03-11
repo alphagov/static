@@ -2,9 +2,9 @@ $(function() {
 	var $prompt = $("#global-browser-prompt");
 
 	// we don't show the message when the cookie warning is also there
-	if($("#global-cookie-warning").length == 0){
+	if($("#global-cookie-warning").length === 0){
 		if ( suchi.isOld(navigator.userAgent) ) {
-			if(getCookie('not_first_visit') == "yes" && getCookie('browser_upgrade_dismissed') == null){
+			if(getCookie('not_first_visit') !== null && getCookie('browser_upgrade_dismissed') === null){
 				$prompt.show();
 				$prompt.find(".dismiss").on("click", function(){
 					$prompt.hide();
