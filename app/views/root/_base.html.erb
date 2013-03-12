@@ -36,6 +36,7 @@
     <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="<%= asset_path "opengraph-image.png" %>">
 
     <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } unless local_assigns[:js_at_the_end] %>
   </head>
