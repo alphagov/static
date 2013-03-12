@@ -65,8 +65,7 @@ a:active {
   color: $link-active-colour;
 }
 
-a[rel="external"]:after,
-.external-link:after {
+a[rel="external"]:after {
   content: "\A0\A0\A0\A0";
 
   background: url("external-link-12x12.png") no-repeat right 0.3em;
@@ -82,12 +81,20 @@ a[rel="external"]:after,
   }
 }
 
-a[rel="external"]:hover:after,
-.external-link:hover:after {
+a[rel="external"]:hover:after {
   background-image:url("external-link-blue-12x12.png");
 
   @include device-pixel-ratio() {
     background-image: image-url("external-link-blue-24x24.png");
+  }
+}
+
+.external-link:after {
+  content:"\A0\A0\A0\A0\A0\A0\A0\A0";
+  background: url("external-link-black-12x12.png") right top no-repeat;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("external-link-black-24x24.png");
   }
 }
 
