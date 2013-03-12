@@ -16,3 +16,4 @@
 //= require mobile
 //= require stop-related-scrolling
 //= require browser-check
+//= require analytics
