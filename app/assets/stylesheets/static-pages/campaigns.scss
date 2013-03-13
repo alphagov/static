@@ -131,9 +131,8 @@ section.campaign {
       padding: 0;
     }
     
-    a[rel="external"]:after {
-      content: "\A0\A0\A0\A0\A0";
-      background-position: right 0.2em;
+    a[rel="external"] {
+      @include external-link-16;
     }
   }
 }

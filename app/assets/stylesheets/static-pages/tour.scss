@@ -67,9 +67,11 @@
         }
         a{
           @include core-16;
-          &[rel="external"]:after {
-            content: "\A0\A0\A0\A0\A0";
-            background-position: right 0.2em;
+          &[rel="external"] {
+            @include external-link-16;
+            @include media(mobile) {
+              @include external-link-14;
+            }
           }
         }
       }
@@ -136,6 +138,9 @@
           @include ie-lte(7) {
             margin-left:0;
           }
+        }
+        a[rel="external"] {
+          @include external-link-16;
         }
       }
 
