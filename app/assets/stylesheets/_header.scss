@@ -265,6 +265,15 @@ body.government #global-header .header-context {
   background-color: $light-blue-25;
 }
 
+#global-browser-prompt p {
+  position: relative;
+  padding-right: 20px;
+  max-width: 940px;
+
+  @include ie(6) {
+    width: 940px; 
+  }
+}
 
 #global-browser-prompt .dismiss{
   background-image: image-url("close.png");
@@ -275,8 +284,9 @@ body.government #global-header .header-context {
   height:22px;
   width:10px;
   text-indent:-9999px;
-  display:block;
-  float:right;
+  display:inline-block;
+  position: absolute;
+  right: 0;
 }
 
 
