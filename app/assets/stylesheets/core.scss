@@ -1235,7 +1235,7 @@ article {
   border-top: solid 5px $yellow;
   border-bottom: solid 5px $yellow;
   position: relative;
-  margin-top: 1.5em;
+  margin-top: 3em;
   padding: 1em 200px 1em 0;
 
   @include media(mobile) {
@@ -1258,6 +1258,18 @@ article {
     @include media(mobile) {
       position: static;
       display: block;
+    }
+  }
+
+  .get-started .button {
+    background-color: #FFBF47;
+    background-image: image-url("icon-pointer-black.png");
+    color: #333;
+
+    &:hover,
+    &:focus {
+      background-color: #ffdf94;
+      color: #333;
     }
   }
 }
