@@ -269,7 +269,7 @@ article .summary h2,
 .mainstream .ancillary .summary h2 {
   line-height: 1.35em;
 
-  @include ie-lte(7) {
+  @include ie(6) {
     height: 2.75em;
   }
 }
