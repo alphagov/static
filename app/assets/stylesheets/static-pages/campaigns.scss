@@ -130,6 +130,10 @@ section.campaign {
       margin: 0;
       padding: 0;
     }
+    
+    a[rel="external"] {
+      @include external-link-16;
+    }
   }
 }
 
