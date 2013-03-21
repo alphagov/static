@@ -1,0 +1,574 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<!-- ePDQ static template
+-->
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<TITLE>Payment confirmation</TITLE>
+    <style type="text/css">
+	<!--
+	td.ncolh1 {background-color : #FFFFFF; color : #000000; font-family : Verdana}
+	td.ncoltxtl {background-color : #FFFFFF; color : #000000; text-align : right; font-weight : bold; font-family : Verdana}
+	td.ncoltxtl2 {background-color :#FFFFFF; color : #000000; text-align : right; font-weight : bold; font-family : Verdana}
+	td.ncoltxtr {background-color : #FFFFFF; color : #000000; text-align : left; font-weight : bold; font-family : Verdana}
+	td.ncoltxtc {background-color : #FFFFFF; color : #000000; text-align : center; font-weight : bold; font-family : Verdana}
+	td.ncollogol {background-color : #FFFFFF; color : #000000; text-align : right; font-weight : bold; font-family : Verdana}
+	td.ncollogor {background-color : #FFFFFF; color : #000000; text-align : left; font-weight : bold; font-family : Verdana}
+	td.ncollogoc {background-color : #FFFFFF; color : #000000; text-align : center; font-weight : bold; font-family : Verdana}
+	td.ncoltxtmessage {background-color : #FFFFFF; color : #000000; text-align : left; font-weight : bold; font-family : Verdana}
+	td.ncolinput {background-color : #FFFFFF; color : #000000; font-family : Verdana}
+	td.ncolline1 {background-color : #FFFFFF; color : #000000; font-family : Verdana}
+	td.ncolline2 {background-color : #FFFFFF; color : #000000; font-family : Verdana}
+	input.ncol {background-color : darkblack; color : #000000; font-family : Verdana}
+	table.ncoltable1 { background-color: #FFFFFF;  color : #000000; border: 1px solid #000000; }
+	table.ncoltable2 { background-color: #FFFFFF;  color : #000000; border: 1px solid #000000; }
+	table.ncoltable3 { background-color: #FFFFFF;  color : #000000; border: 1px solid #000000; }
+	table.ncoltable1 td { background-color: #FFFFFF;  color : #000000; font-family : Verdana;}
+	table.ncoltable2 td { background-color: #FFFFFF;  color : #000000; font-family : Verdana;  }
+	table.ncoltable3 td { background-color: #FFFFFF;  color : #000000;  font-family : Verdana;}
+	a {color: #000000; text-decoration: underline}
+	p {color: #000000; }
+			td {}
+.DDtxt {text-align: left;margin-left:2em;font-weight: normal;margin-top:0;}
+.DDlabel {text-align: left; margin-left:4em;font-weight: normal;margin-top:0;}
+.DDdata {font-weight: normal;margin-top:0;}
+.MKtxt {text-align: left;font-weight: bold; margin-left:2em;margin-top:0;}
+.MKlabel {text-align: left; margin-left:4em;font-weight: normal;font-style:italic;margin-top:0;}
+td.ncoltxtr p.MKlabel {margin-left:0;}
+.MKdata {font-weight: normal;margin-top:0;}
+.DDimp {font-weight: bold;margin-left:2em;text-align: left;margin-top:0;}
+.DDsection {font-weight: bold;margin-left:0em;text-align: left; margin-top:1em; margin-bottom: 0em;}
+	-->
+	</style>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+
+<TABLE BORDER="0" WIDTH="100%">
+	<TR>
+		<TD WIDTH="15%">&nbsp;
+		</TD>
+		<TD WIDTH="70%"><div align="center">&nbsp;<font size="4" face="Verdana"><Strong>Payment confirmation</strong></font>&nbsp;</div>
+		<br>
+
+		
+<style type="text/css">
+			div.WaitMsgClass{
+					display:none;
+					background-color: #FFFFFF;
+					border: solid #CCCCCC 4px;
+					padding: 4px;
+					color: #000000;
+					font-family: Verdana;
+					font-weight: bold;
+					position: absolute;
+		        	width: 350px;
+				}
+
+</style>
+<script language="javascript" type="text/Javascript">
+var ncolwaitwindow;
+var ncolwaitwindowopen = 0;
+
+<!--
+document.write('<div class="WaitMsgClass" id="WaitMsgId" style="display: none;"><img id="waitGif" src="https&#58;//mdepayments.epdq.co.uk/images/wait_turn.gif"></div>');
+
+
+
+function ShowWaitMsg(){
+		var wm;
+		var lg;
+		var ht;
+		wm = document.getElementById("WaitMsgId");
+		wm.innerHTML = '<p class="WaitMsgP"><img id="waitGif" src="https&#58;//mdepayments.epdq.co.uk/images/wait_turn.gif">Please wait while your payment is processed.</p>';
+		lg = document.body.offsetWidth;
+		ht = document.body.offsetHeight;
+		wm.style.top = String(Math.round(ht/4+50)) + 'px';
+		wm.style.left = String(Math.round((lg-360)/2)) + 'px';
+		wm.style.display = "block";
+
+	}
+
+
+function my_submitAndWait(thisform,limitScriptU)
+{
+	var RC;
+	var wm;
+	var lg;
+	var ht;
+	var bs;
+//	var l=string.length;
+
+	if (typeof fillHdJs != 'undefined')
+	{
+		fillHdJs();
+	}
+
+	RC = evalFormFieldsN(formFields,limitScriptU);
+	if (RC)
+	{
+		ShowWaitMsg();
+		for (i=0; i<thisform.elements.length;i++)
+		{
+			if (thisform.elements[i].type == "submit")
+			{
+				thisform.elements[i].disabled = true;
+			}
+		}
+	}
+	return RC;
+}
+function justWait(string)
+{
+		ShowWaitMsg();
+}
+function close_ncol_wait()
+{
+}
+//-->
+</script>
+
+	<!-- Order overview -->
+	<h2 style="display: inline; position: absolute; left: -1000px; top: -1000px; width: 0px; height: 0px; overflow: hidden;">Order overview</h2>
+	<table class=ncoltable1 border="0" cellpadding="2" cellspacing="0" width="95%" id="ncol_ref">
+	    
+							<tr>
+								<td class=ncoltxtl colspan="1" align="right" width="50%"><small>Order reference :<!--External reference--></small></td>
+								<td class=ncoltxtr colspan="1" width="50%"><small>e726b0867bc571ef4eb4075f543a57</small></td>
+							</tr>
+						
+
+				<tr>
+	        
+							<td class=ncoltxtl colspan="1" align="right" width="50%"><small>
+							Total charge :<!--Total to pay-->
+							
+							</small></td>
+							<td class=ncoltxtr colspan="1" width="50%"><small>180.00 GBP
+							</small>
+			    		</td>
+					
+				</tr>
+					
+					<tr>
+						<td class=ncoltxtl colspan="1" align="right"><small>Beneficiary :<!--Beneficiary--></small></td>
+						<td class=ncoltxtr colspan="1"><small>Foreign and Commonwealth office</small></td>
+					</tr>
+					
+	</table>
+	
+		<script type="text/javascript" src="js/jquery.core/jquery-1.7.2.min.js"></script>
+	
+		<script type="text/javascript" src="js/jquery.plugins/dependencies/Class.create.js"></script>
+		<script type="text/javascript" src="js/jquery.plugins/jquery.jquery-encoder-0.1.0.min.js"></script>
+		<script type="text/JavaScript">
+		<!--
+		function trustHTML(sStr) {
+			return sStr;
+		}
+		//-->
+		</script>
+	
+		<script type="text/javascript">
+			var OGONE = {};
+			OGONE.jQuery = $.noConflict(true);
+		</script>
+	
+
+	<script type="text/javascript" language="javascript" src="js/required_fields.js"></script>
+
+<script type="text/javascript">
+	var js_version = 1.0;
+</script>
+<script language="Javascript1.1" type="text/javascript">
+	js_version = 1.1;
+</script>
+<script language="Javascript1.2" type="text/javascript">
+	js_version = 1.2;
+</script>
+<script language="Javascript1.3" type="text/javascript">
+	js_version = 1.3;
+</script>
+<script language="Javascript1.4" type="text/javascript">
+	js_version = 1.4;
+</script>
+<script language="Javascript1.5" type="text/javascript">
+	js_version = 1.5;
+</script>
+<script language="Javascript1.6" type="text/javascript">
+	js_version = 1.6;
+</script>
+<script language="Javascript1.7" type="text/javascript">
+	js_version = 1.7;
+</script>
+<script language="Javascript1.8" type="text/javascript">
+	js_version = 1.8;
+</script>
+<script language="Javascript1.9" type="text/javascript">
+	js_version = 1.9;
+</script>
+<script language="Javascript1.10" type="text/javascript">
+	js_version = 1.10;
+</script>
+
+<script type="text/javascript" src="js/form_validation.js"></script>
+
+<script type="text/JavaScript">
+<!--
+
+	var AlertMSG_109 = "This field is obligatory.";
+	var AlertMSG_110 = "You must choose from this list";
+	var AlertMSG_173 = "You must enter a number in the field";
+	var AlertMSG_1205 = "The value entered is incorrect";
+	var AlertMSG_111 = "Your e-mail address is invalid";
+	var AlertERR_907 = "This field is not valid.";
+	var AlertERR_95 = "CVC is present, along with the reason for its absence.";
+	var AlertERR_96 = "CVC is not present, with no reason given.";
+
+
+//-->
+
+
+</script>
+
+						<form method="POST" action="https&#58;//mdepayments.epdq.co.uk/ncol/test/order_Agree.asp" name="OGONE_CC_FORM" ONSUBMIT="return my_valscript(this);">
+						<input type="hidden" name="CSRFKEY" value="85686A052E065C9F128600EF9B589955FB688788" />
+<input type="hidden" name="CSRFTS" value="20130320170804" />
+<input type="hidden" name="CSRFSP" value="/ncol/test/orderstandard.asp" />
+					<input type="hidden" name="WIN3DS" value="">
+					<input type="hidden" name="branding" value="EPDQ">
+						<input type="hidden" name="payid" value="20092610">
+						
+							<input type="hidden" name="version" value="">
+						
+						<input type="hidden" name="AcceptanceRequired" value="False">
+					<input type="hidden" name="hash_param" value="0FCF9B926EFD56A2D07C219D3FD0EEB2A6A30863">
+					<input type="hidden" name="LimitClientScriptUsage" value="False">
+					<input type="hidden" name="walletid" value="">
+					<input type="hidden" name="walletalias" value="">
+					<input type="hidden" name="wallethash" value="">
+					<p></p>
+					<!-- Hidden title for screenreaders (Payment Data) -->
+					<h2 style="display: inline; position: absolute; left: -1000px; top: -1000px; width: 0px; height: 0px; overflow: hidden;">Payment data</h2>
+						<table class=ncoltable2 border="0" cellpadding="2" cellspacing="0" width="95%" >
+
+						<tr>
+
+					
+						<td class=ncoltxtl2 width="50%" valign="top" align="right">
+						<small>Pay with<!--Credit card--> :</small>
+					
+
+						</td>
+						<td class=ncolinput width="50%" valign="top" align="left" nowrap>
+
+					
+									<input type = "hidden" name="card" size="1" value="VISA">
+						
+										<img border="0" src="https&#58;//mdepayments.epdq.co.uk/images/VISA_choice.gif" align="middle" alt="VISA" title="VISA">
+									
+							</td>
+						</tr>
+						<tr>
+									<td class=ncoltxtl2 align="right"><small><label for="Ecom_Payment_Card_Name">Cardholder&#39;s name*</label><!--Card holder name--> :</small></td>
+									<td class=ncolinput ><small><input type="text" name="Ecom_Payment_Card_Name" id="Ecom_Payment_Card_Name" MAXLENGTH="35" size="20" value=""></small>
+									
+									</td>
+								</tr>
+								<tr>
+									<td class=ncoltxtl2 align="right"><small>
+										<label for="Ecom_Payment_Card_Number">
+											Card number*
+										</label><!--Card number--> :</small>
+									</td>
+									<td class=ncolinput ><small>
+										
+										<input name="ChosenBrand" id="ChosenBrand" autocomplete="Off" type="hidden" value="VISA">
+										<input name="paymethod" id="paymethod" autocomplete="Off" type="hidden" value="CreditCard">
+										<input name="Ecom_Payment_Card_Number" id="Ecom_Payment_Card_Number" autocomplete="Off" MAXLENGTH="20" size="20" type="text"  class="numberLtr">
+									</small>
+									 
+							</td>
+								</tr>
+							
+									<tr>
+										<td class=ncoltxtl2 align="right"><small>
+										
+												<label for="Ecom_Payment_Card_ExpDate_Month"> Expiry date &#40;mm</label>/<label for="Ecom_Payment_Card_ExpDate_Year">yyyy&#41;*
+										</label> :</small></td>
+										<td class=ncolinput >
+
+										
+											<small><select id="Ecom_Payment_Card_ExpDate_Month" name="Ecom_Payment_Card_ExpDate_Month" size="1"   title=" Expiry date &#40;mm/yyyy&#41; &#40;month&#41;"
+											onchange="document.OGONE_CC_FORM.Comp_Expirydate.value=document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Year.options[document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Year.selectedIndex].value
+															+document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Month.options[document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Month.selectedIndex].value;">
+													<option value=""></option>
+											<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+
+
+											</select>/<select id="Ecom_Payment_Card_ExpDate_Year" name="Ecom_Payment_Card_ExpDate_Year" size="1"   title=" Expiry date &#40;mm/yyyy&#41; &#40;year&#41;"
+											onchange="document.OGONE_CC_FORM.Comp_Expirydate.value=document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Year.options[document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Year.selectedIndex].value
+															+document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Month.options[document.OGONE_CC_FORM.Ecom_Payment_Card_ExpDate_Month.selectedIndex].value;">
+									<option value=""></option>
+									<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+<option value="2026">2026</option>
+<option value="2027">2027</option>
+<option value="2028">2028</option>
+<option value="2029">2029</option>
+<option value="2030">2030</option>
+<option value="2031">2031</option>
+<option value="2032">2032</option>
+<option value="2033">2033</option>
+<option value="2034">2034</option>
+<option value="2035">2035</option>
+<option value="2036">2036</option>
+<option value="2037">2037</option>
+<option value="2038">2038</option>
+
+											</select></small>
+									
+										<input type=hidden value="201201" name="Comp_Expirydate">
+										
+								</td>
+								</tr>
+							
+									<script type="text/javascript">
+							<!--//
+							var G_lsu;
+							
+							G_lsu = 0;
+							
+							function my_valscript(thisform)
+							{
+								var RCval;
+								var lsu;
+								lsu = 0;
+								if (document.OGONE_CC_FORM.DCCAvailable != undefined)
+								{
+									if (document.OGONE_CC_FORM.DCCAvailable.value == '1')
+									{
+										if (document.OGONE_CC_FORM.DCCAccept != undefined)
+										{
+											if (!document.OGONE_CC_FORM.DCCAccept[0].checked && !document.OGONE_CC_FORM.DCCAccept[1].checked )
+											{
+												if (lsu == 1)
+												{
+													document.getElementById("idErrMSGDCC").innerHTML = 'Please select your currency';
+												}
+												else
+												{
+													alert('Please select your currency');
+												}
+												return false;
+											}
+										}
+									}
+								}
+								
+								RCval = my_submitAndDisable(thisform,lsu);
+								return RCval;
+							}
+							//	-->
+						</SCRIPT>
+							
+									<tr>
+										
+
+
+										<td class=ncoltxtl2 align="right"><small><label for="Ecom_Payment_Card_Verification">Card verification code*</label> :</small></td>
+										<td class=ncolinput >
+											<small>
+											
+												<input type="text" name="Ecom_Payment_Card_Verification" id="Ecom_Payment_Card_Verification" autocomplete="Off" size="10" MAXLENGTH="10" >
+											
+											</small>&nbsp;
+										
+											<input type="hidden" name="CVCFlag" value="-1">
+										
+												<small>
+													<small>
+														<a class=midncol href="https&#58;//mdepayments.epdq.co.uk/ncol/test/card_verification_code.asp&#63;lang=1&amp;ABRAND=%3BVISA&amp;CSRFSP=%2Fncol%2Ftest%2Forderstandard%2Easp&amp;CSRFKEY=73AB4AAB672907F7F9E795AD61F14064D891D2CC&amp;CSRFTS=20130320170804" target="popup" onclick="window.open('','popup','width=300,height=400,left=0,top=0,scrollbars=1')">What is this&#63;</a>
+													</small>
+												</small>
+											
+										</td>
+									</tr>
+								
+							<input type="hidden" name="ownerZIP" value="">
+							<input type="hidden" name="owneraddress" value="">
+						
+								<tr>
+									<td colspan ="2" valign="middle" align="center" >
+										<small><small>
+										* Mandatory fields
+										<br>
+										
+								</small>
+										</small>
+										</td>
+								</tr>
+								<tr align="center">
+									<td colspan="2" valign="middle" align="center" >
+										<small>
+										
+									<input type="submit" class="ncol" name="payment" value="Yes, I confirm my payment" id=submit3 >
+								
+										</small>
+										</td>
+								</tr>
+							
+
+						</table>
+						
+					</form>
+
+					<script type="text/javascript">
+					<!--
+					
+						arrcvc = "#EUROCARD#JCB#VISA#"
+						arrDispCVCFlag = ""
+					      formFields= new FormFieldsA(6,"document.OGONE_CC_FORM");
+					      formFields[0]= new FieldDescriptor("Ecom_Payment_Card_Name","Cardholder\'s name","T","$$F.value !=''",null);
+					      formFields[1]= new FieldDescriptor("Ecom_Payment_Card_Name","Please enter a valid cardholder name (it must be different to the card number).","TD","$$F.value != document.OGONE_CC_FORM.Ecom_Payment_Card_Number.value",null);
+					      formFields[2]= new FieldDescriptor("Ecom_Payment_Card_Number","Card number","TN","$$F.value !=''",null);
+					      formFields[3]= new FieldDescriptor("Ecom_Payment_Card_Number","Card number","TV","checkCCValid($$F)",null);
+					      formFields[4]= new FieldDescriptor("Comp_Expirydate"," Expiry date (mm/yyyy)","TV","$$F.value >= 201303",null);
+					      formFields[5]= new FieldDescriptor("Ecom_Payment_Card_Verification","Card verification code","TN","checkCVCAndPresInd($$F,document.OGONE_CC_FORM.CVCFlag,document.OGONE_CC_FORM.Ecom_Payment_Card_Number)",null);
+					
+					//--></script>
+				
+
+			<script type="text/javascript" language="javascript">
+				function ClearForm() {
+
+					if (typeof formFields != "undefined") {
+						var formName = formFields.formName.split(".")[1];
+						for (var i = 0; i < formFields.totalFields; i++) {
+							var fieldName = formFields[i].fieldName;
+							var formField = document.forms[formName].elements[fieldName];
+							if (formField.type == "text") {
+								
+								formField.value = "";
+								
+							}
+						}
+
+						if (formName == 'OGONE_CC_FORM') {
+							if (document.forms['OGONE_CC_FORM'].elements['Ecom_Payment_Card_ExpDate_Month'] != 'undefined') {
+								document.forms['OGONE_CC_FORM'].elements['Ecom_Payment_Card_ExpDate_Month'].selectedIndex = 0;
+							}
+							if (document.forms['OGONE_CC_FORM'].elements['Ecom_Payment_Card_ExpDate_Year'] != 'undefined') {
+								document.forms['OGONE_CC_FORM'].elements['Ecom_Payment_Card_ExpDate_Year'].selectedIndex = 0;
+							}
+						}
+					}
+
+				}
+
+				window.onload = ClearForm;
+			</script>
+
+	<script type="text/javascript" language="JavaScript" src="js/fp/Fp_inc.1.2.js"></script>
+	<script type="text/javascript" language="JavaScript" src="base64_inc.js"></script>
+	
+<!-- Further information / Cancel -->
+<h2 style="display: inline; position: absolute; left: -1000px; top: -1000px; width: 0px; height: 0px; overflow: hidden;">Further information / Cancel</h2>
+<table class=ncoltable3 border="0" cellpadding="2" cellspacing="0" width="95%" id="ie_cc" style="behavior:url(#default#clientCaps)">
+	<tr><td class="ncollogoc" valign="middle" align="center" width="33%"><a href="http://www.visaeurope.com/en/cardholders/verified_by_visa.aspx" target="_blank"><img border="0" src="https://mdepayments.epdq.co.uk/images/VISA_brand3D.gif" title="VISA" alt="VISA" hspace="3"></a>&nbsp;</td><td class="ncollogoc" valign="middle" align="center" width="33%"><img border="0" src="https&#58;//mdepayments.epdq.co.uk/images/EPDQ_BOLogoPowered.png" alt="Payment processed by Barclaycard" title="Payment processed by Barclaycard" vspace="2"><br><small><small></small></small></td><td class="ncollogoc" valign="middle" align="center" width="33%">&nbsp;</td></tr>
+		<tr>
+				<td class=ncollogoc>&nbsp;</td>
+				<td class=ncollogoc align="center">
+						<center>
+							<table border="0" cellpadding="0" cellspacing="0" width="95%">
+									<tr>
+										
+												<td class="ncollogoc" align="center" width="50%">
+													
+													<form class="normal" action="https&#58;//mdepayments.epdq.co.uk/ncol/test/orderstandard.asp" method=POST id=form1 name=form1 style="margin-bottom:0px;">
+														<input type="hidden" name="CSRFKEY" value="67B36F3FA85DA4FFE6E6A12AAF4835123B3D5964" />
+<input type="hidden" name="CSRFTS" value="20130320170804" />
+<input type="hidden" name="CSRFSP" value="/ncol/test/orderstandard.asp" />
+														<input type="hidden" name="WIN3DS" value="">
+														<input type="hidden" name="PMListType" value="">
+														<input type="hidden" name="branding" value="EPDQ">
+														<input type="hidden" name="payid" value="20092610">
+														<input type="hidden" name="hash_param" value="0FCF9B926EFD56A2D07C219D3FD0EEB2A6A30863">
+														<input type="hidden" name="walletid" value="">
+														<input type="hidden" name="walletalias" value="">
+														<input type="hidden" name="wallethash" value="">
+														<input type="hidden" name="CatalogURL" value="">
+														<input type="hidden" name="HomeURL" value="">
+														<input type="hidden" name="LimitClientScriptUsage" value="False">
+														
+														<small><input class=ncol type="submit" name="reselect" value="Back" id="btn_Back"></small>
+													</form>
+												</td>
+											
+											<td class=ncollogoc align="center" width="50%">
+											
+													<form method="POST" action="https&#58;//mdepayments.epdq.co.uk/ncol/test/Order_Cancel.asp" id=form3 name=form3 onsubmit="return(window.confirm('Are you sure you want to cancel this transaction?'))"  style="margin-bottom:0px;">
+													<input type="hidden" name="CSRFKEY" value="A141733092B013596B388CDD18653913F1B46660" />
+<input type="hidden" name="CSRFTS" value="20130320170804" />
+<input type="hidden" name="CSRFSP" value="/ncol/test/orderstandard.asp" />
+														<input type="hidden" name="payid" value="20092610">
+														<input type="hidden" name="ownerZIP" value="">
+														<input type="hidden" name="owneraddress" value="">
+														<input type="hidden" name="alias" value="">
+														<input type="hidden" name="aliasoperation" value="">
+														<input type="hidden" name="hash_param" value="0FCF9B926EFD56A2D07C219D3FD0EEB2A6A30863">
+														<input type="hidden" name="branding" value="EPDQ">
+														<small><input class=ncol ID="ncol_cancel" type="submit" name="cancel" value="Cancel"></small><!--Cancel-->
+													</form>
+											
+											</td>
+										
+									</tr>
+							</table>
+						</center>
+				</td>
+				<td class=ncollogoc>&nbsp;</td>
+		</tr>
+		
+
+</table>
+
+
+
+		</TD>
+		<TD WIDTH="15%">&nbsp;
+		</TD>
+	
+	</TR>
+
+</TABLE>
+
+
+
+</BODY>
+
+</HTML>
