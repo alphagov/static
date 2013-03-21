@@ -5,6 +5,8 @@ table{
 table small{
   font-size:20px;
 }
+
+/* Headings */
 table div,
 .ncoltable2 td b small,
 table div font strong,
@@ -12,15 +14,30 @@ table div font strong,
 .ncoltable1 .ncoltxtl{
   text-align:left !important;
 }
+
+/* H1 */
 table div font strong{
   font-size:34px !important;
 }
+
+/* Development only, remove for production */
 table{
   border:1px solid orange;
 }
 table td{
   border:1px solid magenta;
 }
+.ncoltable2{
+  border:1px solid blue;
+  background-color:green;
+}
+.ncoltable2 td{
+  border:1px solid cyan;
+  background-color:yellow;
+}
+/* End of Development only */
+
+/* Transaction details */
 .ncoltable1 td{
   float: left;
   display: block;
@@ -28,19 +45,16 @@ table td{
 .ncoltable1 .ncoltxtl{
   width: 10em !important;
 }
+
+/* Content */
 .ncoltable2{
   font-size: 20px;
-  border:1px solid blue;
-  background-color:green;
   position: relative;
   height: 17.5em;
   padding-bottom: 1.5em;
 }
-.ncoltable2 td{
-  border:1px solid cyan;
-  background-color:yellow;
-  width:0%;
-}
+
+/* Entry page styles */
 .ncoltable2 td b small,
 .ncoltable2 td small small span,
 .ncoltable2 td small small a,
@@ -62,6 +76,17 @@ table td{
   align: center;
   left: 0;
   font-size: 20px;
+  background-color: #008270;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 0 #000;
+  -moz-box-shadow: 0 3px 0 #000;
+  box-shadow: 0 3px 0 #000;
+  font-weight: 400;
+  padding:0.5em 1em;
+  overflow: visible;
 }
 .ncoltable2 td input[name='JCB_brand'] {
   top: 2.25em;
@@ -81,19 +106,3 @@ table td{
   width: 100%;
 }
 
-table td input {
-  background-color: #008270;
-  color: #fff;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 3px 0 #000;
-  -moz-box-shadow: 0 3px 0 #000;
-  box-shadow: 0 3px 0 #000;
-  font-weight: 400;
-  padding:0.5em 1em;
-  overflow: visible;
-}
-table td input:before{
-  content:"Select";
-}
