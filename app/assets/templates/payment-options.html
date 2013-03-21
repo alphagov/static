@@ -46,14 +46,15 @@
     table small{
     	font-size:20px;
     }
-    table div{
+    table div,
+    .ncoltable2 td b small,
+    table div font strong,
+    .ncoltable2 small small a,
+    .ncoltable1 .ncoltxtl{
     	text-align:left !important;
-
     }
     table div font strong{
-    	color:red;
     	font-size:34px !important;
-    	text-align:left !important;
     }
     table{
     	border:1px solid orange;
@@ -61,23 +62,64 @@
     table td{
     	border:1px solid magenta;
     }
+    .ncoltable1 td{
+      float: left;
+      display: block;
+    }
+    .ncoltable1 .ncoltxtl{
+      width: 10em !important;
+    }
     .ncoltable2{
+      font-size: 20px;
     	border:1px solid blue;
     	background-color:green;
+      position: relative;
+      height: 17.5em;
+      padding-bottom: 1.5em;
     }
     .ncoltable2 td{
     	border:1px solid cyan;
     	background-color:yellow;
     	width:0%;
     }
+    .ncoltable2 td b small,
+    .ncoltable2 td small small span,
     .ncoltable2 td small small a,
-    .ncoltable2 td small small span{
-    	width:600px !imporant;
-    	display:block;
+    .ncoltable2 td input {
+      position: absolute;
     }
-    .ncoltable2 td.ncolline1{
- 
-    	display:block;
+    .ncoltable2 td b small {
+      font-weight: normal;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1.5em;
+    }
+    .ncoltable2 td small small span {
+      display: none;
+    }
+    .ncoltable2 td input {
+      display: block;
+      align: center;
+      left: 0;
+      font-size: 20px;
+    }
+    .ncoltable2 td input[name='JCB_brand'] {
+      top: 2.25em;
+    }
+    .ncoltable2 td input[name='VISA_brand'] {
+      top: 6.25em;
+    }
+    .ncoltable2 td input[name='Eurocard_brand'] {
+      top: 9.25em;
+    }
+    .ncoltable2 td input[name='Maestro_brand'] {
+      top: 12.5em;
+    }
+    .ncoltable2 small small a {
+      left: 0;
+      bottom: 0.25em;
+      width: 100%;
     }
     
 		table td input {
