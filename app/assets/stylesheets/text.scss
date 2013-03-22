@@ -199,6 +199,13 @@ article th, article td {
   @include core-16;
   vertical-align: top;
   padding: 0.7em 0.5em 0.7em 1em;
+  
+  a[rel="external"] {
+    @include external-link-16;
+    @include media(mobile) {
+      @include external-link-14;
+    }
+  }
 }
 
 article tr:nth-child(even) td {
