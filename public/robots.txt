@@ -9,6 +9,5 @@ Allow: /licence-finder
 Disallow: /business-finance-support-finder/*
 Allow: /business-finance-support-finder
 Disallow: /apply-for-a-licence
-Disallow: /foreign-travel-advice
 Sitemap: https://www.gov.uk/sitemap.xml
 Crawl-delay: 0.5
