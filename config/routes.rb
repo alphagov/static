@@ -16,5 +16,6 @@ Static::Application.routes.draw do
   match "/templates/503.html.erb", :to => "root#503"
   match "/templates/504.html.erb", :to => "root#504"
   match "/templates/header_footer_only.html.erb", :to => "root#header_footer_only"
+  match "/templates/chromeless.html.erb", :to => "root#chromeless"
   match "/templates/beta_notice.html.erb", :to => "root#beta_notice"
 end

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<% html_classes = content_for?(:html_classes) ? "#{yield(:html_classes)}" : ''%>
+<!--[if lt IE 9]><html class="lte-ie8 <%= html_classes %>" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="<%= html_classes %>"><!--<![endif]-->
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %></title>
+
+    <%= render partial: 'stylesheet', locals: { css_file: 'header-footer-only' } %>
+
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'ie.js' %>
+    <![endif]-->
+
+    <%= render partial: "icons" %>
+  </head>
+  <body<%= content_for?(:body_classes) ? " class=\"#{yield(:body_classes)}\"".html_safe : '' %>>
+      <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
+
+    <div id="global-cookie-message">
+      <p>GOV.UK uses cookies to make the site simpler. <a href="/support/cookies">Find out more about cookies</a></p>
+    </div>
+
+    <div id="wrapper" class="group">
+      <%= yield :content %>
+    </div>
+
+    <footer class="group js-footer" id="footer" role="contentinfo">
+      <div class="footer-wrapper">
+        <%= render partial: 'footer_meta' %>
+      </div>
+    </footer>
+    <%= render partial: 'javascript', locals: { js_file: 'header-footer-only' } %>
+  </body>
+</html>
