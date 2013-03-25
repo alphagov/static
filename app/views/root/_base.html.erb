@@ -7,16 +7,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %></title>
 
-    <script type="text/javascript">
-      (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
-    </script>
-
-    <!--[if gt IE 8]><!--><%= stylesheet_link_tag local_assigns[:css_file] || 'application' %><!--<![endif]-->
-    <!--[if IE 6]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie6' %><![endif]-->
-    <!--[if IE 7]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie7' %><![endif]-->
-    <!--[if IE 8]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie8' %><![endif]-->
-
-    <%= stylesheet_link_tag "print", :media => "print" %>
+    <%= render partial: 'stylesheet', locals: { css_file: local_assigns[:css_file] || 'application' } %>
 
     <%= render partial: "fonts" %>
 
@@ -24,19 +15,7 @@
       <%= javascript_include_tag 'ie.js' %>
     <![endif]-->
 
-    <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path "apple-touch-icon-144x144.png" %>">
-    <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= asset_path "apple-touch-icon-114x114.png" %>">
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path "apple-touch-icon-72x72.png" %>">
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="og:image" content="<%= asset_path "opengraph-image.png" %>">
+    <%= render partial: "icons" %>
 
     <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } unless local_assigns[:js_at_the_end] %>
   </head>
@@ -125,23 +104,7 @@
 
         </nav>
 
-        <div class="footer-meta">
-          <nav>
-            <ul>
-              <li><a href="/support">Support</a></li>
-              <li><a href="/support/cookies">Cookies</a></li>
-              <li><a href="/feedback">Feedback</a></li>
-              <li><a href="/cymraeg">Cymraeg</a></li>
-              <li>Built by the <a href="http://digital.cabinetoffice.gov.uk/">Government Digital Service</a></li>
-            </ul>
-
-            <p>All content is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence</a>, except where otherwise stated</p>
-          </nav>
-
-          <div class="copyright">
-            <a href="http://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown Copyright</a>
-          </div>
-        </div>
+        <%= render partial: 'footer_meta' %>
       </div>
     </footer>
 
