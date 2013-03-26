@@ -207,31 +207,6 @@
   }
 }
 
-/* Inside government styles */
-body.government #global-header .header-context {
-  border-color: #cdce00;
-  border-bottom-color: #9a9b00;
-
-  nav {
-    font-weight: bold;
-    text-decoration: none;
-    width: 79.5%;
-
-    a {
-      color: #777;
-
-      &:hover {
-        color: #9a9b00;
-      }
-    }
-  }
-
-  /* Search form in global header */
-  .search-help {
-    border-color: #cdce00;
-  }
-}
-
 /* Global cookie message
    Global browser prompt message */
 
