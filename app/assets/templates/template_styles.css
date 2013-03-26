@@ -21,15 +21,14 @@ table div font strong,
 table div font strong{
   font-size:34px !important;
 }
+table div font{
+  font-family: Arial !important;
+}
 
-/* Development only, remove for production */
 table{
   border:none !important;
 }
-table td{
- 
-}
-/* End of Development only */
+
 
 /* Transaction details */
 .ncoltable1 td{
@@ -52,6 +51,7 @@ table td{
   position: relative;
   min-height: 17.5em;
   padding-bottom: 1.5em;
+
 }
 .ncoltable2 td {
   width: auto;
@@ -102,7 +102,6 @@ table td{
 .ncoltable2 td input[name='VISA_brand']:active,
 .ncoltable2 td input[name='Eurocard_brand']:active,
 .ncoltable2 td input[name='Maestro_brand']:active {
-  top: 0px;
   box-shadow:none;
   outline:none;
 }
@@ -155,6 +154,7 @@ table td{
   left: 0;
   bottom: 0.25em;
   width: 100%;
+  font-size:12px;
 }
 /* Payment page styles */
 .ncoltable2 small small a.midncol {
