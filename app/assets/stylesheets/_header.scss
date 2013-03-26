@@ -52,32 +52,6 @@
 
   }
 
-  nav {
-    ul {
-      @include core-16($line-height: (30 / 16));
-      margin: 0 0 0 1em;
-      padding: 0;
-      
-      float: left;
-      list-style: none;
-
-      li {
-        float: left;
-        margin: 0 1.5em 0 0;
-
-        a {
-          @include core-16($line-height: (30/16), $line-height-640: (30/13));
-          color: #fff;
-          text-decoration: none;
-
-          &:hover {
-            color: #fff
-          }
-        }
-      }
-    }
-  }
-
   .search-toggle {
     display: none;
 
@@ -246,7 +220,7 @@
   max-width: 940px;
 
   @include ie(6) {
-    width: 940px; 
+    width: 940px;
   }
 }
 
