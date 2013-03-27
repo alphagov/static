@@ -75,7 +75,7 @@ table{
   align: center;
   left: 0;
   font-size: 20px;
-  background-color: #28A197;
+  background-color: #5FC2C9;
   color: #fff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -97,6 +97,7 @@ table{
 .ncoltable2 td input[name='Eurocard_brand'],
 .ncoltable2 td input[name='Maestro_brand'] {
   position: absolute;
+  _position: relative;
 }
 .ncoltable2 td input[name='JCB_brand']:active,
 .ncoltable2 td input[name='VISA_brand']:active,
@@ -134,24 +135,34 @@ table{
 .ncoltable2 td input[name='JCB_brand'] {
   top: 2.25em;
   left: 2em;
+  _top: auto;
+  _left: auto;
 }
 .ncoltable2 td input[name='VISA_brand'] {
   top: 2.25em;
   left: 9.5em;
+  _top: auto;
+  _left: auto;
 }
 .ncoltable2 td input[name='Eurocard_brand'] {
   top: 2.25em;
   left: 19em;
+  _top: auto;
+  _left: auto;
 }
 .ncoltable2 td input[name='Maestro_brand'] {
   top: 2.25em;
   left: 27em;
+  _top: auto;
+  _left: auto;
 }
 .ncoltable2 small small a {
   left: 0;
   bottom: 0.25em;
   width: 100%;
   font-size:12px;
+  _top: auto;
+  _left: auto;
 }
 /* Payment page styles */
 .ncoltable2 small small a.midncol {
