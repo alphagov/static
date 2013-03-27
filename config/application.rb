@@ -53,6 +53,7 @@ module Static
       core-admin.css
       guides-print.css
       header-footer-only*.css
+      barclays-epdq-styles.css
     }
 
     config.assets.css_compressor = :yui
