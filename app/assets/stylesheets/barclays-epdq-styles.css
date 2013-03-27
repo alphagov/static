@@ -110,10 +110,7 @@ table{
 .ncoltable2 td input[name='Eurocard_brand']:focus,
 .ncoltable2 td input[name='Maestro_brand']:focus {
   background-color:#28A197;
-/* IE6 & 7 ignore the :focus psuedo-class so we need to overwrite the default */
-  @include ie-lte(7) {
-    color: #fff;
-  }
+  _color: #fff;
 }
 
 .ncoltable2 td input[name='JCB_brand']:hover,
