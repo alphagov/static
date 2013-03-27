@@ -1,6 +1,6 @@
 class RootController < ApplicationController
 
-  caches_page :campaign, :wrapper, :print, :related, :report_a_problem, :homepage, :admin, :beta_notice, :header_footer_only, :chromeless
+  caches_page :campaign, :wrapper, :print, :related, :report_a_problem, :homepage, :admin, :beta_notice, :header_footer_only, :chromeless, :barclays_epdq
   caches_page *%w(404 406 418 500 501 503 504)
 
   def related
