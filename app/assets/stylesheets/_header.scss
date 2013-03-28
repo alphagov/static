@@ -1,55 +1,94 @@
+@import '_shims';
 #global-header {
   background-color: $black;
   width: 100%;
 
   .header-wrapper {
-    max-width: 1020px;
+    max-width: 990px;
     margin: 0 auto;
-    height: 2em;
-    line-height: 2em;
-    padding: 0.5em 0;
-
-    @include media(mobile) {
-      height: auto;
-      padding: 0.5em 1em;
+    padding: 0.5em 15px;
+    @extend %contain-floats;
+    @include media(mobile){
+      padding: 0.5em 0;
     }
 
-    @include ie-lte(7) {
-      width: 960px; /* we want the width for IE to max out at 960px total (including padding) */
-      height: auto;
+    .header-global {
+      @extend %contain-floats;
+      .header-logo,
+      .site-search {
+        @extend %contain-floats;
+        width: 50%;
+        float: left;
+
+        @include media(desktop){
+          width: 33.33%;
+        }
+        @media screen and (max-width: 379px) {
+          width: auto;
+          float: none;
+        }
+
+        .content {
+          margin: 0 15px;
+        }
+      }
+      .header-logo {
+        margin-bottom: 6px;
+      }
+      .site-search {
+        float: right;
+      }
+    }
+  }
+  &.with-proposition {
+    .header-wrapper {
+      .header-global {
+        @include media(desktop){
+          float: left;
+          width: 33.33%;
+
+          .header-logo,
+          .site-search {
+            width: 100%;
+          }
+        }
+      }
+      .header-proposition {
+        @include media(desktop){
+          width: 66.66%;
+          float: left;
+        }
+        .content {
+          margin: 0 15px;
+        }
+      }
     }
   }
 
   #logo {
-    position: relative;
     float: left;
+    position: relative;
     width: 166px;
     height: 30px;
-    margin-left: 2em;
-
     overflow: hidden;
 
-    @include media(mobile) {
-      margin-left: 0;
-    }
-  
     img {
       position: absolute;
-      left: -166px; top: 0;
+      left: -166px;
+      top: 0;
       border: none;
 
       /* scale oversized image to container bounds */
-      width: 200%; height: 300%;
+      width: 200%;
+      height: 300%;
 
-      @include ie(6) {
+      @include ie(6){
         left: 0;
       }
     }
-
     &:hover img {
       top: -30px;
     }
-
   }
 
   .search-toggle {
@@ -59,16 +98,17 @@
       display: block;
       float: right;
       top: 0;
-
-      @include core-16($line-height: (20/16), $line-height-640: (20/13));
+      height: 30px;
+      width: 36px;
+      padding: 0;
+      margin: 0 15px;
 
       overflow: hidden;
       text-indent: -5000px;
 
-      width: 1.8em;
-      padding: 0.35em 0.5em;
 
-      background-image: url("icon-search.png");
+      background-color: $light-blue-50;
+      background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 75% 50%;
 
@@ -89,63 +129,89 @@
   }
 
   form#search {
-    float: right;
-    margin: 0;
+    .content {
+      @extend %contain-floats;
+      position: relative;
+      background: #fff;
+    }
+    label {
+      position: absolute;
+      left: 0;
+      top: 1px;
+      z-index: 1;
+      width: 100%;
+      height: 35px;
+      line-height: 35px;
+      text-indent: 10px;
+      overflow: hidden;
+      display: block;
+    }
 
-    input.button {
-      @include core-16($line-height: (20/16), $line-height-640: (20/13));
-      /* this inherits from the basic button styles */
-      display: inline;
+    input {
+      @include box-sizing(border-box);
+      float: left;
+      display: block;
       margin: 0;
-      padding: 0.25em 0.5em;
-      
-      @include ie(8) {
-        border-bottom: none;
-        margin-bottom: 0;
+      border: 0;
+      height: 35px;
+      padding: 6px 0;
+      @include ie-lte(7){
+        height: 23px;
+      }
+      // TODO: add line to toolkit for css3 feature.
+      -webkit-appearance: none;
+    }
+
+    input#site-search-text {
+      @include core-16($line-height: (23/16), $line-height-640: (23/13));
+      width: 86%;
+      // TODO: add line to toolkit for css3 feature.
+      width: -webkit-calc(100% - 37px);
+
+      position: relative;
+      z-index: 3;
+      background: transparent;
+      &:focus {
+        background: #fff;
+      }
+    }
+
+    input.submit {
+      position: absolute;
+      z-index: 4;
+      right: 0;
+      top: 0;
+      width: 35px;
+      height: 35px;
+
+      border: 1px solid $light-blue-50;
+      border-width: 0 0 0 1px;
+      @include ie-lte(7){
+        border-width: 1px;
+      }
+      border-left-color: #222;
+
+      overflow: hidden;
+      text-indent: -5000px;
+
+      background-color: $light-blue-50;
+      background-image: url("search-button.png");
+      background-repeat: no-repeat;
+      background-position: 75% 50%;
+      color: $white;
+
+      @include device-pixel-ratio() {
+        background-image: image-url("icon-search-2x.png");
+        background-size: 30px 22px;
       }
 
       @include ie-lte(7) {
         background-image: none;
+        width: auto;
       }
-
-      position: static;
-      
-      @include border-radius(0);
-      @include box-shadow(none);
-      
-      -webkit-appearance: none;
 
       &:hover {
         background-color: #3ABAA8;
-      }
-
-      &:active {
-        top: 0;
-      }
-
-      @include media(mobile) {
-        overflow: hidden;
-        text-indent: -5000px;
-
-        width: 1.8em;
-        padding: 0.25em 0.5em;
-
-        background-image: url("icon-search.png");
-        background-repeat: no-repeat;
-        background-position: 75% 50%;
-
-        @include device-pixel-ratio() {
-          background-image: image-url("icon-search-2x.png");
-          background-size: 30px 22px;
-        }
-
-        @include box-sizing(content-box);
-        @include border-radius(0);
-      }
-
-      @media screen and (max-width: 379px) {
-        float: right;
-        margin: 0.3em 0;
       }
     }
 
@@ -160,24 +226,103 @@
       }
     }
 
-    /* search input */
-    #site-search-text {
-      @include core-16($line-height: (18/16), $line-height-640: (18/13));
-      margin: 0 0.25em 0 0;
-
-      -webkit-appearance: none;
-    }
 
     @media screen and (max-width: 379px) {
       display: none;
       width: 100%;
 
       #site-search-text {
-        margin: 0.3em 0;
         width: 80%;
       }
     }
     &.js-visible { display: block; }
+  }
+
+  .header-proposition {
+    padding-top: 10px;
+    @include media(desktop){
+      padding-top: 0;
+    }
+    .proposition-name {
+      @include core-24;
+      font-weight: bold;
+      color: $light-blue-50;
+      text-decoration: none;
+    }
+    a.menu {
+      @include core-16;
+      color: $white;
+      display: block;
+      float: right;
+      text-decoration: none;
+      padding-top: 6px;
+      @include media(desktop){
+        display: none;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+      &:after {
+        display: inline-block;
+        font-size: 8px;
+        height: 8px;
+        padding-left: 5px;
+        vertical-align: middle;
+        content: " \25BC";
+      }
+      &.js-hidden:after {
+        content: " \25B2";
+      }
+    }
+    nav {
+      clear: both;
+      ul {
+        @extend %contain-floats;
+        margin: 0;
+        padding: 0;
+
+        li {
+          float: left;
+          width: 50%;
+          padding: 3px 0;
+          border-bottom: 1px solid $grey-2;
+
+          @include media(desktop){
+            display: block;
+            width: auto;
+            padding: 0 15px 0 0;
+            border-bottom: 0;
+
+            &.clear-item {
+              clear: left;
+            }
+          }
+
+          a {
+            color: $white;
+            text-decoration: none;
+            @include core-14;
+
+            &:hover {
+              text-decoration: underline;
+            }
+            &.active,
+            &.current {
+              color: $light-blue-50;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.js-enabled #proposition-menu {
+  display: none;
+  @include media(desktop){
+    display: block;
+  }
+  &.js-visible {
+    display: block;
   }
 }
 
