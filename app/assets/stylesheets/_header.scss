@@ -33,7 +33,7 @@
         }
       }
       .header-logo {
-        margin-bottom: 6px;
+        margin: 3px 0 2px;
       }
       .site-search {
         float: right;
@@ -50,6 +50,9 @@
           .header-logo,
           .site-search {
             width: 100%;
+          }
+          .header-logo {
+            margin: 0 0 6px;
           }
         }
       }
@@ -135,21 +138,21 @@
       background: #fff;
     }
     label {
-      position: absolute;
-      left: 0;
-      top: 1px;
-      z-index: 1;
-      width: 100%;
+      float:left;
       height: 35px;
       line-height: 35px;
       text-indent: 10px;
       overflow: hidden;
       display: block;
+      margin-right: 10px;
     }
+
 
     input {
       @include box-sizing(border-box);
       float: left;
+      width: 50%;
+      min-width: 0;
       display: block;
       margin: 0;
       border: 0;
@@ -164,10 +167,6 @@
 
     input#site-search-text {
       @include core-16($line-height: (23/16), $line-height-640: (23/13));
-      width: 86%;
-      // TODO: add line to toolkit for css3 feature.
-      width: -webkit-calc(100% - 37px);
-
       position: relative;
       z-index: 3;
       background: transparent;
@@ -244,7 +243,7 @@
     @include media(desktop){
       padding-top: 0;
     }
-    .proposition-name {
+    #proposition-name {
       @include core-24;
       font-weight: bold;
       color: $light-blue-50;
@@ -275,54 +274,72 @@
         content: " \25B2";
       }
     }
-    nav {
+    #proposition-links {
       clear: both;
-      ul {
-        @extend %contain-floats;
-        margin: 0;
-        padding: 0;
+      @extend %contain-floats;
+      margin: 0;
+      padding: 0;
 
-        li {
-          float: left;
-          width: 50%;
-          padding: 3px 0;
-          border-bottom: 1px solid $grey-2;
+      li {
+        float: left;
+        width: 50%;
+        padding: 3px 0;
+        border-bottom: 1px solid $grey-2;
 
-          @include media(desktop){
-            display: block;
-            width: auto;
-            padding: 0 15px 0 0;
-            border-bottom: 0;
+        @include media(desktop){
+          display: block;
+          width: auto;
+          padding: 0 15px 0 0;
+          border-bottom: 0;
 
-            &.clear-child {
-              clear: left;
-            }
+          &.clear-child {
+            clear: left;
           }
+        }
 
-          a {
-            color: $white;
-            text-decoration: none;
-            @include core-14;
+        a {
+          color: $white;
+          text-decoration: none;
+          @include core-14;
 
-            &:hover {
-              text-decoration: underline;
-            }
-            &.active {
-              color: $light-blue-50;
-            }
+          &:hover {
+            text-decoration: underline;
+          }
+          &.active {
+            color: $light-blue-50;
           }
         }
       }
     }
   }
 }
-.js-enabled #proposition-menu {
-  display: none;
-  @include media(desktop){
-    display: block;
-  }
-  &.js-visible {
-    display: block;
+.js-enabled {
+  #global-header {
+    form#search {
+      label {
+        float: none;
+        position: absolute;
+        left: 0;
+        top: 1px;
+        z-index: 1;
+        width: 100%;
+        margin-right: 0;
+      }
+      input#site-search-text {
+        width: 86%;
+        // TODO: add line to toolkit for css3 feature.
+        width: -webkit-calc(100% - 37px);
+      }
+    }
+    #proposition-links {
+      display: none;
+      @include media(desktop){
+        display: block;
+      }
+      &.js-visible {
+        display: block;
+      }
+    }
   }
 }
 
