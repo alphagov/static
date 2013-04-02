@@ -8,7 +8,7 @@
     margin: 0 auto;
     padding: 0.5em 15px;
     @extend %contain-floats;
-    @include media(mobile){
+    @include media-down(mobile){
       padding: 0.5em 0;
     }
 
@@ -349,7 +349,7 @@
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding: 0.5em 1em;
   }
 }
@@ -395,7 +395,7 @@
   padding: 0.75em 2em;
   z-index: 50;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding: 0.75em 1em;
   }
 

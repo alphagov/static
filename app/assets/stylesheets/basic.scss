@@ -68,7 +68,7 @@ a:active {
 a[rel="external"] {
   @include external-link-default;
   @include external-link-19;
-  @include media(mobile) {
+  @include media-down(mobile) {
     @include external-link-16;
   }
 }

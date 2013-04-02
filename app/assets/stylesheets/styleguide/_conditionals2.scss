@@ -6,7 +6,7 @@
 
 $is-ie: false !default;
 
-@mixin media($size: false, $max-width: false, $min-width: false) {
+@mixin media-down($size: false, $max-width: false, $min-width: false) {
   @if $is-ie == false {
     @if $size == mobile {
       @media (max-width: 640px){
@@ -16,34 +16,6 @@ $is-ie: false !default;
       @media (max-width: 800px){
         @content;
       }
-    } @else if $max-width != false {
-      @media (max-width: $max-width){
-        @content;
-      }
-    } @else if $min-width != false {
-      @media (min-width: $min-width){
-        @content;
-      }
-    } @else {
-      @media (min-width: $size){
-        @content
-      }
-    }
-  }
-}
-
-@mixin ie-lte($version) {
-  @if $is-ie {
-    @if $ie-version <= $version {
-      @content;
-    }
-  }
-}
-
-@mixin ie($version) {
-  @if $is-ie {
-    @if $ie-version == $version {
-      @content;
     }
   }
 }

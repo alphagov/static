@@ -14,7 +14,7 @@
       width: 928px; /* we want the width for IE to max out at 960px total (including padding) */
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding-top: 20px;
       padding-top: 2rem;
     }
@@ -43,7 +43,7 @@
 
     width: 100%;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding: 20px 0;
       padding: 2rem 0;
     }
@@ -54,7 +54,7 @@
       margin-right: 7%;
       width: 62%;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         display: block;
         
         margin: 0 0 30px 0;
@@ -82,7 +82,7 @@
 
       vertical-align: top;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         border-width: 0;
         min-height: 0;
       }
@@ -113,7 +113,7 @@
           height: 1.5em;
         }
 
-        @include media(mobile) {
+        @include media-down(mobile) {
           float: none;
           width: 100%;
           margin-left: 0;
@@ -143,7 +143,7 @@
       ul {
         margin-right: 0;
 
-        @include media(mobile) {
+        @include media-down(mobile) {
           margin: 20px 0 0 0;
           margin: 2rem 0 0 0;
 
@@ -161,7 +161,7 @@
         }
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         width: 100%;
         display: block;
         padding: 0;
@@ -186,7 +186,7 @@
     padding: 30px 0 60px;
     padding: 3rem 0 6rem;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       margin: 0;
     }
 
@@ -195,7 +195,7 @@
       vertical-align: bottom;
       width: 69%;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         display: block;
         width: 100%;
       }
@@ -222,7 +222,7 @@
           }
         }
 
-        @include media(mobile) {
+        @include media-down(mobile) {
           width: auto;
           margin: 0 0 1.5em 0;
         }
@@ -279,7 +279,7 @@
         }
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         width: 100%;
         display: block;
         padding: 0;

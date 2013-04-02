@@ -25,7 +25,7 @@ section#content {
     width: 960px;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     max-width: auto;
   }
 }
@@ -94,7 +94,7 @@ h4 {
     position: absolute !important;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     position: static;
     top: auto;
     height: auto;
@@ -126,7 +126,7 @@ h4 {
     width: 960px;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     max-width: auto;
     height: auto;
 
@@ -141,7 +141,7 @@ h4 {
   right: 0;
   width: 15em;
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     position: static;
     right: auto;
     width: auto;
@@ -152,11 +152,11 @@ h4 {
     padding: 0.5em 1em 0 1.2em;
     width: auto;
 
-    @include media(tablet) {
+    @include media-down(tablet) {
       padding-left: 2em;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding-left: 1em;
     }
   }
@@ -168,7 +168,7 @@ h4 {
     margin-bottom: 0.5em;
     position: relative;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       font-size: 17px;
       font-size: 1.7rem;
       margin-bottom: 0.625em;
@@ -229,7 +229,7 @@ h4 {
     position: absolute;
     left: -9999em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       position: static;
       border-top: 1px solid $grey-6;
       margin: 0.25em 0 0;
@@ -320,7 +320,7 @@ header.page-header {
       margin: 0 15em 0 0;
       padding: 1em 2em 2em 2em;
 
-      @include media(tablet) {
+      @include media-down(tablet) {
         margin: 0;
       }
 
@@ -373,7 +373,7 @@ body.full-width {
 
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-left: 1em;
 
     h1 {
@@ -389,7 +389,7 @@ body.full-width {
     padding-left: 80px;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-left: 1em;
 
     h1 {
@@ -594,7 +594,7 @@ article {
     width: auto;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     min-height: 0;
 
     .inner {
@@ -602,7 +602,7 @@ article {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     .inner {
       padding: 0 1em 1em 1em;
     }
@@ -616,7 +616,7 @@ article {
     .inner{
       padding-right:10em;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         padding-right: 1em;
       }
     }
@@ -629,7 +629,7 @@ article {
     .inner{
       padding-right:3em;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         padding-right: 1em;
       }
     }
@@ -641,7 +641,7 @@ article {
   margin: 0 -1em;
   padding-left: 1em;
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     max-width: 100%;
   }
 }
@@ -660,7 +660,7 @@ article {
     margin-right: 0;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     margin-right: 0;
     min-height: 0;
   }
@@ -706,7 +706,7 @@ article {
     @include core-16
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-left: 0;
     margin-top: 0;
     width: 50%;
@@ -745,7 +745,7 @@ article {
     zoom: 1;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     width:60%;
     padding-left: 1em;
 
@@ -756,7 +756,7 @@ article {
 }
 
 .modified-date {
-  @include media(mobile) {
+  @include media-down(mobile) {
     width:40%;
   }
 }
@@ -888,7 +888,7 @@ article {
   bottom: 1em;
   right: 0.75em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     bottom: 20px;
     bottom: 2rem;
     right: 16px;
@@ -928,7 +928,7 @@ article {
       padding: 1px 1px 0 0;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       float: none;
       margin: 0 -16px;
       margin: 0 -1.6rem;
@@ -941,7 +941,7 @@ article {
     margin: 0;
     float: left;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       float: none;
     }
 
@@ -962,7 +962,7 @@ article {
         padding: 0 0.5em;
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         display: block;
         position: static;
         float: none;
@@ -993,7 +993,7 @@ article {
         bottom: -1px;
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         border: none;
         border-bottom: 1px solid  $grey-6;
       }
@@ -1006,7 +1006,7 @@ article {
     &:first-child a {
       margin-left: 0;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         border-left: none;
         border-top: 1px solid $grey-8;
       }
@@ -1024,7 +1024,7 @@ article {
 .tab-content {
   margin: 0 -10em 0 -2em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 -1em;
   }
 
@@ -1034,7 +1034,7 @@ article {
     clear: both;
     width:auto;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       border-top: none;
       padding: 0;
     }
@@ -1043,7 +1043,7 @@ article {
   .inner {
     padding: 0em 2.5em 1em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding:0 1em 1em;
       border-bottom: solid 1px #C9D0D0;
     }
@@ -1123,13 +1123,13 @@ article {
     position: absolute;
     left: -9999em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       position: static;
       left: auto;
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     .js-tab-container {
       min-height:0;
     }
@@ -1160,7 +1160,7 @@ article {
     color: $grey-3;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0.5em 16px 16px;
     margin: 0 0.5em 1.6rem 1.6em;
     width:40%;
@@ -1174,7 +1174,7 @@ article {
 }
 
 .js-tab-content .report-a-problem-toggle {
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-top:2em;
   }
 }
@@ -1209,7 +1209,7 @@ article {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 1em 2em 1em;
   }
 }
@@ -1241,7 +1241,7 @@ article {
   margin-top: 3em;
   padding: 1em 200px 1em 0;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-right: 0;
   }
 
@@ -1258,7 +1258,7 @@ article {
     top: 1em;
     right: 0;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       position: static;
       display: block;
     }
