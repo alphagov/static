@@ -171,6 +171,7 @@
       position: relative;
       z-index: 3;
       background: transparent;
+      &.focus,
       &:focus {
         background: #fff;
       }

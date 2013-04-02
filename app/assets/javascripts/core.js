@@ -86,7 +86,17 @@ $(document).ready(function() {
     $($(e.target).attr('href')).toggleClass('js-visible');
     $(this).toggleClass('js-hidden');
   });
-  
+
+  var $searchFocus = $('.js-search-focus');
+  $searchFocus.on('focus', function(e){
+    $(e.target).addClass('focus');
+  });
+  $searchFocus.on('blur', function(e){
+    if($searchFocus.val() === ''){
+      $(e.target).removeClass('focus');
+    }
+  });
+
   if(window.location.hash && $(".design-principles").length != 1 && $('.section-page').length != 1) {
     contentNudge(window.location.hash);
   }
