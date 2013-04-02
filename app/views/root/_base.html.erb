@@ -25,7 +25,7 @@
 
     <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
 
-    <header role="banner" id="global-header" class="with-proposition"><!-- remove class for non-nav version -->
+    <header role="banner" id="global-header">
       <div class="header-wrapper">
         <div class="header-global">
           <div class="header-logo">
@@ -38,31 +38,10 @@
           <form id="search" class="site-search" action="/search" method="get" role="search">
             <div class="content">
               <label for="site-search-text">Search</label>
-              <input type="search" name="q" id="site-search-text" title="Search">
+              <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus">
               <input class="submit" type="submit" value="Search" />
             </div>
           </form>
-        </div>
-        <div class="header-proposition">
-          <div class="content">
-            <a href="#proposition-menu" class="js-header-toggle menu">Menu</a>
-
-            <!-- to be added via slimmer -->
-            <a href="#" class="proposition-name">Inside Government</a>
-            <nav id="proposition-menu">
-              <ul>
-                <li><a href="/government/organisations">Departments</a></li>
-                <li><a href="/government/topics">Topics</a></li>
-                <li><a href="/government/world">Worldwide</a></li>
-                <li><a href="/government/get-involved">Get involved</a></li>
-                <li class="clear-child"><a href="/government/policies" class="active">Policies</a></li> <li><a href="/government/announcements">Announcements</a></li>
-                <li><a href="/government/publications">Publications</a></li>
-                <li><a href="/government/publications?publication_type=consultations">Consultations</a></li>
-                <li><a href="/government/publications?publication_filter_option=statistics">Statistics</a></li>
-              </ul>
-            </nav>
-            <!-- end extra content added via slimmer -->
-          </div>
         </div>
       </div>
     </header>
