@@ -141,13 +141,11 @@
       float:left;
       height: 35px;
       line-height: 35px;
-      text-indent: 10px;
+      text-indent: 15px;
       overflow: hidden;
       display: block;
       margin-right: 10px;
     }
-
-
     input {
       @include box-sizing(border-box);
       float: left;
@@ -161,8 +159,7 @@
       @include ie-lte(7){
         height: 23px;
       }
-      // TODO: add line to toolkit for css3 feature.
-      -webkit-appearance: none;
+      @include appearance(none);
     }
 
     input#site-search-text {
@@ -327,8 +324,7 @@
       }
       input#site-search-text {
         width: 86%;
-        // TODO: add line to toolkit for css3 feature.
-        width: -webkit-calc(100% - 37px);
+        @include calc(width, "100% - 37px");
       }
     }
     #proposition-links {
