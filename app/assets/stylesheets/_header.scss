@@ -17,7 +17,7 @@
       .header-logo,
       .site-search {
         @extend %contain-floats;
-        width: 50%;
+        width: 49%;
         float: left;
 
         @include media(desktop){
@@ -293,7 +293,7 @@
             padding: 0 15px 0 0;
             border-bottom: 0;
 
-            &.clear-item {
+            &.clear-child {
               clear: left;
             }
           }
@@ -306,8 +306,7 @@
             &:hover {
               text-decoration: underline;
             }
-            &.active,
-            &.current {
+            &.active {
               color: $light-blue-50;
             }
           }
