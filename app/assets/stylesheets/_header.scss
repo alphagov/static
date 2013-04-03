@@ -113,11 +113,11 @@
       background-color: $light-blue-50;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
-      background-position: 75% 50%;
+      background-position: 0 50%;
 
       @include device-pixel-ratio() {
-        background-image: image-url("icon-search-2x.png");
-        background-size: 30px 22px;
+        background-size: 52.5px 35px;
+        background-position: 100% 50%;
       }
 
       @include border-radius(0);
@@ -194,12 +194,11 @@
       background-color: $light-blue-50;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
-      background-position: 75% 50%;
-      color: $white;
+      background-position: 0 50%;
 
       @include device-pixel-ratio() {
-        background-image: image-url("icon-search-2x.png");
-        background-size: 30px 22px;
+        background-size: 52.5px 35px;
+        background-position: 100% 50%;
       }
 
       @include ie-lte(7) {
