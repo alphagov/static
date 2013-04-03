@@ -110,7 +110,7 @@
       text-indent: -5000px;
 
 
-      background-color: $light-blue-50;
+      background-color: $turquoise;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -181,7 +181,7 @@
       width: 35px;
       height: 35px;
 
-      border: 1px solid $light-blue-50;
+      border: 1px solid $turquoise;
       border-width: 0 0 0 1px;
       @include ie-lte(7){
         border-width: 1px;
@@ -191,7 +191,7 @@
       overflow: hidden;
       text-indent: -5000px;
 
-      background-color: $light-blue-50;
+      background-color: $turquoise;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -242,7 +242,7 @@
     #proposition-name {
       @include core-24;
       font-weight: bold;
-      color: $light-blue-50;
+      color: $turquoise;
       text-decoration: none;
     }
     a.menu {
@@ -302,7 +302,7 @@
             text-decoration: underline;
           }
           &.active {
-            color: $light-blue-50;
+            color: $turquoise;
           }
         }
       }
