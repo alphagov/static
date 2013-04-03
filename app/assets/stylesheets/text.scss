@@ -179,10 +179,9 @@ article table {
   width: 105.95%;
 
   caption {
-    @include core-19;
+    @include bold-24;
+    margin: 0.4em 0.5em 0.4em 0.7em;
     text-align: left;
-    padding-bottom: 0.5em;
-    padding-left: 1em;
   }
 
   @include media(mobile) {
