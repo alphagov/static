@@ -216,10 +216,6 @@ input{
     }
   }
 
-  &[type="search"]{
-    padding: 0.25em 0;
-  }
-
   /* below fixes a bug where IE puts a nasty black border around these elements */
   @include ie-lte(8) {
     &[type="submit"],
