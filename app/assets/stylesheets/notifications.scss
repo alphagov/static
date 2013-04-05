@@ -31,7 +31,7 @@
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding: 0.5em 1em;
   }
 

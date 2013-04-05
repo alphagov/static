@@ -11,7 +11,7 @@
       padding-right: 5em;
       padding-top: 3em;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         padding:1em;
         
         h1 {
@@ -49,7 +49,7 @@
   padding: 1em;
   width: 13em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     position: static;
     margin: 0;
     width: auto;
@@ -71,7 +71,7 @@
 }
 
 .ancillary article {
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-top: 1em; 
   }
   section {

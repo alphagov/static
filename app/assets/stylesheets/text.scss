@@ -97,7 +97,7 @@ article li {
   margin: 0.25em 0;
   padding-left: 0.3em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-left: 16px;
     margin-left: 1.6rem;
     padding-left: 0;
@@ -125,7 +125,7 @@ article ul, article ol {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-left: 0;
     margin-left: 0;
   }
@@ -185,7 +185,7 @@ article table {
     padding-left: 1em;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 1em 0 2em 0;
     width: 100%;
 
@@ -202,7 +202,7 @@ article th, article td {
   
   a[rel="external"] {
     @include external-link-16;
-    @include media(mobile) {
+    @include media-down(mobile) {
       @include external-link-14;
     }
   }
@@ -254,7 +254,7 @@ article th {
     @include core-24;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 2em 0;
     padding: 0;
   }
@@ -323,7 +323,7 @@ article .advisory {
     border-color: #C00;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 1em 0;
   }
 }
@@ -337,7 +337,7 @@ article .intro {
     margin-top: 0;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 1.5em 0;
     padding: 0;
   }
@@ -356,7 +356,7 @@ article .example {
     display: block;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0.75 0;
   }
 }
@@ -369,7 +369,7 @@ article .subscribe {
   margin: 1em -1em 1.5em -1em;
   padding: 0.25em 1em 0.25em 1em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 1em 0 1.5em 0;
   }
 }
@@ -460,7 +460,7 @@ article .form-download {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0.75em 0;
   }
 }
@@ -533,7 +533,7 @@ article .place {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0.75em 0;
   }
 }
@@ -608,7 +608,7 @@ article ol.steps {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 1em 0;
 
     @include core-48;
