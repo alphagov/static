@@ -138,13 +138,23 @@
       background: #fff;
     }
     label {
-      float:left;
+      float: left;
       height: 35px;
       line-height: 35px;
       text-indent: 15px;
       overflow: hidden;
       display: block;
       margin-right: 10px;
+
+      .js-enabled & {
+        float: none;
+        position: absolute;
+        left: 0;
+        top: 1px;
+        z-index: 1;
+        width: 100%;
+        margin-right: 0;
+      }
     }
     input {
       @include box-sizing(border-box);
@@ -165,11 +175,21 @@
     input#site-search-text {
       @include core-16($line-height: (23/16), $line-height-640: (23/13));
       position: relative;
+      padding: 6px;
       z-index: 3;
       background: transparent;
+
       &.focus,
       &:focus {
         background: #fff;
+      }
+
+      @include ie-lte(7){
+        padding-left: 0;
+      }
+      .js-enabled & {
+        width: 86%;
+        @include calc(width, "100% - 37px");
       }
     }
 
@@ -191,6 +211,7 @@
       overflow: hidden;
       text-indent: -5000px;
 
+      color: $white;
       background-color: $turquoise;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
@@ -276,6 +297,16 @@
       margin: 0;
       padding: 0;
 
+      .js-enabled & {
+        display: none;
+        @include media(desktop){
+          display: block;
+        }
+        &.js-visible {
+          display: block;
+        }
+      }
+
       li {
         float: left;
         width: 50%;
@@ -305,34 +336,6 @@
             color: $turquoise;
           }
         }
-      }
-    }
-  }
-}
-.js-enabled {
-  #global-header {
-    form#search {
-      label {
-        float: none;
-        position: absolute;
-        left: 0;
-        top: 1px;
-        z-index: 1;
-        width: 100%;
-        margin-right: 0;
-      }
-      input#site-search-text {
-        width: 86%;
-        @include calc(width, "100% - 37px");
-      }
-    }
-    #proposition-links {
-      display: none;
-      @include media(desktop){
-        display: block;
-      }
-      &.js-visible {
-        display: block;
       }
     }
   }
