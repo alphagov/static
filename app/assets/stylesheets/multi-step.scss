@@ -32,7 +32,7 @@
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     position: static;
     width: auto;
     padding: 0 1em;
@@ -60,7 +60,7 @@
     position: relative;
     padding: 0.75em 1.5em 0.75em 1em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding: 0.5em 1em;
     }
 
@@ -152,7 +152,7 @@ li.done:hover .undo a {
   padding: 0 10em 1em 2em;
   position: relative;
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     margin-right: 0;
     padding: 0 1em 1em 1em;
   }
@@ -262,7 +262,7 @@ li.done:hover .undo a {
         }
       }
 
-      @include media(tablet) {
+      @include media-down(tablet) {
         margin: 1em -1em 1.5em -1em;
         padding: 0.25em 1em 0.25em 1em;
       }

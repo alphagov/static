@@ -150,7 +150,7 @@
   background-position: 100% 50%;
   background-repeat: no-repeat;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     background-position: 110% 50%;
   }
 

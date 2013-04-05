@@ -25,19 +25,24 @@
 
     <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
 
-    <header role="banner" class="group" id="global-header">
-      <div class="header-wrapper group">
-        <a href="/" title="Go to the gov.uk homepage" id="logo"><img src="<%= asset_path 'gov.uk_logotype-2x.png' %>" alt="GOV.UK"></a>
+    <header role="banner" id="global-header">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="/" title="Go to the gov.uk homepage" id="logo" class="content">
+              <img src="<%= asset_path 'gov.uk_logotype-2x.png' %>" alt="GOV.UK">
+            </a>
+            <a href="#search" class="search-toggle js-header-toggle">Search</a>
+          </div>
 
-        <a href="#search" class="button search-toggle">Search</a>
-
-        <%- unless local_assigns[:no_search] -%>
-        <form id="search" class="site-search" action="/search" method="get" role="search">
-          <label for="site-search-text" class="visuallyhidden">Search</label>
-          <input type="search" name="q" id="site-search-text" title="Search">
-          <input class="button" type="submit" value="Search" />
-        </form>
-        <%- end -%>
+          <form id="search" class="site-search" action="/search" method="get" role="search">
+            <div class="content">
+              <label for="site-search-text">Search</label>
+              <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus">
+              <input class="submit" type="submit" value="Search" />
+            </div>
+          </form>
+        </div>
       </div>
     </header>
     <!--end header-->

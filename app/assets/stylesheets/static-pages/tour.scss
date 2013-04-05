@@ -13,7 +13,7 @@
         width: 90%;
         margin-bottom:0.5em;
 
-        @include media(mobile) {
+        @include media-down(mobile) {
           width: auto;
         }
       }
@@ -38,14 +38,14 @@
       width: 625px;
       float:left;
       margin-bottom:1.5em;
-      @include media(mobile) {
+      @include media-down(mobile) {
         width: auto;
         float: none;
       }
       
       #govuk-tour-video {
         width: 625px;
-        @include media(mobile) {
+        @include media-down(mobile) {
           width: 320px;
         }
       }
@@ -69,7 +69,7 @@
           @include core-16;
           &[rel="external"] {
             @include external-link-16;
-            @include media(mobile) {
+            @include media-down(mobile) {
               @include external-link-14;
             }
           }
@@ -85,7 +85,7 @@
       float: right;
       width: 31%;
       margin-top: -1.3em;
-      @include media(mobile) {
+      @include media-down(mobile) {
         float: right;
         width: 100%;
         margin-top: 0;
@@ -100,7 +100,7 @@
       margin-bottom: 2em;
       width: 65.5%;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         margin-bottom: 1em;
         width: auto;
       }
@@ -164,7 +164,7 @@
             clear: left;
           }
 
-          @include media(mobile) {
+          @include media-down(mobile) {
             float: none;
             margin-right: 0;
             width: auto;

@@ -8,7 +8,7 @@ section.campaign {
   #extra-links {
     max-width: 662px;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       width: auto;
       padding-right: 0;
     }
@@ -67,7 +67,7 @@ section.campaign {
         width: 70%;
       }
 
-      @include media (mobile) {
+      @include media-down(mobile) {
         padding: 0.5em 2rem;
         width: auto;
       }
@@ -148,20 +148,20 @@ section.campaign {
   float: right;
   padding: 2.5em 2em 1em 0;
 
-  @include media (mobile) {
+  @include media-down(mobile) {
     float: left;
     margin: 0em 0 1em 1em;
     padding: 0;
   }
 
-  @include media (tablet) {
+  @include media-down(tablet) {
     padding-top: 7px;
     padding-top: 0.7rem;
   }
 
   a.organisation-logo {
     span {
-      @include media (mobile) {
+      @include media-down(mobile) {
         top: 0;
         position: static;
       }
