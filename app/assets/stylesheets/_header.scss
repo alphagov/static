@@ -207,6 +207,7 @@
         border-width: 1px;
       }
       border-left-color: #222;
+      @include border-radius(0);
 
       overflow: hidden;
       text-indent: -5000px;
