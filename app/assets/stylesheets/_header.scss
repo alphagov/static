@@ -12,6 +12,10 @@
       padding: 0.5em 0;
     }
 
+    @include ie(6) {
+      width: 960px;
+    }
+
     .header-global {
       @extend %contain-floats;
       .header-logo,
