@@ -349,9 +349,12 @@
 /* Global cookie message
    Global browser prompt message */
 
-.js-enabled #global-cookie-message,
-.js-enabled #global-browser-prompt {
-  display: none; /* shown with JS */
+.js-enabled #global-cookie-message {
+  display: none; /* shown with JS, always on for non-JS */
+}
+
+#global-browser-prompt {
+  display: none; /* shown with JS, always hidden for non-JS */
 }
 
 #global-cookie-message,
