@@ -50,6 +50,26 @@
   }
 }
 
+#content.single-page {
+  header hgroup,
+  article {
+    width: auto;
+  }
+
+  header hgroup {
+    padding-bottom: 1em;
+  }
+
+  article {
+    margin: 0;
+
+    .inner {
+      margin-left: 0;
+      padding: 0 10em 0 2em;
+    }
+  }
+}
+
 .alternative-guide {
   @include core-16;
   margin: 0 auto 0.5em;
