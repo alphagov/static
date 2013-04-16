@@ -302,8 +302,16 @@ article .error {
   min-height: 0;
 }
 
-// li.upcoming h3 {
-//   display: inline;
-//   font-size: 1em;
-//   margin: 0 0.5em 0 0;
-// }
+/*
+ * loading indicators
+ */
+.smart_answer .loading {
+  padding-top: 2em;
+
+  p {
+    line-height: 2em;
+    margin: 0 0 2.375em;
+    padding: 0 0 0 40px;
+    background: transparent image-url("loading-2b2c2d.gif") no-repeat 0 50%;
+  }
+}
