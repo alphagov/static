@@ -309,8 +309,7 @@ article .error {
   @include inline-block;  
   line-height: 1.5em;
   height: 32px;
-  margin: 0 0 0 2em;
-  padding: 0 0 0 40px;
-  background: transparent image-url("loading-2b2c2d.gif") no-repeat 0 0;
+  margin: 0 0 0 1.3em;
+  padding: 0;
   vertical-align: top;
 }
