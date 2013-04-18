@@ -21,4 +21,11 @@ Static::Application.routes.draw do
   match "/templates/proposition_menu.html.erb", :to => "root#proposition_menu"
 
   match "/templates/barclays_epdq.html", :to => "root#barclays_epdq"
+
+  match "/apple-touch-icon.png", :to => "apple_icons#show"
+  match "/apple-touch-icon-144x144.png", :to => "apple_icons#show"
+  match "/apple-touch-icon-114x114.png", :to => "apple_icons#show"
+  match "/apple-touch-icon-72x72.png", :to => "apple_icons#show"
+  match "/apple-touch-icon-57x57.png", :to => "apple_icons#show"
+  match "/apple-touch-icon-precomposed.png", :to => "apple_icons#show"
 end
