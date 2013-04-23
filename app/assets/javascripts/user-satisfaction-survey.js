@@ -9,6 +9,11 @@ GOVUK.UserSatisfaction.prototype = (function () {
     setCookieTakenSurvey: function () {
       cookie.write(this.cookieNameTakenSurvey, true);
     },
+    appendCurrentPathToSurveyUrl: function() {
+      var takeSurvey = document.getElementById('take-survey');
+      var surveyUrlWithPath = takeSurvey.getAttribute('href') + "?c=" + window.location.pathname;
+      takeSurvey.setAttribute('href', surveyUrlWithPath);
+    },
     setEventHandlers: function () {
       var setCookie = function (name) {
         return function () {
@@ -24,6 +29,7 @@ GOVUK.UserSatisfaction.prototype = (function () {
 
       noThanks.addEventListener('click', setCookie(this.cookieNameTakenSurvey));
       takeSurvey.addEventListener('click', setCookie(this.cookieNameTakenSurvey));
+      takeSurvey.addEventListener('click', this.appendCurrentPathToSurveyUrl);
     },
     showSurveyBar: function () {
       if (cookie.read(this.cookieNameTakenSurvey) === "true") {
