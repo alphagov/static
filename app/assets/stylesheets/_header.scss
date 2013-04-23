@@ -472,3 +472,72 @@
     }
   }
 }
+
+#user-satisfaction-survey {
+  /**
+   * Hidden by default as we only want to show it to users who have
+   * JavaScript enabled.
+   */
+  display: none;
+  background-color: #2B358B;
+  padding: 0.5em 0;
+  color: #fff;
+
+  div.wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    height: 45px;
+    clear: both;
+
+    @include ie-lte(7) {
+      width: 900px;
+    }
+
+    h1, p {
+      float: left;
+    }
+
+    h1 {
+      @include core-19;
+
+      @incude ie-lte(7) {
+        zoom: 1;
+      }
+
+      width: 280px;
+      margin-top: 10px;
+    }
+
+    p {
+      @include core-14;
+
+      margin-left: 15px;
+      margin-top: 14px;
+
+      @include ie-lte(7) {
+        margin-top: 15px;
+        zoom: 1;
+      }
+
+      a {
+        &:link { color: #fff; }
+        &:hover { color: #333; }
+
+        &.button {
+          @include core-19;
+        }
+
+        margin-left: 15px;
+      }
+
+      &.right {
+        float: right;
+        margin-top: 12px;
+
+        @include ie-lte(7) {
+          margin-top: 9px;
+        }
+      }
+    }
+  }
+}

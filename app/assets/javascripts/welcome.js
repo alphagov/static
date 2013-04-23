@@ -27,8 +27,9 @@ $(function() {
         GOVUK.stopScrollingAtFooter.updateFooterTop();
       }
     }
+
     $message.show();
-    setCookie('seen_cookie_message', 'yes', 28);
+    cookie.write('seen_cookie_message', 'yes', 28);
   }
 
   addRelatedClass();

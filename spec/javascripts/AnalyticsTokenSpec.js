@@ -1,9 +1,9 @@
 describe("analytics cookie tokens", function () {
-
+    var cookie = new GOVUK.Cookie();
     var cookieName = "GDS_analyticsTokens";
 
     beforeEach(function () {
-        Alphagov.delete_cookie(cookieName);
+        cookie.delete(cookieName);
         spyOn(GOVUK.Analytics, "getSlug").andCallFake(function () { return getSlugResult; });
         GOVUK.Analytics.Format = "guide";
     });
@@ -12,7 +12,7 @@ describe("analytics cookie tokens", function () {
         getSlugResult = 12;
         GOVUK.Analytics.entryTokens.assignToken();
 
-        expect(Alphagov.read_cookie(cookieName)).toBe("[12]");
+        expect(cookie.read(cookieName)).toBe("[12]");
     });
 
     it("should write multiple tokens to the array", function () {
@@ -21,7 +21,7 @@ describe("analytics cookie tokens", function () {
         getSlugResult = 42;
         GOVUK.Analytics.entryTokens.assignToken();
 
-        expect(Alphagov.read_cookie(cookieName)).toBe("[12,42]");
+        expect(cookie.read(cookieName)).toBe("[12,42]");
     });
 
     it("should not write the same token multiple times", function () {
@@ -29,7 +29,7 @@ describe("analytics cookie tokens", function () {
         GOVUK.Analytics.entryTokens.assignToken();
         GOVUK.Analytics.entryTokens.assignToken();
 
-        expect(Alphagov.read_cookie(cookieName)).toBe("[15]");
+        expect(cookie.read(cookieName)).toBe("[15]");
     });
 
     it("should remove a token from the cookie array", function () {
@@ -38,7 +38,7 @@ describe("analytics cookie tokens", function () {
 
         GOVUK.Analytics.entryTokens.revokeToken();
 
-        expect(Alphagov.read_cookie(cookieName)).toBe("[]");
+        expect(cookie.read(cookieName)).toBe("[]");
     });
 
     it("should preserve the remaining tokens when one is removed", function () {
@@ -49,7 +49,7 @@ describe("analytics cookie tokens", function () {
 
         GOVUK.Analytics.entryTokens.revokeToken();
 
-        expect(Alphagov.read_cookie(cookieName)).toBe("[16]");
+        expect(cookie.read(cookieName)).toBe("[16]");
     });
 
     it("should not blow up if a token is revoked when the cookie array is empty", function () {
@@ -66,7 +66,7 @@ describe("analytics cookie tokens", function () {
 
         GOVUK.Analytics.entryTokens.revokeToken();
 
-        expect(Alphagov.read_cookie(cookieName)).toBe("[21]");
+        expect(cookie.read(cookieName)).toBe("[21]");
     });
 
     it("should return true if token has been assigned", function () {
