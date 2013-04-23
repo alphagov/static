@@ -25,7 +25,7 @@ section#content {
     width: 960px;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     max-width: auto;
   }
 }
@@ -35,7 +35,7 @@ p {
 }
 
 h2, h3, h4 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h2 {
@@ -60,46 +60,6 @@ h4 {
  * Locate me styles
  */
 
-.popover-mask {
-  background-color: rgba(0,0,0,0.5);
-  display: none;
-  height: 100%;
-  left: 0;
-  margin: 0;
-  top: 30px;
-  padding: 0;
-  position: fixed;
-  width: 100%;
-  z-index: 60;
-
-  @include ie-lte(7) {
-    position: absolute !important;
-  }
-
-  .popover {
-    background: #fafafa;
-    border: solid 2px #bbb;
-    @include border-radius(0.5em);
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-    margin: 4em auto 0 auto;
-    padding: 0 2.5em 2em 2.5em;
-    position: relative;
-  }
-}
-
-.popover  {
-  .close {
-    position: absolute;
-    top: -19px;
-    right: -19px;
-  }
-
-  h2 {
-    margin: 0.5em 0;
-    padding-bottom: 0.2em;
-  }
-}
-
 #global-locator-form {
   label,
   .ask_location {
@@ -122,7 +82,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
-  top: 7em;
+  top: 9.5em;
   width: 100%;
   z-index: 0;
 
@@ -134,14 +94,23 @@ h4 {
     position: absolute !important;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     position: static;
     top: auto;
     height: auto;
   }
 }
 
-.related-with-cookie {
+.js-enabled .related-positioning {
+  top: 7em;
+}
+
+.beta .related-positioning {
+  top: 12em;
+}
+
+.js-enabled .related-with-cookie,
+.js-enabled .related-beta {
   top: 9.5em;
 }
 
@@ -157,7 +126,7 @@ h4 {
     width: 960px;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     max-width: auto;
     height: auto;
 
@@ -172,7 +141,7 @@ h4 {
   right: 0;
   width: 15em;
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     position: static;
     right: auto;
     width: auto;
@@ -183,11 +152,11 @@ h4 {
     padding: 0.5em 1em 0 1.2em;
     width: auto;
 
-    @include media(tablet) {
+    @include media-down(tablet) {
       padding-left: 2em;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding-left: 1em;
     }
   }
@@ -199,7 +168,7 @@ h4 {
     margin-bottom: 0.5em;
     position: relative;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       font-size: 17px;
       font-size: 1.7rem;
       margin-bottom: 0.625em;
@@ -211,6 +180,7 @@ h4 {
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   li {
@@ -259,7 +229,7 @@ h4 {
     position: absolute;
     left: -9999em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       position: static;
       border-top: 1px solid $grey-6;
       margin: 0.25em 0 0;
@@ -313,6 +283,11 @@ h4 {
 	height: 33px;
 	margin-top: 0.5em;
 	display: block;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("businesslink-logo-2x.png");
+    background-size: 84px 33px;
+  }
 }
 
 #wrapper.directgov #legacy-sources li.directgov {
@@ -320,18 +295,20 @@ h4 {
 	width: 74px;
 	height: 14px;
 	margin-right: 1em;
-	margin-top: 0.8em;
+	margin-top: 1.2em;
 	display: block;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("directgov-logo-2x.png");
+    background-size: 74px 14px;
+  }
 }
 
 /*
  * Page headers
  */
 
-header {
-
-  &.page-header 
-
+header.page-header {
     .skip-to-related {
       position:absolute;
       left:-9999em;
@@ -343,7 +320,7 @@ header {
       margin: 0 15em 0 0;
       padding: 1em 2em 2em 2em;
 
-      @include media(tablet) {
+      @include media-down(tablet) {
         margin: 0;
       }
 
@@ -351,6 +328,7 @@ header {
         @include heading-48;
         background-repeat: no-repeat;
         color: $text-colour;
+        font-weight: 400;
 
         span {
           @include core-19($line-height: 1);
@@ -376,12 +354,11 @@ body.full-width {
   }
 }
 
-#wrapper.programme header.page-header hgroup,
 #wrapper.service header.page-header hgroup,
-#wrapper.answer header.page-header hgroup,
 #wrapper.licence header.page-header hgroup,
-#wrapper.guide header.page-header hgroup,
-#wrapper.video header.page-header hgroup {
+#wrapper.video header.page-header hgroup,
+#wrapper.answer header.page-header hgroup,
+#wrapper.guide header.page-header hgroup {
   padding-left: 2em;
 
   h1 {
@@ -396,15 +373,48 @@ body.full-width {
 
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-left: 1em;
 
     h1 {
       min-height: (61em/25);
     }
   }
+}
 
-  @include media($min-width: 1020px) {
+#wrapper.programme header.page-header hgroup,
+#wrapper.service header.page-header hgroup {
+  h1 {
+    margin-left: -12px;
+    padding-left: 80px;
+  }
+
+  @include media-down(mobile) {
+    padding-left: 1em;
+
+    h1 {
+      min-height: (61em/25);
+    }
+  }
+}
+
+#wrapper.programme header.page-header hgroup,
+#wrapper.service header.page-header hgroup,
+#wrapper.licence header.page-header hgroup,
+#wrapper.video header.page-header hgroup {
+  @include media($min-width: 1182px) {
+    padding-left: 0;
+
+    h1 {
+      margin-left: -96px;
+      padding-left: 128px;
+    }
+  }
+}
+
+#wrapper.answer header.page-header hgroup,
+#wrapper.guide header.page-header hgroup {
+  @include media($min-width: 1132px) {
     padding-left: 0;
 
     h1 {
@@ -419,8 +429,13 @@ body.full-width {
   background-image: image-url("icon-programme-l.png");
   background-position: 0 5px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1182px) {
     background-position: 15px 18px;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-programme-l-2x.png");
+    background-size: 65px 65px;
   }
 }
 
@@ -429,8 +444,13 @@ body.full-width {
   background-image: image-url("icon-service-l.png");
   background-position: 0 12px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1182px) {
     background-position: 15px 29px;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-service-l-2x.png");
+    background-size: 67px 52px;
   }
 }
 
@@ -439,8 +459,13 @@ body.full-width {
   background-image: image-url("icon-answer-l.png");
   background-position: 0 14px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1132px) {
     background-position: 40px 14px;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-answer-l-2x.png");
+    background-size: 42px 61px;
   }
 }
 
@@ -449,8 +474,13 @@ body.full-width {
   background-image: image-url("icon-licence-l.png");
   background-position: 0 14px;
   
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1182px) {
     background-position: 16px 14px;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-licence-l-2x.png");
+    background-size: 38px 65px;
   }
 }
 
@@ -460,11 +490,15 @@ body.full-width {
   background-image: image-url("icon-guide-l.png");
   background-position: 0 14px;
 
-  @include media($min-width: 1020px) {
+  @include media($min-width: 1132px) {
     background-position: 40px 14px;
   }
-}
 
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-guide-l-2x.png");
+    background-size: 40px 61px;
+  }
+}
 
 /* Business support format */
 .business_support article.tab-pane { 
@@ -560,7 +594,7 @@ article {
     width: auto;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     min-height: 0;
 
     .inner {
@@ -568,7 +602,7 @@ article {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     .inner {
       padding: 0 1em 1em 1em;
     }
@@ -582,23 +616,33 @@ article {
     .inner{
       padding-right:10em;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         padding-right: 1em;
       }
     }
   }
 }
 
-#wrapper.guide
+#wrapper.guide,
 #wrapper.programme{
   article{
     .inner{
       padding-right:3em;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         padding-right: 1em;
       }
     }
+  }
+}
+
+#wrapper.travel-advice p img {
+  display: block;
+  margin: 0 -1em;
+  padding-left: 1em;
+
+  @include media-down(tablet) {
+    max-width: 100%;
   }
 }
 
@@ -607,11 +651,16 @@ article {
   margin-right: 15em;
   min-height: 35em;
 
+  /* Make webkit browsers contain the margin-bottom of report-a-problem */
+  .travel-advice & {
+    padding-bottom: 0.01em;
+  }
+
   article {
     margin-right: 0;
   }
 
-  @include media(tablet) {
+  @include media-down(tablet) {
     margin-right: 0;
     min-height: 0;
   }
@@ -657,7 +706,7 @@ article {
     @include core-16
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-left: 0;
     margin-top: 0;
     width: 50%;
@@ -680,25 +729,25 @@ article {
 }
 
 .print-link {
-  text-align:right;
+  text-align: left;
   margin: 0.5em 0;
-  padding-left: 1.4em;
-
-  @include ie-lte(7) {
-    padding-left: 0.2em;
-  }
+  padding-left: 2em;
 
   a, a:link, a:visited {
-    background: image-url("print.png") no-repeat 100% 50%;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-left: 30px;
-    padding-right: 32px;
+    background: image-url("icon-print.png") no-repeat 0% 50%;
+    padding: 0.5em 0 0.5em 28px;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-print-2x.png");
+      background-size: 16px 18px;
+    }
+
     zoom: 1;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     width:60%;
+    padding-left: 1em;
 
     a, a:link, a:visited {
       padding-bottom:4px;
@@ -707,7 +756,7 @@ article {
 }
 
 .modified-date {
-  @include media(mobile) {
+  @include media-down(mobile) {
     width:40%;
   }
 }
@@ -732,33 +781,42 @@ article {
 }
 
 /* Feedback mechanism styles */
-#mask {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99999;
-  background-color: #000;
+.popover-mask {
+  background-color: rgba(0,0,0,0.5);
   display: none;
-}
 
-.js-enabled #popup,
-.js-enabled #feedback-popup,
-#govuk-feedback {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  z-index: 60;
+
+  @include ie-lte(7) {
+    position: absolute !important;
+  }
 }
 
 #popup {
   display: none;
+
   overflow: visible;
   clear: both;
-  padding: 0;
+  
   position: absolute;
-  left: 0;
   top: 2em;
+  left: 0;
+  
   width: 60%;
+  
   z-index: 999999;
+  
+  padding: 0;
   padding-bottom: 0.5em;
 
   h2 {
@@ -775,117 +833,13 @@ article {
     padding: 0;
   }
 
-  p.geolocate-me {
-    @include core-16;
-    border-top: 1px solid $grey-6;
-    margin-bottom: 0;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
-  }
-
-  #global-locator-form {
-    background: $grey-9 image-url("locator-icon.png") no-repeat 1em 1em;
-    border: none;
-    margin: 0 auto 1em auto;
-    padding: 1.2em 0.75em 1.2em 3.5em;
-    position: relative;
-  }
-
-  #global-set-theme .personalise-options {
-	  background: #d5ecea;
-	  padding: 1em;
-	  position: relative;
-  }
-
-  #global-set-theme .beta-notice {
-    @include core-14;
-    line-height: 1.5em;
-  }
-
-  &.customisation-tools,
-  &.feedback-tools {
-    background-color: #fff;
-    padding: 1em 1.5em;
-    width: 60%;
-    min-height: 26em;
-
-    h2 {
-      @include core-27;
-      margin: 0;
-    }
-  }
-
-  &.feedback-tools {
-    min-height: 22em;
-  }
-
   .error-notification {
     margin-bottom: 0.8em;
     padding: 0 0.5em;
   }
 
-  &.customisation-tools p.close,
-  &.feedback-tools p.close,
-  &.welcome-tour p.close {
-    padding: 0;
-  }
-
   .inner {
     background-color: #fff;
-  }
-
-  .intro {
-    background-color: #d5ecea;
-    padding: 1em;
-
-    p.explanation {
-      @include core-16;
-      margin-bottom: 0;
-      padding-right: 8em;
-    }
-  }
-
-  .vcard span {
-    display: block;
-  }
-}
-
-/* welcome popup */
-#popup.welcome-tour {
-  top: 12px;
-  width: 80%;
-  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
-  padding: 0;
-  left: 10%;
-
-  h2 {
-    @include core-27;
-    text-transform: uppercase;
-    padding: 0.2em 0 0 0.5em;
-    color: $text-colour;
-  }
-
-  .welcome-content {
-    background-color: #F27820;
-    padding: 0 5px 5px 5px;
-  }
-
-  .welcome-inner {
-    background-color: #FDE4D2;
-    color: $text-colour;
-    padding: 1em 2em;
-  }
-
-  .close {
-    right: 0.5em;
-    top: 1.5em;
-  }
-}
-
-@media screen and (min-width:500px) {
-  #popup.welcome-tour {
-    width: 60%;
-    left: 20%;
   }
 }
 
@@ -912,152 +866,6 @@ article {
   }
 }
 
-/* feedback popup */
-#feedback-cta {
-  background-color: #333;
-  color: white;
-  box-shadow: -0.5em 0.5em 0 rgba(0,0,0,0.3);
-  z-index: 9999;
-
-  @include ie-lte(8) {
-    position: absolute;
-  }
-
-  h2 {
-    @include core-14;
-    margin: 0.4em -2px 0.75em 0;
-    width: 10px;
-    text-transform: uppercase;
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-    display: absolute;
-    float: right;
-    color: #B4892D;
-  }
-
-  p {
-    line-height: 1.2;
-    padding: 0.5em;
-    margin: 0.2em 0;
-    color: inherit;
-  }
-
-  input {
-    @include core-19;
-    border: none;
-    color: white;
-    margin: 0.5em 0 0.3em 0.4em;
-    padding: 0.5em 1em;
-    text-align: center;
-    background: #666;
-  }
-
-  #cta-yes {
-    background: #D33883;
-  }
-
-  &.bottom input,
-  &.bottom form,
-  &.bottom h2 {
-    display: inline;
-  }
-
-  &.hide{
-    left: -12em;
-
-    &:hover,
-    &:active,
-    &:focus {
-      left: 0px;
-    }
-  }
-
-  &.left {
-    position: fixed;
-    left: -0.5em;
-    display: block;
-    bottom: 5%;
-    width: 12em;
-    min-height: 10em;
-    padding: 0em 0.5em 0.5em 1em;
-    -webkit-transition: left 0.5s ease-in-out;
-    -moz-transition: left 0.5s ease-in-out;
-
-    @include ie-lte(8) {
-      display: none;
-    }
-  }
-
-  .inner {
-    padding: 0;
-    position: relative;
-
-    .close {
-      right: -1em;
-      top: -1em;
-
-      @include ie-lte(8) {
-        right: 0em;
-        top: -0.5em;
-      }
-    }
-  }
-
-  .sets-cookie {
-    background: none;
-    margin: 1em 0 0 0;
-    padding: 0.25em 0 0 0;
-
-    a {
-      @include core-14;
-      color: inherit;
-      padding:0 0 0 0.5em;
-    }
-  }
-}
-
-#feedback-mechanism {
-  background-color: #EEE;
-  padding: 1em;
-
-}
-#feedback-options select,
-#feedback-mechanism textarea {
-  width: 90%;
-  display: block;
-  margin: 0.5em 0;
-  padding: 0.4em;
-}
-.feedback-tools .feedback-thanks {
-  @include core-27;
-}
-
-#related-popup {
-  padding: 1em;
-  margin: 1em;
-  border-top: 1px solid #eee;
-
-  h2 {
-    padding: 0;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-      display: inline;
-      padding: 0;
-      margin: 0;
-      margin-right: 1em;
-    }
-  }
-}
-
 .sets-cookie {
   @include core-14;
 }
@@ -1080,7 +888,7 @@ article {
   bottom: 1em;
   right: 0.75em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     bottom: 20px;
     bottom: 2rem;
     right: 16px;
@@ -1120,7 +928,7 @@ article {
       padding: 1px 1px 0 0;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       float: none;
       margin: 0 -16px;
       margin: 0 -1.6rem;
@@ -1133,7 +941,7 @@ article {
     margin: 0;
     float: left;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       float: none;
     }
 
@@ -1154,7 +962,7 @@ article {
         padding: 0 0.5em;
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         display: block;
         position: static;
         float: none;
@@ -1185,7 +993,7 @@ article {
         bottom: -1px;
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         border: none;
         border-bottom: 1px solid  $grey-6;
       }
@@ -1198,7 +1006,7 @@ article {
     &:first-child a {
       margin-left: 0;
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         border-left: none;
         border-top: 1px solid $grey-8;
       }
@@ -1216,7 +1024,7 @@ article {
 .tab-content {
   margin: 0 -10em 0 -2em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 -1em;
   }
 
@@ -1226,7 +1034,7 @@ article {
     clear: both;
     width:auto;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       border-top: none;
       padding: 0;
     }
@@ -1235,7 +1043,7 @@ article {
   .inner {
     padding: 0em 2.5em 1em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       padding:0 1em 1em;
       border-bottom: solid 1px #C9D0D0;
     }
@@ -1278,6 +1086,11 @@ article {
       text-decoration:underline;
       top: 0;
 
+      @include device-pixel-ratio() {
+        background-image: image-url("accordian-arrow-2x.png");
+        background-size: 45px 90px;
+      }
+
       &:hover {
         background-color: $grey-9;
       }
@@ -1310,13 +1123,13 @@ article {
     position: absolute;
     left: -9999em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       position: static;
       left: auto;
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     .js-tab-container {
       min-height:0;
     }
@@ -1347,7 +1160,7 @@ article {
     color: $grey-3;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0.5em 16px 16px;
     margin: 0 0.5em 1.6rem 1.6em;
     width:40%;
@@ -1361,7 +1174,7 @@ article {
 }
 
 .js-tab-content .report-a-problem-toggle {
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-top:2em;
   }
 }
@@ -1396,7 +1209,7 @@ article {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 1em 2em 1em;
   }
 }
@@ -1404,17 +1217,67 @@ article {
 /* bunting lol */
 .epic-bunting {
   width: 100%;
-  position: fixed;
+  position: absolute;
   left: 0;
-  top: 14em;
+  top: 3em;
   overflow: visible;
 
   span {
     background-image: image-url("bunting.png");
     background-color: transparent;
     background-repeat: repeat-x;
+    background-position: center top;
     width: 99.9%;
     position: absolute;
-    height: 60px;
+    height: 107px;
+    z-index: 100;
   }
+}
+
+.next-steps-promo {
+  border-top: solid 5px $yellow;
+  border-bottom: solid 5px $yellow;
+  position: relative;
+  margin-top: 3em;
+  padding: 1em 200px 1em 0;
+
+  @include media-down(mobile) {
+    padding-right: 0;
+  }
+
+  @include ie(6) {
+    zoom: 1;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  img {
+    position: absolute;
+    top: 1em;
+    right: 0;
+
+    @include media-down(mobile) {
+      position: static;
+      display: block;
+    }
+  }
+
+  .get-started .button {
+    background-color: #FFBF47;
+    background-image: image-url("icon-pointer-black.png");
+    color: #333;
+
+    &:hover,
+    &:focus {
+      background-color: #ffdf94;
+      color: #333;
+    }
+  }
+}
+
+.linear-promo {
+  position: static;
+  padding-right: 0;
 }

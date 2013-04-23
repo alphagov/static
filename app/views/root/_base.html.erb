@@ -7,37 +7,17 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %></title>
 
-    <!--[if gt IE 8]><!--><%= stylesheet_link_tag local_assigns[:css_file] || 'application' %><!--<![endif]-->
-    <!--[if IE 6]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie6' %><![endif]-->
-    <!--[if IE 7]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie7' %><![endif]-->
-    <!--[if IE 8]><%= stylesheet_link_tag local_assigns[:css_file] || 'application-ie8' %><![endif]-->
-
-    <%= stylesheet_link_tag "print", :media => "print" %>
+    <%= render partial: 'stylesheet', locals: { css_file: local_assigns[:css_file] || 'application' } %>
 
     <%= render partial: "fonts" %>
-
-    <%= javascript_include_tag 'libs/jquery/jquery-1.7.2.js' %>
-    <%= javascript_include_tag 'application', :defer => 'defer' %>
 
     <!--[if lt IE 9]>
       <%= javascript_include_tag 'ie.js' %>
     <![endif]-->
 
-    <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
+    <%= render partial: "icons" %>
 
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= asset_path "apple-touch-icon-144x144.png" %>">
-    <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= asset_path "apple-touch-icon-114x114.png" %>">
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= asset_path "apple-touch-icon-72x72.png" %>">
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="<%= asset_path "apple-touch-icon-57x57.png" %>">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <%= render partial: "google_analytics" %>
-
+    <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } unless local_assigns[:js_at_the_end] %>
   </head>
 
   <body<%= content_for?(:body_classes) ? " class=\"#{yield(:body_classes)}\"".html_safe : '' %>>
@@ -45,19 +25,24 @@
 
     <a href="#<%= local_assigns[:skip_id] || "content" %>" class="visuallyhidden">Skip to main content</a>
 
-    <header role="banner" class="group" id="global-header">
-      <div class="header-wrapper group">
-        <a href="/" title="Go to the gov.uk homepage" id="logo"><img src="<%= asset_path 'gov.uk_logotype.png' %>" alt="GOV.UK"></a>
+    <header role="banner" id="global-header">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="/" title="Go to the gov.uk homepage" id="logo" class="content">
+              <img src="<%= asset_path 'gov.uk_logotype-2x.png' %>" alt="GOV.UK">
+            </a>
+            <a href="#search" class="search-toggle js-header-toggle">Search</a>
+          </div>
 
-        <a href="#search" class="button search-toggle">Search</a>
-
-        <%- unless local_assigns[:no_search] -%>
-        <form id="search" class="site-search" action="/search" method="get" role="search">
-          <label for="site-search-text" class="visuallyhidden">Search</label>
-          <input type="search" name="q" id="site-search-text" title="Search">
-          <input class="button" type="submit" value="Search" />
-        </form>
-        <%- end -%>
+          <form id="search" class="site-search" action="/search" method="get">
+            <div class="content">
+              <label for="site-search-text">Search</label>
+              <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus" role="search">
+              <input class="submit" type="submit" value="Search" />
+            </div>
+          </form>
+        </div>
       </div>
     </header>
     <!--end header-->
@@ -73,6 +58,10 @@
         <p class="right"><a href="#take-survey" id="take-survey" class="button">5 min survey</a></p>
       </div>
     </section>
+
+    <div id="global-browser-prompt">
+      <p>For a safer, faster, better experience online you should upgrade your browser. <a href="/support/browsers">Find out more about browsers</a> <a href="#" class="dismiss" title="Dismiss this message">Close</a></p>
+    </div>
 
     <%= banner_notification %>
 
@@ -90,7 +79,7 @@
       <%= yield :content %>
     </div>
 
-    <footer class="group" id="footer" role="contentinfo">
+    <footer class="group js-footer" id="footer" role="contentinfo">
 
       <div class="footer-wrapper">
         <nav class="footer-categories">
@@ -98,10 +87,11 @@
             <h2>Explore GOV.UK</h2>
 
             <ul>
-              <li><a href="/browse/driving">Driving, transport and travel</a></li>
+              <li><a href="/browse/driving">Driving and transport</a></li>
               <li><a href="/browse/benefits">Benefits</a></li>
               <li><a href="/browse/business">Businesses and self-employed</a></li>
               <li><a href="/browse/employing-people">Employing people</a></li>
+              <li><a href="/browse/abroad">Passports, travel and living abroad</a></li>
               <li><a href="/browse/education">Education and learning</a></li>
               <li><a href="/browse/working">Working, jobs and pensions</a></li>
               <li><a href="/browse/housing">Housing and local services</a></li>
@@ -119,6 +109,7 @@
             <ul>
               <li><a href="/government/how-government-works">How government works</a></li>
               <li><a href="/government/organisations">Departments</a></li>
+              <li><a href="/government/world">Worldwide</a></li>
               <li><a href="/government/topics">Topics</a></li>
               <li><a href="/government/policies">Policies</a></li>
               <li><a href="/government/publications">Publications</a></li>
@@ -128,23 +119,7 @@
 
         </nav>
 
-        <div class="footer-meta">
-          <nav>
-            <ul>
-              <li><a href="/support">Support</a></li>
-              <li><a href="/support/cookies">Cookies</a></li>
-              <li><a href="/feedback">Feedback</a></li>
-              <li><a href="/cymraeg">Cymraeg</a></li>
-              <li>Built by the <a href="http://digital.cabinetoffice.gov.uk/">Government Digital Service</a></li>
-            </ul>
-
-            <p>All content is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/">Open Government Licence</a>, except where otherwise stated</p>
-          </nav>
-
-          <div class="copyright">
-            <a href="http://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm">&copy; Crown Copyright</a>
-          </div>
-        </div>
+        <%= render partial: 'footer_meta' %>
       </div>
     </footer>
 
@@ -152,5 +127,6 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
+    <%= render partial: 'javascript', locals: { js_file: local_assigns[:js_file] || 'application' } if local_assigns[:js_at_the_end] %>
   </body>
 </html>

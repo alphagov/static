@@ -4,10 +4,24 @@ section.campaign {
     padding-bottom: 3em;
   }
 
+  article.campaign,
   #extra-links {
-    float: left;
-    margin-left: 1em;
-    max-width: 960px;
+    max-width: 662px;
+
+    @include media-down(mobile) {
+      width: auto;
+      padding-right: 0;
+    }
+
+   @include ie(6) {
+      width: 662px;
+    }
+  }
+
+  #extra-links {
+    margin: 0 1em;
+    overflow: hidden;
+    border-top: solid 1px $grey-6;
 
     @include ie(6) {
       width:928px;
@@ -30,7 +44,6 @@ section.campaign {
     display: block;
     max-width: 960px;
     margin: 0 auto;
-    padding-bottom: 2.5em;
     background-color: #fff;
 
     @include ie-lte(7) {
@@ -54,26 +67,21 @@ section.campaign {
         width: 70%;
       }
 
-      @include media (mobile) {
+      @include media-down(mobile) {
         padding: 0.5em 2rem;
         width: auto;
       }
 
       @include ie(6) {
-        width: 500px;
+        width: 700px;
       }
     }
-
-    p {
-      max-width: 662px;
-    }
-
   }
 }
 
 .campaign-image {
   position: relative;
-  float: left;
+  clear: both;
   width: 100%;
   height: 300px;
 
@@ -116,7 +124,6 @@ section.campaign {
 
     @include media ($max-width: 900px) {
       position: static;
-      float: left;
       width: auto;
       padding: 2em 0 0 1em;
     }
@@ -130,27 +137,31 @@ section.campaign {
       margin: 0;
       padding: 0;
     }
+    
+    a[rel="external"] {
+      @include external-link-16;
+    }
   }
 }
 
 .organisation {
   float: right;
-  padding: 2.5em 2em 0 0;
+  padding: 2.5em 2em 1em 0;
 
-  @include media (mobile) {
+  @include media-down(mobile) {
     float: left;
     margin: 0em 0 1em 1em;
     padding: 0;
   }
 
-  @include media (tablet) {
+  @include media-down(tablet) {
     padding-top: 7px;
     padding-top: 0.7rem;
   }
 
   a.organisation-logo {
     span {
-      @include media (mobile) {
+      @include media-down(mobile) {
         top: 0;
         position: static;
       }
@@ -159,13 +170,11 @@ section.campaign {
 }
 
 article.campaign {
+  float: none;
   height: auto;
   min-height: 0;
-  width: auto;
-  max-width: 95%;
   margin: 0 1em;
   padding: 0 2em 1em 0;
-  border-bottom: solid 1px $grey-6;
 
   h2:first-of-type {
     margin-top: 1.5em;
@@ -176,6 +185,10 @@ ul.links {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @include ie(6) {
+    list-style-image: none;
+  }
 
   li {
     margin: 0;

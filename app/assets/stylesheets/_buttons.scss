@@ -67,7 +67,7 @@
   -webkit-box-shadow: 0 3px 0 #000;
   -moz-box-shadow: 0 3px 0 #000;
   box-shadow: 0 3px 0 #000;
-  font-weight: 300;
+  font-weight: 400;
   overflow: visible;
 }
 
@@ -143,13 +143,14 @@
 .transaction .get-started .button,
 .local_transaction .get-started .button,
 .business_support .get-started .button,
-.licence .get-started .button {
+.licence .get-started .button,
+.next-steps-promo .get-started .button {
   padding: 0.45em 1.7em 0.45em 0.67em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
   background-repeat: no-repeat;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     background-position: 110% 50%;
   }
 
@@ -159,6 +160,11 @@
 
   @include ie(6) {
     background-image: url('icon-pointer-indexed.png');
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-pointer-2x.png");
+    background-size: 30px 19px;
   }
 }
 
@@ -186,6 +192,7 @@
 }
 
 a.button[rel="external"]:after {
+  display: none;
   content: none;
   margin-left: 0;
   margin-right: 0;

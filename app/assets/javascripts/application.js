@@ -3,6 +3,9 @@
 //= require libs/jquery/plugins/jquery.mustache.js
 //= require jquery.history
 //= require jquery.tabs
+//= require libs/jquery/plugins/jquery.player.min
+//= require libs/suchi/isOld.js
+//= require cookie-functions
 //= require govuk_toolkit
 //= require cookies
 //= require core
@@ -14,3 +17,6 @@
 //= require stop-related-scrolling
 //= require user-satisfaction-survey
 //= require welcome
+//= require browser-check
+//= require analytics
+

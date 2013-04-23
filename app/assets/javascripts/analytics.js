@@ -2,3 +2,5 @@
 //= require analytics/tracking-strategies
 //= require analytics/tracking
 //= require cookies
+//= require analytics/print-tracking
+

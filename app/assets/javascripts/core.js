@@ -44,10 +44,20 @@ $(document).ready(function() {
   $('.print-link a').attr('target', '_blank');
 
   // header search toggle
-  $('.search-toggle').on('click', function(e) {
+  $('.js-header-toggle').on('click', function(e) {
     e.preventDefault();
-    $('#search').toggleClass('js-visible');
-    $(this).addClass('js-hidden');
+    $($(e.target).attr('href')).toggleClass('js-visible');
+    $(this).toggleClass('js-hidden');
+  });
+
+  var $searchFocus = $('.js-search-focus');
+  $searchFocus.on('focus', function(e){
+    $(e.target).addClass('focus');
+  });
+  $searchFocus.on('blur', function(e){
+    if($searchFocus.val() === ''){
+      $(e.target).removeClass('focus');
+    }
   });
 
   if(window.location.hash && $(".design-principles").length != 1 && $('.section-page').length != 1) {
@@ -105,6 +115,23 @@ $(document).ready(function() {
         $(this).removeClass('button-hover');
       });
   }
+
+  // fix for printing bug in Windows Safari
+  (function () {
+    var windows_safari = (window.navigator.userAgent.match(/(\(Windows[\s\w\.]+\))[\/\(\s\w\.\,\)]+(Version\/[\d\.]+)\s(Safari\/[\d\.]+)/) !== null),
+        $new_styles;
+
+    if (windows_safari) {
+      // set the New Transport font to Arial for printing
+      $new_styles = $("<style type='text/css' media='print'>" +
+                      "@font-face {" +
+                      "font-family: nta !important;" +
+                      "src: local('Arial') !important;" +
+                      "}" +
+                      "</style>");
+      document.getElementsByTagName('head')[0].appendChild($new_styles[0]);
+    }
+  }());
 });
 
 

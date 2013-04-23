@@ -1,12 +1,12 @@
 source :rubygems
-source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
+source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.13'
 gem 'unicorn', '4.3.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
-gem 'lograge'
+gem 'lograge', '~> 0.1.0'
 
 group :router do
   gem 'router-client', '2.0.3', :require => 'router/client'
@@ -21,11 +21,11 @@ end
 
 group :test do
   gem 'capybara', '1.1.0'
-  gem 'mocha', '0.10.0'
+  gem 'mocha', '0.13.3', :require => false
   gem 'shoulda', '2.11.3'
 end
 
-gem 'plek', '~> 0'
+gem 'plek', '1.0.0'
 gem 'jasmine', '1.1.2'
 
-gem 'govuk_frontend_toolkit', '0.8.2'
+gem 'govuk_frontend_toolkit', '0.16.0'

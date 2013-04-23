@@ -4,13 +4,14 @@
 */
 
 article h1 {
-  @include core-24;
+  @include bold-24;
   margin-top: 1.5em;
   margin-bottom: 0.75em;
 }
 
 article header h1 {
-  @include heading-24;
+  @include heading-27;
+  font-weight: 700;
   color: $grey-0;
   margin-top: 0;
   margin-bottom: 0;
@@ -35,9 +36,8 @@ article h1 + h2 {
 }
 
 article h2 {
-  @include core-24;
-  margin-bottom: 0.625em;
-  margin-top: 2em;
+  @include bold-24;
+  margin: 1.2em 0 0.4em 0;
 }
 
 article h2 + h3 {
@@ -45,8 +45,8 @@ article h2 + h3 {
 }
 
 article h3 {
-  @include core-19;
-  margin-top: 2.4em;
+  @include bold-19;
+  margin-top: 1em;
   margin-bottom: 0.75em;
 }
 
@@ -97,7 +97,7 @@ article li {
   margin: 0.25em 0;
   padding-left: 0.3em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-left: 16px;
     margin-left: 1.6rem;
     padding-left: 0;
@@ -125,7 +125,7 @@ article ul, article ol {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding-left: 0;
     margin-left: 0;
   }
@@ -179,13 +179,12 @@ article table {
   width: 105.95%;
 
   caption {
-    @include core-19;
+    @include bold-24;
+    margin: 0.4em 0.5em 0.4em 0.7em;
     text-align: left;
-    margin-bottom: 0.5em;
-    padding-left: 1em;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 1em 0 2em 0;
     width: 100%;
 
@@ -199,6 +198,13 @@ article th, article td {
   @include core-16;
   vertical-align: top;
   padding: 0.7em 0.5em 0.7em 1em;
+  
+  a[rel="external"] {
+    @include external-link-16;
+    @include media-down(mobile) {
+      @include external-link-14;
+    }
+  }
 }
 
 article tr:nth-child(even) td {
@@ -225,7 +231,7 @@ article th {
   line-height: 1.25em;
   text-align: left;
   color: $grey-0;
-  font-weight: normal;
+  font-weight: 700;
   background-color: $grey-8;
   border: solid 1px $grey-6;
 }
@@ -247,15 +253,10 @@ article th {
     @include core-24;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 2em 0;
     padding: 0;
   }
-}
-
-.mainstream .answer article .summary {
-  border-bottom: solid 1px $grey-6;
-  padding-bottom: 3em;
 }
 
 .mainstream .ancillary .summary {
@@ -274,7 +275,7 @@ article .summary h2,
 .mainstream .ancillary .summary h2 {
   line-height: 1.35em;
 
-  @include ie-lte(7) {
+  @include ie(6) {
     height: 2.75em;
   }
 }
@@ -297,6 +298,11 @@ article .advisory {
   padding: 1em;
   text-align: left;
 
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-information-2x.png");
+    background-size: 27px 27px;
+  }
+
   p {
     margin: 0 0.75em 0 0;
     min-height: 1.75em;
@@ -308,7 +314,7 @@ article .advisory {
   }
 
   strong {
-    font-weight: 300;
+    font-weight: 400;
   }
 
   &.high-alert {
@@ -316,7 +322,7 @@ article .advisory {
     border-color: #C00;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 1em 0;
   }
 }
@@ -330,7 +336,7 @@ article .intro {
     margin-top: 0;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 1.5em 0;
     padding: 0;
   }
@@ -349,7 +355,7 @@ article .example {
     display: block;
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0.75 0;
   }
 }
@@ -362,7 +368,7 @@ article .subscribe {
   margin: 1em -1em 1.5em -1em;
   padding: 0.25em 1em 0.25em 1em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 1em 0 1.5em 0;
   }
 }
@@ -374,14 +380,34 @@ article .advisory.minor {
 
 article .help-notice {
   background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-important-2x.png");
+    background-size: 29px 24px;
+  }
+}
+
+article a.important {
+  background: image-url("icon-important.png") no-repeat scroll 100% 0 #FFF;
 }
 
 article .subscribe {
-  background: image-url("calendar-icon.png") no-repeat scroll 98% 1em #D5E8F3;
+  background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-calendar-2x.png");
+    background-size: 27px 27px;
+  }
+
 }
 
-article .info-notice{
+article .info-notice {
   background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-information-2x.png");
+    background-size: 27px 27px;
+  }
 }
 
 article .help-notice p,
@@ -390,9 +416,9 @@ article .subscribe p {
   padding-right: 4em;
 }
 
+
 article p + .help-notice,
-article p + .info-notice,
-article p + .contact {
+article p + .info-notice {
   margin-top: 2em;
 }
 
@@ -402,6 +428,11 @@ article .info-notice a[rel="external"] {
 
 article .form-download {
   background: image-url("icon-file-download.png") no-repeat scroll 98% 1em #D5E8F3;
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-file-download-2x.png");
+    background-size: 25px 25px;
+  }
 
   p {
     padding-right: 3em;
@@ -414,9 +445,7 @@ article .form-download {
 
 
 .contact {
-  background-color: #d5e8f3;
-  margin: 1em -1em;
-  padding: 0.25em 1em;
+  margin: 0.75em 0;
   min-width: 60%;
 
   dl {
@@ -430,7 +459,7 @@ article .form-download {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0.75em 0;
   }
 }
@@ -451,10 +480,9 @@ article .form-download {
 }
 
 article .address {
-  background: $grey-9 image-url("stamp.png") 95% 1em no-repeat;
-  border: solid 1px $grey-6;
-  margin: 0.75em 0;
-  padding: 2em 16% 2em 15%;
+  background: $grey-9;  
+  margin: 0.75em 0 1.5em 0;
+  padding: 1em 0 1em 2em;
   min-width: 35%;
 }
 
@@ -504,7 +532,7 @@ article .place {
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0.75em 0;
   }
 }
@@ -538,9 +566,14 @@ article ol.steps {
     margin-left: 0;
     padding: 0.75em 0 0.75em 2.2em;
 
-    @for $i from 1 through 7 {
+    @for $i from 1 through 14 {
       &:nth-child(#{$i}) {
         background-image: image-url("icon-step-#{$i}.png");
+        
+        @include device-pixel-ratio() {
+          background-image: image-url("icon-step-#{$i}-2x.png");
+          background-size: 24px 24px;
+        }
       }
     }
 
@@ -567,14 +600,14 @@ article ol.steps {
     em {
       font-size: 2.45em;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 700;
       display: block;
       margin-bottom: 0.5em;
       color: #fff;
     }
   }
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 0 0 1em 0;
 
     @include core-48;

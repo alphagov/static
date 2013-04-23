@@ -24,7 +24,7 @@
       margin-left: 13em;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       width:auto;
       min-height: 0;
     }
@@ -42,10 +42,30 @@
       width: 100%;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       float:none;
       width:auto;
       overflow:hidden;
+    }
+  }
+}
+
+#content.single-page {
+  header hgroup,
+  article {
+    width: auto;
+  }
+
+  header hgroup {
+    padding-bottom: 1em;
+  }
+
+  article {
+    margin: 0;
+
+    .inner {
+      margin-left: 0;
+      padding: 0 10em 0 2em;
     }
   }
 }
@@ -56,7 +76,7 @@
   overflow: hidden;
   width: 9.5em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 1em;
     width: auto;
     text-align: left;
@@ -81,7 +101,7 @@
         padding-left: 0.5em;
       }
 
-      @include media(mobile) {
+      @include media-down(mobile) {
         width: 68px;
         height: 40px;
         float: left;
@@ -99,7 +119,7 @@
       }
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       a span {
         line-height: 40px;
         line-height: 4rem;
@@ -129,7 +149,7 @@
 .multi-page article .inner {
   padding: 0 3em 1em 3em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding: 0 1em 1em;
   }
 }
@@ -146,10 +166,15 @@ aside .show-all-parts {
   padding: 0 1.6rem;
   display: none;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     display: block;
     background: transparent image-url("accordian-arrow.png") 100% 6px no-repeat;
     background-position: 100% 0.6rem;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("accordian-arrow-2x.png");
+    background-size: 45px 90px;
   }
 
   &,
@@ -167,7 +192,7 @@ aside .show-all-parts {
 
 aside .page-navigation {
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin-top: 0;
   }
 
@@ -197,7 +222,7 @@ aside .page-navigation {
 
     a {
       display: block;
-      padding: 0.75em 2em;
+      padding: 0.75em 1em 0.75em 2em;
       text-decoration: none;
       zoom: 1;
 
@@ -213,21 +238,30 @@ aside .page-navigation {
     span {
       display: block;
 
+      &.part-label,
+      &.part-title {
+        line-height: 1.5;
+      }
+
       &.part-label {
         color: $grey-0;
-        line-height: 1.5;
+      }
+
+      &.part-description {
+        color: $grey-0;
+        line-height: 1.25;
       }
 
       &.part-title {
         color: #2E3191;
         text-decoration: underline;
-        line-height: 1.25;
+        line-height: 1.5;
       }
     }
 
     &.active {
       background-color: $grey-8;
-      padding: 0.75em 2em;
+      padding: 0.75em 1em 0.75em 2em;
 
       @include ie(6) {
         width: auto;
@@ -241,6 +275,7 @@ aside .page-navigation {
       span.part-title {
         color: $grey-0;
         text-decoration: none;
+        font-weight: 400;
       }
     }
 
@@ -248,7 +283,7 @@ aside .page-navigation {
       border-top: solid 1px $grey-6;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       @include core-19($line-height: (45/19), $line-height-640: (45/13));
 
       a {
@@ -277,7 +312,7 @@ aside .page-navigation-open ol {
   left: auto;
 }
 
-@include media(mobile) {
+@include media-down(mobile) {
   aside .page-navigation-closed ol {
     position: absolute;
     left: -9999em;
@@ -289,7 +324,7 @@ aside .page-navigation-open ol {
   display: block;
   margin: 2em -1em 0 -1em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 2em 0 0 0;
   }
 
@@ -346,7 +381,7 @@ aside .page-navigation-open ol {
       padding: 0.75em 1em 0.75em 5%;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       &.previous a {
         float: left;
       }
@@ -415,7 +450,7 @@ aside .page-navigation-open ol {
   padding: 1em 0.75em 1em 3.5em;
   position: relative;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     margin: 1.2em -1em;
     margin: 2rem -1.6rem;
   }
@@ -426,7 +461,7 @@ aside .page-navigation-open ol {
     margin-bottom: 0;
     padding-top: 1em;
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       margin-left: -2.5em;
       margin-left: -4rem;
       padding-right: 2.5em;
@@ -453,7 +488,7 @@ aside .page-navigation-open ol {
 }
 
 h1#what-you-need-to-know{
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /*
@@ -479,7 +514,7 @@ ul.helpers li.active h3 a {
       height: 20em;
     }
 
-    @include media(mobile) {
+    @include media-down(mobile) {
       min-height: 0;
     }
   }
@@ -495,7 +530,7 @@ div.further-information {
   clear: both;
   padding-top: 2em;
 
-  @include media(mobile) {
+  @include media-down(mobile) {
     padding:1em 0;
   }
 

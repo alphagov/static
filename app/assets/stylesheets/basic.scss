@@ -39,7 +39,7 @@ html {
 body {
   color: $text-colour;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,13 +65,18 @@ a:active {
   color: $link-active-colour;
 }
 
-a[rel="external"]:after,
-.external-link:after {
-  content: image-url("external-link.png");
-  margin-right: 0.2em;
-  margin-left: -0.2em
+a[rel="external"] {
+  @include external-link-default;
+  @include external-link-19;
+  @include media-down(mobile) {
+    @include external-link-16;
+  }
 }
 
+.external-link {
+  @include external-link-12-no-hover;
+  @include external-link-heading;
+}
 
 // adjustments to normalize.css
 
@@ -114,4 +119,13 @@ button {
 
 abbr[title] {
   cursor: help;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button;
+  margin-right: 2px;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }

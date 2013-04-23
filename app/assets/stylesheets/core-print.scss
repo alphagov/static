@@ -74,7 +74,7 @@ article {
 
   header h1 {
     @include core-19;
-    border-bottom: 1pt solid rgb(225,225,225);
+    border-bottom: 1pt solid rgb(127,127,127);
     padding-top: 7pt;
     padding-bottom: 7pt;
   }
@@ -100,6 +100,8 @@ article {
   ol {
     @include core-14;
     padding-left: 13pt;
+    list-style-image: none;
+    list-style-type: disc;
   }
 
   li {
@@ -129,15 +131,23 @@ article {
     td:nth-child(n+2) {
       text-align: right;
     }
+
+    caption {
+      @include core-19;
+      margin: 14pt 0;
+    }
   }
 
   .contact,
-  .info-notice {
+  .info-notice,
+  .help-notice {
     border: 1pt solid rgb(125,125,125);
     padding: 2pt;
+    margin: 14pt 0;
   }
 
-  .info-notice {
+  .info-notice,
+  .help-notice {
     &:before {
       content: "!";
       float: left;
@@ -148,6 +158,18 @@ article {
 
     p {
       margin-left: 22pt;
+    }
+  }
+
+  .highlight-answer,
+  .highlighted-event {
+    p {
+      @include core-19;
+
+      em {
+        font-style: normal;
+        font-weight: 700;
+      }
     }
   }
 }
@@ -188,13 +210,59 @@ img { max-width: 100% !important; }
   @include core-14;
 
   &:after {
-    content: "© Crown Copyright";
+    content: "\00A9  Crown Copyright";
     float: right;
   }
 }
 
+#global-header {
+  background: transparent;
+
+  #logo {
+    position: relative;
+    display: block;
+    width: 166px;
+    height: 30px;
+
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: -60px;
+
+      /* scale oversized image to container bounds */
+      max-width: none !important;
+      width: 200%; height: 300%;
+
+      border: none;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  #search, .search-toggle {
+    display: none;
+  }
+}
+
+.done-questions {
+  .start-again {
+    display: none;
+  }
+
+  .question-number {
+    display: none;
+  }
+
+  li.done .undo {
+    display: none;
+  }
+}
+
 /* hide the unnecessary page elements */
-body header#global-header,
 body footer,
 body #global-user-location,
 body .related-positioning,
