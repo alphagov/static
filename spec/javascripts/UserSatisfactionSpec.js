@@ -129,6 +129,15 @@ describe("User Satisfaction Survey", function () {
 
         expect(surveyElement.style.display).toBe("none");
       });
+
+      it("should append the current path to the url when clicking 'take survey'", function() {
+        survey.showSurveyBar();
+
+        var takeSurvey = document.getElementById("take-survey");
+        clickElem(takeSurvey);
+
+        expect(takeSurvey.getAttribute("href")).toBe("javascript:void(0)?c=/");
+      })
     });
   });
 });
