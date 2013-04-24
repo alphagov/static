@@ -1,8 +1,6 @@
 describe("User Satisfaction Survey", function () {
   describe("Cookies", function () {
     var survey;
-
-    var cookie = new GOVUK.Cookie();
     var surveyElement;
 
     var clickElem = function (link) {
@@ -43,17 +41,11 @@ describe("User Satisfaction Survey", function () {
 
     afterEach(function () {
       // Remove the cookie that we're setting.
-      cookie.delete(survey.cookieNameTakenSurvey);
+      Alphagov.delete_cookie(survey.cookieNameTakenSurvey);
 
       (elem = document.getElementById("user-satisfaction-survey")).parentNode.removeChild(elem);
 
       survey = null;
-    });
-
-    it("should set a cookie when we've taken the survey", function () {
-      expect(Alphagov.read_cookie(survey.cookieNameTakenSurvey)).toBe(null);
-      survey.setCookieTakenSurvey();
-      expect(Alphagov.read_cookie(survey.cookieNameTakenSurvey)).toBe('true');
     });
 
     it("should display the user satisfaction div", function () {
@@ -78,7 +70,7 @@ describe("User Satisfaction Survey", function () {
     });
 
     it("shouldn't show the user satisfaction div if the 'survey taken' cookie is set", function () {
-      cookie.write(survey.cookieNameTakenSurvey, true);
+      setCookie(survey.cookieNameTakenSurvey, 'true');
 
       var counter = 0;
       for (var i = 0; i < 100; i++) {
@@ -100,7 +92,7 @@ describe("User Satisfaction Survey", function () {
         var takeSurvey = document.getElementById("take-survey");
         clickElem(takeSurvey);
 
-        expect(cookie.read(survey.cookieNameTakenSurvey)).toBe('true');
+        expect(getCookie(survey.cookieNameTakenSurvey)).toBe('true');
       });
 
       it("should set a cookie when clicking 'no thanks'", function () {
@@ -109,7 +101,7 @@ describe("User Satisfaction Survey", function () {
         var noThanks = document.getElementById("survey-no-thanks");
         clickElem(noThanks);
 
-        expect(cookie.read(survey.cookieNameTakenSurvey)).toBe('true');
+        expect(getCookie(survey.cookieNameTakenSurvey)).toBe('true');
       });
 
       it("should hide the satisfaction survey bar after clicking 'take survey'", function () {
