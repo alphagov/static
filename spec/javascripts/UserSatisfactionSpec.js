@@ -8,8 +8,10 @@ describe("User Satisfaction Survery", function () {
 
     afterEach(function () {
       // Remove the cookie that we're setting.
-      Alphagov.delete_cookie(survey.cookieNameSeenBar);
-      Alphagov.delete_cookie(survey.cookieNameTakenSurvey);
+      cookie.delete(survey.cookieNameSeenBar);
+      cookie.delete(survey.cookieNameTakenSurvey);
+
+      survey = null;
     });
 
     it("should set a cookie when we've seen the bar", function () {
@@ -22,6 +24,17 @@ describe("User Satisfaction Survery", function () {
       expect(Alphagov.read_cookie(survey.cookieNameTakenSurvey)).toBe(null);
       survey.setCookieTakenSurvey();
       expect(Alphagov.read_cookie(survey.cookieNameTakenSurvey)).toBe('true');
+    });
+
+    it("should display the user satisfaction div", function () {
+      var surveyElement = document.createElement("div");
+      surveyElement.id = "user-satisfaction-survey";
+      surveyElement.style.display = "none";
+      document.body.appendChild(surveyElement);
+
+      expect(surveyElement.style.display).toBe("none");
+      survey.showSurveyBar();
+      expect(surveyElement.style.display).toBe("block");
     });
   });
 });
