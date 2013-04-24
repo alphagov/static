@@ -35,9 +35,21 @@ GOVUK.UserSatisfaction.prototype = (function() {
       var isMobileUA = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
       var isMobileScreen = screen.availWidth < 900;
 
-      if (survey && !isMobileUA && !isMobileScreen) {
+      if (survey && !this.otherNotificationPresent() && !isMobileUA && !isMobileScreen) {
         survey.style.display = "block";
       }
+    },
+    otherNotificationPresent: function() {
+      var otherNotifications = $('#banner-notification, #global-cookie-message, #global-browser-prompt');
+      var notificationPresent = false;
+
+      $(otherNotifications).each( function(i, item){
+        if ($(item).css('display') == "block") {
+          notificationPresent = true;
+        }
+      });
+
+      return notificationPresent;
     },
     randomlyShowSurveyBar: function () {
       var min = 0;

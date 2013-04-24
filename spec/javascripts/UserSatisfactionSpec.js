@@ -22,7 +22,10 @@ describe("User Satisfaction Survey", function () {
       }
     }
 
-    var block = '<section id="user-satisfaction-survey">\
+    var block = '<div id="banner-notification" style="display: none"></div>\
+    <div id="global-cookie-message" style="display: none"></div>\
+    <div id="global-browser-prompt" style="display: none"></div>\
+    <section id="user-satisfaction-survey">\
       <div class="wrapper">\
         <h1>Tell us what you think of GOV.UK</h1>\
         <p>Survey takes 5 minutes and opens in a new window <a href="javascript:void(0)" id="survey-no-thanks">No thanks</a></p>\
@@ -67,6 +70,13 @@ describe("User Satisfaction Survey", function () {
 
       expect(counter).toBeGreaterThan(0);
       expect(counter).toBeLessThan(15);
+    });
+
+    it("should not display the user satisfaction div if another notification banner is visible", function() {
+      $('#global-cookie-message').css('display', 'block');
+
+      survey.showSurveyBar();
+      expect(surveyElement.style.display).toBe("none");
     });
 
     it("shouldn't show the user satisfaction div if the 'survey taken' cookie is set", function () {
