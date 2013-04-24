@@ -18,12 +18,12 @@ GOVUK.UserSatisfaction.prototype = (function() {
       takeSurvey.setAttribute('href', surveyUrlWithPath);
     },
     setEventHandlers: function () {
-      var noThanks = document.getElementById("survey-no-thanks");
-      var takeSurvey = document.getElementById("take-survey");
+      var noThanks = $("#survey-no-thanks");
+      var takeSurvey = $("#take-survey");
 
-      noThanks.addEventListener('click', this.setCookieTakenSurvey);
-      takeSurvey.addEventListener('click', this.setCookieTakenSurvey);
-      takeSurvey.addEventListener('click', this.appendCurrentPathToSurveyUrl);
+      noThanks.click(this.setCookieTakenSurvey);
+      takeSurvey.click(this.setCookieTakenSurvey);
+      takeSurvey.click(this.appendCurrentPathToSurveyUrl);
     },
     showSurveyBar: function () {
       if (getCookie(cookieNameTakenSurvey) === "true") {
