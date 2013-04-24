@@ -43,18 +43,11 @@ describe("User Satisfaction Survery", function () {
 
     afterEach(function () {
       // Remove the cookie that we're setting.
-      cookie.delete(survey.cookieNameSeenBar);
       cookie.delete(survey.cookieNameTakenSurvey);
 
       (elem = document.getElementById("user-satisfaction-survey")).parentNode.removeChild(elem);
 
       survey = null;
-    });
-
-    it("should set a cookie when we've seen the bar", function () {
-      expect(Alphagov.read_cookie(survey.cookieNameSeenBar)).toBe(null);
-      survey.setCookieSeenBar();
-      expect(Alphagov.read_cookie(survey.cookieNameSeenBar)).toBe('true');
     });
 
     it("should set a cookie when we've taken the survey", function () {

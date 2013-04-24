@@ -6,12 +6,7 @@ GOVUK.UserSatisfaction.prototype = {
   cookieNameTakenSurvey: "takenUserSatisfactionSurvey",
 
   return {
-    cookieNameSeenBar: "seenSurveyBar",
     cookieNameTakenSurvey: "takenUserSatisfactionSurvey",
-
-    setCookieSeenBar: function () {
-      cookie.write(this.cookieNameSeenBar, true);
-    },
     setCookieTakenSurvey: function () {
       cookie.write(this.cookieNameTakenSurvey, true);
     },
