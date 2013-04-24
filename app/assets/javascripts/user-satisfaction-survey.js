@@ -2,7 +2,7 @@ var GOVUK = GOVUK || {};
 GOVUK.UserSatisfaction = GOVUK.UserSatisfaction || function () {};
 
 GOVUK.UserSatisfaction.prototype = (function() {
-  var cookieNameTakenSurvey = "takenUserSatisfactionSurvey";
+  var cookieNameTakenSurvey = "govuk_takenUserSatisfactionSurvey";
 
   return {
     cookieNameTakenSurvey: cookieNameTakenSurvey,
