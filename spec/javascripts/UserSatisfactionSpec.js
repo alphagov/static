@@ -39,7 +39,7 @@ describe("User Satisfaction Survey", function () {
       surveyElement = document.getElementById("user-satisfaction-survey");
       surveyElement.style.display = "none";
 
-      survey = new GOVUK.UserSatisfaction();
+      survey = GOVUK.userSatisfaction;
     });
 
     afterEach(function () {

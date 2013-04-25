@@ -1,13 +1,14 @@
-var GOVUK = GOVUK || {};
-GOVUK.UserSatisfaction = GOVUK.UserSatisfaction || function () {};
+(function() {
+  "use strict";
 
-GOVUK.UserSatisfaction.prototype = (function() {
-  var cookieNameTakenSurvey = "govuk_takenUserSatisfactionSurvey";
+  var root = this,
+      $ = root.jQuery;
+  if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
-  return {
-    cookieNameTakenSurvey: cookieNameTakenSurvey,
+  var userSatisfaction = {
+    cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     setCookieTakenSurvey: function () {
-      setCookie(cookieNameTakenSurvey, true, 30*4);
+      setCookie(userSatisfaction.cookieNameTakenSurvey, true, 30*4);
 
       var survey = document.getElementById("user-satisfaction-survey");
       survey.style.display = "none";
@@ -21,21 +22,21 @@ GOVUK.UserSatisfaction.prototype = (function() {
       var noThanks = $("#survey-no-thanks");
       var takeSurvey = $("#take-survey");
 
-      noThanks.click(this.setCookieTakenSurvey);
-      takeSurvey.click(this.setCookieTakenSurvey);
-      takeSurvey.click(this.appendCurrentPathToSurveyUrl);
+      noThanks.click(userSatisfaction.setCookieTakenSurvey);
+      takeSurvey.click(userSatisfaction.setCookieTakenSurvey);
+      takeSurvey.click(userSatisfaction.appendCurrentPathToSurveyUrl);
     },
     showSurveyBar: function () {
-      if (getCookie(cookieNameTakenSurvey) === "true") {
+      if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true") {
         return;
       }
-      this.setEventHandlers();
+      userSatisfaction.setEventHandlers();
 
       var survey = document.getElementById("user-satisfaction-survey");
       var isMobileUA = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
       var isMobileScreen = screen.availWidth < 900;
 
-      if (survey && !this.otherNotificationVisible() && !isMobileUA && !isMobileScreen) {
+      if (survey && !userSatisfaction.otherNotificationVisible() && !isMobileUA && !isMobileScreen) {
         survey.style.display = "block";
       }
     },
@@ -43,13 +44,10 @@ GOVUK.UserSatisfaction.prototype = (function() {
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
     },
     randomlyShowSurveyBar: function () {
-      var min = 0;
-      var max = 100;
-      var random = Math.floor(Math.random() * (max - min + 1)) + min;
-
-      if (random === 0 || random === 100 || random % 15 === 0) {
-        this.showSurveyBar();
+      if (Math.floor(Math.random() * 8) === 0) {
+        userSatisfaction.showSurveyBar();
       }
     }
-  };
-})();
+  }
+  root.GOVUK.userSatisfaction = userSatisfaction;
+}).call(this);
