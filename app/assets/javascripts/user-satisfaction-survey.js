@@ -24,13 +24,13 @@
         $("#user-satisfaction-survey").removeClass('visible');
       });
       takeSurvey.click(userSatisfaction.setCookieTakenSurvey);
-      takeSurvey.click(userSatisfaction.appendCurrentPathToSurveyUrl);
     },
     showSurveyBar: function () {
       if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true") {
         return;
       }
       userSatisfaction.setEventHandlers();
+      userSatisfaction.appendCurrentPathToSurveyUrl();
 
       if (!userSatisfaction.otherNotificationVisible()) {
         $("#user-satisfaction-survey").addClass('visible');
