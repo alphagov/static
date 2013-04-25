@@ -114,15 +114,6 @@ describe("User Satisfaction Survey", function () {
         expect(getCookie(survey.cookieNameTakenSurvey)).toBe('true');
       });
 
-      it("should hide the satisfaction survey bar after clicking 'take survey'", function () {
-        survey.showSurveyBar();
-
-        var takeSurvey = document.getElementById("take-survey");
-        clickElem(takeSurvey);
-
-        expect($surveyBar.hasClass('visible')).toBe(false);
-      });
-
       it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {
         survey.showSurveyBar();
 
