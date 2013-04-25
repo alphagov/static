@@ -1,7 +1,7 @@
 describe("User Satisfaction Survey", function () {
   describe("Cookies", function () {
     var survey;
-    var surveyElement;
+    var $surveyBar;
 
     var clickElem = function (link) {
       var cancelled = false;
@@ -36,8 +36,8 @@ describe("User Satisfaction Survey", function () {
     beforeEach(function () {
       document.body.insertAdjacentHTML("afterbegin", block);
 
-      surveyElement = document.getElementById("user-satisfaction-survey");
-      surveyElement.style.display = "none";
+      $surveyBar = $("#user-satisfaction-survey");
+      $surveyBar.removeClass('visible');
 
       survey = GOVUK.userSatisfaction;
     });
@@ -52,18 +52,18 @@ describe("User Satisfaction Survey", function () {
     });
 
     it("should display the user satisfaction div", function () {
-      expect(surveyElement.style.display).toBe("none");
+      expect($surveyBar.hasClass('visible')).toBe(false);
       survey.showSurveyBar();
-      expect(surveyElement.style.display).toBe("block");
+      expect($surveyBar.hasClass('visible')).toBe(true);
     });
 
     it("should randomly display the user satisfaction div", function () {
       var counter = 0;
       for (var i = 0; i < 50; i++) {
-        surveyElement.style.display = "none";
+        $surveyBar.removeClass('visible')
         survey.randomlyShowSurveyBar();
 
-        if (surveyElement.style.display == "block") {
+        if ($surveyBar.hasClass('visible')) {
           counter += 1;
         }
       }
@@ -76,7 +76,7 @@ describe("User Satisfaction Survey", function () {
       $('#global-cookie-message').css('display', 'block');
 
       survey.showSurveyBar();
-      expect(surveyElement.style.display).toBe("none");
+      expect($surveyBar.hasClass('visible')).toBe(false);
     });
 
     it("shouldn't show the user satisfaction div if the 'survey taken' cookie is set", function () {
@@ -86,7 +86,7 @@ describe("User Satisfaction Survey", function () {
       for (var i = 0; i < 100; i++) {
         survey.randomlyShowSurveyBar();
 
-        if (surveyElement.style.display == "block") {
+        if ($surveyBar.hasClass('visible')) {
           counter += 1;
           break;
         }
@@ -120,7 +120,7 @@ describe("User Satisfaction Survey", function () {
         var takeSurvey = document.getElementById("take-survey");
         clickElem(takeSurvey);
 
-        expect(surveyElement.style.display).toBe("none");
+        expect($surveyBar.hasClass('visible')).toBe(false);
       });
 
       it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {
@@ -129,7 +129,7 @@ describe("User Satisfaction Survey", function () {
         var noThanks = document.getElementById("survey-no-thanks");
         clickElem(noThanks);
 
-        expect(surveyElement.style.display).toBe("none");
+        expect($surveyBar.hasClass('visible')).toBe(false);
       });
 
       it("should append the current path to the url when clicking 'take survey'", function() {

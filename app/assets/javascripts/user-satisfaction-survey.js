@@ -9,9 +9,7 @@
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     setCookieTakenSurvey: function () {
       setCookie(userSatisfaction.cookieNameTakenSurvey, true, 30*4);
-
-      var survey = document.getElementById("user-satisfaction-survey");
-      survey.style.display = "none";
+      $("#user-satisfaction-survey").removeClass('visible');
     },
     appendCurrentPathToSurveyUrl: function() {
       var takeSurvey = document.getElementById('take-survey');
@@ -32,12 +30,8 @@
       }
       userSatisfaction.setEventHandlers();
 
-      var survey = document.getElementById("user-satisfaction-survey");
-      var isMobileUA = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile|Opera\ Mini)/);
-      var isMobileScreen = screen.availWidth < 900;
-
-      if (survey && !userSatisfaction.otherNotificationVisible() && !isMobileUA && !isMobileScreen) {
-        survey.style.display = "block";
+      if (!userSatisfaction.otherNotificationVisible()) {
+        $("#user-satisfaction-survey").addClass('visible');
       }
     },
     otherNotificationVisible: function() {

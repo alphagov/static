@@ -483,6 +483,12 @@
   padding: 0.5em 0;
   color: #fff;
 
+  &.visible {
+    @include media(desktop) {
+      display: block;
+    }
+  }
+
   div.wrapper {
     margin: 0 auto;
     max-width: 960px;
