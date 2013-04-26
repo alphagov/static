@@ -59,7 +59,7 @@ describe("User Satisfaction Survey", function () {
 
     it("should randomly display the user satisfaction div", function () {
       var counter = 0;
-      for (var i = 0; i < 50; i++) {
+      for (var i = 0; i < 100; i++) {
         $surveyBar.removeClass('visible')
         survey.randomlyShowSurveyBar();
 
@@ -69,7 +69,7 @@ describe("User Satisfaction Survey", function () {
       }
 
       expect(counter).toBeGreaterThan(0);
-      expect(counter).toBeLessThan(15);
+      expect(counter).toBeLessThan(5);
     });
 
     it("should not display the user satisfaction div if another notification banner is visible", function() {

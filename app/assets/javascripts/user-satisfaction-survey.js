@@ -38,7 +38,7 @@
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
     },
     randomlyShowSurveyBar: function () {
-      if (Math.floor(Math.random() * 8) === 0) {
+      if (Math.floor(Math.random() * 50) === 0) {
         userSatisfaction.showSurveyBar();
       }
     }
