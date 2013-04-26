@@ -28,4 +28,7 @@ Static::Application.routes.draw do
   match "/apple-touch-icon-72x72.png", :to => "apple_icons#show"
   match "/apple-touch-icon-57x57.png", :to => "apple_icons#show"
   match "/apple-touch-icon-precomposed.png", :to => "apple_icons#show"
+
+  match "/static/overseas-passport/OS_Payment_Instruction.pdf",
+    :to => redirect("#{Plek.current.website_root}/government/publications/overseas-passport-creditdebit-card-payment-authorisation")
 end
