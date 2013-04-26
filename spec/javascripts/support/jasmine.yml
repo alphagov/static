@@ -15,8 +15,10 @@ src_files:
   - app/assets/javascripts/libs/jquery/plugins/jquery.base64.js
   - app/assets/javascripts/libs/jquery/plugins/jasmine-jquery-1.3.1.js
   - app/assets/javascripts/core.js
+  - app/assets/javascripts/cookie-functions.js
   - app/assets/javascripts/geo-locator.js
   - app/assets/javascripts/devolution.js
+  - app/assets/javascripts/user-satisfaction-survey.js
   - app/assets/javascripts/analytics/tracking-strategies.js
   - app/assets/javascripts/analytics/events-cookie-handler.js
   - app/assets/javascripts/analytics/tracking.js

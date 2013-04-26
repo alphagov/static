@@ -117,7 +117,7 @@ $(document).ready(function() {
       $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
     }
   });
-  
+
   function contentNudge(hash){
     if($(hash).length == 1){
       if($(hash).css("top") == "auto" || "0"){
@@ -172,6 +172,8 @@ $(document).ready(function() {
       document.getElementsByTagName('head')[0].appendChild($new_styles[0]);
     }
   }());
+
+  GOVUK.userSatisfaction.randomlyShowSurveyBar();
 });
 
 
