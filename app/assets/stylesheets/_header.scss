@@ -268,7 +268,7 @@
     #proposition-name {
       @include core-24;
       font-weight: bold;
-      color: $turquoise;
+      color: $white;
       text-decoration: none;
     }
     a.menu {
@@ -332,7 +332,7 @@
         a {
           color: $white;
           text-decoration: none;
-          @include core-14;
+          @include core-19;
 
           &:hover {
             text-decoration: underline;
@@ -425,7 +425,7 @@
   @include ie-lte(7) {
     padding: 0.75em 0;
   }
- 
+
   nav {
     max-width: 960px;
     margin: 0 auto;
