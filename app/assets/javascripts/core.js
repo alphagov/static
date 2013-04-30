@@ -173,7 +173,9 @@ $(document).ready(function() {
     }
   }());
 
-  GOVUK.userSatisfaction.randomlyShowSurveyBar();
+  if(window.GOVUK && GOVUK.userSatisfaction){
+    GOVUK.userSatisfaction.randomlyShowSurveyBar();
+  }
 });
 
 
