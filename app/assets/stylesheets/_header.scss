@@ -333,7 +333,12 @@
         a {
           color: $white;
           text-decoration: none;
-          @include core-19;
+          @include bold-14;
+
+          @include media(desktop) {
+            @include bold-16;
+            line-height: 23px;
+          }
 
           &:hover {
             text-decoration: underline;
