@@ -37,7 +37,7 @@
         }
       }
       .header-logo {
-        margin: 3px 0 2px;
+        margin: 5px 0 2px;
       }
       .site-search {
         float: right;
@@ -55,9 +55,6 @@
           .site-search {
             width: 100%;
           }
-          .header-logo {
-            margin: 0 0 6px;
-          }
         }
       }
       .header-proposition {
@@ -69,6 +66,10 @@
           margin: 0 15px;
         }
       }
+    }
+
+    #search {
+      margin-top: 4px;
     }
   }
 
@@ -268,7 +269,7 @@
     #proposition-name {
       @include core-24;
       font-weight: bold;
-      color: $turquoise;
+      color: $white;
       text-decoration: none;
     }
     a.menu {
@@ -296,10 +297,13 @@
         content: " \25B2";
       }
     }
+    #proposition-menu {
+      margin-top: 5px;
+    }
     #proposition-links {
       clear: both;
       @extend %contain-floats;
-      margin: 0;
+      margin: 2px 0 0 0;
       padding: 0;
 
       .js-enabled & {
@@ -332,7 +336,12 @@
         a {
           color: $white;
           text-decoration: none;
-          @include core-14;
+          @include bold-14;
+
+          @include media(desktop) {
+            @include bold-16;
+            line-height: 23px;
+          }
 
           &:hover {
             text-decoration: underline;
