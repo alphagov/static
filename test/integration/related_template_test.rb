@@ -1,11 +1,11 @@
-require_relative "../test_helper"
+require_relative "../integration_test_helper"
 
 class RelatedTemplateTest < ActionDispatch::IntegrationTest
   include ERB::Util
 
   def get_template
     get "/templates/related.raw.html.erb"
-    response.body
+    last_response.body
   end
 
   context "with related artefacts" do
