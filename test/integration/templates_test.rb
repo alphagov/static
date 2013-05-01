@@ -23,6 +23,12 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       get "/templates/related.html.erb"
       assert_equal 404, last_response.status
     end
+
+    should "not allow direct access to partials" do
+      get "/templates/_base.html.erb"
+      assert_equal 404, last_response.status
+    end
+
   end
 
   context "fetching raw templates" do
@@ -45,6 +51,18 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
       get "/templates/wrapper.raw.html.erb"
       assert_equal 404, last_response.status
+    end
+
+    should "404 for invalid template names without looking at the filesystem" do
+      File.expects(:exists?).never
+      [
+        "foo-bar",
+        "foo&bar",
+        "foo+bar",
+      ].each do |template|
+        get "/templates/#{template}.raw.html.erb"
+        assert_equal 404, last_response.status
+      end
     end
   end
 end
