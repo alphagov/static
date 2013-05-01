@@ -1,19 +1,16 @@
 class RootController < ApplicationController
 
-  caches_page :campaign, :wrapper, :print, :related, :report_a_problem, :homepage, :admin, :beta_notice, :header_footer_only, :chromeless, :barclays_epdq
-  caches_page *%w(404 406 418 500 501 503 504)
+  rescue_from ActionView::MissingTemplate, :with => :error_404
 
-  def related
-    return_raw_template("related")
+  caches_page :template, :raw_template
+
+  def raw_template
+    file_path = Rails.root.join("app", "views", "root", "#{params[:template]}.raw.html.erb")
+    error_404 and return unless File.exists?(file_path)
+    render :text => File.read(file_path)
   end
 
-  def report_a_problem
-    return_raw_template("report_a_problem")
-  end
-
-  private
-
-  def return_raw_template(basename)
-    render :text => File.read("#{Rails.root}/app/views/root/#{basename}.raw.html.erb")
+  def template
+    render :action => params[:template]
   end
 end
