@@ -1222,6 +1222,10 @@ article {
   top: 6.1em;
   overflow: visible;
 
+  @include media-down(tablet) {
+    display: none;
+  }
+
   span {
     background-image: image-url("bunting.png");
     background-color: transparent;
