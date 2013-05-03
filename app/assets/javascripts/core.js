@@ -51,7 +51,11 @@ var ReportAProblem = {
 
   submit: function() {
     $('.report-a-problem-container .error-notification').remove();
-    $('.report-a-problem-container form').append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
+
+    $.each(['.report-a-problem-container form', '.report-a-problem form'], function(index, value) {
+      $(value).append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
+    });
+
     var submitButton = $(this).find('.button');
     submitButton.attr("disabled", true);
     $.ajax({

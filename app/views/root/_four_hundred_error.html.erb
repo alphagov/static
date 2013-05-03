@@ -17,17 +17,7 @@
 	     <div class="inner">
          <%= raw local_assigns[:intro] %>
 
-         <h2>Search GOV.UK</h2>
-         <form class="search-box" action="/search" method="get" role="search">
-         	<p>
-           	<label for="main_autocomplete2" class="visuallyhidden">Try searching</label>
-           	<input type="text" id="main_autocomplete2" value="" name="q" placeholder="Enter search text">
-            	<button type="submit" class="button">Search</button>
-         	</p>
-         </form>
-
-         <h2>Explore GOV.UK</h2>
-         <p><a href="/">Go to the GOV.UK home page</a></p>
+         <%= render partial: 'report_a_problem_form' %>
        </div>
      </article>
    </div>
