@@ -1,8 +1,19 @@
-/* All error pages */
+@import "_conditionals";
+@import "_typography";
+
 .error {
   .intro {
     background-color: #D5E8F3;
     color: $text-colour;
+  }
+
+  form {
+    input[type="text"] {
+      @include core-24;
+
+      padding: 0.3em 0 0.1em 0.4em;
+      margin-left: 0;
+    }
   }
 
   .search-box {
@@ -13,11 +24,44 @@
     input[type="text"], input[type="search"] {
       background-color: $grey-9;
       border: 2px inset;
-      font-size: 1em;
-      line-height: 1.2;
-      padding: 0.3em 0 0.1em 0.4em;
-      margin-left: 0;
-      width: 22em;
+    }
+  }
+
+  .report-a-problem {
+    margin-top: 60px;
+    margin-top: 6rem;
+
+    form {
+      @include core-24;
+
+      padding-top: 10px;
+      padding-top: 1rem;
+
+      label {
+        display: block;
+      }
+
+      input {
+        display: block;
+        margin-bottom: 20px;
+        margin-bottom: 2rem;
+        width: 400px;
+
+        @include media(mobile) {
+          width: 300px;
+        }
+      }
+
+      button {
+        margin-top: 10px;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @include media(mobile) {
+    .page-header hgroup {
+      padding-left: 1em;
     }
   }
 }

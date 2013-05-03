@@ -1,14 +1,17 @@
-<form accept-charset="UTF-8" action="/feedback" method="post" class="40x-report-a-problem">
-  <label for="what_doing">
-    What you were doing
-    <input id="what_doing" name="what_doing" type="text" />
-  </label>
+<div class="report-a-problem">
+  <h2>Help us improve GOV.UK by telling us:</h2>
+  <form accept-charset="UTF-8" action="/feedback" method="post">
+    <label for="what_doing">
+      What you were doing
+      <input id="what_doing" name="what_doing" type="text" />
+    </label>
 
-  <label for="what_wrong">
-    What went wrong
-    <input id="what_wrong" name="what_wrong" type="text" />
-  </label>
+    <label for="what_wrong">
+      What went wrong
+      <input id="what_wrong" name="what_wrong" type="text" />
+    </label>
 
-  <input type="hidden" name="utf8" value="✓">
-  <button name="commit" type="submit" class="button">Send</button>
-</form>
+    <input type="hidden" name="utf8" value="✓">
+    <button name="commit" type="submit" class="button">Send</button>
+  </form>
+</div>
