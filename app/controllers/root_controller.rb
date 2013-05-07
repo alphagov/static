@@ -1,19 +1,32 @@
 class RootController < ApplicationController
 
-  caches_page :campaign, :wrapper, :print, :related, :report_a_problem, :homepage, :admin, :beta_notice, :header_footer_only, :chromeless, :barclays_epdq
-  caches_page *%w(404 406 418 500 501 503 504)
+  before_filter :validate_template_param
 
-  def related
-    return_raw_template("related")
+  rescue_from ActionView::MissingTemplate, :with => :error_404
+
+  caches_page :template, :raw_template
+
+  def raw_template
+    file_path = Rails.root.join("app", "views", "root", "#{params[:template]}.raw.html.erb")
+    error_404 and return unless File.exists?(file_path)
+    render :text => File.read(file_path)
   end
 
-  def report_a_problem
-    return_raw_template("report_a_problem")
+  def template
+    render :action => params[:template]
   end
 
   private
 
-  def return_raw_template(basename)
-    render :text => File.read("#{Rails.root}/app/views/root/#{basename}.raw.html.erb")
+  def validate_template_param
+    # Allow alphanumeric and _ in template filenames.
+    # Prevent any attempts to traverse directores etc...
+    unless params[:template] =~ /\A\w+\z/
+      error_404
+    end
+    # Prevent direct access to partials
+    if params[:template].start_with?('_')
+      error_404
+    end
   end
 end
