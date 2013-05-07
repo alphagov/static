@@ -282,6 +282,9 @@ form.search-header {
       &.search-result-title {
         @include core-19;
         font-weight: bold;
+        a[rel="external"]::after {
+          content: "\A0\A0\A0\A0\A0\A0";
+        }
       }
     }
 
