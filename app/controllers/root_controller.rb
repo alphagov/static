@@ -19,6 +19,8 @@ class RootController < ApplicationController
   private
 
   def validate_template_param
+    # Allow alphanumeric and _ in template filenames.
+    # Prevent any attempts to traverse directores etc...
     unless params[:template] =~ /\A\w+\z/
       error_404
     end
