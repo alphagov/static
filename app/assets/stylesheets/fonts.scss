@@ -8,24 +8,11 @@
   font-weight: normal;
   font-style: normal;
 }
-@font-face {
-  font-family: 'nta';
-  src: image-url('NTA-International-Light.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  unicode-range: U+A1, U+A8, U+AF, U+B4, U+B8, U+BF-D6, U+D8-F6, U+F8-17E, U+218-21B;
-}
 
 @font-face {
   font-family: 'nta';
   src: asset_data_url('NTA-English-Bold.woff') format('woff');
   font-weight: bold;
-}
-@font-face {
-  font-family: 'nta';
-  src: image-url('NTA-International-Bold.woff') format('woff');
-  font-weight: bold;
-  unicode-range: U+A1, U+A8, U+AF, U+B4, U+B8, U+BF-D6, U+D8-F6, U+F8-17E, U+218-21B;
 }
 
 @font-face {
