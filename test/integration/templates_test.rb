@@ -29,6 +29,34 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       assert_equal 404, last_response.status
     end
 
+    should "include the standard fonts.css in the template" do
+      get "/templates/wrapper.html.erb"
+
+      assert_match /fonts\.css/, last_response.body
+      assert_match /fonts-ie8\.css/, last_response.body
+
+      refute_match /fonts-intl\.css/, last_response.body
+      refute_match /fonts-intl-ie8\.css/, last_response.body
+    end
+
+    context "versions with the international font" do
+      should "be 200 for templates that exist" do
+        %w(wrapper header_footer_only chromeless).each do |template|
+          get "/templates/#{template}-intl.html.erb"
+          assert_equal 200, last_response.status
+        end
+      end
+
+      should "return the template with the -intl variants of the fonts css" do
+        get "/templates/wrapper-intl.html.erb"
+
+        assert_match /fonts-intl\.css/, last_response.body
+        assert_match /fonts-intl-ie8\.css/, last_response.body
+
+        refute_match /fonts\.css/, last_response.body
+        refute_match /fonts-ie8\.css/, last_response.body
+      end
+    end
   end
 
   context "fetching raw templates" do
