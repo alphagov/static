@@ -371,19 +371,28 @@
 #global-browser-prompt {
   padding: 0.5em 0;
 
-  p {
-    @include core-19;
+  .inner {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 1020px;
+    position: relative;
+    width: auto;
+
+    p {
+      @include core-19;
+      @include media(tablet) {
+        padding: 0 30px;
+      }
+    }
 
     @include ie-lte(6) {
       width: 960px;
     }
+
+    @include media-down(mobile) {
+      padding: 0.5em 1em;
+    }
   }
 
-  @include media-down(mobile) {
-    padding: 0.5em 1em;
-  }
 }
 
 #global-cookie-message,
