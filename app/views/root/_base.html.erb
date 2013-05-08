@@ -59,11 +59,9 @@
 
     <% unless local_assigns[:hide_nav] %>
       <div id="global-breadcrumb" class="header-context">
-        <nav role="navigation">
-          <ol class="group">
-            <li><a href="/">Home</a></li>
-          </ol>
-        </nav>
+        <ol role="breadcrumbs" class="group">
+          <li><a href="/">Home</a></li>
+        </ol>
       </div>
     <% end %>
 
@@ -74,7 +72,7 @@
     <footer class="group js-footer" id="footer" role="contentinfo">
 
       <div class="footer-wrapper">
-        <nav class="footer-categories">
+        <div class="footer-categories">
           <div class="footer-explore">
             <h2>Explore GOV.UK</h2>
 
@@ -109,7 +107,7 @@
             </ul>
           </div>
 
-        </nav>
+        </div>
 
         <%= render partial: 'footer_meta' %>
       </div>
