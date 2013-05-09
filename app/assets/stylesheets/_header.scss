@@ -369,30 +369,21 @@
 #global-cookie-message,
 .beta-notice,
 #global-browser-prompt {
-  padding: 0.5em 0;
+  padding: 0.5em 2em;
 
-  .inner {
+  p {
+    @include core-19;
     margin: 0 auto;
-    max-width: 1020px;
-    position: relative;
-    width: auto;
-
-    p {
-      @include core-19;
-      @include media(tablet) {
-        padding: 0 30px;
-      }
-    }
+    max-width: 960px;
 
     @include ie-lte(6) {
       width: 960px;
     }
-
-    @include media-down(mobile) {
-      padding: 0.5em 1em;
-    }
   }
 
+  @include media-down(mobile) {
+    padding: 0.5em 1em;
+  }
 }
 
 #global-cookie-message,
