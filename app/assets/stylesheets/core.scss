@@ -3,6 +3,8 @@
  */
 
 #wrapper {
+  background-color: $grey-9;
+
   @include ie-lte(7) {
     zoom: 1;
   }

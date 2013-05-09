@@ -32,8 +32,11 @@ html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup,
   display: block;
 }
 
-body {
+html {
   background: $grey-9;
+}
+
+body {
   color: $text-colour;
   line-height: 1.5;
   font-weight: 400;
