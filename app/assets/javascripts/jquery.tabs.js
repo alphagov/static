@@ -14,23 +14,24 @@
 jQuery.fn.tabs = function(settings){
 	//configurable options
 	var o = $.extend({
-		trackState: true, //track tabs in history, url hash, back button, page load
-		srcPath: 'jQuery.history.blank.html',
-		autoRotate: false,
-		alwaysScrollToTop: true,
-		selected: null,
-		wrapperTag : 'section',
-		defaultTab : null,
+    trackState: true, //track tabs in history, url hash, back button, page load
+    srcPath: 'jQuery.history.blank.html',
+    autoRotate: false,
+    alwaysScrollToTop: true,
+    selected: null,
+    wrapperTag : 'section',
+    defaultTab : null,
+    containerTag : 'div'
 		scrollOnload : false
 	},settings);
 
 	var tabFormat = 'tabset',
     checkFormat = function ($tabsNav) {
       var format = tabFormat,
-          $navContainer = $tabsNav.closest('nav');
+          $navContainer = $tabsNav.closest(o.containerTag);
 
           if ($navContainer.hasClass('programme-progression')) {
-            if ($tabsNav.closest('nav').css('float') === 'none') {
+            if ($tabsNav.closest(o.containerTag).css('float') === 'none') {
               format = 'accordion';
             }
           } else { // is transaction start page tabs
@@ -63,7 +64,7 @@ jQuery.fn.tabs = function(settings){
 
 	var adapt = function ($tabs, $tabsNav, $tabsBody) {
     var $tabItems = $tabsNav.find('li'),
-        $container = $tabsNav.closest('nav').parent(),
+        $container = $tabsNav.closest(o.containerTag).parent(),
         $relatedArticle, 
         $articleHeading,
         $articleInner;
@@ -111,7 +112,7 @@ jQuery.fn.tabs = function(settings){
       $articleInner.append($shiftLink);
     });
 
-    $tabsNav.closest('nav').remove();
+    $tabsNav.closest(o.containerTag).remove();
   };
 	
 	return $(this).each(function(){
@@ -137,16 +138,16 @@ jQuery.fn.tabs = function(settings){
 			.addClass('tabs-body')
 			.attr('aria-live', 'polite');
 
-        // check for mobile and adapt DOM if required
-        tabFormat = checkFormat(tabsNav);        
-        if (tabFormat === 'accordion') {
-          adapt(tabs, tabsNav);
-        } else {
-          //add class to nav, tab body
-          tabsNav
-            .addClass('tabs-nav')
-            .attr('role','tablist');
-	    }
+    // check for mobile and adapt DOM if required
+    tabFormat = checkFormat(tabsNav);        
+    if (tabFormat === 'accordion') {
+      adapt(tabs, tabsNav);
+    } else {
+      //add class to nav, tab body
+      tabsNav
+        .addClass('tabs-nav')
+        .attr('role','tablist');
+    }
 		
 		//find tab panels, add class and aria
 		tabsBody.find('.js-tab-pane').each(function(){
