@@ -607,6 +607,12 @@ article {
       padding: 0 1em 1em 1em;
     }
   }
+
+  @include media-down(mobile) {
+    p img {
+      max-width: 100%;
+    }
+  }
 }
 
 #wrapper.answer,
