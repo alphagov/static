@@ -646,10 +646,6 @@ article {
   display: block;
   margin: 0 -1em;
   padding-left: 1em;
-
-  @include media-down(tablet) {
-    max-width: 100%;
-  }
 }
 
 .article-container {
