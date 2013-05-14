@@ -18,3 +18,4 @@
 //= require stop-related-scrolling
 //= require browser-check
 //= require analytics
+//= require variant-testing
