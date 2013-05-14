@@ -515,7 +515,7 @@
     h1 {
       @include core-19;
 
-      @incude ie-lte(7) {
+      @include ie-lte(7) {
         zoom: 1;
       }
 
