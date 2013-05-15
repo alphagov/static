@@ -72,7 +72,7 @@ var variants = {
     },
 
     updateContent: function(content, rootnode){
-      $(rootnode).html(content);
+      $(rootnode).first().html(content);
     },
 
     sendData: function(analytics){
@@ -85,4 +85,4 @@ var variants = {
 
 if($(".completed_transaction").length != 0){
   GOVUK.multivariateTest.init(variants);
-}
+};
