@@ -76,13 +76,14 @@ var variants = {
     },
 
     sendData: function(analytics){
-      _gaq.push(["_setCustomVar",12,"organ donation",analytics,3]); 	
+      root._gaq && _gaq.push(["_setCustomVar",12,"organ donation",analytics,3]); 
+      root._gaq && _gaq.push(['_trackEvent', 'Variant Test', 'go', '-', 0, true]);	
     }
   }
   root.GOVUK.multivariateTest = multivariateTest;
 }).call(this);
 
 
-if($(".completed_transaction").length != 0){
+//if($(".completed_transaction").length != 0){
   GOVUK.multivariateTest.init(variants);
-};
+//};
