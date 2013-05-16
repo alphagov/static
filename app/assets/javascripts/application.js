@@ -5,7 +5,6 @@
 //= require libs/suchi/isOld.js
 //= require cookie-functions
 //= require govuk_toolkit
-//= require user-satisfaction-survey
 //= require core
 //= require devolution
 //= require popup
