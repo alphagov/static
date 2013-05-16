@@ -2,16 +2,13 @@
   <h2>Help us improve GOV.UK by telling us:</h2>
   <form accept-charset="UTF-8" action="/feedback" method="post">
     <label for="what_doing">
-      What you were doing
+      What you were trying to do
       <input id="what_doing" name="what_doing" type="text" />
     </label>
 
-    <label for="what_wrong">
-      What went wrong
-      <input id="what_wrong" name="what_wrong" type="text" />
-    </label>
+    <input type="hidden" id="what_wrong" name="what_wrong" value="broken link (404)" />
 
-    <input type="hidden" name="utf8" value="✓">
+    <input type="hidden" name="utf8" value="✓" />
     <button name="commit" type="submit" class="button">Send</button>
   </form>
 </div>
