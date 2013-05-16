@@ -55,16 +55,6 @@
       <p>For a safer, faster, better experience online you should upgrade your browser. <a href="/support/browsers">Find out more about browsers</a> <a href="#" class="dismiss" title="Dismiss this message">Close</a></p>
     </div>
 
-    <% unless local_assigns[:hide_survey] %>
-      <section id="user-satisfaction-survey">
-        <div class="wrapper">
-          <h1>Tell us what you think of GOV.UK</h1>
-          <p>This will open a short survey on another website <a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>
-          <p class="right"><a href="https://www.surveymonkey.com/s/3WQ2XXR" id="take-survey" class="button" target="_blank">5 min survey</a></p>
-        </div>
-      </section>
-    <% end %>
-
     <%= banner_notification %>
 
     <% unless local_assigns[:hide_nav] %>
