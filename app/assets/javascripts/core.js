@@ -135,8 +135,9 @@ $(document).ready(function() {
 
   // form submission for reporting a problem
   $.each(['.report-a-problem-container form', '.report-a-problem form'], function(value) {
-    $(value).append('<input type="hidden" name="javascript_enabled" value="true"/>');
-    $(value).append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
+    var $form = $(value);
+    $form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
+    $form.append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
   });
 
   $('.report-a-problem-container form').submit(ReportAProblem.submit);
