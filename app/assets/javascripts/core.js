@@ -134,11 +134,9 @@ $(document).ready(function() {
   });
 
   // form submission for reporting a problem
-  $.each(['.report-a-problem-container form', '.report-a-problem form'], function(value) {
-    var $form = $(value);
-    $form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
-    $form.append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
-  });
+  var $forms = $('.report-a-problem-container form', '.report-a-problem form');
+  $forms.append('<input type="hidden" name="javascript_enabled" value="true"/>');
+  $forms.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
 
   $('.report-a-problem-container form').submit(ReportAProblem.submit);
 
