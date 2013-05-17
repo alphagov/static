@@ -23,10 +23,10 @@
       width: 66.666%;
     }
     .search-input {
-      position: relative;
+      position: static;
       margin: 0;
       padding: 0 50px 0 0;
-      @include ie-lte(7) {
+      @include ie(7) {
         padding-right: 62px;
       }
     }
@@ -50,6 +50,7 @@
       height: 50px;
       @include ie-lte(7) {
         height: 48px;
+        margin-bottom: -1px;
       }
       border-right: none;
       @include core-19;
