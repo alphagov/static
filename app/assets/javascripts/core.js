@@ -52,10 +52,6 @@ var ReportAProblem = {
   submit: function() {
     $('.report-a-problem-container .error-notification').remove();
 
-    $.each(['.report-a-problem-container form', '.report-a-problem form'], function(index, value) {
-      $(value).append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
-    });
-
     var submitButton = $(this).find('.button');
     submitButton.attr("disabled", true);
     $.ajax({
@@ -138,9 +134,13 @@ $(document).ready(function() {
   });
 
   // form submission for reporting a problem
-  $('.report-a-problem-container form').append(
-    '<input type="hidden" name="javascript_enabled" value="true"/>'
-  ).submit(ReportAProblem.submit);
+  $.each(['.report-a-problem-container form', '.report-a-problem form'], function(value) {
+    var $form = $(value);
+    $form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
+    $form.append('<input type="hidden" name="referrer" value="' + document.referrer + '"/>');
+  });
+
+  $('.report-a-problem-container form').submit(ReportAProblem.submit);
 
   // hover, active and focus states for buttons in IE<8
   if ($.browser.msie && $.browser.version < 8) {
