@@ -23,7 +23,7 @@ section.campaign {
   }
 
   #extra-links {
-    margin: 0 1em;
+    margin: 0;
     overflow: hidden;
     border-top: solid 1px $grey-6;
 
@@ -45,6 +45,7 @@ section.campaign {
 
   #landing {
     position: relative;
+    float: none;
     display: block;
     max-width: 960px;
     margin: 0 auto;
