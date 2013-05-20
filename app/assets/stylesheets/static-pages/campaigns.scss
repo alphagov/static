@@ -18,6 +18,10 @@ section.campaign {
     }
   }
 
+  article.campaign {
+    clear: both;
+  }
+
   #extra-links {
     margin: 0 1em;
     overflow: hidden;
@@ -56,11 +60,11 @@ section.campaign {
     }
 
     h1 {
-      @include heading-48;
+      @include core-48;
 
       float: left;
-      padding: 0.65em 0 0.4em 0.4em;
-      margin-left: -3px;
+      padding: 0 0 0.4em 0;
+      margin: 0.833em 0 0.312em; 
       max-width: 700px;
 
       @include media ($max-width: 900px) {
@@ -173,7 +177,6 @@ article.campaign {
   float: none;
   height: auto;
   min-height: 0;
-  margin: 0 1em;
   padding: 0 2em 1em 0;
 
   h2:first-of-type {
