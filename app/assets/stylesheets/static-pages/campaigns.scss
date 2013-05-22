@@ -209,15 +209,17 @@ article.campaign {
     padding-right: 1em;
   }
 
-  @include ie-lte(7) {
-    margin: 0 2em;
+  @include ie(8) {
+    margin: 0;
+  }
+
+  @include ie-lte(8) {
     padding-left: 0;
     padding-right: 0;
   }
 
-  @include ie(8) {
-    margin: 0;
-    padding: 2.25em 0 1em;
+  @include ie-lte(7) {
+    margin: 0 2em;
   }
 
   h2:first-child,
