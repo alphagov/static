@@ -3,7 +3,7 @@
  */
 
 #wrapper {
-  background-color: $grey-9;
+  background-color: $white;//$grey-9;
 
   @include ie-lte(7) {
     zoom: 1;
@@ -148,7 +148,7 @@ h4 {
   }
 
   .inner {
-    background-color: $grey-8;
+    background-color: $white;//$grey-8;
     padding: 0.5em 1em 0 1.2em;
     width: auto;
 
