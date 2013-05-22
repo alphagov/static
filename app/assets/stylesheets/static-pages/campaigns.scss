@@ -74,7 +74,7 @@ section.campaign {
       margin: 0.833em 0 0.312em; 
       max-width: 700px;
 
-      @include media ($max-width: 900px) {
+      @include media ($max-width: 900px, $ignore-for-ie: true) {
         width: 70%;
         margin-left: 0.333em;
       }
@@ -83,10 +83,6 @@ section.campaign {
         padding: 0.5em;
         margin-left: 0;
         width: auto;
-      }
-
-      @include ie(8) {
-        margin-left: 0;
       }
 
       @include ie-lte(7) {
@@ -107,7 +103,7 @@ section.campaign {
   width: 100%;
   height: 300px;
 
-  @include media ($max-width: 900px) {
+  @include media ($max-width: 900px, $ignore-for-ie: true) {
     position: static;
     height: auto;
   }
@@ -144,18 +140,10 @@ section.campaign {
     width: 240px;
     background-color: #fff;
 
-    @include media ($max-width: 900px) {
+    @include media ($max-width: 900px, $ignore-for-ie: true) {
       position: static;
       width: auto;
       padding: 2em 1em 0;
-    }
-
-    @include ie-lte(7) {
-      padding: 2em 2em 0;
-    }
-
-    @include ie(8) {
-      padding: 2em 0 0;
     }
 
     h2 {
@@ -204,7 +192,7 @@ article.campaign {
     margin-right: 0;
   }
 
-  @include media ($max-width: 900px) {
+  @include media ($max-width: 900px, $ignore-for-ie: true) {
     padding-left: 1em;
     padding-right: 1em;
   }
@@ -214,7 +202,6 @@ article.campaign {
   }
 
   @include ie-lte(8) {
-    padding-left: 0;
     padding-right: 0;
   }
 
