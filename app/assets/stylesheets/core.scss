@@ -328,7 +328,7 @@ header.page-header {
         @include heading-48;
         background-repeat: no-repeat;
         color: $text-colour;
-        font-weight: 400;
+        font-weight: 600;
 
         span {
           @include core-19($line-height: 1);
