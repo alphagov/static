@@ -331,10 +331,11 @@ header.page-header {
         font-weight: 600;
 
         span {
-          @include core-19($line-height: 1);
+          @include core-27($line-height: 1);
           display: block;
           margin-bottom: 0.25em;
           text-shadow: none;
+          color: $secondary-text-colour ;
 
         @include ie-lte(8) {
           height: 1%;
