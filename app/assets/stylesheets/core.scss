@@ -457,7 +457,7 @@ body.full-width {
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
-  background-image: image-url("icon-answer-l.png");
+  background-image: none;//image-url("icon-answer-l.png");
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
