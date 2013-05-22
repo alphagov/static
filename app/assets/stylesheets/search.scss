@@ -54,10 +54,8 @@
       }
       border-right: none;
       @include core-19;
+      @include box-sizing(border-box);
       line-height: 48px!important;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
       &::-webkit-search-cancel-button {
         -webkit-appearance: none;
       }
