@@ -427,7 +427,7 @@ body.full-width {
 
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
-  background-image: image-url("icon-programme-l.png");
+  background-image: none; //image-url("icon-programme-l.png");
   background-position: 0 5px;
 
   @include media($min-width: 1182px) {
@@ -435,14 +435,14 @@ body.full-width {
   }
 
   @include device-pixel-ratio() {
-    background-image: image-url("icon-programme-l-2x.png");
+    background-image: none; //image-url("icon-programme-l-2x.png");
     background-size: 65px 65px;
   }
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
-  background-image: image-url("icon-service-l.png");
+  background-image: none; //image-url("icon-service-l.png");
   background-position: 0 12px;
 
   @include media($min-width: 1182px) {
@@ -457,7 +457,7 @@ body.full-width {
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
-  background-image: none;//image-url("icon-answer-l.png");
+  background-image: none; //image-url("icon-answer-l.png");
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
@@ -472,7 +472,7 @@ body.full-width {
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
-  background-image: image-url("icon-licence-l.png");
+  background-image: none; //image-url("icon-licence-l.png");
   background-position: 0 14px;
   
   @include media($min-width: 1182px) {
@@ -488,7 +488,7 @@ body.full-width {
 /* Guides */
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
-  background-image: image-url("icon-guide-l.png");
+  background-image: none; //image-url("icon-guide-l.png");
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
