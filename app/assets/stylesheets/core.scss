@@ -139,9 +139,10 @@ h4 {
 .related {
   position: absolute;
   right: 1.75em;
+  margin: 3em 0 0 0;
   width: 15em;
   width: 18.75em;
-  border-top: 10px solid $turquoise;
+  border-top: 10px solid $light-blue;
 
   @include media-down(tablet) {
     position: static;
@@ -151,6 +152,7 @@ h4 {
 
   .inner {
     background-color: $white;//$grey-8;
+    border-bottom: 10px solid $grey-8;
     padding: 0.5em 1em 0 0;
     width: auto;
 
@@ -161,6 +163,10 @@ h4 {
     @include media-down(mobile) {
       padding-left: 1em;
     }
+  }
+
+  nav {
+    margin-bottom: 1.5em;
   }
 
   h2 {
@@ -191,7 +197,7 @@ h4 {
     padding-left: 0;
 
     &.related-topic {
-      border-top: 1px solid $grey-6;
+      // border-top: 1px solid $grey-6;
       list-style: none outside none;
       margin: 0.25em 0 0;
       padding: 0.75em 0;
@@ -224,6 +230,27 @@ h4 {
       cursor: default;
       text-decoration: none;
     }
+
+    a.view-all {
+      background: $light-blue-25;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      padding: 2px 5px;
+      margin: 3px 0 10px;
+      display: inline;
+      text-decoration: none;
+    }
+
+    a[rel="external"]:after {
+      content: "\A0\A0\A0\A0\A0\A0";
+      background-position: 5px 3px;
+    }
+    
+    a[rel="external"]:hover:after {
+      background-position: 5px -385px;
+    }
+
   }
 
   .return-to-top {
@@ -250,7 +277,7 @@ h4 {
  */
 
 #legacy-sources {
-    margin-left: 1.2em;
+
     margin-top: 1em;
     display: none;
 
@@ -320,7 +347,8 @@ header.page-header {
     hgroup {
       background-color: #fff;
       display: block;
-      margin: 0 15em 0 0;
+      // margin: 0 15em 0 0;
+      margin: 0 24em 0 0;
       padding: 1em 2em 2em 2em;
 
       @include media-down(tablet) {
@@ -594,7 +622,7 @@ article {
   }
 
   .inner {
-    padding: 0 10em 2em 2em;
+    padding: 0 0 2em 2em;
     width: auto;
   }
 
@@ -619,6 +647,7 @@ article {
   article{
     .inner{
       padding-right:10em;
+      padding-right:0;
 
       @include media-down(mobile) {
         padding-right: 1em;
@@ -632,6 +661,7 @@ article {
   article{
     .inner{
       padding-right:3em;
+      padding-right:0;
 
       @include media-down(mobile) {
         padding-right: 1em;
@@ -652,8 +682,9 @@ article {
 
 .article-container {
   background-color: #fff;
-  margin-right: 15em;
+  // margin-right: 15em;
   min-height: 35em;
+  max-width: 40em;
 
   /* Make webkit browsers contain the margin-bottom of report-a-problem */
   .travel-advice & {

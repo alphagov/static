@@ -206,7 +206,7 @@
       width: 35px;
       height: 35px;
 
-      border: 1px solid $turquoise;
+      border: 1px solid $light-blue;
       border-width: 0 0 0 1px;
       @include ie-lte(7){
         border-width: 1px;
@@ -218,7 +218,7 @@
       text-indent: -5000px;
 
       color: $white;
-      background-color: $turquoise;
+      background-color: $light-blue;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -424,7 +424,7 @@
 #global-breadcrumb {
   background-color: #fff;
   //border-bottom: 1px solid $grey-8;
-  border-top: 10px solid $turquoise;
+  border-top: 10px solid $light-blue;
   padding: 0.75em 2em;
   z-index: 50;
 
