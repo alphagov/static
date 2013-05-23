@@ -138,8 +138,10 @@ h4 {
 
 .related {
   position: absolute;
-  right: 0;
+  right: 1.75em;
   width: 15em;
+  width: 18.75em;
+  border-top: 10px solid $turquoise;
 
   @include media-down(tablet) {
     position: static;
@@ -149,7 +151,7 @@ h4 {
 
   .inner {
     background-color: $white;//$grey-8;
-    padding: 0.5em 1em 0 1.2em;
+    padding: 0.5em 1em 0 0;
     width: auto;
 
     @include media-down(tablet) {
@@ -162,7 +164,8 @@ h4 {
   }
 
   h2 {
-    @include core-19;
+    @include core-24;
+    font-weight: 600;
     color: $text-colour;
     margin-top: 0.3em;
     margin-bottom: 0.5em;
