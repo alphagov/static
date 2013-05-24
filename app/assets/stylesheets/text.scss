@@ -23,6 +23,7 @@ article header h1 {
   span {
     @include core-16;
     display: block;
+    display: none;
     margin-bottom: 0.4em;
   }
 }

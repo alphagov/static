@@ -12,7 +12,7 @@
 
   article {
     float: left;
-    margin-left: -13em;
+    // margin-left: -13em;
     min-height: 40em;
     width: 100%;
 
@@ -21,7 +21,7 @@
     }
 
     .inner {
-      margin-left: 13em;
+      // margin-left: 13em;
     }
 
     @include media-down(mobile) {
@@ -31,10 +31,12 @@
   }
 
   aside {
+    // display: none;
     float: left;
     margin-bottom: 1em;
     position: relative;
-    width: 13em;
+    // width: 13em;
+    width: 100%;
     z-index: 10;
 
     .inner {
@@ -147,7 +149,7 @@
 }
 
 .multi-page article .inner {
-  padding: 0 3em 1em 3em;
+  padding: 0 3em 1em 2.25em;
 
   @include media-down(mobile) {
     padding: 0 1em 1em;
@@ -197,7 +199,8 @@ aside .page-navigation {
   }
 
   ol {
-    margin: 0;
+    // margin: 0;
+    margin: 0 0 0 2em;
     padding: 0;
 
     @include ie(6) {
@@ -206,9 +209,13 @@ aside .page-navigation {
   }
 
   li {
-    border-bottom: solid 1px $grey-6;
+    // border-bottom: solid 1px $grey-6;
     list-style: none;
     @include core-16;
+    width: 45%;
+    display: block;
+    float: left;
+
 
     @include ie(6) {
       float: left;
@@ -222,12 +229,12 @@ aside .page-navigation {
 
     a {
       display: block;
-      padding: 0.75em 1em 0.75em 2em;
+      padding: 0.25em 1em 0.25em 0;
       text-decoration: none;
       zoom: 1;
 
       &:hover {
-        background-color: $grey-9;
+        // background-color: $grey-9;
 
         span.part-title {
           color: #2E3191;
@@ -241,10 +248,12 @@ aside .page-navigation {
       &.part-label,
       &.part-title {
         line-height: 1.5;
+        display: inline;
       }
 
       &.part-label {
         color: $grey-0;
+        padding:0 0.5em 0 0;
       }
 
       &.part-description {
@@ -260,8 +269,8 @@ aside .page-navigation {
     }
 
     &.active {
-      background-color: $grey-8;
-      padding: 0.75em 1em 0.75em 2em;
+      // background-color: $grey-8;
+      padding: 0.25em 0 0.25em 0;
 
       @include ie(6) {
         width: auto;
@@ -275,12 +284,12 @@ aside .page-navigation {
       span.part-title {
         color: $grey-0;
         text-decoration: none;
-        font-weight: 400;
+        font-weight: 600;
       }
     }
 
     &:first-child {
-      border-top: solid 1px $grey-6;
+      // border-top: solid 1px $grey-6;
     }
 
     @include media-down(mobile) {
