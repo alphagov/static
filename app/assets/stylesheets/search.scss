@@ -1,5 +1,7 @@
 /* ----- search results page ----- */
 
+$search-border: $grey-7;
+
 .search {
   padding-bottom: 30px;
   @include media(tablet) {
@@ -52,6 +54,7 @@
         height: 48px;
         margin-bottom: -1px;
       }
+      border-color: $search-border;
       border-right: none;
       @include core-19;
       @include box-sizing(border-box);
@@ -79,6 +82,76 @@
       background-position: -12.5% 50%;
       &:hover {
         background-color: #3ABAA8;
+      }
+    }
+  }
+  
+  #search-index-navigation {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid $search-border;
+    @include media(tablet) {
+      position: relative;
+      top: 1px;
+      padding: 0 30px;
+      border-top: none;
+    }
+    li {
+      display: block;
+      margin: 0;
+      list-style: none;
+      border-bottom: 1px solid $search-border;
+      @include media(tablet) {
+        float: left;
+        border: none;
+      }
+    }
+    a {
+      display: block;
+      overflow: hidden;
+      padding: 10px 15px;
+      text-decoration: none;
+      background: $grey-8;
+      border-color: $grey-8;
+      &:hover,
+      &:focus {
+        .label {
+          text-decoration: underline;
+        }
+      }
+      @include media(tablet) {
+        padding: 9px 14px;
+        margin: 5px 5px 6px;
+        border: 1px solid $grey-8;
+        border-bottom: none;
+      }
+    }
+    li.active a {
+      background: $white;
+      @include media(tablet) {
+        padding: 14px 19px 15px;
+        margin: 0;
+        border-color: $search-border;
+      }
+    }
+    .count {
+      float: left;
+      padding-right: 10px;
+      @include core-36;
+      font-weight: bold;
+    }
+    .label {
+      float: left;
+      @include core-14;
+      font-weight: bold;
+    }
+    &.two-tabs li {
+      @include media(tablet) {
+        width: 50%;
+      }
+      @include media(desktop) {
+        width: auto;
+        min-width: 33.333%;
       }
     }
   }
