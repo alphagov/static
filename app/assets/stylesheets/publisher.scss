@@ -340,7 +340,7 @@ aside .page-navigation-open ol {
 /* guides pagination */
 .pagination {
   display: block;
-  margin: 2em -1em 0 -1em;
+  margin: 2em 0 0 0;
 
   @include media-down(mobile) {
     margin: 2em 0 0 0;
@@ -358,7 +358,7 @@ aside .page-navigation-open ol {
     text-align: right;
     margin: 0;
     padding: 0;
-    width: 48.5%;
+    width: 45%;
     // background-color: $grey-8;
 
     // &:first-child {
@@ -377,12 +377,13 @@ aside .page-navigation-open ol {
       }
 
       &:hover {
-        background-color: #97C5E5;
+        background-color: $canvas-colour;
         color: #fff;
       }
 
       .pagination-label {
-        color: $grey-0;
+        color: $link-colour;
+        @include core-27;
         display: block;
       }
 
@@ -395,6 +396,26 @@ aside .page-navigation-open ol {
       float: right;
       text-align: right;
     }
+
+    &.next a:before {
+      background: transparent image-url("arrow-sprite.png") no-repeat -102px -11px;
+      margin: -4px 0 0 0;
+      display: block;
+      float: right;
+      width: 30px;
+      height: 38px;
+      content: " ";
+    }
+
+    &.previous a:before {
+      background: transparent image-url("arrow-sprite.png") no-repeat -20px -11px;
+      margin: -4px 0 0 0;
+      display: block;
+      float: left;
+      width: 30px;
+      height: 38px;
+      content: " ";
+      }
 
     &.previous {
       float: left;
