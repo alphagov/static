@@ -1,0 +1,9 @@
+<script id="stageprompt_setup" type="text/javascript">
+  $(function () {
+    GOVUK.performance.stageprompt.setup({
+      analyticsFunction:function (msg) {
+        _gaq.push(['_trackEvent', msg , 'n/a', undefined, undefined, true]);
+      }
+    });
+  });
+</script>
