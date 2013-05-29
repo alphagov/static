@@ -1321,3 +1321,17 @@ article {
   position: static;
   padding-right: 0;
 }
+
+/* extra images for variant testing on driving done pages */
+
+.organ-donor-photo,
+.organ-donor-logo{
+  background-image: image-url("campaigns/organ-donation-photo.jpg");
+  background-position: top right;
+  background-repeat:no-repeat;
+  height: 200px;
+  padding-right: 300px;
+}
+.organ-donor-logo{
+  background-image: image-url("campaigns/organ-donation-logo.jpg");
+}

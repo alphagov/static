@@ -17,7 +17,4 @@
 //= require stop-related-scrolling
 //= require browser-check
 //= require analytics
-<<<<<<< HEAD
-=======
-
->>>>>>> master
+//= require variant-testing
