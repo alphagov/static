@@ -359,12 +359,12 @@ aside .page-navigation-open ol {
     margin: 0;
     padding: 0;
     width: 48.5%;
-    background-color: $grey-8;
+    // background-color: $grey-8;
 
-    &:first-child {
-      margin-right: 3%;
-      text-align: left;
-    }
+    // &:first-child {
+    //   margin-right: 3%;
+    //   text-align: left;
+    // }
 
     a {
       background-color: transparent;
@@ -389,6 +389,16 @@ aside .page-navigation-open ol {
       .pagination-part-title {
         text-decoration: underline;
       }
+    }
+
+    &.next {
+      float: right;
+      text-align: right;
+    }
+
+    &.previous {
+      float: left;
+      text-align: left;
     }
 
     &.previous a {
