@@ -17,4 +17,5 @@
 //= require stop-related-scrolling
 //= require browser-check
 //= require analytics
+//= require stageprompt.0.3.1
 
