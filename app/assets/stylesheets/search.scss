@@ -1,9 +1,10 @@
 /* ----- search results page ----- */
 
+$search-border: $grey-7;
+
 @mixin search-meta-data {
   color: $grey-5;
 }
-$search-border: $grey-7;
 
 .search {
   padding-bottom: 30px;
@@ -89,82 +90,84 @@ $search-border: $grey-7;
     }
   }
   
-  #search-index-navigation {
-    position: relative;
-    top: 1px;
-    margin: 0;
-    padding: 0 15px;
-    @include media(tablet) {
-      padding: 0 30px;
-    }
-    li {
+  #search-results-tabs.shouty-tabs {
+    #search-index-navigation {
+      position: relative;
+      top: 1px;
       margin: 0;
-      float: left;
-      display: inline;
-      list-style: none;
-    }
-    a {
-      display: block;
-      overflow: hidden;
-      margin: 5px 5px 6px;
-      padding: 4px 4px;
-      text-decoration: none;
-      background: $grey-8;
-      border: 1px solid $grey-8;
-      border-bottom: none;
-      &:hover,
-      &:focus {
-        .label {
-          text-decoration: underline;
+      padding: 0 15px;
+      @include media(tablet) {
+        padding: 0 30px;
+      }
+      li {
+        margin: 0;
+        float: left;
+        display: inline;
+        list-style: none;
+      }
+      a {
+        display: block;
+        overflow: hidden;
+        margin: 5px 5px 6px;
+        padding: 4px 4px;
+        text-decoration: none;
+        background: $grey-8;
+        border: 1px solid $grey-8;
+        border-bottom: none;
+        &:hover,
+        &:focus {
+          .label {
+            text-decoration: underline;
+          }
+        }
+        @include media(tablet) {
+          padding: 9px 14px;
+        }
+        @include ie(6) {
+          float: left;
         }
       }
-      @include media(tablet) {
-        padding: 9px 14px;
+      li.active a {
+        background: $white;
+        padding: 9px 9px 10px;
+        margin: 0;
+        border-color: $search-border;
+        @include media(tablet) {
+          padding: 14px 19px 15px;
+        }
+        &:focus {
+          outline: none;
+        }
       }
-      @include ie(6) {
+      .count {
+        margin-top: -0.1em;
         float: left;
+        padding-right: 8px;
+        @include core-24;
+        font-weight: bold;
+        @include media(tablet) {
+          margin-top: 0;
+          padding-right: 10px;
+          @include core-36;
+          font-weight: bold;
+        }
       }
-    }
-    li.active a {
-      background: $white;
-      padding: 9px 9px 10px;
-      margin: 0;
-      border-color: $search-border;
-      @include media(tablet) {
-        padding: 14px 19px 15px;
-      }
-      &:focus {
-        outline: none;
-      }
-    }
-    .count {
-      margin-top: -0.1em;
-      float: left;
-      padding-right: 8px;
-      @include core-24;
-      font-weight: bold;
-      @include media(tablet) {
-        margin-top: 0;
-        padding-right: 10px;
-        @include core-36;
+      .label {
+        float: left;
+        @include core-14;
         font-weight: bold;
       }
-    }
-    .label {
-      float: left;
-      @include core-14;
-      font-weight: bold;
-    }
-    &.two-tabs li {
-      @include media(tablet) {
-        width: 50%;
-      }
-      @include media(desktop) {
-        width: auto;
-        min-width: 33.333%;
-      }
-      @include ie(7) {
-        min-width: 0%;
+      &.two-tabs li {
+        @include media(tablet) {
+          width: 50%;
+        }
+        @include media(desktop) {
+          width: auto;
+          min-width: 33.333%;
+        }
+        @include ie(7) {
+          min-width: 0%;
+        }
       }
     }
   }
