@@ -233,14 +233,14 @@ h4 {
     }
 
     a.view-all {
-      background: $light-blue-25;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-      padding: 2px 5px;
-      margin: 3px 0 10px;
-      display: inline;
-      text-decoration: none;
+      //background: $light-blue-25;
+      //-webkit-border-radius: 3px;
+      //-moz-border-radius: 3px;
+      //border-radius: 3px;
+      //padding: 2px 5px;
+      margin: 10px 0 10px;
+      //display: inline;
+      //text-decoration: none;
     }
 
     a[rel="external"]:after {
@@ -765,10 +765,10 @@ article {
 }
 
 .print-link {
-  display: none;
+  //display: none;
   text-align: left;
   margin: 0.5em 0;
-  padding-left: 2em;
+  // padding-left: 2em;
 
   a, a:link, a:visited {
     background: image-url("icon-print.png") no-repeat 0% 50%;
