@@ -3,6 +3,7 @@
 @mixin search-meta-data {
   color: $grey-5;
 }
+$search-border: $grey-7;
 
 .search {
   padding-bottom: 30px;
@@ -56,6 +57,7 @@
         height: 48px;
         margin-bottom: -1px;
       }
+      border-color: $search-border;
       border-right: none;
       @include core-19;
       @include box-sizing(border-box);
@@ -85,6 +87,85 @@
         background-color: #3ABAA8;
       }
     }
+  }
+  
+  #search-index-navigation {
+    position: relative;
+    top: 1px;
+    margin: 0;
+    padding: 0 15px;
+    @include media(tablet) {
+      padding: 0 30px;
+    }
+    li {
+      margin: 0;
+      float: left;
+      display: inline;
+      list-style: none;
+    }
+    a {
+      display: block;
+      overflow: hidden;
+      margin: 5px 5px 6px;
+      padding: 4px 4px;
+      text-decoration: none;
+      background: $grey-8;
+      border: 1px solid $grey-8;
+      border-bottom: none;
+      &:hover,
+      &:focus {
+        .label {
+          text-decoration: underline;
+        }
+      }
+      @include media(tablet) {
+        padding: 9px 14px;
+      }
+    }
+    li.active a {
+      background: $white;
+      padding: 9px 9px 10px;
+      margin: 0;
+      border-color: $search-border;
+      @include media(tablet) {
+        padding: 14px 19px 15px;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .count {
+      position: relative;
+      top: -0.1em;
+      float: left;
+      padding-right: 8px;
+      @include core-24;
+      font-weight: bold;
+      @include media(tablet) {
+        top: 0;
+        padding-right: 10px;
+        @include core-36;
+        font-weight: bold;
+      }
+    }
+    .label {
+      float: left;
+      @include core-14;
+      font-weight: bold;
+    }
+    &.two-tabs li {
+      @include media(tablet) {
+        width: 50%;
+      }
+      @include media(desktop) {
+        width: auto;
+        min-width: 33.333%;
+      }
+    }
+  }
+  
+  .tab-content .tab-pane {
+    border-top: 1px solid $search-border;
   }
   
   .results-list {
