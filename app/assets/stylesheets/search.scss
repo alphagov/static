@@ -1,5 +1,9 @@
 /* ----- search results page ----- */
 
+@mixin search-meta-data {
+  color: $grey-5;
+}
+
 .search {
   padding-bottom: 30px;
   @include media(tablet) {
@@ -107,9 +111,32 @@
       @include core-19;
       a {
         font-weight: bold;
+        text-decoration: none;
+        &:hover, &:focus {
+          color: $link-colour;
+          text-decoration: underline;
+        }
       }
       a[rel="external"]::after {
         content: "\A0\A0\A0\A0\A0\A0";
+      }
+    }
+
+    ul.attributes {
+      padding: 0;
+      margin: 2px 0 2px 0;
+      li {
+        @include search-meta-data;
+        display: inline;
+        padding: 0 0 0 0;
+        &:after {
+          content:',';
+          position: relative;
+          left: -3px;
+        }
+        &:last-child::after {
+          content:'';
+        }
       }
     }
     
