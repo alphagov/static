@@ -33,11 +33,20 @@
   aside {
     // display: none;
     float: left;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
     position: relative;
     // width: 13em;
     width: 100%;
     z-index: 10;
+
+    width: 95%;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 2.5em;
+    padding-bottom: 1em;
+    left: 2em;
+
+
+
 
     .inner {
       padding: 0;
@@ -200,7 +209,7 @@ aside .page-navigation {
 
   ol {
     // margin: 0;
-    margin: 0 0 0 2em;
+    margin: 0 0 0 0;
     padding: 0;
 
     @include ie(6) {
