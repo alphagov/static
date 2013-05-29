@@ -84,6 +84,6 @@ var variants = {
 }).call(this);
 
 
-if($(".completed_transaction").length != 0){
+//if($(".completed_transaction").length != 0){
   GOVUK.multivariateTest.init(variants);
-};
+//};
