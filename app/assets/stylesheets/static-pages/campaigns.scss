@@ -10,7 +10,6 @@ section.campaign {
 
     @include media-down(mobile) {
       width: auto;
-      padding-right: 0;
     }
 
    @include ie(6) {
@@ -18,8 +17,13 @@ section.campaign {
     }
   }
 
+  article.campaign {
+    clear: both;
+  }
+
   #extra-links {
-    margin: 0 1em;
+    margin: 1.5em 0 0;
+    padding-top: 1.5em;
     overflow: hidden;
     border-top: solid 1px $grey-6;
 
@@ -27,9 +31,15 @@ section.campaign {
       width:928px;
     }
 
-    p.introduction {
-      font-size: 24px;
-      font-size: 2.4rem;
+    header {
+      p {
+        font-size: 24px;
+        font-size: 2.4rem;
+      }
+    }
+
+    h2 {
+      font-weight: normal;
     }
 
     ul {
@@ -41,6 +51,7 @@ section.campaign {
 
   #landing {
     position: relative;
+    float: none;
     display: block;
     max-width: 960px;
     margin: 0 auto;
@@ -56,23 +67,30 @@ section.campaign {
     }
 
     h1 {
-      @include heading-48;
+      @include core-48;
 
       float: left;
-      padding: 0.65em 0 0.4em 0.4em;
-      margin-left: -3px;
+      padding: 0 0 0.4em 0;
+      margin: 0.833em 0 0.312em; 
       max-width: 700px;
 
-      @include media ($max-width: 900px) {
+      @include media ($max-width: 900px, $ignore-for-ie: true) {
         width: 70%;
+        margin-left: 0.333em;
       }
 
       @include media-down(mobile) {
-        padding: 0.5em 2rem;
+        padding: 0.5em;
+        margin-left: 0;
         width: auto;
       }
 
+      @include ie-lte(7) {
+        margin-left: 0.666em;
+      }
+
       @include ie(6) {
+        display: inline;
         width: 700px;
       }
     }
@@ -85,7 +103,7 @@ section.campaign {
   width: 100%;
   height: 300px;
 
-  @include media ($max-width: 900px) {
+  @include media ($max-width: 900px, $ignore-for-ie: true) {
     position: static;
     height: auto;
   }
@@ -122,10 +140,10 @@ section.campaign {
     width: 240px;
     background-color: #fff;
 
-    @include media ($max-width: 900px) {
+    @include media ($max-width: 900px, $ignore-for-ie: true) {
       position: static;
       width: auto;
-      padding: 2em 0 0 1em;
+      padding: 2em 1em 0;
     }
 
     h2 {
@@ -154,11 +172,6 @@ section.campaign {
     padding: 0;
   }
 
-  @include media-down(tablet) {
-    padding-top: 7px;
-    padding-top: 0.7rem;
-  }
-
   a.organisation-logo {
     span {
       @include media-down(mobile) {
@@ -173,11 +186,32 @@ article.campaign {
   float: none;
   height: auto;
   min-height: 0;
-  margin: 0 1em;
-  padding: 0 2em 1em 0;
+  padding: 2.25em 2em 1em 0;
 
-  h2:first-of-type {
-    margin-top: 1.5em;
+  @include media-down (tablet) {
+    margin-right: 0;
+  }
+
+  @include media ($max-width: 900px, $ignore-for-ie: true) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  @include ie(8) {
+    margin: 0;
+  }
+
+  @include ie-lte(8) {
+    padding-right: 0;
+  }
+
+  @include ie-lte(7) {
+    margin: 0 2em;
+  }
+
+  h2:first-child,
+  p:first-child {
+    margin-top: 0;
   }
 }
 

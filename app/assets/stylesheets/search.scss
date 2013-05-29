@@ -58,10 +58,8 @@
       }
       border-right: none;
       @include core-19;
+      @include box-sizing(border-box);
       line-height: 48px!important;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
       &::-webkit-search-cancel-button {
         -webkit-appearance: none;
       }
@@ -74,17 +72,13 @@
       width: 50px;
       height: 50px;
       border: none;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      border-radius: 0;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
+      @include border-radius(0);
+      @include box-shadow(none);
       overflow: hidden;
       text-indent: -5000px;
       color: $white;
       background-color: #28a197;
-      background-image: url("search-button.png");
+      background-image: image-url("search-button.png");
       background-repeat: no-repeat;
       background-position: -12.5% 50%;
       &:hover {
