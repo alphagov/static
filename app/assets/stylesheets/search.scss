@@ -121,6 +121,9 @@ $search-border: $grey-7;
       @include media(tablet) {
         padding: 9px 14px;
       }
+      @include ie(6) {
+        float: left;
+      }
     }
     li.active a {
       background: $white;
@@ -135,14 +138,13 @@ $search-border: $grey-7;
       }
     }
     .count {
-      position: relative;
-      top: -0.1em;
+      margin-top: -0.1em;
       float: left;
       padding-right: 8px;
       @include core-24;
       font-weight: bold;
       @include media(tablet) {
-        top: 0;
+        margin-top: 0;
         padding-right: 10px;
         @include core-36;
         font-weight: bold;
@@ -160,6 +162,9 @@ $search-border: $grey-7;
       @include media(desktop) {
         width: auto;
         min-width: 33.333%;
+      }
+      @include ie(7) {
+        min-width: 0%;
       }
     }
   }
@@ -295,6 +300,7 @@ $search-border: $grey-7;
     }
   }
   .tab-content {
+    clear: both;
     margin: 0;
     .inner {
       padding: 0;
