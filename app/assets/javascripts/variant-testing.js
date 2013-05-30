@@ -4,45 +4,45 @@ var variants = {
         {
             'url': "www.gov.uk/driving-transaction-finished-v1",
             'analytics': "variant-1",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=1" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=1" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=1" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=1" title="Learn more about organ donation">Find out more</a></p>'
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v2",
             'analytics': "variant-2",
-             'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p>Every day thousands of people who see this page decide to register.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=2" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=2" title="Learn more about organ donation">Learn more</a></p>'
+             'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p>Every day thousands of people who see this page decide to register.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=2" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=2" title="Learn more about organ donation">Find out more</a></p>'
             
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v3",
             'analytics': "variant-3",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p class="organ-donor-photo">Every day thousands of people who see this page decide to register.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=3" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=3" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p class="organ-donor-photo">Every day thousands of people who see this page decide to register.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=3" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=3" title="Learn more about organ donation">Find out more</a></p>'
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v4",
             'analytics': "variant-4",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p class="organ-donor-logo">Every day thousands of people who see this page decide to register.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=4" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=4" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p class="organ-donor-logo">Every day thousands of people who see this page decide to register.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=4" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=4" title="Learn more about organ donation">Find out more</a></p>'
             
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v5",
             'analytics': "variant-5",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p>Three people die every day because there are not enough organ donors.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=5" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=5" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p>Three people die every day because there are not enough organ donors.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=5" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=5" title="Learn more about organ donation">Find out more</a></p>'
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v6",
             'analytics': "variant-6",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p>You could save or transform up to 9 lives as an organ donor.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=6" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=6" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p>You could save or transform up to 9 lives as an organ donor.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=6" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=6" title="Learn more about organ donation">Find out more</a></p>'
             
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v7",
             'analytics': "variant-7",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p>If you needed an organ transplant would you have one? If so please help others.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=7" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=7" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p>If you needed an organ transplant would you have one? If so please help others.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=7" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=7" title="Learn more about organ donation">Find out more</a></p>'
         },
         {
             'url': "www.gov.uk/driving-transaction-finished-v8",
             'analytics': "variant-8",
-            'content': '<div class="summary"><p>Finally, please join the NHS Organ Donor Register.</p></div><p>If you support organ donation please turn your support into action.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=8" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=8" title="Learn more about organ donation">Learn more</a></p>'
+            'content': '<div class="summary"><p>Please join the NHS Organ Donor Register.</p></div><p>If you support organ donation please turn your support into action.</p><p><a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&v=8" title="Register to become an organ donor" class="button">Join now</a> or <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&v=8" title="Learn more about organ donation">Find out more</a></p>'
             
         }         
     ]
@@ -84,6 +84,6 @@ var variants = {
 }).call(this);
 
 
-if($(".completed_transaction").length != 0){
+//if($(".completed_transaction").length != 0){
   GOVUK.multivariateTest.init(variants);
-};
+//};
