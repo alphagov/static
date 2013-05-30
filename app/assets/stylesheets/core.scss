@@ -1056,18 +1056,19 @@ article {
 #wrapper.answer article .inner .nav-tabs,
 #wrapper.transaction article .inner .nav-tabs,
 #wrapper.local_transaction article .inner .nav-tabs {
-  margin-right: -10em;
+  // margin-right: -10em;
 }
 
 .tab-content {
-  margin: 0 -10em 0 -2em;
+  //margin: 0 -10em 0 -2em;
 
   @include media-down(mobile) {
     margin: 0 -1em;
   }
 
   .tab-pane {
-    padding: 1em 10em 0 2em;
+    // padding: 1em 10em 0 2em;
+    padding: 1em 1em 0 1em;
     border-top: solid 1px $grey-6;
     clear: both;
     width:auto;
