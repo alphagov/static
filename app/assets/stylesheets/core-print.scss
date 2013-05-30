@@ -195,10 +195,6 @@ a[href^="#"]:after {
     content: "";
 }
 
-abbr[title]:after {
-  content: " (" attr(title) ")";
-}
-
 img { max-width: 100% !important; }
 
 .print-link {
