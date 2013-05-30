@@ -361,7 +361,7 @@ aside .page-navigation-open ol {
     text-align: right;
     margin: 0;
     padding: 0;
-    width: 45%;
+    width: 49%;
     // background-color: $grey-8;
 
     // &:first-child {
@@ -372,7 +372,8 @@ aside .page-navigation-open ol {
     a {
       background-color: transparent;
       display: block;
-      min-height: 4.5em;
+      color: $link-colour;
+      // min-height: 4.5em;
       text-decoration: none;
 
       @include ie-lte(7) {
@@ -381,17 +382,17 @@ aside .page-navigation-open ol {
 
       &:hover {
         background-color: $canvas-colour;
-        color: #fff;
+        // color: #fff;
       }
 
       .pagination-label {
-        color: $link-colour;
         @include core-27;
         display: block;
       }
 
       .pagination-part-title {
-        //text-decoration: underline;
+        // text-decoration: underline;
+        // margin-right: 2em;
       }
     }
 
@@ -402,7 +403,7 @@ aside .page-navigation-open ol {
 
     &.next a:before {
       background: transparent image-url("arrow-sprite.png") no-repeat -102px -11px;
-      margin: -4px 0 0 0;
+      margin: -4px -32px 0 0;
       display: block;
       float: right;
       width: 30px;
@@ -412,7 +413,7 @@ aside .page-navigation-open ol {
 
     &.previous a:before {
       background: transparent image-url("arrow-sprite.png") no-repeat -20px -11px;
-      margin: -4px 0 0 0;
+      margin: -4px 0 0 -32px;
       display: block;
       float: left;
       width: 30px;
@@ -426,11 +427,11 @@ aside .page-navigation-open ol {
     }
 
     &.previous a {
-      padding: 0.75em 5% 0.75em 1em;
+      padding: 0.75em 0 0.75em 3em;
     }
     
     &.next a {
-      padding: 0.75em 1em 0.75em 5%;
+      padding: 0.75em 3em 0.75em 0;
     }
 
     @include media-down(mobile) {

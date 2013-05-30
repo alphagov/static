@@ -217,7 +217,7 @@ h4 {
       orphans: 2;
 
       &:hover {
-        background-position: 0 0;
+        background-position: 0 10px;
       }
 
       @include ie-lte(8) {
@@ -768,8 +768,8 @@ article {
 .print-link {
   //display: none;
   text-align: left;
-  margin: 0.5em 0;
-  padding-left: 2em;
+  margin: 3em 0 0 0;
+  // padding-left: 2em;
 
   a, a:link, a:visited {
     background: image-url("icon-print.png") no-repeat 0% 50%;
