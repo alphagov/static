@@ -208,9 +208,10 @@ aside .page-navigation {
   }
 
   ol {
-    // margin: 0;
-    margin: 0 0 0 0;
+    margin: 0;
     padding: 0;
+    float:left;
+    width:50%;
 
     @include ie(6) {
       zoom: 1;
@@ -218,12 +219,12 @@ aside .page-navigation {
   }
 
   li {
-    // border-bottom: solid 1px $grey-6;
-    list-style: none;
+    list-style: decimal;
+    list-style-position: outside;
+    margin-left:1.25em;
+    margin-right: 0.75em;
+
     @include core-16;
-    width: 45%;
-    display: block;
-    float: left;
 
 
     @include ie(6) {
@@ -280,6 +281,7 @@ aside .page-navigation {
     &.active {
       // background-color: $grey-8;
       padding: 0.25em 0 0.25em 0;
+      font-weight: 600;
 
       @include ie(6) {
         width: auto;
@@ -341,6 +343,7 @@ aside .page-navigation-open ol {
 .pagination {
   display: block;
   margin: 4em 0 0 0;
+  border-bottom: 1px solid $border-colour;
 
   @include media-down(mobile) {
     margin: 2em 0 0 0;
