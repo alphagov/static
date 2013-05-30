@@ -2,6 +2,7 @@ Static::Application.routes.draw do
 
   controller "root", :format => false do
     get "/templates/:template.raw.html.erb" => :raw_template
+    get "/templates/:template-intl.html.erb" => :template_intl
     get "/templates/:template.html.erb" => :template
   end
 

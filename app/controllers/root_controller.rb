@@ -4,7 +4,7 @@ class RootController < ApplicationController
 
   rescue_from ActionView::MissingTemplate, :with => :error_404
 
-  caches_page :template, :raw_template
+  caches_page :template, :template_intl, :raw_template
 
   def raw_template
     file_path = Rails.root.join("app", "views", "root", "#{params[:template]}.raw.html.erb")
@@ -13,6 +13,11 @@ class RootController < ApplicationController
   end
 
   def template
+    render :action => params[:template]
+  end
+
+  def template_intl
+    @international_font = true
     render :action => params[:template]
   end
 

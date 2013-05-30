@@ -1,8 +1,9 @@
+<%- font_file = @international_font ? 'fonts-intl' : 'fonts' -%>
 <!--[if IE 8]>
 <script type="text/javascript">
   (function(){if(window.opera){return;}
   setTimeout(function(){var a=document,g,b={families:(g=
-  ["nta"]),urls:["<%= asset_path "fonts-ie8.css" %>"]},
+  ["nta"]),urls:["<%= asset_path "#{font_file}-ie8.css" %>"]},
   c="<%= asset_path "libs/goog/webfont-debug.js" %>",d="script",
   e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
   ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h=h-1;a.documentElement
@@ -11,5 +12,5 @@
 </script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
-  <%= stylesheet_link_tag "fonts", media: "all" %>
+  <%= stylesheet_link_tag font_file, media: "all" %>
 <!--<![endif]-->
