@@ -423,9 +423,11 @@
 
 #global-breadcrumb {
   background-color: #fff;
+  max-width: 1020px;
+  margin:0 auto;
   //border-bottom: 1px solid $grey-8;
-  border-top: 10px solid $light-blue;
-  padding: 0.75em 2em;
+  
+  //padding: 0.75em 2em;
   z-index: 50;
 
   @include media-down(mobile) {
@@ -437,8 +439,10 @@
   }
 
   nav {
+    border-top: 10px solid $light-blue;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0 30px;
+    padding: 0.75em 0;
 
     @include ie-lte(7) {
       padding: 0 32px;
