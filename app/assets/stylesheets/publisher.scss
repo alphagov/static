@@ -241,7 +241,6 @@ aside .page-navigation {
     a {
       display: block;
       padding: 0.25em 1em 0.25em 0;
-      text-decoration: none;
       zoom: 1;
 
       &:hover {
@@ -282,7 +281,7 @@ aside .page-navigation {
     &.active {
       // background-color: $grey-8;
       padding: 0.25em 0 0.25em 0;
-      font-weight: 600;
+      //font-weight: 600;
 
       @include ie(6) {
         width: auto;
