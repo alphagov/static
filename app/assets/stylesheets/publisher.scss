@@ -280,7 +280,7 @@ aside .page-navigation {
 
     &.active {
       // background-color: $grey-8;
-      padding: 0.25em 0 0.25em 0;
+      padding: 0.25em 0.25em 0.25em 0;
       //font-weight: 600;
 
       @include ie(6) {
