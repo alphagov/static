@@ -355,7 +355,7 @@ aside .page-navigation-open ol {
   }
 
   li {
-    @include core-16($line-height: (24 / 16));
+    @include core-16($line-height: (20 / 16));
     float: left;
     list-style: none;
     text-align: right;
@@ -386,7 +386,8 @@ aside .page-navigation-open ol {
       }
 
       .pagination-label {
-        @include core-27;
+        @include core-27($line-height: (33.75 / 27));
+        margin-bottom: 0.2em;
         display: block;
       }
 
