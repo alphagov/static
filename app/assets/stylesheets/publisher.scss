@@ -250,6 +250,10 @@ aside .page-navigation {
           color: #2E3191;
         }
       }
+
+      span.part-description {
+        color: #2E3191;
+      }
     }
 
     span {
@@ -295,7 +299,7 @@ aside .page-navigation {
       span.part-title {
         color: $grey-0;
         text-decoration: none;
-        font-weight: 600;
+        // font-weight: 600;
       }
     }
 
