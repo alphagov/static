@@ -418,10 +418,6 @@ body.full-width {
 
 #wrapper.programme header.page-header hgroup,
 #wrapper.service header.page-header hgroup {
-  h1 {
-    margin-left: -12px;
-    padding-left: 80px;
-  }
 
   @include media-down(mobile) {
     padding-left: 1em;
