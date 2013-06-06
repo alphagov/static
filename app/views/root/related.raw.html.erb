@@ -8,20 +8,37 @@
     <div class="related" id="related">
       <div class="inner group">
 
-        <h2>Related links</h2>
+        <!-- <h2>Other relevant links</h2>
         <nav role="navigation">
           <ul>
-            <% artefact.related_artefacts.take(4).each do |item| %>
+            <% artefact.related_artefacts.each do |item| %>
               <li>
                 <a href="<%= h item.web_url %>"><%= h item.title %></a>
               </li>
             <% end %>
             <% if root_section = artefact.primary_root_section %>
               <li class="related-topic"><a href="<%= h root_section["content_with_tag"]["web_url"] %>"
-                >More from <span><%= h root_section["title"] %></span></a></li>
+                >More from the <span><%= h root_section["title"] %></span> category</a></li>
+            <% end %>
+          </ul>
+        </nav> -->
+
+        <h2><%= h root_section["title"] %></h2>
+        <nav role="navigation">
+          <ul>
+            <% artefact.related_artefacts.take(3).each do |item| %>
+              <li>
+                <a href="<%= h item.web_url %>"><%= h item.title %></a>
+              </li>
+            <% end %>
+            <% if root_section = artefact.primary_root_section %>
+              <li class="related-topic"><a href="<%= h root_section["content_with_tag"]["web_url"] %>"
+                >More</a></li>
             <% end %>
           </ul>
         </nav>
+
+
 
         <!-- <h2>Self Assessment</h2>
         <nav role="navigation">
