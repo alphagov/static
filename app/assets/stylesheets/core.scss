@@ -396,8 +396,6 @@ body.full-width {
   padding-left: 2em;
 
   h1 {
-    margin-left: 0;
-    
 
     @include ie(6) {
       position: relative;
@@ -435,11 +433,6 @@ body.full-width {
 #wrapper.video header.page-header hgroup {
   @include media($min-width: 1182px) {
     padding-left: 0;
-
-    h1 {
-      margin-left: -96px;
-      padding-left: 128px;
-    }
   }
 }
 
@@ -447,11 +440,6 @@ body.full-width {
 #wrapper.guide header.page-header hgroup {
   @include media($min-width: 1132px) {
     padding-left: 0;
-
-    h1 {
-      margin-left: -96px;
-      padding-left: 128px;
-    }
   }
 }
 
