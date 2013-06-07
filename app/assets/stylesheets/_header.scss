@@ -234,7 +234,7 @@
       }
 
       &:hover {
-        background-color: #3ABAA8;
+        background-color: lighten($light-blue, 5%);
       }
     }
 
