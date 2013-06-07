@@ -201,11 +201,12 @@ h4 {
     &.related-topic {
       // border-top: 1px solid $grey-6;
       list-style: none outside none;
-      margin: 0.25em 0 0;
-      padding: 0.75em 0;
+      //margin: 0.25em 0 0;
+      //padding: 0.75em 0;
 
       a {
         padding: 0;
+        font-weight: bold;
       }
     }
 
