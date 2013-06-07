@@ -59,11 +59,11 @@
 .get-started .button,
 .button,
 .button:visited {
-  background-color: #008270;
+  background-color: $light-blue;//#008270;
   color: #fff;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  //-webkit-border-radius: 3px;
+  //-moz-border-radius: 3px;
+  //border-radius: 3px;
   -webkit-box-shadow: 0 3px 0 #000;
   -moz-box-shadow: 0 3px 0 #000;
   box-shadow: 0 3px 0 #000;
@@ -89,7 +89,7 @@
 .get-started .button-hover,
 .button:hover,
 .button-hover {
-  background-color: #3ABAA8;
+  background-color: lighten($light-blue, 5%);//#3ABAA8;
   color: #fff;
 }
 
@@ -130,7 +130,7 @@
 }
 
 .get-started .button {
-  @include core-24($line-height: (16 / 24)); 
+  @include bold-24($line-height: (16 / 24)); 
   padding: 0.45em 0.5em 0.45em 0.5em;
   display: inline-block;
 
@@ -145,7 +145,7 @@
 .business_support .get-started .button,
 .licence .get-started .button,
 .next-steps-promo .get-started .button {
-  padding: 0.45em 1.7em 0.45em 0.67em;
+  padding: 0.60em 1.7em 0.45em 0.67em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
   background-repeat: no-repeat;
