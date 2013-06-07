@@ -353,27 +353,20 @@ aside .page-navigation-closed {
     margin: 0;
     padding: 0;
     width: 49%;
-    // background-color: $grey-8;
-
-    // &:first-child {
-    //   margin-right: 3%;
-    //   text-align: left;
-    // }
 
     a {
       background-color: transparent;
       display: block;
       color: $link-colour;
-      // min-height: 4.5em;
       text-decoration: none;
 
       @include ie-lte(7) {
         height: 4.5em;
       }
 
-      &:hover {
+      &:hover,
+      &:active {
         background-color: $canvas-colour;
-        // color: #fff;
       }
 
       .pagination-label {
@@ -384,7 +377,6 @@ aside .page-navigation-closed {
 
       .pagination-part-title {
         text-decoration: underline;
-        // margin-right: 2em;
       }
     }
 
@@ -500,6 +492,8 @@ aside .page-navigation-closed {
   @include media-down(mobile) {
     margin: 1.2em -1em;
     margin: 2rem -1.6rem;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   p.geolocate-me {
