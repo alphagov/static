@@ -11,17 +11,8 @@
   }
 
   article {
-    float: left;
-    // margin-left: -13em;
-    // min-height: 40em;
-    width: 100%;
-
     @include ie-lte(7) {
       min-height: 40em;
-    }
-
-    .inner {
-      // margin-left: 13em;
     }
 
     @include media-down(mobile) {
@@ -31,30 +22,23 @@
   }
 
   aside {
-    // display: none;
-    float: left;
     margin-bottom: 3em;
-    position: relative;
-    // width: 13em;
-    width: 100%;
     z-index: 10;
     border-bottom: 1px solid #bbb;
-    margin-bottom: 2.5em;
+    margin: 0 0 2.5em 2em;
     padding-bottom: 1em;
-    left: 2em;
-
-
-
+    overflow: hidden;
 
     .inner {
       padding: 0;
-      width: 100%;
     }
 
     @include media-down(mobile) {
-      float:none;
       width:auto;
       overflow:hidden;
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-left: 0;
     }
   }
 }
@@ -215,6 +199,11 @@ aside .page-navigation {
     @include ie(6) {
       zoom: 1;
     }
+
+    @include media-down(mobile) {
+      float: none;
+      width: auto;
+    }
   }
 
   li {
@@ -224,7 +213,6 @@ aside .page-navigation {
     margin-right: 0.75em;
 
     @include core-16;
-
 
     @include ie(6) {
       float: left;
@@ -236,17 +224,18 @@ aside .page-navigation {
       zoom: 1;
     }
 
+    @include media-down(mobile) {
+      float: none;
+      margin: 0 1em 0 2.25em;
+    }
+
     a {
       display: block;
       padding: 0.25em 1em 0.25em 0;
       zoom: 1;
 
-      &:hover {
-        // background-color: $grey-9;
-
-        span.part-title {
-          color: #2E3191;
-        }
+      &:hover span.part-title {
+        color: #2E3191;
       }
 
       span.part-description {
@@ -281,9 +270,7 @@ aside .page-navigation {
     }
 
     &.active {
-      // background-color: $grey-8;
       padding: 0.25em 0.25em 0.25em 0;
-      //font-weight: 600;
 
       @include ie(6) {
         width: auto;
@@ -297,47 +284,49 @@ aside .page-navigation {
       span.part-title {
         color: $grey-0;
         text-decoration: none;
-        // font-weight: 600;
       }
-    }
-
-    &:first-child {
-      // border-top: solid 1px $grey-6;
     }
 
     @include media-down(mobile) {
-      @include core-19($line-height: (45/19), $line-height-640: (45/13));
+      @include core-19($line-height: (45/19));
 
-      a {
-        padding: 0 16px;
-        padding: 0 1.6rem;
+      span, a {
+        border-top: solid 1px $grey-6;
+        margin: 0 -1em 0 -2.25em;
+        padding: 1em 1em 1em 2.75em;
       }
 
       span {
+        &.part-title,
+        &.part-label {
           display: inline;
-
-          &.part-label {
-            padding-right: 1em;
-          }
         }
-      
-      &.active {
-        padding: 0 16px;
-        padding: 0 1.6rem;
+
+        &.part-label {
+          padding-right: 1em;
+        }
       }
     }
   }
 }
 
-aside .page-navigation-open ol {
-  position: static;
-  left: auto;
+aside .page-navigation-open {
+  border-bottom: solid 1px $grey-6;
+
+  ol {
+    position: static;
+    left: auto;
+  }
 }
 
-@include media-down(mobile) {
-  aside .page-navigation-closed ol {
-    position: absolute;
-    left: -9999em;
+aside .page-navigation-closed {
+  border-bottom: none;
+
+  @include media-down(mobile) {
+    ol {
+      position: absolute;
+      left: -9999em;
+    }
   }
 }
 
@@ -438,12 +427,14 @@ aside .page-navigation-open ol {
     }
 
     @include media-down(mobile) {
-      &.previous a {
-        float: left;
+      &.previous,
+      &.next {
+        float: none;
+        width: 100%;
       }
-      
+
       &.next a {
-        float: right;
+        text-align: right;
       }
     }
   }

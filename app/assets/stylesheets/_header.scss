@@ -431,7 +431,7 @@
   z-index: 50;
 
   @include media-down(mobile) {
-    padding: 0.75em 1em;
+    padding: 0 1em 0.75em;
   }
 
   @include ie-lte(7) {
@@ -447,6 +447,10 @@
     @include ie-lte(7) {
       padding: 0 32px;
       width: 896px;
+    }
+
+    @include media-down(mobile) {
+      margin: 0;
     }
 
     ol {

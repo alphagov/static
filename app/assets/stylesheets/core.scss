@@ -601,8 +601,7 @@ body.full-width {
 
 /* articles */
 article {
-  float: left;
-  margin-right: 12em;
+  margin-right: 22.25em;
   min-height: 30em;
   position: relative;
   width: 100%;
@@ -682,7 +681,7 @@ article {
 
 .article-container {
   background-color: #fff;
-  // margin-right: 15em;
+  margin-right: 22.25em;
   min-height: 35em;
   max-width: 38em;
 
@@ -705,13 +704,8 @@ article {
 .meta-data {
   @include core-16;
   color: $grey-3;
-  float: left;
-  width: 100%;
   margin-left: 2em;
   background-color:transparent;
-  display:inline;
-  // margin-top:-1.25em;
-  text-align: left;
 
   .inner {
     padding: 0 2em 0 0;
@@ -722,16 +716,13 @@ article {
   }
 
   @include ie(6) {
-    display: inline;
     zoom: 1;
   }
 
   p{
-    display: inline-block;
     text-align: left;
 
     @include ie-lte(7) {
-      display: inline;
       zoom: 1;
     }
 
@@ -742,19 +733,14 @@ article {
   }
 
   @include media-down(mobile) {
-    margin-left: 0;
-    margin-top: 0;
-    width: 50%;
+    margin-left: 1em;
 
     .inner {
-      padding: 0 2em 0 0;
+      padding: 0 1em;
     }
 
     p {
       margin-top: 0;
-      float: none;
-      width: 100%;
-      text-align: right;
 
       &.print-link a {
         padding-left: 0;
@@ -764,10 +750,8 @@ article {
 }
 
 .print-link {
-  //display: none;
   text-align: left;
   margin: 3em 0 0 0;
-  // padding-left: 2em;
 
   a, a:link, a:visited {
     background: image-url("icon-print.png") no-repeat 0% 50%;
@@ -783,7 +767,6 @@ article {
 
   @include media-down(mobile) {
     width:60%;
-    padding-left: 1em;
 
     a, a:link, a:visited {
       padding-bottom:4px;
@@ -1189,24 +1172,17 @@ article {
 
 .report-a-problem-toggle{
   @include core-16;
-  float:left;
-  width: 100%;
-  margin:1em 0 0.5em 2em;
-  clear:both;
+  margin:1em 2em 1em 2em;
   a{
     color: $grey-3;
   }
 
-  @include media-down(mobile) {
-    margin: 0 0.5em 16px 16px;
-    margin: 0 0.5em 1.6rem 1.6em;
-    width:40%;
+  @include ie-lte(7) {
+    zoom: 1;
   }
 
-  @include ie-lte(7) {
-    float: none;
-    display: inline;
-    zoom: 1;
+  @include media-down(mobile) {
+    margin:0em 1em 1em 1em;
   }
 }
 
