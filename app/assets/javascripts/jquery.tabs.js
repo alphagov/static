@@ -20,7 +20,8 @@ jQuery.fn.tabs = function(settings){
 		alwaysScrollToTop: true,
 		selected: null,
 		wrapperTag : 'section',
-		defaultTab : null
+		defaultTab : null,
+		scrollOnload : false
 	},settings);
 
 	var tabFormat = 'tabset',
@@ -302,7 +303,7 @@ jQuery.fn.tabs = function(settings){
 		});
 		
 		//function to select a tab from the url hash
-		function selectTabFromHash(hash){
+		function selectTabFromHash(hash, pageLoad){
 			var currHash = hash || window.location.hash;
 			if(currHash.indexOf("#") == 0){
               currHash = currHash.split("#")[1];
@@ -311,6 +312,9 @@ jQuery.fn.tabs = function(settings){
 
             if(hashedTab.size() > 0){
                 selectTab(hashedTab,true);
+                if(o.scrollOnload && pageLoad){
+                  window.setTimeout(function(){ $(document).scrollTop(hashedTab.offset().top) }, 0);
+                }
             }
             else {
                 if (o.defaultTab > -1) {
