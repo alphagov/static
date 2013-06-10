@@ -264,7 +264,6 @@ h4 {
 
     @include media-down(mobile) {
       position: static;
-      border-top: 1px solid $grey-6;
       margin: 0.25em 0 0;
       padding: 0.75em 0;
     }
@@ -280,9 +279,17 @@ h4 {
  */
 
 #legacy-sources {
+  margin-top: 1em;
+  display: none;
 
-    margin-top: 1em;
-    display: none;
+  @include media-down(tablet) {
+    margin: 1em 2em 0em;
+  }
+
+  @include media-down(mobile) {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 
   p {
 	  font-size: 1em;
@@ -350,12 +357,12 @@ header.page-header {
     hgroup {
       background-color: #fff;
       display: block;
-      // margin: 0 15em 0 0;
       margin: 0 24em 0 0;
       padding: 1em 2em 2em 2em;
 
       @include media-down(tablet) {
         margin: 0;
+        padding-bottom: 0;
       }
 
       h1 {
@@ -380,11 +387,9 @@ header.page-header {
 }
 
 body.full-width {
-  header.page-header hgroup {
-    margin-right: 0;
-  }
-
-  .article-container {
+  header.page-header hgroup,
+  .article-container,
+  article {
     margin-right: 0;
   }
 }
@@ -398,7 +403,6 @@ body.full-width {
 
   h1 {
     margin-left: 0;
-    padding-left: 68px;
 
     @include ie(6) {
       position: relative;
