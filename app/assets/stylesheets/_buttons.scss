@@ -59,7 +59,7 @@
 .get-started .button,
 .button,
 .button:visited {
-  background-color: $light-blue;
+  background-color: #008270;
   color: #fff;
   -webkit-box-shadow: 0 3px 0 #000;
   -moz-box-shadow: 0 3px 0 #000;
@@ -86,7 +86,7 @@
 .get-started .button-hover,
 .button:hover,
 .button-hover {
-  background-color: lighten($light-blue, 5%);
+  background-color: #3ABAA8;
   color: #fff;
 }
 
