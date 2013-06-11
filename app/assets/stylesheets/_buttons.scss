@@ -59,7 +59,7 @@
 .get-started .button,
 .button,
 .button:visited {
-  background-color: #008270;
+  background-color: $green;
   color: #fff;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -77,7 +77,7 @@
 .button:active,
 .button:focus,
 .button-active{
-  background-color: lighten($light-blue, 5%);
+  background-color: $green-50;
 
   /* IE6 & 7 ignore the :focus psuedo-class so we need to overwrite the default */
   @include ie-lte(7) {
@@ -89,7 +89,7 @@
 .get-started .button-hover,
 .button:hover,
 .button-hover {
-  background-color: #3ABAA8;
+  background-color: $green-50;
   color: #fff;
 }
 
