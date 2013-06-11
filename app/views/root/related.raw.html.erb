@@ -7,7 +7,10 @@
 
     <div class="related" id="related">
       <div class="inner group">
-        <h2>Other relevant links</h2>
+
+        <% if root_section = artefact.primary_root_section %>
+        <h2><%= h root_section["title"] %></h2>
+        <% end %>
         <nav role="navigation">
           <ul>
             <% artefact.related_artefacts.each do |item| %>
@@ -17,16 +20,18 @@
             <% end %>
             <% if root_section = artefact.primary_root_section %>
               <li class="related-topic"><a href="<%= h root_section["content_with_tag"]["web_url"] %>"
-                >More from the <span><%= h root_section["title"] %></span> category</a></li>
+                >More</a></li>
             <% end %>
           </ul>
         </nav>
+
         <nav role="navigation" class="return-to-top">
           <a href="#content">Return to top &uarr;</a>
         </nav>
      </div>
+
      <div id="legacy-sources">
-       <p>This replaces</p>
+       <p>This page replaces</p>
        <ul>
          <li class="directgov">Directgov</li>
          <li class="businesslink">Business Link</li>

@@ -115,7 +115,7 @@
       text-indent: -5000px;
 
 
-      background-color: $turquoise;
+      background-color: $light-blue;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -206,7 +206,7 @@
       width: 35px;
       height: 35px;
 
-      border: 1px solid $turquoise;
+      border: 1px solid $light-blue;
       border-width: 0 0 0 1px;
       @include ie-lte(7){
         border-width: 1px;
@@ -218,7 +218,7 @@
       text-indent: -5000px;
 
       color: $white;
-      background-color: $turquoise;
+      background-color: $light-blue;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -234,7 +234,7 @@
       }
 
       &:hover {
-        background-color: #3ABAA8;
+        background-color: lighten($light-blue, 5%);
       }
     }
 
@@ -423,25 +423,31 @@
 
 #global-breadcrumb {
   background-color: #fff;
-  border-bottom: 1px solid $grey-8;
-  padding: 0.75em 2em;
+  max-width: 1020px;
+  margin:0 auto;
   z-index: 50;
 
   @include media-down(mobile) {
-    padding: 0.75em 1em;
+    padding: 0 1em 0.75em;
   }
 
-  @include ie-lte(7) {
-    padding: 0.75em 0;
+  @include ie(6) {
+    width: 960px;
   }
 
   nav {
+    border-top: 10px solid $light-blue;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0 30px;
+    padding: 0.75em 0;
 
     @include ie-lte(7) {
-      padding: 0 32px;
-      width: 896px;
+      padding: 0.75em 16px 0;
+      width: 900px;
+    }
+
+    @include media-down(mobile) {
+      margin: 0;
     }
 
     ol {

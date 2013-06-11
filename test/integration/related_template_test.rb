@@ -12,7 +12,7 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
     setup do
       @related1 = stub("Artefact", :web_url => "http://www.example.com/foo", :title => "Foo")
       @related2 = stub("Artefact", :web_url => "http://www.example.com/bar", :title => "Bar")
-      @artefact = stub("Artefact", :related_artefacts => [@related1, @related2], :primary_root_section => nil)
+      @artefact = stub("Artefact", :related_artefacts => [@related1, @related2], :primary_root_section => { "content_with_tag" => { "web_url" => "/browse/section" }})
     end
 
     should "add an item for each related item" do
@@ -50,7 +50,7 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
       doc = Nokogiri::HTML.parse(result)
 
       assert doc.at_css("ul li.related-topic a[href='http://www.example.com/browse/something']")
-      assert_equal "More from the Something category", doc.at_css("ul li a[href='http://www.example.com/browse/something']").text
+      assert_equal "More", doc.at_css("ul li a[href='http://www.example.com/browse/something']").text
     end
   end
 

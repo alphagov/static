@@ -23,6 +23,7 @@ article header h1 {
   span {
     @include core-16;
     display: block;
+    // display: none;
     margin-bottom: 0.4em;
   }
 }
@@ -250,7 +251,7 @@ article th {
   }
 
   p {
-    @include core-24;
+    @include core-19;
   }
 
   @include media-down(mobile) {
