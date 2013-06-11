@@ -3,7 +3,8 @@
  */
 
 #wrapper {
-  background-color: $grey-9;
+  background-color: $white;//$grey-9;
+  border-bottom: 10px solid $light-blue;
 
   @include ie-lte(7) {
     zoom: 1;
@@ -82,6 +83,7 @@ h4 {
   height: 0;
   left: 0;
   position: fixed;
+  position: absolute;
   top: 9.5em;
   width: 100%;
   z-index: 0;
@@ -138,8 +140,11 @@ h4 {
 
 .related {
   position: absolute;
-  right: 0;
+  right: 1.75em;
+  margin: 3em 0 0 0;
   width: 15em;
+  width: 18.75em;
+  border-top: 10px solid $light-blue;
 
   @include media-down(tablet) {
     position: static;
@@ -148,8 +153,9 @@ h4 {
   }
 
   .inner {
-    background-color: $grey-8;
-    padding: 0.5em 1em 0 1.2em;
+    background-color: $white;;
+    border-bottom: 10px solid $grey-8;
+    padding: 0.5em 1em 0 0;
     width: auto;
 
     @include media-down(tablet) {
@@ -161,8 +167,13 @@ h4 {
     }
   }
 
+  nav {
+    margin-bottom: 2.5em;
+  }
+
   h2 {
-    @include core-19;
+    @include core-24;
+    font-weight: 600;
     color: $text-colour;
     margin-top: 0.3em;
     margin-bottom: 0.5em;
@@ -184,17 +195,15 @@ h4 {
   }
 
   li {
-    margin-bottom: 1em;
+    margin-bottom: 0.75em;
     padding-left: 0;
 
     &.related-topic {
-      border-top: 1px solid $grey-6;
       list-style: none outside none;
-      margin: 0.25em 0 0;
-      padding: 0.75em 0;
 
       a {
         padding: 0;
+        font-weight: bold;
       }
     }
 
@@ -206,7 +215,7 @@ h4 {
       orphans: 2;
 
       &:hover {
-        background-position: 0 0;
+        background-position: 0 10px;
       }
 
       @include ie-lte(8) {
@@ -221,6 +230,20 @@ h4 {
       cursor: default;
       text-decoration: none;
     }
+
+    a.view-all {
+      margin: 10px 0 10px;
+    }
+
+    a[rel="external"]:after {
+      content: "\A0\A0\A0\A0\A0\A0";
+      background-position: 5px 0px;
+    }
+    
+    a[rel="external"]:hover:after {
+      background-position: 5px -388px;
+    }
+
   }
 
   .return-to-top {
@@ -231,7 +254,6 @@ h4 {
 
     @include media-down(mobile) {
       position: static;
-      border-top: 1px solid $grey-6;
       margin: 0.25em 0 0;
       padding: 0.75em 0;
     }
@@ -247,9 +269,17 @@ h4 {
  */
 
 #legacy-sources {
-    margin-left: 1.2em;
-    margin-top: 1em;
-    display: none;
+  margin-top: 1em;
+  display: none;
+
+  @include media-down(tablet) {
+    margin: 1em 2em 0em;
+  }
+
+  @include media-down(mobile) {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 
   p {
 	  font-size: 1em;
@@ -317,24 +347,26 @@ header.page-header {
     hgroup {
       background-color: #fff;
       display: block;
-      margin: 0 15em 0 0;
+      margin: 0 24em 0 0;
       padding: 1em 2em 2em 2em;
 
       @include media-down(tablet) {
         margin: 0;
+        padding-bottom: 0;
       }
 
       h1 {
         @include heading-48;
         background-repeat: no-repeat;
         color: $text-colour;
-        font-weight: 400;
+        font-weight: 600;
 
         span {
-          @include core-19($line-height: 1);
+          @include core-27($line-height: 1);
           display: block;
           margin-bottom: 0.25em;
           text-shadow: none;
+          color: $secondary-text-colour ;
 
         @include ie-lte(8) {
           height: 1%;
@@ -345,11 +377,9 @@ header.page-header {
 }
 
 body.full-width {
-  header.page-header hgroup {
-    margin-right: 0;
-  }
-
-  .article-container {
+  header.page-header hgroup,
+  .article-container,
+  article {
     margin-right: 0;
   }
 }
@@ -363,7 +393,6 @@ body.full-width {
 
   h1 {
     margin-left: 0;
-    padding-left: 68px;
 
     @include ie(6) {
       position: relative;
@@ -384,10 +413,7 @@ body.full-width {
 
 #wrapper.programme header.page-header hgroup,
 #wrapper.service header.page-header hgroup {
-  h1 {
-    margin-left: -12px;
-    padding-left: 80px;
-  }
+
 
   @include media-down(mobile) {
     padding-left: 1em;
@@ -426,7 +452,7 @@ body.full-width {
 
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
-  background-image: image-url("icon-programme-l.png");
+  background-image: none;
   background-position: 0 5px;
 
   @include media($min-width: 1182px) {
@@ -434,14 +460,14 @@ body.full-width {
   }
 
   @include device-pixel-ratio() {
-    background-image: image-url("icon-programme-l-2x.png");
+    background-image: none;
     background-size: 65px 65px;
   }
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
-  background-image: image-url("icon-service-l.png");
+  background-image: none;
   background-position: 0 12px;
 
   @include media($min-width: 1182px) {
@@ -456,7 +482,7 @@ body.full-width {
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
-  background-image: image-url("icon-answer-l.png");
+  background-image: none;
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
@@ -471,7 +497,7 @@ body.full-width {
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
-  background-image: image-url("icon-licence-l.png");
+  background-image: none;
   background-position: 0 14px;
   
   @include media($min-width: 1182px) {
@@ -487,7 +513,7 @@ body.full-width {
 /* Guides */
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
-  background-image: image-url("icon-guide-l.png");
+  background-image: none;
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
@@ -569,8 +595,7 @@ body.full-width {
 
 /* articles */
 article {
-  float: left;
-  margin-right: 12em;
+  margin-right: 22.25em;
   min-height: 30em;
   position: relative;
   width: 100%;
@@ -590,7 +615,7 @@ article {
   }
 
   .inner {
-    padding: 0 10em 2em 2em;
+    padding: 0 0 2em 2em;
     width: auto;
   }
 
@@ -615,6 +640,7 @@ article {
   article{
     .inner{
       padding-right:10em;
+      padding-right:0;
 
       @include media-down(mobile) {
         padding-right: 1em;
@@ -628,6 +654,7 @@ article {
   article{
     .inner{
       padding-right:3em;
+      padding-right:0;
 
       @include media-down(mobile) {
         padding-right: 1em;
@@ -648,8 +675,9 @@ article {
 
 .article-container {
   background-color: #fff;
-  margin-right: 15em;
+  margin-right: 22.25em;
   min-height: 35em;
+  max-width: 38em;
 
   /* Make webkit browsers contain the margin-bottom of report-a-problem */
   .travel-advice & {
@@ -670,13 +698,8 @@ article {
 .meta-data {
   @include core-16;
   color: $grey-3;
-  float: right;
-  width: 62%;
   margin-left: 2em;
   background-color:transparent;
-  display:inline;
-  margin-top:-2.7em;
-  text-align: right;
 
   .inner {
     padding: 0 2em 0 0;
@@ -687,16 +710,13 @@ article {
   }
 
   @include ie(6) {
-    display: inline;
     zoom: 1;
   }
 
   p{
-    display: inline-block;
     text-align: left;
 
     @include ie-lte(7) {
-      display: inline;
       zoom: 1;
     }
 
@@ -707,19 +727,14 @@ article {
   }
 
   @include media-down(mobile) {
-    margin-left: 0;
-    margin-top: 0;
-    width: 50%;
+    margin-left: 1em;
 
     .inner {
-      padding: 0 2em 0 0;
+      padding: 0 1em;
     }
 
     p {
       margin-top: 0;
-      float: none;
-      width: 100%;
-      text-align: right;
 
       &.print-link a {
         padding-left: 0;
@@ -730,8 +745,7 @@ article {
 
 .print-link {
   text-align: left;
-  margin: 0.5em 0;
-  padding-left: 2em;
+  margin: 2em 0 0 0;
 
   a, a:link, a:visited {
     background: image-url("icon-print.png") no-repeat 0% 50%;
@@ -747,7 +761,6 @@ article {
 
   @include media-down(mobile) {
     width:60%;
-    padding-left: 1em;
 
     a, a:link, a:visited {
       padding-bottom:4px;
@@ -1018,18 +1031,15 @@ article {
 #wrapper.answer article .inner .nav-tabs,
 #wrapper.transaction article .inner .nav-tabs,
 #wrapper.local_transaction article .inner .nav-tabs {
-  margin-right: -10em;
 }
 
 .tab-content {
-  margin: 0 -10em 0 -2em;
-
   @include media-down(mobile) {
     margin: 0 -1em;
   }
 
   .tab-pane {
-    padding: 1em 10em 0 2em;
+    padding: 1em 1em 0 1em;
     border-top: solid 1px $grey-6;
     clear: both;
     width:auto;
@@ -1152,24 +1162,17 @@ article {
 
 .report-a-problem-toggle{
   @include core-16;
-  float:left;
-  width: 35%;
-  margin:6em 0 0.5em 2em;
-  clear:both;
+  margin:1em 2em 1em 2em;
   a{
     color: $grey-3;
   }
 
-  @include media-down(mobile) {
-    margin: 0 0.5em 16px 16px;
-    margin: 0 0.5em 1.6rem 1.6em;
-    width:40%;
+  @include ie-lte(7) {
+    zoom: 1;
   }
 
-  @include ie-lte(7) {
-    float: none;
-    display: inline;
-    zoom: 1;
+  @include media-down(mobile) {
+    margin:0em 1em 1em 1em;
   }
 }
 
@@ -1187,8 +1190,8 @@ article {
   @include core-19;
   clear:both;
   background-color:#D5E8F3;
-  margin:0 3.5em 2em 3.5em;
-  padding:0.5em 1em 1em 1em;
+  margin: 3em 0 2em 1.75em;
+  padding: 0.5em 1em 1em 1em;
 
   div{
     width:98%;
