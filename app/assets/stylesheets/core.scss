@@ -153,7 +153,7 @@ h4 {
   }
 
   .inner {
-    background-color: $white;//$grey-8;
+    background-color: $white;;
     border-bottom: 10px solid $grey-8;
     padding: 0.5em 1em 0 0;
     width: auto;
@@ -199,10 +199,7 @@ h4 {
     padding-left: 0;
 
     &.related-topic {
-      // border-top: 1px solid $grey-6;
       list-style: none outside none;
-      //margin: 0.25em 0 0;
-      //padding: 0.75em 0;
 
       a {
         padding: 0;
@@ -235,14 +232,7 @@ h4 {
     }
 
     a.view-all {
-      //background: $light-blue-25;
-      //-webkit-border-radius: 3px;
-      //-moz-border-radius: 3px;
-      //border-radius: 3px;
-      //padding: 2px 5px;
       margin: 10px 0 10px;
-      //display: inline;
-      //text-decoration: none;
     }
 
     a[rel="external"]:after {
@@ -462,7 +452,7 @@ body.full-width {
 
 /* Programmes */
 #wrapper.programme header.page-header hgroup h1 {
-  background-image: none; //image-url("icon-programme-l.png");
+  background-image: none;
   background-position: 0 5px;
 
   @include media($min-width: 1182px) {
@@ -470,14 +460,14 @@ body.full-width {
   }
 
   @include device-pixel-ratio() {
-    background-image: none; //image-url("icon-programme-l-2x.png");
+    background-image: none;
     background-size: 65px 65px;
   }
 }
 
 /* Services */
 #wrapper.service header.page-header hgroup h1 {
-  background-image: none; //image-url("icon-service-l.png");
+  background-image: none;
   background-position: 0 12px;
 
   @include media($min-width: 1182px) {
@@ -492,7 +482,7 @@ body.full-width {
 
 /* Quick answers */
 #wrapper.answer header.page-header hgroup h1 {
-  background-image: none; //image-url("icon-answer-l.png");
+  background-image: none;
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
@@ -507,7 +497,7 @@ body.full-width {
 
 /* Licence guidance */
 #wrapper.licence header.page-header hgroup h1 {
-  background-image: none; //image-url("icon-licence-l.png");
+  background-image: none;
   background-position: 0 14px;
   
   @include media($min-width: 1182px) {
@@ -523,7 +513,7 @@ body.full-width {
 /* Guides */
 #wrapper.guide header.page-header hgroup h1,
 #wrapper.video header.page-header hgroup h1 {
-  background-image: none; //image-url("icon-guide-l.png");
+  background-image: none;
   background-position: 0 14px;
 
   @include media($min-width: 1132px) {
@@ -1041,18 +1031,14 @@ article {
 #wrapper.answer article .inner .nav-tabs,
 #wrapper.transaction article .inner .nav-tabs,
 #wrapper.local_transaction article .inner .nav-tabs {
-  // margin-right: -10em;
 }
 
 .tab-content {
-  //margin: 0 -10em 0 -2em;
-
   @include media-down(mobile) {
     margin: 0 -1em;
   }
 
   .tab-pane {
-    // padding: 1em 10em 0 2em;
     padding: 1em 1em 0 1em;
     border-top: solid 1px $grey-6;
     clear: both;
