@@ -21,7 +21,7 @@ jQuery.fn.tabs = function(settings){
     selected: null,
     wrapperTag : 'section',
     defaultTab : null,
-    containerTag : 'div'
+    containerTag : 'div',
 		scrollOnload : false
 	},settings);
 

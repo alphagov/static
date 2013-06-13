@@ -9,9 +9,9 @@
       <div class="inner group">
 
         <% if root_section = artefact.primary_root_section %>
-        <h2><%= h root_section["title"] %></h2>
+        <h2 class="parent-section"><%= h root_section["title"] %></h2>
         <% end %>
-        <nav role="navigation" aria-labelledby="relevant-links">
+        <nav role="navigation" aria-labelledby="parent-section">
           <ul>
             <% artefact.related_artefacts.each do |item| %>
               <li>
