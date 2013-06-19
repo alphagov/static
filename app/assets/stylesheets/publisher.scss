@@ -329,6 +329,10 @@ aside .page-navigation {
       }
     }
   }
+
+  ol[start] li {
+    margin-left: 1.8em;
+  }
 }
 
 aside .page-navigation-open {
