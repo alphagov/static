@@ -9,9 +9,9 @@
       <div class="inner group">
 
         <% if root_section = artefact.primary_root_section %>
-        <h2><%= h root_section["title"] %></h2>
+        <h2 class="parent-section"><%= h root_section["title"] %></h2>
         <% end %>
-        <nav role="navigation">
+        <nav role="navigation" aria-labelledby="parent-section">
           <ul>
             <% artefact.related_artefacts.each do |item| %>
               <li>
@@ -24,10 +24,7 @@
             <% end %>
           </ul>
         </nav>
-
-        <nav role="navigation" class="return-to-top">
-          <a href="#content">Return to top &uarr;</a>
-        </nav>
+        <a class="return-to-top" href="#content">Return to top &uarr;</a>
      </div>
 
      <div id="legacy-sources">
