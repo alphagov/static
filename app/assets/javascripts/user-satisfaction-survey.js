@@ -47,5 +47,18 @@
 }).call(this);
 
 $(document).ready(function() {
-  GOVUK.userSatisfaction.randomlyShowSurveyBar();
+  var currentURL = window.location.href;
+
+  function stringContains(haystack, needle) {
+    return haystack.indexOf(needle) > -1;
+  }
+
+  // We don't want the satisfaction survey appearing for users who
+  // have completed a transaction as they may complete the survey with
+  // the department's transaction in mind as opposed to the GOV.UK content.
+  if (!stringContains(currentURL, "gov.uk/done/") &&
+      !stringContains(currentURL, "gov.uk/transaction-finished") &&
+      !stringContains(currentURL, "gov.uk/driving-transaction-finished")) {
+    GOVUK.userSatisfaction.randomlyShowSurveyBar();
+  }
 });
