@@ -2,3 +2,4 @@
 //= require cookie-functions
 //= require welcome
 //= require analytics
+//= require user-satisfaction-survey
