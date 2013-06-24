@@ -175,10 +175,6 @@ $(document).ready(function() {
       document.getElementsByTagName('head')[0].appendChild($new_styles[0]);
     }
   }());
-
-  if(window.GOVUK && GOVUK.userSatisfaction){
-    GOVUK.userSatisfaction.randomlyShowSurveyBar();
-  }
 });
 
 
