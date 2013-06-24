@@ -46,8 +46,6 @@
   root.GOVUK.userSatisfaction = userSatisfaction;
 }).call(this);
 
-$.document.ready(function () {
-  if (window.GOVUK && GOVUK.userSatisfaction) {
-    GOVUK.userSatisfaction.randomlyShowSurveyBar();
-  }
+$(document).ready(function() {
+  GOVUK.userSatisfaction.randomlyShowSurveyBar();
 });
