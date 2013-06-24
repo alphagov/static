@@ -530,15 +530,17 @@
 
         &#take-survey {
           @include core-19;
+
+          padding-right: 5px;
         }
       }
 
       &.right {
         float: right;
-        margin: -40px 20px 0 0;
+        margin: -20px 20px 0 0;
 
         @include ie-lte(7) {
-          margin-top: -45px;
+          margin-top: -25px;
         }
       }
     }
