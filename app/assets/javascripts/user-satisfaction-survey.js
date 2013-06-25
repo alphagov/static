@@ -21,15 +21,15 @@
       $closePoints.click(userStatisfaction.setCookieTakenSurvey);
     },
     showSurveyBar: function () {
-      if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true") {
+      if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true" ||
+          userSatisfaction.otherNotificationVisible()) {
         return;
       }
+
       userSatisfaction.setEventHandlers();
       userSatisfaction.appendCurrentPathToSurveyUrl();
 
-      if (!userSatisfaction.otherNotificationVisible()) {
-        $("#user-satisfaction-survey").addClass('visible');
-      }
+      $("#user-satisfaction-survey").addClass('visible');
     },
     otherNotificationVisible: function() {
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
