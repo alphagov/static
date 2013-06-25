@@ -18,7 +18,7 @@
     },
     setEventHandlers: function () {
       var $closePoints = $('#survey-no-thanks, #take-survey');
-      $closePoints.click(userStatisfaction.setCookieTakenSurvey);
+      $closePoints.click(userSatisfaction.setCookieTakenSurvey);
     },
     showSurveyBar: function () {
       if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true" ||
