@@ -332,6 +332,10 @@ aside .page-navigation {
 
   ol[start] li {
     margin-left: 1.8em;
+
+    @include media-down(mobile) {
+      margin-left: 2.25em;
+    }
   }
 }
 
