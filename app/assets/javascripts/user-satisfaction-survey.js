@@ -13,7 +13,7 @@
     },
     appendCurrentPathToSurveyUrl: function() {
       var takeSurvey = document.getElementById('take-survey');
-      var surveyUrlWithPath = takeSurvey.getAttribute('href') + "?c=" + window.location.pathname;
+      var surveyUrlWithPath = takeSurvey.getAttribute('href') + "?c=" + root.location.pathname;
       takeSurvey.setAttribute('href', surveyUrlWithPath);
     },
     setEventHandlers: function () {
