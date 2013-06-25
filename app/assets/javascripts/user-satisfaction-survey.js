@@ -39,6 +39,7 @@
         userSatisfaction.showSurveyBar();
       }
     }
-  }
+  };
+
   root.GOVUK.userSatisfaction = userSatisfaction;
 }).call(this);
