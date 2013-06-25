@@ -179,8 +179,8 @@ $(document).ready(function() {
   if (window.GOVUK && GOVUK.userSatisfaction){
     var currentURL = window.location.pathname;
 
-    function stringContains(haystack, needle) {
-      return haystack.indexOf(needle) > -1;
+    function stringContains(str, substr) {
+      return str.indexOf(substr) > -1;
     }
 
     // We don't want the satisfaction survey appearing for users who
