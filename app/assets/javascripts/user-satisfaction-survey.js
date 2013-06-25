@@ -17,11 +17,8 @@
       takeSurvey.setAttribute('href', surveyUrlWithPath);
     },
     setEventHandlers: function () {
-      var noThanks = $("#survey-no-thanks");
-      var takeSurvey = $("#take-survey");
-
-      noThanks.click(userSatisfaction.setCookieTakenSurvey);
-      takeSurvey.click(userSatisfaction.setCookieTakenSurvey);
+      var $closePoints = $('#survey-no-thanks, #take-survey');
+      $closePoints.click(userStatisfaction.setCookieTakenSurvey);
     },
     showSurveyBar: function () {
       if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true") {
