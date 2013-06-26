@@ -7,9 +7,11 @@
 
   var userSatisfaction = {
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
-    setCookieTakenSurvey: function () {
+    setCookieTakenSurvey: function (e) {
       setCookie(userSatisfaction.cookieNameTakenSurvey, true, 30*4);
       $("#user-satisfaction-survey").removeClass('visible');
+      e.stopPropagation();
+      return false;
     },
     appendCurrentPathToSurveyUrl: function() {
       var takeSurvey = document.getElementById('take-survey');
