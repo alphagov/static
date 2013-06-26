@@ -1,4 +1,5 @@
+//= require user-satisfaction-survey
+//= require welcome
 //= require core
 //= require cookie-functions
-//= require welcome
 //= require analytics
