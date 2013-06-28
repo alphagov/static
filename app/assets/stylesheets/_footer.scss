@@ -193,7 +193,7 @@
     .footer-meta-inner {
       display: inline-block;
       vertical-align: bottom;
-      width: 74%;
+      width: 75%;
 
       @include media-down(mobile) {
         display: block;
@@ -226,21 +226,26 @@
 
       .open-government-licence {
         clear: left;
-        min-height: 42px;
+        background: transparent image-url("open-government-licence.png") no-repeat 0 center;
+        padding: 8px 0 0 53px;
 
-        h2 {
-          display: inline;
-          margin: 0 0.5em 0 0;
-          padding: 0;
+        @include media(mobile) {
+          background-image: image-url("open-government-licence_2x.png");
+          background-size: 41px 17px;
         }
 
-        img {
-          width: 41px;
+        h2 {
+          position: absolute;
+          left: -9999em;
         }
 
         p {
           @include core-16;
-          display: inline;
+          margin: 0;
+
+          a {
+            @include core-14;
+          }
         }
       }
     
@@ -258,8 +263,7 @@
       float: none;
       text-align: inherit;
       width: 25%;
-      min-height: 150px;
-      min-height: 15rem;
+      padding-top: 15px;
 
       @include ie-lte(7) {
         display: block;
@@ -274,8 +278,8 @@
         padding: 115px 0 0 0;
         padding: 11.5rem 0 0 0;
 
-        background: transparent image-url("govuk-crest.png") no-repeat 50% 0;
-        text-align: center;
+        background: transparent image-url("govuk-crest.png") no-repeat 100% 0;
+        text-align: right;
         text-decoration: none;
 
         @include ie(6) {
@@ -296,7 +300,10 @@
         margin: 30px 0 0 0;
         margin: 3rem 0 0 0;
 
-        min-height: 0;
+        a {
+          text-align: center;
+          background-position: 50% 0%;
+        }
       }
     }
   }
