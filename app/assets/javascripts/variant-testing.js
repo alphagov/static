@@ -83,7 +83,8 @@ var variants = {
   root.GOVUK.multivariateTest = multivariateTest;
 }).call(this);
 
-
-if($(".completed_transaction").length != 0){
+// cludgy temporary solution until done pages are customisable
+var path = window.location.href;
+if(path.match(/driving-transaction-finished/) || path.match(/transaction-finished/)){
   GOVUK.multivariateTest.init(variants);
 };
