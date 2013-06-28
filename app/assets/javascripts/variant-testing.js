@@ -87,4 +87,4 @@ var variants = {
 var path = window.location.href;
 if(path.match(/driving-transaction-finished/) || path.match(/transaction-finished/)){
   GOVUK.multivariateTest.init(variants);
-}
+};
