@@ -241,12 +241,15 @@ aside .page-navigation {
         float: left;
       }
 
-      &:hover span.part-title {
-        color: #2E3191;
+      span {
+        cursor: pointer;
       }
 
-      span.part-description {
-        color: #2E3191;
+      &:hover span.part-title, 
+      &:focus span.part-title, 
+      &:hover span.part-description, 
+      &:focus span.part-description {
+        color: $link-hover-colour;
       }
     }
 
@@ -277,8 +280,8 @@ aside .page-navigation {
       }
 
       &.part-description {
-        color: $grey-0;
         line-height: 1.25;
+        display: block;
         clear: left;
       }
 
