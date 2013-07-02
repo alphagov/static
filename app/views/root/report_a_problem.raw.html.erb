@@ -5,7 +5,9 @@
   <form accept-charset="UTF-8" action="/feedback" method="post">
     <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
     <input id="url" name="url" type="hidden" value="<%= h request_url %>">
-    <input id="source" name="source" type="hidden" value="<%= source %>">
+    <% if defined?(source) %>
+      <input id="source" name="source" type="hidden" value="<%= source %>">
+    <% end %>
     <label for="what_doing">
       What you were doing
       <input id="what_doing" name="what_doing" type="text" />
