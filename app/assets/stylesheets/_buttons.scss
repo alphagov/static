@@ -8,19 +8,7 @@
 /* buttons! */
 .button,
 .button:visited {
-  display: inline;
-  border: none;
-  text-decoration: none;
-  position: relative;
-  top: -3px;
-  line-height: (20 / 16);
-  cursor: pointer;
-
-  @include ie-lte(8) {
-    top: 0;
-    border-bottom: solid 3px #000;
-    margin-bottom: -3px;
-  }
+  @include button;
 }
 
 /* inputs do not display single borders properly in IE6 & 7*/
