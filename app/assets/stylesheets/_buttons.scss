@@ -6,33 +6,8 @@
  */
 
 /* buttons! */
-.button,
-.button:visited {
+.button{
   @include button;
-}
-
-/* inputs do not display single borders properly in IE6 & 7*/
-@include ie-lte(7) {
-  button.button,
-  input.button {
-    border-bottom: none;
-    margin-bottom: 0;
-    background-image: url('button-base-edge.png');
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-
-    @include ie(7) {
-      padding: 0.25em 0.5em;
-    }
-
-  }
-  
-  /* IE6 adds its own side padding to input buttons so requires no extra */
-  @include ie(6) {
-    input.button {
-      padding: 0.25em 0em 0.43em;
-    }
-  }
 }
 
 .button,
@@ -44,76 +19,9 @@
   @include core-19($line-height: (26 / 19));
 }
 
-.get-started .button,
-.button,
-.button:visited {
-  background-color: $green;
-  color: #fff;
-  @include border-radius(3px);
-  -webkit-box-shadow: 0 3px 0 #000;
-  -moz-box-shadow: 0 3px 0 #000;
-  box-shadow: 0 3px 0 #000;
-  font-weight: 400;
-  overflow: visible;
-}
 
-.get-started .button:focus,
-.get-started .button:active,
-.get-started .button-active,
-.button:active,
-.button:focus,
-.button-active{
-  background-color: $green-50;
 
-  /* IE6 & 7 ignore the :focus psuedo-class so we need to overwrite the default */
-  @include ie-lte(7) {
-    color: #fff;
-  }
-}
 
-.get-started .button:hover,
-.get-started .button-hover,
-.button:hover,
-.button-hover {
-  background-color: $green-50;
-  color: #fff;
-}
-
-.button:active,
-.button-active {
-  top: 0px;
-  box-shadow:none;
-  outline:none;
-}
-
-/* 
- * making a click target which is bigger than the button 
- * (and fills the space made when the button moves) 
- */
-.button:before {
-  content: "";
-  height: 110%;
-  width: 100%;
-  display: block;
-  background: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.button:active:before {
-  top: -10%;
-  height: 120%;
-
-  /* 
-   * IE6 ignores the :before psuedo-class but applies the block to :active
-   * It therefore needs to be reset
-   */
-  @include ie(6) {
-    top: auto;
-    height: 100%;
-  }
-}
 
 .get-started .button {
   @include bold-24($line-height: (16 / 24)); 
@@ -177,12 +85,6 @@
   }
 }
 
-a.button[rel="external"]:after {
-  display: none;
-  content: none;
-  margin-left: 0;
-  margin-right: 0;
-}
 
 input{
   &[disabled="disabled"] {
