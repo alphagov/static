@@ -226,25 +226,40 @@
 
       .open-government-licence {
         clear: left;
-        background: transparent image-url("open-government-licence.png") no-repeat 0 center;
-        padding: 8px 0 0 53px;
-
-        @include media(mobile) {
-          background-image: image-url("open-government-licence_2x.png");
-          background-size: 41px 17px;
-        }
+        position: relative;
+        padding-left: 53px;
 
         h2 {
           position: absolute;
-          left: -9999em;
+          left: 0;
+          top: 0;
+          width: 41px;
+          height: 100%;
+
+          @include media-down(mobile) {
+            position: static;
+            width: auto;
+            margin-bottom: 1em;
+          }
+
+          a, img {
+            display: block;
+            width: 43px;
+            height: 17px;
+          }
         }
 
         p {
           @include core-16;
           margin: 0;
+          padding-top: 0.1em;
 
           a {
             @include core-14;
+
+            @include media-down(mobile) {
+              font-size: 1em;
+            }
           }
         }
       }
