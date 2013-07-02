@@ -8,6 +8,9 @@
     <% if defined?(source) %>
       <input id="source" name="source" type="hidden" value="<%= source %>">
     <% end %>
+    <% if defined?(page_owner) %>
+      <input id="page_owner" name="page_owner" type="hidden" value="<%= page_owner %>">
+    <% end %>
     <label for="what_doing">
       What you were doing
       <input id="what_doing" name="what_doing" type="text" />
