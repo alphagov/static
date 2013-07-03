@@ -17,4 +17,17 @@ class ReportAProblemTemplateTest < ActionDispatch::IntegrationTest
 
     assert result =~ /&lt;foo&amp;bar&gt;/
   end
+
+  should "include inputs for source and page_owner if supplied" do
+    template = get_template
+    request_url = "<foo&bar>"
+    source = 'government'
+    page_owner = 'hmrc'
+
+    result = ERB.new(template).result(binding)
+    doc = Nokogiri::HTML.parse(result)
+
+    assert doc.at_css("form input[type=hidden][name=source][value='government']"), 'expected form input for source not found'
+    assert doc.at_css("form input[type=hidden][name=page_owner][value='hmrc']"), 'expected form input for page owner not found'
+  end
 end
