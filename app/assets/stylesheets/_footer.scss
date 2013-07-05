@@ -8,7 +8,6 @@
     max-width: 60em;
     margin: 0 auto;
     padding: 60px 1em 0 1em;
-    padding: 6rem 1em 0 1em;
 
     @include ie-lte(7) {
       width: 928px; /* we want the width for IE to max out at 960px total (including padding) */
@@ -16,7 +15,6 @@
 
     @include media-down(mobile) {
       padding-top: 20px;
-      padding-top: 2rem;
     }
   }
 
@@ -39,13 +37,11 @@
     float: left;
 
     padding: 0 0 60px 0;
-    padding: 0 0 6rem 0;
 
     width: 100%;
 
     @include media-down(mobile) {
       padding: 20px 0;
-      padding: 2rem 0;
     }
 
     .footer-explore {
@@ -58,7 +54,6 @@
         display: block;
         
         margin: 0 0 30px 0;
-        margin: 0 0 3rem 0;
 
         width: 100%;
       }
@@ -72,13 +67,10 @@
       border-width: 1px 0 0 0;
 
       margin: 20px 0 0 0;
-      margin: 2rem 0 0 0;
 
       padding: 20px 0 0 0;
-      padding: 2rem 0 0 0;
 
       min-height: 210px;
-      min-height: 21rem;
 
       vertical-align: top;
 
@@ -94,7 +86,6 @@
         clear: left;
 
         margin: 0 0 15px 0;
-        margin: 0 0 1.5rem 0;
 
         width: 45.5%;
 
@@ -145,7 +136,6 @@
 
         @include media-down(mobile) {
           margin: 20px 0 0 0;
-          margin: 2rem 0 0 0;
 
           width: 100%;
         }
@@ -181,10 +171,8 @@
     border-width: 1px 0 0 0;
 
     margin: 60px 0 0 0;
-    margin: 6rem 0 0 0;
 
     padding: 30px 0 60px;
-    padding: 3rem 0 6rem;
 
     @include media-down(mobile) {
       margin: 0;
@@ -209,7 +197,7 @@
 
         li {
           display: inline-block;
-          margin: 0 1.5rem 0 0;
+          margin: 0 15px 0 0;
 
           @include ie-lte(7) {
             display: inline;
@@ -291,7 +279,6 @@
         display: block;
 
         padding: 115px 0 0 0;
-        padding: 11.5rem 0 0 0;
 
         background: transparent image-url("govuk-crest.png") no-repeat 100% 0;
         text-align: right;
@@ -313,7 +300,6 @@
         padding: 0;
 
         margin: 30px 0 0 0;
-        margin: 3rem 0 0 0;
 
         a {
           text-align: center;
