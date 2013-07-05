@@ -1106,41 +1106,6 @@ article {
   }
 }
 
-.js-enabled .report-a-problem-container{
-  display:none;
-}
-
-.report-a-problem-container{
-  @include core-19;
-  clear:both;
-  background-color:#D5E8F3;
-  margin: 3em 0 2em 1.75em;
-  padding: 0.5em 1em 1em 1em;
-
-  div{
-    width:98%;
-    padding-top:0.5em;
-    text-align:right;
-
-    .button{
-      margin-right: -0.5em;
-    }
-  }
-  label{
-    padding:0 0 0.5em 0;
-    display:block;
-    input{
-      margin:0;
-      display:block;
-      width:98%;
-    }
-  }
-
-  @include media-down(mobile) {
-    margin: 0 1em 2em 1em;
-  }
-}
-
 /* bunting lol */
 .epic-bunting {
   width: 100%;
