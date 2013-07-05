@@ -4,6 +4,7 @@
 @import "_css3";
 @import "_device-pixels";
 @import "_typography";
+@import "design-patterns/_buttons";
 
 /* local styleguide includes */
 @import "styleguide/_colours";
@@ -13,3 +14,4 @@
 @import "basic";
 @import "accessibility";
 @import "header-footer";
+@import "_report-a-problem";
