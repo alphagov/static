@@ -181,7 +181,6 @@ h4 {
 
     @include media-down(mobile) {
       font-size: 17px;
-      font-size: 1.7rem;
       margin-bottom: 0.625em;
     }
   }
@@ -451,15 +450,15 @@ body.full-width {
 }
 
 /* Business support format */
-.business_support article.tab-pane { 
-  width: auto; 
+.business_support article.tab-pane {
+  width: auto;
 }
 .business_support .support-info {
   background: #E1E8E8;
   border-left: 1px solid #BBB;
 }
-.business_support section.support-info:last-child { 
-  border-bottom: 1px dotted #BBB; 
+.business_support section.support-info:last-child {
+  border-bottom: 1px dotted #BBB;
 }
 .business_support .support-info h2 {
   @include core-16($line-height: 1.25);
@@ -493,7 +492,6 @@ body.full-width {
 
 .relevant-authority {
   margin: 0 0 20px 84px;
-  margin: 0 0 2rem 8.4rem;
 
   h2 {
     margin: 0;
@@ -503,12 +501,10 @@ body.full-width {
 .licence .intro form {
   ul {
     padding-left: 12px;
-    padding-left: 1.2rem;
   }
   li { list-style: none;
     label {
       padding-left: 5px;
-      padding-left: 0.5rem;
     }
   }
 }
@@ -827,9 +823,7 @@ article {
 
   @include media-down(mobile) {
     bottom: 20px;
-    bottom: 2rem;
     right: 16px;
-    right: 1.6rem;
   }
 }
 
@@ -868,7 +862,6 @@ article {
     @include media-down(mobile) {
       float: none;
       margin: 0 -16px;
-      margin: 0 -1.6rem;
     }
   }
 
@@ -906,7 +899,6 @@ article {
         height: auto;
         line-height: 3.5em;
         padding: 0 16px;
-        padding: 0 1.6rem;
         text-align: left;
         margin-bottom: 0;
         border-bottom: 1px solid $grey-6;
@@ -951,7 +943,7 @@ article {
   }
 }
 
-/* give tabs the whole width of the central column in 2-column grids */ 
+/* give tabs the whole width of the central column in 2-column grids */
 #wrapper.answer article .inner .nav-tabs,
 #wrapper.transaction article .inner .nav-tabs,
 #wrapper.local_transaction article .inner .nav-tabs {
@@ -1014,7 +1006,7 @@ article {
       @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
       background: #FFF image-url('accordian-arrow.png') no-repeat 100% -2px;
       display: block;
-      padding: 0 1.6rem;
+      padding: 0 16px;
       position: relative;
       text-align: left;
       text-decoration:underline;
@@ -1103,41 +1095,6 @@ article {
 .js-tab-content .report-a-problem-toggle {
   @include media-down(mobile) {
     margin-top:2em;
-  }
-}
-
-.js-enabled .report-a-problem-container{
-  display:none;
-}
-
-.report-a-problem-container{
-  @include core-19;
-  clear:both;
-  background-color:#D5E8F3;
-  margin: 3em 0 2em 1.75em;
-  padding: 0.5em 1em 1em 1em;
-
-  div{
-    width:98%;
-    padding-top:0.5em;
-    text-align:right;
-
-    .button{
-      margin-right: -0.5em;
-    }
-  }
-  label{
-    padding:0 0 0.5em 0;
-    display:block;
-    input{
-      margin:0;
-      display:block;
-      width:98%;
-    }
-  }
-
-  @include media-down(mobile) {
-    margin: 0 1em 2em 1em;
   }
 }
 

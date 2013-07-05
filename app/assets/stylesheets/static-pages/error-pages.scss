@@ -29,13 +29,11 @@
 
   .report-a-problem {
     margin-top: 60px;
-    margin-top: 6rem;
 
     form {
       @include core-24;
 
       padding-top: 10px;
-      padding-top: 1rem;
 
       label {
         display: block;
@@ -48,7 +46,6 @@
       input {
         display: block;
         margin-bottom: 20px;
-        margin-bottom: 2rem;
         width: 400px;
 
         @include media(mobile) {
@@ -58,7 +55,6 @@
 
       button {
         margin-top: 10px;
-        margin-top: 1rem;
       }
     }
   }

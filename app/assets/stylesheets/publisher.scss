@@ -119,7 +119,6 @@
     @include media-down(mobile) {
       a span {
         line-height: 40px;
-        line-height: 4rem;
       }
     }
   }
@@ -160,13 +159,11 @@ aside .show-all-parts {
   border-width: 1px 0;
 
   padding: 0 16px;
-  padding: 0 1.6rem;
   display: none;
 
   @include media-down(mobile) {
     display: block;
     background: transparent image-url("accordian-arrow.png") 100% 6px no-repeat;
-    background-position: 100% 0.6rem;
   }
 
   @include device-pixel-ratio() {
@@ -182,7 +179,6 @@ aside .show-all-parts {
 
   &.show-all-parts-open {
     background-position: 100% -40px;
-    background-position: 100% -4rem;
     border-bottom: none;
   }
 }
@@ -241,12 +237,15 @@ aside .page-navigation {
         float: left;
       }
 
-      &:hover span.part-title {
-        color: #2E3191;
+      span {
+        cursor: pointer;
       }
 
-      span.part-description {
-        color: #2E3191;
+      &:hover span.part-title, 
+      &:focus span.part-title, 
+      &:hover span.part-description, 
+      &:focus span.part-description {
+        color: $link-hover-colour;
       }
     }
 
@@ -277,8 +276,8 @@ aside .page-navigation {
       }
 
       &.part-description {
-        color: $grey-0;
         line-height: 1.25;
+        display: block;
         clear: left;
       }
 
@@ -520,7 +519,6 @@ aside .page-navigation-closed {
 
   @include media-down(mobile) {
     margin: 1.2em -1em;
-    margin: 2rem -1.6rem;
     padding-left: 1em;
     padding-right: 1em;
   }
@@ -533,9 +531,7 @@ aside .page-navigation-closed {
 
     @include media-down(mobile) {
       margin-left: -2.5em;
-      margin-left: -4rem;
       padding-right: 2.5em;
-      padding-right: 4rem;
     }
   }
 
