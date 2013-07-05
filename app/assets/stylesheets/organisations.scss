@@ -1,7 +1,6 @@
 @mixin organisation-logo-19 {
   font-family: $Helvetica-Regular;
   font-size: 19px;
-  font-size: 1.9rem;
   line-height: (20/19); /* 20px */
   font-weight: 400;
   text-transform: none;
@@ -14,27 +13,23 @@
   width: auto;
 
   @include media-down(mobile) {
-    font-size: 1.3rem;
+    font-size: 13px;
     line-height: (15/13);
     background-image: image-url("coa-default-18.gif");
   }
 
   span {
     padding-top: 30px;
-    padding-top: 3rem;
     margin-left: 10px;
-    margin-left: 1rem;
     display: block;
 
     @include media-down(mobile) {
       padding-top: 23px;
-      padding-top: 2.3rem;
     }
   }
 
   &.single-line {
     padding: 5px 0 5px 45px;
-    padding: 0.5rem 0 0.5rem 4.5rem;
     background-position: 8px 50%;
 
     span {
@@ -44,7 +39,6 @@
 
     @include media-down(mobile) {
       padding: 1px 0 1px 31px;
-      padding: 0.1rem 0 0.1rem 3.1rem;
       background-position: 5px 50%;
     }
   }
