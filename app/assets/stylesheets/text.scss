@@ -100,7 +100,6 @@ article li {
 
   @include media-down(mobile) {
     margin-left: 16px;
-    margin-left: 1.6rem;
     padding-left: 0;
   }
 
@@ -224,7 +223,7 @@ article td {
 /* reduce table font size on very small screens */
 @media screen and (max-width: 320px) {
   article th, article td, article td small {
-    font-size: 1rem;
+    font-size: 10px;
   }
 }
 
@@ -481,7 +480,7 @@ article .form-download {
 }
 
 article .address {
-  background: $grey-9;  
+  background: $grey-9;
   margin: 0.75em 0 1.5em 0;
   padding: 1em 0 1em 2em;
   min-width: 35%;
