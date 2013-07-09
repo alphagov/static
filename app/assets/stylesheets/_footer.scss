@@ -217,6 +217,10 @@
         position: relative;
         padding-left: 53px;
 
+        @include media-down(mobile) {
+          padding-left: 0;
+        }
+
         h2 {
           position: absolute;
           left: 0;
