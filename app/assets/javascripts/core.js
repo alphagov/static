@@ -101,10 +101,6 @@ $(document).ready(function() {
     }
   });
 
-  if(window.location.hash && $(".design-principles").length != 1 && $('.section-page').length != 1) {
-    contentNudge(window.location.hash);
-  }
-
   $("nav").delegate('a', 'click', function(){
     var hash;
     var href = $(this).attr('href');
@@ -118,14 +114,6 @@ $(document).ready(function() {
       $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
     }
   });
-
-  function contentNudge(hash){
-    if($(hash).length == 1){
-      if($(hash).css("top") == "auto" || "0"){
-        $(window).scrollTop( $(hash).offset().top - $("#global-header").height()  );
-      }
-    }
-  }
 
   // toggle for reporting a problem (on all content pages)
   $('.report-a-problem-toggle a').on('click', function() {
