@@ -348,7 +348,7 @@ article .intro {
 }
 
 article .example {
-  border-left: 5px solid $grey-9;
+  border-left: 10px solid $grey-9;
   padding-left: 1.5em;
   margin: 2.5em 0;
   //margin: 0.75em -1em;
@@ -377,9 +377,7 @@ article .subscribe {
 }
 
 article .application-notice {
-  p {
-    //font-weight:600;
-  }
+  padding: 0.1em 0 0.1em 1em;
 }
 
 article .advisory.minor {
@@ -395,6 +393,14 @@ article .help-notice {
   @include device-pixel-ratio() {
     background-image: image-url("icon-important-2x.png");
     background-size: 29px 24px;
+  }
+
+  p {
+    font-weight:600;
+
+    a {
+      font-weight:600;
+    }
   }
 }
 
@@ -414,7 +420,7 @@ article .subscribe {
 
 article .info-notice {
   background: none; //image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
-  border-left: 5px #0B0C0C solid;
+  border-left: 10px $grey-8 solid;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-information-2x.png");
@@ -426,6 +432,15 @@ article .help-notice p,
 article .info-notice p,
 article .subscribe p {
   padding-right: 4em;
+  //margin:0.5em 0;
+}
+
+article .info-notice p {
+  padding: 0 1em 0 0;
+}
+
+article .help-notice p {
+  padding: 0 1em 0 2em;
 }
 
 
