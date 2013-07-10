@@ -388,7 +388,7 @@ article .advisory.minor {
 article .help-notice {
   //background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
   background:none;
-  background: image-url("icon-important.png") no-repeat scroll 0 1.5em;
+  background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-important-2x.png");
