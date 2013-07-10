@@ -470,6 +470,10 @@ article .form-download {
     display: block;
     font-weight: 600;
   }
+
+  a[rel="external"]:after {
+    content: none;
+  }
 }
 
 
