@@ -378,7 +378,7 @@ article .subscribe {
 
 article .application-notice {
   p {
-    font-weight:600;
+    //font-weight:600;
   }
 }
 
@@ -414,6 +414,7 @@ article .subscribe {
 
 article .info-notice {
   background: none; //image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+  border-left: 5px #0B0C0C solid;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-information-2x.png");
