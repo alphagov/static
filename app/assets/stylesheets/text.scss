@@ -137,7 +137,7 @@ article ul, article ol {
 */
 article .example ul,
 article .example ol {
-  margin-left: -1.2em;
+  margin-left:0.5em;
 }
 
 article ul {
@@ -347,9 +347,9 @@ article .intro {
 }
 
 article .example {
-  background: $grey-9;
-  margin: 0.75em -1em;
-  padding: 0.5em 1em;
+  border-left: 10px solid $grey-9;
+  padding-left: 1.5em;
+  margin: 2.5em 0;
 
   strong {
     display: block;
@@ -364,13 +364,15 @@ article .application-notice,
 article .advisory.minor,
 article .form-download,
 article .subscribe {
-  background-color: #d5e8f3;
-  margin: 1em -1em 1.5em -1em;
-  padding: 0.25em 1em 0.25em 1em;
+  padding: 0.25em 0 0.25em 3.5em;
 
   @include media-down(mobile) {
     margin: 1em 0 1.5em 0;
   }
+}
+
+article .application-notice {
+  padding: 0.1em 0 0.1em 1em;
 }
 
 article .advisory.minor {
@@ -379,11 +381,20 @@ article .advisory.minor {
 }
 
 article .help-notice {
-  background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
+  background:none;
+  background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-important-2x.png");
     background-size: 29px 24px;
+  }
+
+  p {
+    font-weight:600;
+
+    a {
+      font-weight:600;
+    }
   }
 }
 
@@ -402,7 +413,8 @@ article .subscribe {
 }
 
 article .info-notice {
-  background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+  background: none;
+  border-left: 10px $grey-8 solid;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-information-2x.png");
@@ -416,6 +428,14 @@ article .subscribe p {
   padding-right: 4em;
 }
 
+article .info-notice p {
+  padding: 0 1em 0 0;
+}
+
+article .help-notice p {
+  padding: 0 1em 0 2em;
+}
+
 
 article p + .help-notice,
 article p + .info-notice {
@@ -427,7 +447,7 @@ article .info-notice a[rel="external"] {
 }
 
 article .form-download {
-  background: image-url("icon-file-download.png") no-repeat scroll 98% 1em #D5E8F3;
+  padding: 0.25em 0 0.25em 0;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-file-download-2x.png");
@@ -440,6 +460,14 @@ article .form-download {
 
   a {
     display: block;
+    font-weight: 600;
+    background: image-url("icon-file-download.png") no-repeat scroll 0 0;
+    min-height: 2.5em;
+    padding:0 0 0 2.5em;
+  }
+
+  a[rel="external"]:after {
+    content: none;
   }
 }
 

@@ -1,3 +1,10 @@
+PATH
+  remote: ../govuk_frontend_toolkit_gem
+  specs:
+    govuk_frontend_toolkit (0.30.0)
+      rails (>= 3.1.0)
+      sass (>= 3.2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/
@@ -53,9 +60,6 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.1.5)
-    govuk_frontend_toolkit (0.31.0)
-      rails (>= 3.1.0)
-      sass (>= 3.2.0)
     hike (1.2.1)
     i18n (0.6.1)
     jasmine (1.1.2)
@@ -168,7 +172,7 @@ DEPENDENCIES
   aws-ses
   capybara (= 1.1.0)
   exception_notification
-  govuk_frontend_toolkit (= 0.31.0)
+  govuk_frontend_toolkit!
   jasmine (= 1.1.2)
   lograge (~> 0.1.0)
   mocha (= 0.13.3)
