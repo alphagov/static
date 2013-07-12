@@ -96,7 +96,7 @@ $(document).ready(function() {
     $(e.target).addClass('focus');
   });
   $searchFocus.on('blur', function(e){
-    if($searchFocus.val() === ''){
+    if($(e.target).val() === ''){
       $(e.target).removeClass('focus');
     }
   });
