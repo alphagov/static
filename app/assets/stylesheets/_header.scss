@@ -206,7 +206,7 @@
       width: 35px;
       height: 35px;
 
-      border: 1px solid $button-colour;
+      border: 1px solid $mainstream-brand;
       border-width: 0 0 0 1px;
       @include ie-lte(7){
         border-width: 1px;
@@ -218,7 +218,7 @@
       text-indent: -5000px;
 
       color: $white;
-      background-color: $button-colour;
+      background-color: $mainstream-brand;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -234,7 +234,7 @@
       }
 
       &:hover {
-        background-color: darken($button-colour, 5%);
+        background-color: darken($mainstream-brand, 5%);
       }
     }
 
@@ -436,7 +436,7 @@
   }
 
   ol {
-    border-top: 10px solid $button-colour;
+    border-top: 10px solid $mainstream-brand;
     max-width: 960px;
     margin: 0 30px;
     padding: 0.75em 0;
