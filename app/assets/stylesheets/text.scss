@@ -198,7 +198,7 @@ article th, article td {
   @include core-16;
   vertical-align: top;
   padding: 0.7em 0.5em 0.7em 1em;
-  
+
   a[rel="external"] {
     @include external-link-16;
     @include media-down(mobile) {
@@ -415,11 +415,6 @@ article .subscribe {
 article .info-notice {
   background: none;
   border-left: 10px $grey-8 solid;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-information-2x.png");
-    background-size: 27px 27px;
-  }
 }
 
 article .help-notice p,
@@ -449,11 +444,6 @@ article .info-notice a[rel="external"] {
 article .form-download {
   padding: 0.25em 0 0.25em 0;
 
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-file-download-2x.png");
-    background-size: 25px 25px;
-  }
-
   p {
     padding-right: 3em;
   }
@@ -464,6 +454,11 @@ article .form-download {
     background: image-url("icon-file-download.png") no-repeat scroll 0 0;
     min-height: 2.5em;
     padding:0 0 0 2.5em;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-file-download-2x.png");
+      background-size: 25px 25px;
+    }
   }
 
   a[rel="external"]:after {
@@ -598,7 +593,7 @@ article ol.steps {
     @for $i from 1 through 14 {
       &:nth-child(#{$i}) {
         background-image: image-url("icon-step-#{$i}.png");
-        
+
         @include device-pixel-ratio() {
           background-image: image-url("icon-step-#{$i}-2x.png");
           background-size: 24px 24px;
@@ -643,7 +638,7 @@ article ol.steps {
     p {
       font-size: 1em;
       line-height: inherit;
-      
+
       em {
         font-size: 1em;
         display: inline;
