@@ -89,9 +89,11 @@ $(document).ready(function() {
   });
 
   var $searchFocus = $('.js-search-focus');
-  if($searchFocus.val() !== ''){
-    $searchFocus.addClass('focus');
-  }
+  $searchFocus.each(function(i, el){
+    if($(el).val() !== ''){
+      $(el).addClass('focus');
+    }
+  });
   $searchFocus.on('focus', function(e){
     $(e.target).addClass('focus');
   });
