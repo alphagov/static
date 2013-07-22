@@ -60,7 +60,7 @@
   }
 
   @include media(mobile) {
-    .page-header hgroup {
+    .page-header div {
       padding-left: 1em;
     }
   }
