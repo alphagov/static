@@ -6,25 +6,34 @@
   <div class="related-container">
 
     <div class="related" id="related">
-      <div class="inner group">
+      <% artefact.related_artefacts.group_by(&:group).each do |group, related_artefacts| %>
+        <div class="inner group related-<%= group %>">
+          <% if group == "subsection" and section = artefact.primary_section %>
+          <h2 id="parent-subsection"><%= h section["title"] %></h2>
+          <% elsif group == "section" and section = artefact.primary_root_section %>
+          <h2 id="parent-section"><%= h section["title"] %></h2>
+          <% elsif group == "other" %>
+          <h2 id="parent-other">Elsewhere on GOV.UK</h2>
+          <% end %>
 
-        <% if root_section = artefact.primary_root_section %>
-        <h2 id="parent-section"><%= h root_section["title"] %></h2>
-        <% end %>
-        <nav role="navigation" aria-labelledby="parent-section">
-          <ul>
-            <% artefact.related_artefacts.each do |item| %>
-              <li>
-                <a href="<%= h item.web_url %>"><%= h item.title %></a>
-              </li>
-            <% end %>
-            <% if root_section = artefact.primary_root_section %>
-              <li class="related-topic"><a href="<%= h root_section["content_with_tag"]["web_url"] %>"
-                >More</a></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a class="return-to-top" href="#content">Return to top &uarr;</a>
+          <nav role="navigation" aria-labelledby="parent-section">
+            <ul>
+              <% related_artefacts.each do |item| %>
+                <li>
+                  <a href="<%= h item.web_url %>"><%= h item.title %></a>
+                </li>
+              <% end %>
+              <% if section %>
+                <li class="related-topic"><a href="<%= h section["content_with_tag"]["web_url"] %>"
+                  >view all</a></li>
+              <% end %>
+            </ul>
+          </nav>
+       </div>
+     <% end %>
+
+     <div class="inner group">
+       <a class="return-to-top" href="#content">Return to top &uarr;</a>
      </div>
 
      <div id="legacy-sources">
