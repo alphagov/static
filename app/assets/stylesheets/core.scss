@@ -343,7 +343,7 @@ header.page-header {
       left:-9999em;
     }
 
-    hgroup {
+    div {
       background-color: #fff;
       display: block;
       margin: 0 24em 0 0;
@@ -376,18 +376,18 @@ header.page-header {
 }
 
 body.full-width {
-  header.page-header hgroup,
+  header.page-header div,
   .article-container,
   article {
     margin-right: 0;
   }
 }
 
-#wrapper.service header.page-header hgroup,
-#wrapper.licence header.page-header hgroup,
-#wrapper.video header.page-header hgroup,
-#wrapper.answer header.page-header hgroup,
-#wrapper.guide header.page-header hgroup {
+#wrapper.service header.page-header div,
+#wrapper.licence header.page-header div,
+#wrapper.video header.page-header div,
+#wrapper.answer header.page-header div,
+#wrapper.guide header.page-header div {
   padding-left: 2em;
 
   h1 {
@@ -410,8 +410,8 @@ body.full-width {
   }
 }
 
-#wrapper.programme header.page-header hgroup,
-#wrapper.service header.page-header hgroup {
+#wrapper.programme header.page-header div,
+#wrapper.service header.page-header div {
 
 
   @include media-down(mobile) {
@@ -423,10 +423,10 @@ body.full-width {
   }
 }
 
-#wrapper.programme header.page-header hgroup,
-#wrapper.service header.page-header hgroup,
-#wrapper.licence header.page-header hgroup,
-#wrapper.video header.page-header hgroup {
+#wrapper.programme header.page-header div,
+#wrapper.service header.page-header div,
+#wrapper.licence header.page-header div,
+#wrapper.video header.page-header div {
   @include media($min-width: 1182px) {
     padding-left: 0;
 
@@ -437,8 +437,8 @@ body.full-width {
   }
 }
 
-#wrapper.answer header.page-header hgroup,
-#wrapper.guide header.page-header hgroup {
+#wrapper.answer header.page-header div,
+#wrapper.guide header.page-header div {
   @include media($min-width: 1132px) {
     padding-left: 0;
 
