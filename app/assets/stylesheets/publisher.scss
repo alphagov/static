@@ -48,12 +48,12 @@
 }
 
 #content.single-page {
-  header hgroup,
+  header div,
   article {
     width: auto;
   }
 
-  header hgroup {
+  header div {
     padding-bottom: 1em;
   }
 
