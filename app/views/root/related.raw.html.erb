@@ -7,13 +7,16 @@
 
     <div class="related" id="related">
       <% artefact.related_artefacts.group_by(&:group).each do |group, related_artefacts| %>
+        <%
+          section = case group
+                    when 'subsection' then artefact.primary_section
+                    when 'section' then artefact.primary_root_section
+                    when 'other' then { "title" => "Elsewhere on GOV.UK" }
+                    end
+        %>
         <div class="inner group related-<%= group %>">
-          <% if group == "subsection" and section = artefact.primary_section %>
-          <h2 id="parent-subsection"><%= h section["title"] %></h2>
-          <% elsif group == "section" and section = artefact.primary_root_section %>
-          <h2 id="parent-section"><%= h section["title"] %></h2>
-          <% elsif group == "other" %>
-          <h2 id="parent-other">Elsewhere on GOV.UK</h2>
+          <% if section %>
+          <h2 id="parent-<%= group %>"><%= h section["title"] %></h2>
           <% end %>
 
           <nav role="navigation" aria-labelledby="parent-section">
@@ -23,7 +26,7 @@
                   <a href="<%= h item.web_url %>"><%= h item.title %></a>
                 </li>
               <% end %>
-              <% if section %>
+              <% if section and section["content_with_tag"] and section["content_with_tag"]["web_url"].present? %>
                 <li class="related-topic"><a href="<%= h section["content_with_tag"]["web_url"] %>"
                   >view all</a></li>
               <% end %>

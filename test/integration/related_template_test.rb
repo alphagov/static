@@ -10,13 +10,14 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
 
   context "with related artefacts" do
     setup do
-      @related1 = stub("Artefact", :web_url => "http://www.example.com/foo", :title => "Foo", :group => "subsection" )
+      @related1 = stub("Artefact", :web_url => "http://www.example.com/foo", :title => "Foo", :group => "subsection")
       @related2 = stub("Artefact", :web_url => "http://www.example.com/bar", :title => "Bar", :group => "section")
       @related3 = stub("Artefact", :web_url => "http://www.example.com/baz", :title => "Baz", :group => "other")
       @artefact = stub("Artefact",
         :related_artefacts => [@related1, @related2, @related3],
         :primary_root_section => { "title" => "Section", "content_with_tag" => { "web_url" => "/browse/section" }},
-        :primary_section => { "title" => "Sub-section", "content_with_tag" => { "web_url" => "/browse/section/subsection" } }
+        :primary_section => { "title" => "Sub-section", "content_with_tag" => { "web_url" => "/browse/section/subsection" } },
+        :format => "guide"
       )
     end
 
