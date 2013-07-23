@@ -153,8 +153,7 @@ h4 {
   }
 
   .inner {
-    background-color: $white;;
-    border-bottom: 10px solid $grey-8;
+    background-color: $white;
     padding: 0.5em 1em 0 0;
     width: auto;
 
@@ -168,7 +167,7 @@ h4 {
   }
 
   nav {
-    margin-bottom: 2.5em;
+    margin-bottom: 1.25em;
   }
 
   h2 {
@@ -201,8 +200,11 @@ h4 {
       list-style: none outside none;
 
       a {
-        padding: 0;
-        font-weight: bold;
+        padding: 0 0.5em;
+        display: inline;
+        text-decoration: none;
+        background-color: $light-blue-25;
+        font-weight: normal;
       }
     }
 

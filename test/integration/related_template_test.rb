@@ -10,9 +10,15 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
 
   context "with related artefacts" do
     setup do
-      @related1 = stub("Artefact", :web_url => "http://www.example.com/foo", :title => "Foo")
-      @related2 = stub("Artefact", :web_url => "http://www.example.com/bar", :title => "Bar")
-      @artefact = stub("Artefact", :related_artefacts => [@related1, @related2], :primary_root_section => { "content_with_tag" => { "web_url" => "/browse/section" }})
+      @related1 = stub("Artefact", :web_url => "http://www.example.com/foo", :title => "Foo", :group => "subsection")
+      @related2 = stub("Artefact", :web_url => "http://www.example.com/bar", :title => "Bar", :group => "section")
+      @related3 = stub("Artefact", :web_url => "http://www.example.com/baz", :title => "Baz", :group => "other")
+      @artefact = stub("Artefact",
+        :related_artefacts => [@related1, @related2, @related3],
+        :primary_root_section => { "title" => "Section", "content_with_tag" => { "web_url" => "/browse/section" }},
+        :primary_section => { "title" => "Sub-section", "content_with_tag" => { "web_url" => "/browse/section/subsection" } },
+        :format => "guide"
+      )
     end
 
     should "add an item for each related item" do
@@ -39,6 +45,20 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
       assert_match /foo\?bar=baz&amp;id=2/, result
     end
 
+    should "add the subsection links if present" do
+      @artefact.stubs(:primary_section).returns({
+        "title" => "Subsection",
+        "content_with_tag" => {"web_url" => "http://www.example.com/browse/section/subsection"},
+      })
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      assert doc.at_css("ul li.related-topic a[href='http://www.example.com/browse/section/subsection']")
+      assert_equal "view all", doc.at_css("ul li a[href='http://www.example.com/browse/section/subsection']").text
+    end
+
     should "add the section link if present" do
       @artefact.stubs(:primary_root_section).returns({
         "title" => "Something",
@@ -50,7 +70,35 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
       doc = Nokogiri::HTML.parse(result)
 
       assert doc.at_css("ul li.related-topic a[href='http://www.example.com/browse/something']")
-      assert_equal "More", doc.at_css("ul li a[href='http://www.example.com/browse/something']").text
+      assert_equal "view all", doc.at_css("ul li a[href='http://www.example.com/browse/something']").text
+    end
+
+    should "add the internal links elsewhere if present" do
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      assert_equal "Elsewhere on GOV.UK", doc.at_css("h2#parent-other").text
+    end
+
+    should "use the second-level section name for travel advice formats" do
+      @artefact.stubs(:format).returns("travel-advice")
+      @artefact.stubs(:primary_section).returns({
+        "title" => "Foreign travel advice",
+        "content_with_tag" => {"web_url" => "/foreign-travel-advice"},
+        "parent" => {
+          "title" => "Foo",
+          "content_with_tag" => {"web_url" => "/browse/abc/foo"}
+        }
+      })
+
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      assert_equal "Foo", doc.at_css("h2#parent-subsection").text
     end
   end
 
