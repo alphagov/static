@@ -20,7 +20,7 @@
           <h2 id="parent-<%= group %>"><%= h section["title"] %></h2>
           <% end %>
 
-          <nav role="navigation" aria-labelledby="parent-section">
+          <nav role="navigation" aria-labelledby="parent-<%= group %>">
             <ul>
               <% related_artefacts.each do |item| %>
                 <li>
