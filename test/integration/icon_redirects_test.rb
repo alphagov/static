@@ -21,6 +21,12 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
       assert_equal 200, last_response.status
       assert last_response.body.size > 100
     end
+
+    should "ignore query string when redirecting #{file}" do
+      get "/#{file}?foo=bar"
+      assert_equal 301, last_response.status
+      assert_equal "http://example.org/static/#{file}", last_response.location
+    end
   end
 
   [
