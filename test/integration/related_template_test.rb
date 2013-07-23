@@ -81,6 +81,25 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
 
       assert_equal "Elsewhere on GOV.UK", doc.at_css("h2#parent-other").text
     end
+
+    should "use the second-level section name for travel advice formats" do
+      @artefact.stubs(:format).returns("travel-advice")
+      @artefact.stubs(:primary_section).returns({
+        "title" => "Foreign travel advice",
+        "content_with_tag" => {"web_url" => "/foreign-travel-advice"},
+        "parent" => {
+          "title" => "Foo",
+          "content_with_tag" => {"web_url" => "/browse/abc/foo"}
+        }
+      })
+
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      assert_equal "Foo", doc.at_css("h2#parent-subsection").text
+    end
   end
 
   should "be blank with no artefact" do

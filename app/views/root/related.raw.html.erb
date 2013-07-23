@@ -13,6 +13,7 @@
                     when 'section' then artefact.primary_root_section
                     when 'other' then { "title" => "Elsewhere on GOV.UK" }
                     end
+          section = section['parent'] if artefact.format == "travel-advice" and group == "subsection"
         %>
         <div class="inner group related-<%= group %>">
           <% if section %>
