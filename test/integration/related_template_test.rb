@@ -15,6 +15,7 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
       @related3 = stub("Artefact", :web_url => "http://www.example.com/baz", :title => "Baz", :group => "other")
       @artefact = stub("Artefact",
         :related_artefacts => [@related1, @related2, @related3],
+        :related_external_links => [],
         :primary_root_section => { "title" => "Section", "content_with_tag" => { "web_url" => "/browse/section" }},
         :primary_section => { "title" => "Sub-section", "content_with_tag" => { "web_url" => "/browse/section/subsection" } },
         :format => "guide"
@@ -100,6 +101,99 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
 
       assert_equal "Foo", doc.at_css("h2#parent-subsection").text
     end
+
+    context "adding related_external_links" do
+      should "add the 'Elsewhere on the web' section with the links" do
+        @artefact.stubs(:related_external_links).returns(
+          [
+            {"title" => "Foo", "url" => "http://www.foo.com/"},
+            {"title" => "Bar", "url" => "http://www.bar.com/"},
+          ]
+        )
+
+        template = get_template
+        artefact = @artefact
+        result = ERB.new(template).result(binding)
+        doc = Nokogiri::HTML.parse(result)
+
+        assert doc.at_css("h2#related-external-links")
+
+        links = doc.css('nav[aria-labelledby=related-external-links] li a')
+        assert_equal ["Foo", "Bar"], links.map(&:text)
+        assert_equal ["http://www.foo.com/", "http://www.bar.com/"], links.map {|l| l[:href]}
+        assert_equal ["external", "external"], links.map {|l| l[:rel]}
+      end
+
+      should "not add the section when empty array" do
+        template = get_template
+        artefact = @artefact
+        result = ERB.new(template).result(binding)
+        doc = Nokogiri::HTML.parse(result)
+
+        refute doc.at_css("h2#related-external-links")
+      end
+
+      should "not add the section when nil" do
+        @artefact.stubs(:related_external_links).returns(nil)
+        template = get_template
+        artefact = @artefact
+        result = ERB.new(template).result(binding)
+        doc = Nokogiri::HTML.parse(result)
+
+        refute doc.at_css("h2#related-external-links")
+      end
+    end
+  end
+
+  context "adding related_external_links with no internal related links" do
+    setup do
+      @artefact = stub("Artefact",
+        :related_artefacts => [],
+        :related_external_links => [],
+        :primary_root_section => { "title" => "Section", "content_with_tag" => { "web_url" => "/browse/section" }},
+        :primary_section => { "title" => "Sub-section", "content_with_tag" => { "web_url" => "/browse/section/subsection" } },
+        :format => "guide"
+      )
+    end
+
+    should "add the 'Elsewhere on the web' section with the links" do
+      @artefact.stubs(:related_external_links).returns(
+        [
+          {"title" => "Foo", "url" => "http://www.foo.com/"},
+          {"title" => "Bar", "url" => "http://www.bar.com/"},
+        ]
+      )
+
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      assert doc.at_css("h2#related-external-links")
+
+      links = doc.css('nav[aria-labelledby=related-external-links] li a')
+      assert_equal ["Foo", "Bar"], links.map(&:text)
+      assert_equal ["http://www.foo.com/", "http://www.bar.com/"], links.map {|l| l[:href]}
+    end
+
+    should "not add the section when empty array" do
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      refute doc.at_css("h2#related-external-links")
+    end
+
+    should "not add the section when nil" do
+      @artefact.stubs(:related_external_links).returns(nil)
+      template = get_template
+      artefact = @artefact
+      result = ERB.new(template).result(binding)
+      doc = Nokogiri::HTML.parse(result)
+
+      refute doc.at_css("h2#related-external-links")
+    end
   end
 
   should "be blank with no artefact" do
@@ -110,10 +204,19 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
     assert_match /\A\s+\z/, result
   end
 
-  should "be blank with an artefact with no related_artefacts" do
+  should "be blank with an artefact with no related_artefacts or related_external_links" do
     template = get_template
 
-    artefact = stub("Artefact", :related_artefacts => [])
+    artefact = stub("Artefact", :related_artefacts => [], :related_external_links => [])
+    result = ERB.new(template).result(binding)
+
+    assert_match /\A\s+\z/, result
+  end
+
+  should "be blank with no related_artefacts and nil related_external_links" do
+    template = get_template
+
+    artefact = stub("Artefact", :related_artefacts => [], :related_external_links => nil)
     result = ERB.new(template).result(binding)
 
     assert_match /\A\s+\z/, result
