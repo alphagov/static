@@ -226,6 +226,10 @@
           padding-left: 0;
         }
 
+        @include ie(6) {
+          zoom: 1;
+        }
+
         h2 {
           position: absolute;
           left: 0;
