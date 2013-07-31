@@ -22,6 +22,7 @@ section#content {
   margin: 0 auto;
   max-width: 1020px;
   position: relative;
+  display:block;
 
   @include ie-lte(7) {
     width: 960px;
