@@ -21,3 +21,9 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'ntatabularnumbers';
+  src: asset_data_url('NTATabularNumbers-Bold.woff') format('woff');
+  font-weight: bold;
+}
