@@ -155,8 +155,7 @@ h4 {
   }
 
   .inner {
-    background-color: $white;;
-    border-bottom: 10px solid $grey-8;
+    background-color: $white;
     padding: 0.5em 1em 0 0;
     width: auto;
 
@@ -170,7 +169,7 @@ h4 {
   }
 
   nav {
-    margin-bottom: 2.5em;
+    margin-bottom: 1.25em;
   }
 
   h2 {
@@ -203,8 +202,11 @@ h4 {
       list-style: none outside none;
 
       a {
-        padding: 0;
-        font-weight: bold;
+        padding: 0 0.5em;
+        display: inline;
+        text-decoration: none;
+        background-color: $light-blue-25;
+        font-weight: normal;
       }
     }
 
@@ -345,7 +347,7 @@ header.page-header {
       left:-9999em;
     }
 
-    hgroup {
+    div {
       background-color: #fff;
       display: block;
       margin: 0 24em 0 0;
@@ -378,18 +380,18 @@ header.page-header {
 }
 
 body.full-width {
-  header.page-header hgroup,
+  header.page-header div,
   .article-container,
   article {
     margin-right: 0;
   }
 }
 
-#wrapper.service header.page-header hgroup,
-#wrapper.licence header.page-header hgroup,
-#wrapper.video header.page-header hgroup,
-#wrapper.answer header.page-header hgroup,
-#wrapper.guide header.page-header hgroup {
+#wrapper.service header.page-header div,
+#wrapper.licence header.page-header div,
+#wrapper.video header.page-header div,
+#wrapper.answer header.page-header div,
+#wrapper.guide header.page-header div {
   padding-left: 2em;
 
   h1 {
@@ -412,8 +414,8 @@ body.full-width {
   }
 }
 
-#wrapper.programme header.page-header hgroup,
-#wrapper.service header.page-header hgroup {
+#wrapper.programme header.page-header div,
+#wrapper.service header.page-header div {
 
 
   @include media-down(mobile) {
@@ -425,10 +427,10 @@ body.full-width {
   }
 }
 
-#wrapper.programme header.page-header hgroup,
-#wrapper.service header.page-header hgroup,
-#wrapper.licence header.page-header hgroup,
-#wrapper.video header.page-header hgroup {
+#wrapper.programme header.page-header div,
+#wrapper.service header.page-header div,
+#wrapper.licence header.page-header div,
+#wrapper.video header.page-header div {
   @include media($min-width: 1182px) {
     padding-left: 0;
 
@@ -439,8 +441,8 @@ body.full-width {
   }
 }
 
-#wrapper.answer header.page-header hgroup,
-#wrapper.guide header.page-header hgroup {
+#wrapper.answer header.page-header div,
+#wrapper.guide header.page-header div {
   @include media($min-width: 1132px) {
     padding-left: 0;
 

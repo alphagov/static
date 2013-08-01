@@ -8,10 +8,8 @@
 //= require user-satisfaction-survey
 //= require welcome
 //= require core
-//= require devolution
 //= require popup
 //= require geo-locator
-//= require browse
 //= require jquery.history
 //= require jquery.tabs
 //= require mobile

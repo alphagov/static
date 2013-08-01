@@ -137,7 +137,7 @@ article ul, article ol {
 */
 article .example ul,
 article .example ol {
-  margin-left: -1.2em;
+  margin-left:0.5em;
 }
 
 article ul {
@@ -198,7 +198,7 @@ article th, article td {
   @include core-16;
   vertical-align: top;
   padding: 0.7em 0.5em 0.7em 1em;
-  
+
   a[rel="external"] {
     @include external-link-16;
     @include media-down(mobile) {
@@ -347,9 +347,9 @@ article .intro {
 }
 
 article .example {
-  background: $grey-9;
-  margin: 0.75em -1em;
-  padding: 0.5em 1em;
+  border-left: 10px solid $grey-9;
+  padding-left: 1.5em;
+  margin: 2.5em 0;
 
   strong {
     display: block;
@@ -364,13 +364,15 @@ article .application-notice,
 article .advisory.minor,
 article .form-download,
 article .subscribe {
-  background-color: #d5e8f3;
-  margin: 1em -1em 1.5em -1em;
-  padding: 0.25em 1em 0.25em 1em;
+  padding: 0.25em 0 0.25em 3.5em;
 
   @include media-down(mobile) {
     margin: 1em 0 1.5em 0;
   }
+}
+
+article .application-notice {
+  padding: 0.1em 0 0.1em 1em;
 }
 
 article .advisory.minor {
@@ -379,11 +381,20 @@ article .advisory.minor {
 }
 
 article .help-notice {
-  background: image-url("icon-important.png") no-repeat scroll 98% 1em $grey-9;
+  background:none;
+  background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
 
   @include device-pixel-ratio() {
     background-image: image-url("icon-important-2x.png");
     background-size: 29px 24px;
+  }
+
+  p {
+    font-weight:600;
+
+    a {
+      font-weight:600;
+    }
   }
 }
 
@@ -402,18 +413,22 @@ article .subscribe {
 }
 
 article .info-notice {
-  background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-information-2x.png");
-    background-size: 27px 27px;
-  }
+  background: none;
+  border-left: 10px $grey-8 solid;
 }
 
 article .help-notice p,
 article .info-notice p,
 article .subscribe p {
   padding-right: 4em;
+}
+
+article .info-notice p {
+  padding: 0 1em 0 0;
+}
+
+article .help-notice p {
+  padding: 0 1em 0 2em;
 }
 
 
@@ -427,12 +442,7 @@ article .info-notice a[rel="external"] {
 }
 
 article .form-download {
-  background: image-url("icon-file-download.png") no-repeat scroll 98% 1em #D5E8F3;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-file-download-2x.png");
-    background-size: 25px 25px;
-  }
+  padding: 0.25em 0 0.25em 0;
 
   p {
     padding-right: 3em;
@@ -440,6 +450,19 @@ article .form-download {
 
   a {
     display: block;
+    font-weight: 600;
+    background: image-url("icon-file-download.png") no-repeat scroll 0 0;
+    min-height: 2.5em;
+    padding:0 0 0 2.5em;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-file-download-2x.png");
+      background-size: 25px 25px;
+    }
+  }
+
+  a[rel="external"]:after {
+    content: none;
   }
 }
 
@@ -570,7 +593,7 @@ article ol.steps {
     @for $i from 1 through 14 {
       &:nth-child(#{$i}) {
         background-image: image-url("icon-step-#{$i}.png");
-        
+
         @include device-pixel-ratio() {
           background-image: image-url("icon-step-#{$i}-2x.png");
           background-size: 24px 24px;
@@ -615,7 +638,7 @@ article ol.steps {
     p {
       font-size: 1em;
       line-height: inherit;
-      
+
       em {
         font-size: 1em;
         display: inline;

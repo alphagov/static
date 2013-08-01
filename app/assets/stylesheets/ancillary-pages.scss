@@ -1,10 +1,10 @@
 #wrapper .ancillary {
   header {
-    hgroup h1 {
+    div h1 {
       padding: 0;
     }
 
-    &.page-header hgroup {
+    &.page-header div {
       background-color: transparent;
       margin: 0;
       padding-left: 5em;
@@ -25,7 +25,7 @@
     header {
       margin: 0;
 
-      &.page-header hgroup {
+      &.page-header div {
         padding-left: 2.5em;
         padding-right: 2.5em;
       }

@@ -89,21 +89,19 @@ $(document).ready(function() {
   });
 
   var $searchFocus = $('.js-search-focus');
-  if($searchFocus.val() !== ''){
-    $searchFocus.addClass('focus');
-  }
+  $searchFocus.each(function(i, el){
+    if($(el).val() !== ''){
+      $(el).addClass('focus');
+    }
+  });
   $searchFocus.on('focus', function(e){
     $(e.target).addClass('focus');
   });
   $searchFocus.on('blur', function(e){
-    if($searchFocus.val() === ''){
+    if($(e.target).val() === ''){
       $(e.target).removeClass('focus');
     }
   });
-
-  if(window.location.hash && $(".design-principles").length != 1 && $('.section-page').length != 1) {
-    contentNudge(window.location.hash);
-  }
 
   $("nav").delegate('a', 'click', function(){
     var hash;
@@ -118,14 +116,6 @@ $(document).ready(function() {
       $("html, body").animate({scrollTop: $(hash).offset().top - $("#global-header").height()},10);
     }
   });
-
-  function contentNudge(hash){
-    if($(hash).length == 1){
-      if($(hash).css("top") == "auto" || "0"){
-        $(window).scrollTop( $(hash).offset().top - $("#global-header").height()  );
-      }
-    }
-  }
 
   // toggle for reporting a problem (on all content pages)
   $('.report-a-problem-toggle a').on('click', function() {

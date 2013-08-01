@@ -48,9 +48,6 @@ module Static
       application*.css
       print.css
       fonts*.css
-      normalize.css
-      admin/jquery*.css
-      core-admin.css
       guides-print.css
       header-footer-only*.css
       barclays-epdq-styles.css
