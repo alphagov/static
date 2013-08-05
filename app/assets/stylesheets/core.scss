@@ -396,6 +396,14 @@ body.full-width {
   article {
     margin-right: 0;
   }
+
+  header.page-header div {
+    padding-left: 2em;
+
+    @include media(mobile) {
+      padding-left: 1em;
+    }
+  }
 }
 
 #wrapper.service header.page-header div,
