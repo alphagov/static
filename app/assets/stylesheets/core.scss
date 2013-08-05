@@ -4,7 +4,7 @@
 
 #wrapper {
   background-color: $white;//$grey-9;
-  border-bottom: 10px solid $light-blue;
+  border-bottom: 10px solid $mainstream-brand;
 
   @include ie-lte(7) {
     zoom: 1;
@@ -146,7 +146,7 @@ h4 {
   margin: 3em 0 0 0;
   width: 15em;
   width: 18.75em;
-  border-top: 10px solid $light-blue;
+  border-top: 10px solid $mainstream-brand;
 
   @include media-down(tablet) {
     position: static;
