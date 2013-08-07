@@ -28,7 +28,7 @@
                 </li>
               <% end %>
               <% if section and section["content_with_tag"] and section["content_with_tag"]["web_url"].present? %>
-                <li class="related-topic"><a href="<%= h section["content_with_tag"]["web_url"] %>"
+                <li class="related-topic"><a href="<%= h section["content_with_tag"]["web_url"] %>" title="More in <%= h section["title"] %>"
                   >More <span class="visuallyhidden">in <%= h section["title"] %></span></a></li>
               <% end %>
             </ul>
