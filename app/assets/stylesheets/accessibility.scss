@@ -53,6 +53,17 @@ a:focus {
   outline: 3px solid #ffbf47;
 }
 
+/* Make skiplinks visible when they are tabbed to */
+
+.skiplink {
+  position: absolute;
+  left: -9999em;
+}
+
+.skiplink:focus {
+  position: static;
+}
+
 input:focus,
 textarea:focus,
 select:focus,
