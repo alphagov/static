@@ -2,20 +2,6 @@
  * Core global styles
  */
 
-#skiplink-container {
-  text-align: center;
-  background: $black;
-
-  div {
-    text-align: left;
-    
-    .skiplink {
-      @include inline-block;
-      margin: 0.75em 0 0 30px;
-    }
-  }
-}
-
 #wrapper {
   background-color: $white;//$grey-9;
   border-bottom: 10px solid $mainstream-brand;
@@ -31,7 +17,6 @@
   position: relative;
 }
 
-#skiplink-container div,
 main#content,
 section#content {
   margin: 0 auto;
@@ -366,6 +351,13 @@ header.page-header {
         @include inline-block;
         left: 32px;
         top: -2em;
+      }
+
+      @include media(mobile) {
+        position: relative;
+        @include inline-block;
+        left: 1em;
+        top: -1em;
       }
     }
 
