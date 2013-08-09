@@ -343,8 +343,22 @@ h4 {
 
 header.page-header {
     .skip-to-related {
-      position:absolute;
-      left:-9999em;
+      position: absolute;
+      left: -9999em;
+
+      &:focus {
+        position: relative;
+        @include inline-block;
+        left: 32px;
+        top: -2em;
+      }
+
+      @include media(mobile) {
+        position: relative;
+        @include inline-block;
+        left: 1em;
+        top: -1em;
+      }
     }
 
     div {
