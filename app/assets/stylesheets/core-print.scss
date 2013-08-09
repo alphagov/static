@@ -16,7 +16,7 @@ body {
   width: 100%;
 }
 
-section > header {
+main > header {
   position: relative;
 
   h1 {
@@ -136,6 +136,10 @@ article {
       @include core-19;
       margin: 14pt 0;
     }
+  }
+
+  select {
+    background: white;
   }
 
   .contact,
