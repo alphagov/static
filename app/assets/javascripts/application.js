@@ -16,3 +16,4 @@
 //= require browser-check
 //= require analytics
 //= require variant-testing
+//= require media-player-loader
