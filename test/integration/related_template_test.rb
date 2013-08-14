@@ -57,7 +57,7 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
       doc = Nokogiri::HTML.parse(result)
 
       assert doc.at_css("ul li.related-topic a[href='http://www.example.com/browse/section/subsection']")
-      assert_equal "view all", doc.at_css("ul li a[href='http://www.example.com/browse/section/subsection']").text
+      assert_equal "More in Subsection", doc.at_css("ul li a[href='http://www.example.com/browse/section/subsection']").text
     end
 
     should "add the section link if present" do
@@ -71,7 +71,7 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
       doc = Nokogiri::HTML.parse(result)
 
       assert doc.at_css("ul li.related-topic a[href='http://www.example.com/browse/something']")
-      assert_equal "view all", doc.at_css("ul li a[href='http://www.example.com/browse/something']").text
+      assert_equal "More in Something", doc.at_css("ul li a[href='http://www.example.com/browse/something']").text
     end
 
     should "add the internal links elsewhere if present" do
