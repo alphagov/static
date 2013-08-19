@@ -4,7 +4,7 @@ describe("success event tracking", function () {
         "<a id='guide-internal-link' href='#this-is-a-test'>link</a>" +
         "<a id='guide-external-link' href='http://www.google.com/' rel='external'>link</a>" +
         "<div id='get-started'>" +
-        "<a id='transaction-external-link' href='http://www.google.com/' rel='external'>link</a>" +
+        "<a id='transaction-external-link' href='http://www.google.com/' data-transaction-slug='test-slug' rel='external'>link</a>" +
         "</div>" +
         "</div>");
 
@@ -288,7 +288,7 @@ describe("success event tracking", function () {
 
             var href = $("#transaction-external-link").prop("href");
             var parts = href.split("/");
-            var expected = "exit?slug=&format=transaction";
+            var expected = "exit?slug=test-slug&format=transaction";
             expect(parts[3]).toEqual(expected)
         });
     });

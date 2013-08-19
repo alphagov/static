@@ -60,10 +60,15 @@ GOVUK.Analytics.startAnalytics = function () {
     var handleExternalLink = function() {
         if (success) return;
         success = true;
-        var slug = encodeURIComponent(GOVUK.Analytics.getSlug(document.URL, trackingStrategy.slugLocation)),
-            exitLink = '/exit?slug=' + slug + '&format=' + GOVUK.Analytics.Format;
+        var $link = $(this),
+            slug = $link.attr('data-transaction-slug');
 
-        $(this).prop('href', exitLink);
+        // Fall back to URL parsing if the data-attribute wasn't found
+        if (slug === undefined) {
+          slug = GOVUK.Analytics.getSlug(document.URL, trackingStrategy.slugLocation);
+        }
+
+        $link.prop('href', '/exit?slug=' + encodeURIComponent(slug) + '&format=' + GOVUK.Analytics.Format);
     };
 
     var handleInternalLink = function () {
