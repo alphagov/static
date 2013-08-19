@@ -42,6 +42,9 @@
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
     },
     randomlyShowSurveyBar: function () {
+      if ($('#user-satisfaction-survey').length <= 0) {
+        return;
+      }
       if (Math.floor(Math.random() * 50) === 0) {
         userSatisfaction.showSurveyBar();
       }
