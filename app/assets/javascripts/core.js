@@ -42,36 +42,52 @@ function recordOutboundLink(e) {
 }
 
 var ReportAProblem = {
-  handleErrorInSubmission: function (jqXHR) {
-    var response = $.parseJSON(jqXHR.responseText);
-    if (response.message !== '') {
-      $('.report-a-problem-container').html(response.message);
-    }
+  showErrorMessage: function (jqXHR) {
+    var response = "<p>Sorry, we're unable to receive your message right now.</p> " +
+                   "<p>We have other ways for you to provide feedback on the " +
+                   "<a href='/feedback'>support page</a>.</p>"
+    $('.report-a-problem-container').html(response);
+  },
+
+  promptUserToEnterValidData: function() {
+    ReportAProblem.enableSubmitButton();
+    $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container p:first-child');
+  },
+
+  disableSubmitButton: function() {
+    $('.report-a-problem-container .button').attr("disabled", true);
+  },  
+
+  enableSubmitButton: function() {
+    $('.report-a-problem-container .button').attr("disabled", false);
+  },
+
+  showConfirmation: function(data) {
+    $('.report-a-problem-container').html(data.message);
   },
 
   submit: function() {
     $('.report-a-problem-container .error-notification').remove();
 
-    var submitButton = $(this).find('.button');
-    submitButton.attr("disabled", true);
+    ReportAProblem.disableSubmitButton();
     $.ajax({
       type: "POST",
       url: "/feedback",
       dataType: "json",
       data: $('.report-a-problem-container form').serialize(),
-      success: function(data) {
-        $('.report-a-problem-container').html(data.message);
-      },
-      error: function(jqXHR) {
-        if (jqXHR.status == 422) {
-          submitButton.attr("disabled", false);
-          $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container p:first-child');
-        } else {
-          ReportAProblem.handleErrorInSubmission(jqXHR);
+      success: ReportAProblem.showConfirmation,
+      complete: function(jqXHR, status) {
+        if (status === 'error' || !jqXHR.responseText) {
+          if (jqXHR.status == 422) {
+            ReportAProblem.promptUserToEnterValidData();
+          }
+          else {
+            ReportAProblem.showErrorMessage();
+          }
         }
       },
       statusCode: {
-        500: ReportAProblem.handleErrorInSubmission
+        500: ReportAProblem.showErrorMessage
       }
     });
     return false;
