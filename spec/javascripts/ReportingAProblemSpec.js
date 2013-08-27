@@ -35,7 +35,7 @@ describe("form submission for reporting a problem", function () {
     describe("if the request is invalid", function() {
         it("should re-enable the submit button, in order to allow the user to resubmit", function () {
             spyOn($, "ajax").andCallFake(function(options) {
-                options.error({status: 422});
+                options.error({status: 422}, 'error');
             });
 
             form.triggerHandler('submit');
@@ -46,15 +46,15 @@ describe("form submission for reporting a problem", function () {
     });
 
     describe("if the request has failed with a status 500", function() {
-        it("should replace the form with the error message from the AJAX call", function() {
+        it("should display an error message", function() {
             spyOn($, "ajax").andCallFake(function(options) {
-                options.statusCode[500]({responseText: '{"message": "big failure"}'});
+                options.statusCode[500]({responseText: 'this might not even be JSON because nginx intercepts the error'});
             });
 
             form.triggerHandler('submit');
 
             expect(form).not.toBeVisible();
-            expect($('.report-a-problem-container').html()).toEqual('big failure');
+            expect($('.report-a-problem-container').html()).toContain("Sorry, we're unable to receive your message");
         });
     });
 });
