@@ -33,7 +33,7 @@ var ReportAProblem = {
       dataType: "json",
       data: $('.report-a-problem-container form').serialize(),
       success: ReportAProblem.showConfirmation,
-      complete: function(jqXHR, status) {
+      error: function(jqXHR, status) {
         if (status === 'error' || !jqXHR.responseText) {
           if (jqXHR.status == 422) {
             ReportAProblem.promptUserToEnterValidData();

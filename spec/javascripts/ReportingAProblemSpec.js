@@ -35,7 +35,7 @@ describe("form submission for reporting a problem", function () {
     describe("if the request is invalid", function() {
         it("should re-enable the submit button, in order to allow the user to resubmit", function () {
             spyOn($, "ajax").andCallFake(function(options) {
-                options.complete({status: 422}, 'error');
+                options.error({status: 422}, 'error');
             });
 
             form.triggerHandler('submit');
