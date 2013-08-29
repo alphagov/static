@@ -35,4 +35,20 @@
   @include media-down(mobile) {
     margin: 0 1em 2em 1em;
   }
+
+
+  input{
+    &[type="text"],
+    &[type="search"]{
+      @include core-16($line-height: (20 / 16));
+      border: 1px solid #bbb;
+      min-width: 8em;
+      margin: 0 0.5em;
+      padding: 0.25em;
+    
+      @include ie-lte(7) {
+        width:8em;
+      }
+    }
+  }
 }
