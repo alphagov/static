@@ -5,8 +5,7 @@
 .report-a-problem-container{
   
   clear:both;
-  margin: 1em 0 2em 1em;
-  padding: 0.5em 1em 1em 1em;
+  margin: 3em 0 2em 2em;
 
   p {
     @include core-24;
@@ -18,11 +17,13 @@
 
     .button{
       @include button;
+      @include core-19;
     }
   }
   label{
     @include core-19;
-    padding:0 0 0.5em 0;
+    padding:0;
+    margin:0 0 0.22em 0;
     display:block;  
   }
 
@@ -33,13 +34,13 @@
 
   input{
     &[type="text"] {
-      @include core-16($line-height: (20 / 16));
-      border: 1px solid #bbb;
-      min-width: 8em;
-      margin: 0;
-      padding: 0.25em;
       display:block;
-      width:98%;
+      @include core-19;
+      margin: 0 0 1em 0;
+      background-color: #f8f8f8;
+      border: 1px inset #bfc1c3;
+      padding: 0.3em 0 0.1em 0.4em;
+      width:95%;
 
       @include ie-lte(7) {
         width:8em;
