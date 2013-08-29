@@ -5,7 +5,7 @@
 .report-a-problem-container{
   
   clear:both;
-  margin: 1em 0 2em 0.7em;
+  margin: 1em 0 2em 1em;
   padding: 0.5em 1em 1em 1em;
 
   p {
@@ -24,8 +24,8 @@
     @include core-19;
     padding:0 0 0.5em 0;
     display:block;
+
     input{
-      margin:0;
       display:block;
       width:98%;
     }
@@ -42,7 +42,7 @@
       @include core-16($line-height: (20 / 16));
       border: 1px solid #bbb;
       min-width: 8em;
-      margin: 0 0.5em;
+      margin: 0;
       padding: 0.25em;
     
       @include ie-lte(7) {
