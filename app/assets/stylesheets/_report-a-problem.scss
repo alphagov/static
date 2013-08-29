@@ -3,13 +3,14 @@
 }
 
 .report-a-problem-container{
-  @include core-19;
+  
   clear:both;
-  background-color:#D5E8F3;
-  margin: 3em 0 2em 1.75em;
+  margin: 1em 0 2em 0.7em;
   padding: 0.5em 1em 1em 1em;
 
   p {
+    @include core-24;
+    font-weight:600;
     margin: 1em 0;
   }
   div{
@@ -23,6 +24,7 @@
     }
   }
   label{
+    @include core-19;
     padding:0 0 0.5em 0;
     display:block;
     input{
