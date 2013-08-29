@@ -3,36 +3,48 @@
 }
 
 .report-a-problem-container{
-  @include core-19;
+  
   clear:both;
-  background-color:#D5E8F3;
-  margin: 3em 0 2em 1.75em;
-  padding: 0.5em 1em 1em 1em;
+  margin: 3em 0 2em 2em;
 
   p {
+    @include core-24;
+    font-weight:600;
     margin: 1em 0;
   }
   div{
-    width:98%;
     padding-top:0.5em;
-    text-align:right;
 
     .button{
-      margin-right: -0.5em;
       @include button;
+      @include core-19;
     }
   }
   label{
-    padding:0 0 0.5em 0;
-    display:block;
-    input{
-      margin:0;
-      display:block;
-      width:98%;
-    }
+    @include core-19;
+    padding:0;
+    margin:0 0 0.22em 0;
+    display:block;  
   }
 
   @include media-down(mobile) {
     margin: 0 1em 2em 1em;
+  }
+
+
+  input{
+    &[type="text"] {
+      display:block;
+      @include core-19;
+      margin: 0 0 1em 0;
+      background-color: #f8f8f8;
+      border: 1px inset #bfc1c3;
+      padding: 0.3em 0 0.1em 0.4em;
+      width:95%;
+
+      @include ie-lte(7) {
+        width:550px;
+      }
+    }
   }
 }
