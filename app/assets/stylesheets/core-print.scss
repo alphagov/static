@@ -201,7 +201,9 @@ a[href^="#"]:after {
 
 img { max-width: 100% !important; }
 
-.print-link {
+.print-link,
+.player-container,
+.video-transcript-toggle {
   display: none;
 }
 
