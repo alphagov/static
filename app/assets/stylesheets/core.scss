@@ -398,10 +398,12 @@ body.full-width {
   }
 
   header.page-header div {
-    padding-left: 2em;
+    padding-left: 30px;
+    padding-right: 30px;
 
     @include media(mobile) {
-      padding-left: 1em;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 }
