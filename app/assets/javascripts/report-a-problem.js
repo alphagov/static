@@ -1,6 +1,6 @@
 var ReportAProblem = {
   showErrorMessage: function (jqXHR) {
-    var response = "<p>Sorry, we're unable to receive your message right now.</p> " +
+    var response = "<h2>Sorry, we're unable to receive your message right now.</h2> " +
                    "<p>We have other ways for you to provide feedback on the " +
                    "<a href='/feedback'>support page</a>.</p>"
     $('.report-a-problem-container').html(response);
@@ -8,7 +8,7 @@ var ReportAProblem = {
 
   promptUserToEnterValidData: function() {
     ReportAProblem.enableSubmitButton();
-    $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container p:first-child');
+    $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container h2');
   },
 
   disableSubmitButton: function() {
