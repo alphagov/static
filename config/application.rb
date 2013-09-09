@@ -51,6 +51,7 @@ module Static
       guides-print.css
       header-footer-only*.css
       barclays-epdq-styles.css
+      media-player.css
     }
 
     config.assets.css_compressor = :yui
