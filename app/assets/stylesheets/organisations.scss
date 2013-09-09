@@ -118,3 +118,9 @@
 .treasury {
   @include organisation-logo-border($hm-treasury)
 }
+
+/* Agencies */
+
+.hm-revenue-customs {
+  @include organisation-logo-border($hm-revenue-customs)
+}
