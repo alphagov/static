@@ -57,20 +57,6 @@ GOVUK.Analytics.startAnalytics = function () {
         return ['_trackEvent', prefix + GOVUK.Analytics.Format, slug, type, 0, isNonInteraction];
     };
 
-    var handleExternalLink = function() {
-        if (success) return;
-        success = true;
-        var $link = $(this),
-            slug = $link.attr('data-transaction-slug');
-
-        // Fall back to URL parsing if the data-attribute wasn't found
-        if (slug === undefined) {
-          slug = GOVUK.Analytics.getSlug(document.URL, trackingStrategy.slugLocation);
-        }
-
-        $link.prop('href', '/exit?slug=' + encodeURIComponent(slug) + '&format=' + GOVUK.Analytics.Format);
-    };
-
     var handleInternalLink = function () {
         if (success) return;
         success = true;
@@ -85,19 +71,13 @@ GOVUK.Analytics.startAnalytics = function () {
     var trackLinks = function(selection, trackExternal) {
         // TODO: refactor this to use jQuery("#content").on("click", "a", fireFunction)
         selection.each(function () {
-            var linkToTrack = $(this),
-                trackingFunction;
+            var linkToTrack = $(this);
 
             if (this.hostname === window.location.hostname) {
-                trackingFunction = handleInternalLink;
-            } else if (trackExternal) {
-                trackingFunction = handleExternalLink;
-            }
-            if (trackingFunction) {
-                linkToTrack.click(trackingFunction);
+                linkToTrack.click(handleInternalLink);
                 linkToTrack.keydown(function(e) {
                     if (e.which === ENTER_KEYCODE) {
-                        trackingFunction.call(this, e);
+                        handleInternalLink.call(this, e);
                     }
                 });
             }
