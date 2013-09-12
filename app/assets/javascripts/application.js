@@ -16,4 +16,3 @@
 //= require mobile
 //= require browser-check
 //= require analytics
-//= require variant-testing
