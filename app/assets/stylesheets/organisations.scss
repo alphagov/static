@@ -11,31 +11,21 @@
   background: image-url("coa-default-24.gif") no-repeat 8px 0;
   height: auto;
   width: auto;
+  padding-top: 30px;
+  padding-left: 10px;
 
   @include media-down(mobile) {
     font-size: 13px;
     line-height: (15/13);
+    padding-top: 23px;
     background-image: image-url("coa-default-18.gif");
-  }
-
-  span {
-    padding-top: 30px;
-    margin-left: 10px;
-    display: block;
-
-    @include media-down(mobile) {
-      padding-top: 23px;
-    }
   }
 
   &.single-line {
     padding: 5px 0 5px 45px;
     background-position: 8px 50%;
-
-    span {
-      top: 0;
-      position: static;
-    }
+    top: 0;
+    position: static;
 
     @include media-down(mobile) {
       padding: 1px 0 1px 31px;
@@ -140,9 +130,8 @@
 }
 
 .organisation-logo-coastguard {
-  span {
-    padding-top: 38px;  
-  }
+  padding-top: 38px;  
+
   @include organisation-logo-image('crests/coastguard_18px.png');
 
   @include media-down(mobile) {
@@ -159,9 +148,8 @@
 }
 
 .organisation-logo-ho {
-  span { 
-    padding-top: 38px; 
-  }
+  padding-top: 38px; 
+  
   @include organisation-logo-image('crests/ho_crest_18px.png');
 
   @include media-down(mobile) {
@@ -170,9 +158,8 @@
 }
 
 .organisation-logo-mod {
-  span { 
-    padding-top: 38px; 
-  }
+  padding-top: 38px; 
+  
   @include organisation-logo-image('crests/mod_crest_18px.png');  
 
   @include media-down(mobile) {
@@ -181,10 +168,8 @@
 }
 
 .organisation-logo-no-identity {
-  span {
-    padding-top: 2px;
-    padding-bottom: 2px;
-  }
+  padding-top: 2px;
+  padding-bottom: 2px;
   background: none;
 }
 
@@ -229,9 +214,8 @@
 }
 
 .organisation-logo-ukho {
-  span {
-    padding-top: 38px;
-  }
+  padding-top: 38px;
+  
   @include organisation-logo-image('crests/ukho_18px.png');
 
   @include media-down(mobile) {
@@ -240,9 +224,8 @@
 }
 
 .organisation-logo-wales {
-  span {
-    padding-top: 38px;
-  }
+  padding-top: 38px;
+  
   @include organisation-logo-image('crests/wales_crest_18px.png');
 
   @include media-down(mobile) {
