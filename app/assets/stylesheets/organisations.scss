@@ -11,31 +11,21 @@
   background: image-url("coa-default-24.gif") no-repeat 8px 0;
   height: auto;
   width: auto;
+  padding-top: 30px;
+  padding-left: 10px;
 
   @include media-down(mobile) {
     font-size: 13px;
     line-height: (15/13);
+    padding-top: 23px;
     background-image: image-url("coa-default-18.gif");
-  }
-
-  span {
-    padding-top: 30px;
-    margin-left: 10px;
-    display: block;
-
-    @include media-down(mobile) {
-      padding-top: 23px;
-    }
   }
 
   &.single-line {
     padding: 5px 0 5px 45px;
     background-position: 8px 50%;
-
-    span {
-      top: 0;
-      position: static;
-    }
+    top: 0;
+    position: static;
 
     @include media-down(mobile) {
       padding: 1px 0 1px 31px;
@@ -123,4 +113,122 @@
 
 .hm-revenue-customs {
   @include organisation-logo-border($hm-revenue-customs)
+}
+
+/* Crests */
+
+@mixin organisation-logo-image($crest) {
+  background: image-url($crest) no-repeat 8px 0;
+}
+
+.organisation-logo-bis {
+  @include organisation-logo-image('crests/bis_crest_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/bis_crest_13px.png')
+  }
+}
+
+.organisation-logo-coastguard {
+  padding-top: 38px;  
+
+  @include organisation-logo-image('crests/coastguard_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/coastguard_13px.png')
+  }
+}
+
+.organisation-logo-hmrc {
+  @include organisation-logo-image('crests/hmrc_crest_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/hmrc_crest_13px.png')
+  }
+}
+
+.organisation-logo-ho {
+  padding-top: 38px; 
+  
+  @include organisation-logo-image('crests/ho_crest_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/ho_crest_13px.png')
+  }
+}
+
+.organisation-logo-mod {
+  padding-top: 38px; 
+  
+  @include organisation-logo-image('crests/mod_crest_18px.png');  
+
+  @include media-down(mobile) {
+    background-image: url('crests/mod_crest_13px.png')
+  }
+}
+
+.organisation-logo-no-identity {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background: none;
+}
+
+.organisation-logo-org {
+  @include organisation-logo-image('crests/org_crest_18px.png');
+  
+  @include media-down(mobile) {
+    background-image: url('crests/org_crest_13px.png')
+  }
+}
+
+.organisation-logo-portcullis {
+  @include organisation-logo-image('crests/portcullis_18px.png');  
+
+  @include media-down(mobile) {
+    background-image: url('crests/portcullis_crest_13px.png')
+  }
+}
+
+.organisation-logo-so {
+  @include organisation-logo-image('crests/so_crest_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/so_crest_13px.png')
+  }
+}
+
+.organisation-logo-single-identity {
+  @include organisation-logo-image('crests/org_crest_18px.png');
+  
+  @include media-down(mobile) {
+    background-image: url('crests/org_crest_13px.png')
+  }
+}
+
+.organisation-logo-ukaea {
+  @include organisation-logo-image('crests/ukaea_crest_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/ukaea_crest_13px.png')
+  }
+}
+
+.organisation-logo-ukho {
+  padding-top: 38px;
+  
+  @include organisation-logo-image('crests/ukho_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/ukho_13px.png')
+  }
+}
+
+.organisation-logo-wales {
+  padding-top: 38px;
+  
+  @include organisation-logo-image('crests/wales_crest_18px.png');
+
+  @include media-down(mobile) {
+    background-image: url('crests/wales_crest_13px.png')
+  }
 }
