@@ -1,10 +1,6 @@
 <%
   css_file = local_assigns[:css_file] || 'application'
 %>
-<script type="text/javascript">
-  (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
-</script>
-
 <!--[if gt IE 8]><!--><%= stylesheet_link_tag css_file %><!--<![endif]-->
 <!--[if IE 6]><%= stylesheet_link_tag "#{css_file}-ie6" %><![endif]-->
 <!--[if IE 7]><%= stylesheet_link_tag "#{css_file}-ie7" %><![endif]-->

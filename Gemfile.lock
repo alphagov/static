@@ -55,6 +55,8 @@ GEM
     govuk_frontend_toolkit (0.36.0)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
+    govuk_template (0.1.0)
+      rails (>= 3.1)
     hike (1.2.1)
     i18n (0.6.1)
     jasmine (1.1.2)
@@ -170,6 +172,7 @@ DEPENDENCIES
   capybara (= 2.1.0)
   exception_notification
   govuk_frontend_toolkit (= 0.36.0)
+  govuk_template (= 0.1.0)
   jasmine (= 1.1.2)
   lograge (~> 0.1.0)
   mocha (= 0.13.3)
