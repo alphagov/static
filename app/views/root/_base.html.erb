@@ -80,14 +80,7 @@
   </div>
 <% end %>
 <% content_for :footer_support_links do %>
-  <h2 class="visuallyhidden">Support links</h2>
-  <ul>
-    <li><a href="/help">Support</a></li>
-    <li><a href="/help/cookies">Cookies</a></li>
-    <li><a href="/feedback">Feedback</a></li>
-    <li><a href="/cymraeg">Cymraeg</a></li>
-    <li>Built by the <a href="http://digital.cabinetoffice.gov.uk/">Government Digital Service</a></li>
-  </ul>
+  <%= render :partial => "footer_support_links" %>
 <% end %>
 <% content_for :body_end do %>
   <%= render :partial => 'javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } if local_assigns[:js_at_the_end] %>
