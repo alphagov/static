@@ -8,19 +8,19 @@
 <main id="content" role="main" class="group">
 
   <header class="page-header group">
-      <div>
-        <h1><%= local_assigns[:heading] %></h1>
-      </div>
+    <div>
+      <h1><%= local_assigns[:heading] %></h1>
+    </div>
   </header>
 	<div class="article-container group ancillary">
-	  	<article role="article" class="group">
-	     <div class="inner">
-         <%= raw local_assigns[:intro] %>
+    <article role="article" class="group">
+      <div class="inner">
+        <%= raw local_assigns[:intro] %>
 
-         <%= render partial: 'report_a_problem_form' %>
-       </div>
-     </article>
-   </div>
+        <%= render partial: 'report_a_problem_form' %>
+      </div>
+    </article>
+  </div>
 </main>
 <% end %>
 
