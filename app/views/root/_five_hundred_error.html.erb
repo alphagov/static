@@ -1,8 +1,6 @@
-<% content_for :title do %>Sorry, we are experiencing technical difficulties (<%= status_code %> error) - GOV.UK<% end %>
+<% content_for :title, "Sorry, we are experiencing technical difficulties (#{status_code} error) - GOV.UK " %>
 
-<% content_for :html_classes do %>error error-50X<% end %>
-
-<% content_for :body_classes do %>mainstream error<% end %>
+<% content_for :body_classes, "mainstream error" %>
 
 <% content_for :wrapper_content do %>
 <main id="content" role="main" class="group">
