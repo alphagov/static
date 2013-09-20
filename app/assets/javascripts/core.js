@@ -99,28 +99,7 @@ $(document).ready(function() {
       });
   }
 
-  // fix for printing bug in Windows Safari
-  (function () {
-    var windows_safari = (window.navigator.userAgent.match(/(\(Windows[\s\w\.]+\))[\/\(\s\w\.\,\)]+(Version\/[\d\.]+)\s(Safari\/[\d\.]+)/) !== null),
-        $new_styles;
-
-    if (windows_safari) {
-      // set the New Transport font to Arial for printing
-      $new_styles = $("<style type='text/css' media='print'>" +
-                      "@font-face {" +
-                      "font-family: nta !important;" +
-                      "src: local('Arial') !important;" +
-                      "}" +
-                      "</style>");
-      document.getElementsByTagName('head')[0].appendChild($new_styles[0]);
-    }
-  }());
-
   if (window.GOVUK) {
-    if (GOVUK.addCookieMessage) {
-      GOVUK.addCookieMessage();
-    }
-
     if (GOVUK.userSatisfaction){
       var currentURL = window.location.pathname;
 
