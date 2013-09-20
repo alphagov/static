@@ -1,4 +1,4 @@
-/*globals $, getCookie, suchi, setCookie */
+/*globals $, GOVUK, suchi */
 /*jslint
  white: true,
  browser: true */
@@ -15,21 +15,21 @@ $(function() {
   }
 
   // we don't show the message when the cookie warning is also there
-  if (getCookie('seen_cookie_message')) {
+  if (GOVUK.cookie('seen_cookie_message')) {
     if (suchi.isOld(navigator.userAgent)) {
-      if(getCookie('govuk_not_first_visit') !== null && getCookie('govuk_browser_upgrade_dismissed') === null){
+      if(GOVUK.cookie('govuk_not_first_visit') !== null && GOVUK.cookie('govuk_browser_upgrade_dismissed') === null){
         var $prompt = browserWarning();
         $('#global-cookie-message').after($prompt);
         $prompt.show();
         $prompt.on("click", ".dismiss", function(e) {
           $prompt.hide();
           // the warning is dismissable for 2 weeks
-          setCookie('govuk_browser_upgrade_dismissed', 'yes', 14);
+          GOVUK.cookie('govuk_browser_upgrade_dismissed', 'yes', { days: 14 });
         });
       }
     }
 
     // We're not showing the message on first visit
-    setCookie('govuk_not_first_visit', 'yes', 28);
+    GOVUK.cookie('govuk_not_first_visit', 'yes', { days: 28 });
   }
 });
