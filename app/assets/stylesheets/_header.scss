@@ -52,32 +52,27 @@
     @media screen and (max-width: 379px) {
       display: block;
       float: right;
-      top: 0;
       height: 30px;
       width: 36px;
       padding: 0;
-      margin: 0 15px;
-
+      margin: -32px 15px;
       overflow: hidden;
       text-indent: -5000px;
-
-
       background-color: $light-blue;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
 
+      body.search & { display: none; }
+
       @include device-pixel-ratio() {
         background-size: 52.5px 35px;
         background-position: 100% 50%;
       }
+    }
 
-      @include border-radius(0);
-      @include box-shadow(none);
-
-      &:active {
-        top: 0;
-      }
+    &:hover {
+      background-color: darken($mainstream-brand, 5%);
     }
 
     &.js-hidden { display: none; }
