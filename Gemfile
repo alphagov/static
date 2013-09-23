@@ -32,5 +32,5 @@ gem 'govuk_frontend_toolkit', '0.36.0'
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', :path => "../govuk_template"
 else
-  gem 'govuk_template', '0.1.0'
+  gem 'govuk_template', '0.2.0'
 end
