@@ -5,7 +5,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
   should "render the 404 template" do
     visit "/templates/404.html.erb"
 
-    assert page.has_selector?("html.error.error-40X")
+    assert page.has_selector?("body.mainstream.error")
     within "head", :visible => :all do
       assert page.has_selector?("title", :text => "Page not found - 404 - GOV.UK", :visible => :all)
 

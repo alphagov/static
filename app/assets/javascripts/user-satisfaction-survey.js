@@ -8,7 +8,7 @@
   var userSatisfaction = {
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     setCookieTakenSurvey: function () {
-      setCookie(userSatisfaction.cookieNameTakenSurvey, true, 30*4);
+      GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey, true, { days: 30*4 });
       $("#user-satisfaction-survey").removeClass('visible');
     },
     appendCurrentPathToSurveyUrl: function() {
@@ -28,7 +28,7 @@
       $takeSurvey.click(userSatisfaction.setCookieTakenSurvey);
     },
     showSurveyBar: function () {
-      if (getCookie(userSatisfaction.cookieNameTakenSurvey) === "true" ||
+      if (GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey) === "true" ||
           userSatisfaction.otherNotificationVisible()) {
         return;
       }

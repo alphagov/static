@@ -12,6 +12,8 @@ class ChromelessTest < ActionDispatch::IntegrationTest
     end
 
     within "body" do
+      refute page.has_selector?("#global-header")
+
       assert page.has_selector?("#global-cookie-message")
 
       assert page.has_selector?("#wrapper")

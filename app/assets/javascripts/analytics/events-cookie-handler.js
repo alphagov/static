@@ -7,7 +7,7 @@ GOVUK.Analytics.internalSiteEvents = function () {
     var eventQueue = [];
 
     var loadCookie = function () {
-        var value = Alphagov.read_cookie(COOKIE_NAME);
+        var value = GOVUK.cookie(COOKIE_NAME);
         if (value) {
             value = jQuery.parseJSON(jQuery.base64Decode(value));
         } else {
@@ -22,12 +22,12 @@ GOVUK.Analytics.internalSiteEvents = function () {
             GOVUK.sendToAnalytics(this);
         });
         eventQueue = [];
-        Alphagov.delete_cookie(COOKIE_NAME);
+        GOVUK.cookie(COOKIE_NAME, null);
     };
 
     var pushCookieEvent = function (event) {
         eventQueue.push(event);
-        Alphagov.write_cookie(COOKIE_NAME, jQuery.base64Encode(JSON.stringify(eventQueue)));
+        GOVUK.cookie(COOKIE_NAME, jQuery.base64Encode(JSON.stringify(eventQueue)), { days: 4 * 30 });
     };
 
     return {
@@ -49,26 +49,26 @@ GOVUK.Analytics.entryTokens = function () {
     };
 
     var assignToken = function () {
-        var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
+        var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
         if (!tokens) tokens = [];
         if (!valueIsInArray(uniqueIdentifierOfArtifact(), tokens))
         {
             tokens.push(uniqueIdentifierOfArtifact());
-            Alphagov.write_cookie(COOKIE_NAME, JSON.stringify(tokens));
+            GOVUK.cookie(COOKIE_NAME, JSON.stringify(tokens), { days: 4 * 30 });
         }
     };
 
     var revokeToken = function () {
-        var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
+        var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
         var positionOfToken = $.inArray(uniqueIdentifierOfArtifact(),tokens);
         if (positionOfToken !== -1) {
             tokens.splice(positionOfToken,1);
-            Alphagov.write_cookie(COOKIE_NAME, JSON.stringify(tokens));
+            GOVUK.cookie(COOKIE_NAME, JSON.stringify(tokens), { days: 4 * 30 });
         }
     };
 
     var tokenExists = function () {
-        var tokens = JSON.parse(Alphagov.read_cookie(COOKIE_NAME));
+        var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
         return valueIsInArray(uniqueIdentifierOfArtifact(), tokens);
     };
 
