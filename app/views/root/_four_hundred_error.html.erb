@@ -1,26 +1,39 @@
-<% content_for :title do %><%= local_assigns[:title] %> - GOV.UK<% end %>
+<% content_for :title, "#{local_assigns[:title]} - GOV.UK" %>
 
-<% content_for :html_classes do %>error error-40X<% end %>
-
-<% content_for :body_classes do %>mainstream error<% end %>
+<% content_for :body_classes, "mainstream error" %>
 
 <% content_for :wrapper_content do %>
 <main id="content" role="main" class="group">
 
   <header class="page-header group">
-      <div>
-        <h1><%= local_assigns[:heading] %></h1>
-      </div>
+    <div>
+      <h1><%= local_assigns[:heading] %></h1>
+    </div>
   </header>
 	<div class="article-container group ancillary">
-	  	<article role="article" class="group">
-	     <div class="inner">
-         <%= raw local_assigns[:intro] %>
+    <article role="article" class="group">
+      <div class="inner">
+        <%= raw local_assigns[:intro] %>
 
-         <%= render partial: 'report_a_problem_form' %>
-       </div>
-     </article>
-   </div>
+        <div class="report-a-problem">
+          <h2>Help us improve GOV.UK by telling us:</h2>
+          <form accept-charset="UTF-8" action="/feedback" method="post">
+            <input id="source" name="source" type="hidden" value="page_not_found">
+            <label for="what_doing">
+              What were you trying to do
+              <input id="what_doing" name="what_doing" type="text" />
+            </label>
+
+            <input type="hidden" id="what_wrong" name="what_wrong" value="broken link (404)" />
+
+            <input type="hidden" name="utf8" value="✓" />
+            <button name="commit" type="submit" class="button">Send</button>
+          </form>
+        </div>
+
+      </div>
+    </article>
+  </div>
 </main>
 <% end %>
 

@@ -5,7 +5,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
   should "render the 500 template" do
     visit "/templates/500.html.erb"
 
-    assert page.has_selector?("html.error.error-50X")
+    assert page.has_selector?("body.mainstream.error")
     within "head", :visible => :all do
       assert page.has_selector?("title", :text => "Sorry, we are experiencing technical difficulties (500 error) - GOV.UK", :visible => :all)
 

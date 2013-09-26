@@ -29,3 +29,8 @@ gem 'plek', '1.3.1'
 gem 'jasmine', '1.1.2'
 
 gem 'govuk_frontend_toolkit', '0.36.0'
+if ENV['GOVUK_TEMPLATE_DEV']
+  gem 'govuk_template', :path => "../govuk_template"
+else
+  gem 'govuk_template', '0.2.1'
+end

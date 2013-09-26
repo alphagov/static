@@ -1,47 +1,20 @@
 @import '_shims';
 #global-header {
-  background-color: $black;
-  width: 100%;
-
-  .header-wrapper {
-    max-width: 990px;
-    margin: 0 auto;
-    padding: 0.5em 15px;
+  .header-wrapper .header-global .site-search {
     @extend %contain-floats;
-    @include media-down(mobile){
-      padding: 0.5em 0;
+    width: 49%;
+    float: right;
+
+    @include media(desktop){
+      width: 33.33%;
+    }
+    @media screen and (max-width: 379px) {
+      width: auto;
+      float: none;
     }
 
-    @include ie(6) {
-      width: 960px;
-    }
-
-    .header-global {
-      @extend %contain-floats;
-      .header-logo,
-      .site-search {
-        @extend %contain-floats;
-        width: 49%;
-        float: left;
-
-        @include media(desktop){
-          width: 33.33%;
-        }
-        @media screen and (max-width: 379px) {
-          width: auto;
-          float: none;
-        }
-
-        .content {
-          margin: 0 15px;
-        }
-      }
-      .header-logo {
-        margin: 5px 0 2px;
-      }
-      .site-search {
-        float: right;
-      }
+    .content {
+      margin: 0 15px;
     }
   }
   &.with-proposition {
@@ -73,64 +46,33 @@
     }
   }
 
-  #logo {
-    float: left;
-    position: relative;
-    width: 166px;
-    height: 30px;
-    overflow: hidden;
-
-    img {
-      position: absolute;
-      left: -166px;
-      top: 0;
-      border: none;
-
-      /* scale oversized image to container bounds */
-      width: 200%;
-      height: 300%;
-
-      @include ie(6){
-        left: 0;
-      }
-    }
-    &:hover img {
-      top: -30px;
-    }
-  }
-
   .search-toggle {
     display: none;
 
     @media screen and (max-width: 379px) {
       display: block;
       float: right;
-      top: 0;
       height: 30px;
       width: 36px;
       padding: 0;
-      margin: 0 15px;
-
+      margin: -32px 15px;
       overflow: hidden;
       text-indent: -5000px;
-
-
       background-color: $light-blue;
       background-image: url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
 
+      body.search & { display: none; }
+
       @include device-pixel-ratio() {
         background-size: 52.5px 35px;
         background-position: 100% 50%;
       }
+    }
 
-      @include border-radius(0);
-      @include box-shadow(none);
-
-      &:active {
-        top: 0;
-      }
+    &:hover {
+      background-color: darken($mainstream-brand, 5%);
     }
 
     &.js-hidden { display: none; }
@@ -355,18 +297,12 @@
   }
 }
 
-/* Global cookie message
-   Global browser prompt message */
-
-.js-enabled #global-cookie-message {
-  display: none; /* shown with JS, always on for non-JS */
-}
+/* Global browser prompt message */
 
 #global-browser-prompt {
   display: none; /* shown with JS, always hidden for non-JS */
 }
 
-#global-cookie-message,
 .beta-notice,
 #global-browser-prompt {
   padding: 0.5em 2em;
@@ -386,33 +322,32 @@
   }
 }
 
-#global-cookie-message,
 #global-browser-prompt {
   background-color: $light-blue-25;
-}
 
-#global-browser-prompt p {
-  position: relative;
-  padding-right: 20px;
-  max-width: 940px;
+  p {
+    position: relative;
+    padding-right: 20px;
+    max-width: 940px;
 
-  @include ie(6) {
-    width: 940px;
+    @include ie(6) {
+      width: 940px;
+    }
   }
-}
 
-#global-browser-prompt .dismiss{
-  background-image: image-url("close.png");
-  background-color:transparent;
-  background-repeat: no-repeat;
-  background-position: center right;
-  text-decoration:none;
-  height:22px;
-  width:10px;
-  text-indent:-9999px;
-  display:inline-block;
-  position: absolute;
-  right: 0;
+  .dismiss {
+    background-image: image-url("close.png");
+    background-color:transparent;
+    background-repeat: no-repeat;
+    background-position: center right;
+    text-decoration:none;
+    height:22px;
+    width:10px;
+    text-indent:-9999px;
+    display:inline-block;
+    position: absolute;
+    right: 0;
+  }
 }
 
 

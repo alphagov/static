@@ -17,7 +17,6 @@ src_files:
   - app/assets/javascripts/core.js
   - app/assets/javascripts/cookie-functions.js
   - app/assets/javascripts/geo-locator.js
-  - app/assets/javascripts/devolution.js
   - app/assets/javascripts/report-a-problem.js
   - app/assets/javascripts/user-satisfaction-survey.js
   - app/assets/javascripts/analytics/tracking-strategies.js

@@ -1,4 +1,5 @@
 class RootController < ApplicationController
+  layout false
 
   before_filter :validate_template_param
 
@@ -12,8 +13,19 @@ class RootController < ApplicationController
     render :text => File.read(file_path)
   end
 
+  NON_LAYOUT_TEMPLATES = %w(
+    barclays_epdq
+    beta_notice
+    campaign
+    print
+    proposition_menu
+  )
   def template
-    render :action => params[:template]
+    if NON_LAYOUT_TEMPLATES.include?(params[:template])
+      render :action => params[:template]
+    else
+      render :action => params[:template], :layout => 'govuk_template'
+    end
   end
 
   private

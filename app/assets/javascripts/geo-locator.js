@@ -33,7 +33,7 @@ var AlphaGeo = {
   },
 
   read_and_parse_json_cookie: function(name) {
-    var cookie = Alphagov.read_cookie(name);
+    var cookie = GOVUK.cookie(name);
     if (cookie) {
       var json_cookie = $.base64Decode(cookie);
       var geo_json = jQuery.parseJSON(json_cookie);
@@ -102,11 +102,11 @@ var AlphaGeo = {
 
   save_location_to_cookie: function() {
     var cookie = $.base64Encode(JSON.stringify(AlphaGeo.full_location));
-    Alphagov.write_cookie('govukgeo', cookie);
+    GOVUK.cookie('govukgeo', cookie, { days: 4 * 30 });
   },
 
   remove: function() {
-    Alphagov.delete_cookie('govukgeo');
+    GOVUK.cookie('govukgeo', null);
     AlphaGeo.location = false;
     AlphaGeo.full_location = false;
 
