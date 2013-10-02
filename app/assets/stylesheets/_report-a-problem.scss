@@ -21,11 +21,18 @@
       @include core-19;
     }
   }
+
+  p {
+    @include core-19;
+    padding-bottom: 1em;
+  }
+
   label{
     @include core-19;
     padding:0;
     margin:0 0 0.22em 0;
     display:block;  
+    font-weight: bold;
   }
 
   @include media-down(mobile) {
