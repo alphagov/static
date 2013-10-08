@@ -8,7 +8,7 @@ GOVUK.Analytics.internalSiteEvents = function () {
 
     var loadCookie = function () {
         var value = GOVUK.cookie(COOKIE_NAME);
-        if (value) {
+        if (value && value != 'null') {
             value = jQuery.parseJSON(jQuery.base64Decode(value));
         } else {
             value = [];
