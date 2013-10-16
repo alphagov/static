@@ -18,11 +18,11 @@ try {
             var mediaQueryList = window.matchMedia('print'),
                 mqlListenerCount = 0;
             mediaQueryList.addListener(function(mql) {
-                if (!mql.matches && mqlListenerCount < 1){
+                if (!mql.matches && mqlListenerCount < 1) {
                     printAttempt();
                 }
             });
         }
         window.onafterprint = printAttempt;
     }());
-} catch(e) {}
+} catch (e) {}
