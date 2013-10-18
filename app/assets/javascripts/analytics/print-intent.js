@@ -1,40 +1,31 @@
-function tryCatcher( fn, message ){
-    return function(){
-        try {
-            fn.apply(this, arguments);
-        } catch (e) {
-            console.log( message, e );
-        }
-    };
-}
-
 // Extension to monitor attempts to print pages.
-(tryCatcher(function() {
+(function() {
 
     "use strict";
-    var printAttempt = tryCatcher(function() {
-        _gaq.push(['_trackEvent', 'Print Intent', document.location.pathname]); //for classic GA
-        // ga('send', 'event', 'Print Intent', document.location.pathname); //for Universal GA
-    },'gaq event push failed');
+    var printAttempt = (function() {
+        _gaq.push(['_trackEvent', 'Print Intent', document.location.pathname]);
+    });
 
-    // We should have window.matchMedia available via javascripts/match-media.js shim
+    // Most browsers
     if (window.matchMedia) {
         var mediaQueryList = window.matchMedia('print'),
             mqlListenerCount = 0;
-        mediaQueryList.addListener(tryCatcher(function(mql) {
+        mediaQueryList.addListener(function(mql) {
             if (!mql.matches && mqlListenerCount === 0) {
                 printAttempt();
                 mqlListenerCount++;
                 // If we try and print again in 3 seconds, don't log it
                 window.setTimeout(function(){
                     mqlListenerCount = 0;
+                    // printing will be tracked again now
                 },1e3);
             }
-        },'no matchMedia matching available'));
+        });
     }
 
+    // IE < 10
     if(window.onafterprint){
         window.onafterprint = printAttempt;
     }
 
-},'Print attempt failed')());
+}());
