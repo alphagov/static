@@ -2,7 +2,7 @@
 <p class="report-a-problem-toggle js-footer"><a href="">Is there anything wrong with this page?</a></p>
 <div class="report-a-problem-container">
   <h2>Help us improve GOV.UK</h2>
-  <form accept-charset="UTF-8" action="/feedback" method="post">
+  <form accept-charset="UTF-8" action="/contact/govuk/problem_reports" method="post">
     <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
     <input id="url" name="url" type="hidden" value="<%= h request_url %>">
     <% if defined?(source) %>
