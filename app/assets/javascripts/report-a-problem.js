@@ -29,7 +29,7 @@ var ReportAProblem = {
     ReportAProblem.disableSubmitButton();
     $.ajax({
       type: "POST",
-      url: "/feedback",
+      url: "/contact/govuk/problem_reports",
       dataType: "json",
       data: $('.report-a-problem-container form').serialize(),
       success: ReportAProblem.showConfirmation,
