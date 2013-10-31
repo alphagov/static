@@ -18,6 +18,7 @@ src_files:
   - app/assets/javascripts/cookie-functions.js
   - app/assets/javascripts/geo-locator.js
   - app/assets/javascripts/report-a-problem.js
+  - app/assets/javascripts/textarea-character-countdown.js
   - app/assets/javascripts/user-satisfaction-survey.js
   - app/assets/javascripts/analytics/tracking-strategies.js
   - app/assets/javascripts/analytics/events-cookie-handler.js
