@@ -68,7 +68,7 @@ GEM
     journey (1.0.4)
     json (1.7.7)
     kgio (2.7.4)
-    libv8 (3.11.8.17)
+    libv8 (3.16.14.3)
     libwebsocket (0.1.5)
       addressable
     lograge (0.1.2)
@@ -144,8 +144,8 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    therubyracer (0.11.4)
-      libv8 (~> 3.11.8.12)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
       ref
     thor (0.17.0)
     tilt (1.3.6)
@@ -182,6 +182,6 @@ DEPENDENCIES
   sass (= 3.2.0)
   sass-rails (= 3.2.5)
   shoulda (= 2.11.3)
-  therubyracer (= 0.11.4)
+  therubyracer (= 0.12.0)
   uglifier
   unicorn (= 4.3.1)
