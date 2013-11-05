@@ -7,6 +7,7 @@
 //= require user-satisfaction-survey
 //= require core
 //= require report-a-problem
+//= require textarea-character-countdown
 //= require popup
 //= require geo-locator
 //= require jquery.history
