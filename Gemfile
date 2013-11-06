@@ -8,10 +8,6 @@ gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 gem 'lograge', '~> 0.1.0'
 
-group :router do
-  gem 'router-client', '2.0.3', :require => 'router/client'
-end
-
 group :assets do
   gem "therubyracer", "0.12.0"
   gem 'uglifier'
@@ -25,7 +21,7 @@ group :test do
   gem 'shoulda', '2.11.3'
 end
 
-gem 'plek', '1.3.1'
+gem 'plek', '1.5.0'
 gem 'jasmine', '1.1.2'
 
 gem 'govuk_frontend_toolkit', '0.36.0'
@@ -34,3 +30,4 @@ if ENV['GOVUK_TEMPLATE_DEV']
 else
   gem 'govuk_template', '0.2.1'
 end
+gem 'gds-api-adapters', '7.18.0'

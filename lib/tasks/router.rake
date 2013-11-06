@@ -1,64 +1,43 @@
-
-module RouterHelpers
-  def register_application(application)
-    begin
-      @router.applications.create(application)
-    rescue Router::Conflict
-      existing = @router.applications.find(application[:application_id])
-      @logger.info "Application already registered: #{existing}"
-    end
-  end
-
-  def register_route(type, incoming_path)
-    route = {
-      application_id: @application[:application_id],
-      route_type: type,
-      incoming_path: incoming_path
-    }
-    begin
-      @router.routes.create(route)
-    rescue Router::Conflict
-      existing = @router.routes.find(route[:incoming_path])
-      @logger.info "Route already registered: #{existing.inspect}"
-      updated = @router.routes.update(route)
-      @logger.info "Route updated to: #{updated.inspect}"
-    end
-  end
-end
-
 namespace :router do
-  include RouterHelpers
-
   task :router_environment do
-    Bundler.require :router, :default
+    require 'plek'
+    require 'gds_api/router'
 
-    require 'logger'
-    @logger = Logger.new STDOUT
-    @logger.level = Logger::DEBUG
-
-    @router = Router::Client.new :logger => @logger
+    @router_api = GdsApi::Router.new(Plek.current.find('router-api'))
+    @app_id = 'static'
   end
 
-  task :register_application => :router_environment do
-    platform = ENV['FACTER_govuk_platform']
-    @application = {
-      application_id: "static",
-      backend_url: "static.#{platform}.alphagov.co.uk/"
-    }
-    register_application(@application)
+  task :register_backend => :router_environment do
+    url = Plek.current.find(@app_id, :force_http => true) + "/"
+    puts "Registering #{@app_id} application against #{url}"
+    @router_api.add_backend(@app_id, url)
   end
 
   task :register_routes => :router_environment do
-    register_route(:prefix, '/stylesheets')
-    register_route(:prefix, '/javascripts')
-    register_route(:prefix, '/images')
-    register_route(:prefix, '/templates')
-    register_route(:prefix, '/fonts')
-    register_route(:full, '/favicon.ico')
-    register_route(:full, '/robots.txt')
+    [
+      %w(/favicon.ico exact),
+      %w(/humans.txt exact),
+      %w(/robots.txt exact),
+      %w(/fonts prefix),
+      %w(/google991dec8b62e37cfb.html exact),
+      %w(/apple-touch-icon.png exact static),
+      %w(/apple-touch-icon-144x144.png exact),
+      %w(/apple-touch-icon-114x114.png exact),
+      %w(/apple-touch-icon-72x72.png exact),
+      %w(/apple-touch-icon-57x57.png exact),
+      %w(/apple-touch-icon-precomposed.png exact),
+    ].each do |path, type|
+      begin
+        puts "Registering #{type} route #{path}"
+        @router_api.add_route(path, type, @app_id, :skip_commit => true)
+      rescue => e
+        puts "Error registering route: #{e.message}"
+        raise
+      end
+    end
+    @router_api.commit_routes
   end
 
-  desc "Register application and routes with the router (run this task on server in cluster)"
-  task :register => [ :register_application, :register_routes ]
+  desc "Register application and routes with the router"
+  task :register => [ :register_backend, :register_routes ]
 end
-
