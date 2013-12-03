@@ -51,6 +51,11 @@
       if (Math.floor(Math.random() * 50) === 0) {
         userSatisfaction.showSurveyBar();
       }
+    },
+    setSurveyUrl: function(href) {
+      var takeSurvey = document.getElementById('take-survey');
+      takeSurvey.setAttribute('href', href);
+      userSatisfaction.appendCurrentPathToSurveyUrl();
     }
   };
 
