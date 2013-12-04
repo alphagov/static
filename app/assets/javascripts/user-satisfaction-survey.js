@@ -13,8 +13,11 @@
     },
     appendCurrentPathToSurveyUrl: function() {
       var takeSurvey = document.getElementById('take-survey');
-      var surveyUrlWithPath = takeSurvey.getAttribute('href') + "?c=" + root.location.pathname;
-      takeSurvey.setAttribute('href', surveyUrlWithPath);
+      var href = takeSurvey.getAttribute('href');
+      if (href.indexOf('?c=') === -1) {
+        var surveyUrlWithPath = href + "?c=" + root.location.pathname;
+        takeSurvey.setAttribute('href', surveyUrlWithPath);
+      }
     },
     setEventHandlers: function () {
       var $noThanks = $('#survey-no-thanks');
@@ -48,6 +51,11 @@
       if (Math.floor(Math.random() * 50) === 0) {
         userSatisfaction.showSurveyBar();
       }
+    },
+    setSurveyUrl: function(href) {
+      var takeSurvey = document.getElementById('take-survey');
+      takeSurvey.setAttribute('href', href);
+      userSatisfaction.appendCurrentPathToSurveyUrl();
     }
   };
 
