@@ -312,9 +312,9 @@ aside .page-navigation {
       @include core-19($line-height: (45/19));
 
       span, a {
-        border-top: solid 1px $grey-6;
+        //border-top: solid 1px $grey-6;
         margin: 0 -1em 0 -2.25em;
-        padding: 1em 1em 1em 2.75em;
+        padding: 0em 1em 0.75em 2.75em;
       }
 
       span {
