@@ -59,7 +59,7 @@
       overflow: hidden;
       text-indent: -5000px;
       background-color: $light-blue;
-      background-image: url("search-button.png");
+      background-image: image-url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
 
@@ -161,7 +161,7 @@
 
       color: $white;
       background-color: $mainstream-brand;
-      background-image: url("search-button.png");
+      background-image: image-url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
 
