@@ -125,7 +125,7 @@
   @include organisation-logo-image('crests/bis_crest_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/bis_crest_13px.png')
+    background-image: image-url('crests/bis_crest_13px.png')
   }
 }
 
@@ -135,7 +135,7 @@
   @include organisation-logo-image('crests/coastguard_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/coastguard_13px.png')
+    background-image: image-url('crests/coastguard_13px.png')
   }
 }
 
@@ -143,7 +143,7 @@
   @include organisation-logo-image('crests/hmrc_crest_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/hmrc_crest_13px.png')
+    background-image: image-url('crests/hmrc_crest_13px.png')
   }
 }
 
@@ -153,7 +153,7 @@
   @include organisation-logo-image('crests/ho_crest_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/ho_crest_13px.png')
+    background-image: image-url('crests/ho_crest_13px.png')
   }
 }
 
@@ -163,7 +163,7 @@
   @include organisation-logo-image('crests/mod_crest_18px.png');  
 
   @include media-down(mobile) {
-    background-image: url('crests/mod_crest_13px.png')
+    background-image: image-url('crests/mod_crest_13px.png')
   }
 }
 
@@ -177,7 +177,7 @@
   @include organisation-logo-image('crests/org_crest_18px.png');
   
   @include media-down(mobile) {
-    background-image: url('crests/org_crest_13px.png')
+    background-image: image-url('crests/org_crest_13px.png')
   }
 }
 
@@ -185,7 +185,7 @@
   @include organisation-logo-image('crests/portcullis_18px.png');  
 
   @include media-down(mobile) {
-    background-image: url('crests/portcullis_crest_13px.png')
+    background-image: image-url('crests/portcullis_crest_13px.png')
   }
 }
 
@@ -193,7 +193,7 @@
   @include organisation-logo-image('crests/so_crest_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/so_crest_13px.png')
+    background-image: image-url('crests/so_crest_13px.png')
   }
 }
 
@@ -201,7 +201,7 @@
   @include organisation-logo-image('crests/org_crest_18px.png');
   
   @include media-down(mobile) {
-    background-image: url('crests/org_crest_13px.png')
+    background-image: image-url('crests/org_crest_13px.png')
   }
 }
 
@@ -209,7 +209,7 @@
   @include organisation-logo-image('crests/ukaea_crest_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/ukaea_crest_13px.png')
+    background-image: image-url('crests/ukaea_crest_13px.png')
   }
 }
 
@@ -219,7 +219,7 @@
   @include organisation-logo-image('crests/ukho_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/ukho_13px.png')
+    background-image: image-url('crests/ukho_13px.png')
   }
 }
 
@@ -229,6 +229,6 @@
   @include organisation-logo-image('crests/wales_crest_18px.png');
 
   @include media-down(mobile) {
-    background-image: url('crests/wales_crest_13px.png')
+    background-image: image-url('crests/wales_crest_13px.png')
   }
 }
