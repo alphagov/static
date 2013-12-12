@@ -354,7 +354,7 @@ header.page-header {
         position: relative;
         @include inline-block;
         left: 1em;
-        top: -1em;
+        padding:0.5em 0 0.75em 0;
       }
     }
 
