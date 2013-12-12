@@ -442,10 +442,6 @@ body.full-width {
 
   @include media-down(mobile) {
     padding-left: 1em;
-
-    h1 {
-      min-height: (61em/25);
-    }
   }
 }
 
