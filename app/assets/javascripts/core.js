@@ -80,6 +80,13 @@ $(document).ready(function() {
       }
     }
   }
+
+  $('.skip-to-related').click(function(e){
+    if(!window.hasClickedSkipToRelated){
+      window.hasClickedSkipToRelated = true;
+      _gaq && _gaq.push(['_trackEvent', 'ms_related_box', 'skip', 'clicked', 0, true]);
+    }
+  });
 });
 
 
