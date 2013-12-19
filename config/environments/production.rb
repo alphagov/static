@@ -57,4 +57,9 @@ Static::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
+
+  # Enable JSON-style logging
+  config.logstasher.enabled = true
+  config.logstasher.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.json.log")
+  config.logstasher.supress_app_log = true
 end
