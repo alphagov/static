@@ -1,5 +1,23 @@
 /* Global print stylesheet */
 
+#logo {
+  @include core-48;
+  font-size: 28pt;
+  font-weight: bold;
+
+  span>span {
+    margin: 0 1px 0 -9px;
+  }
+
+  img {
+    width: 46px;
+    height: 40px;
+    padding-right: 10px;
+    display: block;
+    float: left;
+  }
+}
+
 main > header {
   position: relative;
 
