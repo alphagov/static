@@ -6,7 +6,7 @@ gem 'unicorn', '4.3.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
-gem 'logstasher', '0.4.0'
+gem 'logstasher', '0.4.1'
 
 group :assets do
   gem "therubyracer", "0.12.0"
