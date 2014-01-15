@@ -363,7 +363,7 @@
   z-index: 50;
 
   @include media-down(mobile) {
-    padding: 0 1em 0.75em;
+    padding: 0 1em;
   }
 
   @include ie(6) {
@@ -394,6 +394,7 @@
       list-style: none;
       margin-left: 0;
       margin-right: 0.5em;
+      margin-bottom: 0.4em;
       padding-right: 1em;
 
       @include device-pixel-ratio() {

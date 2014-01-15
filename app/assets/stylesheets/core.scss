@@ -354,19 +354,23 @@ header.page-header {
         position: relative;
         @include inline-block;
         left: 1em;
-        top: -1em;
+        padding:0.5em 0 0.75em 0;
       }
     }
 
     div {
       background-color: #fff;
       display: block;
-      margin: 0 24em 0 0;
-      padding: 2em 2em 2em 2em;
+      margin: 0;      
+      padding:0;
 
-      @include media-down(tablet) {
+      @include media(tablet) {
+        padding: 2em 2em 2em 2em;
         margin: 0;
-        padding-bottom: 0;
+      }
+
+      @include media(desktop) {
+        margin: 0 24em 0 0;
       }
 
       h1 {
@@ -428,10 +432,7 @@ body.full-width {
 
   @include media-down(mobile) {
     padding-left: 1em;
-
-    h1 {
-      min-height: (61em/25);
-    }
+    padding-right: 1em;
   }
 }
 
@@ -441,10 +442,6 @@ body.full-width {
 
   @include media-down(mobile) {
     padding-left: 1em;
-
-    h1 {
-      min-height: (61em/25);
-    }
   }
 }
 
