@@ -21,7 +21,7 @@ group :test do
   gem 'shoulda', '2.11.3'
 end
 
-gem 'plek', '1.5.0'
+gem 'plek', '1.7.0'
 gem 'jasmine', '1.1.2'
 
 gem 'govuk_frontend_toolkit', '0.36.0'
