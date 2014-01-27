@@ -7,13 +7,6 @@ function recordOutboundLink(e) {
 $(document).ready(function() {
   $('.print-link a').attr('target', '_blank');
 
-  // header search toggle
-  $('.js-header-toggle').on('click', function(e) {
-    e.preventDefault();
-    $($(e.target).attr('href')).toggleClass('js-visible');
-    $(this).toggleClass('js-hidden');
-  });
-
   var $searchFocus = $('.js-search-focus');
   $searchFocus.each(function(i, el){
     if($(el).val() !== ''){
