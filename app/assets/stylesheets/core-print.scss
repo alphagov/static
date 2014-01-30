@@ -1,5 +1,20 @@
 /* Global print stylesheet */
 
+#logo {
+  @include core-48;
+  font-size: 28pt;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+
+  img {
+    width: 46px;
+    height: 40px;
+    padding-right: 6px;
+    display: block;
+    float: left;
+  }
+}
+
 main > header {
   position: relative;
 
