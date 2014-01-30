@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /*/print
+Disallow: /*/print$
 # Don't allow indexing of search results
 Disallow: /search?
 # We only allow indexing of the licence-finder landing page
