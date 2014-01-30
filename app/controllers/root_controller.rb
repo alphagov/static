@@ -19,6 +19,7 @@ class RootController < ApplicationController
     campaign
     print
     proposition_menu
+    homepage
   )
   def template
     if NON_LAYOUT_TEMPLATES.include?(params[:template])

@@ -1,1 +1,13 @@
+<%
+ # There is a requirement to add the thank you comment in a place which is
+ # obvious. Rendering file with the govuk_template lets us put the comment
+ # after the govuk_template. govuk_template as it stands doesn't have a
+ # content_for which could otherwise be used.
+
+ # This is only wanted for the homepage and can't be put in to the frontend
+ # template on frontend due to the way slimmer would not copy over the
+ # comment
+%>
 <%= render partial: 'base', locals: { hide_nav: true } %>
+<%= render :file => 'layouts/govuk_template' %>
+<!-- Thanks Martha -->

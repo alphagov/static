@@ -22,12 +22,15 @@
   }
 
   aside {
-    margin-bottom: 3em;
     z-index: 10;
     border-bottom: 1px solid #bbb;
-    margin: 0 0 2.5em 2em;
+    margin-bottom: 1em;
     padding-bottom: 1em;
     overflow: hidden;
+
+    @include media(tablet) {
+      margin: 0 0 2.5em 2em;
+    }
 
     @include ie(6) {
       zoom: 1;
@@ -309,9 +312,8 @@ aside .page-navigation {
       @include core-19($line-height: (45/19));
 
       span, a {
-        border-top: solid 1px $grey-6;
         margin: 0 -1em 0 -2.25em;
-        padding: 1em 1em 1em 2.75em;
+        padding: 0em 1em 0.75em 2.75em;
       }
 
       span {
