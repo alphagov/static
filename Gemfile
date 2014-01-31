@@ -24,10 +24,10 @@ end
 gem 'plek', '1.5.0'
 gem 'jasmine', '1.1.2'
 
-gem 'govuk_frontend_toolkit', '0.36.0'
+gem 'govuk_frontend_toolkit', '0.39.0'
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', :path => "../govuk_template"
 else
-  gem 'govuk_template', '0.3.2'
+  gem 'govuk_template', '0.4.0'
 end
 gem 'gds-api-adapters', '7.18.0'
