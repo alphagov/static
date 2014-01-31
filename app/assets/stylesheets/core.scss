@@ -339,25 +339,6 @@ h4 {
  */
 
 header.page-header {
-    .skip-to-related {
-      position: absolute;
-      left: -9999em;
-
-      &:focus {
-        position: relative;
-        @include inline-block;
-        left: 32px;
-        top: -2em;
-      }
-
-      @include media(mobile) {
-        position: relative;
-        @include inline-block;
-        left: 1em;
-        padding:0.5em 0 0.75em 0;
-      }
-    }
-
     div {
       background-color: #fff;
       display: block;
