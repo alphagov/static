@@ -1,6 +1,11 @@
 /*
  * Core global styles
  */
+body {
+  @include ie(8) {
+    min-width:1024px;
+  }
+}
 
 #wrapper {
   background-color: $white;//$grey-9;
