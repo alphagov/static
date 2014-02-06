@@ -89,12 +89,11 @@ h4 {
 .related-positioning {
   height: 0;
   left: 0;
-  position: fixed;
   position: absolute;
   top: 9.5em;
   width: 100%;
   z-index: 0;
-
+  
   @include ie-lte(8) {
     z-index: 0;
   }
@@ -128,20 +127,15 @@ h4 {
   height: 0;
   margin: 0 auto;
   max-width: 1020px;
-  position: relative;
   z-index: 50;
 
-  @include ie-lte(7) {
+  @include ie-lte(8) {
     width: 960px;
   }
 
   @include media-down(tablet) {
     max-width: auto;
     height: auto;
-
-    @include ie-lte(7) {
-      width: auto;
-    }
   }
 }
 
@@ -149,7 +143,6 @@ h4 {
   position: absolute;
   right: 1.75em;
   margin: 3em 0 0 0;
-  width: 15em;
   width: 18.75em;
   border-top: 10px solid $mainstream-brand;
 
