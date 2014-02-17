@@ -27,6 +27,6 @@ gem 'govuk_frontend_toolkit', '0.42.0'
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', :path => "../govuk_template"
 else
-  gem 'govuk_template', '0.4.0'
+  gem 'govuk_template', '0.6.1'
 end
 gem 'gds-api-adapters', '7.18.0'
