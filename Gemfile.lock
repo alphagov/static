@@ -80,7 +80,7 @@ GEM
       addressable
     link_header (0.0.7)
     logstash-event (1.1.5)
-    logstasher (0.4.1)
+    logstasher (0.4.8)
       logstash-event (~> 1.1.0)
     lrucache (0.1.4)
       PriorityQueue (~> 0.1.2)
@@ -183,7 +183,7 @@ DEPENDENCIES
   govuk_frontend_toolkit (= 0.39.0)
   govuk_template (= 0.4.0)
   jasmine (= 1.1.2)
-  logstasher (= 0.4.1)
+  logstasher (= 0.4.8)
   mocha (= 0.13.3)
   plek (= 1.7.0)
   rails (= 3.2.16)
