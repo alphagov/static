@@ -1,3 +1,5 @@
+@import "_shims.scss";
+
 /* visited link colour overrides */
 #content.multi-page li a:visited,
 #content.multi-page .pagination li a:visited,
@@ -232,7 +234,7 @@ aside .page-navigation {
     }
 
     a {
-      display: block;
+      @include inline-block;
       padding: 0.25em 1em 0.25em 0;
 
       @include ie-lte(7) {
