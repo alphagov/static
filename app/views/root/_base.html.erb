@@ -2,8 +2,6 @@
 
 <% content_for :head do %>
   <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'application' } %>
-
-  <%= render :partial => 'javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } unless local_assigns[:js_at_the_end] %>
 <% end %>
 
 <% content_for :inside_header do %>
@@ -83,5 +81,5 @@
   <%= render :partial => "footer_support_links" %>
 <% end %>
 <% content_for :body_end do %>
-  <%= render :partial => 'javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } if local_assigns[:js_at_the_end] %>
+  <%= render :partial => 'javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } %>
 <% end %>
