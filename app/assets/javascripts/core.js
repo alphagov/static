@@ -1,9 +1,3 @@
-function recordOutboundLink(e) {
-  _gat._getTrackerByName()._trackEvent(this.href, 'Outbound Links');
-  setTimeout('document.location = "' + this.href + '"', 100);
-  return false;
-}
-
 $(document).ready(function() {
   $('.print-link a').attr('target', '_blank');
 
