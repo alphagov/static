@@ -13,6 +13,13 @@
   if (window.devicePixelRatio) {
     _gaq.push(['_setCustomVar', 11, 'Pixel Ratio', String(window.devicePixelRatio), 2 ]);
   }
+  // Search result placement tracking, set custom var and destroy the cookie
+  if(GOVUK.cookie && GOVUK.cookie('ga_nextpage_params') !== null){
+    var customVar = GOVUK.cookie('ga_nextpage_params').split(',');
+    customVar[1] = parseInt(customVar[1], 10);
+    customVar[4] = parseInt(customVar[4], 10);
+    _gaq.push(customVar);
+  }
 </script>
 <script type="text/javascript">
   _gaq.push(['_gat._anonymizeIp']);
