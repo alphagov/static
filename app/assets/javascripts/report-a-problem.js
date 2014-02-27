@@ -52,10 +52,14 @@ var ReportAProblem = {
 }
 
 $(document).ready(function() {
-  // toggle for reporting a problem (on all content pages)
-  $('.report-a-problem-toggle a').on('click', function() {
+  // Add in the toggle link for reporting a problem at the bottom of the page
+  var $toggleLink = $('<p>', {class: 'report-a-problem-toggle js-footer'}).append('<a href="">Is there anything wrong with this page?</a>');
+  $toggleLink.insertBefore('.report-a-problem-container');
+
+  // Add a click handler for the toggle
+  $toggleLink.on('click', function() {
     $('.report-a-problem-container').toggle();
-      return false;
+    return false;
   });
 
   // form submission for reporting a problem
