@@ -10,9 +10,6 @@ class Error5XXTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("title", :text => "Sorry, we are experiencing technical difficulties (500 error) - GOV.UK", :visible => :all)
 
       assert page.has_selector?("link[href='/static/application.css']", :visible => :all)
-
-      assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.7.2.js']", :visible => :all)
-      assert page.has_selector?("script[src='/static/application.js']", :visible => :all)
     end
 
     within "body.mainstream.error" do
@@ -35,5 +32,8 @@ class Error5XXTest < ActionDispatch::IntegrationTest
       end
 
     end
+
+    assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.7.2.js']", :visible => :all)
+    assert page.has_selector?("script[src='/static/application.js']", :visible => :all)
   end
 end

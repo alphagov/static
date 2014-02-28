@@ -10,8 +10,6 @@ class WrapperTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("link[href='/static/application.css']", :visible => :all)
 
-      assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.7.2.js']", :visible => :all)
-      assert page.has_selector?("script[src='/static/application.js']", :visible => :all)
     end
 
     within "body" do
@@ -32,5 +30,8 @@ class WrapperTest < ActionDispatch::IntegrationTest
       end
 
     end
+
+    assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.7.2.js']", :visible => :all)
+    assert page.has_selector?("script[src='/static/application.js']", :visible => :all)
   end
 end
