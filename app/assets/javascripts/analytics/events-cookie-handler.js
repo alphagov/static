@@ -1,80 +1,87 @@
-var GOVUK = GOVUK || {};
-GOVUK.Analytics = GOVUK.Analytics || {};
+(function() {
+    "use strict";
+    var root = this;
 
-GOVUK.Analytics.internalSiteEvents = function () {
+    root.GOVUK = root.GOVUK || {};
+    var GOVUK = root.GOVUK;
 
-    var COOKIE_NAME = "GDS_successEvents";
-    var eventQueue = [];
+    GOVUK.Analytics = root.GOVUK.Analytics || {};
 
-    var loadCookie = function () {
-        var value = GOVUK.cookie(COOKIE_NAME);
-        if (value) {
-            value = jQuery.parseJSON(jQuery.base64Decode(value));
-        } else {
-            value = [];
-        }
-        eventQueue = value;
-    };
+    GOVUK.Analytics.internalSiteEvents = function () {
 
-    var sendCookieEvents = function () {
-        loadCookie();
-        $(eventQueue).each(function () {
-            GOVUK.sendToAnalytics(this);
-        });
-        eventQueue = [];
-        GOVUK.cookie(COOKIE_NAME, null);
-    };
+        var COOKIE_NAME = "GDS_successEvents";
+        var eventQueue = [];
 
-    var pushCookieEvent = function (event) {
-        eventQueue.push(event);
-        GOVUK.cookie(COOKIE_NAME, jQuery.base64Encode(JSON.stringify(eventQueue)), { days: 4 * 30 });
-    };
+        var loadCookie = function () {
+            var value = GOVUK.cookie(COOKIE_NAME);
+            if (value) {
+                value = jQuery.parseJSON(jQuery.base64Decode(value));
+            } else {
+                value = [];
+            }
+            eventQueue = value;
+        };
 
-    return {
-        push:pushCookieEvent,
-        sendAll:sendCookieEvents
-    };
-}();
+        var sendCookieEvents = function () {
+            loadCookie();
+            $(eventQueue).each(function () {
+                GOVUK.sendToAnalytics(this);
+            });
+            eventQueue = [];
+            GOVUK.cookie(COOKIE_NAME, null);
+        };
 
-GOVUK.Analytics.entryTokens = function () {
+        var pushCookieEvent = function (event) {
+            eventQueue.push(event);
+            GOVUK.cookie(COOKIE_NAME, jQuery.base64Encode(JSON.stringify(eventQueue)), { days: 4 * 30 });
+        };
 
-    var COOKIE_NAME = "GDS_analyticsTokens";
+        return {
+            push:pushCookieEvent,
+            sendAll:sendCookieEvents
+        };
+    }();
 
-    var valueIsInArray = function (value, arr) {
-        return $.inArray(value, arr) !== -1;
-    };
+    GOVUK.Analytics.entryTokens = function () {
 
-    var uniqueIdentifierOfArtifact = function () {
-        return GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers[GOVUK.Analytics.Format].slugLocation);
-    };
+        var COOKIE_NAME = "GDS_analyticsTokens";
 
-    var assignToken = function () {
-        var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
-        if (!tokens) tokens = [];
-        if (!valueIsInArray(uniqueIdentifierOfArtifact(), tokens))
-        {
-            tokens.push(uniqueIdentifierOfArtifact());
-            GOVUK.cookie(COOKIE_NAME, JSON.stringify(tokens), { days: 4 * 30 });
-        }
-    };
+        var valueIsInArray = function (value, arr) {
+            return $.inArray(value, arr) !== -1;
+        };
 
-    var revokeToken = function () {
-        var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
-        var positionOfToken = $.inArray(uniqueIdentifierOfArtifact(),tokens);
-        if (positionOfToken !== -1) {
-            tokens.splice(positionOfToken,1);
-            GOVUK.cookie(COOKIE_NAME, JSON.stringify(tokens), { days: 4 * 30 });
-        }
-    };
+        var uniqueIdentifierOfArtifact = function () {
+            return GOVUK.Analytics.getSlug(document.URL, GOVUK.Analytics.Trackers[GOVUK.Analytics.Format].slugLocation);
+        };
 
-    var tokenExists = function () {
-        var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
-        return valueIsInArray(uniqueIdentifierOfArtifact(), tokens);
-    };
+        var assignToken = function () {
+            var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
+            if (!tokens) tokens = [];
+            if (!valueIsInArray(uniqueIdentifierOfArtifact(), tokens))
+            {
+                tokens.push(uniqueIdentifierOfArtifact());
+                GOVUK.cookie(COOKIE_NAME, JSON.stringify(tokens), { days: 4 * 30 });
+            }
+        };
 
-    return {
-        assignToken:assignToken,
-        revokeToken:revokeToken,
-        tokenExists:tokenExists
-    };
-}();
+        var revokeToken = function () {
+            var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
+            var positionOfToken = $.inArray(uniqueIdentifierOfArtifact(),tokens);
+            if (positionOfToken !== -1) {
+                tokens.splice(positionOfToken,1);
+                GOVUK.cookie(COOKIE_NAME, JSON.stringify(tokens), { days: 4 * 30 });
+            }
+        };
+
+        var tokenExists = function () {
+            var tokens = JSON.parse(GOVUK.cookie(COOKIE_NAME));
+            return valueIsInArray(uniqueIdentifierOfArtifact(), tokens);
+        };
+
+        return {
+            assignToken:assignToken,
+            revokeToken:revokeToken,
+            tokenExists:tokenExists
+        };
+    }();
+}).call(this);
