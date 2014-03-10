@@ -187,7 +187,6 @@
   display: none; /* shown with JS, always hidden for non-JS */
 }
 
-.beta-notice,
 #global-browser-prompt {
   padding: 0.5em 2em;
 
@@ -232,12 +231,6 @@
     position: absolute;
     right: 0;
   }
-}
-
-
-.beta-notice{
-  background-color: $orange;
-  color: #fff;
 }
 
 #global-breadcrumb {
