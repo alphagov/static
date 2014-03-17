@@ -16,6 +16,7 @@ class RootController < ApplicationController
   NON_LAYOUT_TEMPLATES = %w(
     barclays_epdq
     beta_notice
+    beta_label
     campaign
     print
     proposition_menu
