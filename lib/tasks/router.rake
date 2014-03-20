@@ -20,6 +20,7 @@ namespace :router do
       %w(/robots.txt exact),
       %w(/fonts prefix),
       %w(/google991dec8b62e37cfb.html exact),
+      %w(/googlef35857dca8b812e7.html exact),
       %w(/apple-touch-icon.png exact static),
       %w(/apple-touch-icon-144x144.png exact),
       %w(/apple-touch-icon-114x114.png exact),
