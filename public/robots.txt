@@ -9,8 +9,5 @@ Allow: /licence-finder
 Disallow: /business-finance-support-finder/*
 Allow: /business-finance-support-finder
 Disallow: /apply-for-a-licence
-# Prevent access to CMA cases until 31st March
-Disallow: /cma-cases
-Disallow: /cma-cases/
 Sitemap: https://www.gov.uk/sitemap.xml
 Crawl-delay: 0.5
