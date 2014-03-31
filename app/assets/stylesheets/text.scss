@@ -507,10 +507,12 @@ article .form-download {
 }
 
 article .address {
-  background: $grey-9;
-  margin: 0.75em 0 1.5em 0;
-  padding: 1em 0 1em 2em;
+  margin: 2.5em 0;
   min-width: 35%;
+  p {
+    @include core-16;
+    font-weight: 700;
+  }
 }
 
 article ol.places {
@@ -538,8 +540,6 @@ article .place {
   padding-bottom: 1.5em;
 
   .address {
-    background: none;
-    border: none;
     margin: 0;
     padding: 0;
     width: auto;
