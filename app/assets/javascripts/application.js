@@ -7,7 +7,6 @@
 //= require user-satisfaction-survey
 //= require core
 //= require report-a-problem
-//= require popup
 //= require geo-locator
 //= require jquery.history
 //= require jquery.tabs

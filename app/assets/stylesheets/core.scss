@@ -340,7 +340,7 @@ header.page-header {
     div {
       background-color: #fff;
       display: block;
-      margin: 0;      
+      margin: 0;
       padding:0;
 
       @include media(tablet) {
@@ -710,69 +710,6 @@ article {
   @include core-14;
   font-weight: bold;
   display: block;
-}
-
-/* Feedback mechanism styles */
-.popover-mask {
-  background-color: rgba(0,0,0,0.5);
-  display: none;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  
-  height: 100%;
-  width: 100%;
-
-  margin: 0;
-  padding: 0;
-
-  z-index: 60;
-
-  @include ie-lte(7) {
-    position: absolute !important;
-  }
-}
-
-#popup {
-  display: none;
-
-  overflow: visible;
-  clear: both;
-  
-  position: absolute;
-  top: 2em;
-  left: 0;
-  
-  width: 60%;
-  
-  z-index: 999999;
-  
-  padding: 0;
-  padding-bottom: 0.5em;
-
-  h2 {
-    outline: none;
-  }
-
-  h3 {
-    @include core-16;
-    margin: 0.75em 0;
-  }
-
-  ul {
-    margin: 0 0 0 5em;
-    padding: 0;
-  }
-
-  .error-notification {
-    margin-bottom: 0.8em;
-    padding: 0 0.5em;
-  }
-
-  .inner {
-    background-color: #fff;
-  }
 }
 
 .close {

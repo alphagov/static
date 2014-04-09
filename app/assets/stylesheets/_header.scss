@@ -157,18 +157,6 @@
       }
     }
 
-    @include ie-lte(7) {
-      input.button-active {
-        background-color: #28A197;
-        top: 0;
-      }
-
-      input.button-hover {
-        background-color: #3ABAA8;
-      }
-    }
-
-
     @media screen and (max-width: 379px) {
       display: none;
       width: 100%;
