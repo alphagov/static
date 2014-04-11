@@ -236,6 +236,7 @@ aside .page-navigation {
     a {
       @include inline-block;
       padding: 0.25em 1em 0.25em 0;
+      text-decoration: none;
 
       @include ie-lte(7) {
         display: inline;
@@ -251,6 +252,10 @@ aside .page-navigation {
       &:hover span.part-description, 
       &:focus span.part-description {
         color: $link-hover-colour;
+      }
+
+      &:hover {
+        text-decoration: underline;
       }
     }
 
