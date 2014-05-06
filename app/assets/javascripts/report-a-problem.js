@@ -64,6 +64,8 @@ $(document).ready(function() {
 
   // form submission for reporting a problem
   var $forms = $('.report-a-problem-container form, .report-a-problem form');
+  $forms.append($('<input type="hidden" name="window_height">').val($(window).height()));
+  $forms.append($('<input type="hidden" name="window_width">').val($(window).width()));
   $forms.append('<input type="hidden" name="javascript_enabled" value="true"/>');
   $forms.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
 
