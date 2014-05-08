@@ -509,9 +509,11 @@ article .form-download {
 article .address {
   margin: 2.5em 0;
   min-width: 35%;
-  p {
-    font-weight: 700;
-  }
+}
+
+article h2 + .address,
+article h3 + .address {
+  margin-top: .5em;
 }
 
 article ol.places {
