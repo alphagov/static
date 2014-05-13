@@ -7,11 +7,10 @@ $(function() {
   "use strict";
   function browserWarning() {
     var container = $('<div id="global-browser-prompt"></div>'),
-        text = $('<p>For a safer, faster, better experience online you should upgrade your browser. </p>'),
-        findMoreLink = $('<a href="/help/browsers">Find out more about browsers</a>'),
+        text = $('<p><a href="/help/browsers">Upgrade your web browser</a> (the software you use to access the internet), it’s out of date</p>'),
         closeLink = $('<a href="#" class="dismiss" title="Dismiss this message">Close</a>');
 
-    return container.append(text.append(findMoreLink, closeLink));
+    return container.append(text.append(closeLink));
   }
 
   // we don't show the message when the cookie warning is also there
