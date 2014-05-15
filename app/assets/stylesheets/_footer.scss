@@ -5,7 +5,7 @@
     @extend %contain-floats;
 
     @include media(tablet){
-      padding: 0 0 30px;
+      padding: 0 $gutter-half $gutter;
     }
 
     .footer-explore,
