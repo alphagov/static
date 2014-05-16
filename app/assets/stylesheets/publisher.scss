@@ -234,7 +234,7 @@ aside .page-navigation {
     }
 
     a {
-      @include inline-block;
+      display: block;
       padding: 0.25em 1em 0.25em 0;
 
       @include ie-lte(7) {
