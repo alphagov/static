@@ -193,8 +193,6 @@ li.done:hover .undo a {
   }
 
   ul {
-    padding: 0; /* this is so the bullets hang */
-
     label {
       margin-left: 0.25em;
     }
@@ -206,7 +204,8 @@ li.done:hover .undo a {
     /* this is the multiple choice selector */
     &.options {
       list-style: none;
-
+      padding: 0; /* this aligns optional questions with gutter */
+      
       li {
         line-height: 1.5em;
         margin: 0.5em 0;
