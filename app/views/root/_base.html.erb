@@ -16,7 +16,7 @@
   </form>
 <% end %>
 
-<% content_for :content do %>
+<% content_for :after_header do %>
   <section id="user-satisfaction-survey">
     <div class="wrapper">
       <h1>Tell us what you think of GOV.UK</h1>
@@ -24,7 +24,9 @@
       <p><a href="https://www.surveymonkey.com/s/6HZFSVC" id="take-survey" target="_blank">Take the 3 minute survey</a> This will open a short survey on another website</p>
     </div>
   </section>
+<% end %>
 
+<% content_for :content do %>
   <%= banner_notification %>
 
   <% unless local_assigns[:hide_nav] %>
