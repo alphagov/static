@@ -2,3 +2,4 @@
 //= require analytics/tracking-strategies
 //= require analytics/tracking
 //= require analytics/print-tracking
+//= require analytics/content-seen-tracker
