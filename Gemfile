@@ -20,8 +20,11 @@ group :test do
   gem 'shoulda', '2.11.3'
 end
 
+group :development, :test do
+  gem 'jasmine', '2.0.2'
+end
+
 gem 'plek', '1.7.0'
-gem 'jasmine', '1.1.2'
 
 gem 'govuk_frontend_toolkit', '0.43.2'
 if ENV['GOVUK_TEMPLATE_DEV']
