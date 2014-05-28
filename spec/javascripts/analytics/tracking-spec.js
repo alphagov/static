@@ -143,10 +143,10 @@ describe("success event tracking", function () {
       var arguments = GOVUK.sendToAnalytics.calls.allArgs();
       var expectedDataToSendToGoogle = ['_trackEvent', 'MS_guide', '', 'Entry', 0, true];
       expect(arguments.length).toBe(1);
-              // using JSONEquals because there is a bug in the .toHaveBeenCalledWith() method
-              // see: https://github.com/pivotal/jasmine/issues/45
-              expect(arguments[0][0]).toBeEqualAsJSON(expectedDataToSendToGoogle);
-            });
+      // using JSONEquals because there is a bug in the .toHaveBeenCalledWith() method
+      // see: https://github.com/pivotal/jasmine/issues/45
+      expect(arguments[0][0]).toBeEqualAsJSON(expectedDataToSendToGoogle);
+    });
 
     it("should only call guide strategy when format is guide", function () {
       GOVUK.Analytics.Format = 'guide';
