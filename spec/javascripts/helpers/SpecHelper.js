@@ -1,14 +1,23 @@
 beforeEach(function () {
   jasmine.addMatchers({
-    toBeEqualAsJSON:function (expected) {
-      var actualAsJSON = JSON.stringify(this.actual);
-      var expectedAsJSON = JSON.stringify(expected);
+    toBeEqualAsJSON: function (util, customEqualityTesters) {
+      return {
+        compare: function (actual, expected) {
+          var actualAsJSON = JSON.stringify(actual);
+          var expectedAsJSON = JSON.stringify(expected);
 
-      this.message = function () {
-        return "Expected " + actualAsJSON + " to be equal to " + expectedAsJSON + " once converted to JSON";
-      };
+          var result = {};
 
-      return actualAsJSON === expectedAsJSON;
+          result.pass = actualAsJSON === expectedAsJSON;
+
+          if (result.pass)
+            result.message = "Expected " + actualAsJSON + " not to be equal to " + expectedAsJSON + " once converted to JSON";
+          else
+            result.message = "Expected " + actualAsJSON + " to be equal to " + expectedAsJSON + " once converted to JSON";
+
+          return result;
+        }
+      }
     }
   });
 });

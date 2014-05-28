@@ -81,6 +81,33 @@ describe("analytics cookie tokens", function () {
 
       expect(GOVUK.Analytics.entryTokens.tokenExists()).toBeFalsy();
     });
+  });
 
+  describe("GOVUK.Analytics.internalSiteEvents", function () {
+    afterEach(function () {
+      GOVUK.Analytics.internalSiteEvents.sendAll();
+    });
+
+    it("should store an event in the cookie on push", function () {
+      GOVUK.Analytics.internalSiteEvents.push("event");
+
+      expect(GOVUK.cookie("GDS_successEvents"))
+      .toEqual(jQuery.base64Encode(JSON.stringify(["event"])));
+    });
+
+    it("should send the stored events to Google Analytics on sendAll", function () {
+      spyOn(GOVUK, 'sendToAnalytics');
+
+      GOVUK.Analytics.internalSiteEvents.push("event1");
+      GOVUK.Analytics.internalSiteEvents.push("event2");
+      GOVUK.Analytics.internalSiteEvents.sendAll();
+
+      var args = GOVUK.sendToAnalytics.calls.allArgs();
+      expect(args.length).toBe(2);
+      expect(args[0][0]).toBeEqualAsJSON("event1");
+      expect(args[1][0]).toBeEqualAsJSON("event2");
+      expect(GOVUK.cookie("GDS_successEvents"))
+      .toBe(null);
+    });
   });
 });
