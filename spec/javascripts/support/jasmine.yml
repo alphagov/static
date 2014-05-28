@@ -11,6 +11,7 @@
 #   - dist/**/*.js
 #
 src_files:
+  - assets/libs/jquery/jquery-1.7.2.js
   - assets/application.js
 
 # stylesheets
