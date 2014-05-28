@@ -22,6 +22,7 @@ end
 
 group :development, :test do
   gem 'jasmine', '2.0.2'
+  gem 'jasmine-jquery-rails'
 end
 
 gem 'plek', '1.7.0'
