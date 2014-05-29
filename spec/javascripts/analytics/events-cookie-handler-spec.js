@@ -91,8 +91,7 @@ describe("analytics cookie tokens", function () {
     it("should store an event in the cookie on push", function () {
       GOVUK.Analytics.internalSiteEvents.push("event");
 
-      expect(GOVUK.cookie("GDS_successEvents"))
-      .toEqual(jQuery.base64Encode(JSON.stringify(["event"])));
+      expect(GOVUK.cookie("GDS_successEvents")).toEqual(jQuery.base64Encode(JSON.stringify(["event"])));
     });
 
     it("should send the stored events to Google Analytics on sendAll", function () {
@@ -106,8 +105,7 @@ describe("analytics cookie tokens", function () {
       expect(args.length).toBe(2);
       expect(args[0][0]).toBeEqualAsJSON("event1");
       expect(args[1][0]).toBeEqualAsJSON("event2");
-      expect(GOVUK.cookie("GDS_successEvents"))
-      .toBe(null);
+      expect(GOVUK.cookie("GDS_successEvents")).toBe(null);
     });
   });
 });

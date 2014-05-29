@@ -81,24 +81,18 @@ describe("success event tracking", function () {
 
   describe("isRootArtefact", function () {
     it("should be true for standard artefact url", function () {
-      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator", 0))
-      .toBeTruthy();
-      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo", 2))
-      .toBeTruthy();
+      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator", 0)).toBeTruthy();
+      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo", 2)).toBeTruthy();
     });
 
     it("should be true for standard artefact url ending with a slash", function () {
-      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/", 0))
-      .toBeTruthy();
-      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo/", 2))
-      .toBeTruthy();
+      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/", 0)).toBeTruthy();
+      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo/", 2)).toBeTruthy();
     });
 
     it("should be false for non-root artefact url", function () {
-      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/y", 0))
-      .toBeFalsy();
-      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo/bar", 2))
-      .toBeFalsy();
+      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/student-finance-calculator/y", 0)).toBeFalsy();
+      expect(GOVUK.Analytics.isRootOfArtefact("http://smartanswers.dev.gov.uk/government/policies/foo/bar", 2)).toBeFalsy();
     });
 
   });
