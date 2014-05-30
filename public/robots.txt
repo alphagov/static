@@ -13,3 +13,6 @@ Disallow: /apply-for-a-licence
 Disallow: /performance/experimental/*
 Sitemap: https://www.gov.uk/sitemap.xml
 Crawl-delay: 0.5
+
+user-agent: AhrefsBot
+disallow: /
