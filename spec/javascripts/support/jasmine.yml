@@ -12,6 +12,8 @@
 #
 src_files:
   - assets/libs/jquery/jquery-1.7.2.js
+  - assets/jasmine-jquery.js
+  - assets/govuk-template.js
   - assets/application.js
 
 # stylesheets
