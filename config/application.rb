@@ -58,7 +58,7 @@ module Static
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.prefix = "static"
+    config.assets.prefix = "/static"
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

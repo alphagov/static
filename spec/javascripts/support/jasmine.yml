@@ -11,17 +11,8 @@
 #   - dist/**/*.js
 #
 src_files:
-  - app/assets/javascripts/libs/jquery/jquery-1.7.2.js
-  - app/assets/javascripts/libs/jquery/plugins/jquery.base64.js
-  - app/assets/javascripts/libs/jquery/plugins/jasmine-jquery-1.3.1.js
-  - app/assets/javascripts/core.js
-  - app/assets/javascripts/cookie-functions.js
-  - app/assets/javascripts/geo-locator.js
-  - app/assets/javascripts/report-a-problem.js
-  - app/assets/javascripts/user-satisfaction-survey.js
-  - app/assets/javascripts/analytics/tracking-strategies.js
-  - app/assets/javascripts/analytics/events-cookie-handler.js
-  - app/assets/javascripts/analytics/tracking.js
+  - assets/libs/jquery/jquery-1.7.2.js
+  - assets/application.js
 
 # stylesheets
 #
@@ -35,7 +26,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-  - stylesheets/**/*.css
+  - assets/application.css
 
 # helpers
 #
@@ -48,7 +39,7 @@ stylesheets:
 #   - helpers/**/*.js
 #
 helpers:
-  - helpers/**/*.js
+  - 'helpers/**/*.js'
 
 # spec_files
 #
@@ -61,7 +52,6 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
-  - 'ShouldOnlyRunTestsOnFirefox.js'
   - '**/*[sS]pec.js'
 
 # src_dir
@@ -84,4 +74,52 @@ src_dir:
 #
 # spec_dir: spec/javascripts
 #
-spec_dir: spec/javascripts
+spec_dir:
+
+# spec_helper
+#
+# Ruby file that Jasmine server will require before starting.
+# Returned relative to your root path
+# Default spec/javascripts/support/jasmine_helper.rb
+#
+# EXAMPLE:
+#
+# spec_helper: spec/javascripts/support/jasmine_helper.rb
+#
+spec_helper: spec/javascripts/support/jasmine_helper.rb
+
+# boot_dir
+#
+# Boot directory path. Your boot_files must be returned relative to this path.
+# Default: Built in boot file
+#
+# EXAMPLE:
+#
+# boot_dir: spec/javascripts/support/boot
+#
+boot_dir:
+
+# boot_files
+#
+# Return an array of filepaths relative to boot_dir to include in order to boot Jasmine
+# Default: Built in boot file
+#
+# EXAMPLE
+#
+# boot_files:
+#   - '**/*.js'
+#
+boot_files:
+
+# rack_options
+#
+# Extra options to be passed to the rack server
+# by default, Port and AccessLog are passed.
+#
+# This is an advanced options, and left empty by default
+#
+# EXAMPLE
+#
+# rack_options:
+#   server: 'thin'
+
