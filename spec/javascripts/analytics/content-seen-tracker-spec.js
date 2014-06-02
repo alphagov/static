@@ -1,4 +1,4 @@
-describe("GOVUK.Analytics.contentSeenTracker", function() {
+describe("GOVUK.Analytics.ContentSeenTracker", function() {
   var test_fixture = '\
     <div style="height: 3000px"></div>\
     <span data-track-seen="content_identifier_1"></span>\
@@ -6,10 +6,10 @@ describe("GOVUK.Analytics.contentSeenTracker", function() {
     <span data-track-seen="content_identifier_2"></span>';
 
   beforeEach(function() {
+    jasmine.clock().install();
     setFixtures(test_fixture);
     spyOn(GOVUK, "sendToAnalytics").and.stub();
-    window.GOVUK.Analytics.contentSeenTracker.init();
-    jasmine.clock().install();
+    window.contentSeenTracker = new window.GOVUK.Analytics.ContentSeenTracker();
   });
 
   afterEach(function() {
@@ -17,10 +17,10 @@ describe("GOVUK.Analytics.contentSeenTracker", function() {
   });
 
   function scrollOverNthNode(n) {
-    if (typeof GOVUK.Analytics.contentSeenTracker.trackedNodes[n-1].isVisible.calls == 'undefined') {
-      spyOn(GOVUK.Analytics.contentSeenTracker.trackedNodes[n-1], "isVisible");
+    if (typeof contentSeenTracker.trackedNodes[n-1].isVisible.calls == 'undefined') {
+      spyOn(contentSeenTracker.trackedNodes[n-1], "isVisible");
     }
-    GOVUK.Analytics.contentSeenTracker.trackedNodes[n-1].isVisible.and.returnValue(true);
+    contentSeenTracker.trackedNodes[n-1].isVisible.and.returnValue(true);
     $(window).trigger('scroll');
     jasmine.clock().tick(510);
   }
