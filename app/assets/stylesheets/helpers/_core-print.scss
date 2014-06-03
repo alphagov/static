@@ -1,4 +1,7 @@
 /* Global print stylesheet */
+html {
+  font-size: 62.5%;
+}
 
 #logo {
   @include core-48;

@@ -5,14 +5,9 @@
 // files can be used in the view files.
 
 $is-print: true;
-@import "styleguide/_print.scss";
-@import "_typography";
+@import "styleguide/print";
+@import "styleguide/typography";
 
 // OUTPUT
 // The following files and inline CSS will form the output of print.css
-
-html {
-  font-size: 62.5%;
-}
-    
 @import "helpers/core-print";
