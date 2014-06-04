@@ -1,16 +1,17 @@
 /* govuk_frontend_toolkit includes */
-@import "_colours";
-@import "_conditionals";
-@import "_css3";
-@import "_device-pixels";
-@import "_measurements";
-@import "_typography";
-@import "design-patterns/_buttons";
+@import "colours";
+@import "conditionals";
+@import "css3";
+@import "device-pixels";
+@import "measurements";
+@import "typography";
+@import "design-patterns/buttons";
 
 /* local styleguide includes */
-@import "styleguide/_colours";
-@import "styleguide/_conditionals2";
+@import "styleguide/colours";
+@import "styleguide/conditionals2";
 
 // basic styles for HTML5 and other elements
-@import "header-footer";
-@import "_report-a-problem";
+@import "helpers/footer";
+@import "helpers/header";
+@import "helpers/report-a-problem";

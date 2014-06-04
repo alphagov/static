@@ -1,31 +1,30 @@
 /* govuk_frontend_toolkit includes */
-@import "_colours";
-@import "_conditionals";
-@import "_css3";
-@import "_device-pixels";
-@import "_measurements";
-@import "_typography";
+@import "colours";
+@import "conditionals";
+@import "css3";
+@import "device-pixels";
+@import "measurements";
+@import "typography";
+@import "shims";
+@import "design-patterns/buttons";
 
 /* local styleguide includes */
-@import "styleguide/_colours";
-@import "styleguide/_conditionals2";
-
-@import "design-patterns/_buttons";
-@import "_buttons";
+@import "styleguide/colours";
+@import "styleguide/conditionals2";
 
 /* styles */
-@import "text";
-@import "core";
-
-@import "ancillary-pages";
-@import "header-footer";
-@import "notifications";
-@import "organisations";
-@import "publisher";
-@import "_report-a-problem";
+@import "helpers/buttons";
+@import "helpers/core";
+@import "helpers/ancillary-pages";
+@import "helpers/beta-label";
+@import "helpers/footer";
+@import "helpers/header";
+@import "helpers/multi-step";
+@import "helpers/notifications";
+@import "helpers/organisations";
+@import "helpers/publisher";
+@import "helpers/report-a-problem";
+@import "helpers/text";
 
 @import "static-pages/error-pages";
 
-@import "multi-step";
-
-@import "beta-label";

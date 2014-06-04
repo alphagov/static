@@ -5,14 +5,13 @@
 // files can be used in the view files.
 
 $is-print: true;
-@import "styleguide/_print.scss";
-@import "_typography";
+
+// govuk_frontend_toolkit includes
+@import "typography";
+
+// local styleguide includes
+@import "styleguide/print";
 
 // OUTPUT
 // The following files and inline CSS will form the output of print.css
-
-html {
-  font-size: 62.5%;
-}
-    
-@import "core-print.scss";
+@import "helpers/core-print";

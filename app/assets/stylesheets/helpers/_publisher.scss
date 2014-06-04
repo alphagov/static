@@ -1,5 +1,3 @@
-@import "_shims.scss";
-
 /* visited link colour overrides */
 #content.multi-page li a:visited,
 #content.multi-page .pagination li a:visited,
@@ -246,9 +244,9 @@ aside .page-navigation {
         cursor: pointer;
       }
 
-      &:hover span.part-title, 
-      &:focus span.part-title, 
-      &:hover span.part-description, 
+      &:hover span.part-title,
+      &:focus span.part-title,
+      &:hover span.part-description,
       &:focus span.part-description {
         color: $link-hover-colour;
       }
