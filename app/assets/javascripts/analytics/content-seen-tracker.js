@@ -14,7 +14,7 @@
     init();
 
     function init() {
-      var trackedElements = $('*[data-track-seen]');
+      var trackedElements = $('.track-seen');
       if ( trackedElements.length === 0 ) {
         return;
       }
@@ -54,8 +54,8 @@
       var $element    = $(element);
       var positionTop = $element.offset().top;
 
-      this.identifier     = $element.data('track-seen');
-      this.alreadyTracked = false
+      this.identifier     = $element.attr('id');
+      this.alreadyTracked = false;
 
       this.isVisible = function isVisible() {
         var $window = $(window);

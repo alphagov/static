@@ -1,9 +1,9 @@
 describe("GOVUK.Analytics.ContentSeenTracker", function() {
   var test_fixture = '\
     <div style="height: 3000px"></div>\
-    <span data-track-seen="content_identifier_1"></span>\
+    <span class="track-seen" id="content_identifier_1"></span>\
     <div style="height: 3000px"></div>\
-    <span data-track-seen="content_identifier_2"></span>';
+    <span class="track-seen" id="content_identifier_2"></span>';
 
   beforeEach(function() {
     jasmine.clock().install();
