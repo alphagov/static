@@ -1,0 +1,108 @@
+(function() {
+  "use strict";
+
+  window.GOVUK           = window.GOVUK || {};
+  window.GOVUK.Analytics = window.GOVUK.Analytics || {};
+
+  var CONFIG = {
+  }
+
+  function ScrollTracker(sitewideConfig) {
+    this.config = this.getConfigForCurrentPath(sitewideConfig);
+    this.SCROLL_TIMEOUT_DELAY = 500;
+
+    if ( !this.config ) {
+      this.enabled = false;
+      return;
+    }
+    this.enabled = true;
+
+    this.trackedNodes = this.buildNodes(this.config);
+
+    $(window).scroll($.proxy(this.onScroll, this));
+    this.trackVisibleNodes();
+  };
+
+  ScrollTracker.prototype.getConfigForCurrentPath = function getConfigForCurrentPath(sitewideConfig) {
+    for ( var path in sitewideConfig ) {
+      if ( window.location.pathname == path ) return sitewideConfig[path];
+    }
+  };
+
+  ScrollTracker.prototype.buildNodes = function buildNodes(config) {
+    var nodes = [];
+    var nodeConstructor, nodeData;
+
+    for (var i=0; i<config.length; i++) {
+      nodeConstructor = ScrollTracker[config[i][0] + "Node"];
+      nodeData = config[i][1];
+      nodes.push(new nodeConstructor(nodeData));
+    }
+
+    return nodes;
+  };
+
+  ScrollTracker.prototype.onScroll = function onScroll() {
+    clearTimeout(this.scrollTimeout);
+    this.scrollTimeout = setTimeout($.proxy(this.trackVisibleNodes, this), this.SCROLL_TIMEOUT_DELAY);
+  };
+
+  ScrollTracker.prototype.trackVisibleNodes = function trackVisibleNodes() {
+    for ( var i=0; i<this.trackedNodes.length; i++ ) {
+      if ( this.trackedNodes[i].isVisible() && !this.trackedNodes[i].alreadySeen ) {
+        this.trackedNodes[i].alreadySeen = true;
+        GOVUK.sendToAnalytics(["_trackEvent"].concat(this.trackedNodes[i].eventData));
+      }
+    }
+  };
+
+
+
+  ScrollTracker.PercentNode = function PercentNode(percentage) {
+    this.percentage = percentage;
+    this.eventData = ["ScrollTo", "Percent", String(percentage)];
+  };
+
+  ScrollTracker.PercentNode.prototype.isVisible = function isVisible() {
+    return this.currentScrollPercent() >= this.percentage;
+  };
+
+  ScrollTracker.PercentNode.prototype.currentScrollPercent = function currentScrollPercent() {
+    var $document = $(document);
+    var $window = $(window);
+    return( ($window.scrollTop() / ($document.height() - $window.height())) * 100.0 );
+  };
+
+
+
+  ScrollTracker.HeadingNode = function HeadingNode(headingText) {
+    this.$element = getHeadingElement(headingText);
+    this.eventData = ["ScrollTo", "Heading", headingText];
+
+    function getHeadingElement(headingText) {
+      var $headings = $('h1, h2, h3, h4, h5, h6');
+      for ( var i=0; i<$headings.length; i++ ) {
+        if ( $.trim($headings.eq(i).text()).replace(/\s/g, ' ') == headingText ) return $headings.eq(i);
+      }
+    }
+  };
+
+  ScrollTracker.HeadingNode.prototype.isVisible = function isVisible() {
+    if ( !this.$element ) return false;
+    return this.elementIsVisible(this.$element);
+  }
+
+  ScrollTracker.HeadingNode.prototype.elementIsVisible = function elementIsVisible($element) {
+    var $window = $(window);
+    var positionTop = $element.offset().top;
+    return ( positionTop > $window.scrollTop() && positionTop < ($window.scrollTop() + $window.height()) );
+  };
+
+
+
+  $().ready(function() {
+    window.GOVUK.Analytics.scrollTracker = new ScrollTracker(CONFIG);
+  });
+
+  window.GOVUK.Analytics.ScrollTracker = ScrollTracker;
+}());
