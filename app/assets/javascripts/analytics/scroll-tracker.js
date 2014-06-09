@@ -5,7 +5,72 @@
   window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var CONFIG = {
-  }
+    '/': [
+      ['Heading', 'Services and information'],
+      ['Heading', 'More on GOV.UK'],
+      ['Percent', 80] //To track 'Services and information' section in footer
+    ],
+    '/bank-holidays': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
+    ],
+    '/foreign-travel-advice/egypt': [
+      ['Heading', 'Summary'],
+      ['Heading', 'Terrorism'],
+      ['Heading', 'Sharm el Sheikh'],
+      ['Heading', 'Hurghada'],
+      ['Heading', 'Protests and demonstrations'],
+      ['Heading', 'Overseas Business Risk']
+    ],
+    '/foreign-travel-advice/kenya': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
+    ],
+    '/foreign-travel-advice/spain': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
+    ],
+    '/foreign-travel-advice/syria': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
+    ],
+    '/foreign-travel-advice/thailand': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
+    ],
+    '/foreign-travel-advice/turkey': [
+      ['Heading', 'Summary'],
+      ['Heading', 'Demonstrations'],
+      ['Heading', 'Terrorism'],
+      ['Heading', 'Visas'],
+      ['Heading', 'Earthquakes'],
+      ['Heading', 'Overseas Business Risk'],
+      ['Heading', 'Travel insurance']
+    ],
+    '/jobsearch': [
+      ['Heading', 'Registration'],
+      ['Heading', 'Help']
+    ],
+    '/renew-adult-passport': [
+      ['Heading', 'Damaged and expired passports'],
+      ['Heading', 'Lost or stolen passports'],
+      ['Heading', 'Apply for a passport'],
+      ['Heading', 'Tracking your passport application']
+    ],
+    '/student-finance-register-login': [
+      ['Heading', 'Log in problems'],
+      ['Heading', 'Manage your student finance']
+    ],
+    '/tax-disc': [
+      ['Heading', 'Other ways to apply'],
+      ['Heading', 'Help with tax discs']
+    ]
+  };
 
   function ScrollTracker(sitewideConfig) {
     this.config = this.getConfigForCurrentPath(sitewideConfig);
