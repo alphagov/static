@@ -6,10 +6,11 @@
     var GOVUK = root.GOVUK;
 
     GOVUK.Analytics = GOVUK.Analytics || {};
-    var _gaq = _gaq || [];
+
+    root._gaq = root._gaq || [];
 
     GOVUK.sendToAnalytics = function (analyticsData) {
-        _gaq.push(analyticsData);
+        root._gaq.push(analyticsData);
     };
 
     GOVUK.Analytics.isTheSameArtefact = function(currentUrl, previousUrl, slugLocation) {
