@@ -1,6 +1,5 @@
-FORM_TEXT = '<div class="report-a-problem-container"><form><button class="button" name="button" type="submit">Send</button></form></div>';
-
 describe("form submission for reporting a problem", function () {
+    var FORM_TEXT = '<div class="report-a-problem-container"><form><button class="button" name="button" type="submit">Send</button></form></div>';
     var form;
 
     beforeEach(function() {
