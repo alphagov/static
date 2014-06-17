@@ -73,7 +73,7 @@
 
     //   "Mozilla/5.0 (X11; Linux x8664) AppleWebKit/537.36 (KHTML like Gecko) Chrome/33.0.1750.152 Safari/537.36"
     //   "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Mobile Safari/537.36"
-    CR_recent: /^Mozilla\/5\.0 \((Windows NT|Macintosh|X11|(Linux; Android \d\.\d\.\d))(;)?( .*)\) AppleWebKit\/53\d\.\d{1,2} \(KHTML(,)? like Gecko\) Chrome\/(16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34)\.0\.\d{3,4}\.\d{1,3} (Mobile )?Safari\/53\d\.\d{1,2}$/g,
+    CR_recent: /^Mozilla\/5\.0 \((Windows NT|Macintosh|X11|(Linux; Android \d\.\d\.\d))(;)?( .*)\) AppleWebKit\/53\d\.\d{1,2} \(KHTML(,)? like Gecko\) Chrome\/(16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33)\.0\.\d{3,4}\.\d{1,3} (Mobile )?Safari\/53\d\.\d{1,2}$/g,
 
     // FF 9-16:  ~3.7%
     // Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0
