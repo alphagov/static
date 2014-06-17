@@ -23,8 +23,6 @@ class Error4XXTest < ActionDispatch::IntegrationTest
 
       within "#wrapper" do
         assert page.has_selector?("h1", :text => "This page cannot be found")
-
-        assert page.has_selector?(".report-a-problem")
       end
 
       within "footer" do
