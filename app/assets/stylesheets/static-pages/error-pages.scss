@@ -24,38 +24,6 @@
     }
   }
 
-  .report-a-problem {
-    margin-top: 60px;
-
-    form {
-      @include core-24;
-
-      padding-top: 10px;
-
-      label {
-        display: block;
-
-        @include ie-lte(8) {
-          width: 400px;
-        }
-      }
-
-      input {
-        display: block;
-        margin-bottom: 20px;
-        width: 400px;
-
-        @include media(mobile) {
-          width: 300px;
-        }
-      }
-
-      button {
-        margin-top: 10px;
-      }
-    }
-  }
-
   @include media(mobile) {
     .page-header div {
       padding-left: 1em;
