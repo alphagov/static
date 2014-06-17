@@ -22,7 +22,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#global-breadcrumb")
 
       within "#wrapper" do
-        assert page.has_selector?("h1", :text => "This page cannot be found")
+        assert page.has_selector?("h1", :text => "Page not found")
       end
 
       within "footer" do
