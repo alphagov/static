@@ -22,8 +22,9 @@ $(function() {
         $prompt.show();
         $prompt.on("click", ".dismiss", function(e) {
           $prompt.hide();
-          // the warning is dismissable for 2 weeks
-          GOVUK.cookie('govuk_browser_upgrade_dismissed', 'yes', { days: 14 });
+          // the warning is dismissable for 4 weeks, for users who are not in a
+          // position to upgrade right now or unable to (no control of browser)
+          GOVUK.cookie('govuk_browser_upgrade_dismissed', 'yes', { days: 28 });
         });
       }
     }
