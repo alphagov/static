@@ -43,8 +43,8 @@ describe("GOVUK.ScrollTracker", function() {
       scrollToPercent(60);
 
       expect(GOVUK.sendToAnalytics.calls.count()).toBe(2);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "25"] ]);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "50"] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "25", true] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "50", true] ]);
     });
   });
 
@@ -52,7 +52,7 @@ describe("GOVUK.ScrollTracker", function() {
     var FIXTURE = "\
       <h1>This is the first <span>heading</span></h1>\
       <h2>This is the second heading</h2>\
-      <h4>
+      <h4>\
         This is the third&nbsp;heading  \
       </h4>";
 
@@ -71,7 +71,7 @@ describe("GOVUK.ScrollTracker", function() {
       scrollToShowHeadingNumber(1);
 
       expect(GOVUK.sendToAnalytics.calls.count()).toBe(1);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the first heading"] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the first heading", true] ]);
 
       scrollToShowHeadingNumber(2);
 
@@ -80,7 +80,7 @@ describe("GOVUK.ScrollTracker", function() {
       scrollToShowHeadingNumber(3);
 
       expect(GOVUK.sendToAnalytics.calls.count()).toBe(2);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the third heading"] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the third heading", true] ]);
     });
   });
 
