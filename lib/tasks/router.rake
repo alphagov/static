@@ -19,6 +19,7 @@ namespace :router do
       %w(/humans.txt exact),
       %w(/robots.txt exact),
       %w(/fonts prefix),
+      %w(/google6db9c061ce178960.html exact), # DWP YouTube annotations
       %w(/google991dec8b62e37cfb.html exact),
       %w(/googlef35857dca8b812e7.html exact),
       %w(/apple-touch-icon.png exact static),
