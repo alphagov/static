@@ -26,10 +26,6 @@ main > header {
     border-bottom: solid 1pt black;
     padding-bottom: 6pt;
     width: 80%;
-
-    &:after {
-      content: " from GOV.UK";
-    }
   }
 
   p {
