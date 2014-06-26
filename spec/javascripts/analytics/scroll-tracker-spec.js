@@ -43,8 +43,8 @@ describe("GOVUK.ScrollTracker", function() {
       scrollToPercent(60);
 
       expect(GOVUK.sendToAnalytics.calls.count()).toBe(2);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "25", true] ]);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "50", true] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "25", 0, true] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "50", 0, true] ]);
     });
   });
 
@@ -71,7 +71,7 @@ describe("GOVUK.ScrollTracker", function() {
       scrollToShowHeadingNumber(1);
 
       expect(GOVUK.sendToAnalytics.calls.count()).toBe(1);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the first heading", true] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the first heading", 0, true] ]);
 
       scrollToShowHeadingNumber(2);
 
@@ -80,7 +80,7 @@ describe("GOVUK.ScrollTracker", function() {
       scrollToShowHeadingNumber(3);
 
       expect(GOVUK.sendToAnalytics.calls.count()).toBe(2);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the third heading", true] ]);
+      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the third heading", 0, true] ]);
     });
   });
 

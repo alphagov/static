@@ -121,7 +121,7 @@
     for ( var i=0; i<this.trackedNodes.length; i++ ) {
       if ( this.trackedNodes[i].isVisible() && !this.trackedNodes[i].alreadySeen ) {
         this.trackedNodes[i].alreadySeen = true;
-        GOVUK.sendToAnalytics(["_trackEvent"].concat(this.trackedNodes[i].eventData).concat([true]));
+        GOVUK.sendToAnalytics(["_trackEvent"].concat(this.trackedNodes[i].eventData).concat([0, true]));
         // Last 'true' sets non-interaction flag
         // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide#non-interaction
       }
