@@ -53,6 +53,20 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       assert_equal 404, last_response.status
     end
 
+    should "return the raw component files" do
+      get "/templates/govuk_component/beta_label.raw.html.erb"
+      expected = File.read(Rails.root.join("app", "views", "govuk_component", "beta_label.raw.html.erb"))
+      assert_equal expected, last_response.body
+    end
+
+    should "404 for non-existent component templates" do
+      get "/templates/govuk_component/foo.raw.html.erb"
+      assert_equal 404, last_response.status
+
+      get "/templates/govuk_component/wrapper.raw.html.erb"
+      assert_equal 404, last_response.status
+    end
+
     should "404 for invalid template names without looking at the filesystem" do
       File.expects(:exists?).never
       [
