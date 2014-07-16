@@ -24,11 +24,11 @@
       <p><a href="https://www.surveymonkey.com/s/6HZFSVC" id="take-survey" target="_blank">Take the 3 minute survey</a> This will open a short survey on another website</p>
     </div>
   </section>
+
+  <%= banner_notification %>
 <% end %>
 
 <% content_for :content do %>
-  <%= banner_notification %>
-
   <% unless local_assigns[:hide_nav] %>
     <div id="global-breadcrumb" class="header-context">
       <ol role="breadcrumbs" class="group">
