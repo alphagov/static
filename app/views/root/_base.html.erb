@@ -25,7 +25,9 @@
     </div>
   </section>
 
-  <%= banner_notification %>
+  <% unless local_assigns[:hide_banner_notification] %>
+    <%= banner_notification %>
+  <% end %>
 <% end %>
 
 <% content_for :content do %>
