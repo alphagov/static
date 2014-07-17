@@ -1,6 +1,11 @@
 #banner-notification {
   background-color: $grey-6;
   border-top: 2px solid white;
+  padding: 0.5em 1em;
+
+  @include media(tablet) {
+    padding: 0;
+  }
 
   div {
     @include core-19;
@@ -16,8 +21,12 @@
   }
 
   p {
-    padding: 0 22% 0 (16 / 19) * 2em;
+    padding: 0;
     margin: 0;
+
+    @include media(tablet) {
+      padding: 0 30px 0 30px;
+    }
   }
 
   a {
@@ -25,14 +34,14 @@
 
     &.right {
       display: block;
-      padding: 0 0 0 80%;
-      margin-top: (25 / 19) * -1em;
-      text-align: right;
-    }
-  }
+      padding: 0;
 
-  @include media-down(mobile) {
-    padding: 0.5em 1em;
+      @include media(tablet) {
+        padding: 0 30px 0 0;
+        margin-top: (25 / 19) * -1em;
+        text-align: right;
+      }
+    }
   }
 
   &.green {
