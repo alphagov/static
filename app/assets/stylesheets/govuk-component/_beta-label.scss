@@ -1,0 +1,3 @@
+.govuk-beta-label {
+  @include phase-banner($state: beta);
+}
