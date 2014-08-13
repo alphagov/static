@@ -17,13 +17,7 @@
 <% end %>
 
 <% content_for :after_header do %>
-  <section id="user-satisfaction-survey">
-    <div class="wrapper">
-      <h1>Tell us what you think of GOV.UK</h1>
-      <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>
-      <p><a href="https://www.surveymonkey.com/s/6HZFSVC" id="take-survey" target="_blank">Take the 3 minute survey</a> This will open a short survey on another website</p>
-    </div>
-  </section>
+  <div id="user-satisfaction-survey-container" data-survey-url="https://www.surveymonkey.com/s/6HZFSVC"></div>
 
   <% unless local_assigns[:hide_banner_notification] %>
     <%= banner_notification %>
