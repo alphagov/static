@@ -175,7 +175,7 @@ article dd {
 article table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 1em -1em 2em -1em;
+  margin: 1em 0 2em;
   width: 105.95%;
 
   caption {
@@ -195,9 +195,9 @@ article table {
 }
 
 article th, article td {
-  @include core-16;
+  @include core-14;
   vertical-align: top;
-  padding: 0.7em 0.5em 0.7em 1em;
+  padding: 0.7em 0.5em 0.7em 0;
 
   a[rel="external"] {
     @include external-link-16;
@@ -207,13 +207,8 @@ article th, article td {
   }
 }
 
-article tr:nth-child(even) td {
-  background-color: #fff;
-}
-
 article td {
-  background: $grey-9;
-  border: dotted 1px $grey-7;
+  border-bottom: solid 1px $border-colour;
 
   small {
     @include core-16;
@@ -230,10 +225,8 @@ article td {
 article th {
   line-height: 1.25em;
   text-align: left;
-  color: $grey-0;
   font-weight: 700;
-  background-color: $grey-8;
-  border: solid 1px $grey-6;
+  border-bottom: solid 1px $border-colour;
 }
 
 /*
