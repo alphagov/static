@@ -13,7 +13,7 @@ var ReportAProblem = {
 
   disableSubmitButton: function() {
     $('.report-a-problem-container .button').attr("disabled", true);
-  },  
+  },
 
   enableSubmitButton: function() {
     $('.report-a-problem-container .button').attr("disabled", false);
@@ -25,6 +25,7 @@ var ReportAProblem = {
 
   submit: function() {
     $('.report-a-problem-container .error-notification').remove();
+    $('input#url').val(window.location);
 
     ReportAProblem.disableSubmitButton();
     $.ajax({
