@@ -57,6 +57,7 @@ describe("User Satisfaction Survey", function () {
       survey.showSurveyBar();
       expect($('#user-satisfaction-survey').length).toBe(1);
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true);
+      expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
@@ -137,6 +138,7 @@ describe("User Satisfaction Survey", function () {
         clickElem(takeSurvey);
 
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
+        expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('true');
       });
 
       it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {

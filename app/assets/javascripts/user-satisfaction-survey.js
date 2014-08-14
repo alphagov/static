@@ -6,7 +6,7 @@
   if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
   var userSatisfaction = {
-    TEMPLATE: '<section id="user-satisfaction-survey" class="visible">' +
+    TEMPLATE: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
               '  <div class="wrapper">' +
               '    <h1>Tell us what you think of GOV.UK</h1>' +
               '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
@@ -17,7 +17,7 @@
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     setCookieTakenSurvey: function () {
       GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey, true, { days: 30*4 });
-      $("#user-satisfaction-survey").removeClass('visible');
+      $("#user-satisfaction-survey").removeClass('visible').attr('aria-hidden', 'true');
     },
     setEventHandlers: function () {
       var $noThanks = $('#survey-no-thanks');
