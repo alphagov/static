@@ -1,7 +1,7 @@
 class RootController < ApplicationController
   layout false
 
-  before_filter :validate_template_param
+  before_filter :validate_template_param, :except => [:govuk_component_docs]
 
   rescue_from ActionView::MissingTemplate, :with => :error_404
 
@@ -13,6 +13,11 @@ class RootController < ApplicationController
 
   def raw_govuk_component_template
     render_raw_template("govuk_component", params[:template])
+  end
+
+  def govuk_component_docs
+    component_doc = JSON.parse(File.read(File.join(Rails.root, 'app', 'views', 'govuk_component', 'docs.json')))
+    render :json => component_doc
   end
 
   NON_LAYOUT_TEMPLATES = %w(
