@@ -6,18 +6,18 @@
   if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
   var userSatisfaction = {
+    TEMPLATE: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+              '  <div class="wrapper">' +
+              '    <h1>Tell us what you think of GOV.UK</h1>' +
+              '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+              '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
+              '  </div>' +
+              '</section>',
+
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     setCookieTakenSurvey: function () {
       GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey, true, { days: 30*4 });
-      $("#user-satisfaction-survey").removeClass('visible');
-    },
-    appendCurrentPathToSurveyUrl: function() {
-      var takeSurvey = document.getElementById('take-survey');
-      var href = takeSurvey.getAttribute('href');
-      if (href.indexOf('?c=') === -1) {
-        var surveyUrlWithPath = href + "?c=" + root.location.pathname;
-        takeSurvey.setAttribute('href', surveyUrlWithPath);
-      }
+      $("#user-satisfaction-survey").removeClass('visible').attr('aria-hidden', 'true');
     },
     setEventHandlers: function () {
       var $noThanks = $('#survey-no-thanks');
@@ -36,16 +36,16 @@
         return;
       }
 
-      userSatisfaction.setEventHandlers();
-      userSatisfaction.appendCurrentPathToSurveyUrl();
+      $("#user-satisfaction-survey-container").append(userSatisfaction.TEMPLATE);
 
-      $("#user-satisfaction-survey").addClass('visible');
+      userSatisfaction.setEventHandlers();
+      userSatisfaction.setSurveyUrl();
     },
     otherNotificationVisible: function() {
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
     },
     randomlyShowSurveyBar: function () {
-      if ($('#user-satisfaction-survey').length <= 0) {
+      if ($('#user-satisfaction-survey-container').length <= 0) {
         return;
       }
       if (Math.floor(Math.random() * 50) === 0) {
@@ -53,9 +53,13 @@
       }
     },
     setSurveyUrl: function(href) {
-      var takeSurvey = document.getElementById('take-survey');
-      takeSurvey.setAttribute('href', href);
-      userSatisfaction.appendCurrentPathToSurveyUrl();
+      var $surveyLink = $('#take-survey');
+      var surveyUrl = $('#user-satisfaction-survey-container').data('survey-url');
+      if (surveyUrl.indexOf('?c=') === -1) {
+        surveyUrl += "?c=" + root.location.pathname;
+      }
+
+      $surveyLink.attr('href', surveyUrl);
     }
   };
 

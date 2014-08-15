@@ -22,22 +22,22 @@ describe("User Satisfaction Survey", function () {
       }
     }
 
-    var block = '<div id="banner-notification" style="display: none"></div>\
-    <div id="global-cookie-message" style="display: none"></div>\
-    <div id="global-browser-prompt" style="display: none"></div>\
-    <section id="user-satisfaction-survey">\
-      <div class="wrapper">\
-        <h1>Tell us what you think of GOV.UK</h1>\
-        <p>Survey takes 5 minutes and opens in a new window <a href="javascript:void(0)" id="survey-no-thanks">No thanks</a></p>\
-        <p class="right"><a href="javascript:void(0)" id="take-survey" class="button">5 min survey</a></p>\
-      </div>\
-    </section>';
+    var block = '<div id="banner-notification" style="display: none"></div>' +
+                '<div id="global-cookie-message" style="display: none"></div>' +
+                '<div id="global-browser-prompt" style="display: none"></div>' +
+                '<div id="user-satisfaction-survey-container" data-survey-url="http://www.surveymonkey.com/some-survey-id"></div>';
+
 
     beforeEach(function () {
       document.body.insertAdjacentHTML("afterbegin", block);
 
-      $surveyBar = $("#user-satisfaction-survey");
-      $surveyBar.removeClass('visible');
+      $("#user-satisfaction-survey").remove();
+      $("#user-satisfaction-survey-container").data('survey-url', 'javascript:void();');
+
+      // Don't actually try and take a survey in test.
+      $('#take-survey').live('click', function(e) {
+        e.preventDefault();
+      });
 
       survey = GOVUK.userSatisfaction;
     });
@@ -46,15 +46,30 @@ describe("User Satisfaction Survey", function () {
       // Remove the cookie that we're setting.
       GOVUK.cookie(survey.cookieNameTakenSurvey, null);
 
-      (elem = document.getElementById("user-satisfaction-survey")).parentNode.removeChild(elem);
+      // (elem = document.getElementById("user-satisfaction-survey")).parentNode.removeChild(elem);
+      $('#user-satisfaction-survey-wrapper').empty();
 
       survey = null;
     });
 
     it("should display the user satisfaction div", function () {
-      expect($surveyBar.hasClass('visible')).toBe(false);
+      expect($('#user-satisfaction-survey').length).toBe(0);
       survey.showSurveyBar();
-      expect($surveyBar.hasClass('visible')).toBe(true);
+      expect($('#user-satisfaction-survey').length).toBe(1);
+      expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true);
+      expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
+    });
+
+    it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
+      $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id');
+      survey.showSurveyBar();
+      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c=/")
+    });
+
+    it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
+      $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id?c=/somewhere');
+      survey.showSurveyBar();
+      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c=/somewhere")
     });
 
     it("should randomly display the user satisfaction div", function () {
@@ -62,10 +77,10 @@ describe("User Satisfaction Survey", function () {
 
       var counter = 0;
       for (var i = 0; i < 100; i++) {
-        $surveyBar.removeClass('visible')
+        $('#user-satisfaction-survey').remove();
         survey.randomlyShowSurveyBar();
 
-        if ($surveyBar.hasClass('visible')) {
+        if ($('#user-satisfaction-survey').length > 0) {
           counter += 1;
         }
       }
@@ -78,7 +93,7 @@ describe("User Satisfaction Survey", function () {
       $('#global-cookie-message').css('display', 'block');
 
       survey.showSurveyBar();
-      expect($surveyBar.hasClass('visible')).toBe(false);
+      expect($('#user-satisfaction-survey').length).toBe(0);
     });
 
     it("shouldn't show the user satisfaction div if the 'survey taken' cookie is set", function () {
@@ -88,7 +103,7 @@ describe("User Satisfaction Survey", function () {
       for (var i = 0; i < 100; i++) {
         survey.randomlyShowSurveyBar();
 
-        if ($surveyBar.hasClass('visible')) {
+        if ($('#user-satisfaction-survey').length > 0) {
           counter += 1;
           break;
         }
@@ -122,7 +137,8 @@ describe("User Satisfaction Survey", function () {
         var takeSurvey = document.getElementById("take-survey");
         clickElem(takeSurvey);
 
-        expect($surveyBar.hasClass('visible')).toBe(false);
+        expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
+        expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('true');
       });
 
       it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {
@@ -131,16 +147,7 @@ describe("User Satisfaction Survey", function () {
         var noThanks = document.getElementById("survey-no-thanks");
         clickElem(noThanks);
 
-        expect($surveyBar.hasClass('visible')).toBe(false);
-      });
-
-      it("should append the current path to the url when clicking 'take survey'", function() {
-        survey.showSurveyBar();
-
-        var takeSurvey = document.getElementById("take-survey");
-        clickElem(takeSurvey);
-
-        expect(takeSurvey.getAttribute("href")).toBe("javascript:void(0)?c=/");
+        expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
       });
     });
   });
