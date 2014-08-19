@@ -31,7 +31,7 @@
     @include core-19;
     padding: 0;
     margin: 0 0 0.22em 0;
-    display: block;  
+    display: block;
     font-weight: bold;
   }
 
@@ -54,5 +54,27 @@
         width: 550px;
       }
     }
+  }
+}
+
+.report-a-problem-toggle{
+  @include core-16;
+  margin:1em 2em 1em 2em;
+  a{
+    color: $secondary-text-colour;
+  }
+
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+
+  @include media-down(mobile) {
+    margin:0em 1em 1em 1em;
+  }
+}
+
+.js-tab-content .report-a-problem-toggle {
+  @include media-down(mobile) {
+    margin-top:2em;
   }
 }
