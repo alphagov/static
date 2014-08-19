@@ -4,8 +4,16 @@
 
 .report-a-problem-container{
   clear: both;
-  margin: 3em 0 2em 2em;
-  max-width: 38em;
+  @include outer-block;
+  margin-bottom: 60px;
+
+  .report-a-problem-inner {
+    @include inner-block;
+
+    .report-a-problem-content {
+      max-width: 35em;
+    }
+  }
 
   h2 {
     @include core-24;
@@ -13,7 +21,7 @@
     margin: 1em 0;
   }
 
-  div {
+  .button-wrapper {
     padding-top: 0.5em;
 
     .button {
@@ -35,11 +43,6 @@
     font-weight: bold;
   }
 
-  @include media-down(mobile) {
-    margin: 0 1em 2em 1em;
-  }
-
-
   input {
     &[type="text"] {
       display: block;
@@ -59,7 +62,7 @@
 
 .report-a-problem-toggle{
   @include core-16;
-  margin:1em 2em 1em 2em;
+
   a{
     color: $secondary-text-colour;
   }
@@ -67,14 +70,19 @@
   @include ie-lte(7) {
     zoom: 1;
   }
-
-  @include media-down(mobile) {
-    margin:0em 1em 1em 1em;
-  }
 }
 
 .js-tab-content .report-a-problem-toggle {
   @include media-down(mobile) {
     margin-top:2em;
+  }
+}
+
+.report-a-problem-toggle-wrapper {
+  @include outer-block;
+  margin-bottom: 30px;
+
+  .report-a-problem-toggle {
+    @include inner-block;
   }
 }
