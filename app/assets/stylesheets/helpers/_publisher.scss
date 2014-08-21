@@ -84,7 +84,7 @@
 
   &.video {
     .video-wrapper {
-      background: image-url("play-video-cta.png")  no-repeat scroll 0 -80px $grey-9;
+      background: image-url("play-video-cta.png")  no-repeat scroll 0 -80px $panel-colour;
       height: 5em;
       margin: 0 auto;
       overflow: hidden;
@@ -92,7 +92,7 @@
       width: 8.5em;
 
       &:hover {
-        background: image-url("play-video-cta.png") no-repeat scroll 0 0 $grey-9;
+        background: image-url("play-video-cta.png") no-repeat scroll 0 0 $panel-colour;
       }
 
       a span {
@@ -158,7 +158,7 @@
 
 aside .show-all-parts {
   @include core-19($line-height: (45/19), $line-height-640: (45/13));
-  border: solid 1px $grey-6;
+  border: solid 1px $border-colour;
   border-width: 1px 0;
 
   padding: 0 16px;
@@ -274,7 +274,7 @@ aside .page-navigation {
       }
 
       &.part-label {
-        color: $grey-0;
+        color: $text-colour;
         padding:0 0.5em 0 0;
       }
 
@@ -299,7 +299,7 @@ aside .page-navigation {
       }
 
       span.part-title {
-        color: $grey-0;
+        color: $text-colour;
         text-decoration: none;
       }
     }
@@ -341,7 +341,7 @@ aside .page-navigation {
 }
 
 aside .page-navigation-open {
-  border-bottom: solid 1px $grey-6;
+  border-bottom: solid 1px $border-colour;
 
   ol {
     position: static;
@@ -512,7 +512,7 @@ aside .page-navigation-closed {
 }
 
 .find-location-for-service, .find-location-for-licence {
-  background-color: $grey-9;
+  background-color: $panel-colour;
   min-height: 2em;
   line-height: 2;
   margin: 2em -1em 0 -1em;
@@ -529,7 +529,7 @@ aside .page-navigation-closed {
   }
 
   p.geolocate-me {
-    border-top: 1px solid $grey-6;
+    border-top: 1px solid $border-colour;
     @include core-16;
     margin-bottom: 0;
     padding-top: 1em;
@@ -541,7 +541,7 @@ aside .page-navigation-closed {
   }
 
   input[type="submit"] {
-    border-color: $grey-9;
+    border-color: $border-colour;
   }
 }
 

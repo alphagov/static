@@ -5,7 +5,7 @@
   font-weight: 400;
   text-transform: none;
   text-decoration: none;
-  color: $grey-0;
+  color: $text-colour;
   display: block;
   border-left: 2px solid #bbb;
   background: image-url("coa-default-24.gif") no-repeat 8px 0;
@@ -33,7 +33,7 @@
     }
   }
   &:visited {
-    color: $grey-0;
+    color: $text-colour;
   }
 }
 

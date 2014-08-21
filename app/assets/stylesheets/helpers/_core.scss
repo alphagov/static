@@ -8,7 +8,7 @@ body {
 }
 
 #wrapper {
-  background-color: $white;//$grey-9;
+  background-color: $white;
   border-bottom: 10px solid $mainstream-brand;
 
   @include ie-lte(7) {
@@ -616,7 +616,7 @@ article {
 /* Meta-data */
 .meta-data {
   @include core-16;
-  color: $grey-3;
+  color: $secondary-text-colour;
   margin-left: 2em;
   background-color:transparent;
 
@@ -640,7 +640,7 @@ article {
     }
 
     a{
-      color: $grey-3;
+      color: $secondary-text-colour;
     }
     @include core-16
   }
@@ -837,17 +837,17 @@ article {
         padding: 0 16px;
         text-align: left;
         margin-bottom: 0;
-        border-bottom: 1px solid $grey-6;
+        border-bottom: 1px solid $border-colour;
       }
 
       &:hover {
-        background-color: $grey-9;
+        background-color: $border-colour;
       }
     }
 
     &.active a {
       background-color: #fff;
-      border: solid 1px $grey-6;
+      border: solid 1px $border-colour;
       border-bottom: solid 1px #fff;
       color: $text-colour;
       position: relative;
@@ -860,7 +860,7 @@ article {
 
       @include media-down(mobile) {
         border: none;
-        border-bottom: 1px solid  $grey-6;
+        border-bottom: 1px solid  $border-colour;
       }
 
       &:hover {
@@ -873,7 +873,7 @@ article {
 
       @include media-down(mobile) {
         border-left: none;
-        border-top: 1px solid $grey-8;
+        border-top: 1px solid $border-colour;
       }
     }
   }
@@ -892,7 +892,7 @@ article {
 
   .tab-pane {
     padding: 1em 1em 0 1em;
-    border-top: solid 1px $grey-6;
+    border-top: solid 1px $border-colour;
     clear: both;
     width:auto;
 
@@ -934,7 +934,7 @@ article {
 .js-tab-content {
   .programme-progression li,
   .js-heading-tab {
-    border-bottom: solid 1px $grey-6;
+    border-bottom: solid 1px $border-colour;
     list-style: none;
 
     a,
@@ -954,7 +954,7 @@ article {
       }
 
       &:hover {
-        background-color: $grey-9;
+        background-color: $grey-3;
       }
     }
 
@@ -963,7 +963,7 @@ article {
 
       a, h1 {
         background-position: 100% -48px;
-        background-color: $grey-9;
+        background-color: $grey-3;
         color: $text-colour;
         text-decoration: none;
       }
@@ -997,11 +997,11 @@ article {
     }
 
     .js-tab-pane {
-      border-bottom:solid 1px $grey-6;
+      border-bottom:solid 1px $border-colour;
     }
 
     .js-tab-container:first-child {
-      border-top: solid 1px $grey-6;
+      border-top: solid 1px $border-colour;
     }
   }
 }
@@ -1016,7 +1016,7 @@ article {
   @include core-16;
   margin:1em 2em 1em 2em;
   a{
-    color: $grey-3;
+    color: $secondary-text-colour;
   }
 
   @include ie-lte(7) {

@@ -12,7 +12,7 @@ article h1 {
 article header h1 {
   @include heading-27;
   font-weight: 700;
-  color: $grey-0;
+  color: $text-colour;
   margin-top: 0;
   margin-bottom: 0;
 
@@ -78,7 +78,7 @@ article h1,
 article h2,
 article h3,
 article h4 {
-  color: $grey-0;
+  color: $text-colour;
 }
 
 article p, article ul, article ol {
@@ -236,7 +236,7 @@ article th {
 .mainstream article .summary {
   margin: 0 0 2em 0;
   padding: 0;
-  color: $grey-0;
+  color: $text-colour;
 
   @include ie-lte(8) {
     zoom: 1;
@@ -311,7 +311,7 @@ article .advisory {
   }
 
   &.high-alert {
-    background-color: $grey-9;
+    background-color: $panel-colour;
     border-color: #C00;
   }
 
@@ -340,7 +340,7 @@ article .intro {
 }
 
 article .example {
-  border-left: 10px solid $grey-9;
+  border-left: 10px solid $panel-colour;
   padding-left: 1.5em;
   margin: 2.5em 0;
 
@@ -407,7 +407,7 @@ article .subscribe {
 
 article .info-notice {
   background: none;
-  border-left: 10px $grey-8 solid;
+  border-left: 10px solid $border-colour;
   margin-bottom: 1em;
   @extend %contain-floats;
 }
@@ -528,7 +528,7 @@ section.places h3 {
 
 article .place {
   margin: 1.5em 0;
-  border-bottom: solid 1px $grey-6;
+  border-bottom: solid 1px $border-colour;
   padding-bottom: 1.5em;
 
   .address {
