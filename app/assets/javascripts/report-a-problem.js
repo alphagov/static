@@ -54,20 +54,24 @@ var ReportAProblem = {
 
 $(document).ready(function() {
   // Add in the toggle link for reporting a problem at the bottom of the page
-  var $toggleLink = $('<p class="report-a-problem-toggle js-footer">').append('<a href="">Is there anything wrong with this page?</a>');
-  $toggleLink.insertBefore('.report-a-problem-container');
+  var toggleBlock = '<div class="report-a-problem-toggle-wrapper js-footer">' +
+                      '<p class="report-a-problem-toggle">' +
+                        '<a href="">Is there anything wrong with this page?</a>' +
+                      '</p>' +
+                    '</div>';
+  var $container = $('.report-a-problem-container')
+  $container.before(toggleBlock);
 
   // Add a click handler for the toggle
-  $toggleLink.on('click', function() {
-    $('.report-a-problem-container').toggle();
+  $('.report-a-problem-toggle a').on('click', function() {
+    $container.toggle();
     return false;
   });
 
   // form submission for reporting a problem
-  var $forms = $('.report-a-problem-container form, .report-a-problem form');
-  $forms.append('<input type="hidden" name="javascript_enabled" value="true"/>');
-  $forms.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
-
-  $('.report-a-problem-container form').submit(ReportAProblem.submit);
+  var $form = $container.find('form');
+  $form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
+  $form.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
+  $form.submit(ReportAProblem.submit);
 
 });

@@ -93,7 +93,7 @@ h4 {
   top: 9.5em;
   width: 100%;
   z-index: 0;
-  
+
   @include ie-lte(8) {
     z-index: 0;
   }
@@ -237,7 +237,7 @@ h4 {
       content: "\A0\A0\A0\A0\A0\A0";
       background-position: 5px 0px;
     }
-    
+
     a[rel="external"]:hover:after {
       background-position: 5px -388px;
     }
@@ -1008,30 +1008,6 @@ article {
 
 .transaction .js-tab-content {
   overflow: hidden;
-}
-
-/* report a problem */
-
-.report-a-problem-toggle{
-  @include core-16;
-  margin:1em 2em 1em 2em;
-  a{
-    color: $secondary-text-colour;
-  }
-
-  @include ie-lte(7) {
-    zoom: 1;
-  }
-
-  @include media-down(mobile) {
-    margin:0em 1em 1em 1em;
-  }
-}
-
-.js-tab-content .report-a-problem-toggle {
-  @include media-down(mobile) {
-    margin-top:2em;
-  }
 }
 
 /* bunting lol */
