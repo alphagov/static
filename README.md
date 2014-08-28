@@ -38,26 +38,35 @@ The partial is exposed over the network, and the CSS/JS are included by the shar
 The available compoents and their documentation are exposed by an API at `/templates/govuk_component/docs`, which is consumed by
 [alphagov/govuk_component_guide](https://github.com/alphagov/govuk_component_guide) to generate a living styleguide for components.
 
-
 * a [Partial View](app/views/govuk_component) - The template logic and markup, also defines the arguements expected
 * a [SCSS module](app/assets/stylesheets/govuk-component) - The styling of the component
 * a Javascript module - no examples yet.
-* Documentation - currenly in a [static/central file](app/views/govuk_component/docs.json), this will generated dynamically in the future (something like)
+* Documentation - currently in a [static/central file](app/views/govuk_component/docs.json), this will generated dynamically in the future
 
 ### Creating a new component
 
-First pick a name. Components should be lowercase and hyphenated, eg `your-compontent-name`.
+There's a rails generator you can use to create the basic compontent files, but it's recommended you read below to understand how it works as well.
 
-When referenced from an application as a partial they'll be prefixed with `govuk-`, eg `govuk-your-compontent-name`. To match rails view convention the partial itself should use an underscore, rather than a hyphen.
+```
+bundle exec rails generate govuk_component [your-component-name]
+```
 
-1) Create a new partial at `app/views/govuk_component/your_compontent_name.raw.html.erb` - There should be a single root element, with a class that's the same as a prefixed component name, eg
+### How components are structured
+
+Component names should be lowercase and hyphenated, eg `your-compontent-name`.
+
+When referenced from an application as a partial they'll be prefixed with `govuk-`, eg `govuk-your-compontent-name`.
+
+To match rails view convention the partial itself should use an underscore, rather than a hyphen.
+
+1) views live in `app/views/govuk_component/your_compontent_name.raw.html.erb` - There should be a single root element, with a class that's the same as a prefixed component name, eg
 ```
 <div class="govuk-your-compontent-name">
 <p>things</p>
 </div>
 ```
 
-2) Create a new SCSS module at `app/stylesheets/govuk-component/_your-compontent-name.scss` - there should be a single root class, the same class on the root of the partial, eg
+2) There is a SCSS module at `app/stylesheets/govuk-component/_your-compontent-name.scss` - there should be a single root class, the same class on the root of the partial, eg
 ```
 .govuk-your-compontent-name {
   // CSS rules go here.
@@ -67,9 +76,9 @@ When referenced from an application as a partial they'll be prefixed with `govuk
 }
 ```
 
-3) Include the new SCSS module in to `app/stylesheets/govuk-component/_component.scss`
+3) SCSS modules are included in `app/stylesheets/govuk-component/_component.scss` - which is used in the standard static layout SCSS files (application.scss, header_footer_only.scss)
 
-4) Add documentation to `app/views/govuk_component/docs.json` - this is in the form of an array of hashes:
+4) Documentation lives `app/views/govuk_component/docs.json` - this is in the form of an array of hashes:
 * `id`: The underscore version of the compontent name
 * `name`: The human name, eg, `Your Example Component`
 * `description`: A longer form description of what the component does, when it should be used
