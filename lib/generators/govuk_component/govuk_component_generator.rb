@@ -18,7 +18,9 @@ class GovukComponentGenerator < Rails::Generators::NamedBase
         "id" => file_name,
         "name" => human_name,
         "description" => "",
-        "fixtures" => {}
+        "fixtures" => {
+            "default" => {}
+        }
       })
       file.write(JSON.pretty_generate(docs))
     end
