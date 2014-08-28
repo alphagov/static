@@ -1,5 +1,9 @@
 describe("form submission for reporting a problem", function () {
-    var FORM_TEXT = '<div class="report-a-problem-container"><form><button class="button" name="button" type="submit">Send</button></form></div>';
+    var FORM_TEXT = '<div class="report-a-problem-container">' +
+                      '<div class="report-a-problem-content">' +
+                        '<form><button class="button" name="button" type="submit">Send</button></form>' +
+                      '</div>' +
+                    '</div>';
     var form;
 
     beforeEach(function() {
@@ -27,7 +31,7 @@ describe("form submission for reporting a problem", function () {
             form.triggerHandler('submit');
 
             expect(form).toBeHidden();
-            expect($('.report-a-problem-container').html()).toEqual('great success!');
+            expect($('.report-a-problem-content').html()).toEqual('great success!');
         });
     });
 
@@ -53,7 +57,7 @@ describe("form submission for reporting a problem", function () {
             form.triggerHandler('submit');
 
             expect(form).not.toBeVisible();
-            expect($('.report-a-problem-container').html()).toContain("Sorry, we're unable to receive your message");
+            expect($('.report-a-problem-content').html()).toContain("Sorry, we're unable to receive your message");
         });
     });
 });
