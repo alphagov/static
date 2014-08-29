@@ -81,6 +81,7 @@
 .report-a-problem-toggle-wrapper {
   @include outer-block;
   margin-bottom: 30px;
+  clear:both;
 
   .report-a-problem-toggle {
     @include inner-block;
