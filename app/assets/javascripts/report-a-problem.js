@@ -2,8 +2,8 @@ var ReportAProblem = {
   showErrorMessage: function (jqXHR) {
     var response = "<h2>Sorry, we're unable to receive your message right now.</h2> " +
                    "<p>We have other ways for you to provide feedback on the " +
-                   "<a href='/feedback'>support page</a>.</p>"
-    $('.report-a-problem-container').html(response);
+                   "<a href='/contact'>contact page</a>.</p>"
+    $('.report-a-problem-content').html(response);
   },
 
   promptUserToEnterValidData: function() {
@@ -20,7 +20,7 @@ var ReportAProblem = {
   },
 
   showConfirmation: function(data) {
-    $('.report-a-problem-container').html(data.message);
+    $('.report-a-problem-content').html(data.message);
   },
 
   submit: function() {
