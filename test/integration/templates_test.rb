@@ -79,4 +79,11 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "fetching template docs" do
+    should "return 200 when requested" do
+      get "/templates/govuk_component/docs"
+      assert_equal 200, last_response.status
+    end
+  end
 end
