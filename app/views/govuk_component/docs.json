@@ -3,7 +3,10 @@
     "id": "beta_label",
     "name": "Beta Banner",
     "description": "A banner than indicates content is in a beta phase",
-    "fixtures": {}
+    "fixtures": {
+      "default": {
+      }
+    }
   },
   {
     "id": "metadata",
