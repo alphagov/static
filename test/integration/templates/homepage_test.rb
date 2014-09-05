@@ -9,6 +9,8 @@ class HomepageTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("title", :text => "GOV.UK - The best place to find government services and information", :visible => :all)
 
       assert page.has_selector?("link[href='/static/application.css']", :visible => :all)
+
+      assert page.has_selector?("meta[name='globalsign-domain-verification'][content='EBNTdDOabJx18Bxr9nExLLf5tlRPIWPchRq2CXSm6G']", :visible => :all)
     end
 
     within "body" do
