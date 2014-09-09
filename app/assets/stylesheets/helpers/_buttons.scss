@@ -126,7 +126,8 @@ input{
 // Large hit area
 // Radio buttons & checkboxes
 
-.selectable {
+//scoped to label to reduce the possibility of class name clash
+label.selectable {
   display: block;
   float: none;
   clear: left;
@@ -144,21 +145,21 @@ input{
     float: left;
     margin-top: 5px;
     margin-bottom: 5px;
-    // width: 25%; - Test : check that text within labels will wrap
+  }
+
+  &:hover {
+    border-color: $black;
+  }
+
+  // Position checkbox within label, to allow text to wrap
+  input {
+    position: absolute;
+    top: 18px;
+    left: $gutter-half;
+    cursor: pointer;
   }
 }
 
-.selectable:hover {
-  border-color: $black;
-}
-
-// Position checkbox within label, to allow text to wrap
-.selectable input {
-  position: absolute;
-  top: 18px;
-  left: $gutter-half;
-  cursor: pointer;
-}
 
 // Use inline, to sit block labels next to each other
 .inline .selectable {
