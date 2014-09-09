@@ -11,16 +11,19 @@
   position: relative;
 }
 
+.previous-answers {
+  margin-left: 1em;
+  float: left;
+}
+
 .start-again {
-  background: #fff;
-  position: absolute;
-  right: 0;
-  top: -2.5em;
-  height: 2.5em;
-  width: 11em;
+  float: right;
+  margin-right: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
 
   a {
-    @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
+    @include core-19;
     display: block;
     text-align: center;
     text-decoration: underline;
@@ -31,14 +34,7 @@
   }
 
   @include media-down(mobile) {
-    position: static;
-    width: auto;
-    padding: 0 1em;
-
-    a {
-      text-align: right;
-    }
-  }
+    @include core-16;
 }
 
 .question-number {
@@ -47,6 +43,7 @@
 
 .done-questions ol,
 .upcoming-questions ol {
+  clear: both;
   background-color: #fff;
   margin: 0;
   padding: 0 0 0 1em;
@@ -203,7 +200,7 @@ li.done:hover .undo a {
     &.options {
       list-style: none;
       padding: 0; /* this aligns optional questions with gutter */
-      
+
       li {
         line-height: 1.5em;
         margin: 0.5em 0;
