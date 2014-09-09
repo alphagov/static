@@ -613,6 +613,10 @@ article {
   }
 }
 
+.article-container.group .beta-label {
+  margin: 0 0 20px 30px;
+}
+
 /* Meta-data */
 .meta-data {
   @include core-16;
