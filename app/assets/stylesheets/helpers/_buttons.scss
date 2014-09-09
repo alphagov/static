@@ -17,10 +17,6 @@
 
 .button.medium {
   @include core-19($line-height: (26 / 19));
-  &[type="submit"] {
-    clear: both;
-    display: block;
-  }
 }
 
 
