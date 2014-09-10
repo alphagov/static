@@ -3,7 +3,7 @@ class IconRedirectsController < ApplicationController
     redirect_to view_context.asset_path(request.path.to_s[1..-1]), :status => 301
   end
 
-  def apple_57_57
-    redirect_to view_context.asset_path('apple-touch-icon-57x57.png'), :status => 301
+  def apple_60_60
+    redirect_to view_context.asset_path('apple-touch-icon-60x60.png'), :status => 301
   end
 end
