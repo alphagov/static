@@ -1,4 +1,5 @@
 /* This is basically Smart Answers & Licence Finder & Finance Finder */
+// Additional Smart Answers specific css can be found in the smart-answers repo
 /*
  * questions
  */
@@ -203,7 +204,7 @@ li.done:hover .undo a {
     &.options {
       list-style: none;
       padding: 0; /* this aligns optional questions with gutter */
-      
+
       li {
         line-height: 1.5em;
         margin: 0.5em 0;
