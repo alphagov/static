@@ -615,6 +615,10 @@ article {
 
 .article-container.group .beta-label {
   margin: 0 0 20px 30px;
+
+  @include media(mobile) {
+      margin: 0 0 10px 15px;
+    }
 }
 
 /* Meta-data */
