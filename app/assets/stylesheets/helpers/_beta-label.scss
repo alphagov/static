@@ -1,7 +1,10 @@
 .beta-label {
   clear: both;
   margin:0;
-  @include copy-16;
+  @include core-16;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $grey-2;
 
   span.beta {
     display: inline-block;
