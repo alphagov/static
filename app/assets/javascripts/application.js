@@ -12,3 +12,5 @@
 //= require mobile
 //= require browser-check
 //= require analytics
+//= require vendor/polyfills/bind
+//= require govuk/selection-buttons
