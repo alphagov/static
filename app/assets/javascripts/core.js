@@ -34,6 +34,10 @@ $(document).ready(function() {
       }
     }
   }
+
+  // for radio buttons and checkboxes
+  var $buttons = $("label.selectable input[type='radio'], label.selectable input[type='checkbox']");
+  GOVUK.selectionButtons($buttons);
 });
 
 
