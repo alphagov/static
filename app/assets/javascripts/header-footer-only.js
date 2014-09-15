@@ -3,3 +3,5 @@
 //= require core
 //= require report-a-problem
 //= require analytics
+//= require vendor/polyfills/bind
+//= require govuk/selection-buttons
