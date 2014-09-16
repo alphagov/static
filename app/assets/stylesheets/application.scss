@@ -1,11 +1,6 @@
 /* govuk_frontend_toolkit includes */
-@import "colours";
-@import "conditionals";
-@import "css3";
-@import "device-pixels";
-@import "grid_layout";
-@import "measurements";
-@import "typography";
+@import "header-footer-only";
+
 @import "shims";
 @import "design-patterns/buttons";
 
@@ -13,19 +8,15 @@
 @import "styleguide/conditionals2";
 
 /* styles */
-@import "helpers/alpha-label";
 @import "helpers/buttons";
 @import "helpers/core";
 @import "helpers/ancillary-pages";
-@import "helpers/beta-label";
 @import "helpers/footer";
 @import "helpers/header";
 @import "helpers/multi-step";
 @import "helpers/notifications";
 @import "helpers/organisations";
 @import "helpers/publisher";
-@import "helpers/report-a-problem";
 @import "helpers/text";
-@import "govuk-component/component";
 
 @import "static-pages/error-pages";
