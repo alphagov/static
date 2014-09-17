@@ -15,12 +15,6 @@
 //     }
 //   }
 
-// After speaking to Mark, he was happy to simply hard reset this to sans-serif
-// This is being added temporarily so that we can test it preview first before adding to the template
-* {
-  font-family: sans-serif !important;
-}
-
 $is-print: false !default;
 
 @mixin print {
