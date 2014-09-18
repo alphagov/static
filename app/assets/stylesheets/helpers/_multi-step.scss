@@ -305,7 +305,7 @@ article .error {
 /*
  * loading indicators
  */
-.smart_answer .loading p {
+.smart_answer .loading .next-step {
   @include inline-block;
   line-height: 1.5em;
   height: 32px;
