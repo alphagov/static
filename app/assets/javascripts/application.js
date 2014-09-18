@@ -1,16 +1,11 @@
+//= require header-footer-only
+
 //= require libs/jquery/jquery-ui-1.8.16.custom.min
-//= require libs/jquery/plugins/jquery.base64
 //= require libs/jquery/plugins/jquery.player.min
 //= require libs/suchi/isOld.js
 //= require govuk_toolkit
-//= require user-satisfaction-survey
-//= require core
-//= require report-a-problem
 //= require geo-locator
 //= require jquery.history
 //= require jquery.tabs
 //= require mobile
 //= require browser-check
-//= require analytics
-//= require vendor/polyfills/bind
-//= require govuk/selection-buttons
