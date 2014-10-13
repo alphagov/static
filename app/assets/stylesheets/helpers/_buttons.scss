@@ -24,7 +24,7 @@
 
 
 .get-started .button {
-  @include bold-24($line-height: (16 / 24)); 
+  @include bold-24($line-height: (16 / 24));
   padding: 0.45em 0.5em 0.45em 0.5em;
   display: inline-block;
 
@@ -118,65 +118,3 @@ input{
   }
 }
 
-
-// Large hit area
-// Radio buttons & checkboxes
-
-//scoped to label to reduce the possibility of class name clash
-label.selectable {
-  display: block;
-  float: none;
-  clear: left;
-  position: relative;
-
-  background: $panel-colour;
-  border: 1px solid $panel-colour;
-  padding: (18px $gutter $gutter-half $gutter*1.5);
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  cursor: pointer; // Encourage clicking on block labels
-
-  @include media(tablet) {
-    float: left;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  &:hover {
-    border-color: $black;
-  }
-
-  // Position checkbox within label, to allow text to wrap
-  input {
-    position: absolute;
-    top: 18px;
-    left: $gutter-half;
-    cursor: pointer;
-  }
-}
-
-
-// Use inline, to sit block labels next to each other
-.inline .selectable {
-  clear: none;
-  margin-right: $gutter-half;
-}
-
-// Only if JavaScript is enabled
-
-// Add focus styles to block labels
-.js-enabled .focused {
-  outline: 3px solid $yellow;
-}
-
-// Remove focus styles from radio and checkbox inputs
-.js-enabled .selectable input:focus {
-  outline: none;
-}
-
-// Add selected state to block labels
-.js-enabled .selected {
-  background: $white;
-  border-color: $black;
-}

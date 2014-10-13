@@ -1,0 +1,61 @@
+// Large hit area
+// Radio buttons & checkboxes
+
+//scoped to label to reduce the possibility of class name clash
+label.selectable {
+  display: block;
+  float: none;
+  clear: left;
+  position: relative;
+
+  background: $panel-colour;
+  border: 1px solid $panel-colour;
+  padding: (18px $gutter $gutter-half $gutter*1.5);
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  cursor: pointer; // Encourage clicking on block labels
+
+  @include media(tablet) {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &:hover {
+    border-color: $black;
+  }
+
+  // Position checkbox within label, to allow text to wrap
+  input {
+    position: absolute;
+    top: 18px;
+    left: $gutter-half;
+    cursor: pointer;
+  }
+
+  // Use inline, to sit block labels next to each other
+  .inline & {
+    clear: none;
+    margin-right: $gutter-half;
+  }
+
+  // Only if JavaScript is enabled
+  .js-enabled & {
+    // Remove focus styles from radio and checkbox inputs
+    input:focus {
+      outline: none;
+    }
+
+    // Add selected state to block labels
+    &.selected {
+      background: $white;
+      border-color: $black;
+    }
+
+    // Add focus styles to block labels
+    &.focused {
+      outline: 3px solid $yellow;
+    }
+  }
+}
