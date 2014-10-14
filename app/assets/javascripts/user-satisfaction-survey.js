@@ -15,6 +15,9 @@
               '</section>',
 
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
+    createEvent: function (action, label) {
+      return ['_trackEvent', 'user_satisfaction_survey', action, label, 1, true];
+    },
     setCookieTakenSurvey: function () {
       GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey, true, { days: 30*4 });
       $("#user-satisfaction-survey").removeClass('visible').attr('aria-hidden', 'true');
@@ -25,10 +28,14 @@
 
       $noThanks.click(function (e) {
         userSatisfaction.setCookieTakenSurvey();
+        GOVUK.sendToAnalytics(userSatisfaction.createEvent('banner_no_thanks', 'No thanks clicked'))
         e.stopPropagation();
         return false;
       });
-      $takeSurvey.click(userSatisfaction.setCookieTakenSurvey);
+      $takeSurvey.click(function () {
+        userSatisfaction.setCookieTakenSurvey()
+        GOVUK.sendToAnalytics(userSatisfaction.createEvent('banner_taken', 'User taken survey'))
+      });
     },
     showSurveyBar: function () {
       if (GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey) === "true" ||
@@ -40,6 +47,7 @@
 
       userSatisfaction.setEventHandlers();
       userSatisfaction.setSurveyUrl();
+      GOVUK.sendToAnalytics(userSatisfaction.createEvent('banner_shown', 'Banner has been shown'))
     },
     otherNotificationVisible: function() {
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
