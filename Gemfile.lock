@@ -99,6 +99,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack_strip_client_ip (0.0.1)
     rails (3.2.18)
       actionmailer (= 3.2.18)
       actionpack (= 3.2.18)
@@ -167,6 +168,7 @@ DEPENDENCIES
   logstasher (= 0.4.8)
   mocha (= 0.13.3)
   plek (= 1.7.0)
+  rack_strip_client_ip (= 0.0.1)
   rails (= 3.2.18)
   sass (= 3.4.2)
   sass-rails (= 3.2.5)
