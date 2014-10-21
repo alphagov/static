@@ -239,42 +239,6 @@ li.done:hover .undo a {
   }
 }
 
-#wrapper.smart_answer {
-  .next-steps {
-    right: -24em;
-    top: 0;
-    margin-top: 2em;
-
-    .inner {
-      padding-top: 0.5em;
-      padding-bottom: 1em;
-      padding-right: 1em;
-
-      ul {
-        padding: 0;
-        list-style: none;
-        list-style-image: none;
-
-        li {
-          font-size: 1em;
-          margin-top: 0;
-          margin-left: 0;
-        }
-      }
-
-      @include media-down(tablet) {
-        margin: 1em -1em 1.5em -1em;
-        padding: 0.25em 1em 0.25em 1em;
-      }
-
-    }
-  }
-}
-
-.smart_answer .article-container {
-  @extend %contain-floats
-}
-
 /*
  * errors messages
  */
@@ -300,16 +264,4 @@ article .error {
  */
 .calculator article {
   min-height: 0;
-}
-
-/*
- * loading indicators
- */
-.smart_answer .loading .next-step {
-  @include inline-block;
-  line-height: 1.5em;
-  height: 32px;
-  margin: 0 0 0 1.3em;
-  padding: 0;
-  vertical-align: top;
 }
