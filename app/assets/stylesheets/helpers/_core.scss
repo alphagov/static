@@ -9,8 +9,6 @@ body {
 
 #wrapper {
   background-color: $white;
-  border-bottom: 10px solid $mainstream-brand;
-
   @include ie-lte(7) {
     zoom: 1;
   }
