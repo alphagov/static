@@ -2,7 +2,7 @@
 
 #footer {
   // Replaces the 1px #a1acb2 border from govuk_template
-  border-bottom: 10px solid $mainstream-brand;
+  border-top: 10px solid $mainstream-brand;
 
   .footer-categories {
     @extend %contain-floats;
