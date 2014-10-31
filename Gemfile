@@ -13,7 +13,10 @@ group :assets do
   gem 'uglifier'
   gem 'sass', '3.4.2'
   gem 'sass-rails', '3.2.5'
-  gem 'image_optim'
+end
+
+group :development do
+  gem 'image_optim', '0.17.1'
 end
 
 group :test do
