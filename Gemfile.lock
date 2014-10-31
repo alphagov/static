@@ -174,7 +174,7 @@ DEPENDENCIES
   gds-api-adapters (= 7.18.0)
   govuk_frontend_toolkit (= 1.6.2)
   govuk_template (= 0.9.1)
-  image_optim
+  image_optim (= 0.17.1)
   jasmine (= 2.0.2)
   jasmine-jquery-rails
   logstasher (= 0.4.8)
