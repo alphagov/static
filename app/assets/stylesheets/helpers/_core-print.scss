@@ -3,6 +3,11 @@ html {
   font-size: 62.5%;
 }
 
+// Remove link underlines for better reading clarity
+a {
+  text-decoration: none;
+}
+
 #logo {
   @include core-48;
   font-size: 28pt;
@@ -148,18 +153,18 @@ article {
     margin: 14pt 0;
   }
 
-  .info-notice,
-  .help-notice {
-    &:before {
-      content: "!";
-      float: left;
-      @include core-48;
-      font-weight: bold;
-      margin: 10pt 0 0 6pt;
-    }
+  .info-notice p,
+  .help-notice p {
+    margin-left: $gutter;
+    position: relative;
 
-    p {
-      margin-left: 22pt;
+    &:before {
+      @include core-27;
+      font-weight: bold;
+      content: "!";
+      position: absolute;
+      top: -2px;
+      left: -18px;
     }
   }
 
@@ -196,6 +201,10 @@ article {
   #search, .search-toggle {
     display: none;
   }
+}
+
+#global-breadcrumb {
+  display: none;
 }
 
 .done-questions {
