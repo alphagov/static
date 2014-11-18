@@ -50,6 +50,7 @@ module Static
       fonts*.css
       guides-print.css
       header-footer-only*.css
+      core-layout*.css
       barclays-epdq-styles.css
     }
 

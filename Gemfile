@@ -32,7 +32,7 @@ end
 
 gem 'plek', '1.7.0'
 
-gem 'govuk_frontend_toolkit', '1.6.2'
+gem 'govuk_frontend_toolkit', '2.0.1'
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', :path => "../govuk_template"
 else
