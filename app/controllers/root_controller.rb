@@ -16,7 +16,7 @@ class RootController < ApplicationController
   end
 
   def govuk_component_docs
-    component_doc = JSON.parse(File.read(File.join(Rails.root, 'app', 'views', 'govuk_component', 'docs.json')))
+    component_doc = YAML::load(File.read(File.join(Rails.root, 'app', 'views', 'govuk_component', 'docs.yml')))
     render :json => component_doc
   end
 

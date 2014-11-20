@@ -1,0 +1,327 @@
+.govuk-govspeak {
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  p:first-child {
+    margin-top: 0;
+  }
+
+  h2 {
+    @include core-27;
+    font-weight: bold;
+    margin-top: $gutter-half;
+    @include media(desktop) {
+      margin-top: $gutter*1.5;
+    }
+  }
+
+  h3 {
+    @include core-19;
+    font-weight: bold;
+    margin-top: $gutter + 5px;
+    &.hosted-externally {
+      @include core-27;
+      font-weight: bold;
+      padding-top: 2px;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  h4 {
+    @include core-19;
+    font-weight: bold;
+    margin-top: $gutter + 5px;
+  }
+
+  p {
+    @include core-19;
+    margin: 5px 0;
+    @include media(tablet) {
+      margin: $gutter-one-third 0;
+    }
+  }
+
+  h4,
+  h5,
+  h6 {
+    @include core-19;
+    font-weight: bold;
+    &+p {
+      margin-top: 0;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  ol {
+    list-style: decimal;
+    list-style-position: outside;
+    @include core-19;
+    margin: 5px 0 5px $gutter-two-thirds;
+    @include media (tablet) {
+      margin: $gutter-one-third 0 $gutter-one-third $gutter-two-thirds;
+    }
+    ul, ol {
+      margin: 0 0 0 $gutter-two-thirds;
+      padding: 0;
+    }
+    @include ie(7) {
+      li {
+        margin-left: $gutter;
+      }
+    }
+  }
+
+  ol.legislative-list {
+    list-style: none;
+    margin-left: 0;
+    p {
+      margin: 20px 0;
+    }
+    ol {
+      list-style: none;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    list-style-position: outside;
+    @include core-19;
+    margin: 5px 0 5px $gutter-two-thirds;
+    @include media (tablet) {
+      margin: $gutter-one-third 0 $gutter-one-third $gutter-two-thirds;
+    }
+    ul, ol {
+      margin: 0 0 0 $gutter-two-thirds;
+      padding: 0;
+    }
+    @include ie(7) {
+      li {
+        margin-left: $gutter;
+      }
+    }
+  }
+
+  em, i {
+    font-style: normal;
+    font-weight: inherit;
+  }
+
+  li {
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    p+p, p+ul, p+ol,
+    ul+p, ul+ol,
+    ol+p, ol+ul {
+      margin-top: $gutter-one-third;
+    }
+  }
+
+  abbr {
+    cursor: help;
+  }
+
+  blockquote {
+    padding: 0 0 0 $gutter-two-thirds;
+    margin: 0;
+    border: 0;
+
+    p {
+      padding-left: $gutter-half;
+
+      @include media(tablet) {
+        padding-left: $gutter;
+      }
+    }
+    & p:before {
+      content: "\201C";
+      float: left;
+      clear: both;
+      margin-left: -$gutter-half;
+    }
+    & p.last-child:after {
+      content: "\201D";
+    }
+
+    @include media(desktop) {
+      margin: 0 0 0 (-$gutter);
+    }
+  }
+
+  hr {
+    margin-top: $gutter - 1px;
+    border-top: 1px solid #ccc;
+    margin-bottom: $gutter;
+  }
+
+  figure {
+    width: $full-width;
+    clear: both;
+    overflow: hidden;
+    padding: $gutter-one-third 0 0;
+
+    img {
+      display: inline;
+      text-align: center;
+      width: auto;
+      height: auto;
+      max-width: $full-width;
+    }
+
+    figcaption {
+      @include core-14;
+    }
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: $full-width;
+  }
+
+  sup {
+    font-size: 0.8em;
+    line-height: 0.7em;
+    vertical-align: super;
+  }
+
+  .information-block,
+  .call-to-action {
+    margin: $gutter 0;
+    background: $panel-colour none no-repeat 98% $gutter-two-thirds;
+    padding: $gutter-one-third ($gutter*2) $gutter-one-third $gutter-half;
+    position: relative;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    ol {
+      @include media(desktop) {
+        list-style-position: outside;
+      }
+    }
+  }
+
+  .information-block:after {
+    content: "info";
+    text-indent: -9999px;
+    background-color: $govuk-blue;
+    background-image: image-url('govuk-component/govspeak-information-icon.png');
+    background-position: center;
+    height: $gutter;
+    width: $gutter;
+    position: absolute;
+    overflow: hidden;
+    top: $gutter-two-thirds;
+    right: $gutter-two-thirds;
+    @include border-radius($gutter);
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: $gutter 0 $gutter 0;
+    width: $full-width;
+    @include core-14;
+
+    caption {
+      text-align:left;
+      margin-bottom: 0.5em;
+    }
+
+    th, td {
+      vertical-align: top;
+      padding: $gutter-one-third $gutter-one-third $gutter-one-third 0;
+      border-bottom:solid 1px $grey-2;
+
+    }
+
+    th {
+      text-align: left;
+      color: $black;
+      @include bold-14;
+    }
+
+    td small{
+      font-size:1em;
+    }
+  }
+
+  .fraction {
+    sup,
+    sub {
+      @include core-14;
+    }
+    img {
+      display: inline-block;
+      width: auto;
+      margin: 0 0 -5px 0;
+    }
+  }
+
+  .address,
+  .contact {
+    border-left: 1px solid $border-colour;
+    padding-left: $gutter-half;
+  }
+
+  .contact {
+    @extend %contain-floats;
+    margin-bottom: $gutter;
+    position: relative;
+    .content {
+      float: none;
+      width: $full-width;
+      h3 {
+        @include core-19;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .adr,
+      .email-url-number,
+      .comments {
+        @include media(tablet) {
+          width: $half;
+          float: left;
+        }
+      }
+      .email-url-number {
+        p {
+          margin: 0;
+          .email {
+            word-wrap: break-word;
+          }
+        }
+        span {
+          display: block;
+        }
+      }
+      .comments {
+        @include core-16;
+      }
+    }
+  }
+
+  .footnotes {
+    border-top: 1px solid $border-colour;
+    margin-top: $gutter;
+    padding-top: $gutter-one-third;
+
+    ol {
+      margin-top: 0px;
+      padding-top: 0;
+
+      li p {
+        margin: 10px 0;
+      }
+    }
+  }
+}
