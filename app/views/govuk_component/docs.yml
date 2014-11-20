@@ -26,3 +26,124 @@
           - "<a href='/government/topics/arts-and-culture'>Arts and culture</a>"
           - "<a href='/government/topics/sports-and-leisure'>Sports and leisure</a>"
         "Applies to": "England"
+- id: "govspeak"
+  name: "Govspeak content"
+  description: "To display long form text which has been converted from markdown"
+  fixtures:
+    basic_content:
+      content: |
+        <h2>This is a title</h2>
+        <p>This is some body text with <a href=#>a link</a></p>
+    heading_levels:
+      content: |
+        <h2>This is a h2 title</h2>
+        <h3>This is a h3 title</h3>
+        <h4>This is a h4 title</h4>
+        <h5>This is a h5 title</h5>
+        <h6>This is a h6 title</h6>
+    lists:
+      content: |
+        <h2>ordered list:</h2>
+        <ol>
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ol>
+        <h2>unordered list:</h2>
+        <ul>
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ul>
+    nested_lists:
+      "content": |
+        <h2>ordered list:</h2>
+        <ol>
+          <li>
+            <ul>
+              <li>one</li>
+              <li>two</li>
+            </ul>
+          </li>
+          <li>three</li>
+        </ol>
+        <h2>unordered list:</h2>
+        <ul>
+          <li>
+            <ul>
+              <li>one</li>
+              <li>two</li>
+            </ul>
+          </li>
+          <li>three</li>
+        </ul>
+    legislative_lists:
+      content: |
+        <h2>ordered list:</h2>
+        <ol class="legislative-list">
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ol>
+    blockquote:
+      content: |
+        <blockquote>
+          <p>My quote</p>
+          <p class="last-child">about things</p>
+        </blockquote>
+    call_out_blocks:
+      content: |
+        <div class="information-block">
+          <p>My important information</p>
+          <p>Information</p>
+        </div>
+        <div class="call-to-action">
+          <p>Call to action</p>
+        </div>
+    tables:
+      content: |
+        <table>
+          <caption>A table with data</caption>
+          <thead>
+            <tr>
+              <th>Heading 1</th><th>Heading 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>cell 1</td><td>cell 2</td>
+            </tr>
+            <tr>
+              <td>cell 3</td><td>cell 4</td>
+            </tr>
+          </tbody>
+        </table>
+    contact:
+      content: |
+        <div class="contact" id="contact_1017">
+          <div class="content">
+            <h3>Media enquiries</h3>
+            <div class="vcard contact-inner">
+              <p class="adr">
+                <span class="street-address">2 Marsham Street<br>London</span><br>
+                <span class="postal-code">SW1P 4DF</span>
+              </p>
+              <div class="email-url-number">
+                <p class="tel"><span class="type">Press enquiries</span> 020 7XXX XXXX</p>
+                <p class="tel"><span class="type">Out of hours</span> 020 7XXX XXXX</p>
+              </div>
+              <p class="comments">A comment about the contact</p>
+            </div>
+          </div>
+        </div>
+    footnotes:
+      content: |
+        <p>This is a text with a footnote<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+
+        <div class="footnotes">
+          <ol>
+            <li id="fn:1">
+              <p>And here is the definition. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+            </li>
+          </ol>
+        </div>
