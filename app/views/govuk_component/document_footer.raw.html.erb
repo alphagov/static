@@ -1,0 +1,40 @@
+<%
+  from ||= []
+  from = Array(from)
+
+  part_of ||= []
+  part_of = Array(part_of)
+
+  history ||= []
+  history = Array(history)
+%>
+<div class="govuk-document-footer grid-row">
+  <h2 class="visuallyhidden">Document information</h2>
+  <div class="column-third history-information">
+    <p>Published: <span class="published"><%= published %></span></p>
+    <% if local_assigns.include?(:updated) %>
+      <p>Updated: <span class="updated"><%= updated %></span></p>
+    <% end %>
+    <% if history.any? %>
+      <div class="change-notes" id="history">
+        <h3>Page history</h3>
+        <ol>
+          <% history.each do |change| %>
+            <li>
+              <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
+              <%= change[:note] %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    <% end %>
+  </div>
+  <div class="column-two-thirds related-information">
+    <% if from.any? %>
+    <p>From: <span class="from"><%= from.join(' ').html_safe %></span></p>
+    <% end %>
+    <% if part_of.any? %>
+      <p>Part of: <span class="part-of"><%= part_of.join(' ').html_safe %></span></p>
+    <% end %>
+  </div>
+</div>
