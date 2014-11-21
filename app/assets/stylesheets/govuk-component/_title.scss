@@ -1,0 +1,19 @@
+.govuk-title {
+  margin: $gutter-half 0;
+
+  @include media(tablet){
+    margin: $gutter 0;
+  }
+
+  .context {
+    @include core-24;
+    color: $secondary-text-colour;
+  }
+
+  h1 {
+    @include bold-48;
+  }
+  &.length-long h1 {
+    @include bold-36;
+  }
+}
