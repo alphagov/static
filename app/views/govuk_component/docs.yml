@@ -1,10 +1,10 @@
 - id: "beta_label"
   name: "Beta Banner"
-  description: "A banner than indicates content is in a beta phase with an explanation"
+  description: "A banner than indicates content is in a beta phase with an optional explanation"
   fixtures:
     default: {}
     message: 
-      message: "This is an optional different message to explain what Beta means in this context"
+      message: "This is an optional different message to explain what Beta means in this context which can take <a href='https://www.gov.uk'>HTML</a>"
 - id: "metadata"
   name: "Metadata block"
   description: "To display relvent metadata about organisations and tags for a document"
