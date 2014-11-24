@@ -1,0 +1,33 @@
+.govuk-document-footer {
+  @include core-16;
+
+  p, ol {
+    margin-bottom: $gutter-one-third;
+
+    @include media(tablet){
+      margin-bottom: $gutter-two-thirds;
+    }
+  }
+
+  .history-information span,
+  .related-information a {
+    display: block;
+    @include bold-24;
+    margin-bottom: 5px;
+    text-decoration: none;
+  }
+
+  .change-notes {
+    .timestamp {
+      display: block;
+      font-weight: bold;
+    }
+    li {
+      margin-bottom: 5px;
+      @include media(tablet){
+        margin-bottom: $gutter-one-third;
+      }
+    }
+  }
+
+}

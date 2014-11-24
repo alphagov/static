@@ -18,7 +18,7 @@
     extensive:
       from:
         - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
-        - "<a href='/government/organisations/cabinet-office'>Cabinet-office</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
       history: "Updated 2 weeks ago"
       part_of:
         - "<a href='/government/topics/energy'>Energy</a>"
@@ -170,3 +170,46 @@
       context: "Publication"
       title: "My page title which is often really long and verbose and has lots of extra words it doesn't need"
       average_title_length: "long"
+- id: "document_footer"
+  name: "Document footer metadata"
+  description: "A metadata block to be displayed below the document"
+  fixtures:
+    from_only:
+      published: '20 January 2012'
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+    part_of_only:
+      published: '20 January 2012'
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      part_of:
+        - "<a href='/government/topics/energy'>Energy</a>"
+        - "<a href='/government/topics/environment'>Environment</a>"
+    updated:
+      published: '20 January 2012'
+      updated: '24 January 2012'
+      history:
+        - display_time: '22 January 2012'
+          timestamp: '22-01-2012Z14:19:00T'
+          note: 'We updated the document'
+        - display_time: '24 January 2012'
+          timestamp: '24-01-2012Z14:19:00T'
+          note: 'We updated the document again'
+    extensive:
+      published: '20 January 2012'
+      updated: '24 January 2012'
+      history:
+        - display_time: '22 January 2012'
+          timestamp: '22-01-2012Z14:19:00T'
+          note: 'We updated the document'
+        - display_time: '24 January 2012'
+          timestamp: '24-01-2012Z14:19:00T'
+          note: 'We updated the document again'
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      part_of:
+        - "<a href='/government/topics/energy'>Energy</a>"
+        - "<a href='/government/topics/environment'>Environment</a>"
