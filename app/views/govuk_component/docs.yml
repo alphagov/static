@@ -16,7 +16,7 @@
     extensive:
       from:
         - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
-        - "<a href='/government/organisations/cabinet-office'>Cabinet-office</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
       history: "Updated 2 weeks ago"
       part_of:
         - "<a href='/government/topics/energy'>Energy</a>"
@@ -189,17 +189,21 @@
       published: '20 January 2012'
       updated: '24 January 2012'
       history:
-        - timestamp: '22 January 2012'
+        - display_time: '22 January 2012'
+          timestamp: '22-01-2012Z14:19:00T'
           note: 'We updated the document'
-        - timestamp: '24 January 2012'
+        - display_time: '24 January 2012'
+          timestamp: '24-01-2012Z14:19:00T'
           note: 'We updated the document again'
     extensive:
       published: '20 January 2012'
       updated: '24 January 2012'
       history:
-        - timestamp: '22 January 2012'
+        - display_time: '22 January 2012'
+          timestamp: '22-01-2012Z14:19:00T'
           note: 'We updated the document'
-        - timestamp: '24 January 2012'
+        - display_time: '24 January 2012'
+          timestamp: '24-01-2012Z14:19:00T'
           note: 'We updated the document again'
       from:
         - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
