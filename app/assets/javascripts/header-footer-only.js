@@ -5,3 +5,4 @@
 //= require analytics
 //= require vendor/polyfills/bind
 //= require govuk/selection-buttons
+//= require govuk-component/govspeak-enhance-youtube-video-links

@@ -1,3 +1,6 @@
+// Video player styles from frontend toolkit
+@import "../design-patterns/media-player";
+
 .govuk-govspeak {
   h2:first-child,
   h3:first-child,
@@ -327,5 +330,9 @@
         margin: 10px 0;
       }
     }
+  }
+
+  .media-player {
+    @include media-player;
   }
 }
