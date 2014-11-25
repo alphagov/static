@@ -80,11 +80,15 @@
 
   ol.legislative-list {
     list-style: none;
-    margin-left: 0;
+    margin: 5px 0 5px 0;
+    li {
+      margin: 5px 0 5px 0;
+    }
     p {
       margin: 20px 0;
     }
     ol {
+      margin: 10px 0 10px $gutter;
       list-style: none;
     }
   }
