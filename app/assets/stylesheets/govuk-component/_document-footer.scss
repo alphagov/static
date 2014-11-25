@@ -23,6 +23,7 @@
       font-weight: bold;
     }
     li {
+      list-style: none;
       margin-bottom: 5px;
       @include media(tablet){
         margin-bottom: $gutter-one-third;
