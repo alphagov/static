@@ -11,8 +11,8 @@ class GovukComponentGenerator < Rails::Generators::NamedBase
 
     append_to_file "app/assets/stylesheets/govuk-component/_component.scss", "@import \"#{@public_name}\";\n"
 
-    docs_path = 'app/views/govuk_component/docs.json'
-    docs = JSON.parse(IO.read(docs_path))
+    docs_path = Rails.root.join('app', 'views', 'govuk_component', 'docs.yml')
+    docs = YAML::load_file(docs_path)
     File.open(docs_path, 'w') do |file|
       docs.push({
         "id" => file_name,
