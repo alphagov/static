@@ -22,7 +22,7 @@ class GovukComponentGenerator < Rails::Generators::NamedBase
             "default" => {}
         }
       })
-      file.write(JSON.pretty_generate(docs))
+      file.write(docs.to_yaml)
     end
   end
 end
