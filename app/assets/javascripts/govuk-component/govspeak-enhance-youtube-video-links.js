@@ -1,4 +1,4 @@
-//= require libs/jquery/jquery-ui-1.8.16.custom.min
+//= require libs/jquery/jquery-ui-1.10.2.custom
 //= require libs/jquery/plugins/jquery.player.min
 
 (function ($) {
