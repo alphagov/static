@@ -72,11 +72,11 @@
       @include media(tablet){
         float: left;
         width: 33.33%;
-      }
 
-      ul {
-        li {
-          width: 100%;
+        ul {
+          li {
+            width: 100%;
+          }
         }
       }
     }
