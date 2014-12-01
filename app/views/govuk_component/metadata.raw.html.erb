@@ -6,8 +6,11 @@
   part_of = Array(part_of)
 
   other ||= nil
+
+  direction_class = ""
+  direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
 %>
-<div class="govuk-metadata">
+<div class="govuk-metadata<%= direction_class %>">
   <dl>
     <% if from.any? %>
       <dt>From:</dt>
