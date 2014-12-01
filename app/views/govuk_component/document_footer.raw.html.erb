@@ -7,6 +7,10 @@
 
   history ||= []
   history = Array(history)
+
+  other ||= nil
+
+  other_dates ||= nil
 %>
 <div class="govuk-document-footer grid-row">
   <h2 class="visuallyhidden">Document information</h2>
@@ -14,6 +18,11 @@
     <p>Published: <span class="published"><%= published %></span></p>
     <% if local_assigns.include?(:updated) && updated %>
       <p>Updated: <span class="updated"><%= updated %></span></p>
+    <% end %>
+    <% if other_dates.present? %>
+      <% other_dates.each do |title, date| %>
+        <p><%= title %>: <span class="other-date"><%= date %></span></p>
+      <% end %>
     <% end %>
     <% if history.any? %>
       <div class="change-notes" id="history">
@@ -35,6 +44,12 @@
     <% end %>
     <% if part_of.any? %>
       <p>Part of: <span class="part-of"><%= part_of.join(' ').html_safe %></span></p>
+    <% end %>
+    <% if other.present? %>
+      <% other.each do |title, definition| %>
+        <% definition = Array(definition) %>
+        <p><%= title %>: <span class="other"><%= definition.join(' ').html_safe %></span></p>
+      <% end %>
     <% end %>
   </div>
 </div>
