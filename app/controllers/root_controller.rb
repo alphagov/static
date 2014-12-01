@@ -1,7 +1,7 @@
 class RootController < ApplicationController
   layout false
 
-  before_filter :validate_template_param, :except => [:govuk_component_docs]
+  before_filter :validate_template_param, :only => [:template, :raw_govuk_component_template, :raw_root_template]
 
   rescue_from ActionView::MissingTemplate, :with => :error_404
 
@@ -16,8 +16,18 @@ class RootController < ApplicationController
   end
 
   def govuk_component_docs
-    component_doc = YAML::load(File.read(File.join(Rails.root, 'app', 'views', 'govuk_component', 'docs.yml')))
-    render :json => component_doc
+    render_yaml_as_json('govuk_component', 'docs.yml')
+  end
+
+  def govuk_available_locales
+    locale_files = Rails.root.join('app', 'views', 'locales', '*.yml')
+    locales = Dir[locale_files].map { |file| File.basename(file, '.yml') }
+    render :json => locales
+  end
+
+  def govuk_locales
+    return error_404 unless params[:locale].match(/^[a-z]{2}$/)
+    render_yaml_as_json("locales", "#{params[:locale]}.yml")
   end
 
   NON_LAYOUT_TEMPLATES = %w(
@@ -39,6 +49,12 @@ class RootController < ApplicationController
   end
 
   private
+
+  def render_yaml_as_json(folder, file)
+    file_path = Rails.root.join('app', 'views', folder, file)
+    error_404 and return unless File.exists?(file_path)
+    render :json => YAML::load_file(file_path)
+  end
 
   def render_raw_template(prefix, file_name)
     file_path = Rails.root.join("app", "views", prefix, "#{file_name}.raw.html.erb")

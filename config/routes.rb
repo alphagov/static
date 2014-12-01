@@ -4,6 +4,8 @@ Static::Application.routes.draw do
     get "/templates/:template.raw.html.erb" => :raw_root_template
     get "/templates/govuk_component/:template.raw.html.erb" => :raw_govuk_component_template
     get "/templates/govuk_component/docs" => :govuk_component_docs
+    get "/templates/locales" => :govuk_available_locales
+    get "/templates/locales/:locale" => :govuk_locales
     get "/templates/:template.html.erb" => :template
   end
 
