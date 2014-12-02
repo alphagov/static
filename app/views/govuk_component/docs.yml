@@ -28,6 +28,11 @@
           - "<a href='/government/topics/arts-and-culture'>Arts and culture</a>"
           - "<a href='/government/topics/sports-and-leisure'>Sports and leisure</a>"
         "Applies to": "England"
+    basic_rtl:
+      direction: "rtl"
+      from: "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      history: "Updated 2 weeks ago"
+      part_of: "<a href='/government/topics/environment'>Environment</a>"
 - id: "govspeak"
   name: "Govspeak content"
   description: "To display long form text which has been converted from markdown"
