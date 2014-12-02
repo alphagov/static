@@ -1,6 +1,10 @@
 .govuk-document-footer {
   @include core-16;
 
+  ol {
+    list-style: none;
+  }
+
   p, ol {
     margin-bottom: $gutter-one-third;
 
