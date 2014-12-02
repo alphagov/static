@@ -26,7 +26,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'jasmine', '2.0.2'
+  gem 'jasmine', '2.1.0'
   gem 'jasmine-jquery-rails'
 end
 
