@@ -187,6 +187,18 @@
       part_of:
         - "<a href='/government/topics/energy'>Energy</a>"
         - "<a href='/government/topics/environment'>Environment</a>"
+    with_other_metadata:
+      published: "20 January 2012"
+      from:
+        - "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+        - "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
+      other:
+        "Consultation type": "<a href='/government/publications'>Open</a>"
+    with_other_dates:
+      published: "20 January 2012"
+      other_dates:
+        "Date opened": "1 February 2012"
+        "Date closed": "1 March 2013"
     updated:
       published: '20 January 2012'
       updated: '24 January 2012'
