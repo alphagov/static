@@ -225,3 +225,8 @@
       part_of:
         - "<a href='/government/topics/energy'>Energy</a>"
         - "<a href='/government/topics/environment'>Environment</a>"
+    basic_rtl:
+      direction: "rtl"
+      published: '20 January 2012'
+      from: "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
+      part_of: "<a href='/government/topics/energy'>Energy</a>"
