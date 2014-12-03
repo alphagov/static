@@ -5,7 +5,7 @@ class RootController < ApplicationController
 
   rescue_from ActionView::MissingTemplate, :with => :error_404
 
-  caches_page :template, :raw_root_template, :raw_govuk_component_template
+  caches_page :template, :raw_root_template, :raw_govuk_component_template, :govuk_available_locales, :govuk_locales
 
   def raw_root_template
     render_raw_template("root", params[:template])
