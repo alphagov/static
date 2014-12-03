@@ -11,10 +11,13 @@
   other ||= nil
 
   other_dates ||= nil
+
+  direction_class = ""
+  direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
 %>
-<div class="govuk-document-footer grid-row">
+<div class="govuk-document-footer<%= direction_class %>">
   <h2 class="visuallyhidden">Document information</h2>
-  <div class="column-third history-information">
+  <div class="history-information">
     <p>Published: <span class="published"><%= published %></span></p>
     <% if local_assigns.include?(:updated) && updated %>
       <p>Updated: <span class="updated"><%= updated %></span></p>
@@ -38,7 +41,7 @@
       </div>
     <% end %>
   </div>
-  <div class="column-two-thirds related-information">
+  <div class="related-information">
     <% if from.any? %>
     <p>From: <span class="from"><%= from.join(' ').html_safe %></span></p>
     <% end %>

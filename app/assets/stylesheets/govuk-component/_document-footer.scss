@@ -1,8 +1,23 @@
 .govuk-document-footer {
+  @extend %grid-row;
   @include core-16;
 
-  ol {
-    list-style: none;
+  &.direction-rtl {
+    direction: rtl;
+    text-align: start;
+  }
+
+  .history-information {
+    @include grid-column( 1 / 3 );
+  }
+  &.direction-rtl .history-information {
+    @include grid-column( 1 / 3, $float: right );
+  }
+  .related-information {
+    @include grid-column( 2 / 3 );
+  }
+  &.direction-rtl .related-information {
+    @include grid-column( 2 / 3, $float: right );
   }
 
   p, ol {
