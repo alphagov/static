@@ -26,7 +26,7 @@ class RootController < ApplicationController
   end
 
   def govuk_locales
-    return error_404 unless params[:locale].match(/^[a-z]{2}$/)
+    return error_404 unless params[:locale].match(/^[a-z]{2}(-[a-z0-9]{2,3})?$/)
     render_yaml_as_json("locales", "#{params[:locale]}.yml")
   end
 
