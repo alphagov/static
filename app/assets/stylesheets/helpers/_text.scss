@@ -195,9 +195,9 @@ article table {
 }
 
 article th, article td {
-  @include core-14;
+  @include core-16($tabular-numbers: true);
   vertical-align: top;
-  padding: 0.7em 0.5em 0.7em 0;
+  padding: .75em .5em .75em 0;
 
   a[rel="external"] {
     @include external-link-16;
@@ -212,13 +212,6 @@ article td {
 
   small {
     @include core-16;
-  }
-}
-
-/* reduce table font size on very small screens */
-@media screen and (max-width: 320px) {
-  article th, article td, article td small {
-    font-size: 10px;
   }
 }
 
