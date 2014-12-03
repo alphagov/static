@@ -86,4 +86,28 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       assert_equal 200, last_response.status
     end
   end
+
+  context "fetching locales" do
+    should "return 200 when requesting locale list" do
+      get "/templates/locales"
+      assert_equal 200, last_response.status
+    end
+
+    should "return array of options when requesting locale list" do
+      get "/templates/locales"
+      assert JSON.parse(last_response.body).is_a? Array
+      assert JSON.parse(last_response.body).include? "en"
+    end
+
+    should "return 200 when requesting en locale file" do
+      get "/templates/locales/en"
+      assert_equal 200, last_response.status
+    end
+
+    should "return locale object for en locale" do
+      get "/templates/locales/en"
+      json = JSON.parse(last_response.body)
+      assert json["en"]
+    end
+  end
 end

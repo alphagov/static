@@ -13,7 +13,7 @@
 <div class="govuk-metadata<%= direction_class %>">
   <dl>
     <% if from.any? %>
-      <dt>From:</dt>
+      <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
       <dd><%= from.to_sentence.html_safe %></dd>
     <% end %>
     <% if local_assigns.include?(:history) %>
