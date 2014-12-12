@@ -1,6 +1,7 @@
 .govuk-document-footer {
   @extend %grid-row;
   @include core-16;
+  margin-top: $gutter*1.5;
 
   &.direction-rtl {
     direction: rtl;
