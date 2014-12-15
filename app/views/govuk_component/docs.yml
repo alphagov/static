@@ -183,8 +183,8 @@
     where the average is around 30 characters or less. Long titles would have
     an average length of nearer 50 characters or more.
 
-    On average the titles on government bits of content are 50 charectors. The
-    average for bits of general guidance are nearer 27 charectors long.
+    On average the titles on government bits of content are 50 characters. The
+    average for bits of general guidance are nearer 27 characters long.
   fixtures:
     default:
       title: "My page title"
