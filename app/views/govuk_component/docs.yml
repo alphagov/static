@@ -7,7 +7,7 @@
       message: "This is an optional different message to explain what Beta means in this context which can take <a href='https://www.gov.uk'>HTML</a>"
 - id: "metadata"
   name: "Metadata block"
-  description: "To display relvent metadata about organisations and tags for a document"
+  description: "To display relevant metadata about organisations and tags for a document"
   fixtures:
     from_only:
       from: "<a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>"
