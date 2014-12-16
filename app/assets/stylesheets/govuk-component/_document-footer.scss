@@ -9,6 +9,7 @@
   }
 
   .history-information {
+    min-height: 1em;
     @include grid-column( 1 / 3 );
   }
   &.direction-rtl .history-information {
