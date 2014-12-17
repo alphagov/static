@@ -18,7 +18,9 @@
 <div class="govuk-document-footer<%= direction_class %>">
   <h2 class="visuallyhidden">Document information</h2>
   <div class="history-information">
-    <p>Published: <span class="published"><%= published %></span></p>
+    <% if local_assigns.include?(:published) && published %>
+      <p>Published: <span class="published"><%= published %></span></p>
+    <% end %>
     <% if local_assigns.include?(:updated) && updated %>
       <p>Updated: <span class="updated"><%= updated %></span></p>
     <% end %>
