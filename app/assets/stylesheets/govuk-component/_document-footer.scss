@@ -30,12 +30,14 @@
     }
   }
 
-  .history-information span,
-  .related-information a {
-    display: block;
+
+  .definition {
     @include bold-24;
     margin-top: 5px;
-    text-decoration: none;
+    display: block;
+    a {
+      text-decoration: none;
+    }
   }
 
   .change-notes {

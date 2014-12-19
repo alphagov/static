@@ -19,14 +19,14 @@
   <h2 class="visuallyhidden">Document information</h2>
   <div class="history-information">
     <% if local_assigns.include?(:published) && published %>
-      <p>Published: <span class="published"><%= published %></span></p>
+      <p>Published: <span class="published definition"><%= published %></span></p>
     <% end %>
     <% if local_assigns.include?(:updated) && updated %>
-      <p>Updated: <span class="updated"><%= updated %></span></p>
+      <p>Updated: <span class="updated definition"><%= updated %></span></p>
     <% end %>
     <% if other_dates.present? %>
       <% other_dates.each do |title, date| %>
-        <p><%= title %>: <span class="other-date"><%= date %></span></p>
+        <p><%= title %>: <span class="other-date definition"><%= date %></span></p>
       <% end %>
     <% end %>
     <% if history.any? %>
@@ -45,15 +45,33 @@
   </div>
   <div class="related-information">
     <% if from.any? %>
-    <p>From: <span class="from"><%= from.join(' ').html_safe %></span></p>
+      <p>From: <span class="from">
+        <% from.each do |definition| %>
+          <span class="definition">
+            <%= definition.html_safe %>
+          </span>
+        <% end %>
+      </p>
     <% end %>
     <% if part_of.any? %>
-      <p>Part of: <span class="part-of"><%= part_of.join(' ').html_safe %></span></p>
+      <p>Part of: <span class="part-of">
+        <% part_of.each do |definition| %>
+        <span class="definition">
+          <%= definition.html_safe %>
+        </span>
+        <% end %>
+      </p>
     <% end %>
     <% if other.present? %>
-      <% other.each do |title, definition| %>
-        <% definition = Array(definition) %>
-        <p><%= title %>: <span class="other"><%= definition.join(' ').html_safe %></span></p>
+      <% other.each do |title, definitions| %>
+        <% definitions = Array(definitions) %>
+        <p><%= title %>: <span class="other">
+          <% definitions.each do |definition| %>
+            <span class="definition">
+              <%= definition.html_safe %>
+            </span>
+          <% end %>
+        </span></p>
       <% end %>
     <% end %>
   </div>
