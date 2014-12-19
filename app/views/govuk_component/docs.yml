@@ -3,7 +3,7 @@
   description: "A banner than indicates content is in a beta phase with an optional explanation"
   fixtures:
     default: {}
-    message: 
+    with_message:
       message: "This is an optional different message to explain what Beta means in this context which can take <a href='https://www.gov.uk'>HTML</a>"
 - id: "metadata"
   name: "Metadata block"
@@ -221,6 +221,10 @@
       other_dates:
         "Date opened": "1 February 2012"
         "Date closed": "1 March 2013"
+    non_link_metadata_only:
+      other:
+        "Registration number": '01234'
+        "Another thing": 'This other thing'
     updated:
       published: '20 January 2012'
       updated: '24 January 2012'
@@ -247,6 +251,9 @@
       part_of:
         - "<a href='/government/topics/energy'>Energy</a>"
         - "<a href='/government/topics/environment'>Environment</a>"
+      other:
+        "Registration number": '01234'
+        "Another thing": 'This other thing'
     basic_rtl:
       direction: "rtl"
       published: '20 January 2012'
