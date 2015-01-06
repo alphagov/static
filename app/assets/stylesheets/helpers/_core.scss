@@ -298,38 +298,6 @@ h4 {
   }
 }
 
-#wrapper.businesslink #legacy-sources,
-#wrapper.directgov #legacy-sources {
-  display: block;
-}
-
-#wrapper.businesslink #legacy-sources li.businesslink {
-	background-image: image-url("businesslink-logo.png");
-	width: 84px;
-	height: 33px;
-	margin-top: 0.5em;
-	display: block;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("businesslink-logo-2x.png");
-    background-size: 84px 33px;
-  }
-}
-
-#wrapper.directgov #legacy-sources li.directgov {
-	background-image: image-url("directgov-logo.png");
-	width: 74px;
-	height: 14px;
-	margin-right: 1em;
-	margin-top: 1.2em;
-	display: block;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("directgov-logo-2x.png");
-    background-size: 74px 14px;
-  }
-}
-
 /*
  * Page headers
  */
