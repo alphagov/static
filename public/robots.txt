@@ -16,5 +16,6 @@ Disallow: /info/*
 Sitemap: https://www.gov.uk/sitemap.xml
 Crawl-delay: 0.5
 
-user-agent: AhrefsBot
-disallow: /
+# https://ahrefs.com/robot/ crawls the site frequently
+User-agent: AhrefsBot
+Crawl-delay: 10
