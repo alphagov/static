@@ -9,7 +9,8 @@
         'JavaScript Error',
         e.message,
         errorSource,
-        true //nonInteractive so bounce rate isn't affected
+        1, // Set our value to 1, though we could look to tally session errors here
+        true // nonInteractive so bounce rate isn't affected
       ]);
     };
 
