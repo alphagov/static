@@ -26,8 +26,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'jasmine', '2.1.0'
-  gem 'jasmine-jquery-rails'
+  gem 'jasmine-rails'
 end
 
 gem 'plek', '1.7.0'
