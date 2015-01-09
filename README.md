@@ -10,9 +10,9 @@ Other related repositories:
 
 ## Javascript unit tests
 
-To run the unit tests in batch use the jasmine:ci rake task, but it must be run in the test environment: `RAILS_ENV=test rake jasmine:ci`.
+Tests can run in browser at `/specs`
 
-Alternatively to run tests in browser: `RAILS_ENV=test rake jasmine`
+Or in terminal by running `bundle exec rake`, `bundle exec rake test` or to run only the jasmine tests you can use `bundle exec rake spec:javascript`
 
 ##Running Locally
 

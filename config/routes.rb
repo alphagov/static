@@ -17,4 +17,6 @@ Static::Application.routes.draw do
   get "/apple-touch-icon-76x76.png", :to => "icon_redirects#show"
   get "/apple-touch-icon-60x60.png", :to => "icon_redirects#show"
   get "/apple-touch-icon-precomposed.png", :to => "icon_redirects#apple_60_60"
+
+   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 end

@@ -63,7 +63,7 @@ describe("User Satisfaction Survey", function () {
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
       $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id');
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c=/")
+      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c="+window.location.pathname);
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
@@ -74,7 +74,6 @@ describe("User Satisfaction Survey", function () {
 
     it("should randomly display the user satisfaction div", function () {
       pending(); //Fails randomly, disabling.
-
       var counter = 0;
       for (var i = 0; i < 100; i++) {
         $('#user-satisfaction-survey').remove();
