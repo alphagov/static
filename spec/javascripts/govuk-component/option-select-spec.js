@@ -1,0 +1,2 @@
+describe('GOVUK.OptionSelect', function() {
+});
