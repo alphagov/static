@@ -1,4 +1,66 @@
 .govuk-option-select {
+  background-color: $grey-3;
+  padding: 0 5px 5px 5px;
 
-}
+  @include media(desktop){
+    /* Redefine scrollbars on desktop where these lists are scrollable
+    so they are always visible in option lists */
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0,0,0,.5);
+      -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
+  }
 
+  &:focus {
+    outline: 3px solid $yellow;
+  }
+
+  .container-head {
+    padding: 0 5px;
+  }
+
+  .option-select-label {
+    @include core-19;
+    margin-right: 40px;
+    font-weight: bold;
+    padding-top: $gutter-one-third;
+  }
+
+  .options-container {
+    position:relative;
+    background-color: $page-colour;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 5px;
+    @include media(desktop){
+      max-height: 200px;
+    }
+
+    label {
+      @include inline-block;
+      padding: 7px 0 7px 30px;
+      border-bottom: 1px solid $border-colour;
+      width: 100%;
+      cursor:pointer;
+
+      @include media(desktop){
+        /* leave room for the scroll bars on desktop*/
+        width: 90%;
+      }
+      &:hover {
+        background-color: $highlight-colour;
+      }
+    }
+
+    input {
+      margin-left: -23px;
+      vertical-align: top;
+      position: absolute;
+    }
+  }
+ }
