@@ -66,6 +66,42 @@
 
   .js-enabled & {
 
+    /* styles for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse */
+    &.js-collapsible {
+      &:hover {
+        background-color: $grey-2;
+        cursor:pointer;
+      }
+
+      &.js-closed {
+        .options-container {
+          position:absolute;
+          left:-9999px;
+          padding:0;
+          margin:0;
+        }
+        .js-toggle-indicator {
+          background-position: 0 -33px;
+        }
+      }
+
+      .js-toggle-indicator {
+        @include inline-block;
+        height: 15px;
+        width: 23px;
+        background-image: image-url('govuk-component/option-select-toggle-sprite.png');
+        background-repeat:no-repeat;
+        background-position:0 3px;
+        position:absolute;
+        right:3px;
+        top:10px;
+        @include device-pixel-ratio() {
+          background-image:image-url('govuk-component/option-select-toggle-sprite-retina.png');
+          background-size: 32px 50px;
+        }
+      }
+    }
+
     /* styles for clear link */
     .js-container-head {
       position:relative;

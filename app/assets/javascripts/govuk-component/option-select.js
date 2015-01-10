@@ -14,10 +14,27 @@
     // Build clearing link
     this.$clearingLink = this.attachClearingLink();
     this.updateClearingLink();
+
     // Attach event listeners for clearing
     this.$clearingLink.on('click', this.resetOptions.bind(this));
     this.$options.on('click', this.updateClearingLink.bind(this));
 
+    // Performance in ie 6/7 is not good enough to support animating the opening/closing
+    // so do not allow option-selects to be collapsible in this case
+    var allowCollapsible = (typeof ieVersion == "undefined" || ieVersion > 7) ? true : false;
+    if(allowCollapsible){
+
+      // Add js-collapsible class to parent for CSS
+      this.$optionSelect.addClass('js-collapsible');
+
+      // Add the little arrow toggle image
+      this.attachOpenCloseToggleIndicator();
+
+      // Add open/close listeners
+      this.$optionSelect.find('.js-container-head').on('click', this.toggleOptionSelect.bind(this));
+
+      this.close();
+    }
   }
 
   OptionSelect.prototype.attachClearingLink = function attachClearingLink(){
@@ -47,6 +64,46 @@
       this.$clearingLink.addClass('js-hidden');
     }
   };
+
+  OptionSelect.prototype.attachOpenCloseToggleIndicator = function attachOpenCloseToggleIndicator(){
+    this.$optionSelect.find('.js-container-head').append('<div class="js-toggle-indicator"></div>');
+  };
+
+  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(){
+    if (this.isClosed()) {
+      this.open();
+    } else {
+      this.close();
+    }
+  };
+
+  OptionSelect.prototype.open = function open(){
+    if (this.isClosed()) {
+      this.$optionSelect.removeClass('js-closed');
+      this.setupHeight();
+    }
+  };
+
+  OptionSelect.prototype.close = function close(){
+    this.$optionSelect.addClass('js-closed');
+  };
+
+  OptionSelect.prototype.isClosed = function isClosed(){
+    return this.$optionSelect.hasClass('js-closed');
+  };
+
+  OptionSelect.prototype.setupHeight = function setupHeight(){
+    var optionsContainer = this.$optionSelect.find('.options-container');
+    var optionList = optionsContainer.children('.js-auto-height-inner');
+    var initialOptionContainerHeight = optionsContainer.height();
+    var height = optionList.height();
+
+    if (height < initialOptionContainerHeight + 50) {
+      // Resize if the list is only slightly bigger than its container
+      optionsContainer.height(optionList.height());
+    }
+  };
+
 
   GOVUK.OptionSelect = OptionSelect;
 

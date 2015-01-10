@@ -127,6 +127,99 @@ describe('GOVUK.OptionSelect', function() {
       // Clearing link should be hidden
       expect(optionSelect.$clearingLink.hasClass('js-hidden')).toBe(true);
     });
+  });
 
+  describe('toggleOptionSelect', function(){
+    it("calls optionSelect.close() if the optionSelect is currently open", function(){
+      $optionSelectHTML.removeClass('js-closed');
+      spyOn(optionSelect, "close");
+      optionSelect.toggleOptionSelect();
+      expect(optionSelect.close.calls.count()).toBe(1);
+    });
+
+    it("calls optionSelect.open() if the optionSelect is currently closed", function(){
+      $optionSelectHTML.addClass('js-closed');
+      spyOn(optionSelect, "open");
+      optionSelect.toggleOptionSelect();
+      expect(optionSelect.open.calls.count()).toBe(1);
+    });
+  });
+
+  describe('open', function(){
+
+    it ('calls isClosed() and opens if isClosed is true', function(){
+      spyOn(optionSelect, "isClosed").and.returnValue(true);
+      optionSelect.open();
+      expect(optionSelect.isClosed.calls.count()).toBe(1);
+      expect($optionSelectHTML.hasClass('js-closed')).toBe(false);
+    });
+
+    it('opens the option-select', function(){
+      optionSelect.close();
+      expect(optionSelect.isClosed()).toBe(true);
+      optionSelect.open();
+      expect(optionSelect.isClosed()).toBe(false);
+    });
+
+    it ('calls setupHeight()', function(){
+      $optionSelectHTML.addClass('closed');
+      spyOn(optionSelect, "setupHeight");
+      optionSelect.open();
+      expect(optionSelect.setupHeight.calls.count()).toBe(1);
+    });
+
+  });
+
+  describe('close', function(){
+    it('closes the option-select', function(){
+      optionSelect.open();
+      expect(optionSelect.isClosed()).toBe(false);
+      optionSelect.close();
+      expect(optionSelect.isClosed()).toBe(true);
+    });
+  });
+
+  describe('isClosed', function(){
+    it('returns true if the optionSelect has the class `.js-closed`', function(){
+      $optionSelectHTML.addClass('js-closed');
+      expect(optionSelect.isClosed()).toBe(true);
+    });
+
+    it('returns false if the optionSelect doesnt have the class `.js-closed`', function(){
+      $optionSelectHTML.removeClass('js-closed');
+      expect(optionSelect.isClosed()).toBe(false);
+    });
+  });
+
+  describe ('setupHeight', function(){
+    var checkboxContainerHeight, stretchMargin;
+
+    beforeEach(function(){
+
+      // Set the height of option-select-container to 200 (this is done in the CSS IRL)
+      optionSelectHeight = 200;
+      $checkboxList = $optionSelectHTML.find('.options-container');
+      $checkboxList.height(optionSelectHeight);
+
+      $checkboxListInner = $checkboxList.find(' > .js-auto-height-inner');
+      listItem = "<input type='checkbox' name='ca98'id='ca89'><label for='ca89'>CA89</label>";
+
+    });
+
+    it('expands the checkbox-container to fit checkbox list if the list is < 50px larger than the container', function(){
+      $checkboxListInner.height(201);
+      optionSelect.setupHeight();
+
+      // Wrapping HTML should adjust to fit inner height
+      expect($checkboxList.height()).toBe($checkboxListInner.height());
+    });
+
+    it('does nothing if the height of the checkbox list is longer than the height of the container by more than 50px', function(){
+      $checkboxListInner.height(251);
+      optionSelect.setupHeight();
+
+      // Wrapping HTML should not stretch as 251px is too big.
+      expect($checkboxList.height()).toBe(optionSelectHeight);
+    });
   });
 });
