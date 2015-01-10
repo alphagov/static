@@ -6,3 +6,5 @@
 //= require vendor/polyfills/bind
 //= require govuk/selection-buttons
 //= require govuk-component/govspeak-enhance-youtube-video-links
+//= require govuk-component/option-select
+
