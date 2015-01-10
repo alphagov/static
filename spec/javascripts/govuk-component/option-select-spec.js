@@ -1,10 +1,10 @@
 describe('GOVUK.OptionSelect', function() {
 
-  var optionSelectHTML, optionSelect;
+  var $optionSelectHTML, optionSelect;
 
   beforeEach(function(){
 
-    filter = '<div class="govuk-option-select" tabindex="0">'+
+    optionSelectFixture = '<div class="govuk-option-select" tabindex="0">'+
       '<div class="container-head js-container-head">'+
         '<div class="option-select-label">Market sector</div>'+
       '</div>'+
@@ -54,14 +54,79 @@ describe('GOVUK.OptionSelect', function() {
         '</div>'+
       '</div>'
 
-    filterHTML = $(filter);
-    $('body').append(filterHTML);
-    filter = new GOVUK.CheckboxFilter({$el:filterHTML});
+    $optionSelectHTML = $(optionSelectFixture);
+    $('body').append($optionSelectHTML);
+    optionSelect = new GOVUK.OptionSelect({$el:$optionSelectHTML});
 
   });
 
   afterEach(function(){
-    filterHTML.remove();
+    $optionSelectHTML.remove();
   });
 
+  describe('resetOptions', function(){
+
+    it("unchecks any checked checkboxes", function(){
+
+      // Check all checkboxes on this option select
+      $optionSelectHTML.find('.checkbox-container input').prop("checked", true);
+      expect($optionSelectHTML.find(':checked').length).toBe($('.checkbox-container input').length);
+
+      // Reset them
+      optionSelect.resetOptions();
+
+      // They should not be checked
+      expect($optionSelectHTML.find(':checked').length).toBe(0);
+    });
+
+    it("adds the class js-hidden to the clearing link", function(){
+      // Ensure the clearing link isn't hidden
+      optionSelect.$clearingLink.removeClass('js-hidden');
+
+      // This should hide it
+      optionSelect.resetOptions();
+
+      // Check it's hidden
+      expect(optionSelect.$clearingLink.hasClass('js-hidden')).toBe(true);
+    });
+  });
+
+  describe("updateClearingLink", function(){
+
+    it("doesn't add js-hidden unless a checkbox is checked",function(){
+
+      // Ensure all checkboxes are unchecked
+      $('input[type=checkbox]').prop("checked", false);
+
+      // Ensure the clearing link is hidden
+      optionSelect.$clearingLink.addClass('js-hidden');
+
+      optionSelect.updateClearingLink();
+
+      // clearing link should still be hidden if updateClearingLink is called but no checkboxes are checked
+      expect(optionSelect.$clearingLink.hasClass('js-hidden')).toBe(true);
+
+      // Check a checkbox
+      $('input[type=checkbox]').first().prop("checked", true);
+
+      optionSelect.updateClearingLink();
+
+      // Clearing link should now be visible because one of the boxes is checked
+      expect(optionSelect.$clearingLink.hasClass('js-hidden')).toBe(false);
+    });
+
+    it("removes the js-hidden class if any checkboxes are checked",function(){
+      // Remove js-hidden
+      optionSelect.$clearingLink.removeClass('js-hidden');
+
+      // Uncheck all checkboxes
+      $('input[type=checkbox]').prop("checked", false);
+
+      optionSelect.updateClearingLink();
+
+      // Clearing link should be hidden
+      expect(optionSelect.$clearingLink.hasClass('js-hidden')).toBe(true);
+    });
+
+  });
 });

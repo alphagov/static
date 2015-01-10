@@ -63,4 +63,25 @@
       position: absolute;
     }
   }
- }
+
+  .js-enabled & {
+
+    /* styles for clear link */
+    .js-container-head {
+      position:relative;
+    }
+
+    .js-clear-selected {
+      @include inline-block;
+      position:absolute;
+      right: 23px;
+      top:7px;
+      cursor:pointer;
+      &.js-hidden {
+        left: -9999em;
+        height:0px;
+        overflow:hidden;
+      }
+    }
+  }
+}
