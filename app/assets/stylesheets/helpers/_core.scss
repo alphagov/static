@@ -240,44 +240,6 @@ h4 {
 }
 
 /*
- * Legacy sources thang
- */
-
-#legacy-sources {
-  margin-top: 1em;
-  display: none;
-
-  @include media-down(tablet) {
-    margin: 1em 2em 0em;
-  }
-
-  @include media-down(mobile) {
-    margin-left: 1em;
-    margin-right: 1em;
-  }
-
-  p {
-	  font-size: 1em;
-    margin-bottom: 0;
-	  padding: 0;
-	  color: black;
-  }
-
-  ul {
-	  margin: 0;
-	  padding: 0;
-	  overflow:hidden;
-  }
-
-  li {
-    text-indent: -5000px;
-    float: left;
-    background-repeat: no-repeat;
-    display: none;
-  }
-}
-
-/*
  * Page headers
  */
 
