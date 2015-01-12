@@ -62,23 +62,6 @@ h4 {
   margin-bottom: 0.25em;
 }
 
-/*
- * Locate me styles
- */
-
-#global-locator-form {
-  label,
-  .ask_location {
-    display: inline;
-
-    &.hidden { display: none; }
-  }
-
-  .found_location p,
-  .finding_location p {
-    margin: 0em;
-  }
-}
 
 /*
  * Related box
