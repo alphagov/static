@@ -29,15 +29,11 @@
     overflow: hidden;
 
     @include media(tablet) {
-      margin: 0 0 2.5em 2em;
+      margin: 0 0 2.5em;
     }
 
     @include ie(6) {
       zoom: 1;
-    }
-
-    .inner {
-      padding: 0;
     }
 
     @include media-down(mobile) {
@@ -59,15 +55,6 @@
   header div {
     padding-bottom: 1em;
   }
-
-  article {
-    margin: 0;
-
-    .inner {
-      margin-left: 0;
-      padding: 0 10em 0 2em;
-    }
-  }
 }
 
 .video-guide {
@@ -88,13 +75,6 @@
   width: 100%;
 }
 
-.multi-page article .inner {
-  padding: 0 2em 0 2em;
-
-  @include media-down(mobile) {
-    padding: 0 1em 1em;
-  }
-}
 .licence article .inner {
   padding-top: 0;
 }
