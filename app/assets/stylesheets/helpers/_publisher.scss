@@ -424,12 +424,12 @@ aside .page-navigation-closed {
   background-color: $panel-colour;
   min-height: 2em;
   line-height: 2;
-  margin: 2em -1em 0 -1em;
+  margin: 2em 0;
   padding: 1em 0.75em 1em 1em;
   position: relative;
 
   @include media-down(mobile) {
-    margin: 1.2em -1em;
+    margin: 1.2em 0;
     padding-left: 1em;
     padding-right: 1em;
     .postcode {
