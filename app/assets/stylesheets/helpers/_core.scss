@@ -48,7 +48,6 @@ h4 {
 
 /*
  * Related box
- * this related stuff needs re-examining - might be a bit over the top
  */
 .related-container {
   @include grid-column(1/3, $full-width: desktop);
