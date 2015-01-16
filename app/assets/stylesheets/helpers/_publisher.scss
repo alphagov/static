@@ -70,63 +70,6 @@
   }
 }
 
-.alternative-guide {
-  @include core-16;
-  margin: 0 auto 0.5em;
-  overflow: hidden;
-  width: 9.5em;
-
-  @include media-down(mobile) {
-    margin: 1em;
-    width: auto;
-    text-align: left;
-  }
-
-  &.video {
-    .video-wrapper {
-      background: image-url("play-video-cta.png")  no-repeat scroll 0 -80px $panel-colour;
-      height: 5em;
-      margin: 0 auto;
-      overflow: hidden;
-      text-align: center;
-      width: 8.5em;
-
-      &:hover {
-        background: image-url("play-video-cta.png") no-repeat scroll 0 0 $panel-colour;
-      }
-
-      a span {
-        @include core-16($line-height: (32 / 16));
-        display: block;
-        padding-left: 0.5em;
-      }
-
-      @include media-down(mobile) {
-        width: 68px;
-        height: 40px;
-        float: left;
-        margin-right: 1em;
-        background-position: -34px -100px;
-
-        &:hover {
-          background-position: -34px -20px;
-        }
-      }
-
-      img {
-        display: none;
-        margin-top: -0.5em;
-      }
-    }
-
-    @include media-down(mobile) {
-      a span {
-        line-height: 40px;
-      }
-    }
-  }
-}
-
 .video-guide {
   article .inner {
     padding-bottom: 2em;
@@ -497,20 +440,6 @@ aside .page-navigation-closed {
  * Transactions and local transactions styles
  */
 
-.local_transaction {
-
-  .contact-container {
-
-    .contact {
-      margin: 0 -1em;
-
-      p:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
 .find-location-for-service, .find-location-for-licence {
   background-color: $panel-colour;
   min-height: 2em;
@@ -550,27 +479,6 @@ aside .page-navigation-closed {
   content: "";
 }
 
-#wrapper.transaction .get-started .button .indicator:after {
-  @include core-27;
-  margin-top: -0.5em;
-  position: absolute;
-  right: 0.5em;
-  top: 50%;
-}
-
-h1#what-you-need-to-know{
-  font-weight: 400;
-}
-
-/*
- * Helper icons
- */
-
-ul.helpers li.active,
-ul.helpers li.active h3 a {
-  color: #fff;
-}
-
 .js-enabled #wrapper.programme {
 
   .part-pagination.return-to-top,
@@ -595,29 +503,3 @@ ul.helpers li.active h3 a {
 .js-enabled #wrapper.programme article.tabs-panel-selected {
   display:block;
 }
-
-div.further-information {
-  margin: 0;
-  clear: both;
-  padding-top: 2em;
-
-  @include media-down(mobile) {
-    padding:1em 0;
-  }
-
-  a {
-    padding: 0 0 0 0.8em;
-  }
-}
-
-/* contacts popup */
-#popup.contact-popup {
-  background-color: #F4F4F4;
-  padding: 1em 2em;
-  width: 50%;
-}
-
-.contact-popup .contact {
-  width: auto;
-}
-

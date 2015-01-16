@@ -256,10 +256,6 @@ h4 {
   }
 }
 
-#wrapper .related.sections-list li a {
-  padding: 0.1em 0em;
-}
-
 /*
  * Legacy sources thang
  */
@@ -436,21 +432,9 @@ body.full-width {
   width: 30%;
   padding: 0.25em;
 }
-.business_support .faux-cell,
-.business_support .faux-cell p,
-.business_support .faux-cell li,
 .business_support .long-description p,
 .business_support .long-description li {
   @include core-16;
-}
-.business_support .faux-cell {
-  background: #FFF;
-  overflow: hidden;
-  border-left: 1px solid #BBB;
-  border-top: 1px dotted #BBB;
-  border-right: 1px dotted #BBB;
-  margin: 0;
-  padding: 0.25em;
 }
 
 /* Licence Application */
@@ -668,8 +652,7 @@ article {
 }
 
 /* Error messages */
-.error-notification,
-.error-area {
+.error-notification {
   border: 1px solid #ffc946;
   background-color: #fbedcd;
   padding: 0 1em;
@@ -678,12 +661,6 @@ article {
   p {
     @include core-16;
   }
-}
-
-.error-area span {
-  @include core-14;
-  font-weight: bold;
-  display: block;
 }
 
 .close {
@@ -853,12 +830,6 @@ article {
   }
 }
 
-/* give tabs the whole width of the central column in 2-column grids */
-#wrapper.answer article .inner .nav-tabs,
-#wrapper.transaction article .inner .nav-tabs,
-#wrapper.local_transaction article .inner .nav-tabs {
-}
-
 .tab-content {
   @include media-down(mobile) {
     margin: 0 -1em;
@@ -1005,66 +976,4 @@ article {
     position: absolute;
     height: 107px;
   }
-}
-
-.next-steps-promo {
-  border-top: solid 5px $yellow;
-  border-bottom: solid 5px $yellow;
-  position: relative;
-  margin-top: 3em;
-  padding: 1em 200px 1em 0;
-
-  @include media-down(mobile) {
-    padding-right: 0;
-  }
-
-  @include ie(6) {
-    zoom: 1;
-  }
-
-  h2 {
-    margin-top: 0;
-  }
-
-  img {
-    position: absolute;
-    top: 1em;
-    right: 0;
-
-    @include media-down(mobile) {
-      position: static;
-      display: block;
-    }
-  }
-
-  .get-started .button {
-    background-color: #FFBF47;
-    background-image: image-url("icon-pointer-black.png");
-    color: #333;
-
-    &:hover,
-    &:focus {
-      background-color: #ffdf94;
-      color: #333;
-    }
-  }
-}
-
-.linear-promo {
-  position: static;
-  padding-right: 0;
-}
-
-/* extra images for variant testing on driving done pages */
-
-.organ-donor-photo,
-.organ-donor-logo{
-  background-image: image-url("campaigns/organ-donation-photo.jpg");
-  background-position: top right;
-  background-repeat:no-repeat;
-  height: 200px;
-  padding-right: 300px;
-}
-.organ-donor-logo{
-  background-image: image-url("campaigns/organ-donation-logo.jpg");
 }
