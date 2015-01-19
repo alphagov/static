@@ -37,7 +37,7 @@
       ['Heading', 'Other ways to apply'],
       ['Heading', 'Help with tax discs']
     ],
-    '/government/world': [
+    '/aaib-reports': [
       ['Percent', 25],
       ['Percent', 50],
       ['Percent', 75]
