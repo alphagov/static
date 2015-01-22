@@ -1,0 +1,32 @@
+<% title = "Sorry, we are experiencing technical difficulties (#{status_code} error)" unless local_assigns.include?(:title) %>
+<% content_for :title, "#{title} - GOV.UK" %>
+
+<% content_for :body_classes, "mainstream error" %>
+
+<% content_for :wrapper_content do %>
+<main id="content" role="main" class="group">
+
+  <header class="page-header group">
+    <div>
+      <% if local_assigns.include?(:heading) %>
+        <h1><%= heading %></h1>
+      <% else %>
+        <h1>Sorry, we are experiencing technical difficulties</h1>
+      <% end %>
+    </div>
+  </header>
+  <div class="article-container">
+    <article role="article" class="group">
+      <div class="inner">
+        <% if local_assigns.include?(:intro) %>
+          <%= raw intro %>
+        <% else %>
+          <p>Please try again in a few moments.</p>
+        <% end %>
+      </div>
+    </article>
+  </div>
+</main>
+<% end %>
+
+<%= render partial: 'base' %>
