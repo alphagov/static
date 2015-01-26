@@ -50,7 +50,7 @@
 .upcoming-questions ol {
   background-color: #fff;
   margin: 0;
-  padding: 0 0 0 1em;
+  padding: 0;
   position: relative;
   z-index: 1;
 
@@ -148,7 +148,7 @@ li.done:hover .undo a {
 .step.current {
   background-color: #fff;
   margin-right: 15em;
-  padding: 0 10em 1em 2em;
+  padding: 0 10em 1em 0;
   position: relative;
 
   @include media-down(tablet) {

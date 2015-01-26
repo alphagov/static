@@ -8,8 +8,6 @@
   margin-bottom: 60px;
 
   .report-a-problem-inner {
-    @include inner-block;
-
     .report-a-problem-content {
       max-width: 35em;
     }
@@ -82,8 +80,4 @@
   @include outer-block;
   margin-bottom: 30px;
   clear:both;
-
-  .report-a-problem-toggle {
-    @include inner-block;
-  }
 }

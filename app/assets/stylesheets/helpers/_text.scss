@@ -176,7 +176,7 @@ article table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 1em 0 2em;
-  width: 105.95%;
+  width: 100%;
 
   caption {
     @include bold-24;
@@ -314,9 +314,8 @@ article .advisory {
 }
 
 article .intro {
-  background-color: transparent;
-  margin: 0 -1em 1.5em -1em;
-  padding: 1em 1em 1em 1em;
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
 
   p:first-child {
     margin-top: 0;
