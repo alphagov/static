@@ -14,6 +14,10 @@
   if (window.devicePixelRatio) {
     _gaq.push(['_setCustomVar', 11, 'Pixel Ratio', String(window.devicePixelRatio), 2 ]);
   }
+  // Track status code for failed responses
+  if (window.httpStatusCode) {
+    _gaq.push(['_setCustomVar', 15, 'httpStatusCode', String(window.httpStatusCode), 3 ]);
+  }
   // Search result placement tracking, set custom var and destroy the cookie
   if(GOVUK.cookie && GOVUK.cookie('ga_nextpage_params') !== null){
     var customVar = GOVUK.cookie('ga_nextpage_params').split(',');

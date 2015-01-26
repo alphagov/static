@@ -26,6 +26,12 @@
       </div>
     </article>
   </div>
+
+<% if status_code %>
+  <script type="text/javascript">
+    window.httpStatusCode = '<%= status_code %>';
+  </script>
+<% end %>
 </main>
 <% end %>
 
