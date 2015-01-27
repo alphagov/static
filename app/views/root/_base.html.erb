@@ -1,7 +1,7 @@
 <% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
 
 <% content_for :head do %>
-  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'application' } %>
+  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'static' } %>
 <% end %>
 
 <% content_for :inside_header do %>

@@ -8,7 +8,7 @@ class WrapperTest < ActionDispatch::IntegrationTest
     within "head", :visible => :all do
       assert page.has_selector?("title", :text => "GOV.UK - The best place to find government services and information", :visible => :all)
 
-      assert page.has_selector?("link[href='/static/application.css']", :visible => :all)
+      assert page.has_selector?("link[href='/static/static.css']", :visible => :all)
 
     end
 

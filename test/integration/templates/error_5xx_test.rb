@@ -9,7 +9,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
     within "head", :visible => :all do
       assert page.has_selector?("title", :text => "Sorry, we are experiencing technical difficulties (500 error) - GOV.UK", :visible => :all)
 
-      assert page.has_selector?("link[href='/static/application.css']", :visible => :all)
+      assert page.has_selector?("link[href='/static/static.css']", :visible => :all)
     end
 
     within "body.mainstream.error" do
