@@ -45,7 +45,8 @@ module Static
     config.assets.precompile += %w{
       favicon.ico
       *.js
-      application*.css
+      static.css
+      static-ie*.css
       print.css
       fonts*.css
       guides-print.css
