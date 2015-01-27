@@ -6,7 +6,6 @@ class NonLayoutTemplatesTest < ActionDispatch::IntegrationTest
   end
 
   %w(
-    beta_notice
     campaign
     proposition_menu
     related.raw
