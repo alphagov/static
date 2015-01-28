@@ -1,0 +1,31 @@
+<div class="govuk-option-select" tabindex="0">
+  <div class="container-head js-container-head">
+    <div class='option-select-label'><%= title %></div>
+  </div>
+  <div class='options-container'>
+    <div class='js-auto-height-inner'>
+      <% options.each do | option |%>
+
+      <label for='<%= option['id'] %>'>
+        <input
+        name="<%= key %>[]"
+        value="<%= option['value']%>"
+        id="<%= option['id']%>"
+        type="checkbox"
+
+        <% if local_assigns.include?(:aria_controls_id) %>
+          aria-controls="<%= aria_controls_id %>"
+        <% end %>
+
+        <% if option['checked'].present? %>
+          checked="checked"
+        <% end %>
+
+        >
+        <%= option['label']%>
+        </label>
+      <% end %>
+    </div>
+
+  </div>
+</div>
