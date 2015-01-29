@@ -31,10 +31,7 @@ class RootController < ApplicationController
   end
 
   NON_LAYOUT_TEMPLATES = %w(
-    alpha_label
     barclays_epdq
-    beta_notice
-    beta_label
     campaign
     print
     proposition_menu

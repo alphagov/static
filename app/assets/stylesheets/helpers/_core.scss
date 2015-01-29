@@ -276,14 +276,6 @@ article {
   }
 }
 
-.article-container.group .beta-label {
-  margin: 0 0 20px;
-
-  @include media(mobile) {
-      margin: 0 0 10px;
-    }
-}
-
 /* Meta-data */
 .meta-data {
   @include core-16;
