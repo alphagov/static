@@ -3,6 +3,7 @@
  * It's kind of like typography innit.
 */
 
+.content-block,
 article {
   h1 {
     @include bold-24;
