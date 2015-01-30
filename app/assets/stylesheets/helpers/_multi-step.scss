@@ -242,6 +242,7 @@ li.done:hover .undo a {
 /*
  * errors messages
  */
+.content-block .error,
 article .error {
   border:1px solid #B01117;
   background-color:#FFF3CF;
@@ -257,11 +258,4 @@ article .error {
 .error-message {
   margin-top: 0;
   color:#B01117;
-}
-
-/*
- * calculators
- */
-.calculator article {
-  min-height: 0;
 }
