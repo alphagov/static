@@ -3,11 +3,11 @@
 }
 
 .report-a-problem-container{
+  @extend %site-width-container;
   clear: both;
-  @include outer-block;
-  margin-bottom: 60px;
 
   .report-a-problem-inner {
+    margin-bottom: 60px;
     .report-a-problem-content {
       max-width: 35em;
     }
@@ -60,6 +60,7 @@
 
 .report-a-problem-toggle{
   @include core-16;
+  margin-bottom: 30px;
 
   a{
     color: $secondary-text-colour;
@@ -77,7 +78,6 @@
 }
 
 .report-a-problem-toggle-wrapper {
-  @include outer-block;
-  margin-bottom: 30px;
+  @extend %site-width-container;
   clear:both;
 }
