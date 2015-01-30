@@ -228,29 +228,6 @@ header.page-header div {
   ============================== Stuff (mainly) used in publications =============================
 */
 
-/* articles */
-.content-block,
-article {
-  margin-right: 22.25em;
-  min-height: 30em;
-  position: relative;
-  width: 100%;
-  z-index: 1;
-
-  @include ie-lte(8) {
-    float: none;
-  }
-
-  @include ie-lte(7) {
-  }
-
-  &.group {
-    @include ie-lte(7) {
-      height: auto;
-    }
-  }
-}
-
 #wrapper.travel-advice p img {
   display: block;
   margin: 0 -1em;
@@ -265,15 +242,6 @@ article {
   /* Make webkit browsers contain the margin-bottom of report-a-problem */
   .travel-advice & {
     padding-bottom: 0.01em;
-  }
-
-  article {
-    margin-right: 0;
-  }
-
-  @include media-down(tablet) {
-    margin-right: 0;
-    min-height: 0;
   }
 }
 
