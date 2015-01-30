@@ -3,456 +3,555 @@
  * It's kind of like typography innit.
 */
 
-article h1 {
-  @include bold-24;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
-}
-
-article header h1 {
-  @include heading-27;
-  font-weight: 700;
-  color: $text-colour;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  @include ie-lte(8) {
-    zoom: 1;
+article {
+  h1 {
+    @include bold-24;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
   }
 
-  span {
-    @include core-16;
-    display: block;
-    // display: none;
-    margin-bottom: 0.4em;
-  }
-}
+  header h1 {
+    @include heading-27;
+    font-weight: 700;
+    color: $text-colour;
+    margin-top: 0;
+    margin-bottom: 0;
 
-.wf-nta-n4-active article header h1 span {
-  font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
+    @include ie-lte(8) {
+      zoom: 1;
+    }
 
-article h1 + h2 {
-  margin-top: 0.75em;
-}
-
-article h2 {
-  @include bold-24;
-  margin: 1.2em 0 0.4em 0;
-}
-
-article h2 + h3 {
-  margin-top: 0.75em;
-}
-
-article h3 {
-  @include bold-19;
-  margin-top: 1em;
-  margin-bottom: 0.75em;
-}
-
-article h3 + h4 {
-  margin-top: 0.75em;
-}
-
-article h4 {
-  margin-top: 1.5em;
-  margin-bottom: 0;
-}
-
-article h3 + table {
-  margin-top: 0.652em;
-}
-
-article h4 + table {
-  margin-top: 0.75em;
-}
-
-article h2 + p,  article h3 + p,  article h4 + p,
-article h2 + ol, article h3 + ol, article h4 + ol,
-article h2 + ul, article h3 + ul, article h4 + ul {
-  margin-top: 0.2em;
-}
-
-article h1,
-article h2,
-article h3,
-article h4 {
-  color: $text-colour;
-}
-
-article p, article ul, article ol {
-  margin: 0.75em 0;
-}
-
-article p {
-  @include core-19;
-}
-
-article p + .help-notice{
-  margin-top: 2em;
-}
-
-article li {
-  @include core-19;
-  margin: 0.25em 0;
-  padding-left: 0.3em;
-
-  @include media-down(mobile) {
-    margin-left: 16px;
-    padding-left: 0;
+    span {
+      @include core-16;
+      display: block;
+      // display: none;
+      margin-bottom: 0.4em;
+    }
   }
 
+  .wf-nta-n4-active & header h1 span {
+    font-family: "NTA", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
+
+  h1 + h2 {
+    margin-top: 0.75em;
+  }
+
+  h2 {
+    @include bold-24;
+    margin: 1.2em 0 0.4em 0;
+  }
+
+  h2 + h3 {
+    margin-top: 0.75em;
+  }
+
+  h3 {
+    @include bold-19;
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+  }
+
+  h3 + h4 {
+    margin-top: 0.75em;
+  }
+
+  h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+  }
+
+  h3 + table {
+    margin-top: 0.652em;
+  }
+
+  h4 + table {
+    margin-top: 0.75em;
+  }
+
+  h2 + p,  h3 + p,  h4 + p,
+  h2 + ol, h3 + ol, h4 + ol,
+  h2 + ul, h3 + ul, h4 + ul {
+    margin-top: 0.2em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $text-colour;
+  }
+
+  p,
   ul,
   ol {
-    margin: 0;
-    list-style-position: inside;
-  }
-
-  li {
-    @include core-19;
-    list-style-type: circle;
+    margin: 0.75em 0;
   }
 
   p {
     @include core-19;
-    margin: 0;
   }
-}
 
-article ul, article ol {
-  padding-left: 1em;
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-
-  @include media-down(mobile) {
-    padding-left: 0;
-    margin-left: 0;
+  p + .help-notice{
+    margin-top: 2em;
   }
-}
+
+  li {
+    @include core-19;
+    margin: 0.25em 0;
+    padding-left: 0.3em;
+
+    @include media-down(mobile) {
+      margin-left: 16px;
+      padding-left: 0;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      list-style-position: inside;
+    }
+
+    li {
+      @include core-19;
+      list-style-type: circle;
+    }
+
+    p {
+      @include core-19;
+      margin: 0;
+    }
+  }
+
+  ul, ol {
+    padding-left: 1em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+
+    @include media-down(mobile) {
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
 
 /*
- * Example has a green background, so we need an additional indent to
- * avoid the bullets hanging on the edge of the colour.
+* Example has a green background, so we need an additional indent to
+* avoid the bullets hanging on the edge of the colour.
 */
-article .example ul,
-article .example ol {
-  margin-left:0.5em;
-}
-
-article ul {
-  list-style-type: circle;
-  list-style-image: image-url("bullet-disc-5px.gif");
-}
-
-article ol {
-  list-style-type: decimal;
-}
-
-article table ul {
-  padding-left: 0.75em;
-  margin: 0;
-}
-
-article table ul li:last-child {
-  margin-bottom: 0;
-}
-
-article dl {
-  margin-top: 1.5em;
-  margin-bottom: 1.88em;
-}
-
-article dt {
-  @include core-19;
-  margin-bottom: 0.25em;
-}
-
-article dd {
-  margin-bottom: 0.75em;
-}
-
-article table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 1em 0 2em;
-  width: 100%;
-
-  caption {
-    @include bold-24;
-    margin: 0.4em 0.5em 0.4em 0.7em;
-    text-align: left;
+  .example ul,
+  .example ol {
+    margin-left:0.5em;
   }
 
-  @include media-down(mobile) {
-    margin: 1em 0 2em 0;
+  ul {
+    list-style-type: circle;
+    list-style-image: image-url("bullet-disc-5px.gif");
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  table ul {
+    padding-left: 0.75em;
+    margin: 0;
+  }
+
+  table ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  dl {
+    margin-top: 1.5em;
+    margin-bottom: 1.88em;
+  }
+
+  dt {
+    @include core-19;
+    margin-bottom: 0.25em;
+  }
+
+  dd {
+    margin-bottom: 0.75em;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 1em 0 2em;
     width: 100%;
 
     caption {
+      @include bold-24;
+      margin: 0.4em 0.5em 0.4em 0.7em;
+      text-align: left;
+    }
+
+    @include media-down(mobile) {
+      margin: 1em 0 2em 0;
+      width: 100%;
+
+      caption {
+        padding-left: 0;
+      }
+    }
+  }
+
+  th, td {
+    @include core-16($tabular-numbers: true);
+    vertical-align: top;
+    padding: .75em .5em .75em 0;
+
+    a[rel="external"] {
+      @include external-link-16;
+      @include media-down(mobile) {
+        @include external-link-14;
+      }
+    }
+  }
+
+  td {
+    border-bottom: solid 1px $border-colour;
+
+    small {
+      @include core-16;
+    }
+  }
+
+  th {
+    line-height: 1.25em;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: solid 1px $border-colour;
+  }
+
+  /*
+  * More article formatting including markdown styles.
+  */
+
+  .mainstream & .summary {
+    margin: 0 0 2em 0;
+    padding: 0;
+    color: $text-colour;
+
+    @include ie-lte(8) {
+      zoom: 1;
+    }
+
+    p {
+      @include core-19;
+    }
+
+    @include media-down(mobile) {
+      margin: 0 0 2em 0;
+      padding: 0;
+    }
+  }
+
+  .summary p,
+  .summary h2 {
+    border: none;
+    margin: 0 0.75em 0 0;
+  }
+
+  .summary h2 {
+    line-height: 1.35em;
+
+    @include ie(6) {
+      height: 2.75em;
+    }
+  }
+  .licence-finder &.outcome ul {
+    padding: 1em 1em;
+    margin: 0 -1em;
+
+    li {
+      list-style-type: none;
+      list-style-image: none;
+      margin: 0 0 0.75em 0;
+      padding: 0;
+    }
+  }
+
+  .advisory {
+    background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+    line-height: 1.3em;
+    margin: 0 -1em 1em -1em;
+    padding: 1em;
+    text-align: left;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-information-2x.png");
+      background-size: 27px 27px;
+    }
+
+    p {
+      margin: 0 0.75em 0 0;
+      min-height: 1.75em;
+      padding-right: 3em;
+
+      @include ie-lte(7) {
+        height: 1.75em;
+      }
+    }
+
+    strong {
+      font-weight: 400;
+    }
+
+    &.high-alert {
+      background-color: $panel-colour;
+      border-color: #C00;
+    }
+
+    @include media-down(mobile) {
+      margin: 0 0 1em 0;
+    }
+  }
+
+  .intro {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    @include media-down(mobile) {
+      margin: 0 0 1.5em 0;
+      padding: 0;
+    }
+  }
+
+  #wrapper.place & .intro {
+    margin-bottom: 0;
+  }
+
+  .example {
+    border-left: 10px solid $panel-colour;
+    padding-left: 1.5em;
+    margin: 2.5em 0;
+
+    strong {
+      display: block;
+    }
+
+    @include media-down(mobile) {
+      margin: 0.75 0;
+    }
+  }
+
+  .application-notice,
+  .advisory.minor,
+  .form-download,
+  .subscribe {
+    padding: 0.25em 0 0.25em 3.5em;
+
+    @include media-down(mobile) {
+      margin: 1em 0 1.5em 0;
+    }
+  }
+
+  .application-notice {
+    padding: 0.1em 0 0.1em 1em;
+  }
+
+  .advisory.minor {
+    background-image: none;
+    padding: 0.75em 1em;
+  }
+
+  .help-notice {
+    background:none;
+    background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-important-2x.png");
+      background-size: 34px 34px;
+    }
+
+    p {
+      font-weight:600;
+
+      a {
+        font-weight:600;
+      }
+    }
+  }
+
+  a.important {
+    background: image-url("icon-important.png") no-repeat scroll 100% 0 #FFF;
+  }
+
+  .subscribe {
+    background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #D5E8F3;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-calendar-2x.png");
+      background-size: 27px 27px;
+    }
+
+  }
+
+  .info-notice {
+    background: none;
+    border-left: 10px solid $border-colour;
+    margin-bottom: 1em;
+    @extend %contain-floats;
+  }
+
+  .help-notice p,
+  .info-notice p,
+  .subscribe p {
+    padding-right: 4em;
+  }
+
+  .info-notice p {
+    padding: 0 1em 0 0;
+  }
+
+  .help-notice p {
+    padding: 0 1em 0 2em;
+  }
+
+
+  p + .help-notice,
+  p + .info-notice {
+    margin-top: 2em;
+  }
+
+  .info-notice a[rel="external"] {
+    display: inline;
+  }
+
+  .form-download {
+    padding: 0.25em 0 0.25em 0;
+
+    p {
+      padding-right: 3em;
+    }
+
+    a {
+      display: block;
+      font-weight: 600;
+      background: image-url("icon-file-download.png") no-repeat scroll 0 0;
+      min-height: 2.5em;
+      padding:0 0 0 2.5em;
+
+      @include device-pixel-ratio() {
+        background-image: image-url("icon-file-download-2x.png");
+        background-size: 25px 25px;
+      }
+    }
+
+    a[rel="external"]:after {
+      content: none;
+    }
+  }
+
+  .address {
+    margin: 2.5em 0;
+    min-width: 35%;
+  }
+
+  h2 + .address,
+  h3 + .address {
+    margin-top: .5em;
+  }
+
+  ol.places {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+
+    &.answer_locations .information {
+      min-height: 3em;
+    }
+
+    li {
+      margin: 0;
       padding-left: 0;
     }
   }
-}
 
-article th, article td {
-  @include core-16($tabular-numbers: true);
-  vertical-align: top;
-  padding: .75em .5em .75em 0;
+  .place {
+    margin: 1.5em 0;
+    border-bottom: solid 1px $border-colour;
+    padding-bottom: 1.5em;
 
-  a[rel="external"] {
-    @include external-link-16;
+    .address {
+      margin: 0;
+      padding: 0;
+      width: auto;
+      display: block;
+    }
+
+    .url {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .additional-information {
+      @include core-16;
+
+      a {
+        display: block;
+      }
+    }
+
     @include media-down(mobile) {
-      @include external-link-14;
+      margin: 0.75em 0;
     }
   }
-}
 
-article td {
-  border-bottom: solid 1px $border-colour;
-
-  small {
-    @include core-16;
-  }
-}
-
-article th {
-  line-height: 1.25em;
-  text-align: left;
-  font-weight: 700;
-  border-bottom: solid 1px $border-colour;
-}
-
-/*
- * More article formatting including markdown styles.
- */
-
-.mainstream article .summary {
-  margin: 0 0 2em 0;
-  padding: 0;
-  color: $text-colour;
-
-  @include ie-lte(8) {
-    zoom: 1;
-  }
-
-  p {
-    @include core-19;
-  }
-
-  @include media-down(mobile) {
-    margin: 0 0 2em 0;
+  ul.view-maps {
+    list-style: none;
     padding: 0;
-  }
-}
+    margin: 1em 0;
 
-.mainstream .ancillary .summary {
-  margin-bottom: 2em;
-}
+    li {
+      @include core-16;
+      display: inline-block;
+      margin-right: 1em;
 
-article .summary p,
-article .summary h2,
-.mainstream .ancillary .summary p,
-.mainstream .ancillary .summary h2 {
-  border: none;
-  margin: 0 0.75em 0 0;
-}
-
-article .summary h2,
-.mainstream .ancillary .summary h2 {
-  line-height: 1.35em;
-
-  @include ie(6) {
-    height: 2.75em;
-  }
-}
-.licence-finder article.outcome ul {
-  padding: 1em 1em;
-  margin: 0 -1em;
-
-  li {
-    list-style-type: none;
-    list-style-image: none;
-    margin: 0 0 0.75em 0;
-    padding: 0;
-  }
-}
-
-article .advisory {
-  background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
-  line-height: 1.3em;
-  margin: 0 -1em 1em -1em;
-  padding: 1em;
-  text-align: left;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-information-2x.png");
-    background-size: 27px 27px;
-  }
-
-  p {
-    margin: 0 0.75em 0 0;
-    min-height: 1.75em;
-    padding-right: 3em;
-
-    @include ie-lte(7) {
-      height: 1.75em;
+      @include ie-lte(7) {
+        display: inline;
+        padding-right: 1em;
+        margin-right: 0;
+      }
     }
   }
 
-  strong {
-    font-weight: 400;
-  }
+  ol.steps {
+    padding-left: 0;
+    margin-left: 0;
+    overflow: hidden;
 
-  &.high-alert {
-    background-color: $panel-colour;
-    border-color: #C00;
-  }
+    > li {
+      background-position: 0 0.87em;
+      background-repeat: no-repeat;
+      list-style-type: decimal;
+      margin-left: 0;
+      padding: 0.75em 0 0.75em 2.2em;
 
-  @include media-down(mobile) {
-    margin: 0 0 1em 0;
-  }
-}
+      @for $i from 1 through 14 {
+        &:nth-child(#{$i}) {
+          background-image: image-url("icon-steps/icon-step-#{$i}.png");
 
-article .intro {
-  margin-bottom: 1.5em;
-  padding-bottom: 1em;
+          @include device-pixel-ratio() {
+            background-image: image-url("icon-steps/icon-step-#{$i}-2x.png");
+            background-size: 24px 24px;
+          }
+        }
+      }
 
-  p:first-child {
-    margin-top: 0;
-  }
-
-  @include media-down(mobile) {
-    margin: 0 0 1.5em 0;
-    padding: 0;
-  }
-}
-
-#wrapper.place article .intro {
-  margin-bottom: 0;
-}
-
-article .example {
-  border-left: 10px solid $panel-colour;
-  padding-left: 1.5em;
-  margin: 2.5em 0;
-
-  strong {
-    display: block;
-  }
-
-  @include media-down(mobile) {
-    margin: 0.75 0;
-  }
-}
-
-article .application-notice,
-article .advisory.minor,
-article .form-download,
-article .subscribe {
-  padding: 0.25em 0 0.25em 3.5em;
-
-  @include media-down(mobile) {
-    margin: 1em 0 1.5em 0;
-  }
-}
-
-article .application-notice {
-  padding: 0.1em 0 0.1em 1em;
-}
-
-article .advisory.minor {
-  background-image: none;
-  padding: 0.75em 1em;
-}
-
-article .help-notice {
-  background:none;
-  background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-important-2x.png");
-    background-size: 34px 34px;
-  }
-
-  p {
-    font-weight:600;
-
-    a {
-      font-weight:600;
+      @include ie-lte(8) {
+        margin-left: 1.5em;
+        padding-left: 0;
+      }
     }
   }
 }
-
-article a.important {
-  background: image-url("icon-important.png") no-repeat scroll 100% 0 #FFF;
-}
-
-article .subscribe {
-  background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #D5E8F3;
-
-  @include device-pixel-ratio() {
-    background-image: image-url("icon-calendar-2x.png");
-    background-size: 27px 27px;
-  }
-
-}
-
-article .info-notice {
-  background: none;
-  border-left: 10px solid $border-colour;
-  margin-bottom: 1em;
-  @extend %contain-floats;
-}
-
-article .help-notice p,
-article .info-notice p,
-article .subscribe p {
-  padding-right: 4em;
-}
-
-article .info-notice p {
-  padding: 0 1em 0 0;
-}
-
-article .help-notice p {
-  padding: 0 1em 0 2em;
-}
-
-
-article p + .help-notice,
-article p + .info-notice {
-  margin-top: 2em;
-}
-
-article .info-notice a[rel="external"] {
-  display: inline;
-}
-
-article .form-download {
-  padding: 0.25em 0 0.25em 0;
-
-  p {
-    padding-right: 3em;
-  }
-
-  a {
-    display: block;
-    font-weight: 600;
-    background: image-url("icon-file-download.png") no-repeat scroll 0 0;
-    min-height: 2.5em;
-    padding:0 0 0 2.5em;
-
-    @include device-pixel-ratio() {
-      background-image: image-url("icon-file-download-2x.png");
-      background-size: 25px 25px;
-    }
-  }
-
-  a[rel="external"]:after {
-    content: none;
-  }
-}
-
 
 .contact {
   margin: 0.75em 0;
@@ -474,6 +573,10 @@ article .form-download {
   }
 }
 
+section.places h3 {
+  margin-top: 0;
+}
+
 .meta-data .contact {
   width: auto;
 }
@@ -489,112 +592,6 @@ article .form-download {
   margin-left: 8.5em;
 }
 
-article .address {
-  margin: 2.5em 0;
-  min-width: 35%;
-}
-
-article h2 + .address,
-article h3 + .address {
-  margin-top: .5em;
-}
-
-article ol.places {
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
-
-  &.answer_locations .information {
-    min-height: 3em;
-  }
-
-  li {
-    margin: 0;
-    padding-left: 0;
-  }
-}
-
-section.places h3 {
-  margin-top: 0;
-}
-
-article .place {
-  margin: 1.5em 0;
-  border-bottom: solid 1px $border-colour;
-  padding-bottom: 1.5em;
-
-  .address {
-    margin: 0;
-    padding: 0;
-    width: auto;
-    display: block;
-  }
-
-  .url {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .additional-information {
-    @include core-16;
-
-    a {
-      display: block;
-    }
-  }
-
-  @include media-down(mobile) {
-    margin: 0.75em 0;
-  }
-}
-
-article ul.view-maps {
-  list-style: none;
-  padding: 0;
-  margin: 1em 0;
-
-  li {
-    @include core-16;
-    display: inline-block;
-    margin-right: 1em;
-
-    @include ie-lte(7) {
-      display: inline;
-      padding-right: 1em;
-      margin-right: 0;
-    }
-  }
-}
-
-article ol.steps {
-  padding-left: 0;
-  margin-left: 0;
-  overflow: hidden;
-
-  > li {
-    background-position: 0 0.87em;
-    background-repeat: no-repeat;
-    list-style-type: decimal;
-    margin-left: 0;
-    padding: 0.75em 0 0.75em 2.2em;
-
-    @for $i from 1 through 14 {
-      &:nth-child(#{$i}) {
-        background-image: image-url("icon-steps/icon-step-#{$i}.png");
-
-        @include device-pixel-ratio() {
-          background-image: image-url("icon-steps/icon-step-#{$i}-2x.png");
-          background-size: 24px 24px;
-        }
-      }
-    }
-
-    @include ie-lte(8) {
-      margin-left: 1.5em;
-      padding-left: 0;
-    }
-  }
-}
 
 .highlight-answer,
 .highlighted-event {
