@@ -278,6 +278,7 @@
     default:
       key: "market_sector"
       title: "Market sector"
+      options_container_id: "list_of_sectors"
       options:
         - value: "aerospace"
           label: "Aerospace"
@@ -324,6 +325,7 @@
     with_option_pre_checked:
       key: "with_checked_value_set"
       title: "List of options"
+      options_container_id: "list_of_vegetables"
       options:
         - value: "potatoes"
           label: "Potatoes"
@@ -339,6 +341,7 @@
       key: "with_aria-control_set"
       title: "List of options"
       aria_controls_id: "js-update-region-id"
+      options_container_id: "list_of_countries"
       options:
         - value: "britain"
           label: "Britain"
