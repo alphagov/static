@@ -379,7 +379,8 @@ header.page-header div {
   }
 
   ol,
-  ul {
+  ul,
+  .tabs-nav {
     float: left;
     list-style: none;
     margin: 0;
@@ -398,7 +399,8 @@ header.page-header div {
     }
   }
 
-  li {
+  li,
+  .tabs-nav li {
     @include core-16;
     padding: 0;
     margin: 0;
