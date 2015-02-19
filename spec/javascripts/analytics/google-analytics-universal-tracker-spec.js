@@ -9,6 +9,7 @@ describe("GOVUK.Analytics.GoogleAnalyticsUniversalTracker", function() {
 
   it('can load the libraries needed to run universal Google Analytics', function() {
     delete window.ga;
+    $('[src="//www.google-analytics.com/analytics.js"]').remove();
     GOVUK.Analytics.GoogleAnalyticsUniversalTracker.load();
     expect($('head script[async][src="//www.google-analytics.com/analytics.js"]').length).toBe(1);
     expect(typeof window.ga).toBe('function');

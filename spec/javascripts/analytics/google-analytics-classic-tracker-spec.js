@@ -8,6 +8,7 @@ describe("GOVUK.Analytics.GoogleAnalyticsClassicTracker", function() {
 
   it('can load the libraries needed to run classic Google Analytics', function() {
     delete window._gaq;
+    $('[src*="google-analytics.com/ga.js"]').remove();
     GOVUK.Analytics.GoogleAnalyticsClassicTracker.load();
     expect($('head script[async][src*="google-analytics.com/ga.js"]').length).toBe(1);
   });

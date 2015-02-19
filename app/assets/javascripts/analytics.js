@@ -1,6 +1,8 @@
 //= require analytics/google-analytics-universal-tracker
 //= require analytics/google-analytics-classic-tracker
 //= require analytics/tracker
+//= require analytics/init
+
 //= require analytics/tracking
 //= require analytics/print-tracking
 //= require analytics/print-intent
