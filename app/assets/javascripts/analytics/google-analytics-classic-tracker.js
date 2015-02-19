@@ -3,7 +3,7 @@
   window.GOVUK = window.GOVUK || {};
   window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
-  GOVUK.Analytics.GoogleAnalyticsClassicTracker = function(id, cookieDomain) {
+  var GoogleAnalyticsClassicTracker = function(id, cookieDomain) {
     configureProfile(id, cookieDomain);
     allowCrossDomainTracking();
     anonymizeIp();
@@ -24,7 +24,7 @@
     }
   };
 
-  GOVUK.Analytics.GoogleAnalyticsClassicTracker.load = function() {
+  GoogleAnalyticsClassicTracker.load = function() {
     var ga = document.createElement('script'),
         s = document.getElementsByTagName('script')[0];
 
@@ -34,7 +34,7 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/gajs/asyncMigrationExamples#VirtualPageviews
-  GOVUK.Analytics.GoogleAnalyticsClassicTracker.prototype.trackPageview = function(path) {
+  GoogleAnalyticsClassicTracker.prototype.trackPageview = function(path) {
     var pageview = ['_trackPageview'];
 
     if (typeof path === "string") {
@@ -45,7 +45,7 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
-  GOVUK.Analytics.GoogleAnalyticsClassicTracker.prototype.trackEvent = function(category, action, label, value) {
+  GoogleAnalyticsClassicTracker.prototype.trackEvent = function(category, action, label, value) {
     var evt = ["_trackEvent", category, action];
 
     // Label is optional
@@ -67,8 +67,9 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables
-  GOVUK.Analytics.GoogleAnalyticsClassicTracker.prototype.setCustomVariable = function(index, value, name, scope) {
+  GoogleAnalyticsClassicTracker.prototype.setCustomVariable = function(index, value, name, scope) {
     _gaq.push(['_setCustomVar', index, name, String(value), scope]);
   };
 
+  GOVUK.Analytics.GoogleAnalyticsClassicTracker = GoogleAnalyticsClassicTracker;
 })();

@@ -3,7 +3,7 @@
   window.GOVUK = window.GOVUK || {};
   window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
-  GOVUK.Analytics.GoogleAnalyticsUniversalTracker = function(id, cookieDomain) {
+  var GoogleAnalyticsUniversalTracker = function(id, cookieDomain) {
     configureProfile(id, cookieDomain);
     allowCrossDomainTracking();
     anonymizeIp();
@@ -22,7 +22,7 @@
     }
   };
 
-  GOVUK.Analytics.GoogleAnalyticsUniversalTracker.load = function() {
+  GoogleAnalyticsUniversalTracker.load = function() {
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -30,7 +30,7 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/pages
-  GOVUK.Analytics.GoogleAnalyticsUniversalTracker.prototype.trackPageview = function(path, title) {
+  GoogleAnalyticsUniversalTracker.prototype.trackPageview = function(path, title) {
     if (typeof path === "string") {
       var pageviewObject = {
             page: path
@@ -46,7 +46,7 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-  GOVUK.Analytics.GoogleAnalyticsUniversalTracker.prototype.trackEvent = function(category, action, label, value) {
+  GoogleAnalyticsUniversalTracker.prototype.trackEvent = function(category, action, label, value) {
     var evt = {
           hitType: 'event',
           eventCategory: category,
@@ -72,8 +72,9 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
-  GOVUK.Analytics.GoogleAnalyticsUniversalTracker.prototype.setDimension = function(index, value) {
+  GoogleAnalyticsUniversalTracker.prototype.setDimension = function(index, value) {
     ga('set', 'dimension' + index, String(value));
   };
 
+  GOVUK.Analytics.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker;
 })();
