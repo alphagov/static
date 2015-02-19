@@ -49,6 +49,29 @@ describe("GOVUK.Analytics.Tracker", function() {
       });
     });
 
+    describe('when there is an existing queue of custom variables', function() {
+      beforeEach(function() {
+        window.ga.calls.reset();
+        window._gaq = [
+          ['_setCustomVar', 21, 'name', 'value', 3],
+          ['_setCustomVar', 10, 'name-2', 'value-2', 2]
+        ];
+        tracker = new GOVUK.Analytics.Tracker('universal-id', 'classic-id');
+        universalSetupArguments = window.ga.calls.allArgs();
+      });
+
+      it('resets the queue before setup', function() {
+        expect(window._gaq[0]).toEqual(['_setAccount', 'classic-id']);
+      });
+
+      it('sets the custom variables as dimensions', function() {
+        expect(window._gaq[6]).toEqual(['_setCustomVar', 21, 'name', 'value', 3]);
+        expect(window._gaq[7]).toEqual(['_setCustomVar', 10, 'name-2', 'value-2', 2]);
+        expect(universalSetupArguments[4]).toEqual(['set', 'dimension21', 'value']);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension10', 'value-2']);
+      });
+    });
+
   });
 
   describe('when tracking pageviews, events and custom dimensions', function() {

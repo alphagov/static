@@ -4,15 +4,32 @@
   window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var Tracker = function(universalId, classicId) {
-    var self = this;
+    var self = this,
+        classicQueue;
+
+    classicQueue = getClassicAnalyticsQueue();
+    resetClassicAnalyticsQueue();
+
     self.universal = new GOVUK.Analytics.GoogleAnalyticsUniversalTracker(universalId, '.www.gov.uk');
     self.classic = new GOVUK.Analytics.GoogleAnalyticsClassicTracker(classicId, '.www.gov.uk');
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
     shimNextPageParams();
+    shimClassicAnalyticsQueue(classicQueue);
 
     self.trackPageview();
+
+    function getClassicAnalyticsQueue() {
+      // Slimmer inserts custom variables into the ga-params script tag
+      // https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/google_analytics_configurator.rb
+      // Pickout these variables before continuing
+      return (window._gaq && window._gaq.length) > 0 ? window._gaq.slice() : [];
+    }
+
+    function resetClassicAnalyticsQueue() {
+      window._gaq = [];
+    }
 
     function setPixelDensityDimension() {
       var pixelRatioDimensionIndex = 11;
@@ -38,14 +55,27 @@
         var classicParams = GOVUK.cookie('ga_nextpage_params').split(',');
 
         if (classicParams[0] == "_setCustomVar") {
-          // index, value, name, scope
-          self.setDimension(classicParams[1], classicParams[3], classicParams[2], classicParams[4]);
+          setDimensionFromCustomVariable(classicParams);
         }
 
         // Delete cookie
         GOVUK.cookie('ga_nextpage_params', null);
       }
     }
+
+    function shimClassicAnalyticsQueue(queue) {
+      $.each(queue, function(index, classicParams) {
+        if (classicParams[0] == "_setCustomVar") {
+          setDimensionFromCustomVariable(classicParams);
+        }
+      });
+    }
+
+    function setDimensionFromCustomVariable(customVar) {
+      // index, value, name, scope
+      self.setDimension(customVar[1], customVar[3], customVar[2], customVar[4]);
+    }
+
   };
 
   Tracker.load = function() {
