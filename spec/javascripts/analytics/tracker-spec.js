@@ -9,17 +9,31 @@ describe("GOVUK.Analytics.Tracker", function() {
   });
 
   describe('when created', function() {
+    var universalSetupArguments;
+
+    beforeEach(function() {
+      universalSetupArguments = window.ga.calls.allArgs();
+    });
+
     it('configures classic and universal trackers', function() {
-      var universalSetupArguments = window.ga.calls.allArgs();
       expect(window._gaq[0]).toEqual(['_setAccount', 'classic-id']);
       expect(window._gaq[1]).toEqual(['_setDomainName', '.www.gov.uk']);
       expect(universalSetupArguments[0]).toEqual(['create', 'universal-id', {'cookieDomain': '.www.gov.uk'}]);
     });
 
+    it('sets the device pixel ratio', function() {
+      expect(window._gaq[4][2]).toEqual('Pixel Ratio');
+      expect(universalSetupArguments[2][1]).toEqual('dimension11');
+    });
+
+    it('sets the HTTP status code', function() {
+      expect(window._gaq[5][2]).toEqual('httpStatusCode');
+      expect(universalSetupArguments[3][1]).toEqual('dimension15');
+    });
+
     it('tracks a pageview in both classic and universal', function() {
-      var universalSetupArguments = window.ga.calls.allArgs();
-      expect(window._gaq[4]).toEqual(['_trackPageview']);
-      expect(universalSetupArguments[2]).toEqual(['send', 'pageview']);
+      expect(window._gaq[6]).toEqual(['_trackPageview']);
+      expect(universalSetupArguments[4]).toEqual(['send', 'pageview']);
     });
   });
 
