@@ -88,9 +88,9 @@
     this.universal.trackPageview(path, title);
   }
 
-  Tracker.prototype.trackEvent = function(category, action, label, value) {
-    this.classic.trackEvent(category, action, label, value);
-    this.universal.trackEvent(category, action, label, value);
+  Tracker.prototype.trackEvent = function(category, action, label, value, nonInteraction) {
+    this.classic.trackEvent(category, action, label, value, nonInteraction);
+    this.universal.trackEvent(category, action, label, value, nonInteraction);
   }
 
   Tracker.prototype.setDimension = function(index, value, name, scope) {

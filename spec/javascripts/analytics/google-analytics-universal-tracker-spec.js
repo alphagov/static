@@ -80,6 +80,20 @@ describe("GOVUK.Analytics.GoogleAnalyticsUniversalTracker", function() {
       universal.trackEvent('category', 'action', 'label', 'not a number');
       expect(eventObjectFromSpy()['eventValue']).toEqual(undefined);
     });
+
+    it('can mark an event as non interactive', function() {
+      universal.trackEvent('category', 'action', 'label', 0, true);
+      expect(window.ga.calls.mostRecent().args).toEqual(
+        ['send', {
+          hitType: 'event',
+          eventCategory: 'category',
+          eventAction: 'action',
+          eventLabel: 'label',
+          eventValue: 0,
+          nonInteraction: 1
+        }]
+      );
+    });
   });
 
   describe('when setting a custom dimension', function() {

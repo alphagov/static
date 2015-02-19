@@ -46,7 +46,7 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-  GoogleAnalyticsUniversalTracker.prototype.trackEvent = function(category, action, label, value) {
+  GoogleAnalyticsUniversalTracker.prototype.trackEvent = function(category, action, label, value, nonInteraction) {
     var evt = {
           hitType: 'event',
           eventCategory: category,
@@ -61,11 +61,17 @@
     // Value is optional, but when used must be an
     // integer, otherwise the event will be invalid
     // and not logged
-    if (value) {
+    if (value || value === 0) {
       value = parseInt(value, 10);
       if (typeof value === "number" && !isNaN(value)) {
         evt.eventValue = value;
       }
+    }
+
+    // Prevents an event from affecting bounce rate
+    // https://developers.google.com/analytics/devguides/collection/analyticsjs/events#implementation
+    if (nonInteraction) {
+      evt.nonInteraction = 1;
     }
 
     ga('send', evt);

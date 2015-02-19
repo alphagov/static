@@ -71,6 +71,11 @@ describe("GOVUK.Analytics.GoogleAnalyticsClassicTracker", function() {
       classic.trackEvent('category', 'action', 'label', 'not a number');
       expect(window._gaq[2]).toEqual(['_trackEvent', 'category', 'action', 'label']);
     });
+
+    it('can mark an event as non interactive', function() {
+      classic.trackEvent('category', 'action', 'label', 0, true);
+      expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', 'label', 0, true]);
+    });
   });
 
   describe('when setting a custom variable', function() {

@@ -46,7 +46,7 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
-  GoogleAnalyticsClassicTracker.prototype.trackEvent = function(category, action, label, value) {
+  GoogleAnalyticsClassicTracker.prototype.trackEvent = function(category, action, label, value, nonInteraction) {
     var evt = ["_trackEvent", category, action];
 
     // Label is optional
@@ -57,11 +57,17 @@
     // Value is optional, but when used must be an
     // integer, otherwise the event will be invalid
     // and not logged
-    if (value) {
+    if (value || value === 0) {
       value = parseInt(value, 10);
       if (typeof value === "number" && !isNaN(value)) {
         evt.push(value);
       }
+    }
+
+    // Prevents an event from affecting bounce rate
+    // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide#non-interaction
+    if (nonInteraction) {
+      evt.push(true);
     }
 
     _gaq.push(evt);
