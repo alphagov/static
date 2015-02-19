@@ -4,6 +4,7 @@
   window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var GoogleAnalyticsClassicTracker = function(id, cookieDomain) {
+    window._gaq = window._gaq || [];
     configureProfile(id, cookieDomain);
     allowCrossDomainTracking();
     anonymizeIp();
