@@ -35,6 +35,20 @@ describe("GOVUK.Analytics.Tracker", function() {
       expect(window._gaq[6]).toEqual(['_trackPageview']);
       expect(universalSetupArguments[4]).toEqual(['send', 'pageview']);
     });
+
+    describe('when there is a cookie with next page parameters set', function() {
+      it('sets them as a dimension', function() {
+        window.ga.calls.reset();
+        window._gaq = [];
+        spyOn(GOVUK, 'cookie').and.returnValue("_setCustomVar,21,name,value,3");
+        tracker = new GOVUK.Analytics.Tracker('universal-id', 'classic-id');
+        universalSetupArguments = window.ga.calls.allArgs();
+
+        expect(window._gaq[6]).toEqual(['_setCustomVar', 21, 'name', 'value', 3]);
+        expect(universalSetupArguments[4]).toEqual(['set', 'dimension21', 'value']);
+      });
+    });
+
   });
 
   describe('when tracking pageviews, events and custom dimensions', function() {
