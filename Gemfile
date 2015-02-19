@@ -27,6 +27,7 @@ end
 
 group :development, :test do
   gem 'jasmine-rails', '0.10.6'
+  gem 'quiet_assets', '1.1.0'
 end
 
 gem 'plek', '1.7.0'
