@@ -1,11 +1,11 @@
-describe("GOVUK.Analytics.Tracker", function() {
+describe("GOVUK.Tracker", function() {
   var tracker;
 
   beforeEach(function() {
     window._gaq = [];
     window.ga = function() {};
     spyOn(window, 'ga');
-    tracker = new GOVUK.Analytics.Tracker('universal-id', 'classic-id');
+    tracker = new GOVUK.Tracker('universal-id', 'classic-id');
   });
 
   describe('when created', function() {
@@ -41,7 +41,7 @@ describe("GOVUK.Analytics.Tracker", function() {
         window.ga.calls.reset();
         window._gaq = [];
         spyOn(GOVUK, 'cookie').and.returnValue("_setCustomVar,21,name,value,3");
-        tracker = new GOVUK.Analytics.Tracker('universal-id', 'classic-id');
+        tracker = new GOVUK.Tracker('universal-id', 'classic-id');
         universalSetupArguments = window.ga.calls.allArgs();
 
         expect(window._gaq[6]).toEqual(['_setCustomVar', 21, 'name', 'value', 3]);
@@ -56,7 +56,7 @@ describe("GOVUK.Analytics.Tracker", function() {
           ['_setCustomVar', 21, 'name', 'value', 3],
           ['_setCustomVar', 10, 'name-2', 'value-2', 2]
         ];
-        tracker = new GOVUK.Analytics.Tracker('universal-id', 'classic-id');
+        tracker = new GOVUK.Tracker('universal-id', 'classic-id');
         universalSetupArguments = window.ga.calls.allArgs();
       });
 

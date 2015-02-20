@@ -1,7 +1,6 @@
 (function() {
   "use strict";
   window.GOVUK = window.GOVUK || {};
-  window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var GoogleAnalyticsClassicTracker = function(id, cookieDomain) {
     window._gaq = window._gaq || [];
@@ -78,5 +77,5 @@
     _gaq.push(['_setCustomVar', index, name, String(value), scope]);
   };
 
-  GOVUK.Analytics.GoogleAnalyticsClassicTracker = GoogleAnalyticsClassicTracker;
+  GOVUK.GoogleAnalyticsClassicTracker = GoogleAnalyticsClassicTracker;
 })();

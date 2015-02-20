@@ -1,16 +1,16 @@
-describe("GOVUK.Analytics.GoogleAnalyticsUniversalTracker", function() {
+describe("GOVUK.GoogleAnalyticsUniversalTracker", function() {
   var universal;
 
   beforeEach(function() {
     window.ga = function() {};
     spyOn(window, 'ga');
-    universal = new GOVUK.Analytics.GoogleAnalyticsUniversalTracker('id', 'cookie-domain.com');
+    universal = new GOVUK.GoogleAnalyticsUniversalTracker('id', 'cookie-domain.com');
   });
 
   it('can load the libraries needed to run universal Google Analytics', function() {
     delete window.ga;
     $('[src="//www.google-analytics.com/analytics.js"]').remove();
-    GOVUK.Analytics.GoogleAnalyticsUniversalTracker.load();
+    GOVUK.GoogleAnalyticsUniversalTracker.load();
     expect($('head script[async][src="//www.google-analytics.com/analytics.js"]').length).toBe(1);
     expect(typeof window.ga).toBe('function');
 

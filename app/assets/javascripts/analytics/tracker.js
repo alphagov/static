@@ -1,7 +1,6 @@
 (function() {
   "use strict";
   window.GOVUK = window.GOVUK || {};
-  window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var Tracker = function(universalId, classicId) {
     var self = this,
@@ -10,8 +9,8 @@
     classicQueue = getClassicAnalyticsQueue();
     resetClassicAnalyticsQueue();
 
-    self.universal = new GOVUK.Analytics.GoogleAnalyticsUniversalTracker(universalId, '.www.gov.uk');
-    self.classic = new GOVUK.Analytics.GoogleAnalyticsClassicTracker(classicId, '.www.gov.uk');
+    self.universal = new GOVUK.GoogleAnalyticsUniversalTracker(universalId, '.www.gov.uk');
+    self.classic = new GOVUK.GoogleAnalyticsClassicTracker(classicId, '.www.gov.uk');
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
@@ -79,8 +78,8 @@
   };
 
   Tracker.load = function() {
-    GOVUK.Analytics.GoogleAnalyticsClassicTracker.load();
-    GOVUK.Analytics.GoogleAnalyticsUniversalTracker.load();
+    GOVUK.GoogleAnalyticsClassicTracker.load();
+    GOVUK.GoogleAnalyticsUniversalTracker.load();
   };
 
   Tracker.prototype.trackPageview = function(path, title) {
@@ -109,5 +108,5 @@
     this.classic.setCustomVariable(index, value, name, scope);
   };
 
-  GOVUK.Analytics.Tracker = Tracker;
+  GOVUK.Tracker = Tracker;
 })();

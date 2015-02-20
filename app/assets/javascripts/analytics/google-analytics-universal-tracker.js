@@ -1,7 +1,6 @@
 (function() {
   "use strict";
   window.GOVUK = window.GOVUK || {};
-  window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var GoogleAnalyticsUniversalTracker = function(id, cookieDomain) {
     configureProfile(id, cookieDomain);
@@ -88,5 +87,5 @@
     }
   }
 
-  GOVUK.Analytics.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker;
+  GOVUK.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker;
 })();

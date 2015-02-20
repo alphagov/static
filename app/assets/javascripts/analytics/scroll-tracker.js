@@ -2,7 +2,6 @@
   "use strict";
 
   window.GOVUK           = window.GOVUK || {};
-  window.GOVUK.Analytics = window.GOVUK.Analytics || {};
 
   var CONFIG = {
     '/': [
@@ -142,8 +141,8 @@
 
 
   $().ready(function() {
-    window.GOVUK.Analytics.scrollTracker = new ScrollTracker(CONFIG);
+    window.GOVUK.scrollTracker = new ScrollTracker(CONFIG);
   });
 
-  window.GOVUK.Analytics.ScrollTracker = ScrollTracker;
+  window.GOVUK.ScrollTracker = ScrollTracker;
 }());

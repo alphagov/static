@@ -1,15 +1,15 @@
-describe("GOVUK.Analytics.GoogleAnalyticsClassicTracker", function() {
+describe("GOVUK.GoogleAnalyticsClassicTracker", function() {
   var classic;
 
   beforeEach(function() {
     window._gaq = [];
-    classic = new GOVUK.Analytics.GoogleAnalyticsClassicTracker('id', 'cookie-domain.com');
+    classic = new GOVUK.GoogleAnalyticsClassicTracker('id', 'cookie-domain.com');
   });
 
   it('can load the libraries needed to run classic Google Analytics', function() {
     delete window._gaq;
     $('[src*="google-analytics.com/ga.js"]').remove();
-    GOVUK.Analytics.GoogleAnalyticsClassicTracker.load();
+    GOVUK.GoogleAnalyticsClassicTracker.load();
     expect($('head script[async][src*="google-analytics.com/ga.js"]').length).toBe(1);
   });
 
