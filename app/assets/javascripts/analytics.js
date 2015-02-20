@@ -3,7 +3,6 @@
 //= require analytics/tracker
 //= require analytics/init
 
-//= require analytics/tracking
 //= require analytics/print-tracking
 //= require analytics/print-intent
 //= require analytics/scroll-tracker
