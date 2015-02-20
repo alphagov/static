@@ -1,7 +1,7 @@
 describe("GOVUK.ScrollTracker", function() {
   beforeEach(function() {
     jasmine.clock().install();
-    spyOn(GOVUK.Analytics.tracker, "trackEvent").and.stub();
+    spyOn(GOVUK.analytics, "trackEvent").and.stub();
   });
 
   afterEach(function() {
@@ -42,9 +42,9 @@ describe("GOVUK.ScrollTracker", function() {
 
       scrollToPercent(60);
 
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.count()).toBe(2);
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.argsFor(0)).toEqual(["ScrollTo", "Percent", "25", 0, true]);
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.argsFor(1)).toEqual(["ScrollTo", "Percent", "50", 0, true]);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(2);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(0)).toEqual(["ScrollTo", "Percent", "25", 0, true]);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(1)).toEqual(["ScrollTo", "Percent", "50", 0, true]);
     });
   });
 
@@ -70,17 +70,17 @@ describe("GOVUK.ScrollTracker", function() {
 
       scrollToShowHeadingNumber(1);
 
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.count()).toBe(1);
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.argsFor(0)).toEqual(["ScrollTo", "Heading", "This is the first heading", 0, true]);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(1);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(0)).toEqual(["ScrollTo", "Heading", "This is the first heading", 0, true]);
 
       scrollToShowHeadingNumber(2);
 
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.count()).toBe(1);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(1);
 
       scrollToShowHeadingNumber(3);
 
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.count()).toBe(2);
-      expect(GOVUK.Analytics.tracker.trackEvent.calls.argsFor(1)).toEqual(["ScrollTo", "Heading", "This is the third heading", 0, true]);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(2);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(1)).toEqual(["ScrollTo", "Heading", "This is the third heading", 0, true]);
     });
   });
 
@@ -94,7 +94,7 @@ describe("GOVUK.ScrollTracker", function() {
 
     scrollToPercent(30);
     scrollToPercent(35);
-    expect(GOVUK.Analytics.tracker.trackEvent.calls.count()).toBe(1);
+    expect(GOVUK.analytics.trackEvent.calls.count()).toBe(1);
   });
 
 

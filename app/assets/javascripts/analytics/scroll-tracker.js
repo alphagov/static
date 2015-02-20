@@ -92,7 +92,7 @@
         var action = this.trackedNodes[i].eventData.action,
             label = this.trackedNodes[i].eventData.label;
 
-        GOVUK.Analytics.tracker.trackEvent('ScrollTo', action, label, 0, true);
+        GOVUK.analytics.trackEvent('ScrollTo', action, label, 0, true);
       }
     }
   };
