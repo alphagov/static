@@ -3,7 +3,7 @@
 
     "use strict";
     var printAttempt = (function() {
-        _gaq.push(['_trackEvent', 'Print Intent', document.location.pathname]);
+        GOVUK.analytics.trackEvent('Print Intent', document.location.pathname);
     });
 
     // Most browsers
