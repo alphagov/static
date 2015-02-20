@@ -9,7 +9,7 @@
     anonymizeIp();
 
     function configureProfile(id, cookieDomain) {
-      ga('create', id, {'cookieDomain': cookieDomain});
+      sendToGa('create', id, {'cookieDomain': cookieDomain});
     }
 
     function allowCrossDomainTracking() {
@@ -18,7 +18,7 @@
 
     function anonymizeIp() {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#anonymizeip
-      ga('set', 'anonymizeIp', true);
+      sendToGa('set', 'anonymizeIp', true);
     }
   };
 
@@ -39,9 +39,9 @@
       if (typeof title === "string") {
         pageviewObject.title = title;
       }
-      ga('send', 'pageview', pageviewObject);
+      sendToGa('send', 'pageview', pageviewObject);
     } else {
-      ga('send', 'pageview');
+      sendToGa('send', 'pageview');
     }
   };
 
@@ -74,13 +74,19 @@
       evt.nonInteraction = 1;
     }
 
-    ga('send', evt);
+    sendToGa('send', evt);
   };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
   GoogleAnalyticsUniversalTracker.prototype.setDimension = function(index, value) {
-    ga('set', 'dimension' + index, String(value));
+    sendToGa('set', 'dimension' + index, String(value));
   };
+
+  function sendToGa() {
+    if (typeof window.ga === "function") {
+      ga.apply(window, arguments);
+    }
+  }
 
   GOVUK.Analytics.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker;
 })();
