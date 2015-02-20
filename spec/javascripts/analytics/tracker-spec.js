@@ -5,7 +5,7 @@ describe("GOVUK.Tracker", function() {
     window._gaq = [];
     window.ga = function() {};
     spyOn(window, 'ga');
-    tracker = new GOVUK.Tracker('universal-id', 'classic-id');
+    tracker = new GOVUK.Tracker('universal-id', 'classic-id', '.www.gov.uk');
   });
 
   describe('when created', function() {

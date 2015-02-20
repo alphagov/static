@@ -10,7 +10,6 @@
 
     function configureProfile(id, cookieDomain) {
       _gaq.push(['_setAccount', id]);
-      // TODO: Check that this is acceptable
       _gaq.push(['_setDomainName', cookieDomain]);
     }
 
