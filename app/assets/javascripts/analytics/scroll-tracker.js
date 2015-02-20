@@ -88,9 +88,11 @@
     for ( var i=0; i<this.trackedNodes.length; i++ ) {
       if ( this.trackedNodes[i].isVisible() && !this.trackedNodes[i].alreadySeen ) {
         this.trackedNodes[i].alreadySeen = true;
-        GOVUK.sendToAnalytics(["_trackEvent"].concat(this.trackedNodes[i].eventData).concat([0, true]));
-        // Last 'true' sets non-interaction flag
-        // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide#non-interaction
+
+        var action = this.trackedNodes[i].eventData.action,
+            label = this.trackedNodes[i].eventData.label;
+
+        GOVUK.Analytics.tracker.trackEvent('ScrollTo', action, label, 0, true);
       }
     }
   };
@@ -99,7 +101,7 @@
 
   ScrollTracker.PercentNode = function PercentNode(percentage) {
     this.percentage = percentage;
-    this.eventData = ["ScrollTo", "Percent", String(percentage)];
+    this.eventData = {action: "Percent", label: String(percentage)};
   };
 
   ScrollTracker.PercentNode.prototype.isVisible = function isVisible() {
@@ -116,7 +118,7 @@
 
   ScrollTracker.HeadingNode = function HeadingNode(headingText) {
     this.$element = getHeadingElement(headingText);
-    this.eventData = ["ScrollTo", "Heading", headingText];
+    this.eventData = {action: "Heading", label: headingText};
 
     function getHeadingElement(headingText) {
       var $headings = $('h1, h2, h3, h4, h5, h6');
