@@ -4,15 +4,10 @@
 
   var GoogleAnalyticsUniversalTracker = function(id, cookieDomain) {
     configureProfile(id, cookieDomain);
-    allowCrossDomainTracking();
     anonymizeIp();
 
     function configureProfile(id, cookieDomain) {
       sendToGa('create', id, {'cookieDomain': cookieDomain});
-    }
-
-    function allowCrossDomainTracking() {
-      //TODO: Does Universal need this? Classic has it.
     }
 
     function anonymizeIp() {
