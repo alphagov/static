@@ -3,21 +3,21 @@
   window.GOVUK = window.GOVUK || {};
 
   var Tracker = function(universalId, classicId, cookieDomain) {
-    var self = this,
-        classicQueue;
+    var classicQueue,
+        setDimension = this.setDimension.bind(this);
 
     classicQueue = getClassicAnalyticsQueue();
     resetClassicAnalyticsQueue();
 
-    self.universal = new GOVUK.GoogleAnalyticsUniversalTracker(universalId, cookieDomain);
-    self.classic = new GOVUK.GoogleAnalyticsClassicTracker(classicId, cookieDomain);
+    this.universal = new GOVUK.GoogleAnalyticsUniversalTracker(universalId, cookieDomain);
+    this.classic = new GOVUK.GoogleAnalyticsClassicTracker(classicId, cookieDomain);
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
     shimNextPageParams();
     shimClassicAnalyticsQueue(classicQueue);
 
-    self.trackPageview();
+    this.trackPageview();
 
     function getClassicAnalyticsQueue() {
       // Slimmer inserts custom variables into the ga-params script tag
@@ -34,7 +34,7 @@
       var pixelRatioDimensionIndex = 11;
 
       if (window.devicePixelRatio) {
-        self.setDimension(pixelRatioDimensionIndex, window.devicePixelRatio, 'Pixel Ratio', 2);
+        setDimension(pixelRatioDimensionIndex, window.devicePixelRatio, 'Pixel Ratio', 2);
       }
     }
 
@@ -42,7 +42,7 @@
       var statusCode = window.httpStatusCode || 200,
           statusCodeDimensionIndex = 15;
 
-      self.setDimension(statusCodeDimensionIndex, statusCode, 'httpStatusCode');
+      setDimension(statusCodeDimensionIndex, statusCode, 'httpStatusCode');
     }
 
     function shimNextPageParams() {
@@ -72,7 +72,7 @@
 
     function setDimensionFromCustomVariable(customVar) {
       // index, value, name, scope
-      self.setDimension(customVar[1], customVar[3], customVar[2], customVar[4]);
+      setDimension(customVar[1], customVar[3], customVar[2], customVar[4]);
     }
 
   };
