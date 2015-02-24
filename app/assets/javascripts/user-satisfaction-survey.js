@@ -16,7 +16,11 @@
 
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     trackEvent: function (action, label) {
-      GOVUK.analytics.trackEvent('user_satisfaction_survey', action, label, 1, true);
+      GOVUK.analytics.trackEvent('user_satisfaction_survey', action, {
+        label: label,
+        value: 1,
+        nonInteraction: true
+      });
     },
     setCookieTakenSurvey: function () {
       GOVUK.cookie(userSatisfaction.cookieNameTakenSurvey, true, { days: 30*4 });

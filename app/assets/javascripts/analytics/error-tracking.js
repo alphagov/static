@@ -4,7 +4,11 @@
   "use strict";
   var trackJavaScriptError = function (e) {
     var errorSource = e.filename + ': ' + e.lineno;
-    GOVUK.analytics.trackEvent('JavaScript Error', e.message, errorSource, 1, true);
+    GOVUK.analytics.trackEvent('JavaScript Error', e.message, {
+      label: errorSource,
+      value: 1,
+      nonInteraction: true
+    });
   };
 
   if (window.addEventListener) {

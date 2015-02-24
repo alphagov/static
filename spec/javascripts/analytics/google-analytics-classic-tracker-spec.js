@@ -52,7 +52,7 @@ describe("GOVUK.GoogleAnalyticsClassicTracker", function() {
     });
 
     it('sends them to Google Analytics', function() {
-      classic.trackEvent('category', 'action', 'label');
+      classic.trackEvent('category', 'action', {label: 'label'});
       expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', 'label']);
     });
 
@@ -61,20 +61,35 @@ describe("GOVUK.GoogleAnalyticsClassicTracker", function() {
       expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action']);
     });
 
+    it('a value can be tracked if the label is omitted', function() {
+      classic.trackEvent('category', 'action', {value: 10});
+      expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', '', 10]);
+    });
+
     it('only sends values if they are parseable as numbers', function() {
-      classic.trackEvent('category', 'action', 'label', '10');
+      classic.trackEvent('category', 'action', {label: 'label', value: '10'});
       expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', 'label', 10]);
 
-      classic.trackEvent('category', 'action', 'label', 10);
+      classic.trackEvent('category', 'action', {label: 'label', value: 10});
       expect(window._gaq[1]).toEqual(['_trackEvent', 'category', 'action', 'label', 10]);
 
-      classic.trackEvent('category', 'action', 'label', 'not a number');
+      classic.trackEvent('category', 'action', {label: 'label', value: 'not a number'});
       expect(window._gaq[2]).toEqual(['_trackEvent', 'category', 'action', 'label']);
     });
 
     it('can mark an event as non interactive', function() {
-      classic.trackEvent('category', 'action', 'label', 0, true);
+      classic.trackEvent('category', 'action', {label: 'label', value: 1, nonInteraction: true});
+      expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', 'label', 1, true]);
+    });
+
+    it('can mark an event as non interactive without a value', function() {
+      classic.trackEvent('category', 'action', {label: 'label', nonInteraction: true});
       expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', 'label', 0, true]);
+    });
+
+    it('can mark an event as non interactive without a label or value', function() {
+      classic.trackEvent('category', 'action', {nonInteraction: true});
+      expect(window._gaq[0]).toEqual(['_trackEvent', 'category', 'action', '', 0, true]);
     });
   });
 

@@ -57,7 +57,7 @@ describe("GOVUK.GoogleAnalyticsUniversalTracker", function() {
     }
 
     it('sends them to Google Analytics', function() {
-      universal.trackEvent('category', 'action', 'label');
+      universal.trackEvent('category', 'action', {label: 'label'});
       expect(window.ga.calls.mostRecent().args).toEqual(
         ['send', {hitType: 'event', eventCategory: 'category', eventAction: 'action', eventLabel: 'label'}]
       );
@@ -71,18 +71,18 @@ describe("GOVUK.GoogleAnalyticsUniversalTracker", function() {
     });
 
     it('only sends values if they are parseable as numbers', function() {
-      universal.trackEvent('category', 'action', 'label', '10');
+      universal.trackEvent('category', 'action', {label: 'label', value: '10'});
       expect(eventObjectFromSpy()['eventValue']).toEqual(10);
 
-      universal.trackEvent('category', 'action', 'label', 10);
+      universal.trackEvent('category', 'action', {label: 'label', value: 10});
       expect(eventObjectFromSpy()['eventValue']).toEqual(10);
 
-      universal.trackEvent('category', 'action', 'label', 'not a number');
+      universal.trackEvent('category', 'action', {label: 'label', value: 'not a number'});
       expect(eventObjectFromSpy()['eventValue']).toEqual(undefined);
     });
 
     it('can mark an event as non interactive', function() {
-      universal.trackEvent('category', 'action', 'label', 0, true);
+      universal.trackEvent('category', 'action', {label: 'label', value: 0, nonInteraction: true});
       expect(window.ga.calls.mostRecent().args).toEqual(
         ['send', {
           hitType: 'event',

@@ -44,27 +44,48 @@
   };
 
   // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
-  GoogleAnalyticsClassicTracker.prototype.trackEvent = function(category, action, label, value, nonInteraction) {
-    var evt = ["_trackEvent", category, action];
+  GoogleAnalyticsClassicTracker.prototype.trackEvent = function(category, action, options) {
+    var value,
+        options = options || {},
+        hasLabel = false,
+        hasValue = false,
+        evt = ["_trackEvent", category, action];
 
     // Label is optional
-    if (typeof label === "string") {
-      evt.push(label);
+    if (typeof options.label === "string") {
+      hasLabel = true;
+      evt.push(options.label);
     }
 
     // Value is optional, but when used must be an
     // integer, otherwise the event will be invalid
     // and not logged
-    if (value || value === 0) {
-      value = parseInt(value, 10);
+    if (options.value || options.value === 0) {
+      value = parseInt(options.value, 10);
       if (typeof value === "number" && !isNaN(value)) {
+        hasValue = true;
+
+        // Push an empty label if not set for correct final argument order
+        if (!hasLabel) {
+          evt.push('');
+        }
+
         evt.push(value);
       }
     }
 
     // Prevents an event from affecting bounce rate
     // https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide#non-interaction
-    if (nonInteraction) {
+    if (options.nonInteraction) {
+
+      // Push empty label/value if not already set, for correct final argument order
+      if (!hasValue) {
+        if (!hasLabel) {
+          evt.push('');
+        }
+        evt.push(0);
+      }
+
       evt.push(true);
     }
 

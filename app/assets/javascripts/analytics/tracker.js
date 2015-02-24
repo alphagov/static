@@ -87,9 +87,15 @@
     this.universal.trackPageview(path, title);
   }
 
-  Tracker.prototype.trackEvent = function(category, action, label, value, nonInteraction) {
-    this.classic.trackEvent(category, action, label, value, nonInteraction);
-    this.universal.trackEvent(category, action, label, value, nonInteraction);
+  /*
+    https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+    options.label – Useful for categorizing events (eg nav buttons)
+    options.value – Values must be non-negative. Useful to pass counts
+    options.nonInteraction – Prevent event from impacting bounce rate
+  */
+  Tracker.prototype.trackEvent = function(category, action, options) {
+    this.classic.trackEvent(category, action, options);
+    this.universal.trackEvent(category, action, options);
   }
 
   Tracker.prototype.setDimension = function(index, value, name, scope) {
