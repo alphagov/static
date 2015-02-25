@@ -20,7 +20,7 @@ $(function() {
         var $prompt = browserWarning();
         $('#global-cookie-message').after($prompt);
         $prompt.show();
-        window._gaq && _gaq.push(['_trackEvent', 'browser-check', 'prompt-shown', '', 1, true]);
+        GOVUK.analytics.trackEvent('browser-check', 'prompt-shown', {value: 1, nonInteraction: true});
         $prompt.on("click", ".dismiss", function(e) {
           $prompt.hide();
           // the warning is dismissable for 4 weeks, for users who are not in a

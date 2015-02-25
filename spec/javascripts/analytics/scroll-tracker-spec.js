@@ -1,7 +1,7 @@
 describe("GOVUK.ScrollTracker", function() {
   beforeEach(function() {
     jasmine.clock().install();
-    spyOn(GOVUK, "sendToAnalytics").and.stub();
+    spyOn(GOVUK.analytics, "trackEvent").and.stub();
   });
 
   afterEach(function() {
@@ -14,7 +14,7 @@ describe("GOVUK.ScrollTracker", function() {
       var config = {}
       config[window.location.pathname] = [ ['Percent', 50] ];
 
-      expect( (new GOVUK.Analytics.ScrollTracker(config)).enabled ).toBeTruthy();
+      expect( (new GOVUK.ScrollTracker(config)).enabled ).toBeTruthy();
     });
 
     it("should not be enabled on an untracked page", function() {
@@ -23,13 +23,13 @@ describe("GOVUK.ScrollTracker", function() {
           ['Percent', 50]
         ]
       };
-      expect( (new GOVUK.Analytics.ScrollTracker(config)).enabled ).toBeFalsy();
+      expect( (new GOVUK.ScrollTracker(config)).enabled ).toBeFalsy();
     });
   });
 
   describe("tracking by scrolled percentage", function() {
     beforeEach(function() {
-      spyOn(GOVUK.Analytics.ScrollTracker.PercentNode.prototype, "currentScrollPercent");
+      spyOn(GOVUK.ScrollTracker.PercentNode.prototype, "currentScrollPercent");
     });
 
     it("should send an event when the page scrolls to >= the percentage specified", function() {
@@ -38,13 +38,13 @@ describe("GOVUK.ScrollTracker", function() {
         ['Percent', 50],
         ['Percent', 75]
       ]);
-      new GOVUK.Analytics.ScrollTracker(config);
+      new GOVUK.ScrollTracker(config);
 
       scrollToPercent(60);
 
-      expect(GOVUK.sendToAnalytics.calls.count()).toBe(2);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "25", 0, true] ]);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Percent", "50", 0, true] ]);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(2);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(0)).toEqual(["ScrollTo", "Percent", {label: "25", nonInteraction: true}]);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(1)).toEqual(["ScrollTo", "Percent", {label: "50", nonInteraction: true}]);
     });
   });
 
@@ -58,7 +58,7 @@ describe("GOVUK.ScrollTracker", function() {
 
     beforeEach(function() {
       setFixtures(FIXTURE);
-      spyOn(GOVUK.Analytics.ScrollTracker.HeadingNode.prototype, 'elementIsVisible');
+      spyOn(GOVUK.ScrollTracker.HeadingNode.prototype, 'elementIsVisible');
     });
 
     it("should send an event when the user scrolls so the heading is visible", function() {
@@ -66,35 +66,35 @@ describe("GOVUK.ScrollTracker", function() {
         ['Heading', "This is the first heading"],
         ['Heading', "This is the third heading"]
       ]);
-      new GOVUK.Analytics.ScrollTracker(config);
+      new GOVUK.ScrollTracker(config);
 
       scrollToShowHeadingNumber(1);
 
-      expect(GOVUK.sendToAnalytics.calls.count()).toBe(1);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(0)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the first heading", 0, true] ]);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(1);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(0)).toEqual(["ScrollTo", "Heading", {label: "This is the first heading", nonInteraction: true}]);
 
       scrollToShowHeadingNumber(2);
 
-      expect(GOVUK.sendToAnalytics.calls.count()).toBe(1);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(1);
 
       scrollToShowHeadingNumber(3);
 
-      expect(GOVUK.sendToAnalytics.calls.count()).toBe(2);
-      expect(GOVUK.sendToAnalytics.calls.argsFor(1)).toEqual([ ["_trackEvent", "ScrollTo", "Heading", "This is the third heading", 0, true] ]);
+      expect(GOVUK.analytics.trackEvent.calls.count()).toBe(2);
+      expect(GOVUK.analytics.trackEvent.calls.argsFor(1)).toEqual(["ScrollTo", "Heading", {label: "This is the third heading", nonInteraction: true}]);
     });
   });
 
   it("should not send duplicate events", function() {
-    spyOn(GOVUK.Analytics.ScrollTracker.PercentNode.prototype, "currentScrollPercent");
+    spyOn(GOVUK.ScrollTracker.PercentNode.prototype, "currentScrollPercent");
 
     var config = buildConfigForThisPath([
       ['Percent', 25]
     ]);
-    new GOVUK.Analytics.ScrollTracker(config);
+    new GOVUK.ScrollTracker(config);
 
     scrollToPercent(30);
     scrollToPercent(35);
-    expect(GOVUK.sendToAnalytics.calls.count()).toBe(1);
+    expect(GOVUK.analytics.trackEvent.calls.count()).toBe(1);
   });
 
 
@@ -105,14 +105,14 @@ describe("GOVUK.ScrollTracker", function() {
   }
 
   function scrollToPercent(percent) {
-    GOVUK.Analytics.ScrollTracker.PercentNode.prototype.currentScrollPercent.and.returnValue(percent);
+    GOVUK.ScrollTracker.PercentNode.prototype.currentScrollPercent.and.returnValue(percent);
     $(window).scroll();
     jasmine.clock().tick(510);
   };
 
   function scrollToShowHeadingNumber(headingNumber) {
     var elementScrolledTo = $('h1, h2, h3, h4, h5, h6')[headingNumber-1];
-    GOVUK.Analytics.ScrollTracker.HeadingNode.prototype.elementIsVisible.and.callFake(function($element) {
+    GOVUK.ScrollTracker.HeadingNode.prototype.elementIsVisible.and.callFake(function($element) {
       return ( $element[0] == elementScrolledTo );
     });
     $(window).scroll();

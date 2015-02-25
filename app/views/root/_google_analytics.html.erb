@@ -1,51 +1,7 @@
-<script id="ga-params" type="text/javascript">
-  window.GOVUK = window.GOVUK || {};
-
-  GOVUK.Analytics = GOVUK.Analytics || {};
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-26179049-1']);
-  if(document.domain=='www.gov.uk') {
-    _gaq.push(['_setDomainName', '.www.gov.uk']);
-  } else {
-    _gaq.push(['_setDomainName', document.domain]);
-  }
-  _gaq.push(['_setAllowLinker', true]);
-    // track pixel density ratio
-  if (window.devicePixelRatio) {
-    _gaq.push(['_setCustomVar', 11, 'Pixel Ratio', String(window.devicePixelRatio), 2 ]);
-  }
-  // Track status code
-  if (!window.httpStatusCode) {
-    window.httpStatusCode = '200';
-  }
-  _gaq.push(['_setCustomVar', 15, 'httpStatusCode', String(window.httpStatusCode), 3 ]);
-
-  // Search result placement tracking, set custom var and destroy the cookie
-  if(GOVUK.cookie && GOVUK.cookie('ga_nextpage_params') !== null){
-    var customVar = GOVUK.cookie('ga_nextpage_params').split(',');
-    customVar[1] = parseInt(customVar[1], 10);
-    customVar[4] = parseInt(customVar[4], 10);
-    _gaq.push(customVar);
-    GOVUK.cookie('ga_nextpage_params', null);
-  }
-</script>
-<script type="text/javascript">
-  _gaq.push(['_gat._anonymizeIp']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-<%# Universal analytics %>
-<script id="ga-ua-params" type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-26179049-7', {'cookieDomain': '.www.gov.uk'});
-  ga('set', 'anonymizeIp', true);
-  ga('send', 'pageview');
+<script id="ga-params">
+  var GOVUK=GOVUK||{},_gaq=_gaq||[];GOVUK.Analytics=GOVUK.Analytics||{};
+  <%#
+    Slimmer inserts custom variables here
+    https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/google_analytics_configurator.rb
+  %>
 </script>
