@@ -114,5 +114,17 @@
     this.classic.setCustomVariable(index, value, name, scope);
   };
 
+  Tracker.prototype.setSearchPositionDimension = function(position) {
+    this.setDimension(21, position, 'searchPosition');
+  };
+
+  Tracker.prototype.setResultCountDimension = function(count) {
+    this.setDimension(5, count, 'ResultCount');
+  };
+
+  Tracker.prototype.setSectionDimension = function(section) {
+    this.setDimension(1, section, 'Section');
+  };
+
   GOVUK.Tracker = Tracker;
 })();
