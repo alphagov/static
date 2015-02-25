@@ -2,15 +2,15 @@
   "use strict";
   window.GOVUK = window.GOVUK || {};
 
-  var Tracker = function(universalId, classicId, cookieDomain) {
+  var Tracker = function(args) {
     var classicQueue,
         setDimension = this.setDimension.bind(this);
 
     classicQueue = getClassicAnalyticsQueue();
     resetClassicAnalyticsQueue();
 
-    this.universal = new GOVUK.GoogleAnalyticsUniversalTracker(universalId, cookieDomain);
-    this.classic = new GOVUK.GoogleAnalyticsClassicTracker(classicId, cookieDomain);
+    this.universal = new GOVUK.GoogleAnalyticsUniversalTracker(args.universalId, args.cookieDomain);
+    this.classic = new GOVUK.GoogleAnalyticsClassicTracker(args.classicId, args.cookieDomain);
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
