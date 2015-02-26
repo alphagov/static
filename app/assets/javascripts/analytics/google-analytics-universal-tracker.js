@@ -73,6 +73,22 @@
     sendToGa('send', evt);
   };
 
+  /*
+    https://developers.google.com/analytics/devguides/collection/analyticsjs/social-interactions
+    network – The network on which the action occurs (e.g. Facebook, Twitter)
+    action – The type of action that happens (e.g. Like, Send, Tweet)
+    target – Specifies the target of a social interaction.
+             This value is typically a URL but can be any text.
+  */
+  GoogleAnalyticsUniversalTracker.prototype.trackSocial = function(network, action, target) {
+    sendToGa('send', {
+      'hitType': 'social',
+      'socialNetwork': network,
+      'socialAction': action,
+      'socialTarget': target
+    });
+  };
+
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
   GoogleAnalyticsUniversalTracker.prototype.setDimension = function(index, value) {
     sendToGa('set', 'dimension' + index, String(value));

@@ -92,6 +92,16 @@
     _gaq.push(evt);
   };
 
+  /*
+    https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiSocialTracking
+    network – The network on which the action occurs (e.g. Facebook, Twitter)
+    action – The type of action that happens (e.g. Like, Send, Tweet)
+    target – The text value that indicates the subject of the action
+  */
+  GoogleAnalyticsClassicTracker.prototype.trackSocial = function(network, action, target) {
+    _gaq.push(['_trackSocial', network, action, target]);
+  };
+
   // https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingCustomVariables
   GoogleAnalyticsClassicTracker.prototype.setCustomVariable = function(index, value, name, scope) {
     _gaq.push(['_setCustomVar', index, name, String(value), scope]);

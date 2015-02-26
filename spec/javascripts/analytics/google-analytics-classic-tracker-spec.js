@@ -93,6 +93,17 @@ describe("GOVUK.GoogleAnalyticsClassicTracker", function() {
     });
   });
 
+  describe('when social events are tracked', function() {
+    beforeEach(function() {
+      window._gaq = [];
+    });
+
+    it('sends them to Google Analytics', function() {
+      classic.trackSocial('network', 'action', 'target');
+      expect(window._gaq[0]).toEqual(['_trackSocial', 'network', 'action', 'target']);
+    });
+  });
+
   describe('when setting a custom variable', function() {
     beforeEach(function() {
       // reset queue after setup
