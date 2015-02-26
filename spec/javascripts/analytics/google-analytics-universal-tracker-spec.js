@@ -96,6 +96,18 @@ describe("GOVUK.GoogleAnalyticsUniversalTracker", function() {
     });
   });
 
+  describe('when social events are tracked', function() {
+    it('sends them to Google Analytics', function() {
+      universal.trackSocial('network', 'action', 'target');
+      expect(window.ga.calls.mostRecent().args).toEqual(['send', {
+        'hitType': 'social',
+        'socialNetwork': 'network',
+        'socialAction': 'action',
+        'socialTarget': 'target'
+      }]);
+    });
+  });
+
   describe('when setting a custom dimension', function() {
     it('sends the dimension to Google Analytics with the specified index and value', function() {
       universal.setDimension(1, 'value');

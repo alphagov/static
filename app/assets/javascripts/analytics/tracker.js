@@ -96,7 +96,13 @@
   Tracker.prototype.trackEvent = function(category, action, options) {
     this.classic.trackEvent(category, action, options);
     this.universal.trackEvent(category, action, options);
-  }
+  };
+
+  Tracker.prototype.trackShare = function(network) {
+    var target = location.pathname;
+    this.classic.trackSocial(network, 'share', target);
+    this.universal.trackSocial(network, 'share', target);
+  };
 
   Tracker.prototype.setDimension = function(index, value, name, scope) {
     var PAGE_LEVEL_SCOPE = 3;

@@ -97,4 +97,19 @@ describe("GOVUK.Tracker", function() {
     });
   });
 
+  describe('when tracking social media shares', function() {
+    it('tracks in both classic and universal', function() {
+      window._gaq = [];
+      tracker.trackShare('network');
+
+      expect(window._gaq[0]).toEqual(['_trackSocial', 'network', 'share', jasmine.any(String)]);
+      expect(window.ga.calls.mostRecent().args).toEqual(['send', {
+        hitType: 'social',
+        socialNetwork: 'network',
+        socialAction: 'share',
+        socialTarget: jasmine.any(String)
+      }]);
+    });
+  });
+
 });
