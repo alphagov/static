@@ -1,9 +1,9 @@
 //= require libs/jquery/plugins/jquery.base64
+//= require vendor/polyfills/bind
 //= require analytics
 //= require user-satisfaction-survey
 //= require core
 //= require report-a-problem
-//= require vendor/polyfills/bind
 //= require govuk/selection-buttons
 //= require govuk-component/govspeak-enhance-youtube-video-links
 //= require govuk-component/option-select
