@@ -1,0 +1,20 @@
+<nav class="govuk-previous-and-next-navigation" role="navigation" aria-label="Pagination">
+  <ul class="group">
+    <% if local_assigns.include?(:previous_page) %>
+      <li class="previous-page">
+        <a href="<%= previous_page['url'] %>" rel="previous" >
+          <span class="pagination-label"><%= previous_page['title'] %></span> 
+          <span class="pagination-part-title"><%= previous_page['label'] %></span>
+        </a>           
+      </li>
+    <% end %>
+    <% if local_assigns.include?(:next_page) %>
+      <li class="next-page">
+        <a href="<%= next_page['url'] %>" rel="next">
+          <span class="pagination-label"><%= next_page['title'] %></span> 
+          <span class="pagination-part-title"><%= next_page['label'] %></span>
+        </a>           
+      </li>
+    <% end %>
+  </ul>
+</nav>
