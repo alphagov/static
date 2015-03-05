@@ -196,10 +196,18 @@ describe('GOVUK.OptionSelect', function() {
 
     beforeEach(function(){
 
-      // Set the height of option-select-container to 200 (this is done in the CSS IRL)
+      // Set some visual properties which are done in the CSS IRL
       optionSelectHeight = 200;
       $checkboxList = $optionSelectHTML.find('.options-container');
-      $checkboxList.height(optionSelectHeight);
+      $checkboxList.css({
+        'height': optionSelectHeight,
+        'position': 'relative',
+        'overflow': 'scroll'
+      });
+      $listItems = $checkboxList.find('label');
+      $listItems.css({
+        'display': 'block'
+      });
 
       $checkboxListInner = $checkboxList.find(' > .js-auto-height-inner');
       listItem = "<input type='checkbox' name='ca98'id='ca89'><label for='ca89'>CA89</label>";
@@ -221,6 +229,7 @@ describe('GOVUK.OptionSelect', function() {
       // Wrapping HTML should not stretch as 251px is too big.
       expect($checkboxList.height()).toBe(optionSelectHeight);
     });
+
   });
 
   describe('listenForKeys', function(){
