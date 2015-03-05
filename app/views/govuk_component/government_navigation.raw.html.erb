@@ -1,0 +1,17 @@
+<%
+  active ||= nil
+%>
+
+<nav id="proposition-menu" class="no-proposition-name">
+  <ul id="proposition-links">
+    <li><a class="<%= 'active' if active == 'departments' %>" href="/government/organisations">Departments</a></li>
+    <li><a class="<%= 'active' if active == 'worldwide' %>" href="/government/world">Worldwide</a></li>
+    <li><a class="<%= 'active' if active == 'how-government-works' %>" href="/government/how-government-works">How government works</a></li>
+    <li><a class="<%= 'active' if active == 'get-involved' %>" href="/government/get-involved">Get involved</a></li>
+    <li class="clear-child"><a class="<%= 'active' if active == 'policies' %>" href="/government/policies">Policies</a></li>
+    <li><a class="<%= 'active' if active == 'publications' %>" href="/government/publications">Publications</a></li>
+    <li><a class="<%= 'active' if active == 'consultations' %>" href="/government/publications?publication_filter_option=consultations">Consultations</a></li>
+    <li><a class="<%= 'active' if active == 'statistics' %>" href="/government/statistics">Statistics</a></li>
+    <li><a class="<%= 'active' if active == 'announcements' %>" href="/government/announcements">Announcements</a></li>
+  </ul>
+</nav>

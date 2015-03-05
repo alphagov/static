@@ -40,6 +40,13 @@
       from: "<a href='/government/organisations/cabinet-office'>Cabinet Office</a>"
       history: "Updated 2 weeks ago"
       part_of: "<a href='/government/topics/environment'>Environment</a>"
+- id: "government_navigation"
+  name: "Government navigation"
+  description: "Navigation placed in the header by Slimmer and used by pages which sit under the /government path. This is a markup only component and is not available for preview here. It can be passed a string to mark a link as being active."
+  fixtures:
+    default: {}
+    with_active_item:
+      active: "departments"
 - id: "govspeak"
   name: "Govspeak content"
   description: "To display long form text which has been converted from markdown"
