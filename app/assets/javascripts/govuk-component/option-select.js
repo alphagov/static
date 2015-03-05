@@ -102,13 +102,39 @@
   OptionSelect.prototype.setupHeight = function setupHeight(){
     var optionsContainer = this.$optionSelect.find('.options-container');
     var optionList = optionsContainer.children('.js-auto-height-inner');
+    var options = optionList.children('label');
     var initialOptionContainerHeight = optionsContainer.height();
     var height = optionList.height();
+    var lastVisibleOption;
 
     if (height < initialOptionContainerHeight + 50) {
       // Resize if the list is only slightly bigger than its container
-      optionsContainer.height(optionList.height());
+      optionsContainer.css({
+        'max-height': 'none',
+        'height': optionList.height()
+      });
+      return;
     }
+
+    // Resize to cut last item cleanly in half
+    lastVisibleOption = options.filter(function(index, option) {
+      var distanceFromTopOfContainer = $(option).offset().top - optionList.offset().top;
+      var containerHeight = optionsContainer.height();
+      return distanceFromTopOfContainer < containerHeight
+    }).last();
+
+    var middleOfLastVisibleOption = (
+      lastVisibleOption.position().top +
+      parseInt(lastVisibleOption.css('border-top-width'), 10) +
+      parseInt(lastVisibleOption.css('padding-top'), 10) +
+      (parseInt(lastVisibleOption.css('line-height'), 10) / 2)
+    );
+
+    optionsContainer.css({
+      'max-height': 'none', // Have to clear the max-height set by the CSS
+      'height': middleOfLastVisibleOption
+    });
+
   };
 
   OptionSelect.prototype.listenForKeys = function listenForKeys(){

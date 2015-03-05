@@ -197,10 +197,9 @@ describe('GOVUK.OptionSelect', function() {
     beforeEach(function(){
 
       // Set some visual properties which are done in the CSS IRL
-      optionSelectHeight = 200;
       $checkboxList = $optionSelectHTML.find('.options-container');
       $checkboxList.css({
-        'height': optionSelectHeight,
+        'height': 200,
         'position': 'relative',
         'overflow': 'scroll'
       });
@@ -222,12 +221,12 @@ describe('GOVUK.OptionSelect', function() {
       expect($checkboxList.height()).toBe($checkboxListInner.height());
     });
 
-    it('does nothing if the height of the checkbox list is longer than the height of the container by more than 50px', function(){
+    it('expands the checkbox-container just enough to cut the last visible item in half horizontally, if there are many items', function(){
       $checkboxListInner.height(251);
       optionSelect.setupHeight();
 
       // Wrapping HTML should not stretch as 251px is too big.
-      expect($checkboxList.height()).toBe(optionSelectHeight);
+      expect($checkboxList.height()).toBeGreaterThan(199);
     });
 
   });
