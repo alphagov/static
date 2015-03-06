@@ -106,34 +106,36 @@
     var initialOptionContainerHeight = optionsContainer.height();
     var height = optionList.height();
     var lastVisibleOption;
+    var setContainerHeight = function(height) {
+      // Have to clear the 'max-height' set by the CSS in order for 'height' to be applied
+      optionsContainer.css({
+        'max-height': 'none',
+        'height': height
+      });
+    };
 
     if (height < initialOptionContainerHeight + 50) {
       // Resize if the list is only slightly bigger than its container
-      optionsContainer.css({
-        'max-height': 'none',
-        'height': optionList.height()
-      });
+      setContainerHeight(optionList.height());
       return;
     }
 
     // Resize to cut last item cleanly in half
     lastVisibleOption = options.filter(function(index, option) {
       var distanceFromTopOfContainer = $(option).offset().top - optionList.offset().top;
-      var containerHeight = optionsContainer.height();
-      return distanceFromTopOfContainer < containerHeight
+      return distanceFromTopOfContainer < initialOptionContainerHeight
     }).last();
 
-    var middleOfLastVisibleOption = (
+    setContainerHeight(
       lastVisibleOption.position().top +
       parseInt(lastVisibleOption.css('border-top-width'), 10) +
       parseInt(lastVisibleOption.css('padding-top'), 10) +
-      (parseInt(lastVisibleOption.css('line-height'), 10) / 2)
+      (parseInt(
+        "normal" == lastVisibleOption.css('line-height') ?
+          lastVisibleOption.css('font-size') : lastVisibleOption.css('line-height'),
+        10
+      ) / 2)
     );
-
-    optionsContainer.css({
-      'max-height': 'none', // Have to clear the max-height set by the CSS
-      'height': middleOfLastVisibleOption
-    });
 
   };
 
