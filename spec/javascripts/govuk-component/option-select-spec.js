@@ -222,11 +222,11 @@ describe('GOVUK.OptionSelect', function() {
     });
 
     it('expands the checkbox-container just enough to cut the last visible item in half horizontally, if there are many items', function(){
-      $checkboxListInner.height(251);
+      $checkboxList.css({height: 101});
       optionSelect.setupHeight();
 
       // Wrapping HTML should not stretch as 251px is too big.
-      expect($checkboxList.height()).toBeGreaterThan(199);
+      expect($checkboxList.height()).toBeGreaterThan(100);
     });
 
   });
