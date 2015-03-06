@@ -16,7 +16,7 @@ describe('GOVUK.OptionSelect', function() {
             '</label>'+
           '<label for="agriculture-environment-and-natural-resources">'+
             '<input name="market_sector[]" value="agriculture-environment-and-natural-resources" id="agriculture-environment-and-natural-resources" type="checkbox">'+
-            'Agriculture, environment and natural resources'+
+            'Agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment and natural resources.'+
             '</label>'+
           '<label for="building-and-construction">'+
             '<input name="market_sector[]" value="building-and-construction" id="building-and-construction" type="checkbox">'+
