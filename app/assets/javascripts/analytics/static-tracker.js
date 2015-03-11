@@ -20,6 +20,10 @@
     // Track initial pageview
     tracker.trackPageview();
 
+    // Begin error and print tracking
+    GOVUK.analyticsPlugins.error();
+    GOVUK.analyticsPlugins.printIntent();
+
     function getClassicAnalyticsQueue() {
       // Slimmer inserts custom variables into the ga-params script tag
       // https://github.com/alphagov/slimmer/blob/master/lib/slimmer/processors/google_analytics_configurator.rb

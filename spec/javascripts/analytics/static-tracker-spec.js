@@ -5,6 +5,8 @@ describe("GOVUK.StaticTracker", function() {
     window._gaq = [];
     window.ga = function() {};
     spyOn(window, 'ga');
+    spyOn(GOVUK.analyticsPlugins, 'printIntent');
+    spyOn(GOVUK.analyticsPlugins, 'error');
     tracker = new GOVUK.StaticTracker({
       universalId: 'universal-id',
       classicId: 'classic-id',
@@ -38,6 +40,14 @@ describe("GOVUK.StaticTracker", function() {
     it('tracks a pageview in both classic and universal', function() {
       expect(window._gaq[6]).toEqual(['_trackPageview']);
       expect(universalSetupArguments[4]).toEqual(['send', 'pageview']);
+    });
+
+    it('begins print tracking', function() {
+      expect(GOVUK.analyticsPlugins.printIntent).toHaveBeenCalled();
+    });
+
+    it('begins error tracking', function() {
+      expect(GOVUK.analyticsPlugins.error).toHaveBeenCalled();
     });
 
     describe('when there is a cookie with next page parameters set', function() {
