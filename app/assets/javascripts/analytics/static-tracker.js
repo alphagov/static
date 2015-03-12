@@ -9,6 +9,9 @@
     classicQueue = getClassicAnalyticsQueue();
     resetClassicAnalyticsQueue();
 
+    // Create universal and classic analytics tracker
+    // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/analytics.md
+    // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/tracker.js
     tracker = new GOVUK.Tracker(config);
     this.tracker = tracker;
 
