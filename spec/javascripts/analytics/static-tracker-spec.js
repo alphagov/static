@@ -1,11 +1,13 @@
-describe("GOVUK.Tracker", function() {
+describe("GOVUK.StaticTracker", function() {
   var tracker;
 
   beforeEach(function() {
     window._gaq = [];
     window.ga = function() {};
     spyOn(window, 'ga');
-    tracker = new GOVUK.Tracker({
+    spyOn(GOVUK.analyticsPlugins, 'printIntent');
+    spyOn(GOVUK.analyticsPlugins, 'error');
+    tracker = new GOVUK.StaticTracker({
       universalId: 'universal-id',
       classicId: 'classic-id',
       cookieDomain: '.www.gov.uk'
@@ -40,12 +42,20 @@ describe("GOVUK.Tracker", function() {
       expect(universalSetupArguments[4]).toEqual(['send', 'pageview']);
     });
 
+    it('begins print tracking', function() {
+      expect(GOVUK.analyticsPlugins.printIntent).toHaveBeenCalled();
+    });
+
+    it('begins error tracking', function() {
+      expect(GOVUK.analyticsPlugins.error).toHaveBeenCalled();
+    });
+
     describe('when there is a cookie with next page parameters set', function() {
       it('sets them as a dimension', function() {
         window.ga.calls.reset();
         window._gaq = [];
         spyOn(GOVUK, 'cookie').and.returnValue("_setCustomVar,21,name,value,3");
-        tracker = new GOVUK.Tracker({universalId: 'universal-id', classicId: 'classic-id'});
+        tracker = new GOVUK.StaticTracker({universalId: 'universal-id', classicId: 'classic-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
         expect(window._gaq[6]).toEqual(['_setCustomVar', 21, 'name', 'value', 3]);
@@ -60,7 +70,7 @@ describe("GOVUK.Tracker", function() {
           ['_setCustomVar', 21, 'name', 'value', 3],
           ['_setCustomVar', 10, 'name-2', 'value-2', 2]
         ];
-        tracker = new GOVUK.Tracker({universalId: 'universal-id', classicId: 'classic-id'});
+        tracker = new GOVUK.StaticTracker({universalId: 'universal-id', classicId: 'classic-id'});
         universalSetupArguments = window.ga.calls.allArgs();
       });
 
@@ -91,8 +101,8 @@ describe("GOVUK.Tracker", function() {
       expect(window.ga.calls.mostRecent().args).toEqual(['send', {hitType: 'event', eventCategory: 'category', eventAction: 'action'}]);
 
       window._gaq = [];
-      tracker.setDimension(1, 'value', 'name');
-      expect(window._gaq[0]).toEqual(['_setCustomVar', 1, 'name', 'value', 3]);
+      tracker.setSectionDimension('value');
+      expect(window._gaq[0]).toEqual(['_setCustomVar', 1, 'Section', 'value', 3]);
       expect(window.ga.calls.mostRecent().args).toEqual(['set', 'dimension1', 'value']);
     });
   });
