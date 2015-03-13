@@ -19,7 +19,7 @@
     setHTTPStatusCodeDimension();
     shimNextPageParams();
     shimClassicAnalyticsQueue(classicQueue);
-    setDimensionsFromMetaTags.apply(this);
+    this.setDimensionsFromMetaTags();
 
     // Track initial pageview
     tracker.trackPageview();
@@ -79,35 +79,35 @@
       tracker.setDimension(customVar[1], customVar[3], customVar[2], customVar[4]);
     }
 
-    function setDimensionsFromMetaTags() {
-      var $metas = $('meta[name^="govuk:"]'),
-          dimensions = {};
-
-      $metas.each(function() {
-        var $meta = $(this),
-            key = $meta.attr('name').split('govuk:')[1],
-            value = $meta.attr('content');
-
-        dimensions[key] = value;
-      });
-
-      this.setSectionDimension(dimensions['section']);
-      this.setFormatDimension(dimensions['format']);
-      this.setNeedIDsDimension(dimensions['need-ids']);
-      this.setResultCountDimension(dimensions['search-result-count']);
-      this.setOrganisationsDimension(dimensions['analytics:organisations']);
-      this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
-    }
-
   };
 
   StaticTracker.load = function() {
     GOVUK.Tracker.load();
   };
 
+  StaticTracker.prototype.setDimensionsFromMetaTags = function() {
+    var $metas = $('meta[name^="govuk:"]'),
+        dimensions = {};
+
+    $metas.each(function() {
+      var $meta = $(this),
+          key = $meta.attr('name').split('govuk:')[1],
+          value = $meta.attr('content');
+
+      dimensions[key] = value;
+    });
+
+    this.setSectionDimension(dimensions['section']);
+    this.setFormatDimension(dimensions['format']);
+    this.setNeedIDsDimension(dimensions['need-ids']);
+    this.setResultCountDimension(dimensions['search-result-count']);
+    this.setOrganisationsDimension(dimensions['analytics:organisations']);
+    this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
+  };
+
   StaticTracker.prototype.trackPageview = function(path, title) {
     this.tracker.trackPageview(path, title);
-  }
+  };
 
   StaticTracker.prototype.trackEvent = function(category, action, options) {
     this.tracker.trackEvent(category, action, options);
