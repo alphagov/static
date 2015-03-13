@@ -63,6 +63,64 @@ describe("GOVUK.StaticTracker", function() {
       });
     });
 
+    describe('when there are govuk: meta tags', function() {
+      beforeEach(function() {
+        window.ga.calls.reset();
+        window._gaq = [];
+      });
+
+      afterEach(function() {
+        $('head').find('meta[name^="govuk:"]').remove();
+      });
+
+      it('sets them as dimensions', function() {
+
+        $('head').append('\
+          <meta name="govuk:section" content="section">\
+          <meta name="govuk:format" content="format">\
+          <meta name="govuk:need-ids" content="1,2,3">\
+          <meta name="govuk:search-result-count" content="1000">\
+          <meta name="govuk:analytics:organisations" content="<D10>">\
+          <meta name="govuk:analytics:world-locations" content="<W1>">\
+        ');
+
+        tracker = new GOVUK.StaticTracker({universalId: 'universal-id', classicId: 'classic-id'});
+        universalSetupArguments = window.ga.calls.allArgs();
+
+        expect(window._gaq[6]).toEqual(['_setCustomVar', 1, 'Section', 'section', 3]);
+        expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
+
+        expect(window._gaq[7]).toEqual(['_setCustomVar', 2, 'Format', 'format', 3]);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension2', 'format']);
+
+        expect(window._gaq[8]).toEqual(['_setCustomVar', 3, 'NeedID', '1,2,3', 3]);
+        expect(universalSetupArguments[6]).toEqual(['set', 'dimension3', '1,2,3']);
+
+        expect(window._gaq[9]).toEqual(['_setCustomVar', 5, 'ResultCount', '1000', 3]);
+        expect(universalSetupArguments[7]).toEqual(['set', 'dimension5', '1000']);
+
+        expect(window._gaq[10]).toEqual(['_setCustomVar', 9, 'Organisations', '<D10>', 3]);
+        expect(universalSetupArguments[8]).toEqual(['set', 'dimension9', '<D10>']);
+
+        expect(window._gaq[11]).toEqual(['_setCustomVar', 10, 'WorldLocations', '<W1>', 3]);
+        expect(universalSetupArguments[9]).toEqual(['set', 'dimension10', '<W1>']);
+      });
+
+      it('ignores meta tags not set', function() {
+
+        $('head').append('<meta name="govuk:section" content="section">');
+
+        tracker = new GOVUK.StaticTracker({universalId: 'universal-id', classicId: 'classic-id'});
+        universalSetupArguments = window.ga.calls.allArgs();
+
+        expect(window._gaq[6]).toEqual(['_setCustomVar', 1, 'Section', 'section', 3]);
+        expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
+
+        expect(window._gaq[7]).toEqual(['_trackPageview']);
+        expect(universalSetupArguments[5]).toEqual(['send', 'pageview']);
+      });
+    });
+
     describe('when there is an existing queue of custom variables', function() {
       beforeEach(function() {
         window.ga.calls.reset();
