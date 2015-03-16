@@ -6,5 +6,4 @@
 
 //= require analytics/static-tracker
 //= require analytics/init
-//= require analytics/print-tracking
 //= require analytics/scroll-tracker
