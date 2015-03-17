@@ -50,7 +50,7 @@ describe("GOVUK.StaticTracker", function() {
       expect(GOVUK.analyticsPlugins.error).toHaveBeenCalled();
     });
 
-    describe('when there is a cookie with next page parameters set', function() {
+    describe('when there is an old GA cookie with next page parameters set', function() {
       it('sets them as a dimension', function() {
         window.ga.calls.reset();
         window._gaq = [];
@@ -180,4 +180,51 @@ describe("GOVUK.StaticTracker", function() {
     });
   });
 
+  describe('when setting a method to call on a following page', function() {
+    beforeEach(function() {
+      spyOn(GOVUK, 'cookie');
+    });
+
+    describe('and the method exists', function() {
+      it('sets a cookie with the method name', function() {
+        tracker.callOnNextPage('trackPageview');
+        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', 'trackPageview');
+      });
+
+      it('sets a cookie with the parameters to call', function() {
+        tracker.callOnNextPage('trackPageview', ['/path', 'Custom Title']);
+        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', 'trackPageview|/path|Custom Title');
+      });
+
+      it('sets a cookie with the single parameter to call', function() {
+        tracker.callOnNextPage('trackPageview', '/path');
+        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', 'trackPageview|/path');
+      });
+    });
+
+    describe('and the method doesn’t exist', function() {
+      it('no cookie is set', function() {
+        tracker.callOnNextPage('trackPageviewToNowhere');
+        expect(GOVUK.cookie).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when there is a cookie indicating a method to call', function() {
+    beforeEach(function() {
+      spyOn(tracker, 'trackPageview');
+    });
+
+    it('calls the method', function() {
+      spyOn(GOVUK, 'cookie').and.returnValue("trackPageview");
+      tracker.callMethodRequestedByPreviousPage();
+      expect(tracker.trackPageview).toHaveBeenCalledWith();
+    });
+
+    it('calls the method with given parameters', function() {
+      spyOn(GOVUK, 'cookie').and.returnValue("trackPageview|/path|Title");
+      tracker.callMethodRequestedByPreviousPage();
+      expect(tracker.trackPageview).toHaveBeenCalledWith('/path', 'Title');
+    });
+  });
 });
