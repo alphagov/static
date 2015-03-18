@@ -80,6 +80,8 @@ describe("GOVUK.StaticTracker", function() {
           <meta name="govuk:format" content="format">\
           <meta name="govuk:need-ids" content="1,2,3">\
           <meta name="govuk:search-result-count" content="1000">\
+          <meta name="govuk:publishing-government" content="2005-to-2010-labour-government">\
+          <meta name="govuk:political-status" content="historic">\
           <meta name="govuk:analytics:organisations" content="<D10>">\
           <meta name="govuk:analytics:world-locations" content="<W1>">\
         ');
@@ -99,11 +101,17 @@ describe("GOVUK.StaticTracker", function() {
         expect(window._gaq[9]).toEqual(['_setCustomVar', 5, 'ResultCount', '1000', 3]);
         expect(universalSetupArguments[7]).toEqual(['set', 'dimension5', '1000']);
 
-        expect(window._gaq[10]).toEqual(['_setCustomVar', 9, 'Organisations', '<D10>', 3]);
-        expect(universalSetupArguments[8]).toEqual(['set', 'dimension9', '<D10>']);
+        expect(window._gaq[10]).toEqual(['_setCustomVar', 6, 'PublishingGovernment', '2005-to-2010-labour-government', 3]);
+        expect(universalSetupArguments[8]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
 
-        expect(window._gaq[11]).toEqual(['_setCustomVar', 10, 'WorldLocations', '<W1>', 3]);
-        expect(universalSetupArguments[9]).toEqual(['set', 'dimension10', '<W1>']);
+        expect(window._gaq[11]).toEqual(['_setCustomVar', 7, 'PoliticalStatus', 'historic', 3]);
+        expect(universalSetupArguments[9]).toEqual(['set', 'dimension7', 'historic']);
+
+        expect(window._gaq[12]).toEqual(['_setCustomVar', 9, 'Organisations', '<D10>', 3]);
+        expect(universalSetupArguments[10]).toEqual(['set', 'dimension9', '<D10>']);
+
+        expect(window._gaq[13]).toEqual(['_setCustomVar', 10, 'WorldLocations', '<W1>', 3]);
+        expect(universalSetupArguments[11]).toEqual(['set', 'dimension10', '<W1>']);
       });
 
       it('ignores meta tags not set', function() {
