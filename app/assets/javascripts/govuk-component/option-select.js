@@ -109,13 +109,16 @@
     });
   };
 
-  OptionSelect.prototype.getVisibleLabels = function getVisibleLabels(){
+  OptionSelect.prototype.isLabelVisible = function isLabelVisible(index, option){
+    var $label = $(option);
     var initialOptionContainerHeight = this.$optionsContainer.height();
     var optionListOffsetTop = this.$optionList.offset().top;
-    return this.$labels.filter(function() {
-      var distanceFromTopOfContainer = $(this).offset().top - optionListOffsetTop;
-      return distanceFromTopOfContainer < initialOptionContainerHeight;
-    });
+    var distanceFromTopOfContainer = $label.offset().top - optionListOffsetTop;
+    return distanceFromTopOfContainer < initialOptionContainerHeight;
+  };
+
+  OptionSelect.prototype.getVisibleLabels = function getVisibleLabels(){
+    return this.$labels.filter(this.isLabelVisible.bind(this));
   };
 
   OptionSelect.prototype.setupHeight = function setupHeight(){
