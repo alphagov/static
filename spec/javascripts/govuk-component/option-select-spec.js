@@ -191,6 +191,62 @@ describe('GOVUK.OptionSelect', function() {
     });
   });
 
+  describe ('setContainerHeight', function(){
+
+    it('can have its height set', function(){
+      optionSelect.setContainerHeight(200);
+      expect(optionSelect.$optionsContainer.height()).toBe(200);
+    });
+
+    it('still works even if the container has a max-height', function(){
+      optionSelect.$optionsContainer.css("max-height", 100);
+      expect(optionSelect.$optionsContainer.height()).toBeLessThan(101);
+      optionSelect.setContainerHeight(200);
+      expect(optionSelect.$optionsContainer.height()).toBe(200);
+    });
+  });
+
+  describe ('isLabelVisible', function(){
+    var firstLabel, lastLabel;
+
+    beforeEach(function(){
+      optionSelect.setContainerHeight(100);
+      optionSelect.$optionsContainer.width(100);
+      firstLabel = optionSelect.$labels[0];
+      lastLabel = optionSelect.$labels[optionSelect.$labels.length -1];
+    });
+
+    it('returns true if a label is visible', function(){
+      expect(optionSelect.isLabelVisible.call(optionSelect, 0, firstLabel)).toBe(true);
+    });
+
+    it('returns true if a label is outside its container', function(){
+      expect(optionSelect.isLabelVisible.call(optionSelect, 0, lastLabel)).toBe(false);
+    });
+
+  });
+
+  describe ('getVisibleLabels', function(){
+    var visibleLabels, lastLabelForAttribute, lastVisibleLabelForAttribute;
+
+    it('returns all the labels if the container doesn\'t overflow', function(){
+      expect(optionSelect.$labels.length).toBe(optionSelect.getVisibleLabels().length);
+    });
+
+    it('only returns some of the first labels if the container\'s dimensions are constricted', function(){
+      optionSelect.setContainerHeight(100);
+      optionSelect.$optionsContainer.width(100);
+
+      visibleLabels = optionSelect.getVisibleLabels();
+      expect(visibleLabels.length).toBeLessThan(optionSelect.$labels.length);
+
+      lastLabelForAttribute = optionSelect.$labels[optionSelect.$labels.length - 1].getAttribute("for");
+      lastVisibleLabelForAttribute = visibleLabels[visibleLabels.length - 1].getAttribute("for");
+      expect(lastLabelForAttribute).not.toBe(lastVisibleLabelForAttribute);
+    });
+
+  });
+
   describe ('setupHeight', function(){
     var checkboxContainerHeight, stretchMargin;
 
@@ -222,7 +278,7 @@ describe('GOVUK.OptionSelect', function() {
     });
 
     it('expands the checkbox-container just enough to cut the last visible item in half horizontally, if there are many items', function(){
-      $checkboxList.css({height: 101});
+      $checkboxList.css({"max-height": 101});
       optionSelect.setupHeight();
 
       // Wrapping HTML should not stretch as 251px is too big.
