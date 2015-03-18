@@ -10,6 +10,9 @@
 
     this.$optionSelect = options.$el;
     this.$options = this.$optionSelect.find("input[type='checkbox']");
+    this.$labels = this.$optionSelect.find("label");
+    this.$optionsContainer = this.$optionSelect.find('.options-container');
+    this.$optionList = this.$optionsContainer.children('.js-auto-height-inner');
 
     // Build clearing link
     this.$clearingLink = this.attachClearingLink();
@@ -99,40 +102,43 @@
     return this.$optionSelect.hasClass('js-closed');
   };
 
+  OptionSelect.prototype.setContainerHeight = function setContainerHeight(height){
+    this.$optionsContainer.css({
+      'max-height': 'none', // Have to clear the 'max-height' set by the CSS in order for 'height' to be applied
+      'height': height
+    });
+  };
+
+  OptionSelect.prototype.getVisibleLabels = function getVisibleLabels(){
+    var initialOptionContainerHeight = this.$optionsContainer.height();
+    var optionListOffsetTop = this.$optionList.offset().top;
+    return this.$labels.filter(function() {
+      var distanceFromTopOfContainer = $(this).offset().top - optionListOffsetTop;
+      return distanceFromTopOfContainer < initialOptionContainerHeight;
+    });
+  };
+
   OptionSelect.prototype.setupHeight = function setupHeight(){
-    var optionsContainer = this.$optionSelect.find('.options-container');
-    var optionList = optionsContainer.children('.js-auto-height-inner');
-    var options = optionList.children('label');
-    var initialOptionContainerHeight = optionsContainer.height();
-    var height = optionList.height();
-    var lastVisibleOption;
-    var setContainerHeight = function(height) {
-      // Have to clear the 'max-height' set by the CSS in order for 'height' to be applied
-      optionsContainer.css({
-        'max-height': 'none',
-        'height': height
-      });
-    };
+    var initialOptionContainerHeight = this.$optionsContainer.height();
+    var height = this.$optionList.height();
+    var lastVisibleLabel;
 
     if (height < initialOptionContainerHeight + 50) {
       // Resize if the list is only slightly bigger than its container
-      setContainerHeight(optionList.height());
+      this.setContainerHeight(height);
       return;
     }
 
     // Resize to cut last item cleanly in half
-    lastVisibleOption = options.filter(function(index, option) {
-      var distanceFromTopOfContainer = $(option).offset().top - optionList.offset().top;
-      return distanceFromTopOfContainer < initialOptionContainerHeight
-    }).last();
+    lastVisibleLabel = this.getVisibleLabels().last();
 
-    setContainerHeight(
-      lastVisibleOption.position().top +
-      parseInt(lastVisibleOption.css('border-top-width'), 10) +
-      parseInt(lastVisibleOption.css('padding-top'), 10) +
+    this.setContainerHeight(
+      lastVisibleLabel.position().top +
+      parseInt(lastVisibleLabel.css('border-top-width'), 10) +
+      parseInt(lastVisibleLabel.css('padding-top'), 10) +
       (parseInt(
-        "normal" == lastVisibleOption.css('line-height') ?
-          lastVisibleOption.css('font-size') : lastVisibleOption.css('line-height'),
+        "normal" == lastVisibleLabel.css('line-height') ?
+          lastVisibleLabel.css('font-size') : lastVisibleLabel.css('line-height'),
         10
       ) / 2)
     );
