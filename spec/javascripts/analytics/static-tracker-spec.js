@@ -54,7 +54,13 @@ describe("GOVUK.StaticTracker", function() {
       it('sets them as a dimension', function() {
         window.ga.calls.reset();
         window._gaq = [];
-        spyOn(GOVUK, 'cookie').and.returnValue("_setCustomVar,21,name,value,3");
+        spyOn(GOVUK, 'cookie').and.callFake(function(name) {
+          if (name === "ga_nextpage_params") {
+            return "_setCustomVar,21,name,value,3";
+          }
+
+          return null;
+        });
         tracker = new GOVUK.StaticTracker({universalId: 'universal-id', classicId: 'classic-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
@@ -188,17 +194,17 @@ describe("GOVUK.StaticTracker", function() {
     describe('and the method exists', function() {
       it('sets a cookie with the method name', function() {
         tracker.callOnNextPage('trackPageview');
-        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', 'trackPageview');
+        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview"]');
       });
 
       it('sets a cookie with the parameters to call', function() {
         tracker.callOnNextPage('trackPageview', ['/path', 'Custom Title']);
-        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', 'trackPageview|/path|Custom Title');
+        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview","/path","Custom Title"]');
       });
 
       it('sets a cookie with the single parameter to call', function() {
         tracker.callOnNextPage('trackPageview', '/path');
-        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', 'trackPageview|/path');
+        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview","/path"]');
       });
     });
 
@@ -216,13 +222,26 @@ describe("GOVUK.StaticTracker", function() {
     });
 
     it('calls the method', function() {
-      spyOn(GOVUK, 'cookie').and.returnValue("trackPageview");
+      spyOn(GOVUK, 'cookie').and.callFake(function(name) {
+        if (name === "analytics_next_page_call") {
+          return '["trackPageview"]';
+        }
+
+        return null;
+      });
       tracker.callMethodRequestedByPreviousPage();
       expect(tracker.trackPageview).toHaveBeenCalledWith();
     });
 
     it('calls the method with given parameters', function() {
-      spyOn(GOVUK, 'cookie').and.returnValue("trackPageview|/path|Title");
+      spyOn(GOVUK, 'cookie').and.callFake(function(name) {
+        if (name === "analytics_next_page_call") {
+          return '["trackPageview","/path","Title"]';
+        }
+
+        return null;
+      });
+
       tracker.callMethodRequestedByPreviousPage();
       expect(tracker.trackPageview).toHaveBeenCalledWith('/path', 'Title');
     });

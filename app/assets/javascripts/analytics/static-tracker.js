@@ -91,16 +91,20 @@
 
     if (GOVUK.cookie && typeof this[method] === "function") {
       params.unshift(method);
-      GOVUK.cookie('analytics_next_page_call', params.join('|'));
+      GOVUK.cookie('analytics_next_page_call', JSON.stringify(params));
     }
   };
 
   StaticTracker.prototype.callMethodRequestedByPreviousPage = function() {
     if (GOVUK.cookie && GOVUK.cookie('analytics_next_page_call') !== null) {
-      var params = GOVUK.cookie('analytics_next_page_call').split('|'),
-          method = params.shift();
+      var params, method;
 
-      if (typeof this[method] === "function") {
+      try {
+        params = JSON.parse(GOVUK.cookie('analytics_next_page_call'));
+        method = params.shift();
+      } catch(e) {}
+
+      if (method && typeof this[method] === "function") {
         this[method].apply(this, params);
       }
 
