@@ -101,6 +101,8 @@
     this.setFormatDimension(dimensions['format']);
     this.setNeedIDsDimension(dimensions['need-ids']);
     this.setResultCountDimension(dimensions['search-result-count']);
+    this.setPublishingGovernmentDimension(dimensions['publishing-government']);
+    this.setPoliticalStatusDimension(dimensions['political-status']);
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
   };
@@ -139,6 +141,14 @@
 
   StaticTracker.prototype.setResultCountDimension = function(count) {
     this.setDimension(5, count, 'ResultCount');
+  };
+
+  StaticTracker.prototype.setPublishingGovernmentDimension = function(government) {
+    this.setDimension(6, government, 'PublishingGovernment');
+  };
+
+  StaticTracker.prototype.setPoliticalStatusDimension = function(status) {
+    this.setDimension(7, status, 'PoliticalStatus');
   };
 
   StaticTracker.prototype.setOrganisationsDimension = function(orgs) {
