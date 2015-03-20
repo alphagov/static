@@ -17,7 +17,6 @@
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
-    shimNextPageParams();
     shimClassicAnalyticsQueue(classicQueue);
     this.setDimensionsFromMetaTags();
     this.callMethodRequestedByPreviousPage();
@@ -48,23 +47,6 @@
 
     function setHTTPStatusCodeDimension() {
       tracker.setDimension(15, window.httpStatusCode || 200, 'httpStatusCode');
-    }
-
-    function shimNextPageParams() {
-      // A cookie is sometimes set by apps to declare the GA parameters that
-      // should run on the subsequent page. These declare the actual methods
-      // to call in classic analytics. This is a temporary shim to ensure these
-      // are applied to both classic and universal before updating apps.
-      if (GOVUK.cookie && GOVUK.cookie('ga_nextpage_params') !== null){
-        var classicParams = GOVUK.cookie('ga_nextpage_params').split(',');
-
-        if (classicParams[0] == "_setCustomVar") {
-          setDimensionFromCustomVariable(classicParams);
-        }
-
-        // Delete cookie
-        GOVUK.cookie('ga_nextpage_params', null);
-      }
     }
 
     function shimClassicAnalyticsQueue(queue) {
