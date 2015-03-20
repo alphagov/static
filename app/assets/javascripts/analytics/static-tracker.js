@@ -20,6 +20,7 @@
     shimNextPageParams();
     shimClassicAnalyticsQueue(classicQueue);
     this.setDimensionsFromMetaTags();
+    this.callMethodRequestedByPreviousPage();
 
     // Track initial pageview
     tracker.trackPageview();
@@ -79,6 +80,37 @@
       tracker.setDimension(customVar[1], customVar[3], customVar[2], customVar[4]);
     }
 
+  };
+
+  StaticTracker.prototype.callOnNextPage = function(method, params) {
+    params = params || [];
+
+    if (!$.isArray(params)) {
+      params = [params];
+    }
+
+    if (GOVUK.cookie && typeof this[method] === "function") {
+      params.unshift(method);
+      GOVUK.cookie('analytics_next_page_call', JSON.stringify(params));
+    }
+  };
+
+  StaticTracker.prototype.callMethodRequestedByPreviousPage = function() {
+    if (GOVUK.cookie && GOVUK.cookie('analytics_next_page_call') !== null) {
+      var params, method;
+
+      try {
+        params = JSON.parse(GOVUK.cookie('analytics_next_page_call'));
+        method = params.shift();
+      } catch(e) {}
+
+      if (method && typeof this[method] === "function") {
+        this[method].apply(this, params);
+      }
+
+      // Delete cookie
+      GOVUK.cookie('analytics_next_page_call', null);
+    }
   };
 
   StaticTracker.load = function() {
