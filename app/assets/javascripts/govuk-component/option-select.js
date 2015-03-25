@@ -124,7 +124,7 @@
   OptionSelect.prototype.setupHeight = function setupHeight(){
     var initialOptionContainerHeight = this.$optionsContainer.height();
     var height = this.$optionList.height();
-    var lastVisibleLabel;
+    var lastVisibleLabel, position, topBorder, topPadding, lineHeight;
 
     if (height < initialOptionContainerHeight + 50) {
       // Resize if the list is only slightly bigger than its container
@@ -134,17 +134,16 @@
 
     // Resize to cut last item cleanly in half
     lastVisibleLabel = this.getVisibleLabels().last();
+    position = lastVisibleLabel.position().top;
+    topBorder = parseInt(lastVisibleLabel.css('border-top-width'), 10);
+    topPadding = parseInt(lastVisibleLabel.css('padding-top'), 10);
+    if ("normal" == lastVisibleLabel.css('line-height')) {
+      lineHeight = parseInt(lastVisibleLabel.css('font-size'), 10);
+    } else {
+      lineHeight = parseInt(lastVisibleLabel.css('line-height'), 10);
+    }
 
-    this.setContainerHeight(
-      lastVisibleLabel.position().top +
-      parseInt(lastVisibleLabel.css('border-top-width'), 10) +
-      parseInt(lastVisibleLabel.css('padding-top'), 10) +
-      (parseInt(
-        "normal" == lastVisibleLabel.css('line-height') ?
-          lastVisibleLabel.css('font-size') : lastVisibleLabel.css('line-height'),
-        10
-      ) / 2)
-    );
+    this.setContainerHeight(position + topBorder + topPadding + (lineHeight / 2));
 
   };
 
