@@ -10,6 +10,9 @@
 
     this.$optionSelect = options.$el;
     this.$options = this.$optionSelect.find("input[type='checkbox']");
+    this.$labels = this.$optionSelect.find("label");
+    this.$optionsContainer = this.$optionSelect.find('.options-container');
+    this.$optionList = this.$optionsContainer.children('.js-auto-height-inner');
 
     // Build clearing link
     this.$clearingLink = this.attachClearingLink();
@@ -99,16 +102,49 @@
     return this.$optionSelect.hasClass('js-closed');
   };
 
+  OptionSelect.prototype.setContainerHeight = function setContainerHeight(height){
+    this.$optionsContainer.css({
+      'max-height': 'none', // Have to clear the 'max-height' set by the CSS in order for 'height' to be applied
+      'height': height
+    });
+  };
+
+  OptionSelect.prototype.isLabelVisible = function isLabelVisible(index, option){
+    var $label = $(option);
+    var initialOptionContainerHeight = this.$optionsContainer.height();
+    var optionListOffsetTop = this.$optionList.offset().top;
+    var distanceFromTopOfContainer = $label.offset().top - optionListOffsetTop;
+    return distanceFromTopOfContainer < initialOptionContainerHeight;
+  };
+
+  OptionSelect.prototype.getVisibleLabels = function getVisibleLabels(){
+    return this.$labels.filter(this.isLabelVisible.bind(this));
+  };
+
   OptionSelect.prototype.setupHeight = function setupHeight(){
-    var optionsContainer = this.$optionSelect.find('.options-container');
-    var optionList = optionsContainer.children('.js-auto-height-inner');
-    var initialOptionContainerHeight = optionsContainer.height();
-    var height = optionList.height();
+    var initialOptionContainerHeight = this.$optionsContainer.height();
+    var height = this.$optionList.height();
+    var lastVisibleLabel, position, topBorder, topPadding, lineHeight;
 
     if (height < initialOptionContainerHeight + 50) {
       // Resize if the list is only slightly bigger than its container
-      optionsContainer.height(optionList.height());
+      this.setContainerHeight(height);
+      return;
     }
+
+    // Resize to cut last item cleanly in half
+    lastVisibleLabel = this.getVisibleLabels().last();
+    position = lastVisibleLabel.position().top;
+    topBorder = parseInt(lastVisibleLabel.css('border-top-width'), 10);
+    topPadding = parseInt(lastVisibleLabel.css('padding-top'), 10);
+    if ("normal" == lastVisibleLabel.css('line-height')) {
+      lineHeight = parseInt(lastVisibleLabel.css('font-size'), 10);
+    } else {
+      lineHeight = parseInt(lastVisibleLabel.css('line-height'), 10);
+    }
+
+    this.setContainerHeight(position + topBorder + topPadding + (lineHeight / 2));
+
   };
 
   OptionSelect.prototype.listenForKeys = function listenForKeys(){

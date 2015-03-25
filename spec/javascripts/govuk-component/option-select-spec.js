@@ -16,7 +16,7 @@ describe('GOVUK.OptionSelect', function() {
             '</label>'+
           '<label for="agriculture-environment-and-natural-resources">'+
             '<input name="market_sector[]" value="agriculture-environment-and-natural-resources" id="agriculture-environment-and-natural-resources" type="checkbox">'+
-            'Agriculture, environment and natural resources'+
+            'Agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment, natural resources, agriculture, environment and natural resources.'+
             '</label>'+
           '<label for="building-and-construction">'+
             '<input name="market_sector[]" value="building-and-construction" id="building-and-construction" type="checkbox">'+
@@ -191,15 +191,78 @@ describe('GOVUK.OptionSelect', function() {
     });
   });
 
+  describe ('setContainerHeight', function(){
+
+    it('can have its height set', function(){
+      optionSelect.setContainerHeight(200);
+      expect(optionSelect.$optionsContainer.height()).toBe(200);
+    });
+
+    it('still works even if the container has a max-height', function(){
+      optionSelect.$optionsContainer.css("max-height", 100);
+      expect(optionSelect.$optionsContainer.height()).toBeLessThan(101);
+      optionSelect.setContainerHeight(200);
+      expect(optionSelect.$optionsContainer.height()).toBe(200);
+    });
+  });
+
+  describe ('isLabelVisible', function(){
+    var firstLabel, lastLabel;
+
+    beforeEach(function(){
+      optionSelect.setContainerHeight(100);
+      optionSelect.$optionsContainer.width(100);
+      firstLabel = optionSelect.$labels[0];
+      lastLabel = optionSelect.$labels[optionSelect.$labels.length -1];
+    });
+
+    it('returns true if a label is visible', function(){
+      expect(optionSelect.isLabelVisible.call(optionSelect, 0, firstLabel)).toBe(true);
+    });
+
+    it('returns true if a label is outside its container', function(){
+      expect(optionSelect.isLabelVisible.call(optionSelect, 0, lastLabel)).toBe(false);
+    });
+
+  });
+
+  describe ('getVisibleLabels', function(){
+    var visibleLabels, lastLabelForAttribute, lastVisibleLabelForAttribute;
+
+    it('returns all the labels if the container doesn\'t overflow', function(){
+      expect(optionSelect.$labels.length).toBe(optionSelect.getVisibleLabels().length);
+    });
+
+    it('only returns some of the first labels if the container\'s dimensions are constricted', function(){
+      optionSelect.setContainerHeight(100);
+      optionSelect.$optionsContainer.width(100);
+
+      visibleLabels = optionSelect.getVisibleLabels();
+      expect(visibleLabels.length).toBeLessThan(optionSelect.$labels.length);
+
+      lastLabelForAttribute = optionSelect.$labels[optionSelect.$labels.length - 1].getAttribute("for");
+      lastVisibleLabelForAttribute = visibleLabels[visibleLabels.length - 1].getAttribute("for");
+      expect(lastLabelForAttribute).not.toBe(lastVisibleLabelForAttribute);
+    });
+
+  });
+
   describe ('setupHeight', function(){
     var checkboxContainerHeight, stretchMargin;
 
     beforeEach(function(){
 
-      // Set the height of option-select-container to 200 (this is done in the CSS IRL)
-      optionSelectHeight = 200;
+      // Set some visual properties which are done in the CSS IRL
       $checkboxList = $optionSelectHTML.find('.options-container');
-      $checkboxList.height(optionSelectHeight);
+      $checkboxList.css({
+        'height': 200,
+        'position': 'relative',
+        'overflow': 'scroll'
+      });
+      $listItems = $checkboxList.find('label');
+      $listItems.css({
+        'display': 'block'
+      });
 
       $checkboxListInner = $checkboxList.find(' > .js-auto-height-inner');
       listItem = "<input type='checkbox' name='ca98'id='ca89'><label for='ca89'>CA89</label>";
@@ -214,13 +277,14 @@ describe('GOVUK.OptionSelect', function() {
       expect($checkboxList.height()).toBe($checkboxListInner.height());
     });
 
-    it('does nothing if the height of the checkbox list is longer than the height of the container by more than 50px', function(){
-      $checkboxListInner.height(251);
+    it('expands the checkbox-container just enough to cut the last visible item in half horizontally, if there are many items', function(){
+      $checkboxList.css({"max-height": 101});
       optionSelect.setupHeight();
 
       // Wrapping HTML should not stretch as 251px is too big.
-      expect($checkboxList.height()).toBe(optionSelectHeight);
+      expect($checkboxList.height()).toBeGreaterThan(100);
     });
+
   });
 
   describe('listenForKeys', function(){
