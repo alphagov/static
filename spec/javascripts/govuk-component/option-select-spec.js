@@ -278,7 +278,10 @@ describe('GOVUK.OptionSelect', function() {
     });
 
     it('expands the checkbox-container just enough to cut the last visible item in half horizontally, if there are many items', function(){
-      $checkboxList.css({"max-height": 101});
+      $checkboxList.css({
+        "max-height": 200,
+        "width": 600
+      });
       optionSelect.setupHeight();
 
       // Wrapping HTML should not stretch as 251px is too big.
