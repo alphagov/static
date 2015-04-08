@@ -41,7 +41,7 @@
       ['Percent', 50],
       ['Percent', 75]
     ],
-    '/business-finance-support-finder': [
+    '/business-finance-support-finder/search': [
       ['Percent', 10],
       ['Percent', 25],
       ['Percent', 50],
