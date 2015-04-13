@@ -26,7 +26,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'jasmine-rails', '0.10.6'
+  gem 'jasmine-rails', '~> 0.10.6'
   gem 'quiet_assets', '1.1.0'
 end
 
