@@ -168,6 +168,14 @@ describe('GOVUK.OptionSelect', function() {
       expect(optionSelect.setupHeight.calls.count()).toBe(1);
     });
 
+    it ('doesn\'t call setupHeight() if a height has already been set', function(){
+      $optionSelectHTML.addClass('closed');
+      optionSelect.setContainerHeight(100);
+      spyOn(optionSelect, "setupHeight");
+      optionSelect.open();
+      expect(optionSelect.setupHeight.calls.count()).toBe(0);
+    });
+
   });
 
   describe('close', function(){
