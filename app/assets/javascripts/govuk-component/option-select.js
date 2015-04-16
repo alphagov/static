@@ -90,7 +90,9 @@
   OptionSelect.prototype.open = function open(){
     if (this.isClosed()) {
       this.$optionSelect.removeClass('js-closed');
-      this.setupHeight();
+      if (!this.$optionsContainer.prop('style').height) {
+        this.setupHeight();
+      }
     }
   };
 

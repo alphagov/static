@@ -161,9 +161,11 @@ describe('GOVUK.OptionSelect', function() {
       expect(optionSelect.isClosed()).toBe(false);
     });
 
-    it ('calls setupHeight()', function(){
+    it ('calls setupHeight(), once', function(){
       $optionSelectHTML.addClass('closed');
       spyOn(optionSelect, "setupHeight");
+      optionSelect.open();
+      expect(optionSelect.setupHeight.calls.count()).toBe(1);
       optionSelect.open();
       expect(optionSelect.setupHeight.calls.count()).toBe(1);
     });
