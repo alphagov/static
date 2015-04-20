@@ -15,8 +15,8 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 
 There are docs for:
 
-- [Image optimisation](docs/image-optimisation.md)
-- [GOV.UK components](docs/govuk-components.md)
+- [Image optimisation](doc/image-optimisation.md)
+- [GOV.UK components](doc/govuk-components.md)
 - [Slimmer templates](doc/slimmer_templates.md)
 
 ### Running the application
