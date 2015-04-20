@@ -79,7 +79,7 @@ GEM
     journey (1.0.4)
     json (1.8.1)
     kgio (2.7.4)
-    libv8 (3.16.14.3)
+    libv8 (3.16.14.7)
     link_header (0.0.7)
     logstash-event (1.1.5)
     logstasher (0.4.8)
