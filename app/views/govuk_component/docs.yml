@@ -139,6 +139,19 @@
             </tr>
           </tbody>
         </table>
+    charts:
+      content: |
+        <table class='js-barchart-table mc-auto-outdent'>
+          <caption>A table with numerical data</caption>
+          <tbody>
+            <tr>
+              <td>row 1</td><td>10</td>
+            </tr>
+            <tr>
+              <td>row 2</td><td>15</td>
+            </tr>
+          </tbody>
+        </table>
     contact:
       content: |
         <div class="contact" id="contact_1017">
