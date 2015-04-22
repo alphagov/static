@@ -3,19 +3,6 @@
 
   window.GOVUK = window.GOVUK || {};
 
-  window.GOVUK.reportAProblem = {
-    showErrorMessage: function (jqXHR) {
-      var response = "<h2>Sorry, we're unable to receive your message right now.</h2> " +
-                     "<p>We have other ways for you to provide feedback on the " +
-                     "<a href='/contact'>contact page</a>.</p>"
-      $('.report-a-problem-content').html(response);
-    },
-
-    showConfirmation: function(data) {
-      $('.report-a-problem-content').html(data.message);
-    },
-  }
-
   var ReportAProblemForm = function($form) {
     this.$form = $form;
 
@@ -72,13 +59,13 @@
       url: "/contact/govuk/problem_reports",
       dataType: "json",
       data: this.$form.serialize(),
-      success: GOVUK.reportAProblem.showConfirmation,
+      success: $.proxy(this.showConfirmation, this),
       error: $.proxy(this.handleError, this),
       statusCode: {
-        500: GOVUK.reportAProblem.showErrorMessage
+        500: $.proxy(this.showErrorMessage, this),
       }
     });
-  }
+  };
 
   ReportAProblemForm.prototype.submit = function() {
     this.hidePrompt();
@@ -87,6 +74,18 @@
     this.postFormViaAjax();
 
     return false;
+  };
+
+  ReportAProblemForm.prototype.showConfirmation = function(data) {
+    $('.report-a-problem-content').html(data.message);
+  };
+
+  ReportAProblemForm.prototype.showErrorMessage = function(jqXHR) {
+    var response = "<h2>Sorry, we're unable to receive your message right now.</h2> " +
+                   "<p>We have other ways for you to provide feedback on the " +
+                   "<a href='/contact'>contact page</a>.</p>";
+
+    $('.report-a-problem-content').html(response);
   };
 
   GOVUK.ReportAProblemForm = ReportAProblemForm;
