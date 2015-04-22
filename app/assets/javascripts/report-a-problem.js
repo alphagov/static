@@ -3,14 +3,13 @@
   window.GOVUK = window.GOVUK || {};
 
   var ReportAProblem = function ($container) {
-    this.$container = $container;
-    this.form = new GOVUK.ReportAProblemForm($container.find('form'));
-    this.addToggleLink();
+    var form = new GOVUK.ReportAProblemForm($container.find('form'));
+
+    this.addToggleLink($container);
   };
 
-  ReportAProblem.prototype.addToggleLink = function() {
-    var $container = this.$container,
-        $toggle = $('\
+  ReportAProblem.prototype.addToggleLink = function($container) {
+    var $toggle = $('\
       <div class="report-a-problem-toggle-wrapper js-footer">\
         <p class="report-a-problem-toggle">\
           <a href="">Is there anything wrong with this page?</a>\
