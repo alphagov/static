@@ -41,9 +41,8 @@
     if (status === 'error' || !jqXHR.responseText) {
       if (jqXHR.status == 422) {
         this.promptUserToEnterValidData();
-      }
-      else {
-        GOVUK.reportAProblem.showErrorMessage();
+      } else {
+        this.triggerError();
       }
     }
   };
@@ -58,10 +57,10 @@
       url: "/contact/govuk/problem_reports",
       dataType: "json",
       data: this.$form.serialize(),
-      success: $.proxy(this.showConfirmation, this),
+      success: $.proxy(this.triggerSuccess, this),
       error: $.proxy(this.handleError, this),
       statusCode: {
-        500: $.proxy(this.showErrorMessage, this),
+        500: $.proxy(this.triggerError, this),
       }
     });
   };
@@ -75,16 +74,12 @@
     return false;
   };
 
-  ReportAProblemForm.prototype.showConfirmation = function(data) {
-    $('.report-a-problem-content').html(data.message);
+  ReportAProblemForm.prototype.triggerError = function() {
+    this.$form.trigger('reportAProblemForm.error');
   };
 
-  ReportAProblemForm.prototype.showErrorMessage = function(jqXHR) {
-    var response = "<h2>Sorry, we're unable to receive your message right now.</h2> " +
-                   "<p>We have other ways for you to provide feedback on the " +
-                   "<a href='/contact'>contact page</a>.</p>";
-
-    $('.report-a-problem-content').html(response);
+  ReportAProblemForm.prototype.triggerSuccess = function(data) {
+    this.$form.trigger('reportAProblemForm.success', data);
   };
 
   GOVUK.ReportAProblemForm = ReportAProblemForm;

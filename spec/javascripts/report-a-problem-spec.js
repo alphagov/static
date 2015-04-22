@@ -79,7 +79,7 @@ describe("form submission for reporting a problem", function () {
             form.triggerHandler('submit');
 
             expect(form).not.toBeVisible();
-            expect($('.report-a-problem-content').html()).toContain("Sorry, we're unable to receive your message");
+            expect($('.report-a-problem-content').html()).toContain("Sorry, we’re unable to receive your message");
         });
     });
 });
