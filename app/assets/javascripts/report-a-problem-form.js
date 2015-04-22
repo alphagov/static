@@ -5,18 +5,15 @@
   var ReportAProblemForm = function($form) {
     this.$form = $form;
 
+    $form.on('submit', $.proxy(this.submit, this));
+
     this.appendHiddenContextInformation();
-    this.configureSubmission();
   }
 
   ReportAProblemForm.prototype.appendHiddenContextInformation = function() {
     // form submission for reporting a problem
     this.$form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
     this.$form.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
-  };
-
-  ReportAProblemForm.prototype.configureSubmission = function() {
-    this.$form.submit($.proxy(this.submit, this));
   };
 
   ReportAProblemForm.prototype.hidePrompt = function() {
@@ -65,13 +62,13 @@
     });
   };
 
-  ReportAProblemForm.prototype.submit = function() {
+  ReportAProblemForm.prototype.submit = function(evt) {
     this.hidePrompt();
     this.setUrl();
     this.disableSubmitButton();
     this.postFormViaAjax();
 
-    return false;
+    evt.preventDefault();
   };
 
   ReportAProblemForm.prototype.triggerError = function() {
