@@ -11,74 +11,112 @@
       $('.report-a-problem-content').html(response);
     },
 
-    promptUserToEnterValidData: function() {
-      GOVUK.reportAProblem.enableSubmitButton();
-      $('<p class="error-notification">Please enter details of what you were doing.</p>').insertAfter('.report-a-problem-container h2');
-    },
-
-    disableSubmitButton: function() {
-      $('.report-a-problem-container .button').attr("disabled", true);
-    },
-
-    enableSubmitButton: function() {
-      $('.report-a-problem-container .button').attr("disabled", false);
-    },
-
     showConfirmation: function(data) {
       $('.report-a-problem-content').html(data.message);
     },
-
-    submit: function() {
-      $('.report-a-problem-container .error-notification').remove();
-      $('input#url').val(window.location);
-
-      GOVUK.reportAProblem.disableSubmitButton();
-      $.ajax({
-        type: "POST",
-        url: "/contact/govuk/problem_reports",
-        dataType: "json",
-        data: $('.report-a-problem-container form').serialize(),
-        success: GOVUK.reportAProblem.showConfirmation,
-        error: function(jqXHR, status) {
-          if (status === 'error' || !jqXHR.responseText) {
-            if (jqXHR.status == 422) {
-              GOVUK.reportAProblem.promptUserToEnterValidData();
-            }
-            else {
-              GOVUK.reportAProblem.showErrorMessage();
-            }
-          }
-        },
-        statusCode: {
-          500: GOVUK.reportAProblem.showErrorMessage
-        }
-      });
-      return false;
-    }
   }
 
-  $(document).ready(function() {
-    // Add in the toggle link for reporting a problem at the bottom of the page
-    var toggleBlock = '<div class="report-a-problem-toggle-wrapper js-footer">' +
-                        '<p class="report-a-problem-toggle">' +
-                          '<a href="">Is there anything wrong with this page?</a>' +
-                        '</p>' +
-                      '</div>';
-    var $container = $('.report-a-problem-container')
-    $container.before(toggleBlock);
+  var ReportAProblemForm = function($form) {
+    this.$form = $form;
 
-    // Add a click handler for the toggle
-    $('.report-a-problem-toggle a').on('click', function() {
-      $container.toggle();
-      return false;
-    });
+    this.appendHiddenContextInformation();
+    this.configureSubmission();
+  }
 
+  ReportAProblemForm.prototype.appendHiddenContextInformation = function() {
     // form submission for reporting a problem
-    var $form = $container.find('form');
-    $form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
-    $form.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
-    $form.submit(GOVUK.reportAProblem.submit);
+    this.$form.append('<input type="hidden" name="javascript_enabled" value="true"/>');
+    this.$form.append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
+  };
 
+  ReportAProblemForm.prototype.configureSubmission = function() {
+    this.$form.submit($.proxy(this.submit, this));
+  };
+
+  ReportAProblemForm.prototype.hidePrompt = function() {
+    this.$form.find('.error-notification').remove();
+  };
+
+  ReportAProblemForm.prototype.disableSubmitButton = function() {
+    this.$form.find('.button').attr("disabled", true);
+  };
+
+  ReportAProblemForm.prototype.enableSubmitButton = function() {
+    this.$form.find('.button').attr("disabled", false);
+  };
+
+  ReportAProblemForm.prototype.promptUserToEnterValidData = function() {
+    this.enableSubmitButton();
+    var $prompt = $('<p class="error-notification">Please enter details of what you were doing.</p>');
+    this.$form.prepend($prompt);
+  };
+
+  ReportAProblemForm.prototype.handleError = function(jqXHR, status) {
+    if (status === 'error' || !jqXHR.responseText) {
+      if (jqXHR.status == 422) {
+        this.promptUserToEnterValidData();
+      }
+      else {
+        GOVUK.reportAProblem.showErrorMessage();
+      }
+    }
+  };
+
+  ReportAProblemForm.prototype.setUrl = function() {
+    this.$form.find('input#url').val(window.location);
+  }
+
+  ReportAProblemForm.prototype.postFormViaAjax = function() {
+    $.ajax({
+      type: "POST",
+      url: "/contact/govuk/problem_reports",
+      dataType: "json",
+      data: this.$form.serialize(),
+      success: GOVUK.reportAProblem.showConfirmation,
+      error: $.proxy(this.handleError, this),
+      statusCode: {
+        500: GOVUK.reportAProblem.showErrorMessage
+      }
+    });
+  }
+
+  ReportAProblemForm.prototype.submit = function() {
+    this.hidePrompt();
+    this.setUrl();
+    this.disableSubmitButton();
+    this.postFormViaAjax();
+
+    return false;
+  };
+
+  GOVUK.ReportAProblemForm = ReportAProblemForm;
+
+  var ReportAProblem = function ($container) {
+    this.$container = $container;
+
+    this.form = new GOVUK.ReportAProblemForm($container.find('form'));
+
+    this.addToggleLink();
+  };
+
+  ReportAProblem.prototype.addToggleLink = function() {
+    var $toggleBlock = $('<div class="report-a-problem-toggle-wrapper js-footer">' +
+                           '<p class="report-a-problem-toggle">' +
+                             '<a href="">Is there anything wrong with this page?</a>' +
+                           '</p>' +
+                         '</div>');
+    this.$container.before($toggleBlock);
+
+    var $container = this.$container;
+    $toggleBlock.on("click", '.report-a-problem-toggle a', function(evt) {
+      $container.toggle();
+      evt.preventDefault();
+    });
+  };
+
+  GOVUK.ReportAProblem = ReportAProblem;
+
+  $(document).ready(function() {
+    new GOVUK.ReportAProblem($('.report-a-problem-container'));
   });
-
 }());

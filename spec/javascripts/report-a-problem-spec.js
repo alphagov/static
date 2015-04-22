@@ -9,7 +9,7 @@ describe("form submission for reporting a problem", function () {
     beforeEach(function() {
         setFixtures(FORM_TEXT);
         form = $('form');
-        form.submit(GOVUK.reportAProblem.submit);
+        new GOVUK.ReportAProblem($('.report-a-problem-container'));
     });
 
     describe("while the request is being handled", function() {
