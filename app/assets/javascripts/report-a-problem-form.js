@@ -5,7 +5,7 @@
   var ReportAProblemForm = function($form) {
     this.$form = $form;
 
-    $form.on('submit', $.proxy(this.submit, this));
+    $form.on('submit', this.submit.bind(this));
 
     this.appendHiddenContextInformation();
   }
@@ -54,10 +54,10 @@
       url: "/contact/govuk/problem_reports",
       dataType: "json",
       data: this.$form.serialize(),
-      success: $.proxy(this.triggerSuccess, this),
-      error: $.proxy(this.handleError, this),
+      success: this.triggerSuccess.bind(this),
+      error: this.handleError.bind(this),
       statusCode: {
-        500: $.proxy(this.triggerError, this),
+        500: this.triggerError.bind(this),
       }
     });
   };
