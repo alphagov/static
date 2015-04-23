@@ -3,6 +3,7 @@
 //= require analytics
 //= require user-satisfaction-survey
 //= require core
+//= require report-a-problem-form
 //= require report-a-problem
 //= require govuk/selection-buttons
 //= require govuk-component/govspeak-enhance-youtube-video-links

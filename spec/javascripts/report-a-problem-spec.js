@@ -9,7 +9,29 @@ describe("form submission for reporting a problem", function () {
     beforeEach(function() {
         setFixtures(FORM_TEXT);
         form = $('form');
-        form.submit(GOVUK.reportAProblem.submit);
+        new GOVUK.ReportAProblem($('.report-a-problem-container'));
+    });
+
+    it("should append a hidden 'javascript_enabled' field to the form", function() {
+        expect(form.find("[name=javascript_enabled]").val()).toBe("true");
+    });
+
+    it("should append a hidden 'referrer' field to the form", function() {
+        expect(form.find("[name=referrer]").val()).toBe("unknown");
+    });
+
+    describe("clicking on the toggle", function(){
+        it("should toggle the visibility of the form", function() {
+            expect(form).toBeVisible();
+
+            $('a').click();
+
+            expect(form).toBeHidden();
+
+            $('a').click();
+
+            expect(form).toBeVisible();
+        });
     });
 
     describe("while the request is being handled", function() {
@@ -57,7 +79,7 @@ describe("form submission for reporting a problem", function () {
             form.triggerHandler('submit');
 
             expect(form).not.toBeVisible();
-            expect($('.report-a-problem-content').html()).toContain("Sorry, we're unable to receive your message");
+            expect($('.report-a-problem-content').html()).toContain("Sorry, we’re unable to receive your message");
         });
     });
 });
