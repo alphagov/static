@@ -3,25 +3,13 @@
   window.GOVUK = window.GOVUK || {};
 
   var ReportAProblem = function ($container) {
+    this.$container = $container;
     var $form = $container.find('form'),
         form = new GOVUK.ReportAProblemForm($form);
 
     this.addToggleLink($container);
-    $form.on('reportAProblemForm.success', showConfirmation);
-    $form.on('reportAProblemForm.error', showError);
-
-    function showConfirmation(evt, data) {
-      $container.find('.report-a-problem-content').html(data.message);
-    }
-
-    function showError() {
-      var response = "\
-        <h2>Sorry, we’re unable to receive your message right now.</h2>\
-        <p>We have other ways for you to provide feedback on the \
-        <a href='/contact'>contact page</a>.</p>";
-
-      $container.find('.report-a-problem-content').html(response);
-    }
+    $form.on('reportAProblemForm.success', this.showConfirmation.bind(this));
+    $form.on('reportAProblemForm.error', this.showError.bind(this));
   };
 
   ReportAProblem.prototype.addToggleLink = function($container) {
@@ -38,6 +26,19 @@
       evt.preventDefault();
     });
   };
+
+  ReportAProblem.prototype.showConfirmation = function(evt, data) {
+    this.$container.find('.report-a-problem-content').html(data.message);
+  }
+
+  ReportAProblem.prototype.showError = function() {
+    var response = "\
+      <h2>Sorry, we’re unable to receive your message right now.</h2>\
+      <p>We have other ways for you to provide feedback on the \
+      <a href='/contact'>contact page</a>.</p>";
+
+    this.$container.find('.report-a-problem-content').html(response);
+  }
 
   GOVUK.ReportAProblem = ReportAProblem;
 
