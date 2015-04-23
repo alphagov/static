@@ -7,12 +7,12 @@
     var $form = $container.find('form'),
         form = new GOVUK.ReportAProblemForm($form);
 
-    this.addToggleLink($container);
+    this.addToggleLink();
     $form.on('reportAProblemForm.success', this.showConfirmation.bind(this));
     $form.on('reportAProblemForm.error', this.showError.bind(this));
   };
 
-  ReportAProblem.prototype.addToggleLink = function($container) {
+  ReportAProblem.prototype.addToggleLink = function() {
     var $toggle = $('\
       <div class="report-a-problem-toggle-wrapper js-footer">\
         <p class="report-a-problem-toggle">\
@@ -20,11 +20,11 @@
         </p>\
       </div>');
 
-    $container.before($toggle);
+    this.$container.before($toggle);
     $toggle.on("click", ".report-a-problem-toggle a", function(evt) {
-      $container.toggle();
+      this.$container.toggle();
       evt.preventDefault();
-    });
+    }.bind(this));
   };
 
   ReportAProblem.prototype.showConfirmation = function(evt, data) {
