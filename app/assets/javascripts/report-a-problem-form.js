@@ -51,7 +51,7 @@
   ReportAProblemForm.prototype.postFormViaAjax = function() {
     $.ajax({
       type: "POST",
-      url: "/contact/govuk/problem_reports",
+      url: this.$form.attr('action'),
       dataType: "json",
       data: this.$form.serialize(),
       success: this.triggerSuccess.bind(this),

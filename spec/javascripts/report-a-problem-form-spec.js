@@ -1,5 +1,5 @@
 describe("form submission for reporting a problem", function () {
-  var FORM_TEXT = '<form><button class="button" name="button" type="submit">Send</button></form>';
+  var FORM_TEXT = '<form action="ajax-endpoint"><button class="button" name="button" type="submit">Send</button></form>';
   var $form, reportAProblemForm;
 
   beforeEach(function() {
@@ -23,6 +23,19 @@ describe("form submission for reporting a problem", function () {
       $form.triggerHandler('submit');
 
       expect($('.button')).toBeDisabled();
+    });
+  });
+
+  describe("when the form is submitted", function() {
+    it("should submit using ajax to the action specified by the form", function() {
+      var args;
+      spyOn($, "ajax");
+      $form.triggerHandler('submit');
+
+      expect($.ajax).toHaveBeenCalled();
+
+      args = $.ajax.calls.mostRecent().args;
+      expect(args[0].url).toBe('ajax-endpoint');
     });
   });
 
