@@ -2,12 +2,18 @@ describe("form submission for reporting a problem", function () {
   var $form, reportAProblem;
 
   beforeEach(function() {
-    setFixtures('<div class="report-a-problem-container">\
-                      <div class="report-a-problem-content">\
-                          <form><button class="button" name="button" type="submit">Send</button></form>\
-                      </div>\
-                 </div>');
+    setFixtures('\
+              <div class="report-a-problem-container">\
+                <div class="report-a-problem-content">\
+                  <form action="might-be-changed">\
+                    <button class="button" name="button" type="submit">Send</button>\
+                  </form>\
+                </div>\
+              </div>');
     $form = $('form');
+
+    // Simulate CSS
+    $('.report-a-problem-container').hide();
   });
 
   describe("when not included in redesign test", function() {
@@ -19,11 +25,12 @@ describe("form submission for reporting a problem", function () {
     });
 
     it("does not create a multivariate test", function(){
-        expect(GOVUK.MultivariateTest).not.toHaveBeenCalled();
-        expect(reportAProblem.multivariateTest).toBe(undefined);
+      expect(GOVUK.MultivariateTest).not.toHaveBeenCalled();
+      expect(reportAProblem.multivariateTest).toBe(undefined);
     });
 
-    testBehaviour();
+    testToggleBehaviour();
+    testRequestHandlingBehaviour();
   });
 
   describe("when included in redesign test", function() {
@@ -47,7 +54,14 @@ describe("form submission for reporting a problem", function () {
         expect(reportAProblem.multivariateTest.getCohort()).toBe('variant_0');
       });
 
-      testBehaviour();
+      it('tracks an event when the form is toggled', function() {
+        spyOn(GOVUK.analytics, 'trackEvent');
+        $('.js-report-a-problem-toggle').first().click();
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('report-a-problem', 'link-toggled');
+      });
+
+      testToggleBehaviour();
+      testRequestHandlingBehaviour();
     });
 
     describe("when showing new variant", function(){
@@ -60,23 +74,47 @@ describe("form submission for reporting a problem", function () {
         expect(reportAProblem.multivariateTest.getCohort()).toBe('variant_1');
       });
 
-      testBehaviour();
+      it('shows the form when selecting yes or no', function() {
+        expect($form).toBeHidden();
+        $('[data-useful=Yes]').click();
+        expect($form).toBeVisible();
+      });
+
+      it('tracks an event when yes or no is selected', function() {
+        spyOn(GOVUK.analytics, 'trackEvent');
+
+        $('[data-useful=No]').click();
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('report-a-problem', 'was-page-useful', {label: 'no'});
+
+        $('[data-useful=Yes]').click();
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('report-a-problem', 'was-page-useful', {label: 'yes'});
+      });
+
+      it('records yes or no in a hidden input', function() {
+        $('[data-useful=No]').click();
+        expect($form.find('[name=what_doing]').val()).toBe('Was this page useful? No');
+
+        $('[data-useful=Yes]').click();
+        expect($form.find('[name=what_doing]').val()).toBe('Was this page useful? Yes');
+      });
+
+      testRequestHandlingBehaviour();
     });
   });
 
-
-  function testBehaviour() {
-
+  function testToggleBehaviour() {
     describe("clicking on the toggle", function(){
       it("should toggle the visibility of the form", function() {
-        expect($form).toBeVisible();
-        $('.js-report-a-problem-toggle').click();
         expect($form).toBeHidden();
         $('.js-report-a-problem-toggle').click();
         expect($form).toBeVisible();
+        $('.js-report-a-problem-toggle').click();
+        expect($form).toBeHidden();
       });
     });
+  }
 
+  function testRequestHandlingBehaviour() {
     describe("if the request succeeds", function() {
       it("should replace the form with the response from the AJAX call", function() {
 

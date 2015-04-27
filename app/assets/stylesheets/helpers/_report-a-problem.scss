@@ -30,7 +30,6 @@
 
   p {
     @include core-19;
-    padding-bottom: 1em;
   }
 
   label {
@@ -41,20 +40,23 @@
     font-weight: bold;
   }
 
-  input {
-    &[type="text"] {
-      display: block;
-      @include core-19;
-      margin: 0 0 1em 0;
-      background-color: #f8f8f8;
-      border: 1px inset #bfc1c3;
-      padding: 0.3em 0 0.1em 0.4em;
-      width: 95%;
+  input[type="text"],
+  textarea {
+    display: block;
+    @include core-19;
+    margin: 0 0 1em 0;
+    background-color: #f8f8f8;
+    border: 1px inset #bfc1c3;
+    padding: 0.3em 0 0.1em 0.4em;
+    width: 95%;
 
-      @include ie-lte(7) {
-        width: 550px;
-      }
+    @include ie-lte(7) {
+      width: 550px;
     }
+  }
+
+  textarea {
+    height: 5em;
   }
 }
 
@@ -80,4 +82,8 @@
 .report-a-problem-toggle-wrapper {
   @extend %site-width-container;
   clear:both;
+}
+
+.was-this-useful a {
+  margin-left: 0.5em;
 }
