@@ -68,6 +68,12 @@ describe("form submission for reporting a problem", function () {
         expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('ab-test-report-a-problem', 'link-toggled');
       });
 
+      it("tracks successfully submitted feedback", function() {
+        spyOn(GOVUK.analytics, 'trackEvent');
+        $form.trigger('reportAProblemForm.success', {message: 'great success!'});
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('ab-test-report-a-problem', 'feedback-submitted', {label: 'variant_0'});
+      });
+
       testToggleBehaviour();
       testRequestHandlingBehaviour();
     });
@@ -104,6 +110,12 @@ describe("form submission for reporting a problem", function () {
 
         $('[data-useful=Yes]').click();
         expect($form.find('[name=what_doing]').val()).toBe('Was this page useful? Yes');
+      });
+
+      it("tracks successfully submitted feedback", function() {
+        spyOn(GOVUK.analytics, 'trackEvent');
+        $form.trigger('reportAProblemForm.success', {message: 'great success!'});
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('ab-test-report-a-problem', 'feedback-submitted', {label: 'variant_1'});
       });
 
       testRequestHandlingBehaviour();

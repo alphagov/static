@@ -21,6 +21,8 @@
           variant_1: {variantId: 1, callback: renderVariant}
         }
       });
+
+      $form.on("reportAProblemForm.success", this.trackSuccessfulFeedback.bind(this));
     } else {
       renderOriginal();
     }
@@ -112,6 +114,13 @@
 
     if (ReportAProblem.isBeingTestedOnThisPage() && typeof GOVUK.analytics === "object") {
       GOVUK.analytics.trackEvent('ab-test-report-a-problem', 'was-page-useful', {label: wasUseful.toLowerCase()});
+    }
+  };
+
+  ReportAProblem.prototype.trackSuccessfulFeedback = function(evt) {
+    var variant = this.multivariateTest.getCohort();
+    if (typeof GOVUK.analytics === "object") {
+      GOVUK.analytics.trackEvent('ab-test-report-a-problem', 'feedback-submitted', {label: variant});
     }
   };
 
