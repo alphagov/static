@@ -65,7 +65,7 @@ describe("form submission for reporting a problem", function () {
       it('tracks an event when the form is toggled', function() {
         spyOn(GOVUK.analytics, 'trackEvent');
         $('.js-report-a-problem-toggle').first().click();
-        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('report-a-problem', 'link-toggled');
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('ab-test-report-a-problem', 'link-toggled');
       });
 
       testToggleBehaviour();
@@ -92,10 +92,10 @@ describe("form submission for reporting a problem", function () {
         spyOn(GOVUK.analytics, 'trackEvent');
 
         $('[data-useful=No]').click();
-        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('report-a-problem', 'was-page-useful', {label: 'no'});
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('ab-test-report-a-problem', 'was-page-useful', {label: 'no'});
 
         $('[data-useful=Yes]').click();
-        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('report-a-problem', 'was-page-useful', {label: 'yes'});
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('ab-test-report-a-problem', 'was-page-useful', {label: 'yes'});
       });
 
       it('records yes or no in a hidden input', function() {

@@ -111,7 +111,7 @@
     this.$container.find('[name="what_doing"]').val('Was this page useful? ' + wasUseful)
 
     if (ReportAProblem.isBeingTestedOnThisPage() && typeof GOVUK.analytics === "object") {
-      GOVUK.analytics.trackEvent('report-a-problem', 'was-page-useful', {label: wasUseful.toLowerCase()});
+      GOVUK.analytics.trackEvent('ab-test-report-a-problem', 'was-page-useful', {label: wasUseful.toLowerCase()});
     }
   };
 
@@ -119,7 +119,7 @@
     this.$container.toggle();
 
     if (ReportAProblem.isBeingTestedOnThisPage() && typeof GOVUK.analytics === "object") {
-      GOVUK.analytics.trackEvent('report-a-problem', 'link-toggled');
+      GOVUK.analytics.trackEvent('ab-test-report-a-problem', 'link-toggled');
     }
 
     if ($(evt.target).is('a')) {
