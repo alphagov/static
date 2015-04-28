@@ -28,7 +28,26 @@
   };
 
   ReportAProblem.isBeingTestedOnThisPage = function() {
-    return true;
+    var slugsBeingTested = [
+          '/bank-holidays',
+          '/vehicle-tax-rate-tables',
+          '/contact-the-dvla',
+          '/check-uk-visa',
+          '/life-in-the-uk-test',
+          '/government/publications/application-to-transfer-or-retain-a-vehicle-registration-number',
+          '/government/publications/income-tax-tax-relief-for-expenses-of-employment-p87',
+          '/calculate-state-pension',
+          '/calculate-your-holiday-entitlement',
+          '/am-i-getting-minimum-wage'
+        ],
+        slug = ReportAProblem.getCurrentSlug();
+
+    return slugsBeingTested.indexOf(slug) > -1;
+  };
+
+  ReportAProblem.getCurrentSlug = function() {
+    // no parameters or fragments
+    return window.location.pathname;
   };
 
   ReportAProblem.prototype.renderOriginal = function() {

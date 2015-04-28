@@ -16,6 +16,14 @@ describe("form submission for reporting a problem", function () {
     $('.report-a-problem-container').hide();
   });
 
+  describe("when on a page that's part of an ab test", function() {
+    it("creates a multivariate test", function() {
+      spyOn(GOVUK.ReportAProblem, 'getCurrentSlug').and.returnValue('/life-in-the-uk-test');
+      reportAProblem = new GOVUK.ReportAProblem($('.report-a-problem-container'));
+      expect(reportAProblem.multivariateTest.name).toBe('report-a-problem-redesign-ab-test');
+    });
+  });
+
   describe("when not included in redesign test", function() {
 
     beforeEach(function() {
