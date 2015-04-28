@@ -44,7 +44,14 @@
         ],
         slug = ReportAProblem.getCurrentSlug();
 
-    return slugsBeingTested.indexOf(slug) > -1;
+    for (var i = 0, l = slugsBeingTested.length; i < l; i++) {
+      // starts with
+      if (slug.indexOf(slugsBeingTested[i]) === 0) {
+        return true;
+      }
+    }
+
+    return false;
   };
 
   ReportAProblem.getCurrentSlug = function() {

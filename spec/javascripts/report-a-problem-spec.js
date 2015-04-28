@@ -16,11 +16,23 @@ describe("form submission for reporting a problem", function () {
     $('.report-a-problem-container').hide();
   });
 
-  describe("when on a page that's part of an ab test", function() {
-    it("creates a multivariate test", function() {
+  describe("when on a page that might be part of an ab test", function() {
+    it("creates a multivariate test if the slug matches", function() {
       spyOn(GOVUK.ReportAProblem, 'getCurrentSlug').and.returnValue('/life-in-the-uk-test');
       reportAProblem = new GOVUK.ReportAProblem($('.report-a-problem-container'));
       expect(reportAProblem.multivariateTest.name).toBe('report-a-problem-redesign-ab-test');
+    });
+
+    it("creates a multivariate test if the start of the slug matches", function() {
+      spyOn(GOVUK.ReportAProblem, 'getCurrentSlug').and.returnValue('/life-in-the-uk-test/sub/page/y/answer?page');
+      reportAProblem = new GOVUK.ReportAProblem($('.report-a-problem-container'));
+      expect(reportAProblem.multivariateTest.name).toBe('report-a-problem-redesign-ab-test');
+    });
+
+    it("does not create a multivariate test if the slug isn’t being tested", function() {
+      spyOn(GOVUK.ReportAProblem, 'getCurrentSlug').and.returnValue('/not-tested');
+      reportAProblem = new GOVUK.ReportAProblem($('.report-a-problem-container'));
+      expect(reportAProblem.multivariateTest).toBe(undefined);
     });
   });
 
