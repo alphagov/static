@@ -7,24 +7,28 @@
     var $form = $container.find('form'),
         form = new GOVUK.ReportAProblemForm($form);
 
+    $form.on("reportAProblemForm.success", this.showConfirmation.bind(this));
+    $form.on("reportAProblemForm.error", this.showError.bind(this));
+    $container.parent().on("click", ".js-report-a-problem-toggle", this.toggleForm.bind(this));
+
     this.addToggleLink();
-    $form.on('reportAProblemForm.success', this.showConfirmation.bind(this));
-    $form.on('reportAProblemForm.error', this.showError.bind(this));
   };
 
   ReportAProblem.prototype.addToggleLink = function() {
-    var $toggle = $('\
+    this.$container.before('\
       <div class="report-a-problem-toggle-wrapper js-footer">\
         <p class="report-a-problem-toggle">\
-          <a href="">Is there anything wrong with this page?</a>\
+          <a href="" class="js-report-a-problem-toggle">Is there anything wrong with this page?</a>\
         </p>\
       </div>');
+  };
 
-    this.$container.before($toggle);
-    $toggle.on("click", ".report-a-problem-toggle a", function(evt) {
-      this.$container.toggle();
+  ReportAProblem.prototype.toggleForm = function(evt) {
+    this.$container.toggle();
+
+    if ($(evt.target).is('a')) {
       evt.preventDefault();
-    }.bind(this));
+    }
   };
 
   ReportAProblem.prototype.showConfirmation = function(evt, data) {
