@@ -1,13 +1,14 @@
-.js-enabled .report-a-problem-container{
+.js-enabled .report-a-problem-container {
   display: none;
 }
 
-.report-a-problem-container{
+.report-a-problem-container {
   @extend %site-width-container;
   clear: both;
 
   .report-a-problem-inner {
     margin-bottom: 60px;
+
     .report-a-problem-content {
       max-width: 35em;
     }
@@ -30,7 +31,6 @@
 
   p {
     @include core-19;
-    padding-bottom: 1em;
   }
 
   label {
@@ -41,29 +41,37 @@
     font-weight: bold;
   }
 
-  input {
-    &[type="text"] {
-      display: block;
-      @include core-19;
-      margin: 0 0 1em 0;
-      background-color: #f8f8f8;
-      border: 1px inset #bfc1c3;
-      padding: 0.3em 0 0.1em 0.4em;
-      width: 95%;
+  input[type="text"],
+  textarea {
+    display: block;
+    @include core-19;
+    margin: 0 0 1em 0;
+    background-color: #f8f8f8;
+    border: 1px inset #bfc1c3;
+    padding: 0.3em 0 0.1em 0.4em;
+    width: 95%;
 
-      @include ie-lte(7) {
-        width: 550px;
-      }
+    @include ie-lte(7) {
+      width: 550px;
     }
+  }
+
+  textarea {
+    height: 5em;
   }
 }
 
-.report-a-problem-toggle{
+.report-a-problem-toggle {
   @include core-16;
   margin-bottom: 30px;
+  color: $secondary-text-colour;
 
-  a{
+  a {
     color: $secondary-text-colour;
+  }
+
+  p {
+    @include core-16;
   }
 
   @include ie-lte(7) {
@@ -80,4 +88,8 @@
 .report-a-problem-toggle-wrapper {
   @extend %site-width-container;
   clear:both;
+}
+
+.was-this-useful a {
+  margin-left: 0.5em;
 }
