@@ -15,7 +15,7 @@
     if (ReportAProblem.isBeingTestedOnThisPage()) {
       this.multivariateTest = new GOVUK.MultivariateTest({
         name: 'report-a-problem-redesign-ab-test',
-        contentExperimentId: "SnpcHld1SJuQig-_SsaN_Q",
+        contentExperimentId: "bTKGjWu5TDezXmfOa9F2lw",
         cohorts: {
           variant_0: {variantId: 0, callback: renderOriginal},
           variant_1: {variantId: 1, callback: renderVariant}
