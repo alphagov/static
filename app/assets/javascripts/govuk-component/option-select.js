@@ -14,18 +14,15 @@
     this.$optionsContainer = this.$optionSelect.find('.options-container');
     this.$optionList = this.$optionsContainer.children('.js-auto-height-inner');
 
-    // Build clearing link
-    this.$clearingLink = this.attachClearingLink();
-    this.updateClearingLink();
-
-    // Attach event listeners for clearing
-    this.$clearingLink.on('click', this.resetOptions.bind(this));
-    this.$options.on('click', this.updateClearingLink.bind(this));
+    this.attachCheckedCounter();
 
     // Performance in ie 6/7 is not good enough to support animating the opening/closing
     // so do not allow option-selects to be collapsible in this case
     var allowCollapsible = (typeof ieVersion == "undefined" || ieVersion > 7) ? true : false;
     if(allowCollapsible){
+
+      // Attach listener to update checked count
+      this.$options.on('click', this.updateCheckedCount.bind(this));
 
       // Add js-collapsible class to parent for CSS
       this.$optionSelect.addClass('js-collapsible');
@@ -47,32 +44,22 @@
     }
   }
 
-  OptionSelect.prototype.attachClearingLink = function attachClearingLink(){
-    this.$optionSelect.find('.js-container-head').append('<a class="js-clear-selected">clear</a>');
-    return this.$optionSelect.find('.js-clear-selected');
+  OptionSelect.prototype.attachCheckedCounter = function attachCheckedCounter(){
+    this.$optionSelect.find('.js-container-head').append('<div class="js-selected-counter">'+this.checkedString()+'</div>');
   };
 
-  OptionSelect.prototype.resetOptions = function resetOptions(){
-    this.$options.prop({
-      indeterminate: false,
-      checked: false
-    }).trigger("change");
-    this.$clearingLink.addClass('js-hidden');
-
-    // Prevent the event from bubbling as there is a click handler on the parent
-    // to open/close the option-select.
-    return false;
+  OptionSelect.prototype.updateCheckedCount = function updateCheckedCount(){
+    this.$optionSelect.find('.js-selected-counter').text(this.checkedString());
   };
 
-  OptionSelect.prototype.updateClearingLink = function updateClearingLink(){
-    var anyOptions = this.$options.is(":checked"),
-        clearingLinkHidden = this.$clearingLink.hasClass('js-hidden');
-
-    if (anyOptions && clearingLinkHidden) {
-      this.$clearingLink.removeClass('js-hidden');
-    } else if (!anyOptions && !clearingLinkHidden) {
-      this.$clearingLink.addClass('js-hidden');
+  OptionSelect.prototype.checkedString = function checkedString(){
+    var count = this.$options.filter(":checked").size();
+    var checkedString = "";
+    if (count > 0){
+      checkedString = count+" selected";
     }
+
+    return checkedString;
   };
 
   OptionSelect.prototype.attachOpenCloseToggleIndicator = function attachOpenCloseToggleIndicator(){
