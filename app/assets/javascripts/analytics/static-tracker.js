@@ -111,6 +111,10 @@
     this.tracker.trackShare(network);
   };
 
+  StaticTracker.prototype.addLinkedTrackerDomain = function(trackerId, name, domain) {
+    this.tracker.addLinkedTrackerDomain(trackerId, name, domain);
+  };
+
   StaticTracker.prototype.setSectionDimension = function(section) {
     this.setDimension(1, section, 'Section');
   };
