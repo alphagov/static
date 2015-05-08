@@ -64,6 +64,12 @@ describe('GOVUK.OptionSelect', function() {
     $optionSelectHTML.remove();
   });
 
+  describe('replaceHeadWithButton', function(){
+    it ("replaces the `div.container-head` with a button", function(){
+      expect($optionSelectHTML.find('button')).toBeDefined();
+    })
+  });
+
   describe('toggleOptionSelect', function(){
     it("calls optionSelect.close() if the optionSelect is currently open", function(){
       $optionSelectHTML.removeClass('js-closed');
@@ -111,6 +117,12 @@ describe('GOVUK.OptionSelect', function() {
       expect(optionSelect.setupHeight.calls.count()).toBe(0);
     });
 
+    it ('updates aria-expanded to true', function(){
+      $optionSelectHTML.find('button').attr('aria-expanded', 'false');
+      optionSelect.open();
+      expect($optionSelectHTML.find('button').attr('aria-expanded')).toBe('true');
+    });
+
   });
 
   describe('close', function(){
@@ -119,6 +131,12 @@ describe('GOVUK.OptionSelect', function() {
       expect(optionSelect.isClosed()).toBe(false);
       optionSelect.close();
       expect(optionSelect.isClosed()).toBe(true);
+    });
+
+    it ('updates aria-expanded to false', function(){
+      $optionSelectHTML.find('button').attr('aria-expanded', 'true');
+      optionSelect.close();
+      expect($optionSelectHTML.find('button').attr('aria-expanded')).toBe('false');
     });
   });
 

@@ -1,6 +1,6 @@
 .govuk-option-select {
   background-color: $grey-3;
-  padding: 0 5px 5px 5px;
+  padding: 5px;
 
   @include media(desktop){
     /* Redefine scrollbars on desktop where these lists are scrollable
@@ -28,7 +28,7 @@
     @include core-19;
     margin-right: 40px;
     font-weight: bold;
-    padding-top: $gutter-one-third;
+    padding-top:5px;
   }
 
   .options-container {
@@ -36,7 +36,6 @@
     background-color: $page-colour;
     overflow-y: scroll;
     overflow-x: hidden;
-    margin-top: 5px;
     @include media(desktop){
       max-height: 200px;
     }
@@ -64,58 +63,55 @@
   }
 
   .js-enabled & {
+    padding: 0 0 1px 0;
+
+    .js-selected-counter {
+      @include core-14;
+    }
+    .options-container {
+      border: 5px solid $grey-3;
+    }
 
     /* styles for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse */
     &.js-collapsible {
-      &:hover {
-        background-color: $grey-2;
-        cursor:pointer;
+      button {
+        z-index: 100;
+        position: relative;
+        border: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        margin-bottom: -1px;
+        padding: 5px 8px;
+        background: image-url('govuk-component/option-select-toggle-sprite.png') no-repeat right 5px;
+        background-color: $grey-3;
+
+        @include device-pixel-ratio() {
+          background-size: 32px 50px;
+        }
+
+        &:hover {
+          background-color: $grey-2;
+
+        }
+        &:hover + .options-container {
+          border-color: $grey-2;
+        }
+
+        &[disabled] {
+          background-image: none;
+          color: inherit;
+        }
       }
 
       &.js-closed {
+        button {
+          background-position: right -75px;
+        }
         .options-container {
-          position:absolute;
-          left:-9999px;
-          padding:0;
-          margin:0;
+          display:none;
         }
-        .js-toggle-indicator {
-          background-position: 0 -33px;
-        }
-      }
-
-      .js-toggle-indicator {
-        @include inline-block;
-        height: 15px;
-        width: 23px;
-        background-image: image-url('govuk-component/option-select-toggle-sprite.png');
-        background-repeat:no-repeat;
-        background-position:0 3px;
-        position:absolute;
-        right:3px;
-        top:10px;
-        @include device-pixel-ratio() {
-          background-image:image-url('govuk-component/option-select-toggle-sprite-retina.png');
-          background-size: 32px 50px;
-        }
-      }
-    }
-
-    /* styles for clear link */
-    .js-container-head {
-      position:relative;
-    }
-
-    .js-clear-selected {
-      @include inline-block;
-      position:absolute;
-      right: 23px;
-      top:7px;
-      cursor:pointer;
-      &.js-hidden {
-        left: -9999em;
-        height:0px;
-        overflow:hidden;
       }
     }
   }
