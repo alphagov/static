@@ -4,7 +4,7 @@ describe('GOVUK.OptionSelect', function() {
 
   beforeEach(function(){
 
-    optionSelectFixture = '<div class="govuk-option-select" tabindex="0">'+
+    optionSelectFixture = '<div class="govuk-option-select">'+
       '<div class="container-head js-container-head">'+
         '<div class="option-select-label">Market sector</div>'+
       '</div>'+
