@@ -1,12 +1,12 @@
-describe("GOVUK.StaticTracker", function() {
-  var tracker;
+describe("GOVUK.StaticAnalytics", function() {
+  var analytics;
 
   beforeEach(function() {
     window.ga = function() {};
     spyOn(window, 'ga');
     spyOn(GOVUK.analyticsPlugins, 'printIntent');
     spyOn(GOVUK.analyticsPlugins, 'error');
-    tracker = new GOVUK.StaticTracker({
+    analytics = new GOVUK.StaticAnalytics({
       universalId: 'universal-id',
       cookieDomain: '.www.gov.uk'
     });
@@ -65,7 +65,7 @@ describe("GOVUK.StaticTracker", function() {
           <meta name="govuk:analytics:world-locations" content="<W1>">\
         ');
 
-        tracker = new GOVUK.StaticTracker({universalId: 'universal-id'});
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
         expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
@@ -82,7 +82,7 @@ describe("GOVUK.StaticTracker", function() {
 
         $('head').append('<meta name="govuk:section" content="section">');
 
-        tracker = new GOVUK.StaticTracker({universalId: 'universal-id'});
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
         expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
@@ -94,20 +94,20 @@ describe("GOVUK.StaticTracker", function() {
   describe('when tracking pageviews, events and custom dimensions', function() {
     it('tracks them in universal', function() {
 
-      tracker.trackPageview('/path', 'Title');
+      analytics.trackPageview('/path', 'Title');
       expect(window.ga.calls.mostRecent().args).toEqual(['send', 'pageview', {page: '/path', title: 'Title'}]);
 
-      tracker.trackEvent('category', 'action');
+      analytics.trackEvent('category', 'action');
       expect(window.ga.calls.mostRecent().args).toEqual(['send', {hitType: 'event', eventCategory: 'category', eventAction: 'action'}]);
 
-      tracker.setSectionDimension('value');
+      analytics.setSectionDimension('value');
       expect(window.ga.calls.mostRecent().args).toEqual(['set', 'dimension1', 'value']);
     });
   });
 
   describe('when tracking social media shares', function() {
     it('tracks them in universal', function() {
-      tracker.trackShare('network');
+      analytics.trackShare('network');
 
       expect(window.ga.calls.mostRecent().args).toEqual(['send', {
         hitType: 'social',
@@ -125,24 +125,24 @@ describe("GOVUK.StaticTracker", function() {
 
     describe('and the method exists', function() {
       it('sets a cookie with the method name', function() {
-        tracker.callOnNextPage('trackPageview');
+        analytics.callOnNextPage('trackPageview');
         expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview"]');
       });
 
       it('sets a cookie with the parameters to call', function() {
-        tracker.callOnNextPage('trackPageview', ['/path', 'Custom Title']);
+        analytics.callOnNextPage('trackPageview', ['/path', 'Custom Title']);
         expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview","/path","Custom Title"]');
       });
 
       it('sets a cookie with the single parameter to call', function() {
-        tracker.callOnNextPage('trackPageview', '/path');
+        analytics.callOnNextPage('trackPageview', '/path');
         expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview","/path"]');
       });
     });
 
     describe('and the method doesn’t exist', function() {
       it('no cookie is set', function() {
-        tracker.callOnNextPage('trackPageviewToNowhere');
+        analytics.callOnNextPage('trackPageviewToNowhere');
         expect(GOVUK.cookie).not.toHaveBeenCalled();
       });
     });
@@ -150,19 +150,19 @@ describe("GOVUK.StaticTracker", function() {
 
   describe('when there is a cookie indicating a method to call', function() {
     beforeEach(function() {
-      spyOn(tracker, 'trackPageview');
+      spyOn(analytics, 'trackPageview');
     });
 
     it('calls the method', function() {
       spyOn(GOVUK, 'cookie').and.returnValue('["trackPageview"]');
-      tracker.callMethodRequestedByPreviousPage();
-      expect(tracker.trackPageview).toHaveBeenCalledWith();
+      analytics.callMethodRequestedByPreviousPage();
+      expect(analytics.trackPageview).toHaveBeenCalledWith();
     });
 
     it('calls the method with given parameters', function() {
       spyOn(GOVUK, 'cookie').and.returnValue('["trackPageview","/path","Title"]');
-      tracker.callMethodRequestedByPreviousPage();
-      expect(tracker.trackPageview).toHaveBeenCalledWith('/path', 'Title');
+      analytics.callMethodRequestedByPreviousPage();
+      expect(analytics.trackPageview).toHaveBeenCalledWith('/path', 'Title');
     });
   });
 });
