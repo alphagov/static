@@ -57,7 +57,7 @@
       success: this.triggerSuccess.bind(this),
       error: this.handleError.bind(this),
       statusCode: {
-        500: this.triggerError.bind(this),
+        500: this.triggerError.bind(this)
       }
     });
   };
