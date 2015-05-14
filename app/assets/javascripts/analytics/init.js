@@ -10,8 +10,7 @@
 
   // Configure profiles, setup custom vars, track initial pageview
   var analytics = new GOVUK.StaticTracker({
-    universalId: 'UA-26179049-7',
-    classicId: 'UA-26179049-1',
+    universalId: 'UA-26179049-1',
     cookieDomain: cookieDomain
   });
 

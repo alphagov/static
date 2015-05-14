@@ -4,11 +4,11 @@
 
   var StaticTracker = function(config) {
 
-    // Create universal and classic analytics tracker
+    // Create universal tracker
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/analytics.md
-    // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/tracker.js
-    var tracker = new GOVUK.Tracker(config);
-    this.tracker = tracker;
+    // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js
+    var analytics = new GOVUK.Analytics(config);
+    this.analytics = analytics;
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
@@ -16,7 +16,7 @@
     this.callMethodRequestedByPreviousPage();
 
     // Track initial pageview
-    tracker.trackPageview();
+    analytics.trackPageview();
 
     // Begin error and print tracking
     GOVUK.analyticsPlugins.error();
@@ -24,12 +24,12 @@
 
     function setPixelDensityDimension() {
       if (window.devicePixelRatio) {
-        tracker.setDimension(11, window.devicePixelRatio, 'Pixel Ratio', 2);
+        analytics.setDimension(11, window.devicePixelRatio);
       }
     }
 
     function setHTTPStatusCodeDimension() {
-      tracker.setDimension(15, window.httpStatusCode || 200, 'httpStatusCode');
+      analytics.setDimension(15, window.httpStatusCode || 200);
     }
 
   };
@@ -66,7 +66,7 @@
   };
 
   StaticTracker.load = function() {
-    GOVUK.Tracker.load();
+    GOVUK.Analytics.load();
   };
 
   StaticTracker.prototype.setDimensionsFromMetaTags = function() {
@@ -93,11 +93,11 @@
   };
 
   StaticTracker.prototype.trackPageview = function(path, title) {
-    this.tracker.trackPageview(path, title);
+    this.analytics.trackPageview(path, title);
   };
 
   StaticTracker.prototype.trackEvent = function(category, action, options) {
-    this.tracker.trackEvent(category, action, options);
+    this.analytics.trackEvent(category, action, options);
   };
 
   StaticTracker.prototype.setDimension = function(index, value, name, scope) {
@@ -105,47 +105,47 @@
       return;
     }
 
-    this.tracker.setDimension(index, value, name, scope);
+    this.analytics.setDimension(index, value, name, scope);
   };
 
   StaticTracker.prototype.trackShare = function(network) {
-    this.tracker.trackShare(network);
+    this.analytics.trackShare(network);
   };
 
   StaticTracker.prototype.addLinkedTrackerDomain = function(trackerId, name, domain) {
-    this.tracker.addLinkedTrackerDomain(trackerId, name, domain);
+    this.analytics.addLinkedTrackerDomain(trackerId, name, domain);
   };
 
   StaticTracker.prototype.setSectionDimension = function(section) {
-    this.setDimension(1, section, 'Section');
+    this.setDimension(1, section);
   };
 
   StaticTracker.prototype.setFormatDimension = function(format) {
-    this.setDimension(2, format, 'Format');
+    this.setDimension(2, format);
   };
 
   StaticTracker.prototype.setNeedIDsDimension = function(ids) {
-    this.setDimension(3, ids, 'NeedID');
+    this.setDimension(3, ids);
   };
 
   StaticTracker.prototype.setResultCountDimension = function(count) {
-    this.setDimension(5, count, 'ResultCount');
+    this.setDimension(5, count);
   };
 
   StaticTracker.prototype.setPublishingGovernmentDimension = function(government) {
-    this.setDimension(6, government, 'PublishingGovernment');
+    this.setDimension(6, government);
   };
 
   StaticTracker.prototype.setPoliticalStatusDimension = function(status) {
-    this.setDimension(7, status, 'PoliticalStatus');
+    this.setDimension(7, status);
   };
 
   StaticTracker.prototype.setOrganisationsDimension = function(orgs) {
-    this.setDimension(9, orgs, 'Organisations');
+    this.setDimension(9, orgs);
   };
 
   StaticTracker.prototype.setWorldLocationsDimension = function(locations) {
-    this.setDimension(10, locations, 'WorldLocations');
+    this.setDimension(10, locations);
   };
 
   StaticTracker.prototype.setRenderingApplicationDimension = function(app) {
@@ -153,7 +153,7 @@
   };
 
   StaticTracker.prototype.setSearchPositionDimension = function(position) {
-    this.setDimension(21, position, 'searchPosition');
+    this.setDimension(21, position);
   };
 
   GOVUK.StaticTracker = StaticTracker;
