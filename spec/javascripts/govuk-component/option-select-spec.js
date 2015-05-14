@@ -74,14 +74,14 @@ describe('GOVUK.OptionSelect', function() {
     it("calls optionSelect.close() if the optionSelect is currently open", function(){
       $optionSelectHTML.removeClass('js-closed');
       spyOn(optionSelect, "close");
-      optionSelect.toggleOptionSelect();
+      optionSelect.toggleOptionSelect(jQuery.Event("click"));
       expect(optionSelect.close.calls.count()).toBe(1);
     });
 
     it("calls optionSelect.open() if the optionSelect is currently closed", function(){
       $optionSelectHTML.addClass('js-closed');
       spyOn(optionSelect, "open");
-      optionSelect.toggleOptionSelect();
+      optionSelect.toggleOptionSelect(jQuery.Event("click"));
       expect(optionSelect.open.calls.count()).toBe(1);
     });
   });

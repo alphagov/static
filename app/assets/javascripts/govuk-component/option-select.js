@@ -82,12 +82,13 @@
   };
 
 
-  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(){
+  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(e){
     if (this.isClosed()) {
       this.open();
     } else {
       this.close();
     }
+    e.preventDefault();
   };
 
   OptionSelect.prototype.open = function open(){
