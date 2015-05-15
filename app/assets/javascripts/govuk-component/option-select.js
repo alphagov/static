@@ -4,7 +4,7 @@
 
   function OptionSelect(options){
     /* This JavaScript provides two functional enhancements to option-select components:
-      1) A link that clears all of the checkboxes (referred to here as the "clearing link")
+      1) A count that shows how many results have been checked in the option-container
       2) Open/closing of the list of checkboxes - this is not provided for ie6 and 7 as the performance is too janky.
     */
 
@@ -24,11 +24,11 @@
       // Attach listener to update checked count
       this.$options.on('click', this.updateCheckedCount.bind(this));
 
+      // Replace div.container-head with a button
+      this.replaceHeadWithButton();
+
       // Add js-collapsible class to parent for CSS
       this.$optionSelect.addClass('js-collapsible');
-
-      // Add the little arrow toggle image
-      this.attachOpenCloseToggleIndicator();
 
       // Add open/close listeners
       this.$optionSelect.find('.js-container-head').on('click', this.toggleOptionSelect.bind(this));
@@ -43,6 +43,25 @@
       this.close();
     }
   }
+
+  OptionSelect.prototype.replaceHeadWithButton = function replaceHeadWithButton(){
+    /* Replace the div at the head with a button element. This is based on feedback from Léonie Watson.
+     * The button has all of the accessibility hooks that are used by screen readers and etc.
+     * We do this in the JavaScript because if the JavaScript is not active then the button shouldn't
+     * be there as there is no JS to handle the click event.
+    */
+    var $containerHead = this.$optionSelect.find('.js-container-head');
+    var jsContainerHeadHTML = $containerHead.html();
+
+    // Create button and replace the preexisting html with the button.
+    var $button = $('<button>');
+    $button.addClass('js-container-head');
+    $button.attr('aria-expanded', this.isClosed());
+    $button.attr('aria-controls', this.$optionSelect.find('.options-container').attr('id'));
+    $button.html(jsContainerHeadHTML);
+    $containerHead.replaceWith($button);
+
+  };
 
   OptionSelect.prototype.attachCheckedCounter = function attachCheckedCounter(){
     this.$optionSelect.find('.js-container-head').append('<div class="js-selected-counter">'+this.checkedString()+'</div>');
@@ -62,20 +81,19 @@
     return checkedString;
   };
 
-  OptionSelect.prototype.attachOpenCloseToggleIndicator = function attachOpenCloseToggleIndicator(){
-    this.$optionSelect.find('.js-container-head').append('<div class="js-toggle-indicator"></div>');
-  };
 
-  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(){
+  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(e){
     if (this.isClosed()) {
       this.open();
     } else {
       this.close();
     }
+    e.preventDefault();
   };
 
   OptionSelect.prototype.open = function open(){
     if (this.isClosed()) {
+      this.$optionSelect.find('.js-container-head').attr('aria-expanded', true);
       this.$optionSelect.removeClass('js-closed');
       if (!this.$optionsContainer.prop('style').height) {
         this.setupHeight();
@@ -85,6 +103,7 @@
 
   OptionSelect.prototype.close = function close(){
     this.$optionSelect.addClass('js-closed');
+    this.$optionSelect.find('.js-container-head').attr('aria-expanded', false);
   };
 
   OptionSelect.prototype.isClosed = function isClosed(){
