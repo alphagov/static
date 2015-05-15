@@ -4,7 +4,7 @@
 
   function OptionSelect(options){
     /* This JavaScript provides two functional enhancements to option-select components:
-      1) A link that clears all of the checkboxes (referred to here as the "clearing link")
+      1) A count that shows how many results have been checked in the option-container
       2) Open/closing of the list of checkboxes - this is not provided for ie6 and 7 as the performance is too janky.
     */
 
