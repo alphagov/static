@@ -372,12 +372,27 @@
         - value: "spain"
           label: "Spain"
           id: "spain"
+    closed_on_load:
+      key: "closed_on_load"
+      title: "List of hats"
+      closed_on_load: true
+      options_container_id: "list_of_hats"
+      options:
+        - value: "bobble_hat"
+          label: "Bobble hat"
+          id: "bobble_hat"
+        - value: "fez"
+          label: "Fez"
+          id: "fez"
+        - value: "sombrero"
+          label: "Sombrero"
+          id: "sombrero"
 - id: "previous_and_next_navigation"
   name: "Previous and next navigation"
   description: "Navigational links that allow users navigate within a series of pages or elements."
   body: |
     This component accepts 2 optional parameters, previous and next.
-    
+
     Each optional parameter accepts:
 
     - an URL for the link

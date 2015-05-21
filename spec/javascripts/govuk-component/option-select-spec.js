@@ -64,6 +64,28 @@ describe('GOVUK.OptionSelect', function() {
     $optionSelectHTML.remove();
   });
 
+
+  it('instantiates a closed option-select if data-closed-on-load is true', function(){
+    $closedOnLoadFixture = $('<div class="govuk-option-select" data-closed-on-load=true></div>');
+    $('body').append($closedOnLoadFixture);
+    optionSelect = new GOVUK.OptionSelect({$el:$closedOnLoadFixture});
+    expect(optionSelect.isClosed()).toBe(true);
+  });
+
+  it('instantiates an open option-select if data-closed-on-load is false', function(){
+    $openOnLoadFixture = $('<div class="govuk-option-select" data-closed-on-load="false"></div>');
+    $('body').append($openOnLoadFixture);
+    optionSelect = new GOVUK.OptionSelect({$el:$openOnLoadFixture});
+    expect(optionSelect.isClosed()).toBe(false);
+  });
+
+  it('instantiates an open option-select if data-closed-on-load is not present', function(){
+    $openOnLoadFixture = $('<div class="govuk-option-select"></div>');
+    $('body').append($openOnLoadFixture);
+    optionSelect = new GOVUK.OptionSelect({$el:$openOnLoadFixture});
+    expect(optionSelect.isClosed()).toBe(false);
+  });
+
   describe('replaceHeadWithButton', function(){
     it ("replaces the `div.container-head` with a button", function(){
       expect($optionSelectHTML.find('button')).toBeDefined();
@@ -87,30 +109,28 @@ describe('GOVUK.OptionSelect', function() {
   });
 
   describe('open', function(){
+    beforeEach(function(){
+      spyOn(optionSelect, "isClosed").and.returnValue(true);
+    });
 
     it ('calls isClosed() and opens if isClosed is true', function(){
-      spyOn(optionSelect, "isClosed").and.returnValue(true);
       optionSelect.open();
       expect(optionSelect.isClosed.calls.count()).toBe(1);
       expect($optionSelectHTML.hasClass('js-closed')).toBe(false);
     });
 
     it('opens the option-select', function(){
-      optionSelect.close();
-      expect(optionSelect.isClosed()).toBe(true);
       optionSelect.open();
-      expect(optionSelect.isClosed()).toBe(false);
+      expect($optionSelectHTML.hasClass('js-closed')).toBe(false);
     });
 
     it ('calls setupHeight()', function(){
-      $optionSelectHTML.addClass('closed');
       spyOn(optionSelect, "setupHeight");
       optionSelect.open();
       expect(optionSelect.setupHeight.calls.count()).toBe(1);
     });
 
     it ('doesn\'t call setupHeight() if a height has already been set', function(){
-      $optionSelectHTML.addClass('closed');
       optionSelect.setContainerHeight(100);
       spyOn(optionSelect, "setupHeight");
       optionSelect.open();
