@@ -1,7 +1,7 @@
 <div class="report-a-problem-container">
   <div class="report-a-problem-inner">
     <div class="report-a-problem-content">
-      <h2 class="js-original-variant">Help us improve GOV.UK</h2>
+      <h2>Help us improve GOV.UK</h2>
       <form accept-charset="UTF-8" action="/contact/govuk/problem_reports" method="post">
         <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
         <input id="url" name="url" type="hidden" value="<%= h request_url %>">
@@ -12,15 +12,14 @@
           <input id="page_owner" name="page_owner" type="hidden" value="<%= page_owner %>">
         <% end %>
 
-        <div class="js-original-variant">
-          <p>Don’t include personal or financial information, eg your National Insurance number or credit card details.</p>
+        <p>Don’t include personal or financial information, eg your National Insurance number or credit card details.</p>
 
-          <label for="what_doing">What you were doing</label>
-          <input id="what_doing" name="what_doing" type="text" />
+        <label for="what_doing">What you were doing</label>
+        <input id="what_doing" name="what_doing" type="text" />
 
-          <label for="what_wrong">What went wrong</label>
-          <input id="what_wrong" name="what_wrong" type="text" />
-        </div>
+        <label for="what_wrong">What went wrong</label>
+        <input id="what_wrong" name="what_wrong" type="text" />
+
         <div class="button-wrapper">
           <button name="commit" type="submit" class="button">Send</button>
         </div>
