@@ -40,7 +40,9 @@
       // Add a listener to the checkboxes so if you navigate to them with the keyboard you can definitely see them
       this.$options.on('focus', this.open.bind(this));
 
-      this.close();
+      if (this.$optionSelect.data('closed-on-load') == true) {
+        this.close();
+      }
     }
   }
 
