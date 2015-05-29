@@ -89,6 +89,7 @@
     this.setPoliticalStatusDimension(dimensions['political-status']);
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
+    this.setRenderingApplicationDimension(dimensions['rendering-application']);
   };
 
   StaticTracker.prototype.trackPageview = function(path, title) {
@@ -145,6 +146,10 @@
 
   StaticTracker.prototype.setWorldLocationsDimension = function(locations) {
     this.setDimension(10, locations, 'WorldLocations');
+  };
+
+  StaticTracker.prototype.setRenderingApplicationDimension = function(app) {
+    this.setDimension(20, app, 'RenderingApps');
   };
 
   StaticTracker.prototype.setSearchPositionDimension = function(position) {
