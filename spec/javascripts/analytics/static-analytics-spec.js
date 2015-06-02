@@ -57,7 +57,6 @@ describe("GOVUK.StaticAnalytics", function() {
         $('head').append('\
           <meta name="govuk:section" content="section">\
           <meta name="govuk:format" content="format">\
-          <meta name="govuk:need-ids" content="1,2,3">\
           <meta name="govuk:search-result-count" content="1000">\
           <meta name="govuk:publishing-government" content="2005-to-2010-labour-government">\
           <meta name="govuk:political-status" content="historic">\
@@ -70,12 +69,11 @@ describe("GOVUK.StaticAnalytics", function() {
 
         expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
         expect(universalSetupArguments[5]).toEqual(['set', 'dimension2', 'format']);
-        expect(universalSetupArguments[6]).toEqual(['set', 'dimension3', '1,2,3']);
-        expect(universalSetupArguments[7]).toEqual(['set', 'dimension5', '1000']);
-        expect(universalSetupArguments[8]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
-        expect(universalSetupArguments[9]).toEqual(['set', 'dimension7', 'historic']);
-        expect(universalSetupArguments[10]).toEqual(['set', 'dimension9', '<D10>']);
-        expect(universalSetupArguments[11]).toEqual(['set', 'dimension10', '<W1>']);
+        expect(universalSetupArguments[6]).toEqual(['set', 'dimension5', '1000']);
+        expect(universalSetupArguments[7]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
+        expect(universalSetupArguments[8]).toEqual(['set', 'dimension7', 'historic']);
+        expect(universalSetupArguments[9]).toEqual(['set', 'dimension9', '<D10>']);
+        expect(universalSetupArguments[10]).toEqual(['set', 'dimension10', '<W1>']);
       });
 
       it('ignores meta tags not set', function() {
