@@ -83,7 +83,6 @@
 
     this.setSectionDimension(dimensions['section']);
     this.setFormatDimension(dimensions['format']);
-    this.setNeedIDsDimension(dimensions['need-ids']);
     this.setResultCountDimension(dimensions['search-result-count']);
     this.setPublishingGovernmentDimension(dimensions['publishing-government']);
     this.setPoliticalStatusDimension(dimensions['political-status']);
@@ -122,10 +121,6 @@
 
   StaticAnalytics.prototype.setFormatDimension = function(format) {
     this.setDimension(2, format);
-  };
-
-  StaticAnalytics.prototype.setNeedIDsDimension = function(ids) {
-    this.setDimension(3, ids);
   };
 
   StaticAnalytics.prototype.setResultCountDimension = function(count) {
