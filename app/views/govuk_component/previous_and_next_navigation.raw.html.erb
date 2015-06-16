@@ -1,7 +1,6 @@
 <nav class="govuk-previous-and-next-navigation" role="navigation" aria-label="Pagination">
   <ul class="group">
     <% if local_assigns.include?(:previous_page) %>
-      <% previous_page = previous_page.with_indifferent_access %>
       <li class="previous-page">
         <a href="<%= previous_page[:url] %>" rel="previous" >
           <span class="pagination-part-title"><%= previous_page[:title] %></span>
@@ -10,7 +9,6 @@
       </li>
     <% end %>
     <% if local_assigns.include?(:next_page) %>
-      <% next_page = next_page.with_indifferent_access %>
       <li class="next-page">
         <a href="<%= next_page[:url] %>" rel="next">
           <span class="pagination-part-title"><%= next_page[:title] %></span>
