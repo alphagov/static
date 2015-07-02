@@ -156,14 +156,14 @@
         padding-left: $gutter;
       }
 
-     &:before {
+      &:before {
         content: "\201C";
         float: left;
         clear: both;
         margin-left: -$gutter-half;
       }
 
-      &.last-child:after {
+      &:last-child:after {
         content: "\201D";
       }
     }
@@ -183,14 +183,14 @@
         padding-left: 0;
       }
 
-     &:before {
+      &:before {
         content: "\201D";
         float: right;
         margin-right: -$gutter-half;
         margin-left: 0;
       }
 
-      &.last-child:after {
+      &:last-child:after {
         content: "\201C";
       }
     }
