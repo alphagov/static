@@ -35,6 +35,8 @@ To match rails view convention the partial itself should use an underscore, rath
 </div>
 ```
 
+_Note_: For consistency with other components, and Rails convention, you should only use `:symbols`, rather than `"strings"`, for object keys.
+
 2) There is a SCSS module at `app/stylesheets/govuk-component/_your-component-name.scss` - there should be a single root class, the same class on the root of the partial. For example:
 ```
 .govuk-your-component-name {
@@ -55,3 +57,5 @@ To match rails view convention the partial itself should use an underscore, rath
 
 Adding it to the documentation will allow you to preview it in the `govuk_component_guide`, which can be pointed to any
 version of static, including your local one running a branch. Which you should probably do.
+
+
