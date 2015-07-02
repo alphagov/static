@@ -163,7 +163,7 @@
         margin-left: -$gutter-half;
       }
 
-      &.last-child:after {
+      &:last-child:after {
         content: "\201D";
       }
     }
@@ -190,7 +190,7 @@
         margin-left: 0;
       }
 
-      &.last-child:after {
+      &:last-child:after {
         content: "\201C";
       }
     }
