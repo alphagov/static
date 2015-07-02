@@ -156,7 +156,7 @@
         padding-left: $gutter;
       }
 
-     &:before {
+      &:before {
         content: "\201C";
         float: left;
         clear: both;
@@ -183,7 +183,7 @@
         padding-left: 0;
       }
 
-     &:before {
+      &:before {
         content: "\201D";
         float: right;
         margin-right: -$gutter-half;
