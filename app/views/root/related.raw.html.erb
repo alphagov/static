@@ -3,7 +3,7 @@
   <!-- related -->
   <div class="related-container">
 
-    <div class="related" id="related">
+    <aside class="related" id="related">
       <% artefact.related_artefacts.group_by(&:group).each do |group, related_artefacts| %>
         <%
           section = case group
@@ -53,7 +53,7 @@
       <div class="inner group">
         <a class="return-to-top" href="#content">Return to top &uarr;</a>
       </div>
-    </div>
+    </aside>
 
   </div>
 <!-- end related -->
