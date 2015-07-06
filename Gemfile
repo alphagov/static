@@ -30,7 +30,7 @@ group :development, :test do
   gem 'quiet_assets', '1.1.0'
 end
 
-gem 'plek', '1.7.0'
+gem 'plek', '1.11.0'
 
 gem 'govuk_frontend_toolkit', '4.0.1'
 if ENV['GOVUK_TEMPLATE_DEV']
