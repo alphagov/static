@@ -32,10 +32,9 @@ describe("User Satisfaction Survey", function () {
       document.body.insertAdjacentHTML("afterbegin", block);
 
       $("#user-satisfaction-survey").remove();
-      $("#user-satisfaction-survey-container").data('survey-url', 'javascript:void();');
 
       // Don't actually try and take a survey in test.
-      $('#take-survey').live('click', function(e) {
+      $('#take-survey').on('click', function(e) {
         e.preventDefault();
       });
 
