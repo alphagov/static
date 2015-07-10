@@ -1,6 +1,9 @@
 <% content_for :homepage_url, Plek.new.website_root %>
-<% content_for :global_header_text, ENV["GLOBAL_HEADER_TEXT"] %>
 <% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
+
+<% if ENV["DRAFT_ENVIRONMENT"] == 'true' %>
+  <% content_for :body_classes, "draft" %>
+<% end %>
 
 <% content_for :head do %>
   <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'static' } %>
