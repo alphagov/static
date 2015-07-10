@@ -37,9 +37,6 @@ namespace :router do
       end
     end
 
-    # FIXME: Remove when this has run everywhere.
-    @router_api.delete_route("/fonts")
-
     @router_api.commit_routes
   end
 
