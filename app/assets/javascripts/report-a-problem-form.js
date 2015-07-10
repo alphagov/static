@@ -21,11 +21,11 @@
   };
 
   ReportAProblemForm.prototype.disableSubmitButton = function() {
-    this.$form.find('.button').attr("disabled", true);
+    this.$form.find('.button').prop("disabled", true);
   };
 
   ReportAProblemForm.prototype.enableSubmitButton = function() {
-    this.$form.find('.button').attr("disabled", false);
+    this.$form.find('.button').prop("disabled", false);
   };
 
   ReportAProblemForm.prototype.promptUserToEnterValidData = function() {
