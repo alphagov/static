@@ -1,5 +1,5 @@
 //= require libs/jquery/jquery-ui-1.10.2.custom
-//= require libs/jquery/plugins/jquery.player.min
+//= require vendor/jquery/jquery.player.min
 
 (function ($) {
   window.GOVUK = window.GOVUK || {};
