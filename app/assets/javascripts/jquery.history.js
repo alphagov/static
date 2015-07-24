@@ -11,12 +11,51 @@
  * for msie when no initial hash supplied.
  */
 
+/* Remove dependency on jQuery.browser
+ *
+ * Extracted from jQuery and jQuery migrator
+ * https://gist.github.com/adeelejaz/4714079 */
+(function(window, jQuery) {
+  "use strict";
+  var matched, browser;
+  var historyBrowserShim = {};
+
+  historyBrowserShim.uaMatch = function( ua ) {
+    ua = ua.toLowerCase();
+
+    var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+      /(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+      /(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+      /(msie) ([\w.]+)/.exec( ua ) ||
+      ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+      [];
+
+    return {
+      browser: match[ 1 ] || "",
+      version: match[ 2 ] || "0"
+    };
+  };
+
+  matched = historyBrowserShim.uaMatch( window.navigator.userAgent );
+  browser = {};
+
+  if ( matched.browser ) {
+    historyBrowserShim[ matched.browser ] = true;
+    historyBrowserShim.version = matched.version;
+  }
+
+  if ( historyBrowserShim.webkit ) {
+    historyBrowserShim.safari = true;
+  }
+
+  jQuery.historyBrowserShim = historyBrowserShim;
+})(window, jQuery);
 
 jQuery.extend({
 	historyCurrentHash: undefined,
 	historyCallback: undefined,
 	historyIframeSrc: undefined,
-	historyNeedIframe: jQuery.browser.msie && (jQuery.browser.version < 8 || document.documentMode < 8),
+	historyNeedIframe: jQuery.historyBrowserShim.msie && (jQuery.historyBrowserShim.version < 8 || document.documentMode < 8),
 
 	historyInit: function(callback, src){
 		jQuery.historyCallback = callback;
@@ -40,7 +79,7 @@ jQuery.extend({
 			iframe.close();
 			iframe.location.hash = current_hash;
 		}
-		else if (jQuery.browser.safari) {
+		else if (jQuery.historyBrowserShim.safari) {
 			// etablish back/forward stacks
 			jQuery.historyBackStack = [];
 			jQuery.historyBackStack.length = history.length;
@@ -75,7 +114,7 @@ jQuery.extend({
 				jQuery.historyCallback(current_hash.replace(/^#/, ''));
 
 			}
-		} else if (jQuery.browser.safari) {
+		} else if (jQuery.historyBrowserShim.safari) {
 			if(jQuery.lastHistoryLength == history.length && jQuery.historyBackStack.length > jQuery.lastHistoryLength) {
 				jQuery.historyBackStack.shift();
 			}
@@ -123,7 +162,7 @@ jQuery.extend({
 		var newhash;
 		hash = decodeURIComponent(hash.replace(/\?.*$/, ''));
 
-		if (jQuery.browser.safari) {
+		if (jQuery.historyBrowserShim.safari) {
 			newhash = hash;
 		}
 		else {
@@ -141,7 +180,7 @@ jQuery.extend({
 			jQuery.lastHistoryLength = history.length;
 			jQuery.historyCallback(hash);
 		}
-		else if (jQuery.browser.safari) {
+		else if (jQuery.historyBrowserShim.safari) {
 			jQuery.dontCheck = true;
 			// Manually keep track of the history values for Safari
 			this.historyAddHistory(hash);
