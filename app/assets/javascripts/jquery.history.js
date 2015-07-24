@@ -1,6 +1,6 @@
 /*
  * jQuery history plugin
- * 
+ *
  * sample page: http://www.mikage.to/jquery/jquery_history.html
  *
  * Copyright (c) 2006-2009 Taku Sano (Mikage Sawatari)
@@ -11,25 +11,64 @@
  * for msie when no initial hash supplied.
  */
 
+/* Remove dependency on jQuery.browser
+ *
+ * Extracted from jQuery and jQuery migrator
+ * https://gist.github.com/adeelejaz/4714079 */
+(function(window, jQuery) {
+  "use strict";
+  var matched, browser;
+  var historyBrowserShim = {};
+
+  historyBrowserShim.uaMatch = function( ua ) {
+    ua = ua.toLowerCase();
+
+    var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+      /(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+      /(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+      /(msie) ([\w.]+)/.exec( ua ) ||
+      ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+      [];
+
+    return {
+      browser: match[ 1 ] || "",
+      version: match[ 2 ] || "0"
+    };
+  };
+
+  matched = historyBrowserShim.uaMatch( window.navigator.userAgent );
+  browser = {};
+
+  if ( matched.browser ) {
+    historyBrowserShim[ matched.browser ] = true;
+    historyBrowserShim.version = matched.version;
+  }
+
+  if ( historyBrowserShim.webkit ) {
+    historyBrowserShim.safari = true;
+  }
+
+  jQuery.historyBrowserShim = historyBrowserShim;
+})(window, jQuery);
 
 jQuery.extend({
 	historyCurrentHash: undefined,
 	historyCallback: undefined,
 	historyIframeSrc: undefined,
-	historyNeedIframe: jQuery.browser.msie && (jQuery.browser.version < 8 || document.documentMode < 8),
-	
+	historyNeedIframe: jQuery.historyBrowserShim.msie && (jQuery.historyBrowserShim.version < 8 || document.documentMode < 8),
+
 	historyInit: function(callback, src){
 		jQuery.historyCallback = callback;
 		if (src) jQuery.historyIframeSrc = src;
 		var current_hash = location.hash.replace(/\?.*$/, '');
-		
+
 		jQuery.historyCurrentHash = current_hash;
 		if (jQuery.historyNeedIframe) {
 			// To stop the callback firing twice during initilization if no hash present
 			if (jQuery.historyCurrentHash == '') {
 				jQuery.historyCurrentHash = '#';
 			}
-		
+
 			// add hidden iframe for IE
 			jQuery("body").prepend('<iframe id="jQuery_history" style="display: none;"'+
 				' src="javascript:false;"></iframe>'
@@ -40,28 +79,28 @@ jQuery.extend({
 			iframe.close();
 			iframe.location.hash = current_hash;
 		}
-		else if (jQuery.browser.safari) {
+		else if (jQuery.historyBrowserShim.safari) {
 			// etablish back/forward stacks
 			jQuery.historyBackStack = [];
 			jQuery.historyBackStack.length = history.length;
 			jQuery.historyForwardStack = [];
 			jQuery.lastHistoryLength = history.length;
-			
+
 			jQuery.isFirst = true;
 		}
 		if(current_hash)
 			jQuery.historyCallback(current_hash.replace(/^#/, ''));
 		setInterval(jQuery.historyCheck, 100);
 	},
-	
+
 	historyAddHistory: function(hash) {
 		// This makes the looping function do something
 		jQuery.historyBackStack.push(hash);
-		
+
 		jQuery.historyForwardStack.length = 0; // clear forwardStack (true click occured)
 		this.isFirst = true;
 	},
-	
+
 	historyCheck: function(){
 		if (jQuery.historyNeedIframe) {
 			// On IE, check for location.hash of iframe
@@ -69,20 +108,20 @@ jQuery.extend({
 			var iframe = ihistory.contentDocument || ihistory.contentWindow.document;
 			var current_hash = iframe.location.hash.replace(/\?.*$/, '');
 			if(current_hash != jQuery.historyCurrentHash) {
-			
+
 				location.hash = current_hash;
 				jQuery.historyCurrentHash = current_hash;
 				jQuery.historyCallback(current_hash.replace(/^#/, ''));
-				
+
 			}
-		} else if (jQuery.browser.safari) {
+		} else if (jQuery.historyBrowserShim.safari) {
 			if(jQuery.lastHistoryLength == history.length && jQuery.historyBackStack.length > jQuery.lastHistoryLength) {
 				jQuery.historyBackStack.shift();
 			}
 			if (!jQuery.dontCheck) {
 				var historyDelta = history.length - jQuery.historyBackStack.length;
 				jQuery.lastHistoryLength = history.length;
-				
+
 				if (historyDelta) { // back or forward button has been pushed
 					jQuery.isFirst = false;
 					if (historyDelta < 0) { // back button has been pushed
@@ -122,8 +161,8 @@ jQuery.extend({
 	historyLoad: function(hash){
 		var newhash;
 		hash = decodeURIComponent(hash.replace(/\?.*$/, ''));
-		
-		if (jQuery.browser.safari) {
+
+		if (jQuery.historyBrowserShim.safari) {
 			newhash = hash;
 		}
 		else {
@@ -131,7 +170,7 @@ jQuery.extend({
 			location.hash = newhash;
 		}
 		jQuery.historyCurrentHash = newhash;
-		
+
 		if (jQuery.historyNeedIframe) {
 			var ihistory = jQuery("#jQuery_history")[0];
 			var iframe = ihistory.contentWindow.document;
@@ -141,11 +180,11 @@ jQuery.extend({
 			jQuery.lastHistoryLength = history.length;
 			jQuery.historyCallback(hash);
 		}
-		else if (jQuery.browser.safari) {
+		else if (jQuery.historyBrowserShim.safari) {
 			jQuery.dontCheck = true;
 			// Manually keep track of the history values for Safari
 			this.historyAddHistory(hash);
-			
+
 			// Wait a while before allowing checking so that Safari has time to update the "history" object
 			// correctly (otherwise the check loop would detect a false change in hash).
 			var fn = function() {jQuery.dontCheck = false;};
@@ -161,4 +200,3 @@ jQuery.extend({
 		}
 	}
 });
-
