@@ -58,12 +58,16 @@
   }
 }
 
-.report-a-problem-toggle{
+.report-a-problem-toggle {
   @include core-16;
   margin-bottom: 30px;
 
-  a{
-    color: $secondary-text-colour;
+  a {
+    /* Use !important to override highly specific link styles
+       that appear in apps. eg `#whitehall-wrapper a`
+       Guarantees correct appearance. */
+    color: $secondary-text-colour !important;
+    text-decoration: underline !important;
   }
 
   @include ie-lte(7) {
