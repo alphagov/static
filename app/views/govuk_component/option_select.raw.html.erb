@@ -5,11 +5,11 @@
   <div class='options-container' id='<%= options_container_id %>'>
     <div class='js-auto-height-inner'>
       <% options.each do | option |%>
-      <label for='<%= option[:id] %>'>
+      <label for='<%= key %>-<%= option[:id] %>'>
         <input
         name="<%= key %>[]"
         value="<%= option[:value]%>"
-        id="<%= option[:id]%>"
+        id="<%= key %>-<%= option[:id]%>"
         type="checkbox"
 
         <% if local_assigns.include?(:aria_controls_id) %>
