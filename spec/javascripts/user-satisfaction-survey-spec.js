@@ -1,36 +1,14 @@
 describe("User Satisfaction Survey", function () {
   describe("Cookies", function () {
-    var survey;
-    var $surveyBar;
-
-    var clickElem = function (link) {
-      var cancelled = false;
-
-      if (document.createEvent) {
-        var event = document.createEvent("MouseEvents");
-        event.initMouseEvent("click", true, true, window,
-                             0, 0, 0, 0, 0,
-                             false, false, false, false,
-                             0, null);
-        cancelled = !(link.dispatchEvent(event));
-      } else if (link.fireEvent) {
-        cancelled = !(link.fireEvent("onclick"));
-      }
-
-      if (!cancelled) {
-        window.location = link.href;
-      }
-    }
-
-    var block = '<div id="banner-notification" style="display: none"></div>' +
-                '<div id="global-cookie-message" style="display: none"></div>' +
-                '<div id="global-browser-prompt" style="display: none"></div>' +
-                '<div id="user-satisfaction-survey-container" data-survey-url="http://www.surveymonkey.com/some-survey-id"></div>';
-
+    var survey, $surveyBar, $block;
 
     beforeEach(function () {
-      document.body.insertAdjacentHTML("afterbegin", block);
+      $block = $('<div id="banner-notification" style="display: none"></div>' +
+                  '<div id="global-cookie-message" style="display: none"></div>' +
+                  '<div id="global-browser-prompt" style="display: none"></div>' +
+                  '<div id="user-satisfaction-survey-container" data-survey-url="http://www.surveymonkey.com/some-survey-id"></div>');
 
+      $('body').append($block);
       $("#user-satisfaction-survey").remove();
 
       // Don't actually try and take a survey in test.
@@ -42,12 +20,8 @@ describe("User Satisfaction Survey", function () {
     });
 
     afterEach(function () {
-      // Remove the cookie that we're setting.
       GOVUK.cookie(survey.cookieNameTakenSurvey, null);
-
-      // (elem = document.getElementById("user-satisfaction-survey")).parentNode.removeChild(elem);
-      $('#user-satisfaction-survey-wrapper').empty();
-
+      $block.remove();
       survey = null;
     });
 
@@ -111,40 +85,28 @@ describe("User Satisfaction Survey", function () {
     });
 
     describe("Event handlers", function () {
-      it("should set a cookie when clicking 'take survey'", function () {
+      beforeEach(function() {
         survey.showSurveyBar();
+      });
 
-        var takeSurvey = document.getElementById("take-survey");
-        clickElem(takeSurvey);
-
+      it("should set a cookie when clicking 'take survey'", function () {
+        $('#take-survey').trigger('click');
         expect(GOVUK.cookie(survey.cookieNameTakenSurvey)).toBe('true');
       });
 
       it("should set a cookie when clicking 'no thanks'", function () {
-        survey.showSurveyBar();
-
-        var noThanks = document.getElementById("survey-no-thanks");
-        clickElem(noThanks);
-
+        $('#survey-no-thanks').trigger('click');
         expect(GOVUK.cookie(survey.cookieNameTakenSurvey)).toBe('true');
       });
 
       it("should hide the satisfaction survey bar after clicking 'take survey'", function () {
-        survey.showSurveyBar();
-
-        var takeSurvey = document.getElementById("take-survey");
-        clickElem(takeSurvey);
-
+        $('#take-survey').trigger('click');
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
         expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('true');
       });
 
       it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {
-        survey.showSurveyBar();
-
-        var noThanks = document.getElementById("survey-no-thanks");
-        clickElem(noThanks);
-
+        $('#survey-no-thanks').trigger('click');
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
       });
     });
