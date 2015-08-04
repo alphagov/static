@@ -491,8 +491,8 @@ article {
     .additional-information {
       @include core-16;
 
-      a {
-        display: block;
+      p {
+        margin: 0.25em 0;
       }
     }
 
