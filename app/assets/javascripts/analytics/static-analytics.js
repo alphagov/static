@@ -21,6 +21,10 @@
     // Begin error and print tracking
     GOVUK.analyticsPlugins.error();
     GOVUK.analyticsPlugins.printIntent();
+    GOVUK.analyticsPlugins.externalLinkTracker();
+    GOVUK.analyticsPlugins.downloadLinkTracker({
+      selector: 'a[href*="/government/uploads"], a[href*="assets.digital.cabinet-office.gov.uk"]'
+    });
 
     function setPixelDensityDimension() {
       if (window.devicePixelRatio) {
@@ -91,8 +95,8 @@
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
   };
 
-  StaticAnalytics.prototype.trackPageview = function(path, title) {
-    this.analytics.trackPageview(path, title);
+  StaticAnalytics.prototype.trackPageview = function(path, title, options) {
+    this.analytics.trackPageview(path, title, options);
   };
 
   StaticAnalytics.prototype.trackEvent = function(category, action, options) {
