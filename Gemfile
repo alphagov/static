@@ -23,6 +23,7 @@ group :test do
   gem 'capybara', '2.1.0'
   gem 'mocha', '0.13.3', :require => false
   gem 'shoulda', '2.11.3'
+  gem 'webmock'
 end
 
 group :development, :test do
@@ -38,4 +39,4 @@ if ENV['GOVUK_TEMPLATE_DEV']
 else
   gem 'govuk_template', '0.14.3'
 end
-gem 'gds-api-adapters', '20.1.1'
+gem 'gds-api-adapters', '23.2.2'
