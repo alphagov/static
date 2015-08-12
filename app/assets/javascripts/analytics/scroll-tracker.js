@@ -46,6 +46,16 @@
       ['Percent', 25],
       ['Percent', 50],
       ['Percent', 75]
+    ],
+    '/using-the-civil-service-jobs-website': [
+      ['Heading', 'Your Civil Service Jobs account'],
+      ['Heading', 'Job alerts'],
+      ['Heading', 'Applying for a job'],
+      ['Heading', 'Civil Service Initial Sift Test'],
+      ['Heading', 'Results and feedback'],
+      ['Heading', 'Civil Service recruitment'],
+      ['Heading', 'Technical Support'],
+      ['Heading', 'Contact Information']
     ]
   };
 
