@@ -65,8 +65,8 @@ article {
   h4,
   p,
   ul {
-      orphans: 3;
-      widows: 3;
+    orphans: 3;
+    widows: 3;
   }
 
   h2,
@@ -78,7 +78,7 @@ article {
 
   header h1 {
     @include core-19;
-    border-bottom: 1pt solid rgb(127,127,127);
+    border-bottom: 1pt solid $border-colour;
     padding-top: 7pt;
     padding-bottom: 7pt;
   }
@@ -104,8 +104,7 @@ article {
   ol {
     @include core-14;
     padding-left: 13pt;
-    list-style-image: none;
-    list-style-type: disc;
+    list-style: disc;
   }
 
   li {
@@ -117,9 +116,10 @@ article {
   }
 
   table {
-    border: 1pt solid rgb(125,125,125);
+    border: 1pt solid $border-colour;
     border-collapse: collapse;
     width: 100%;
+    margin: $gutter-half 0;
 
     thead {
       display: table-header-group;
@@ -127,12 +127,12 @@ article {
 
     th,
     td {
-      border: 1pt solid rgb(125,125,125);
+      border: 1pt solid $border-colour;
       padding: 0.25em 0.5em;
       text-align: left;
     }
 
-    td:nth-child(n+2) {
+    td:first-child ~ td {
       text-align: right;
     }
 
@@ -149,7 +149,7 @@ article {
   .contact,
   .info-notice,
   .help-notice {
-    border: 1pt solid rgb(125,125,125);
+    border: 1pt solid $border-colour;
     padding: 2pt;
     margin: 14pt 0;
   }
@@ -182,12 +182,6 @@ article {
   }
 }
 
-.print-link,
-.player-container,
-.video-transcript-toggle {
-  display: none;
-}
-
 .modified-date {
   color: rgb(225,225,225);
   @include core-14;
@@ -198,36 +192,16 @@ article {
   }
 }
 
-#global-header {
-  #search, .search-toggle {
-    display: none;
-  }
-}
-
-#global-breadcrumb {
-  display: none;
-}
-
-.done-questions {
-  .start-again {
-    display: none;
-  }
-
-  .question-number {
-    display: none;
-  }
-
-  li.done .undo {
-    display: none;
-  }
-}
-
 /* hide the unnecessary page elements */
 .dont-print,
+#global-header #search,
+#global-header .search-toggle,
+#global-breadcrumb,
 body #global-user-location,
 body .related-positioning,
 header.page-header div h1 span,
 header nav,
+.header-proposition,
 body .actions,
 #local-locator-form,
 #location-loading,
@@ -236,10 +210,17 @@ body .actions,
 .found_location,
 .loading_location,
 .location_error,
+.done-questions .start-again,
+.done-questions .question-number,
+.done-questions li.done .undo,
+.print-link,
+.player-container,
+.video-transcript-toggle
 #global-browser-prompt,
 #user-satisfaction-survey,
 .report-a-problem-toggle,
 .report-a-problem-container,
-.show-all-parts {
+.show-all-parts,
+.return-to-top {
   display: none !important;
 }
