@@ -61,7 +61,7 @@ GEM
     govuk_frontend_toolkit (4.2.1)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_template (0.14.2)
+    govuk_template (0.14.3)
       rails (>= 3.1)
     hike (1.2.3)
     http-cookie (1.0.2)
@@ -187,7 +187,7 @@ DEPENDENCIES
   exception_notification
   gds-api-adapters (= 20.1.1)
   govuk_frontend_toolkit (~> 4.2.1)
-  govuk_template (= 0.14.2)
+  govuk_template (= 0.14.3)
   image_optim (= 0.17.1)
   jasmine-rails (~> 0.10.6)
   logstasher (= 0.4.8)
