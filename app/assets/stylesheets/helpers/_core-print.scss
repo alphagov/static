@@ -3,11 +3,6 @@ html {
   font-size: 62.5%;
 }
 
-// Remove link underlines for better reading clarity
-a {
-  text-decoration: none;
-}
-
 main > header {
   position: relative;
 
@@ -36,29 +31,8 @@ article {
   margin-bottom: 1cm;
   width: 80%;
 
-  header h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: bold;
-  }
-
-  h2,
-  h3,
-  h4,
-  p,
-  ul {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3,
-  h4,
   .info-notice {
-      page-break-after: avoid;
+    page-break-after: avoid;
   }
 
   header h1 {
@@ -68,62 +42,9 @@ article {
     padding-bottom: 7pt;
   }
 
-  h2 {
-    @include core-19;
-    padding-top: 7pt;
-  }
-
-  h3 {
-    @include core-16;
-  }
-
-  h4 {
-    @include core-14;
-  }
-
-  p {
-    @include core-14;
-  }
-
-  ul,
-  ol {
-    @include core-14;
-    padding-left: 13pt;
-    list-style: disc;
-  }
-
-  li {
-    line-height: 1.5em;
-
-    p {
-      margin: 0;
-    }
-  }
-
   table {
-    border: 1pt solid $border-colour;
-    border-collapse: collapse;
-    width: 100%;
-    margin: $gutter-half 0;
-
-    thead {
-      display: table-header-group;
-    }
-
-    th,
-    td {
-      border: 1pt solid $border-colour;
-      padding: 0.25em 0.5em;
-      text-align: left;
-    }
-
     td:first-child ~ td {
       text-align: right;
-    }
-
-    caption {
-      @include core-19;
-      margin: 14pt 0;
     }
   }
 
@@ -178,15 +99,10 @@ article {
 }
 
 /* hide the unnecessary page elements */
-.dont-print,
-#global-header #search,
-#global-header .search-toggle,
-#global-breadcrumb,
 body #global-user-location,
 body .related-positioning,
 header.page-header div h1 span,
 header nav,
-.header-proposition,
 body .actions,
 #local-locator-form,
 #location-loading,
@@ -198,13 +114,8 @@ body .actions,
 .done-questions .start-again,
 .done-questions .question-number,
 .done-questions li.done .undo,
-.print-link,
 .player-container,
 .video-transcript-toggle
-#global-browser-prompt,
-#user-satisfaction-survey,
-.report-a-problem-toggle,
-.report-a-problem-container,
 .show-all-parts,
 .return-to-top {
   display: none !important;
