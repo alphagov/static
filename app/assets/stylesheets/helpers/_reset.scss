@@ -33,3 +33,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 strong {
   font-weight: bold;
 }
+
+abbr[title], acronym[title] {
+  text-decoration: none;
+}
