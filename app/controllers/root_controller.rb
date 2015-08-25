@@ -31,7 +31,6 @@ class RootController < ApplicationController
   end
 
   NON_LAYOUT_TEMPLATES = %w(
-    barclays_epdq
     campaign
     print
     proposition_menu

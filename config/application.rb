@@ -51,7 +51,6 @@ module Static
       guides-print.css
       header-footer-only*.css
       core-layout*.css
-      barclays-epdq-styles.css
       static-print.css
     }
 
