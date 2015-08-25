@@ -47,12 +47,12 @@ module Static
       *.js
       static.css
       static-ie*.css
-      print.css
       fonts*.css
       guides-print.css
       header-footer-only*.css
       core-layout*.css
       barclays-epdq-styles.css
+      static-print.css
     }
 
     config.assets.css_compressor = :yui
