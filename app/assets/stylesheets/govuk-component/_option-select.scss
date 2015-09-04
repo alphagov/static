@@ -42,7 +42,7 @@
 
     label {
       @include inline-block;
-      padding: 7px 0 7px 30px;
+      padding: 7px 0 7px 35px;
       border-bottom: 1px solid $border-colour;
       width: 100%;
       cursor:pointer;
@@ -57,8 +57,15 @@
     }
 
     input {
-      margin-left: -23px;
-      vertical-align: top;
+      float: left;
+      margin: 2px 0 0 -27px;
+      width: 20px;
+      height: 20px;
+      @include ie(8) {
+        width: auto;
+        height: auto;
+        margin-top: 0;
+      }
     }
   }
 
