@@ -11,8 +11,9 @@ gem 'rack_strip_client_ip', '0.0.1'
 group :assets do
   gem "therubyracer", "0.12.0"
   gem 'uglifier'
-  gem 'sass', '3.4.2'
-  gem 'sass-rails', '3.2.5'
+  gem 'sass'
+  gem 'sass-rails'
+  gem 'yui-compressor', '~> 0.12.0'
 end
 
 group :development do
@@ -21,9 +22,11 @@ end
 
 group :test do
   gem 'capybara', '2.1.0'
-  gem 'mocha', '0.13.3', :require => false
+  gem 'mocha', '~> 1.1.0', :require => false
   gem 'shoulda', '2.11.3'
   gem 'webmock'
+  gem 'test-unit'
+  gem 'minitest', '~> 5.8.0'
 end
 
 group :development, :test do
