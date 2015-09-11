@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '4.0.13'
 gem 'unicorn', '4.3.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
+gem 'actionpack-page_caching', '1.0.2'
 
 group :assets do
   gem "therubyracer", "0.12.0"
@@ -23,10 +24,11 @@ end
 group :test do
   gem 'capybara', '2.1.0'
   gem 'mocha', '~> 1.1.0', :require => false
-  gem 'shoulda', '2.11.3'
+  gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
-  gem 'minitest', '~> 5.8.0'
+  gem 'minitest'
+  gem 'minitest-capybara'
 end
 
 group :development, :test do
