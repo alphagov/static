@@ -1,20 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '4.0.13'
 gem 'unicorn', '4.3.1'
 
 gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
+gem 'actionpack-page_caching', '1.0.2'
 
-group :assets do
-  gem "therubyracer", "0.12.0"
-  gem 'uglifier'
-  gem 'sass'
-  gem 'sass-rails'
-  gem 'yui-compressor', '~> 0.12.0'
-end
+gem "therubyracer", "0.12.0"
+gem 'uglifier', "1.3.0"
+gem 'sass-rails', "5.0.4"
 
 group :development do
   gem 'image_optim', '0.17.1'
@@ -23,10 +20,11 @@ end
 group :test do
   gem 'capybara', '2.1.0'
   gem 'mocha', '~> 1.1.0', :require => false
-  gem 'shoulda', '2.11.3'
+  gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
-  gem 'minitest', '~> 5.8.0'
+  gem 'minitest'
+  gem 'minitest-capybara'
 end
 
 group :development, :test do
