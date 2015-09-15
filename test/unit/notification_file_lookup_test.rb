@@ -3,17 +3,13 @@ require_relative '../../lib/notification_file_lookup'
 
 describe NotificationFileLookup do
   describe "banner" do
-    before do
-      NotificationFileLookup.instance.banner = nil
-    end
-
     it "returns nil if both banner content files are empty" do
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
         .returns('')
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
         .returns('')
 
-      assert_nil NotificationFileLookup.instance.banner
+      assert_nil NotificationFileLookup.new.banner
     end
 
     it "returns the red banner content if present" do
@@ -23,10 +19,12 @@ describe NotificationFileLookup do
         .returns('')
 
       expected = {:file => "<p>Keep calm and carry on.</p>", :colour => :red}
-      assert_equal expected, NotificationFileLookup.instance.banner
+      assert_equal expected, NotificationFileLookup.new.banner
     end
 
     it "opens banner content file only once" do
+      lookup = NotificationFileLookup.new
+
       File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
         .returns('Test')
       File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
@@ -34,7 +32,7 @@ describe NotificationFileLookup do
 
       expected = {:file => "Test", :colour => :green}
       3.times do
-        assert_equal expected, NotificationFileLookup.instance.banner
+        assert_equal expected, lookup.banner
       end
     end
 
@@ -44,7 +42,7 @@ describe NotificationFileLookup do
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
         .returns('')
 
-      assert_nil NotificationFileLookup.instance.banner
+      assert_nil NotificationFileLookup.new.banner
     end
 
     it "falls back to green if the red file is empty" do
@@ -54,7 +52,7 @@ describe NotificationFileLookup do
         .returns('')
 
       expected = {:file => "<p>Nothing to see here.</p>", :colour => :green}
-      assert_equal expected, NotificationFileLookup.instance.banner
+      assert_equal expected, NotificationFileLookup.new.banner
     end
   end
 end

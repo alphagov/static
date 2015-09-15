@@ -1,6 +1,14 @@
 require 'integration_test_helper'
 
 class NotificationsTest < ActionDispatch::IntegrationTest
+  setup do
+    @original_banner = Static.banner
+  end
+
+  teardown do
+    Static.banner = @original_banner
+  end
+
   context "banner files" do
     should "have a green file" do
       assert File.exist? "#{Rails.root}/app/views/notifications/banner_green.erb"
@@ -12,16 +20,14 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   end
 
   context "banner notifications" do
-    setup do
-      NotificationFileLookup.instance.banner = nil
-    end
-
     context "given view files are empty" do
       setup do
         File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
           .returns('')
         File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
           .returns('')
+
+        Static.banner = NotificationFileLookup.new.banner
       end
 
       should "not show a banner notification on the page" do
@@ -36,6 +42,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
           .returns('<p>Everything is fine</p>')
         File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
           .returns('')
+
+        Static.banner = NotificationFileLookup.new.banner
       end
 
       should "show a banner notification on the page" do
@@ -51,6 +59,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
           .returns('')
         File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
           .returns('<p>Everything is not fine</p>')
+
+        Static.banner = NotificationFileLookup.new.banner
       end
 
       should "show a banner notification on the page" do

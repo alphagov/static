@@ -1,6 +1,4 @@
 class NotificationFileLookup
-  include Singleton
-
   def banner
     @banner_file ||= identify_banner_file
   end
