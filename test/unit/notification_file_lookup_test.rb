@@ -19,6 +19,8 @@ describe NotificationFileLookup do
     it "returns the red banner content if present" do
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
         .returns('<p>Keep calm and carry on.</p>')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
+        .returns('')
 
       expected = {:file => "<p>Keep calm and carry on.</p>", :colour => :red}
       assert_equal expected, NotificationFileLookup.instance.banner
