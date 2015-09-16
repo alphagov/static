@@ -1,4 +1,8 @@
 class NotificationFileLookup
+  def initialize(banner_file_location = "#{Rails.root}/app/views/notifications")
+    @banner_file_location = banner_file_location
+  end
+
   def banner
     @banner_file ||= identify_banner_file
   end
@@ -10,8 +14,8 @@ class NotificationFileLookup
   private
 
   def identify_banner_file
-    red = File.read("#{Rails.root}/app/views/notifications/banner_red.erb").strip
-    green = File.read("#{Rails.root}/app/views/notifications/banner_green.erb").strip
+    red = File.read(File.join(@banner_file_location, "banner_red.erb")).strip
+    green = File.read(File.join(@banner_file_location, "banner_green.erb")).strip
 
     case
     when red.present?

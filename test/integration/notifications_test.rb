@@ -20,14 +20,16 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   end
 
   context "banner notifications" do
+    teardown do
+      clean_up_test_files
+    end
+
     context "given view files are empty" do
       setup do
-        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
-          .returns('')
-        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
-          .returns('')
+        create_test_file(filename: "banner_green.erb", content: '')
+        create_test_file(filename: "banner_red.erb", content: '')
 
-        Static.banner = NotificationFileLookup.new.banner
+        Static.banner = NotificationFileLookup.new(location_of_test_files).banner
       end
 
       should "not show a banner notification on the page" do
@@ -38,12 +40,10 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
     context "given view files are present for a green notification" do
       setup do
-        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
-          .returns('<p>Everything is fine</p>')
-        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
-          .returns('')
+        create_test_file(filename: "banner_green.erb", content: '<p>Everything is fine</p>')
+        create_test_file(filename: "banner_red.erb", content: '')
 
-        Static.banner = NotificationFileLookup.new.banner
+        Static.banner = NotificationFileLookup.new(location_of_test_files).banner
       end
 
       should "show a banner notification on the page" do
@@ -55,12 +55,10 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
     context "given view files are present for a red notification" do
       setup do
-        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
-          .returns('')
-        File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
-          .returns('<p>Everything is not fine</p>')
+        create_test_file(filename: "banner_green.erb", content: '')
+        create_test_file(filename: "banner_red.erb", content: '<p>Everything is not fine</p>')
 
-        Static.banner = NotificationFileLookup.new.banner
+        Static.banner = NotificationFileLookup.new(location_of_test_files).banner
       end
 
       should "show a banner notification on the page" do
