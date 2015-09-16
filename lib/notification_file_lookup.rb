@@ -1,11 +1,10 @@
 class NotificationFileLookup
-  include Singleton
-
-  cattr_accessor :banner_file
+  def initialize(banner_file_location = "#{Rails.root}/app/views/notifications")
+    @banner_file_location = banner_file_location
+  end
 
   def banner
     @banner_file ||= identify_banner_file
-    @banner_file[:file].blank? ? nil : @banner_file
   end
 
   def banner=(file)
@@ -15,16 +14,16 @@ class NotificationFileLookup
   private
 
   def identify_banner_file
-    red = File.read("#{Rails.root}/app/views/notifications/banner_red.erb").strip
-    unless red.blank?
-      return { :file => red, :colour => :red }
-    end
+    red = File.read(File.join(@banner_file_location, "banner_red.erb")).strip
+    green = File.read(File.join(@banner_file_location, "banner_green.erb")).strip
 
-    green = File.read("#{Rails.root}/app/views/notifications/banner_green.erb").strip
-    unless green.blank?
-      return { :file => green, :colour => :green }
+    case
+    when red.present?
+      { file: red, colour: :red }
+    when green.present?
+      { file: green, colour: :green }
+    else
+      nil
     end
-
-    { :file => nil, :colour => nil }
   end
 end
