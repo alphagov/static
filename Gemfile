@@ -10,6 +10,7 @@ gem 'actionpack-page_caching', '1.0.2'
 gem "therubyracer", "0.12.0"
 gem 'uglifier', "1.3.0"
 gem 'sass-rails', "5.0.4"
+gem 'airbrake', '~> 4.3.1'
 
 group :development do
   gem 'image_optim', '0.17.1'
