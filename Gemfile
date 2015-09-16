@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.13'
 gem 'unicorn', '4.3.1'
 
-gem 'aws-ses', :require => 'aws/ses' # Needed by exception_notification
-gem 'exception_notification'
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'actionpack-page_caching', '1.0.2'
