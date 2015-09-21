@@ -24,4 +24,4 @@ fi
 
 RAILS_ENV=test bundle exec rake test
 RAILS_ENV=test bundle exec rake spec:javascript
-bundle exec rake assets:precompile
+RAILS_ENV=production bundle exec rake assets:precompile

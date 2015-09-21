@@ -8,7 +8,7 @@ gem 'rack_strip_client_ip', '0.0.1'
 gem 'actionpack-page_caching', '1.0.2'
 
 gem "therubyracer", "0.12.0"
-gem 'uglifier', "1.3.0"
+gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.4"
 gem 'airbrake', '~> 4.3.1'
 
