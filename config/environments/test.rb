@@ -8,7 +8,7 @@ Static::Application.configure do
   config.cache_classes = true
 
   # Configure static asset server for tests with Cache-Control for performance
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching
@@ -35,4 +35,6 @@ Static::Application.configure do
   config.active_support.deprecation = :stderr
 
   config.eager_load = false
+
+  config.active_support.test_order = :random
 end

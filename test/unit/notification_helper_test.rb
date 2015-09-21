@@ -25,16 +25,20 @@ describe "Notification Helper" do
 
       it "should have a section wrapper with the banner colour for a green notification" do
         Static.banner = {:file => "<p>You've got notifications!</p>", :colour => :green}
+        banner_section = Nokogiri::HTML(banner_notification).css("section").first
 
-        assert_equal "<section class=\"green\" id=\"banner-notification\"><div><p>You've got notifications!</p></div></section>",
-                     banner_notification
+        assert_equal "green", banner_section["class"]
+        assert_equal "banner-notification", banner_section["id"]
+        assert_equal "You've got notifications!", banner_section.text
       end
 
       it "should have a section wrapper with the banner colour for a red notification" do
         Static.banner = {:file => "<p>You've got notifications!</p>", :colour => :red}
+        banner_section = Nokogiri::HTML(banner_notification).css("section").first
 
-        assert_equal "<section class=\"red\" id=\"banner-notification\"><div><p>You've got notifications!</p></div></section>",
-                     banner_notification
+        assert_equal "red", banner_section["class"]
+        assert_equal "banner-notification", banner_section["id"]
+        assert_equal "You've got notifications!", banner_section.text
       end
     end
   end
