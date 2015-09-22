@@ -16,13 +16,13 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '2.1.0'
+  gem 'capybara', '~> 2.5.0'
   gem 'mocha', '~> 1.1.0', :require => false
   gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
   gem 'minitest'
-  gem 'minitest-capybara'
+  gem 'minitest-capybara', '~> 0.7.2'
 end
 
 group :development, :test do
