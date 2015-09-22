@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'unicorn', '4.3.1'
+gem 'unicorn', '4.9.0'
 
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
