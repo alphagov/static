@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'unicorn', '4.3.1'
+gem 'unicorn', '4.9.0'
 
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'actionpack-page_caching', '1.0.2'
 
-gem "therubyracer", "0.12.0"
 gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.4"
 gem 'airbrake', '~> 4.3.1'
@@ -17,13 +16,13 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '2.1.0'
+  gem 'capybara', '~> 2.5.0'
   gem 'mocha', '~> 1.1.0', :require => false
   gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
   gem 'minitest'
-  gem 'minitest-capybara'
+  gem 'minitest-capybara', '~> 0.7.2'
 end
 
 group :development, :test do
