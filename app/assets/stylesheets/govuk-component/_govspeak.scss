@@ -8,6 +8,12 @@
     text-align: start;
   }
 
+  &.rich-govspeak {
+    strong {
+      font-weight: bold;
+    }
+  }
+
   h2:first-child,
   h3:first-child,
   h4:first-child,
