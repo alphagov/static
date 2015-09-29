@@ -201,6 +201,10 @@
           <li>تابعنا باللغة العربية عبر</li>
           <li>تابعنا باللغة العربية عبر تويتر </li>
         </ul>
+    with_rich_govspeak:
+      rich_govspeak: true
+      content: |
+        <p>This content has some <strong>rich govspeak</strong></p>
 - id: "title"
   name: "Page title"
   description: "A page title with optional context label"
