@@ -14,16 +14,11 @@ class NotificationFileLookup
   private
 
   def identify_banner_file
-    red = File.read(File.join(@banner_file_location, "banner_red.erb")).strip
-    green = File.read(File.join(@banner_file_location, "banner_green.erb")).strip
-
-    case
-    when red.present?
-      { file: red, colour: :red }
-    when green.present?
-      { file: green, colour: :green }
-    else
-      nil
+    %i{red green black}.each do |banner_class|
+      contents = File.read(File.join(@banner_file_location, "banner_#{banner_class}.erb")).strip
+      return { file: contents, colour: banner_class } if contents.present?
     end
+
+    nil
   end
 end
