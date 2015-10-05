@@ -3,10 +3,12 @@ require_relative '../../lib/notification_file_lookup'
 
 describe NotificationFileLookup do
   describe "banner" do
-    it "returns nil if both banner content files are empty" do
+    it "returns nil if all banner content files are empty" do
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
         .returns('')
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
+        .returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_black.erb")
         .returns('')
 
       assert_nil NotificationFileLookup.new.banner
@@ -18,7 +20,7 @@ describe NotificationFileLookup do
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_green.erb")
         .returns('')
 
-      expected = {:file => "<p>Keep calm and carry on.</p>", :colour => :red}
+      expected = {file: "<p>Keep calm and carry on.</p>", colour: :red}
       assert_equal expected, NotificationFileLookup.new.banner
     end
 
@@ -30,7 +32,7 @@ describe NotificationFileLookup do
       File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
         .returns('')
 
-      expected = {:file => "Test", :colour => :green}
+      expected = {file: "Test", colour: :green}
       3.times do
         assert_equal expected, lookup.banner
       end
@@ -41,6 +43,8 @@ describe NotificationFileLookup do
         .returns("\n\n\r\n\r\n\n\n")
       File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
         .returns('')
+      File.stubs(:read).with("#{Rails.root}/app/views/notifications/banner_black.erb")
+        .returns("\t")
 
       assert_nil NotificationFileLookup.new.banner
     end
@@ -51,7 +55,7 @@ describe NotificationFileLookup do
       File.expects(:read).with("#{Rails.root}/app/views/notifications/banner_red.erb")
         .returns('')
 
-      expected = {:file => "<p>Nothing to see here.</p>", :colour => :green}
+      expected = {file: "<p>Nothing to see here.</p>", colour: :green}
       assert_equal expected, NotificationFileLookup.new.banner
     end
   end
