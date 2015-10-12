@@ -3,6 +3,7 @@
 }
 
 .report-a-problem-container{
+  @extend %site-width-container;
   clear: both;
 
   .report-a-problem-inner {
@@ -81,5 +82,6 @@
 }
 
 .report-a-problem-toggle-wrapper {
+  @extend %site-width-container;
   clear:both;
 }
