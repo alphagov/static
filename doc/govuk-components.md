@@ -10,7 +10,7 @@ The available components and their documentation are exposed by an API at `/temp
 * a [Partial View](app/views/govuk_component) - The template logic and markup, also defines the arguments expected
 * a [SCSS module](app/assets/stylesheets/govuk-component) - The styling of the component
 * a Javascript module - no examples yet.
-* Documentation - currently in a [static/central file](app/views/govuk_component/docs.json), this will generated dynamically in the future
+* [Documentation](app/views/govuk_component/docs) - a `.yml` per component, describing the component and containing fixture data.
 
 ## Creating a new component
 
@@ -49,8 +49,8 @@ _Note_: For consistency with other components, and Rails convention, you should 
 
 3) SCSS modules are included in `app/stylesheets/govuk-component/_component.scss` - which is used in the standard static layout SCSS files (application.scss, header_footer_only.scss)
 
-4) Documentation lives `app/views/govuk_component/docs.json` - this is in the form of an array of hashes:
-* `id`: The underscore version of the component name
+4) Documentation lives [`app/views/govuk_component/docs`](app/views/govuk_component/docs), where each component has a `.yml` file describing:
+* `id`: The underscore version of the component name, this is what an app calling the component would use
 * `name`: The human name. eg, `Your Example Component`
 * `description`: A longer form description of what the component does, when it should be used
 * `fixtures`: TBD: For components that expect arguments this will be a hash of fixtured example arguments

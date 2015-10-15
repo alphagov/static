@@ -16,7 +16,11 @@ class RootController < ApplicationController
   end
 
   def govuk_component_docs
-    render_yaml_as_json('govuk_component', 'docs.yml')
+    doc_files = Rails.root.join('app', 'views', 'govuk_component', 'docs', '*.yml')
+    docs = Dir[doc_files].sort.map do |file|
+      YAML::load_file(file)
+    end
+    render json: docs
   end
 
   def govuk_available_locales
