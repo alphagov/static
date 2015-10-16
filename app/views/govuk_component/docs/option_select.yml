@@ -1,4 +1,3 @@
----
 name: Option select
 description: A scrollable list of checkboxes to be displayed on a form where one might
   otherwise use a multi-select
