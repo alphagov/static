@@ -13,6 +13,8 @@ gem 'airbrake', '~> 4.3.1'
 
 group :development do
   gem 'image_optim', '0.17.1'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -29,6 +31,7 @@ group :development, :test do
   gem 'jasmine-rails', '~> 0.10.6'
   gem 'quiet_assets', '1.1.0'
   gem 'govuk-lint', '~> 0.3.0'
+  gem 'pry'
 end
 
 gem 'plek', '1.11.0'
