@@ -1,5 +1,4 @@
 ---
-id: govspeak
 name: Govspeak content
 description: To display long form text which has been converted from markdown
 fixtures:

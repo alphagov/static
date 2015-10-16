@@ -18,7 +18,7 @@ class RootController < ApplicationController
   def govuk_component_docs
     doc_files = Rails.root.join('app', 'views', 'govuk_component', 'docs', '*.yml')
     docs = Dir[doc_files].sort.map do |file|
-      YAML::load_file(file)
+      {id: File.basename(file, '.yml')}.merge(YAML::load_file(file))
     end
     render json: docs
   end

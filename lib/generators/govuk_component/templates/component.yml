@@ -1,5 +1,4 @@
-- id: "<%= file_name %>"
-  name: "<%= human_name %>"
+- name: "<%= human_name %>"
   description: "A short description of the <%= human_name %> component"
   body: |
     A long form description of the <%= human_name %> component, which may

@@ -1,5 +1,4 @@
 ---
-id: beta_label
 name: Beta Banner
 description: A banner that indicates content is in a beta phase with an optional explanation
 fixtures:

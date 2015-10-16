@@ -1,5 +1,4 @@
 ---
-id: metadata
 name: Metadata block
 description: To display relevant metadata about organisations and tags for a document
 fixtures:
