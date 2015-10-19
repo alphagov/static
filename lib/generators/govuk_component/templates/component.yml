@@ -1,10 +1,10 @@
-- name: "<%= human_name %>"
-  description: "A short description of the <%= human_name %> component"
-  body: |
-    A long form description of the <%= human_name %> component, which may
-    include markdown formatting.
+name: "<%= human_name %>"
+description: "A short description of the <%= human_name %> component"
+body: |
+  A long form description of the <%= human_name %> component, which may
+  include markdown formatting.
 
-    It should try and descrive the intent of the component, and document
-    any parameters passed to the component.
-  fixtures:
-    default: {}
+  It should try and descrive the intent of the component, and document
+  any parameters passed to the component.
+fixtures:
+  default: {}
