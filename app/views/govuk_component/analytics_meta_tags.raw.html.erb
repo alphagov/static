@@ -1,5 +1,5 @@
 <%
-  links_hash = content_item["links"] || {}
+  links_hash = content_item.with_indifferent_access["links"] || {}
 
   organisations = []
   organisations += links_hash["organisations"] || []

@@ -10,16 +10,16 @@ fixtures:
     content_item:
       links:
         organisations:
-        - D1
-        - D3
+        - analytics_identifier: D1
+        - analytics_identifier: D3
         lead_organisations:
-        - D2
+        - analytics_identifier: D2
         supporting_organisations:
-        - EO3
+        - analytics_identifier: EO3
         worldwide_organisations:
-        - EO3
+        - analytics_identifier: EO3
   with_world_locations:
     content_item:
       links:
         world_locations:
-        - WL3
+        - analytics_identifier: WL3
