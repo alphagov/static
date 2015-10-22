@@ -1,17 +1,18 @@
 <%
-  links_hash = content_item.with_indifferent_access["links"] || {}
+
+  links_hash = content_item.to_h[:links] || {}
 
   organisations = []
-  organisations += links_hash["organisations"] || []
-  organisations += links_hash["lead_organisations"] || []
-  organisations += links_hash["supporting_organisations"] || []
-  organisations += links_hash["worldwide_organisations"] || []
+  organisations += links_hash[:organisations] || []
+  organisations += links_hash[:lead_organisations] || []
+  organisations += links_hash[:supporting_organisations] || []
+  organisations += links_hash[:worldwide_organisations] || []
 
-  world_locations = links_hash["world_locations"] || []
+  world_locations = links_hash[:world_locations] || []
 %>
 <% if organisations.any? %>
-  <meta name="govuk:analytics:organisations" content="&lt;<%= organisations.map { |link| link["analytics_identifier"] }.join('><') %>&gt;">
+  <meta name="govuk:analytics:organisations" content="&lt;<%= organisations.map { |link| link[:analytics_identifier] }.join('><') %>&gt;">
 <% end %>
 <% if world_locations.any? %>
-  <meta name="govuk:analytics:world-locations" content="&lt;<%= world_locations.map { |link| link["analytics_identifier"] }.join('><') %>&gt;">
+  <meta name="govuk:analytics:world-locations" content="&lt;<%= world_locations.map { |link| link[:analytics_identifier] }.join('><') %>&gt;">
 <% end %>
