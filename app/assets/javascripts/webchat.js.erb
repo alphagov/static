@@ -41,8 +41,7 @@
           webchat.$banner = $('.webchat-banner');
 
           // initialise the webchat
-          webchat.$chatFrame.attr('src', 'https://assets-origin.preview.alphagov.co.uk/static/webchat-iframe.html');
-          //webchat.$chatFrame.attr('src', 'http://static.dev.gov.uk/static/webchat-iframe.html');
+          webchat.$chatFrame.attr('src', '<%= asset_path "webchat-iframe.html" %>');
           webchat.$chatFrame.on('load', function() {
             webchat.sendMessage({
               evt: 'load',
