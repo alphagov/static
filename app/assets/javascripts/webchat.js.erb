@@ -26,8 +26,8 @@
     },
 
     init: function (){
-
-      $('.header-block').before('<div class="webchat-banner"><h2>Web chat</h2><p>Rather than calling us why not talk to us over the internet.</p><a href="#" class="accept">Start a web chat with HMRC</a> <a href="#" class="reject">I am not interested</a></div>');
+      var insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('.heading-block');
+      insertionPoint.after('<div class="webchat-banner"><h2>Web chat</h2><p>You can also use HMRC’s web chat service to talk to an adviser about Self Assessment.</p><a href="#" class="accept">Start web chat</a>&nbsp;&nbsp;&nbsp;<a href="#" class="reject">I’m not interested</a></div>');
 
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
