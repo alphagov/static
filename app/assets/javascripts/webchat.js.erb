@@ -27,7 +27,7 @@
 
     init: function (){
 
-      $('.article-container').before('<div class="webchat-banner"><h2>Web chat</h2><p>Rather than calling us why not talk to us over the internet.</p><a href="#" class="accept">Start a web chat with HMRC</a> <a href="#" class="reject">I am not interested</a></div>');
+      $('.header-block').before('<div class="webchat-banner"><h2>Web chat</h2><p>Rather than calling us why not talk to us over the internet.</p><a href="#" class="accept">Start a web chat with HMRC</a> <a href="#" class="reject">I am not interested</a></div>');
 
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
