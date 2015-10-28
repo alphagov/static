@@ -6,3 +6,4 @@
 //= require jquery.tabs
 //= require mobile
 //= require browser-check
+//= require webchat

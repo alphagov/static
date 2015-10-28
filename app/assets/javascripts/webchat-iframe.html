@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+  <script>
+
+    function isOfferOpen() {
+      var ribbonContainer = document.querySelector('#egofr-ribbon-container');
+      return ribbonContainer && ribbonContainer.parentNode.style.visibility !== 'hidden';
+    }
+
+    function click(element) {
+      var event = new MouseEvent('click', {
+        'view': window,
+        'bubbles': true,
+        'cancelable': true
+      });
+      element.dispatchEvent(event);
+    }
+
+    function signalOfferStatus() {
+      console.log('Posting: ' + (isOfferOpen() ? 'opened' : 'closed'))
+      window.parent.postMessage(isOfferOpen() ? 'opened' : 'closed', '*');
+    }
+
+    function loadIFrame(pageURL, pageTitle) {
+      var egainScript = egainScript = document.createElement('script');
+      egainScript.id = "eGainOffers";
+      egainScript.src = 'https://mcb.kcom.com/system/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
+      document.body.appendChild(egainScript);
+
+      egainScript.onload = function () {
+        setInterval(signalOfferStatus, 1000);
+      };
+    }
+
+    window.addEventListener('message', function (e) {
+      message = JSON.parse(e.data);
+      console.log('child', message);
+
+      if (message.evt === 'load') {
+        loadIFrame(message.url, message.title);
+      } else if (message.evt === 'accept') {
+        click(document.querySelector('.egofr-ribbon-btnOK'))
+        signalOfferStatus();  
+      } else if (message.evt === 'reject') {
+        click(document.querySelector('.egofr-ribbon-btnCancel'))
+        signalOfferStatus();  
+      }
+    });
+
+  </script>
+  </body>
+</html>
