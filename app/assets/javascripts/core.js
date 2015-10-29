@@ -40,7 +40,9 @@ $(document).ready(function() {
   new GOVUK.SelectionButtons(buttonsSelector);
 
   // HMRC webchat
-  GOVUK.webchat.init();
+  if (GOVUK.webchat) {
+    GOVUK.webchat.init();
+  }
 });
 
 
