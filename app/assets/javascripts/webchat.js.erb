@@ -37,7 +37,7 @@
 
         // what’s the initialisation condition for loading the web chat?
         if (true) {
-          webchat.$chatFrame = $('<iframe class="hidden" />');
+          webchat.$chatFrame = $('<iframe sandbox="allow-scripts allow-same-origin allow-popups" class="hidden" />');
           webchat.$banner = $('.webchat-banner');
 
           // initialise the webchat
