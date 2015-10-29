@@ -21,8 +21,7 @@
     }
 
     function signalOfferStatus() {
-      console.log('Posting: ' + (isOfferOpen() ? 'opened' : 'closed'))
-      window.parent.postMessage(isOfferOpen() ? 'opened' : 'closed', '*');
+      window.parent.postMessage(isOfferOpen() ? 'opened' : 'closed', '<%= Rails.env.development? ? '*' : ENV['GOVUK_WEBSITE_ROOT'] %>');
     }
 
     function loadIFrame(pageURL, pageTitle) {
@@ -37,17 +36,14 @@
     }
 
     window.addEventListener('message', function (e) {
-      message = JSON.parse(e.data);
-      console.log('child', message);
-
-      if (message.evt === 'load') {
-        loadIFrame(message.url, message.title);
-      } else if (message.evt === 'accept') {
-        click(document.querySelector('.egofr-ribbon-btnOK'))
-        signalOfferStatus();  
-      } else if (message.evt === 'reject') {
-        click(document.querySelector('.egofr-ribbon-btnCancel'))
-        signalOfferStatus();  
+      if (e.origin.match(/gov\.uk$/)) {
+        var message = JSON.parse(e.data);
+        if (message.evt === 'load') {
+          loadIFrame(message.url, message.title);
+        } else if (message.evt === 'accept') {
+          click(document.querySelector('.egofr-ribbon-btnOK'))
+          signalOfferStatus();  
+        }
       }
     });
 
