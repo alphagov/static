@@ -6,18 +6,12 @@
   <body>
   <script>
 
+  (function () {
+    'use strict';
+
     function isOfferOpen() {
       var ribbonContainer = document.querySelector('#egofr-ribbon-container');
       return ribbonContainer && ribbonContainer.parentNode.style.visibility !== 'hidden';
-    }
-
-    function click(element) {
-      var event = new MouseEvent('click', {
-        'view': window,
-        'bubbles': true,
-        'cancelable': true
-      });
-      element.dispatchEvent(event);
     }
 
     function signalOfferStatus() {
@@ -25,8 +19,8 @@
     }
 
     function loadIFrame(pageURL, pageTitle) {
-      var egainScript = egainScript = document.createElement('script');
-      egainScript.id = "eGainOffers";
+      var egainScript = document.createElement('script');
+      egainScript.id = 'eGainOffers';
       egainScript.src = 'https://mcb.kcom.com/system/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
       document.body.appendChild(egainScript);
 
@@ -35,20 +29,23 @@
       };
     }
 
-    window.addEventListener('message', function (e) {
+    window.onmessage = function (e) {
+      var message;
       if (e.origin.match(/gov\.uk$/)) {
-        var message = JSON.parse(e.data);
+        message = JSON.parse(e.data);
         if (message.evt === 'load') {
           loadIFrame(message.url, message.title);
         } else if (message.evt === 'accept') {
-          click(document.querySelector('.egofr-ribbon-btnOK'));
+          document.querySelector('.egofr-ribbon-btnOK').click();
           signalOfferStatus();
         } else if (message.evt === 'reject') {
-          click(document.querySelector('.egofr-ribbon-btnCancel'));
+          document.querySelector('.egofr-ribbon-btnCancel').click();
           signalOfferStatus();
         }
       }
-    });
+    };
+
+  })();
 
   </script>
   </body>
