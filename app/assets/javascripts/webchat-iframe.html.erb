@@ -41,8 +41,11 @@
         if (message.evt === 'load') {
           loadIFrame(message.url, message.title);
         } else if (message.evt === 'accept') {
-          click(document.querySelector('.egofr-ribbon-btnOK'))
-          signalOfferStatus();  
+          click(document.querySelector('.egofr-ribbon-btnOK'));
+          signalOfferStatus();
+        } else if (message.evt === 'reject') {
+          click(document.querySelector('.egofr-ribbon-btnCancel'));
+          signalOfferStatus();
         }
       }
     });
