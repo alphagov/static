@@ -41,10 +41,16 @@
           $(window).on('message', function(e) {
             e = e.originalEvent;
             if (e.origin.match(/gov\.uk$/)) {
-              if (e.data === 'opened') {
+              var message = JSON.parse(e.data);
+
+              if (message.evt === 'opened') {
+                GOVUK.analytics.trackEvent('webchat', 'opened');
                 webchat.$banner.addClass('open');
-              } else if (e.data === 'closed') {
+              } else if (message.evt === 'closed') {
+                GOVUK.analytics.trackEvent('webchat', 'closed');
                 webchat.$banner.removeClass('open');
+              } else if (message.evt === 'error') {
+                GOVUK.analytics.trackEvent('webchat', 'error');
               }
             }
           });
@@ -53,9 +59,11 @@
           webchat.$banner.on('click', '.accept', function(e) {
             e.preventDefault();
             webchat.sendMessage({ evt: 'accept' });
+            GOVUK.analytics.trackEvent('webchat', 'accepted');
           }).on('click', '.reject', function(e) {
             e.preventDefault();
             webchat.sendMessage({ evt: 'reject' });
+            GOVUK.analytics.trackEvent('webchat', 'rejected');
           });
 
         }
