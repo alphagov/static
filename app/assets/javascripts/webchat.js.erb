@@ -44,10 +44,8 @@
               var message = JSON.parse(e.data);
 
               if (message.evt === 'opened') {
-                GOVUK.analytics.trackEvent('webchat', 'opened');
                 webchat.$banner.addClass('open');
               } else if (message.evt === 'closed') {
-                GOVUK.analytics.trackEvent('webchat', 'closed');
                 webchat.$banner.removeClass('open');
               } else if (message.evt === 'error') {
                 GOVUK.analytics.trackEvent('webchat', 'error');
