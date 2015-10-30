@@ -20,8 +20,12 @@
       element.dispatchEvent(event);
     }
 
+    function sendMessage(obj) {
+      window.parent.postMessage(JSON.stringify(obj), '<%= Rails.env.development? ? '*' : ENV['GOVUK_WEBSITE_ROOT'] %>');
+    }
+
     function signalOfferStatus() {
-      window.parent.postMessage(isOfferOpen() ? 'opened' : 'closed', '<%= Rails.env.development? ? '*' : ENV['GOVUK_WEBSITE_ROOT'] %>');
+      sendMessage({ evt: isOfferOpen() ? 'opened' : 'closed' });
     }
 
     function loadIFrame(pageURL, pageTitle) {
@@ -33,11 +37,15 @@
       egainScript.onload = function () {
         setInterval(signalOfferStatus, 1000);
       };
+      egainScript.onerror = function () {
+        sendMessage({ evt: 'error' });
+      };
     }
 
     window.addEventListener('message', function (e) {
       if (e.origin.match(/gov\.uk$/)) {
         var message = JSON.parse(e.data);
+
         if (message.evt === 'load') {
           loadIFrame(message.url, message.title);
         } else if (message.evt === 'accept') {
