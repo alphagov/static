@@ -40,7 +40,7 @@
           // hide / show the banner based on status of the webchat
           $(window).on('message', function(e) {
             e = e.originalEvent;
-            if (e.origin.match(/gov\.uk$/)) {
+            if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
               var message = JSON.parse(e.data);
 
               if (message.evt === 'opened') {

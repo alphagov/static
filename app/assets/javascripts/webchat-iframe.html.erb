@@ -38,7 +38,7 @@
 
     window.onmessage = function (e) {
       var message;
-      if (e.origin.match(/gov\.uk$/)) {
+      if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
         message = JSON.parse(e.data);
         if (message.evt === 'load') {
           loadIFrame(message.url, message.title);
