@@ -21,7 +21,7 @@
 
         // only initialise on the self assessment help page for the time being
         if (window.location.pathname === '/government/organisations/hm-revenue-customs/contact/self-assessment') {
-          webchat.$chatFrame = $('<iframe sandbox="allow-scripts allow-same-origin allow-popups" class="hidden" />');
+          webchat.$chatFrame = $('<iframe sandbox="allow-scripts allow-same-origin allow-popups allow-forms" class="hidden" />');
           webchat.$banner = $('.webchat-banner');
 
           // initialise the webchat
