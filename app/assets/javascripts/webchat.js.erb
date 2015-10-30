@@ -8,19 +8,6 @@
 
   var webchat = {
 
-    MAX_TRAIL_LENGTH: 10,
-
-    trackLocation: function(){
-      var govUkStorage = JSON.parse(window.sessionStorage.getItem('GOVUK')) || {};
-      if ($.isArray(govUkStorage.webchatTrail)) {
-        govUkStorage.webchatTrail.push(document.location);
-        govUkStorage.webchatTrail.slice(0 - webchat.MAX_TRAIL_LENGTH);
-      } else {
-        govUkStorage.webchatTrail = [document.location];
-      }
-      window.sessionStorage.setItem('GOVUK',JSON.stringify(govUkStorage));
-    },
-
     sendMessage: function(message){
       webchat.$chatFrame.get(0).contentWindow.postMessage(JSON.stringify(message), '<%= ENV['GOVUK_ASSET_ROOT'] %>');
     },
@@ -32,11 +19,8 @@
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
 
-        // append the current location to the current session set
-        webchat.trackLocation();
-
-        // what’s the initialisation condition for loading the web chat?
-        if (true) {
+        // only initialise on the self assessment help page for the time being
+        if (window.location.pathname === '/government/organisations/hm-revenue-customs/contact/self-assessment') {
           webchat.$chatFrame = $('<iframe sandbox="allow-scripts allow-same-origin allow-popups" class="hidden" />');
           webchat.$banner = $('.webchat-banner');
 
