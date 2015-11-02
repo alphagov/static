@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <%= javascript_include_tag 'libs/jquery/jquery-1.11.3.js' %>
   </head>
   <body>
   <script>
@@ -23,21 +24,18 @@
     }
 
     function loadIFrame(pageURL, pageTitle) {
-      var egainScript = document.createElement('script');
-      egainScript.id = 'eGainOffers';
-      egainScript.src = 'https://mcb.kcom.com/system/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
-      document.body.appendChild(egainScript);
-
-      egainScript.onload = function () {
+      var src = 'https://mcb.kcom.com/system/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
+      $.getScript(src, function () {
         setInterval(signalOfferStatus, 1000);
-      };
-      egainScript.onerror = function () {
+      }).fail(function () {
         sendMessage({ evt: 'error' });
-      };
+      });
+
     }
 
-    window.onmessage = function (e) {
+    function handleMessage(e) {
       var message;
+      e = e.originalEvent;
       if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
         message = JSON.parse(e.data);
         if (message.evt === 'load') {
@@ -50,7 +48,9 @@
           signalOfferStatus();
         }
       }
-    };
+    }
+
+    $(window).on('message', handleMessage);
 
   })();
 
