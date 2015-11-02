@@ -25,10 +25,21 @@
 
     function loadIFrame(pageURL, pageTitle) {
       var src = 'https://mcb.kcom.com/system/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
-      $.getScript(src, function () {
+
+      var script = $('<script/>');
+      script.on('load', function(){
         setInterval(signalOfferStatus, 1000);
-      }).fail(function () {
-        sendMessage({ evt: 'error' });
+      });
+      script.on('readystatechange', function(){
+        if (script.get(0).readyState == 'complete' || script.get(0).readyState == 'loaded') {
+          setInterval(signalOfferStatus, 1000);
+        }
+      });
+
+      script.appendTo('body');
+      script.attr({
+        id: 'eGainOffers',
+        src: src
       });
 
     }
