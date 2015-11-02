@@ -14,7 +14,7 @@
 
     init: function (){
       var insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('.heading-block');
-      insertionPoint.after('<div class="webchat-banner"><h2>Talk to an HMRC adviser online</h2><p>You can use web chat instead of calling HMRC’s helpline.</p><a href="#" class="accept">Start web chat</a> <a href="#" class="reject">I’m not interested</a></div>');
+      insertionPoint.after('<div class="webchat-banner" aria-hidden="true"><h2>Talk to an HMRC adviser online</h2><p>You can use web chat instead of calling HMRC’s helpline.</p><a href="#" class="accept">Start web chat</a> <a href="#" class="reject">I’m not interested</a></div>');
 
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
@@ -45,8 +45,10 @@
 
               if (message.evt === 'opened') {
                 webchat.$banner.addClass('open');
+                webchat.$banner.attr('aria-hidden', false);
               } else if (message.evt === 'closed') {
                 webchat.$banner.removeClass('open');
+                webchat.$banner.attr('aria-hidden', true);
               } else if (message.evt === 'error') {
                 GOVUK.analytics.trackEvent('webchat', 'error');
               }
