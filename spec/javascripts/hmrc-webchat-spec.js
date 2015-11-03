@@ -3,6 +3,7 @@ describe('HMRC webchat', function () {
 
   beforeEach(function() {
     spyOn(GOVUK.webchat, 'shouldOpen').and.returnValue(true);
+    spyOn(GOVUK.webchat, 'validOrigin').and.returnValue(true);
     setFixtures(INSERTION_HOOK);
     GOVUK.webchat.init();
   });

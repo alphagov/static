@@ -12,13 +12,17 @@
       return (window.location.pathname === '/government/organisations/hm-revenue-customs/contact/self-assessment');
     },
 
+    validOrigin: function(origin){
+      return origin.match(/gov\.uk$/) || origin.match(/alphagov\.co\.uk$/);
+    },
+
     sendMessage: function(message){
       webchat.$chatFrame.get(0).contentWindow.postMessage(JSON.stringify(message), '<%= ENV['GOVUK_ASSET_ROOT'] %>');
     },
 
     receiveMessage: function(e) {
       e = e.originalEvent;
-      if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
+      if (webchat.validOrigin(e.origin)) {
         var message = JSON.parse(e.data);
 
         if (message.evt === 'opened') {
