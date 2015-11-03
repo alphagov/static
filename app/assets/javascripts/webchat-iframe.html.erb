@@ -11,7 +11,7 @@
     'use strict';
 
     function isOfferOpen() {
-      var ribbonContainer = document.querySelector('#egofr-ribbon-container');
+      var ribbonContainer = document.querySelector('#egofr-hmrc5-container');
       return ribbonContainer && ribbonContainer.parentNode.style.visibility !== 'hidden';
     }
 
@@ -52,10 +52,10 @@
         if (message.evt === 'load') {
           loadIFrame(message.url, message.title);
         } else if (message.evt === 'accept') {
-          document.querySelector('.egofr-ribbon-btnOK').click();
+          document.querySelector('.egofr-hmrc5-btnOK').click();
           signalOfferStatus();
         } else if (message.evt === 'reject') {
-          document.querySelector('.egofr-ribbon-btnCancel').click();
+          document.querySelector('.egofr-hmrc5-btnCancel').click();
           signalOfferStatus();
         }
       }
