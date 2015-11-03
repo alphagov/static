@@ -8,8 +8,29 @@
 
   var webchat = {
 
+    shouldOpen: function(){
+      return (window.location.pathname === '/government/organisations/hm-revenue-customs/contact/self-assessment');
+    },
+
     sendMessage: function(message){
       webchat.$chatFrame.get(0).contentWindow.postMessage(JSON.stringify(message), '<%= ENV['GOVUK_ASSET_ROOT'] %>');
+    },
+
+    receiveMessage: function(e) {
+      e = e.originalEvent;
+      if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
+        var message = JSON.parse(e.data);
+
+        if (message.evt === 'opened') {
+          webchat.$banner.addClass('open');
+          webchat.$banner.attr('aria-hidden', false);
+        } else if (message.evt === 'closed') {
+          webchat.$banner.removeClass('open');
+          webchat.$banner.attr('aria-hidden', true);
+        } else if (message.evt === 'error') {
+          GOVUK.analytics.trackEvent('webchat', 'error');
+        }
+      }
     },
 
     init: function (){
@@ -20,7 +41,7 @@
       if (window.sessionStorage && window.postMessage) {
 
         // only initialise on the self assessment help page for the time being
-        if (window.location.pathname === '/government/organisations/hm-revenue-customs/contact/self-assessment') {
+        if (webchat.shouldOpen()) {
           webchat.$chatFrame = $('<iframe class="hidden" />');
           webchat.$banner = $('.webchat-banner');
 
@@ -38,22 +59,7 @@
           webchat.$chatFrame.appendTo('body');
 
           // hide / show the banner based on status of the webchat
-          $(window).on('message', function(e) {
-            e = e.originalEvent;
-            if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
-              var message = JSON.parse(e.data);
-
-              if (message.evt === 'opened') {
-                webchat.$banner.addClass('open');
-                webchat.$banner.attr('aria-hidden', false);
-              } else if (message.evt === 'closed') {
-                webchat.$banner.removeClass('open');
-                webchat.$banner.attr('aria-hidden', true);
-              } else if (message.evt === 'error') {
-                GOVUK.analytics.trackEvent('webchat', 'error');
-              }
-            }
-          });
+          $(window).on('message', webchat.receiveMessage);
 
           // let a user accept / reject a webchat
           webchat.$banner.on('click', '.accept', function(e) {
