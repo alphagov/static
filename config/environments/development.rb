@@ -25,7 +25,9 @@ Static::Application.configure do
   # rev filenames for assets
   config.assets.digest = false
 
-  config.action_controller.asset_host = ENV['STATIC_DEV'] || Plek.current.find('static')
+  if ENV['GOVUK_ASSET_ROOT'].present?
+    config.action_controller.asset_host = ENV['GOVUK_ASSET_ROOT']
+  end
 
   # Expands the lines which load the assets
   config.assets.debug = true

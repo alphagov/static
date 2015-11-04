@@ -38,6 +38,11 @@ $(document).ready(function() {
   // for radio buttons and checkboxes
   var buttonsSelector = "label.selectable input[type='radio'], label.selectable input[type='checkbox']";
   new GOVUK.SelectionButtons(buttonsSelector);
+
+  // HMRC webchat
+  if (GOVUK.webchat) {
+    GOVUK.webchat.init();
+  }
 });
 
 

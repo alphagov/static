@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <%= javascript_include_tag 'libs/jquery/jquery-1.11.3.js' %>
+  </head>
+  <body>
+  <script>
+
+  (function () {
+    'use strict';
+
+    function isOfferOpen() {
+      var ribbonContainer = document.querySelector('#egofr-hmrc5-container');
+      return ribbonContainer && ribbonContainer.parentNode.style.visibility !== 'hidden';
+    }
+
+    function sendMessage(obj) {
+      window.parent.postMessage(JSON.stringify(obj), '<%= Rails.env.development? ? '*' : ENV['GOVUK_WEBSITE_ROOT'] %>');
+    }
+
+    function signalOfferStatus() {
+      sendMessage({ evt: isOfferOpen() ? 'opened' : 'closed' });
+    }
+
+    function loadIFrame(pageURL, pageTitle) {
+      var src = 'https://mcb.kcom.com/system/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
+
+      var script = $('<script/>');
+      script.on('load', function(){
+        setInterval(signalOfferStatus, 1000);
+      });
+      script.on('readystatechange', function(){
+        if (script.get(0).readyState == 'complete' || script.get(0).readyState == 'loaded') {
+          setInterval(signalOfferStatus, 1000);
+        }
+      });
+
+      script.appendTo('body');
+      script.attr({
+        id: 'eGainOffers',
+        src: src
+      });
+
+    }
+
+    function handleMessage(e) {
+      var message;
+      e = e.originalEvent;
+      if (e.origin.match(/gov\.uk$/) || e.origin.match(/alphagov\.co\.uk$/)) {
+        message = JSON.parse(e.data);
+        if (message.evt === 'load') {
+          loadIFrame(message.url, message.title);
+        } else if (message.evt === 'accept') {
+          document.querySelector('.egofr-hmrc5-btnOK').click();
+          signalOfferStatus();
+        } else if (message.evt === 'reject') {
+          document.querySelector('.egofr-hmrc5-btnCancel').click();
+          signalOfferStatus();
+        }
+      }
+    }
+
+    $(window).on('message', handleMessage);
+
+  })();
+
+  </script>
+  </body>
+</html>
