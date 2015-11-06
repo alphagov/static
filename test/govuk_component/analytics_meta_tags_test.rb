@@ -1,4 +1,5 @@
 require 'govuk_component_test_helper'
+require 'gds_api/response'
 
 class AnalyticsMetaTagsTestCase < ComponentTestCase
   def component_name
@@ -37,5 +38,23 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     render_component(content_item: content_item)
 
     assert_select "meta[name='govuk:analytics:world-locations'][content='<WL3><WL123>']"
+  end
+
+  test "handling of string keys and/or GdsApi::Response objects" do
+    content_item = {
+      links: {
+        world_locations: [
+          {
+            analytics_identifier: "WL3"
+          }
+        ]
+      }
+    }
+    net_http_response = stub(body: content_item.to_json)
+    api_response = GdsApi::Response.new(net_http_response)
+
+    render_component(content_item: api_response)
+
+    assert_select "meta[name='govuk:analytics:world-locations'][content='<WL3>']"
   end
 end
