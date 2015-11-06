@@ -38,14 +38,17 @@
     },
 
     init: function (){
-      var insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('.heading-block');
-      insertionPoint.after('<div class="webchat-banner" aria-hidden="true"><h2>Talk to an HMRC adviser online</h2><p>You can use web chat instead of calling HMRC’s helpline.</p><a href="#" class="accept">Start web chat</a> <a href="#" class="reject">I’m not interested</a></div>');
+      var insertionPoint;
 
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
 
         // only initialise on the self assessment help page for the time being
         if (webchat.shouldOpen()) {
+
+          insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('.heading-block');
+          insertionPoint.after('<div class="webchat-banner" aria-hidden="true"><h2>Talk to an HMRC adviser online</h2><p>You can use web chat instead of calling HMRC’s helpline.</p><a href="#" class="accept">Start web chat</a> <a href="#" class="reject">I’m not interested</a></div>');
+
           webchat.$chatFrame = $('<iframe class="hidden" />');
           webchat.$banner = $('.webchat-banner');
 
