@@ -2,8 +2,14 @@
   # We have to call deep_symbolize_keys because we're often dealing with a
   # parsed JSON document which will have string keys by default, but our
   # components use symbol keys and we want consistency.
-  links_hash = content_item.to_h.deep_symbolize_keys[:links] || {}
+  content_item_hash = content_item.to_h.deep_symbolize_keys
+  links_hash = content_item_hash[:links] || {}
   meta_tags = {}
+
+  meta_tags["govuk:format"] = content_item_hash[:format] if content_item_hash[:format]
+
+  need_ids = content_item_hash[:need_ids] || []
+  meta_tags["govuk:need-ids"] = need_ids.join(',') if need_ids.any?
 
   organisations = []
   organisations += links_hash[:organisations] || []
