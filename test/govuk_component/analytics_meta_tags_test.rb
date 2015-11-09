@@ -6,6 +6,10 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     "analytics_meta_tags"
   end
 
+  test "no meta tags are rendered when there's no trackable data" do
+    assert_empty render_component(content_item: {})
+  end
+
   test "renders format in a meta tag" do
     render_component(content_item: { format: "case_study" })
     assert_meta_tag('govuk:format', 'case_study')

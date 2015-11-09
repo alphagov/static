@@ -16,12 +16,12 @@
   organisations += links_hash[:lead_organisations] || []
   organisations += links_hash[:supporting_organisations] || []
   organisations += links_hash[:worldwide_organisations] || []
-  organisations_content = organisations.map{ |link| "<#{link[:analytics_identifier]}>" }.join
-  meta_tags["govuk:analytics:organisations"] = organisations_content if organisations_content
+  organisations_content = organisations.map { |link| "<#{link[:analytics_identifier]}>" }.join
+  meta_tags["govuk:analytics:organisations"] = organisations_content if organisations.any?
 
   world_locations = links_hash[:world_locations] || []
-  world_locations_content = world_locations.map{ |link| "<#{link[:analytics_identifier]}>" }.join
-  meta_tags["govuk:analytics:world-locations"] = world_locations_content if world_locations_content
+  world_locations_content = world_locations.map { |link| "<#{link[:analytics_identifier]}>" }.join
+  meta_tags["govuk:analytics:world-locations"] = world_locations_content if world_locations.any?
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">
