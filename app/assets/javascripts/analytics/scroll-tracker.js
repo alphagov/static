@@ -56,6 +56,11 @@
       ['Heading', 'Civil Service recruitment'],
       ['Heading', 'Technical Support'],
       ['Heading', 'Contact Information']
+    ],
+    '/government/publications/spending-review-and-autumn-statement-2015': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
     ]
   };
 
