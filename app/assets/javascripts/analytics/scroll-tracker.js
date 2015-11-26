@@ -32,20 +32,17 @@
       ['Heading', 'Log in problems'],
       ['Heading', 'Manage your student finance']
     ],
-    '/tax-disc': [
-      ['Heading', 'Other ways to apply'],
-      ['Heading', 'Help with tax discs']
+    '/contact-the-dvla/y/driving-licences-and-applications': [
+      ['Heading', 'Vehicle registration enquiries'],
+      ['Heading', 'When to contact DVLA']
     ],
-    '/aaib-reports': [
-      ['Percent', 25],
-      ['Percent', 50],
-      ['Percent', 75]
+    '/contact-the-dvla/y/vehicle-tax-and-sorn': [
+      ['Heading', 'Vehicle registration enquiries'],
+      ['Heading', 'When to contact DVLA']
     ],
-    '/business-finance-support-finder/search': [
-      ['Percent', 10],
-      ['Percent', 25],
-      ['Percent', 50],
-      ['Percent', 75]
+    '/contact-the-dvla/y/vehicle-registration-and-v5c-certificates-log-books': [
+      ['Heading', 'Vehicle registration enquiries'],
+      ['Heading', 'When to contact DVLA']
     ],
     '/using-the-civil-service-jobs-website': [
       ['Heading', 'Your Civil Service Jobs account'],
