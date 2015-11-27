@@ -11,7 +11,7 @@ gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.4"
 gem 'airbrake', '~> 4.3.1'
 
-gem 'nokogiri', github: "alphagov/nokogiri", branch: "v1.6.6.5.rc"
+gem 'nokogiri', "~> 1.6.6.4"
 
 group :development do
   gem 'image_optim', '0.17.1'
