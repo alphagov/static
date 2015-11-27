@@ -32,8 +32,4 @@ class PreviousAndNextNavigationTestCase < ComponentTestCase
     assert_select ".pagination-label", text: "2 of 3"
     assert_link("next-page")
   end
-
-  def assert_link(link)
-    assert_select "a[href=\"#{link}\"]"
-  end
 end

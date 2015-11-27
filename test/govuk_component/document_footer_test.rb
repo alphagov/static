@@ -98,12 +98,4 @@ class DocumentFooterTestCase < ComponentTestCase
     render_component({direction: "rtl"})
     assert_select '.govuk-document-footer.direction-rtl'
   end
-
-  def assert_link_with_text_in(selector, link, text)
-    assert_select "#{selector} a[href=\"#{link}\"]", text: text
-  end
-
-  def assert_timestamp_in(selector, timestamp, text)
-    assert_select "#{selector} time[datetime=\"#{timestamp}\"]", text: text
-  end
 end

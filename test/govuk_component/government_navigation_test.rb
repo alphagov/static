@@ -22,8 +22,4 @@ class GovernmentNavigationTestCase < ComponentTestCase
     render_component({active: 'departments'})
     assert_select "a.active", text: "Departments"
   end
-
-  def assert_link_with_text(link, text)
-    assert_select "a[href=\"#{link}\"]", text: text
-  end
 end
