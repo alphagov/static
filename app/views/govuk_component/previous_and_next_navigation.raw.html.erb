@@ -1,3 +1,4 @@
+<% if local_assigns.include?(:next_page) || local_assigns.include?(:previous_page) %>
 <nav class="govuk-previous-and-next-navigation" role="navigation" aria-label="Pagination">
   <ul class="group">
     <% if local_assigns.include?(:previous_page) %>
@@ -18,3 +19,4 @@
     <% end %>
   </ul>
 </nav>
+<% end %>
