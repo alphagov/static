@@ -155,3 +155,7 @@ fixtures:
     rich_govspeak: true
     content: |
       <p>This content has some <strong>rich govspeak</strong></p>
+  with_youtube_embed:
+    content: |
+      <p>This content has a YouTube video link, converted to an accessible embedded player</p>
+      <p><a href="https://www.youtube.com/watch?v=y6hbrS3DheU">Operations: a developer's guide, by Anna Shipman</a></p>
