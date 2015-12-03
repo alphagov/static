@@ -61,6 +61,11 @@
       ['Percent', 25],
       ['Percent', 50],
       ['Percent', 75]
+    ],
+    '/guidance/universal-credit-how-it-can-help-your-business': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
     ]
   };
 
