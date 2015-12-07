@@ -33,11 +33,11 @@
       ['Heading', 'Manage your student finance']
     ],
     '/contact-the-dvla/y/driving-licences-and-applications': [
-      ['Heading', 'Vehicle registration enquiries'],
+      ['Heading', 'Driving licencing enquiries'],
       ['Heading', 'When to contact DVLA']
     ],
     '/contact-the-dvla/y/vehicle-tax-and-sorn': [
-      ['Heading', 'Vehicle registration enquiries'],
+      ['Heading', 'Vehicle tax enquiries'],
       ['Heading', 'When to contact DVLA']
     ],
     '/contact-the-dvla/y/vehicle-registration-and-v5c-certificates-log-books': [
