@@ -60,7 +60,8 @@
     '/government/publications/spending-review-and-autumn-statement-2015-documents/spending-review-and-autumn-statement-2015': [
       ['Percent', 25],
       ['Percent', 50],
-      ['Percent', 75],
+      ['Percent', 75]
+    ],
     '/guidance/universal-credit-how-it-helps-you-into-work': [
       ['Percent', 25],
       ['Percent', 50],
