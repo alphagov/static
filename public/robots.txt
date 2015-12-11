@@ -17,3 +17,9 @@ Crawl-delay: 0.5
 # https://ahrefs.com/robot/ crawls the site frequently
 User-agent: AhrefsBot
 Crawl-delay: 10
+
+# https://www.deepcrawl.com/bot/ makes lots of requests. Ideally
+# we'd slow it down rather than blocking it but it doesn't mention
+# whether or not it supports crawl-delay.
+User-agent: deepcrawl
+Disallow: /
