@@ -1,4 +1,4 @@
-<div class="govuk-option-select" <% if local_assigns.include?(:closed_on_load) && closed_on_load %>data-closed-on-load="true"<% end %>>
+<div class="govuk-option-select" <% if local_assigns.include?(:closed_on_load) && closed_on_load %>data-closed-on-load="true"<% end %><% if local_assigns.include?(:closed_state_name) && closed_state_name %>data-closed-state-name="<%= closed_state_name %>"<% end %>>
   <div class="container-head js-container-head">
     <div class='option-select-label'><%= title %></div>
   </div>
