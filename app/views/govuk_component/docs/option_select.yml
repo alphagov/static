@@ -94,3 +94,18 @@ fixtures:
     - value: sombrero
       label: Sombrero
       id: sombrero
+  with_closed_state_field:
+    key: closed_state_field
+    title: Famous women in tech
+    closed_state_name: famous_women_in_tech_closed
+    options_container_id: famous_women_in_tech
+    options:
+    - value: fran_allen
+      label: Fran Allen
+      id: fran_allen
+    - value: grace_hopper
+      label: Grace Hopper
+      id: grace_hopper
+    - value: dame_steve_shirley
+      label: Dame Steve Shirley
+      id: dame_steve_shirley
