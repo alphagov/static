@@ -2,4 +2,4 @@ Description:
     Generates a new GOV.UK component
 
 Example:
-    rails generate govuk_component [compontent_name]
+    rails generate govuk_component [component_name]
