@@ -1,0 +1,14 @@
+require 'govuk_component_test_helper'
+
+class <%= "#{@test_name}TestCase" %> < ComponentTestCase
+  def component_name
+    "<%= file_name %>"
+  end
+
+  test "no error if no parameters passed in" do
+    assert_nothing_raised do
+      render_component({})
+      assert_select ".govuk-<%= @public_name %>"
+    end
+  end
+end
