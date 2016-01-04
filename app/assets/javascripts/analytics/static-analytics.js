@@ -19,7 +19,7 @@
     analytics.trackPageview();
 
     // Begin error and print tracking
-    GOVUK.analyticsPlugins.error();
+    GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
     GOVUK.analyticsPlugins.printIntent();
     GOVUK.analyticsPlugins.externalLinkTracker();
     GOVUK.analyticsPlugins.downloadLinkTracker({
