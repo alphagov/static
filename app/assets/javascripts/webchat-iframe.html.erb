@@ -52,10 +52,10 @@
         if (message.evt === 'load') {
           loadIFrame(message.url, message.title);
         } else if (message.evt === 'accept') {
-          document.querySelector('.egofr-hmrc-btnOK').click();
+          document.querySelector('input[id$=btnOK]').click();
           signalOfferStatus();
         } else if (message.evt === 'reject') {
-          document.querySelector('.egofr-hmrc-btnCancel').click();
+          document.querySelector('input[id$=btnCancel]').click();
           signalOfferStatus();
         }
       }
