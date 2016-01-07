@@ -8,14 +8,14 @@
     li {
       @include core-16;
       background-image: image-url("separator.png");
-      background-position: 100% 50%;
+      background-position: 0% 50%;
       background-repeat: no-repeat;
       float: left;
       list-style: none;
-      margin-left: 0;
-      margin-right: 0.5em;
+      margin-left: 0.6em;
+      margin-right: 0;
       margin-bottom: 0.4em;
-      padding-right: 1em;
+      padding-left: 0.9em;
 
       @include device-pixel-ratio() {
         background-image: image-url("separator-2x.png");
@@ -26,9 +26,10 @@
         color: $text-colour;
       }
 
-      &:last-child {
+      &:first-child {
         background-image: none;
-        margin-right: 0
+        margin-left: 0;
+        padding-left: 0;
       }
     }
   }
