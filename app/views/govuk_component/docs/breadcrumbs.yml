@@ -1,10 +1,31 @@
 name: "Breadcrumbs"
-description: "Navigational breadcrumbs, showing section hierarchy"
+description: "Navigational breadcrumbs, showing page hierarchy"
 body: |
-  A long form description of the Breadcrumbs component, which may
-  include markdown formatting.
-
-  It should try and descrive the intent of the component, and document
-  any parameters passed to the component.
+  Accepts an array of breadcrumb objects. Each crumb must have a title and a URL.
 fixtures:
-  default: {}
+  default:
+    breadcrumbs:
+    - title: 'Section'
+      url: '/section'
+    - title: 'Sub-section'
+      url: '/section/sub-section'
+  no_breadcrumbs:
+    breadcrumbs: []
+  single_section:
+    breadcrumbs:
+    - title: 'Section'
+      url: '/section'
+  many_breadcrumbs:
+    breadcrumbs:
+    - title: 'Section'
+      url: '/section'
+    - title: 'Sub-section'
+      url: '/section/sub-section'
+    - title: 'Sub Sub-section'
+      url: '/section/sub-section/sub-sub-section'
+  real:
+    breadcrumbs:
+    - title: 'Passports, travel and living abroad'
+      url: '/browse/abroad'
+    - title: 'Travel abroad'
+      url: '/browse/abroad/travel-abroad'
