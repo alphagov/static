@@ -1,0 +1,10 @@
+name: "Breadcrumbs"
+description: "Navigational breadcrumbs, showing section hierarchy"
+body: |
+  A long form description of the Breadcrumbs component, which may
+  include markdown formatting.
+
+  It should try and descrive the intent of the component, and document
+  any parameters passed to the component.
+fixtures:
+  default: {}
