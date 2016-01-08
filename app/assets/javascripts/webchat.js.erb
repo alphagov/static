@@ -9,7 +9,13 @@
   var webchat = {
 
     shouldOpen: function(){
-      return (window.location.pathname === '/government/organisations/hm-revenue-customs/contact/self-assessment');
+      var webchatEnabledPaths = [
+        '/government/organisations/hm-revenue-customs/contact/self-assessment',
+        '/check-if-you-need-a-tax-return/y/employed-even-if-just-for-part-of-the-year/no/no/no-neither-of-us-claimed-child-benefit/no/no/no/none-of-these',
+        '/check-if-you-need-a-tax-return/y/retired/no/no-neither-of-us-claimed-child-benefit/no/no/no/none-of-these'
+      ];
+
+      return (webchatEnabledPaths.indexOf(window.location.pathname) >= 0);
     },
 
     validOrigin: function(origin){
@@ -42,8 +48,6 @@
 
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
-
-        // only initialise on the self assessment help page for the time being
         if (webchat.shouldOpen()) {
 
           insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('.heading-block');
