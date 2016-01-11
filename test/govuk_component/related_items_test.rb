@@ -33,7 +33,7 @@ class RelatedItemsTestCase < ComponentTestCase
     })
 
     assert_select "h2", text: "Section title"
-    assert_link_with_text_in("ul li:last-child", "/more-link", "More")
+    assert_link_with_text_in("ul li:last-child", "/more-link", "More in Section title")
     assert_link_with_text_in("ul li:first-child", "/item", "Item title")
     assert_link_with_text_in("ul li:first-child + li", "/other-item", "Other item title")
   end
@@ -65,11 +65,11 @@ class RelatedItemsTestCase < ComponentTestCase
     })
 
     assert_select "h2", text: "Section title"
-    assert_link_with_text_in("ul li:last-child", "/more-link", "More")
+    assert_link_with_text_in("ul li:last-child", "/more-link", "More in Section title")
     assert_link_with_text_in("ul li:first-child", "/item", "Item title")
 
     assert_select "h2", text: "Other section title"
-    assert_link_with_text_in("ul li:last-child", "/other-more-link", "More")
+    assert_link_with_text_in("ul li:last-child", "/other-more-link", "More in Other section title")
     assert_link_with_text_in("ul li:first-child", "/other-item", "Other item title")
   end
 

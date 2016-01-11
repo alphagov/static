@@ -11,7 +11,11 @@
         <li><a href="<%= item[:url] %>"><%= item[:title] %></a></li>
       <% end %>
       <% if section[:url] %>
-        <li class="section"><a href="<%= section[:url] %>">More</a></li>
+        <li class="related-items-more">
+          <a href="<%= section[:url] %>">
+            More<% if section[:title] %> <span class="visuallyhidden">in <%= section[:title] %></span><% end %>
+          </a>
+        </li>
       <% end %>
     </ul>
   <% end %>
