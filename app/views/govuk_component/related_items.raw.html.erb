@@ -1,3 +1,18 @@
-<div class="govuk-related-items">
-  Related items
-</div>
+<%
+  sections ||= []
+%>
+<aside class="govuk-related-items">
+  <% sections.each do |section| %>
+    <h2>
+      <%= section[:title] || "Elsewhere on GOV.UK" %>
+    </h2>
+    <ul>
+      <% section[:items].each do |item| %>
+        <li><a href="<%= item[:url] %>"><%= item[:title] %></a></li>
+      <% end %>
+      <% if section[:url] %>
+        <li class="section"><a href="<%= section[:url] %>">More</a></li>
+      <% end %>
+    </ul>
+  <% end %>
+</aside>
