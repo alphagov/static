@@ -1,29 +1,34 @@
 <%
   sections ||= []
 %>
-<aside class="govuk-related-items">
+<aside class="govuk-related-items" role="complementary">
   <% sections.each do |section| %>
-    <h2>
-      <%= section[:title] || "Elsewhere on GOV.UK" %>
+    <% section_title = section[:title] || "Elsewhere on GOV.UK" %>
+    <h2
+      <% if section[:id] %>id="<%= section[:id] %>"<% end %>
+    >
+      <%= section_title %>
     </h2>
-    <ul>
-      <% section[:items].each do |item| %>
-        <li>
-          <a
-            href="<%= item[:url] %>"
-            <% if item[:rel] %>rel="<%= item[:rel] %>"<% end %>
-          >
-            <%= item[:title] %>
-          </a>
-      </li>
-      <% end %>
-      <% if section[:url] %>
-        <li class="related-items-more">
-          <a href="<%= section[:url] %>">
-            More<% if section[:title] %> <span class="visuallyhidden">in <%= section[:title] %></span><% end %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+    <nav role="navigation" <% if section[:id] %>aria-labelledby="<%= section[:id] %>"<% end %>>
+      <ul>
+        <% section[:items].each do |item| %>
+          <li>
+            <a
+              href="<%= item[:url] %>"
+              <% if item[:rel] %>rel="<%= item[:rel] %>"<% end %>
+            >
+              <%= item[:title] %>
+            </a>
+          </li>
+        <% end %>
+        <% if section[:url] %>
+          <li class="related-items-more">
+            <a href="<%= section[:url] %>">
+              More<% if section[:title] %> <span class="visuallyhidden">in <%= section_title %></span><% end %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   <% end %>
 </aside>

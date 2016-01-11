@@ -109,4 +109,25 @@ class RelatedItemsTestCase < ComponentTestCase
     })
     assert_select "a[rel=external]", text: "Wikivorce"
   end
+
+  test "includes an id and aria-labelledby when a section id is provided" do
+    render_component({
+      sections: [
+        {
+          title: "Elsewhere on the web",
+          url: "/more-link",
+          id: "related-elsewhere-on-the-web",
+          items: [
+            {
+              title: "Wikivorce",
+              url: "http://www.wikivorce.com",
+              rel: "external"
+            }
+          ]
+        },
+      ],
+    })
+    assert_select "#related-elsewhere-on-the-web", text: "Elsewhere on the web"
+    assert_select "nav[aria-labelledby=related-elsewhere-on-the-web]"
+  end
 end

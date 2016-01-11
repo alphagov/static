@@ -9,12 +9,14 @@ fixtures:
     sections:
     - title: "Travel Abroad"
       url: "/"
+      id: "related-travel-abroad"
       items:
       - title: "Link A"
         url: /
       - title: "Link B"
         url: /
     - title: "Travel"
+      id: "related-travel"
       items:
       - title: "Link 1"
         url: /
@@ -23,6 +25,7 @@ fixtures:
   external_links:
     sections:
       - title: "Elsewhere on the web"
+        id: "related-elsewhere-on-the-web"
         items:
         - title: "Wikivorce"
           url: "http://www.wikivorce.com"
@@ -32,9 +35,11 @@ fixtures:
     sections:
     - title: "Pregnancy and birth"
       url: /browse/childcare-parenting/pregnancy-birth
+      id: "related-pregnancy-and-birth"
       items:
       - title: "Register a birth"
         url: /register-birth
-    - items:
+    - id: "related-elsewhere-on-govuk"
+      items:
       - title: "Check if you're a British citizen"
         url: /check-british-citizen
