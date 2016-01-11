@@ -8,7 +8,14 @@
     </h2>
     <ul>
       <% section[:items].each do |item| %>
-        <li><a href="<%= item[:url] %>"><%= item[:title] %></a></li>
+        <li>
+          <a
+            href="<%= item[:url] %>"
+            <% if item[:rel] %>rel="<%= item[:rel] %>"<% end %>
+          >
+            <%= item[:title] %>
+          </a>
+      </li>
       <% end %>
       <% if section[:url] %>
         <li class="related-items-more">

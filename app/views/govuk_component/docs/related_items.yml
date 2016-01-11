@@ -7,27 +7,34 @@ body: |
 fixtures:
   default:
     sections:
-    - title: 'Travel Abroad'
-      url: '/'
+    - title: "Travel Abroad"
+      url: "/"
       items:
-      - title: 'Link A'
+      - title: "Link A"
         url: /
-      - title: 'Link B'
+      - title: "Link B"
         url: /
-    - title: 'Travel'
+    - title: "Travel"
       items:
-      - title: 'Link 1'
+      - title: "Link 1"
         url: /
-      - title: 'Link 2'
+      - title: "Link 2"
         url: /
+  external_links:
+    sections:
+      - title: "Elsewhere on the web"
+        items:
+        - title: "Wikivorce"
+          url: "http://www.wikivorce.com"
+          rel: external
   real_example:
     # from https://www.gov.uk/register-birth
     sections:
-    - title: Pregnancy and birth
+    - title: "Pregnancy and birth"
       url: /browse/childcare-parenting/pregnancy-birth
       items:
-      - title: 'Register a birth'
+      - title: "Register a birth"
         url: /register-birth
     - items:
-      - title: Check if you're a British citizen
+      - title: "Check if you're a British citizen"
         url: /check-british-citizen

@@ -90,4 +90,23 @@ class RelatedItemsTestCase < ComponentTestCase
 
     assert_select "h2", text: "Elsewhere on GOV.UK"
   end
+
+  test "renders external links with a rel attribute" do
+    render_component({
+      sections: [
+        {
+          title: "Elsewhere on the web",
+          url: "/more-link",
+          items: [
+            {
+              title: "Wikivorce",
+              url: "http://www.wikivorce.com",
+              rel: "external"
+            }
+          ]
+        },
+      ],
+    })
+    assert_select "a[rel=external]", text: "Wikivorce"
+  end
 end
