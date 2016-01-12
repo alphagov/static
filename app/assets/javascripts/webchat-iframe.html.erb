@@ -24,7 +24,7 @@
     }
 
     function loadIFrame(pageURL, pageTitle) {
-      var src = 'https://online.hmrc.gov.uk/webchat/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
+      var src = 'https://online.hmrc.gov.uk/webchatprod/Offers.egain?command=GetRulesJS&egofferpageurl=' + pageURL + '&egofferpagetitle=' + pageTitle + '&egofferpatternchecksum=';
 
       var script = $('<script/>');
       script.on('load', function(){
