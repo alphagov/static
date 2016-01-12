@@ -3,9 +3,7 @@
   padding-top: 5px;
 
   h2 {
-    @include core-24;
-    font-weight: 600;
-    color: $text-colour;
+    @include bold-24;
     margin-top: 0.3em;
     margin-bottom: 0.5em;
   }
@@ -13,9 +11,7 @@
   ul {
     @include core-16;
     list-style: none;
-    margin: 0 0 1.25em 0;
-    padding: 0;
-    overflow: hidden;
+    margin-bottom: 1.25em;
 
     li {
       margin-bottom: 0.75em;
