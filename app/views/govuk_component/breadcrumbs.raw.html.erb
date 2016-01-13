@@ -1,0 +1,15 @@
+<%
+  breadcrumbs ||= []
+%>
+<div class="govuk-breadcrumbs">
+  <ol role="breadcrumbs">
+    <li>
+      <a href="/">Home</a>
+    </li>
+  <% breadcrumbs.each do |crumb| %>
+    <li>
+      <a href="<%= crumb[:url] %>"><%= crumb[:title] %></a>
+    </li>
+  <% end %>
+  </ol>
+</div>
