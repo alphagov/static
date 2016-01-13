@@ -4,7 +4,7 @@ body: |
   A long form description of the <%= human_name %> component, which may
   include markdown formatting.
 
-  It should try and descrive the intent of the component, and document
+  It should try and describe the intent of the component, and document
   any parameters passed to the component.
 fixtures:
   default: {}

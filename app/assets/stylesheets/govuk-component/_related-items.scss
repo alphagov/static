@@ -1,0 +1,24 @@
+.govuk-related-items {
+  border-top: 10px solid $mainstream-brand;
+  padding-top: 5px;
+
+  h2 {
+    @include bold-24;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  ul {
+    @include core-16;
+    list-style: none;
+    margin-bottom: 1.25em;
+
+    li {
+      margin-bottom: 0.75em;
+
+      &.related-items-more {
+        font-weight: bold;
+      }
+    }
+  }
+}
