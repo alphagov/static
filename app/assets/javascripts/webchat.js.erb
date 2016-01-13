@@ -50,7 +50,7 @@
       if (window.sessionStorage && window.postMessage) {
         if (webchat.shouldOpen()) {
 
-          insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('.heading-block');
+          insertionPoint = $('.beta-wrapper').length ? $('.beta-wrapper') : $('#content > header');
           insertionPoint.after('<div class="webchat-banner" aria-hidden="true"><h2>Talk to an HMRC adviser online</h2><p>You can use web chat instead of calling HMRC’s helpline.</p><a href="#" class="accept">Start web chat</a> <a href="#" class="reject">I’m not interested</a></div>');
 
           webchat.$chatFrame = $('<iframe class="hidden" />');
