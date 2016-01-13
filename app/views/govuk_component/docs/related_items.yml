@@ -39,7 +39,8 @@ fixtures:
       items:
       - title: "Register a birth"
         url: /register-birth
-    - id: "related-elsewhere-on-govuk"
+    - title: "Elsewhere on GOV.UK"
+      id: "related-elsewhere-on-govuk"
       items:
       - title: "Check if you're a British citizen"
         url: /check-british-citizen

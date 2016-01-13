@@ -73,24 +73,6 @@ class RelatedItemsTestCase < ComponentTestCase
     assert_link_with_text_in("ul li:first-child", "/other-item", "Other item title")
   end
 
-  test "has a default section title" do
-    render_component({
-      sections: [
-        {
-          url: "/more-link",
-          items: [
-            {
-              title: "Item title",
-              url: "/item"
-            }
-          ]
-        },
-      ],
-    })
-
-    assert_select "h2", text: "Elsewhere on GOV.UK"
-  end
-
   test "renders external links with a rel attribute" do
     render_component({
       sections: [

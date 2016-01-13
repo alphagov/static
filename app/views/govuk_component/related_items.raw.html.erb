@@ -3,11 +3,10 @@
 %>
 <aside class="govuk-related-items" role="complementary">
   <% sections.each do |section| %>
-    <% section_title = section[:title] || "Elsewhere on GOV.UK" %>
     <h2
       <% if section[:id] %>id="<%= section[:id] %>"<% end %>
     >
-      <%= section_title %>
+      <%= section[:title] %>
     </h2>
     <nav role="navigation" <% if section[:id] %>aria-labelledby="<%= section[:id] %>"<% end %>>
       <ul>
@@ -24,7 +23,7 @@
         <% if section[:url] %>
           <li class="related-items-more">
             <a href="<%= section[:url] %>">
-              More<% if section[:title] %> <span class="visuallyhidden">in <%= section_title %></span><% end %>
+              More<% if section[:title] %> <span class="visuallyhidden">in <%= section[:title] %></span><% end %>
             </a>
           </li>
         <% end %>
