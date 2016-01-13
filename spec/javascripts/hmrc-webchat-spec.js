@@ -1,5 +1,5 @@
 describe('HMRC webchat', function () {
-  var INSERTION_HOOK = '<div class="heading-block"></div>';
+  var INSERTION_HOOK = '<main id="content"><header></header></div>';
 
   beforeEach(function() {
     spyOn(GOVUK.webchat, 'shouldOpen').and.returnValue(true);
