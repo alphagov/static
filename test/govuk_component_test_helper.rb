@@ -1,4 +1,10 @@
 require 'test_helper'
+require 'govuk-content-schema-test-helpers'
+
+GovukContentSchemaTestHelpers.configure do |config|
+  config.schema_type = 'frontend'
+  config.project_root = Rails.root
+end
 
 class ComponentTestCase < ActionView::TestCase
   def component_name
