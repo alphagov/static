@@ -1,36 +1,6 @@
+// https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_breadcrumbs.scss
+@import "design-patterns/breadcrumbs";
+
 .govuk-breadcrumbs {
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-
-  ol {
-    @extend %contain-floats;
-
-    li {
-      @include core-16;
-      background-image: image-url("separator.png");
-      background-position: 0% 50%;
-      background-repeat: no-repeat;
-      float: left;
-      list-style: none;
-      margin-left: 0.6em;
-      margin-right: 0;
-      margin-bottom: 0.4em;
-      padding-left: 0.9em;
-
-      @include device-pixel-ratio() {
-        background-image: image-url("separator-2x.png");
-        background-size: 6px 11px;
-      }
-
-      a {
-        color: $text-colour;
-      }
-
-      &:first-child {
-        background-image: none;
-        margin-left: 0;
-        padding-left: 0;
-      }
-    }
-  }
+  @include breadcrumbs;
 }
