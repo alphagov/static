@@ -64,13 +64,13 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
-    domain_name (0.5.24)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
     exifr (1.2.3.1)
     fspath (2.1.1)
-    gds-api-adapters (23.2.2)
+    gds-api-adapters (26.7.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -127,7 +127,7 @@ GEM
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.11.2)
-    netrc (0.10.3)
+    netrc (0.11.0)
     nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
     null_logger (0.0.1)
@@ -145,7 +145,7 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
-    rack-cache (1.2)
+    rack-cache (1.5.1)
       rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -241,7 +241,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.5.0)
-  gds-api-adapters (= 23.2.2)
+  gds-api-adapters (= 26.7.0)
   govuk-lint (~> 0.3.0)
   govuk_frontend_toolkit (~> 4.5.0)
   govuk_template (= 0.15.1)
