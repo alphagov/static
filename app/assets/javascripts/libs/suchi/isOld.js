@@ -41,20 +41,21 @@
    * of userbase at the time of writing.
    */
   suchi.laggards = {
-    // IE 6:      ?%
+    // IE 6:
     IE6: /^Mozilla\/4\.0 \(compatible; MSIE 6\.0; Windows NT \d\.\d(.*)\)$/g,
 
-    // IE 7:      ?%
+    // IE 7:
     // FIXME: test for Trident version #
     IE7: /^Mozilla\/4\.0 \(compatible; MSIE 7\.0; Windows NT \d\.\d(.*)\)$/g,
 
-    // IE 8:     11%
+    // IE 8:
     IE8: /^Mozilla\/4\.0 \(compatible; MSIE 8\.0; Windows NT \d\.\d;(.*)? Trident\/4\.0(;)?(.*)\)$/g,
 
-    // IE 9:     17%
+    // IE 9:
     IE9: /^Mozilla\/5\.0 \(compatible; MSIE 9\.0; Windows NT \d\.\d(.*); Trident\/5\.0(.*)\)$/g,
 
-    // FIXME(slightlyoff): should IE 10 be in the list yet?
+    // IE 10:
+    IE10: /^Mozilla\/5\.0 \(compatible; MSIE 10\.0; Windows NT \d\.\d(.*); Trident\/6\.0(.*)\)$/g,
 
     // FF 3.6:    0.X%
     // Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6;en-US; rv:1.9.2.9) Gecko/20100824 Firefox/3.6.9
