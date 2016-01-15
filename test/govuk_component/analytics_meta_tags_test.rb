@@ -6,6 +6,19 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     "analytics_meta_tags"
   end
 
+  def example_document_for(format, example_name)
+    JSON.parse(GovukContentSchemaTestHelpers::Examples.new.get(format, example_name))
+  end
+
+  test "renders with an example case study" do
+    render_component(content_item: example_document_for('case_study', 'case_study'))
+
+    assert_meta_tag('govuk:format', 'case_study')
+    assert_meta_tag('govuk:need-ids', '100001,100002')
+    assert_meta_tag('govuk:analytics:organisations', '<L2><W4>')
+    assert_meta_tag('govuk:analytics:world-locations', '<WL3>')
+  end
+
   test "no meta tags are rendered when there's no trackable data" do
     assert_empty render_component(content_item: {})
   end
