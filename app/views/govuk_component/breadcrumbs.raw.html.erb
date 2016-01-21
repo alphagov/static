@@ -8,7 +8,11 @@
     </li>
   <% breadcrumbs.each do |crumb| %>
     <li>
-      <a href="<%= crumb[:url] %>"><%= crumb[:title] %></a>
+      <% if crumb[:url] %>
+        <a href="<%= crumb[:url] %>"><%= crumb[:title] %></a>
+      <% else %>
+        <%= crumb[:title] %>
+      <% end %>
     </li>
   <% end %>
   </ol>

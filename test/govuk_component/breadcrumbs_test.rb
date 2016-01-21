@@ -31,4 +31,14 @@ class BreadcrumbsTestCase < ComponentTestCase
     assert_link_with_text_in('ol li:first-child + li', '/section', 'Section')
     assert_link_with_text_in('ol li:last-child', '/sub-section', 'Sub-section')
   end
+
+  test "allows the last breadcrumb to be text only" do
+    render_component(
+      breadcrumbs: [
+        {title: 'Topic', url: '/topic'},
+        {title: 'Current Page'},
+      ]
+    )
+    assert_select('ol li:last-child', 'Current Page')
+  end
 end
