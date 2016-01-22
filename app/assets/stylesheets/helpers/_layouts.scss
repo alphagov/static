@@ -30,6 +30,7 @@
     }
   }
 
+  .column-one-third,
   .column-third {
     @include grid-column( 1/3 );
 
