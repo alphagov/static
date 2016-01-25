@@ -67,8 +67,8 @@
     setSurveyUrl: function(href) {
       var $surveyLink = $('#take-survey');
       var surveyUrl = $('#user-satisfaction-survey-container').data('survey-url');
-      var surveyStarts = new Date(2016, 1, 26).getTime();
-      var surveyEnds = new Date(2016, 1, 27, 23, 59, 59).getTime();
+      var surveyStarts = new Date("January 26, 2016").getTime();
+      var surveyEnds = new Date("January 27, 2016 23:59:59").getTime();
 
       if (userSatisfaction.currentDate() >= surveyStarts &&
           userSatisfaction.currentDate() <= surveyEnds) {
