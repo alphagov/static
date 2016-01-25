@@ -47,15 +47,15 @@
       ['Percent', 50],
       ['Percent', 75]
     ],
-    '/using-the-civil-service-jobs-website': [
-      ['Heading', 'Your Civil Service Jobs account'],
-      ['Heading', 'Job alerts'],
-      ['Heading', 'Applying for a job'],
-      ['Heading', 'Civil Service Initial Sift Test'],
-      ['Heading', 'Results and feedback'],
-      ['Heading', 'Civil Service recruitment'],
-      ['Heading', 'Technical Support'],
-      ['Heading', 'Contact Information']
+    '/guidance/universal-credit-how-it-helps-you-into-work': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75],
+      ['Heading', 'What is Universal Credit?'],
+      ['Heading', 'How Universal Credit works'],
+      ['Heading', 'Help with looking for work'],
+      ['Heading', 'Help from your work coach'],
+      ['Heading', 'Claiming Universal Credit']
     ],
     '/government/publications/spending-review-and-autumn-statement-2015-documents/spending-review-and-autumn-statement-2015': [
       ['Percent', 25],
@@ -65,11 +65,7 @@
     '/guidance/universal-credit-how-it-helps-you-into-work': [
       ['Percent', 25],
       ['Percent', 50],
-      ['Percent', 75],
-      ['Heading', 'What is Universal Credit?'],
-      ['Heading', 'Help with looking for work'],
-      ['Heading', 'How Universal Credit works'],
-      ['Heading', 'How Universal Credit is paid']
+      ['Percent', 75]
     ],
     '/guidance/universal-credit-how-it-can-help-your-business': [
       ['Percent', 25],
