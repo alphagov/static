@@ -15,13 +15,13 @@ class BreadcrumbsTestCase < ComponentTestCase
   test "renders a single breadcrumb" do
     render_component({ breadcrumbs: [{title: 'Section', url: '/section'}] })
 
-    assert_link_with_text_in('ol li:first-child', '/', 'Home')
-    assert_link_with_text_in('ol li:last-child', '/section', 'Section')
+    assert_link_with_text_in('ol li:first-child', '/section', 'Section')
   end
 
   test "renders a list of breadcrumbs" do
     render_component({
       breadcrumbs: [
+        {title: 'Home', url: '/'},
         {title: 'Section', url: '/section'},
         {title: 'Sub-section', url: '/sub-section'},
       ]
