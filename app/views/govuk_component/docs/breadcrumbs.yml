@@ -29,3 +29,8 @@ fixtures:
       url: '/browse/abroad'
     - title: 'Travel abroad'
       url: '/browse/abroad/travel-abroad'
+  last_breadcrumb_is_current_page:
+    breadcrumbs:
+    - title: 'Passports, travel and living abroad'
+      url: '/browse/abroad'
+    - title: 'Travel abroad'
