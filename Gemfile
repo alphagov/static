@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.1'
 gem 'unicorn', '4.9.0'
 
 gem 'logstasher', '0.4.8'
@@ -12,6 +12,7 @@ gem 'sass-rails', "5.0.4"
 gem 'airbrake', '~> 4.3.1'
 
 gem 'nokogiri', "~> 1.6.6.4"
+gem 'sprockets-rails', "2.3.3" #FIXME: This is temporary, will allow to upgrade rails to 4.2.5.1 to address security fixes without breaking tests http://weblog.rubyonrails.org/2016/1/25/Rails-5-0-0-beta1-1-4-2-5-1-4-1-14-1-3-2-22-1-and-rails-html-sanitizer-1-0-3-have-been-released/
 
 group :development do
   gem 'image_optim', '0.17.1'
