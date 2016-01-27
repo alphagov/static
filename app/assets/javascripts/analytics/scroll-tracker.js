@@ -65,7 +65,13 @@
     '/guidance/universal-credit-how-it-helps-you-into-work': [
       ['Percent', 25],
       ['Percent', 50],
-      ['Percent', 75]
+      ['Percent', 75],
+      ['Heading', 'What is Universal Credit?'],
+      ['Heading', 'How Universal Credit works'],
+      ['Heading', 'Help with looking for work'],
+      ['Heading', 'Help from your work coach'],
+      ['Heading', 'Claiming Universal Credit']
+      
     ],
     '/guidance/universal-credit-how-it-can-help-your-business': [
       ['Percent', 25],
