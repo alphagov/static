@@ -33,6 +33,18 @@ describe("User Satisfaction Survey", function () {
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
     });
 
+    it("uses the temporary survey URL on 26/01/2016", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date(2016, 1, 26).getTime());
+      survey.showSurveyBar();
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
+    });
+
+    it("uses the temporary survey URL on 27/01/2016", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date(2016, 1, 27, 12, 15, 30, 0).getTime());
+      survey.showSurveyBar();
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
+    });
+
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
       $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id');
       survey.showSurveyBar();

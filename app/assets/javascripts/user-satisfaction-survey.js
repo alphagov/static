@@ -67,12 +67,21 @@
     setSurveyUrl: function(href) {
       var $surveyLink = $('#take-survey');
       var surveyUrl = $('#user-satisfaction-survey-container').data('survey-url');
+      var surveyStarts = new Date(2016, 1, 26).getTime();
+      var surveyEnds = new Date(2016, 1, 27, 23, 59, 59).getTime();
+
+      if (userSatisfaction.currentDate() >= surveyStarts &&
+          userSatisfaction.currentDate() <= surveyEnds) {
+        surveyUrl = 'https://www.surveymonkey.co.uk/r/2MRDLTW';
+      }
+
       if (surveyUrl.indexOf('?c=') === -1) {
         surveyUrl += "?c=" + root.location.pathname;
       }
 
       $surveyLink.attr('href', surveyUrl);
-    }
+    },
+    currentDate: function() { Date.now(); }
   };
 
   root.GOVUK.userSatisfaction = userSatisfaction;
