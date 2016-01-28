@@ -81,7 +81,7 @@
 
       $surveyLink.attr('href', surveyUrl);
     },
-    currentDate: function() { new Date().getTime(); }
+    currentDate: function() { return new Date().getTime(); }
   };
 
   root.GOVUK.userSatisfaction = userSatisfaction;

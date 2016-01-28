@@ -33,6 +33,10 @@ describe("User Satisfaction Survey", function () {
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
     });
 
+    it("actually returns a value from `currentDate`", function() {
+      expect(survey.currentDate()).not.toBe(undefined);
+    });
+
     it("uses the temporary survey URL on 26/01/2016", function() {
       spyOn(survey, 'currentDate').and.returnValue(new Date("January 26, 2016").getTime());
       survey.showSurveyBar();
