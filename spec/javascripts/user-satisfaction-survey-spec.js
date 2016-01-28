@@ -37,14 +37,14 @@ describe("User Satisfaction Survey", function () {
       expect(survey.currentDate()).not.toBe(undefined);
     });
 
-    it("uses the temporary survey URL on 26/01/2016", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("January 26, 2016").getTime());
+    it("uses the temporary survey URL on 01/02/2016", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date("February 1, 2016").getTime());
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
     });
 
-    it("uses the temporary survey URL on 27/01/2016", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("January 27, 2016 12:15:30").getTime());
+    it("uses the temporary survey URL on 01/05/2016", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date("May 1, 2016 12:15:30").getTime());
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
     });
