@@ -67,8 +67,8 @@
     setSurveyUrl: function(href) {
       var $surveyLink = $('#take-survey');
       var surveyUrl = $('#user-satisfaction-survey-container').data('survey-url');
-      var surveyStarts = new Date("January 26, 2016").getTime();
-      var surveyEnds = new Date("January 27, 2016 23:59:59").getTime();
+      var surveyStarts = new Date("February 1, 2016").getTime();
+      var surveyEnds = new Date("May 1, 2016 23:59:59").getTime();
 
       if (userSatisfaction.currentDate() >= surveyStarts &&
           userSatisfaction.currentDate() <= surveyEnds) {
@@ -81,7 +81,7 @@
 
       $surveyLink.attr('href', surveyUrl);
     },
-    currentDate: function() { new Date().getTime(); }
+    currentDate: function() { return new Date().getTime(); }
   };
 
   root.GOVUK.userSatisfaction = userSatisfaction;
