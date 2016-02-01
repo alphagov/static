@@ -21,12 +21,6 @@ namespace :publishing_api do
         description: "The favicon is the image displayed in locations such as the browser tabs.",
       },
       {
-        base_path: "/robots.txt",
-        content_id: "c5dad62e-c21a-4fe4-841b-7bcb8a901e52",
-        title: "robots.txt",
-        description: "Provides rules for which parts of GOV.UK are permitted to be crawled by different bots.",
-      },
-      {
         base_path: "/humans.txt",
         content_id: "6e92af59-3a73-4db6-b58b-740a02b229d0",
         title: "humans.txt",
