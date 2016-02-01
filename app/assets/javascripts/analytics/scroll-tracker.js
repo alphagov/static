@@ -71,7 +71,11 @@
       ['Heading', 'Help with looking for work'],
       ['Heading', 'Help from your work coach'],
       ['Heading', 'Claiming Universal Credit']
-      
+    ],
+    '/government/groups/common-technology-services-cts': [
+      ['Heading', 'Our products'],
+      ['Heading', 'Our services'],
+      ['Heading', 'Our priorities']
     ],
     '/guidance/universal-credit-how-it-can-help-your-business': [
       ['Percent', 25],
