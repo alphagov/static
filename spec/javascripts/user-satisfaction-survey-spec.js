@@ -50,12 +50,14 @@ describe("User Satisfaction Survey", function () {
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date("January 1, 2016").getTime());
       $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id');
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c="+window.location.pathname);
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date("January 1, 2016").getTime());
       $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id?c=/somewhere');
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c=/somewhere")
