@@ -5,3 +5,16 @@
     margin-bottom: $gutter * 1.5;
   }
 }
+
+@mixin responsive-top-margin {
+  margin-top: $gutter-half;
+
+  @include media(tablet) {
+    margin-top: $gutter * 1.5;
+  }
+}
+
+@mixin responsive-vertical-margins {
+  @include responsive-bottom-margin;
+  @include responsive-top-margin;
+}
