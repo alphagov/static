@@ -1,8 +1,10 @@
 .govuk-title {
-  margin: $gutter-half 0;
+  margin-top: $gutter-half;
+  margin-bottom: $gutter-half;
 
-  @include media(tablet){
-    margin: $gutter 0;
+  @include media(tablet) {
+    margin-top: $gutter;
+    margin-bottom: $gutter;
   }
 
   .context {
