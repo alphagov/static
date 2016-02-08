@@ -1,7 +1,10 @@
 // Container file for all govuk-component specific styling
 
-// Component specifc govuk_frontend_toolkit includes
+// Component specific govuk_frontend_toolkit includes
 @import "design-patterns/alpha-beta";
+
+// Component mixins
+@import "mixins/margins";
 
 // Components styles
 @import "alpha-label";
