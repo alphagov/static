@@ -1,10 +1,6 @@
 .govuk-previous-and-next-navigation {
   display: block;
 
-  @include media-down(mobile) {
-    margin: 2em 0 0 0;
-  }
-
   ul {
     margin: 0;
     padding: 0;
