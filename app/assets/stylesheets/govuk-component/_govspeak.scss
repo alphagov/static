@@ -25,8 +25,9 @@
     @include core-27;
     font-weight: bold;
     margin-top: $gutter-half;
+
     @include media(desktop) {
-      margin-top: $gutter*1.5;
+      margin-top: $gutter * 1.5;
     }
   }
 
@@ -34,10 +35,12 @@
     @include core-19;
     font-weight: bold;
     margin-top: $gutter + 5px;
+
     &.hosted-externally {
       @include core-27;
       font-weight: bold;
       padding-top: 2px;
+
       a {
         text-decoration: none;
         &:hover {
@@ -46,6 +49,7 @@
       }
     }
   }
+
   h4 {
     @include core-19;
     font-weight: bold;
@@ -65,8 +69,9 @@
   h6 {
     @include core-19;
     font-weight: bold;
-    &+p {
-      margin-top: 0;
+
+    & + p {
+      margin-top: 5px;
     }
   }
 
@@ -80,13 +85,16 @@
     list-style-position: outside;
     @include core-19;
     margin: 5px 0 5px $gutter-two-thirds;
-    @include media (tablet) {
+    @include media(tablet) {
       margin: $gutter-one-third 0 $gutter-one-third $gutter-two-thirds;
     }
-    ul, ol {
+
+    ul,
+    ol {
       margin: 0 0 0 $gutter-two-thirds;
       padding: 0;
     }
+
     @include ie(7) {
       li {
         margin-left: $gutter;
@@ -102,31 +110,36 @@
   &.direction-rtl ol,
   &.direction-rtl ul {
     margin: 5px $gutter-two-thirds 5px 0;
-    @include media(tablet){
+    @include media(tablet) {
       margin: $gutter-one-third $gutter-two-thirds $gutter-one-third 0;
     }
 
-    ul, ol {
+    ul,
+    ol {
       margin: 0 $gutter-two-thirds 0 0;
     }
   }
 
   ol.legislative-list {
     list-style: none;
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
+
     li {
-      margin: 5px 0 5px 0;
+      margin: 5px 0;
     }
+
     p {
       margin: 20px 0;
     }
+
     ol {
       margin: 10px 0 10px $gutter;
       list-style: none;
     }
   }
 
-  em, i {
+  em,
+  i {
     font-style: normal;
     font-weight: inherit;
   }
@@ -136,9 +149,14 @@
       margin: 0;
       padding: 0;
     }
-    p+p, p+ul, p+ol,
-    ul+p, ul+ol,
-    ol+p, ol+ul {
+
+    p + p,
+    p + ul,
+    p + ol,
+    ul + p,
+    ul + ol,
+    ol + p,
+    ol + ul {
       margin-top: $gutter-one-third;
     }
   }
@@ -174,6 +192,7 @@
       }
     }
   }
+
   &.direction-rtl blockquote {
     padding: 0 $gutter-two-thirds 0 0;
     @include media(desktop) {
@@ -245,10 +264,12 @@
     background: $panel-colour none no-repeat 98% $gutter-two-thirds;
     padding: $gutter-one-third ($gutter*2) $gutter-one-third $gutter-half;
     position: relative;
+
     p {
       margin: 0;
       padding: 0;
     }
+
     ol {
       @include media(desktop) {
         list-style-position: outside;
@@ -283,11 +304,11 @@
       margin-bottom: 0.5em;
     }
 
-    th, td {
+    th,
+    td {
       vertical-align: top;
       padding: $gutter-one-third $gutter-one-third $gutter-one-third 0;
       border-bottom:solid 1px $grey-2;
-
     }
 
     th {
@@ -296,7 +317,7 @@
       @include bold-14;
     }
 
-    td small{
+    td small {
       font-size:1em;
     }
   }
@@ -306,6 +327,7 @@
     sub {
       @include core-14;
     }
+
     img {
       display: inline-block;
       width: auto;
@@ -323,14 +345,17 @@
     @extend %contain-floats;
     margin-bottom: $gutter;
     position: relative;
+
     .content {
       float: none;
       width: $full-width;
+
       h3 {
         @include core-19;
         font-weight: bold;
         margin-bottom: 5px;
       }
+
       .adr,
       .email-url-number,
       .comments {
@@ -339,17 +364,21 @@
           float: left;
         }
       }
+
       .email-url-number {
         p {
           margin: 0;
+
           .email {
             word-wrap: break-word;
           }
         }
+
         span {
           display: block;
         }
       }
+
       .comments {
         @include core-16;
       }
