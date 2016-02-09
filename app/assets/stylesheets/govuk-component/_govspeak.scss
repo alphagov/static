@@ -22,8 +22,7 @@
   }
 
   h2 {
-    @include core-27;
-    font-weight: bold;
+    @include bold-27;
     margin-top: $gutter-half;
 
     @include media(desktop) {
@@ -32,13 +31,11 @@
   }
 
   h3 {
-    @include core-19;
-    font-weight: bold;
+    @include bold-19;
     margin-top: $gutter + 5px;
 
     &.hosted-externally {
-      @include core-27;
-      font-weight: bold;
+      @include bold-27;
       padding-top: 2px;
 
       a {
@@ -51,8 +48,7 @@
   }
 
   h4 {
-    @include core-19;
-    font-weight: bold;
+    @include bold-19;
     margin-top: $gutter + 5px;
   }
 
@@ -67,8 +63,7 @@
   h4,
   h5,
   h6 {
-    @include core-19;
-    font-weight: bold;
+    @include bold-19;
 
     & + p {
       margin-top: 5px;
@@ -351,8 +346,7 @@
       width: $full-width;
 
       h3 {
-        @include core-19;
-        font-weight: bold;
+        @include bold-19;
         margin-bottom: 5px;
       }
 
