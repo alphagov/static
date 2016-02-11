@@ -1,9 +1,5 @@
 .govuk-title {
-  margin: $gutter-half 0;
-
-  @include media(tablet){
-    margin: $gutter 0;
-  }
+  @include responsive-vertical-margins;
 
   .context {
     @include core-24;

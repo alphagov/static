@@ -1,5 +1,6 @@
 .govuk-metadata {
   @include core-14;
+  @include responsive-bottom-margin;
   @extend %contain-floats;
 
   &.direction-rtl {

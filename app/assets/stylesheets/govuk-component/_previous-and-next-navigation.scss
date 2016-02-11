@@ -1,9 +1,7 @@
 .govuk-previous-and-next-navigation {
   display: block;
-
-  @include media-down(mobile) {
-    margin: 2em 0 0 0;
-  }
+  margin-top: $gutter;
+  margin-bottom: $gutter;
 
   ul {
     margin: 0;
@@ -41,30 +39,26 @@
 
     }
 
-    &.next-page {
-      float: right;
-      text-align: right;
+    &.next-page a:before,
+    &.previous-page a:before {
+      margin-top: -4px;
+      display: block;
+      width: 30px;
+      height: 38px;
+      content: " ";
     }
 
     &.next-page a:before {
       background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -102px -11px;
-      margin: -4px -32px 0 0;
-      display: block;
+      margin-right: -32px;
       float: right;
-      width: 30px;
-      height: 38px;
-      content: " ";
     }
 
     &.previous-page a:before {
       background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -20px -11px;
-      margin: -4px 0 0 -32px;
-      display: block;
+      margin-left: -32px;
       float: left;
-      width: 30px;
-      height: 38px;
-      content: " ";
-      }
+    }
 
     &.previous-page {
       float: left;
@@ -73,6 +67,11 @@
 
     &.previous-page a {
       padding: 0.75em 0 0.75em 3em;
+    }
+
+    &.next-page {
+      float: right;
+      text-align: right;
     }
 
     &.next-page a {

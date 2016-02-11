@@ -1,6 +1,7 @@
 .govuk-option-select {
   background-color: $grey-3;
   padding: 5px;
+  margin-bottom: $gutter;
 
   @include media(desktop){
     /* Redefine scrollbars on desktop where these lists are scrollable
