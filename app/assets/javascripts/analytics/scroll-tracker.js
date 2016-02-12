@@ -74,6 +74,7 @@
     ],
     '/government/publications/see-potential-case-studies-and-guidance-for-employers/see-potential-case-studies-and-guidance-for-employers': [
       ['Heading', 'Case studies'],
+      ['Heading', 'The business benefits'],
       ['Heading', 'What people are saying'],
       ['Heading', 'Review your recruitment approach to make sure you’re not missing out on talent and potential']
     ],
