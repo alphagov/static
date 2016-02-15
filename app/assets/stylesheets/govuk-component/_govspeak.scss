@@ -258,14 +258,20 @@
 
   .information-block,
   .call-to-action {
-    margin: $gutter 0;
-    background: $panel-colour none no-repeat 98% $gutter-two-thirds;
-    padding: $gutter-one-third ($gutter*2) $gutter-one-third $gutter-half;
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+    background-color: $panel-colour;
+    padding: $gutter-half;
     position: relative;
 
-    p {
-      margin: 0;
-      padding: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child,
+    ul:last-child,
+    ol:last-child {
+      margin-bottom: 0;
     }
 
     ol {
@@ -273,6 +279,10 @@
         list-style-position: outside;
       }
     }
+  }
+
+  .information-block {
+    padding-right: $gutter * 2;
   }
 
   .information-block:after {
