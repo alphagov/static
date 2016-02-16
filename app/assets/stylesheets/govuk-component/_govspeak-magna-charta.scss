@@ -1,3 +1,5 @@
+// Disable linting for vendor asset
+// scss-lint:disable all
 /*
  * magna-charta example stylesheet
  * https://github.com/alphagov/magna-charta
@@ -5,7 +7,6 @@
  * Author: Tim Paul
  * Licensed under the MIT license.
  */
-
 
 .govuk-govspeak {
     // DEFAULT CHART STYLES

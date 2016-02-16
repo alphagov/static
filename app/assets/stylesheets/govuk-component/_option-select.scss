@@ -3,17 +3,20 @@
   padding: 5px;
   margin-bottom: $gutter;
 
-  @include media(desktop){
-    /* Redefine scrollbars on desktop where these lists are scrollable
-    so they are always visible in option lists */
+  @include media(desktop) {
+    // Redefine scrollbars on desktop where these lists are scrollable
+    // so they are always visible in option lists
     ::-webkit-scrollbar {
       -webkit-appearance: none;
       width: 7px;
     }
+
     ::-webkit-scrollbar-thumb {
       border-radius: 4px;
-      background-color: rgba(0,0,0,.5);
-      -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+
+      // scss-lint:disable ColorVariable
+      background-color: rgba(0, 0, 0, .5);
+      -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     }
   }
 
@@ -29,15 +32,16 @@
     @include core-19;
     margin-right: 40px;
     font-weight: bold;
-    padding-top:5px;
+    padding-top: 5px;
   }
 
   .options-container {
-    position:relative;
+    position: relative;
     background-color: $page-colour;
     overflow-y: scroll;
     overflow-x: hidden;
-    @include media(desktop){
+
+    @include media(desktop) {
       max-height: 200px;
     }
 
@@ -46,12 +50,13 @@
       padding: 7px 0 7px 35px;
       border-bottom: 1px solid $border-colour;
       width: 100%;
-      cursor:pointer;
+      cursor: pointer;
 
-      @include media(desktop){
-        /* leave room for the scroll bars on desktop*/
+      @include media(desktop) {
+        // leave room for the scroll bars on desktop
         width: 90%;
       }
+
       &:hover {
         background-color: $highlight-colour;
       }
@@ -62,6 +67,7 @@
       margin: 2px 0 0 -27px;
       width: 20px;
       height: 20px;
+
       @include ie(8) {
         width: auto;
         height: auto;
@@ -71,16 +77,17 @@
   }
 
   .js-enabled & {
-    padding: 0 0 1px 0;
+    padding: 0 0 1px;
 
     .js-selected-counter {
       @include core-14;
     }
+
     .options-container {
       border: 5px solid $grey-3;
     }
 
-    /* styles for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse */
+    // styles for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse
     &.js-collapsible {
       button {
         z-index: 100;
@@ -102,8 +109,8 @@
 
         &:hover {
           background-color: $grey-2;
-
         }
+
         &:hover + .options-container {
           border-color: $grey-2;
         }
@@ -118,8 +125,9 @@
         button {
           background-position: right -75px;
         }
+
         .options-container {
-          display:none;
+          display: none;
         }
       }
     }
