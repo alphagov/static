@@ -133,12 +133,12 @@ fixtures:
       </div>
   footnotes:
     content: |
-      <p>This is a text with a footnote<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+      <p>This is a text with a footnote<sup id="fnref:1a"><a href="#fn:1a" class="footnote">1</a></sup>.</p>
 
       <div class="footnotes">
         <ol>
-          <li id="fn:1">
-            <p>And here is the definition. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+          <li id="fn:1a">
+            <p>And here is the definition. <a href="#fnref:1a" class="reversefootnote">&#8617;</a></p>
           </li>
         </ol>
       </div>
@@ -170,3 +170,74 @@ fixtures:
     content: |
       <p>This content has a YouTube video link, converted to an accessible embedded player by component JavaScript.</p>
       <p><a href="https://www.youtube.com/watch?v=y6hbrS3DheU">Operations: a developer's guide, by Anna Shipman</a></p>
+  specialist_content:
+    content: |
+      <h2 id="bisphosphonates">Bisphosphonates</h2>
+      <p>Bisphosphonates are used to treat osteoporosis, Paget’s disease, and as part of some cancer regimens, particularly for metastatic bone cancer and multiple myeloma. Individual bisphosphonates have different indications (see individual Summaries of Product Characteristics<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>). The following bisphosphonates are available in the UK:</p>
+
+      <ul>
+        <li>Alendronic acid</li>
+        <li>Ibandronic acid</li>
+        <li>Pamidronate disodium</li>
+        <li>Risedronate sodium</li>
+        <li>Sodium clodronate</li>
+        <li>Zoledronic acid</li>
+      </ul>
+
+      <h2 id="osteonecrosis-of-the-external-auditory-canal">Osteonecrosis of the external auditory canal</h2>
+      <p>Benign idiopathic osteonecrosis of the external auditory canal is a rare condition that can occur in the absence of antiresorptive therapy and is sometimes associated with local trauma.</p>
+
+      <div class="call-to-action">
+        <p>Advice for healthcare professionals:</p>
+        <ul>
+          <li>The possibility of osteonecrosis of the external auditory canal should be considered in patients receiving bisphosphonates who present with ear symptoms, including chronic ear infections, or in patients with suspected cholesteatoma</li>
+          <li>Possible risk factors include steroid use and chemotherapy, with or without local risk factors such as infection or trauma</li>
+          <li>Patients should be advised to report any ear pain, discharge from the ear, or an ear infection during bisphosphonate treatment</li>
+          <li>Report any cases of osteonecrosis of the external auditory canal suspected to be associated with bisphosphonates or any other medicines, including denosumab, on a <a rel="external" href="http://www.mhra.gov.uk/yellowcard">Yellow Card</a>
+        </li>
+        </ul>
+      </div>
+
+      <h2 id="evidence-for-an-association-with-bisphosphonate-treatment">Evidence for an association with bisphosphonate treatment</h2>
+      <p>Evidence from the clinical literature and from cases reported to medicines regulators, including one report received via the UK Yellow Card scheme, supports a causal association between bisphosphonates and osteonecrosis of the external auditory canal. Product information is being updated to include advice for healthcare professionals and patients.</p>
+
+      <p>A total of 29 reports indicative of osteonecrosis of the external auditory canal in association with bisphosphonates have been identified worldwide, including 11 cases reported in the clinical literature.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> <sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup> <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup> <sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup> <sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup> <sup id="fnref:7"><a href="#fn:7" class="footnote">7</a></sup> <sup id="fnref:8"><a href="#fn:8" class="footnote">8</a></sup> Cases have been reported with use of both intravenous or oral bisphosphonates for both cancer-related or osteoporosis indications; there is currently insufficient evidence to determine whether there is any increased risk with higher doses used for cancer-related conditions. Most cases were associated with long-term bisphosphonate therapy for 2 years or longer, and most cases had possible risk factors including: steroid use; chemotherapy; and possible local risk factors such as infection, an ear operation, or cotton-bud use. Bilateral osteonecrosis of the external ear canal was reported in some patients, as was osteonecrosis of the jaw.</p>
+
+      <p>The number of cases of osteonecrosis of the external auditory canal reported in association with bisphosphonates is low compared with the number of cases reported of bisphosphonate-related osteonecrosis of the jaw, a <a href="https://www.gov.uk/drug-safety-update/denosumab-xgeva-prolia-intravenous-bisphosphonates-osteonecrosis-of-the-jaw-further-measures-to-minimise-risk">well-established side effect of bisphosphonates</a>.<sup id="fnref:9"><a href="#fn:9" class="footnote">9</a></sup></p>
+
+      <h2 id="evidence-for-an-association-with-denosumab-treatment">Evidence for an association with denosumab treatment</h2>
+      <p>The available data do not support a causal relation between osteonecrosis of the external auditory canal and denosumab. However, this possible risk is being kept under close review, given that denosumab is <a href="https://www.gov.uk/drug-safety-update/denosumab-xgeva-prolia-intravenous-bisphosphonates-osteonecrosis-of-the-jaw-further-measures-to-minimise-risk">known to be associated with osteonecrosis of the jaw</a>.</p>
+
+      <p>Article citation: Drug Safety Update volume 9 issue 5 December 2015: 3.</p>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn:1">
+            <p>Summaries of Product Characteristics can be found <a rel="external" href="http://www.mhra.gov.uk/spc-pil/index.htm">here on the MHRA website</a> or on the <a rel="external" href="http://www.ema.europa.eu/ema/index.jsp?curl=pages/includes/medicines/medicines_landing_page.jsp">website of the European Medicines Agency</a>, depending whether the medicine has a national or European licence, respectively. <a href="#fnref:1" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:2">
+            <p>Bast F, et al. <a rel="external" href="http://www.ncbi.nlm.nih.gov/pubmed/23202871">Bilateral bisphosphonate-associated osteonecrosis of the external ear canal: a rare case</a>. HNO. 2012; 60: 1127–29 [in German]. <a href="#fnref:2" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:3">
+            <p>Froelich K, et al. <a rel="external" href="http://www.ncbi.nlm.nih.gov/pubmed?term=Froelich+K%5Bauthor%5D+AND+Bisphosphonate&amp;TransSchema=title&amp;cmd=detailssearch">Bisphosphonate-induced osteonecrosis of the external ear canal: a retrospective study</a>. Eur Arch Otorhinolaryngol 2011; 268: 1219–25. <a href="#fnref:3" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:4">
+            <p>Kharazmi M, et al. <a rel="external" href="http://www.ncbi.nlm.nih.gov/pubmed/24220454">Bisphosphonate-associated osteonecrosis of the auditory canal</a>. Br J Oral Maxillofac Surg 2013; 51: e285–87. <a href="#fnref:4" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:5">
+            <p>Polizzotto MN, et al. <a rel="external" href="http://www.ncbi.nlm.nih.gov/pubmed?term=Polizzotto+MN%5Bauthor%5D+AND+Bisphosphonate&amp;TransSchema=title&amp;cmd=detailssearch">Bisphosphonate-associated osteonecrosis of the auditory canal</a>. Br J Haematol 2006; 132: 114. <a href="#fnref:5" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:6">
+            <p>Salzman R, et al. <a rel="external" href="http://www.ncbi.nlm.nih.gov/pubmed/23444468">Osteonecrosis of the external auditory canal associated with oral bisphosphonate therapy: case report and literature review</a>. Otol Neurotol 2013; 34: 209–13. <a href="#fnref:6" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:7">
+            <p>Thorsteinsson AL, et al. <a rel="external" href="http://www.avensonline.org/fulltextarticles/jcmcr-2332-4120-02-0007.html">Bisphosphonate-induced osteonecrosis of the external auditory canal: a case report</a>. J Clin Med Case Reports 2015; 2: 3. <a href="#fnref:7" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:8">
+            <p>Wickham N, et al. <a rel="external" href="http://www.ncbi.nlm.nih.gov/pubmed?term=Wickham%5Bauthor%5D+AND+Bisphosphonate&amp;TransSchema=title&amp;cmd=detailssearch">Bisphosphonate-associated osteonecrosis of the external auditory canal</a>. J Laryngol Otol 2013; 127 (suppl 2): S51–53. <a href="#fnref:8" class="reversefootnote">↩</a></p>
+          </li>
+          <li id="fn:9">
+            <p>Patient reminder cards about the risk of osteonecrosis of the jaw are being introduced for intravenous bisphosphonates and denosumab. The cards will become available at different times for individual products. They are now available for the following products: Prolia (denosumab); Xgeva (denosumab); Aclasta (zoledronic acid); Zometa (zoledronic acid); zoledronic acid 5 mg generics and zoledronic acid 4 mg generics. The cards can be viewed <a href="https://www.gov.uk/drug-safety-update/denosumab-xgeva-prolia-intravenous-bisphosphonates-osteonecrosis-of-the-jaw-further-measures-to-minimise-risk">here</a>. <a href="#fnref:9" class="reversefootnote">↩</a></p>
+          </li>
+        </ol>
+      </div>
