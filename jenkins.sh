@@ -64,6 +64,8 @@ if [[ ${GIT_BRANCH} != "origin/master" ]]; then
     --format html --out rubocop-${GIT_COMMIT}.html \
     --format clang \
     app test lib config
+
+  bundle exec govuk-lint-sass app/assets/stylesheets/govuk-component
 fi
 
 RAILS_ENV=test bundle exec rake test
