@@ -9,6 +9,7 @@
   h1 {
     @include bold-48;
   }
+
   &.length-long h1 {
     @include bold-36;
   }

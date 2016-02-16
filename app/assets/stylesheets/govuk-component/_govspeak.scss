@@ -40,6 +40,7 @@
 
       a {
         text-decoration: none;
+
         &:hover {
           text-decoration: underline;
         }
@@ -70,7 +71,7 @@
   h6 {
     @include bold-19;
 
-    & + p {
+    + p {
       margin-top: 5px;
     }
   }
@@ -116,7 +117,7 @@
     }
   }
 
-  ol.legislative-list {
+  .legislative-list {
     list-style: none;
     margin: 5px 0;
 
@@ -167,6 +168,7 @@
     padding: 0 0 0 $gutter-two-thirds;
     margin: 0;
     border: 0;
+
     @include media(desktop) {
       margin: 0 0 0 (-$gutter);
     }
@@ -193,6 +195,7 @@
 
   &.direction-rtl blockquote {
     padding: 0 $gutter-two-thirds 0 0;
+
     @include media(desktop) {
       margin: 0 (-$gutter) 0 0;
     }
@@ -221,8 +224,8 @@
 
   hr {
     margin-top: $gutter - 1px;
-    border-top: 1px solid #ccc;
     margin-bottom: $gutter;
+    border-top: 1px solid $border-colour;
   }
 
   figure {
@@ -303,12 +306,12 @@
   table {
     border-collapse: collapse;
     border-spacing: 0;
-    margin: $gutter 0 $gutter 0;
+    margin: $gutter 0;
     width: $full-width;
     @include core-14;
 
     caption {
-      text-align:left;
+      text-align: left;
       margin-bottom: 0.5em;
     }
 
@@ -316,7 +319,7 @@
     td {
       vertical-align: top;
       padding: $gutter-one-third $gutter-one-third $gutter-one-third 0;
-      border-bottom:solid 1px $grey-2;
+      border-bottom: solid 1px $border-colour;
     }
 
     th {
@@ -326,7 +329,7 @@
     }
 
     td small {
-      font-size:1em;
+      font-size: 1em;
     }
   }
 
@@ -339,7 +342,7 @@
     img {
       display: inline-block;
       width: auto;
-      margin: 0 0 -5px 0;
+      margin: 0 0 -5px;
     }
   }
 
@@ -375,10 +378,10 @@
       .email-url-number {
         p {
           margin: 0;
+        }
 
-          .email {
-            word-wrap: break-word;
-          }
+        .email {
+          word-wrap: break-word;
         }
 
         span {
