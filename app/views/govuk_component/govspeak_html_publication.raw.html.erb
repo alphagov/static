@@ -1,0 +1,8 @@
+<%
+  govspeak_locals = { content: content }
+  govspeak_locals[:direction] = local_assigns.fetch(:direction) if local_assigns.include?(:direction)
+  govspeak_locals[:rich_govspeak] = local_assigns.fetch(:rich_govspeak) if local_assigns.include?(:rich_govspeak)
+%>
+<div class="govuk-govspeak-html-publication">
+  <%= render file: 'govuk_component/govspeak.raw', locals: govspeak_locals %>
+</div>

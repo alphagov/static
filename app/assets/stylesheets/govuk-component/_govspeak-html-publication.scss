@@ -1,0 +1,80 @@
+// Override govspeak styles with HTML publication specific ones
+.govuk-govspeak-html-publication {
+  @extend %contain-floats;
+  position: relative;
+  z-index: 2;
+
+  .govuk-govspeak {
+    width: 75%;
+    float: right;
+
+    &.direction-rtl {
+      float: left;
+    }
+  }
+
+  h2 {
+    @include bold-36;
+
+    .number {
+      @include media(tablet) {
+        @include bold-80;
+        position: absolute;
+        margin-top: -$gutter;
+        margin-left: -25%;
+        width: 22%;
+        padding: ($gutter + $gutter / 6) 0 $gutter 3%;
+
+        .direction-rtl & {
+          margin-left: 0;
+          margin-right: -25%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        @include ie(7) {
+          margin-left: -35%;
+        }
+      }
+    }
+  }
+
+  h3 {
+    @include bold-27;
+
+    .number {
+      color: $secondary-text-colour;
+
+      @include media(tablet) {
+        display: inline-block;
+        width: $gutter * 2.5;
+        margin-left: $gutter * -2.5;
+      }
+    }
+  }
+
+  h2 .number,
+  h3 .number {
+    background: $white;
+    padding-right: $gutter-one-third;
+
+    @include media(tablet) {
+      padding-right: 0;
+    }
+  }
+
+  .stat-headline {
+    margin-bottom: $gutter;
+
+    p {
+      @include bold-19;
+      margin: 0;
+    }
+
+    em {
+      display: block;
+      @include bold-80;
+      margin: 3px 0 -5px;
+    }
+  }
+}
