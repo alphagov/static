@@ -21,6 +21,7 @@
     // Begin error and print tracking
     GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
     GOVUK.analyticsPlugins.printIntent();
+    GOVUK.analyticsPlugins.mailtoLinkTracker();
     GOVUK.analyticsPlugins.externalLinkTracker();
     GOVUK.analyticsPlugins.downloadLinkTracker({
       selector: 'a[href*="/government/uploads"], a[href*="assets.digital.cabinet-office.gov.uk"]'
