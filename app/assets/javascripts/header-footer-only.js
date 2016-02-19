@@ -1,6 +1,7 @@
 //= require libs/jquery/plugins/jquery.base64
 //= require vendor/polyfills/bind
 //= require analytics
+//= require start-modules
 //= require user-satisfaction-survey
 //= require core
 //= require report-a-problem-form
