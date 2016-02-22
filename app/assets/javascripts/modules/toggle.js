@@ -11,7 +11,7 @@
 
   Modules.Toggle = function() {
     this.start = function($el) {
-      var toggleSelector = '.js-toggle[data-controls][data-expanded]';
+      var toggleSelector = '[data-controls][data-expanded]';
 
       $el.on('click', toggleSelector, toggle);
       $el.find(toggleSelector).each(addAriaAttrs);
