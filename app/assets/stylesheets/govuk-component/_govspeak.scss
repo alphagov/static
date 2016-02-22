@@ -346,6 +346,21 @@
     }
   }
 
+  .stat-headline {
+    margin-bottom: $gutter;
+
+    p {
+      @include bold-19;
+      margin: 0;
+    }
+
+    em {
+      display: block;
+      @include bold-80;
+      margin: 3px 0 -5px;
+    }
+  }
+
   .address,
   .contact {
     border-left: 1px solid $border-colour;
