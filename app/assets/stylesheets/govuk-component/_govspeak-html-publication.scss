@@ -5,11 +5,13 @@
   z-index: 2;
 
   .govuk-govspeak {
-    width: 75%;
-    float: right;
+    @include media(tablet) {
+      width: 75%;
+      float: right;
 
-    &.direction-rtl {
-      float: left;
+      &.direction-rtl {
+        float: left;
+      }
     }
   }
 
