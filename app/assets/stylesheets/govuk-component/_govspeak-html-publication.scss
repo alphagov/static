@@ -46,9 +46,14 @@
       color: $secondary-text-colour;
 
       @include media(tablet) {
-        display: inline-block;
+        position: absolute;
         width: $gutter * 2.5;
         margin-left: $gutter * -2.5;
+
+        .direction-rtl & {
+          margin-left: 0;
+          margin-right: $gutter * -2.5;
+        }
       }
     }
   }
