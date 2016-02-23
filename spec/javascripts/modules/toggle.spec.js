@@ -32,7 +32,7 @@ describe('A toggle module', function() {
       element = $('\
         <div>\
           <a href="#" class="my-toggle" data-expanded="false" data-controls="target">Toggle</a>\
-          <div id="target" class="hidden">Target</div>\
+          <div id="target" class="js-hidden">Target</div>\
         </div>');
 
       toggle.start(element);
@@ -40,9 +40,9 @@ describe('A toggle module', function() {
     });
 
     it('toggles the display of a target', function() {
-      expect(element.find('#target').is('.hidden')).toBe(false);
+      expect(element.find('#target').is('.js-hidden')).toBe(false);
       element.find('.my-toggle').trigger('click');
-      expect(element.find('#target').is('.hidden')).toBe(true);
+      expect(element.find('#target').is('.js-hidden')).toBe(true);
     });
 
     it('updates the aria-expanded attribute on the toggle', function() {
@@ -58,21 +58,21 @@ describe('A toggle module', function() {
       var element = $('\
         <div>\
           <a href="#" class="my-toggle" data-expanded="false" data-controls="target another-target">Toggle</a>\
-          <div id="target" class="hidden">Target</div>\
-          <div id="another-target" class="hidden">Another target</div>\
+          <div id="target" class="js-hidden">Target</div>\
+          <div id="another-target" class="js-hidden">Another target</div>\
         </div>');
 
       toggle.start(element);
-      expect(element.find('#target').is('.hidden')).toBe(true);
-      expect(element.find('#another-target').is('.hidden')).toBe(true);
+      expect(element.find('#target').is('.js-hidden')).toBe(true);
+      expect(element.find('#another-target').is('.js-hidden')).toBe(true);
 
       element.find('.my-toggle').trigger('click');
-      expect(element.find('#target').is('.hidden')).toBe(false);
-      expect(element.find('#another-target').is('.hidden')).toBe(false);
+      expect(element.find('#target').is('.js-hidden')).toBe(false);
+      expect(element.find('#another-target').is('.js-hidden')).toBe(false);
 
       element.find('.my-toggle').trigger('click');
-      expect(element.find('#target').is('.hidden')).toBe(true);
-      expect(element.find('#another-target').is('.hidden')).toBe(true);
+      expect(element.find('#target').is('.js-hidden')).toBe(true);
+      expect(element.find('#another-target').is('.js-hidden')).toBe(true);
     });
   });
 });

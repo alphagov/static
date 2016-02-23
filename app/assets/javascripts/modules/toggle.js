@@ -38,10 +38,10 @@
 
         if (expanded) {
           $toggle.attr('aria-expanded', false);
-          $targets.addClass('hidden');
+          $targets.addClass('js-hidden');
         } else {
           $toggle.attr('aria-expanded', true);
-          $targets.removeClass('hidden');
+          $targets.removeClass('js-hidden');
         }
 
         event.preventDefault();
