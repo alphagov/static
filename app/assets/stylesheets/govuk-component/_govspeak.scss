@@ -33,19 +33,6 @@
   h3 {
     @include bold-19;
     margin-top: $gutter + 5px;
-
-    &.hosted-externally {
-      @include bold-27;
-      padding-top: 2px;
-
-      a {
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
   }
 
   h4 {
@@ -425,15 +412,9 @@
     padding: $gutter-half 0 0 ($thumbnail-width + $gutter);
     @extend %contain-floats;
 
-    &.inline {
-      background: transparent;
-      position: static;
-      padding: 0;
-      margin: 0;
-
-      &:after {
-        display: none;
-      }
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
     }
 
     .attachment-thumb {
@@ -460,75 +441,52 @@
       }
     }
 
-    .title a {
-      text-decoration: underline;
-    }
-
     .attachment-details {
-      h1,
-      h2,
-      h3 {
+      h2 {
         @include core-27;
         margin: 0;
-      }
-
-      h3 {
-        font-weight: bold;
       }
 
       p {
         margin: $gutter-one-third 0;
       }
 
-      .extra-description {
-        @include core-19;
-        margin: 0;
-      }
-
       .metadata {
         @include core-14;
-        .changed,
-        .references {
-          display: block;
-        }
+      }
 
-        .unnumbered-paper {
-          display: block;
-        }
+      .changed,
+      .references,
+      .unnumbered-paper {
+        display: block;
       }
 
       .preview,
       .download {
         @include core-19;
+
+        strong {
+          font-weight: bold;
+        }
       }
 
       .preview {
         padding-right: $gutter-half;
       }
-    }
 
-    .opendocument-help {
-      @include core-14;
-      a {
-        @include external-link-14;
-      }
-    }
-
-    .accessibility-warning {
-      h2 {
+      .opendocument-help {
         @include core-14;
-        margin: 0;
-        color: $text-colour;
+        a {
+          @include external-link-14;
+        }
       }
-    }
 
-    &:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    strong {
-      font-weight: bold;
+      .accessibility-warning {
+        h2 {
+          @include core-14;
+          margin: 0;
+        }
+      }
     }
   }
 
