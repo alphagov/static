@@ -2,6 +2,7 @@
 .govuk-govspeak-html-publication {
   @extend %contain-floats;
   position: relative;
+  margin-bottom: $gutter * 1.5;
   z-index: 2;
 
   .govuk-govspeak {
