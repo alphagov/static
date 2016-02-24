@@ -14,73 +14,73 @@
         float: left;
       }
     }
-  }
-
-  .number {
-    background: $white;
-  }
-
-  h2 {
-    @include bold-36;
-    padding-right: $gutter-one-third;
 
     .number {
-      @include media(tablet) {
-        @include bold-80;
-        position: absolute;
-        margin-top: -$gutter;
-        margin-left: -25%;
-        width: 22%;
-        padding: ($gutter + $gutter / 6) 0 $gutter 3%;
+      background: $white;
+    }
 
-        @include ie(7) {
-          margin-left: -35%;
+    h2 {
+      @include bold-36;
+      padding-right: $gutter-one-third;
+
+      .number {
+        @include media(tablet) {
+          @include bold-80;
+          position: absolute;
+          margin-top: -$gutter;
+          margin-left: -25%;
+          width: 22%;
+          padding: ($gutter + $gutter / 6) 0 $gutter 3%;
+
+          @include ie(7) {
+            margin-left: -35%;
+          }
         }
       }
     }
-  }
 
-  .direction-rtl & h2 {
-    padding-right: 0;
-    padding-left: $gutter-one-third;
-
-    .number {
-      @include media(tablet) {
-        margin-left: 0;
-        margin-right: -25%;
-        padding-left: 0;
-        padding-right: 3%;
-      }
-    }
-  }
-
-  h3 {
-    @include bold-27;
-    padding-right: $gutter-one-third;
-
-    @include media(table) {
+    &.direction-rtl h2 {
       padding-right: 0;
-    }
+      padding-left: $gutter-one-third;
 
-    .number {
-      color: $secondary-text-colour;
-
-      @include media(tablet) {
-        position: absolute;
-        width: $gutter * 2.5;
-        margin-left: $gutter * -2.5;
+      .number {
+        @include media(tablet) {
+          margin-left: 0;
+          margin-right: -25%;
+          padding-left: 0;
+          padding-right: 3%;
+        }
       }
     }
-  }
 
-  .direction-rtl & h3 {
-    padding-right: 0;
-    padding-left: $gutter-one-third;
+    h3 {
+      @include bold-27;
+      padding-right: $gutter-one-third;
 
-    .number {
-      @include media(tablet) {
-        margin-left: 0;
-        margin-right: $gutter * -2.5;
+      @include media(table) {
+        padding-right: 0;
+      }
+
+      .number {
+        color: $secondary-text-colour;
+
+        @include media(tablet) {
+          position: absolute;
+          width: $gutter * 2.5;
+          margin-left: $gutter * -2.5;
+        }
+      }
+    }
+
+    &.direction-rtl h3 {
+      padding-right: 0;
+      padding-left: $gutter-one-third;
+
+      .number {
+        @include media(tablet) {
+          margin-left: 0;
+          margin-right: $gutter * -2.5;
+        }
       }
     }
   }
