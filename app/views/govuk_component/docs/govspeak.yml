@@ -241,3 +241,162 @@ fixtures:
           </li>
         </ol>
       </div>
+  inline_attachment:
+    content: |
+      <p>testing my attachment <span class="inline-attachment" id="attachment_1399340">
+        <a href="/government/uploads/system/uploads/attachment_data/file/498071/PHE_Payments_over__25k_Jun_15.csv">testing</a>
+        (<span class="type"><abbr title="Comma-separated Values">CSV</abbr></span>, <span class="file-size">65.4KB</span>)</span> works in the middle of copy.
+      </p>
+  block_attachments:
+    content: |
+      <section class="attachment embedded" id="attachment_1399345">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/publications/minimum-wage-jobs-in-ashfield-local-authority-since-2009"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/attachment_data/file/496127/thumbnail_LPC_FoI_09.12.15_NMW_jobs_Ashfield_LA.pdf.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a href="https://www.gov.uk/government/publications/minimum-wage-jobs-in-ashfield-local-authority-since-2009">PDF Attachment</a></h2>
+          <p class="metadata">
+            <span class="type"><abbr title="Portable Document Format">PDF</abbr></span>, <span class="file-size">198KB</span>, <span class="page-length">2 pages</span>
+          </p>
+        </div>
+      </section>
+      <section class="attachment embedded" id="attachment_1399344">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/world-location-news/294043.es-419"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/assets/pub-cover-doc-afe3b0a8a9511beeca890340170aee8b5649413f948e512c9b8ce432d8513d32.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a href="https://www.gov.uk/government/world-location-news/294043.es-419">Document attachment</a></h2>
+          <p class="metadata">
+            <span class="type">MS Word Document</span>, <span class="file-size">24.2KB</span>
+          </p>
+        </div>
+      </section>
+      <section class="attachment embedded" id="attachment_1105176">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/publications/post-legislative-memorandum-the-equality-act-2010"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/attachment_data/file/441838/thumbnail_Memo_to_Women_Equalities.pdf.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a href="https://www.gov.uk/government/publications/post-legislative-memorandum-the-equality-act-2010">File attachment with additional metadata</a></h2>
+          <p class="metadata">
+            <span class="references">
+            Ref: ISBN <span class="isbn">9781474121767</span>, <span class="command_paper_number">CM 9101</span>
+            </span>
+            <span class="type"><abbr title="Portable Document Format">PDF</abbr></span>, <span class="file-size">2.02MB</span>, <span class="page-length">86 pages</span>
+          </p>
+          <p>
+            <a class="order_url" title="Order a copy of the publication" href="https://www.gov.uk/how-to-buy-printed-copies-of-official-documents%20">Order a copy</a>
+          </p>
+        </div>
+      </section>
+      <section class="attachment embedded" id="attachment_1399348">
+        <div class="attachment-thumb">
+          <img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/assets/pub-cover-spreadsheet-471052e0d03e940bbc62528a05ac204a884b553e4943e63c8bffa6b8baef8967.png">
+        </div>
+        <div class="attachment-details">
+          <h2 class="title">Previewable online example</h2>
+          <p class="metadata">
+            <span class="preview">
+            <strong>
+            <a href="https://www.gov.uk/government/publications/phe-spend-over-25000-june-2015">View online</a>
+            </strong>
+            </span>
+            <span class="download">
+            <a href="https://www.gov.uk/government/publications/phe-spend-over-25000-june-2015">
+            <strong>Download CSV</strong>
+            65.4KB
+            </a>
+            </span>
+          </p>
+        </div>
+      </section>
+      <section class="attachment embedded" id="attachment_1243761">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/assets/pub-cover-spreadsheet-471052e0d03e940bbc62528a05ac204a884b553e4943e63c8bffa6b8baef8967.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a aria-describedby="attachment-1243761-accessibility-help" href="https://www.gov.uk/government/statistical-data-sets/env24-fly-tipping-incidents-and-actions-taken-in-england">Fly-tipping incidents and actions reported by local authorities in 2014 to 2015</a></h2>
+          <p class="metadata">
+            <span class="type"><abbr title="OpenDocument Spreadsheet">ODS</abbr></span>, <span class="file-size">173KB</span>
+          </p>
+          <p class="opendocument-help">
+            This file is in an <a rel="external" href="https://en.wikipedia.org/wiki/OpenDocument_software">OpenDocument</a> format
+          </p>
+          <div data-module="toggle" class="accessibility-warning" id="attachment-1243761-accessibility-help">
+            <h2>This file may not be suitable for users of assistive technology.
+              <a class="toggle" href="#attachment-1243761-accessibility-request" data-controls="attachment-1243761-accessibility-request" data-expanded="false">Request a different format.</a>
+            </h2>
+            <p id="attachment-1243761-accessibility-request" class="help-block js-hidden"><span class="arrow"></span>
+              If you use assistive technology and need a version of this document
+              in a more accessible format, please email
+              <a href="mailto:defra.helpline@defra.gsi.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20Fly-tipping%20incidents%20and%20actions%20reported%20by%20local%20authorities%20in%202014%20to%202015%0A%20%20Original%20format%3A%20ods%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&amp;subject=Request%20for%20%27Fly-tipping%20incidents%20and%20actions%20reported%20by%20local%20authorities%20in%202014%20to%202015%27%20in%20an%20alternative%20format">defra.helpline@defra.gsi.gov.uk</a>.
+              Please tell us what format you need. It will help us if you say what assistive technology you use.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="attachment embedded" id="attachment_1112527">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/publications/summer-budget-2015/summer-budget-2015"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/assets/pub-cover-html-b0465911e56983d98c70f0e25fba24bc206d37e8c83d4addf6421dcf6022c6cd.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a href="https://www.gov.uk/government/publications/summer-budget-2015/summer-budget-2015">Summer Budget 2015</a></h2>
+          <p class="metadata">
+            <span class="type">HTML</span>
+          </p>
+        </div>
+      </section>
+      <section class="attachment hosted-externally" id="attachment_1425055">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="http://example.com"><img alt="" src="//whitehall-admin.integration.publishing.service.gov.uk/government/assets/pub-cover-a380604bb953dc22ac9dcfbf3cc65598327f493c37b09ac497c45148cbaa21b1.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a rel="external" href="http://example.com">An external link</a></h2>
+          <p class="metadata">
+            <span class="url">http://example.com</span>
+          </p>
+        </div>
+      </section>
+      <section class="attachment hosted-externally" id="attachment_1425056">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="http://example.com"><img alt="" src="//whitehall-admin.integration.publishing.service.gov.uk/government/assets/pub-cover-a380604bb953dc22ac9dcfbf3cc65598327f493c37b09ac497c45148cbaa21b1.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a rel="external" href="http://example.com">An external link (with all possible metadata)</a></h2>
+          <p class="metadata">
+            <span class="references">
+            Ref: ISBN <span class="isbn">9780605039070</span>, <span class="unique_reference">ABC-12345</span>, <span class="command_paper_number">Cmd.987654321</span>, <span class="house_of_commons_paper_number">HC 0123456789</span> <span class="parliamentary_session">2015-16</span>
+            </span>
+            <span class="url">http://example.com</span>
+          </p>
+          <p>
+            <a class="order_url" title="Order a copy of the publication" href="http://www.example.com">Order a copy</a>
+            (<span class="price">£1.00</span>)
+          </p>
+        </div>
+      </section>
+      <section class="attachment embedded" id="attachment_1398523">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/consultations/environmental-permitting-updating-the-standards-for-petrol-vapour-recovery-at-service-stations"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/attachment_data/file/498443/thumbnail_petrol-vapour-recovery-consult-sum-resp.pdf.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a href="https://www.gov.uk/government/consultations/environmental-permitting-updating-the-standards-for-petrol-vapour-recovery-at-service-stations">Consultation outcome with published date</a></h2>
+          <p class="metadata">
+            <span class="changed">Published: <time class="date" datetime="2016-02-08"> 8 February 2016</time></span>
+            <span class="type"><abbr title="Portable Document Format">PDF</abbr></span>, <span class="file-size">106KB</span>, <span class="page-length">7 pages</span>
+          </p>
+        </div>
+      </section>
+  block_attachment_rtl:
+    direction: rtl
+    content: |
+      <section class="attachment embedded" id="attachment_1399349">
+        <div class="attachment-thumb">
+          <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/publications/minimum-wage-jobs-in-ashfield-local-authority-since-2009"><img alt="" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/attachment_data/file/496127/thumbnail_LPC_FoI_09.12.15_NMW_jobs_Ashfield_LA.pdf.png"></a>
+        </div>
+        <div class="attachment-details">
+          <h2 class="title"><a href="https://www.gov.uk/government/publications/minimum-wage-jobs-in-ashfield-local-authority-since-2009">PDF Attachment</a></h2>
+          <p class="metadata">
+            <span class="type"><abbr title="Portable Document Format">PDF</abbr></span>, <span class="file-size">198KB</span>, <span class="page-length">2 pages</span>
+          </p>
+        </div>
+      </section>
