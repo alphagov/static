@@ -1,6 +1,13 @@
 .govuk-govspeak {
-  .play-container {
+  .media-player {
     display: none;
+  }
+
+  .information-block,
+  .call-to-action {
+    margin: $gutter-half 0;
+    padding: 0 $gutter-half;
+    border: 1pt solid $border-colour;
   }
 
   .attachment {
