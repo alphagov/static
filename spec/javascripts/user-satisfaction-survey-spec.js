@@ -6,7 +6,7 @@ describe("User Satisfaction Survey", function () {
       $block = $('<div id="banner-notification" style="display: none"></div>' +
                   '<div id="global-cookie-message" style="display: none"></div>' +
                   '<div id="global-browser-prompt" style="display: none"></div>' +
-                  '<div id="user-satisfaction-survey-container" data-survey-url="http://www.surveymonkey.com/some-survey-id"></div>');
+                  '<div id="user-satisfaction-survey-container" data-survey-url="https://www.surveymonkey.com/r/some-survey-id"></div>');
 
       $('body').append($block);
       $("#user-satisfaction-survey").remove();
@@ -46,21 +46,21 @@ describe("User Satisfaction Survey", function () {
     it("uses the temporary survey URL on 03/03/2016", function() {
       spyOn(survey, 'currentDate').and.returnValue(new Date("March 3, 2016 12:15:30").getTime());
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/D668G5Z?");
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.com/r/some-survey-id?");
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
       spyOn(survey, 'currentDate').and.returnValue(new Date("January 1, 2016").getTime());
-      $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id');
+      $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id');
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c="+window.location.pathname);
+      expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c="+window.location.pathname);
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
       spyOn(survey, 'currentDate').and.returnValue(new Date("January 1, 2016").getTime());
-      $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id?c=/somewhere');
+      $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id?c=/somewhere');
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c=/somewhere")
+      expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere")
     });
 
     it("should randomly display the user satisfaction div", function () {
