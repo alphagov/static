@@ -1,0 +1,65 @@
+name: "Govspeak content (HTML Publications)"
+description: "To display long form text with numbered parts, which has been converted from Govspeak"
+body: |
+  This component calls the standard [Govspeak component](/components/govspeak), and layers a set of overriding styles on top. Styles for numbered parts are added, and heading sizes are increased.
+
+  Requires Slimmer >= 9.1.0 for nested component support.
+fixtures:
+  basic_content:
+    content: |
+      <p>This is a Budget that puts security first. It ensures economic security for working people by putting the public finances in order and setting out a bold plan for a more productive, balanced economy.</p>
+  heading_level_2:
+    content: |
+      <h2>
+        <span class="number">1. </span>Executive summary
+      </h2>
+      <p>This is a Budget that puts security first. It ensures economic security for working people by putting the public finances in order and setting out a bold plan for a more productive, balanced economy.</p>
+  heading_level_3:
+    content: |
+      <h3>
+        <span class="number">1.1 </span>Fixing the public finances and running a surplus
+      </h3>
+      <p>The government’s long-term economic plan has laid the foundations for a stronger economy, and the UK’s recovery is now well established. The labour market remains strong, and in the 3 months to April 2015, employment was around record levels at 31.1 million.</p>
+  numbered_content:
+    content: |
+      <h2 id="executive-summary">
+        <span class="number">1. </span>Executive summary
+      </h2>
+      <p>This is a Budget that puts security first. It ensures economic security for working people by putting the public finances in order and setting out a bold plan for a more productive, balanced economy.</p>
+      <h3 id="fixing-the-public-finances-and-running-a-surplus">
+        <span class="number">1.1 </span>Fixing the public finances and running a surplus
+      </h3>
+      <p>The government’s long-term economic plan has laid the foundations for a stronger economy, and the UK’s recovery is now well established. The labour market remains strong, and in the 3 months to April 2015, employment was around record levels at 31.1 million.</p>
+      <h3 id="economic-forecast">
+        <span class="number">1.2 </span>Economic forecast
+      </h3>
+      <p>The Office for Budget Responsibility (OBR) forecasts GDP growth of 2.4% in 2015, 2.3% in 2016, and 2.4% for the remainder of the forecast period.</p>
+      <h2 id="the-uk-economy-and-public-finances">
+        <span class="number">2. </span>The UK economy and public finances
+      </h2>
+      <h3 id="uk-economy">
+        <span class="number">2.1 </span>UK economy
+      </h3>
+      <p>The government’s long‑term economic plan has secured the recovery. The government’s fiscal responsibility has allowed monetary activism to support demand in the economy alongside repair of the financial sector. This has been supported by supply-side reform to deliver sustainable increases in standards of living.</p>
+  right_to_left:
+    direction: 'rtl'
+    content: |
+      <h2>
+        <span class="number">1. </span>Executive summary
+      </h2>
+      <p>This is a Budget that puts security first. It ensures economic security for working people by putting the public finances in order and setting out a bold plan for a more productive, balanced economy.</p>
+      <h3>
+        <span class="number">1.1 </span>Fixing the public finances and running a surplus
+      </h3>
+      <p>The government’s long-term economic plan has laid the foundations for a stronger economy, and the UK’s recovery is now well established. The labour market remains strong, and in the 3 months to April 2015, employment was around record levels at 31.1 million.</p>
+      <h3>
+        <span class="number">1.2 </span>Economic forecast
+      </h3>
+      <p>The Office for Budget Responsibility (OBR) forecasts GDP growth of 2.4% in 2015, 2.3% in 2016, and 2.4% for the remainder of the forecast period.</p>
+      <h2>
+        <span class="number">2. </span>The UK economy and public finances
+      </h2>
+      <h3>
+        <span class="number">2.1 </span>UK economy
+      </h3>
+      <p>The government’s long‑term economic plan has secured the recovery. The government’s fiscal responsibility has allowed monetary activism to support demand in the economy alongside repair of the financial sector. This has been supported by supply-side reform to deliver sustainable increases in standards of living.</p>

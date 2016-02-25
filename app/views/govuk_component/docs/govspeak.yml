@@ -170,6 +170,18 @@ fixtures:
     content: |
       <p>This content has a YouTube video link, converted to an accessible embedded player by component JavaScript.</p>
       <p><a href="https://www.youtube.com/watch?v=y6hbrS3DheU">Operations: a developer's guide, by Anna Shipman</a></p>
+  statistic_headlines:
+    content: |
+      <aside class="stat-headline">
+        <p><em>£6bn</em>
+        Total Departmental Expenditure Limit (<abbr title="Departmental Expenditure Limit">DEL</abbr>) in financial year 2015 to 2016</p>
+      </aside>
+      <p>This includes £5.8 billion Resource <abbr title="Departmental Expenditure Limit">DEL</abbr> and £0.2 billion Capital <abbr title="Departmental Expenditure Limit">DEL</abbr>. In addition, <abbr title="Department for Work and Pensions">DWP</abbr> Annually Managed Expenditure (<abbr title="Annually Managed Expenditure">AME</abbr>) in financial year 2015 to 2016 is £170.5 billion, as forecast by the Office for Budget Responsibility.</p>
+      <aside class="stat-headline">
+        <p>UK employment rate
+        <em>74.1%</em>
+        between October and December 2015</p>
+      </aside>
   specialist_content:
     content: |
       <h2 id="bisphosphonates">Bisphosphonates</h2>
