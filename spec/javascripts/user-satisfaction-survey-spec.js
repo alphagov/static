@@ -37,16 +37,16 @@ describe("User Satisfaction Survey", function () {
       expect(survey.currentDate()).not.toBe(undefined);
     });
 
-    it("uses the temporary survey URL on 01/02/2016", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("February 1, 2016").getTime());
+    it("uses the temporary survey URL on 02/03/2016", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date("March 2, 2016").getTime());
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/D668G5Z?");
     });
 
-    it("uses the temporary survey URL on 01/05/2016", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("May 1, 2016 12:15:30").getTime());
+    it("uses the temporary survey URL on 03/03/2016", function() {
+      spyOn(survey, 'currentDate').and.returnValue(new Date("March 3, 2016 12:15:30").getTime());
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/D668G5Z?");
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {

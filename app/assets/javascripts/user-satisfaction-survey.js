@@ -67,12 +67,12 @@
     setSurveyUrl: function(href) {
       var $surveyLink = $('#take-survey');
       var surveyUrl = $('#user-satisfaction-survey-container').data('survey-url');
-      var surveyStarts = new Date("February 1, 2016").getTime();
-      var surveyEnds = new Date("May 1, 2016 23:59:59").getTime();
+      var surveyStarts = new Date("March 2, 2016").getTime();
+      var surveyEnds = new Date("March 3, 2016 23:59:59").getTime();
 
       if (userSatisfaction.currentDate() >= surveyStarts &&
           userSatisfaction.currentDate() <= surveyEnds) {
-        surveyUrl = 'https://www.surveymonkey.co.uk/r/2MRDLTW';
+        surveyUrl = 'https://www.surveymonkey.co.uk/r/D668G5Z';
       }
 
       if (surveyUrl.indexOf('?c=') === -1) {
