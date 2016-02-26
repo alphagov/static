@@ -45,7 +45,7 @@
         return false;
       });
       $takeSurvey.click(function () {
-        userSatisfaction.setCookieTakenSurvey()
+        userSatisfaction.setCookieTakenSurvey();
         userSatisfaction.trackEvent('banner_taken', 'User taken survey');
       });
     },

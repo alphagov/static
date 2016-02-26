@@ -85,7 +85,7 @@ describe("User Satisfaction Survey", function () {
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
       $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id?c=/somewhere');
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere")
+      expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere");
     });
 
     it("should randomly display the user satisfaction div", function () {
