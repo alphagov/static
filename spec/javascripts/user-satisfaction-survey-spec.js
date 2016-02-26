@@ -17,12 +17,6 @@ describe("User Satisfaction Survey", function () {
       });
 
       survey = GOVUK.userSatisfaction;
-
-      // By default, we're not in a test period
-      if (inTestPeriodSpy === undefined) {
-        inTestPeriodSpy = spyOn(GOVUK.userSatisfaction, 'inTestPeriod');
-      }
-      inTestPeriodSpy.and.returnValue(false);
     });
 
     afterEach(function () {
@@ -50,6 +44,7 @@ describe("User Satisfaction Survey", function () {
     });
 
     it("uses the original survey URL outside the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.com/r/some-survey-id?");
     });
@@ -61,6 +56,7 @@ describe("User Satisfaction Survey", function () {
     });
 
     it("uses the original survey heading outside the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       survey.showSurveyBar();
       expect($('#user-satisfaction-survey h1').text()).toBe("Tell us what you think of GOV.UK");
     });
@@ -72,17 +68,20 @@ describe("User Satisfaction Survey", function () {
     });
 
     it("uses the original survey link outside the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       survey.showSurveyBar();
       expect($('#user-satisfaction-survey a#take-survey').text()).toBe("Take the 3 minute survey");
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id');
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c="+window.location.pathname);
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id?c=/somewhere');
       survey.showSurveyBar();
       expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere");
