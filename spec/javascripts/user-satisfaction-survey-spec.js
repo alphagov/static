@@ -152,5 +152,27 @@ describe("User Satisfaction Survey", function () {
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
       });
     });
+
+    describe("inTestPeriod", function () {
+      it("should be false on 1st March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 1, 2016 23:50:00").getTime());
+        expect(survey.inTestPeriod()).toBe(false);
+      });
+
+      it("should be true on 2nd March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 2, 2016 00:01:00").getTime());
+        expect(survey.inTestPeriod()).toBe(true);
+      });
+
+      it("should be true on 2nd March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 3, 2016 23:50:00").getTime());
+        expect(survey.inTestPeriod()).toBe(true);
+      });
+
+      it("should be false on 4th March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 4, 2016 00:01:00").getTime());
+        expect(survey.inTestPeriod()).toBe(false);
+      });
+    });
   });
 });
