@@ -10,6 +10,13 @@
     border: 1pt solid $border-colour;
   }
 
+  .fraction {
+    img {
+      display: inline-block;
+      margin-bottom: -7px;
+    }
+  }
+
   .attachment {
     margin: $gutter 0;
 
