@@ -63,20 +63,11 @@
       ['Percent', 25],
       ['Percent', 50],
       ['Percent', 75],
-      ['Heading', 'Opening up work'],
-      ['Heading', 'Support from your work coach'],
-      ['Heading', 'When you can claim Universal credit'],
-      ['Heading', 'More detailed advice'],
-    ],
-    '/openingupwork': [
-      ['Heading', 'How Universal Credit makes work pay'],
-      ['Heading', 'When you can claim Universal Credit'],
-      ['Heading', 'Help and advice']
-    ],
-    '/guidance/universal-credit-how-it-can-help-your-business': [
-      ['Percent', 25],
-      ['Percent', 50],
-      ['Percent', 75]
+      ['Heading', 'What is Universal Credit?'],
+      ['Heading', 'How Universal Credit works'],
+      ['Heading', 'Help with looking for work'],
+      ['Heading', 'Help from your work coach'],
+      ['Heading', 'Claiming Universal Credit']
     ],
     '/government/publications/see-potential-case-studies-and-guidance-for-employers/see-potential-case-studies-and-guidance-for-employers': [
       ['Heading', 'Case studies'],
@@ -89,23 +80,10 @@
       ['Heading', 'Our services'],
       ['Heading', 'Our priorities']
     ],
-    '/guidance/common-technology-services-cts-secure-email-blueprint': [
-      ['Heading', '1. Understand government policy'],
-      ['Heading', '2. Follow our technical specification'],
-      ['Heading', '3. Change email domain names as required']
-      ['Heading', '5. Get CTS’ assurance']
-      ['Heading', '6. Maintain your documentation and end user policies']
-      ['Heading', '7. Buy the solution']
-    ],
-    '/guidance/common-technology-services-cts-guide-to-implementing-the-secure-email-blueprint': [
-      ['Heading', 'Email service prerequisites'],
-      ['Heading', 'Transport Layer Security (TLS)'],
-      ['Heading', 'Domain-based Message Authentication, Reporting and Conformance (DMARC)']
-      ['Heading', 'DomainKeys Identified Mail (DKIM)']
-      ['Heading', 'Sender Policy Framework (SPF)']
-      ['Heading', 'Other email sending services']
-      ['Heading', 'Making DNS changes']
-      ['Heading', 'Assurance']
+    '/guidance/universal-credit-how-it-can-help-your-business': [
+      ['Percent', 25],
+      ['Percent', 50],
+      ['Percent', 75]
     ]
   };
 
