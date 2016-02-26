@@ -66,7 +66,7 @@
       ['Heading', 'Opening up work'],
       ['Heading', 'Support from your work coach'],
       ['Heading', 'When you can claim Universal credit'],
-      ['Heading', 'More detailed advice'],
+      ['Heading', 'More detailed advice']
     ],
     '/openingupwork': [
       ['Heading', 'How Universal Credit makes work pay'],
@@ -92,19 +92,19 @@
     '/guidance/common-technology-services-cts-secure-email-blueprint': [
       ['Heading', '1. Understand government policy'],
       ['Heading', '2. Follow our technical specification'],
-      ['Heading', '3. Change email domain names as required']
-      ['Heading', '5. Get CTS’ assurance']
-      ['Heading', '6. Maintain your documentation and end user policies']
+      ['Heading', '3. Change email domain names as required'],
+      ['Heading', '5. Get CTS’ assurance'],
+      ['Heading', '6. Maintain your documentation and end user policies'],
       ['Heading', '7. Buy the solution']
     ],
     '/guidance/common-technology-services-cts-guide-to-implementing-the-secure-email-blueprint': [
       ['Heading', 'Email service prerequisites'],
       ['Heading', 'Transport Layer Security (TLS)'],
-      ['Heading', 'Domain-based Message Authentication, Reporting and Conformance (DMARC)']
-      ['Heading', 'DomainKeys Identified Mail (DKIM)']
-      ['Heading', 'Sender Policy Framework (SPF)']
-      ['Heading', 'Other email sending services']
-      ['Heading', 'Making DNS changes']
+      ['Heading', 'Domain-based Message Authentication, Reporting and Conformance (DMARC)'],
+      ['Heading', 'DomainKeys Identified Mail (DKIM)'],
+      ['Heading', 'Sender Policy Framework (SPF)'],
+      ['Heading', 'Other email sending services'],
+      ['Heading', 'Making DNS changes'],
       ['Heading', 'Assurance']
     ]
   };
