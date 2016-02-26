@@ -1,12 +1,12 @@
 describe("User Satisfaction Survey", function () {
   describe("Cookies", function () {
-    var survey, $surveyBar, $block;
+    var survey, $surveyBar, $block, inTestPeriodSpy;
 
     beforeEach(function () {
       $block = $('<div id="banner-notification" style="display: none"></div>' +
                   '<div id="global-cookie-message" style="display: none"></div>' +
                   '<div id="global-browser-prompt" style="display: none"></div>' +
-                  '<div id="user-satisfaction-survey-container" data-survey-url="http://www.surveymonkey.com/some-survey-id"></div>');
+                  '<div id="user-satisfaction-survey-container" data-survey-url="https://www.surveymonkey.com/r/some-survey-id"></div>');
 
       $('body').append($block);
       $("#user-satisfaction-survey").remove();
@@ -37,30 +37,54 @@ describe("User Satisfaction Survey", function () {
       expect(survey.currentDate()).not.toBe(undefined);
     });
 
-    it("uses the temporary survey URL on 01/02/2016", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("February 1, 2016").getTime());
+    it("uses the temporary survey URL in the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/D668G5Z?");
     });
 
-    it("uses the temporary survey URL on 01/05/2016", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("May 1, 2016 12:15:30").getTime());
+    it("uses the original survey URL outside the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/2MRDLTW?");
+      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.com/r/some-survey-id?");
+    });
+
+    it("uses the temporary survey heading in the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
+      survey.showSurveyBar();
+      expect($('#user-satisfaction-survey h1').text()).toBe("Are you visiting GOV.UK for professional or personal reasons?");
+    });
+
+    it("uses the original survey heading outside the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
+      survey.showSurveyBar();
+      expect($('#user-satisfaction-survey h1').text()).toBe("Tell us what you think of GOV.UK");
+    });
+
+    it("uses the temporary survey link in the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
+      survey.showSurveyBar();
+      expect($('#user-satisfaction-survey a#take-survey').text()).toBe("Take the 1 question survey");
+    });
+
+    it("uses the original survey link outside the test period", function() {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
+      survey.showSurveyBar();
+      expect($('#user-satisfaction-survey a#take-survey').text()).toBe("Take the 3 minute survey");
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("January 1, 2016").getTime());
-      $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id');
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
+      $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id');
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c="+window.location.pathname);
+      expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c="+window.location.pathname);
     });
 
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending nothing when a path is already specified", function() {
-      spyOn(survey, 'currentDate').and.returnValue(new Date("January 1, 2016").getTime());
-      $("#user-satisfaction-survey-container").data('survey-url', 'http://www.surveymonkey.com/some-survey-id?c=/somewhere');
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
+      $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id?c=/somewhere');
       survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toBe("http://www.surveymonkey.com/some-survey-id?c=/somewhere")
+      expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere");
     });
 
     it("should randomly display the user satisfaction div", function () {
@@ -126,6 +150,28 @@ describe("User Satisfaction Survey", function () {
       it("should hide the satisfaction survey bar after clicking 'no thanks'", function () {
         $('#survey-no-thanks').trigger('click');
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
+      });
+    });
+
+    describe("inTestPeriod", function () {
+      it("should be false on 1st March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 1, 2016 23:50:00").getTime());
+        expect(survey.inTestPeriod()).toBe(false);
+      });
+
+      it("should be true on 2nd March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 2, 2016 00:01:00").getTime());
+        expect(survey.inTestPeriod()).toBe(true);
+      });
+
+      it("should be true on 2nd March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 3, 2016 23:50:00").getTime());
+        expect(survey.inTestPeriod()).toBe(true);
+      });
+
+      it("should be false on 4th March 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("March 4, 2016 00:01:00").getTime());
+        expect(survey.inTestPeriod()).toBe(false);
       });
     });
   });
