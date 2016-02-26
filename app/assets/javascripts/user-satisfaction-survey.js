@@ -14,6 +14,14 @@
               '  </div>' +
               '</section>',
 
+    TEST_TEMPLATE: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                   '  <div class="wrapper">' +
+                   '    <h1>Are you visiting GOV.UK for professional or personal reasons?</h1>' +
+                   '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                   '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 1 question survey</a> This will open a short survey on another website</p>' +
+                   '  </div>' +
+                   '</section>',
+
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     trackEvent: function (action, label) {
       GOVUK.analytics.trackEvent('user_satisfaction_survey', action, {
@@ -47,7 +55,8 @@
         return;
       }
 
-      $("#user-satisfaction-survey-container").append(userSatisfaction.TEMPLATE);
+      var template = userSatisfaction.inTestPeriod() ? userSatisfaction.TEST_TEMPLATE : userSatisfaction.TEMPLATE;
+      $("#user-satisfaction-survey-container").append(template);
 
       userSatisfaction.setEventHandlers();
       userSatisfaction.setSurveyUrl();
