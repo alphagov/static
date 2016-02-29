@@ -1,35 +1,35 @@
 @mixin organisation-logo-19 {
   font-family: $Helvetica-Regular;
-  font-size: 19px;
-  line-height: (20/19); /* 20px */
+  font-size: 13px;
+  line-height: (15/13);
   font-weight: 400;
   text-transform: none;
   text-decoration: none;
   color: $text-colour;
   display: block;
   border-left: 2px solid #bbb;
-  background: image-url("coa-default-24.gif") no-repeat 8px 0;
+  background: image-url("coa-default-18.gif") no-repeat 8px 0;
   height: auto;
   width: auto;
-  padding-top: 30px;
+  padding-top: 23px;
   padding-left: 10px;
 
-  @include media-down(mobile) {
-    font-size: 13px;
-    line-height: (15/13);
-    padding-top: 23px;
-    background-image: image-url("coa-default-18.gif");
+  @include media(tablet) {
+    font-size: 19px;
+    line-height: (20/19); /* 20px */
+    padding-top: 30px;
+    background-image: image-url("coa-default-24.gif");
   }
 
   &.single-line {
-    padding: 5px 0 5px 45px;
-    background-position: 8px 50%;
+    padding: 1px 0 1px 31px;
+    background-position: 5px 50%;
     top: 0;
     position: static;
 
-    @include media-down(mobile) {
-      padding: 1px 0 1px 31px;
-      background-position: 5px 50%;
+    @include media(tablet) {
+      padding: 5px 0 5px 45px;
+      background-position: 8px 50%;
     }
   }
   &:visited {
@@ -156,9 +156,9 @@
 /* Crests */
 
 @mixin organisation-logo-image($crest) {
-  background: image-url('crests/#{$crest}_18px.png') no-repeat 8px 0;
-  @include media-down(mobile) {
-    background-image: image-url('crests/#{$crest}_13px.png')
+  background: image-url('crests/#{$crest}_13px.png') no-repeat 8px 0;
+  @include media(tablet) {
+    background-image: image-url('crests/#{$crest}_18px.png')
   }
 }
 
