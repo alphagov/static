@@ -65,7 +65,7 @@
       ['Percent', 75],
       ['Heading', 'Opening up work'],
       ['Heading', 'Support from your work coach'],
-      ['Heading', 'When you can claim Universal credit'],
+      ['Heading', 'When you can claim Universal Credit'],
       ['Heading', 'More detailed advice']
     ],
     '/openingupwork': [
