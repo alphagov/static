@@ -1,0 +1,10 @@
+name: "Organisation logo"
+description: "A short description of the Organisation logo component"
+body: |
+  A long form description of the Organisation logo component, which may
+  include markdown formatting.
+
+  It should try and describe the intent of the component, and document
+  any parameters passed to the component.
+fixtures:
+  default: {}
