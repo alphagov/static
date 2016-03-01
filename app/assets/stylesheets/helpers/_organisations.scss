@@ -1,44 +1,45 @@
 @mixin organisation-logo-19 {
   font-family: $Helvetica-Regular;
-  font-size: 19px;
-  line-height: (20/19); /* 20px */
+  font-size: 13px;
+  line-height: (15 / 13);
   font-weight: 400;
   text-transform: none;
   text-decoration: none;
   color: $text-colour;
   display: block;
-  border-left: 2px solid #bbb;
-  background: image-url("coa-default-24.gif") no-repeat 8px 0;
+  border-left: 2px solid $grey-2;
+  background: image-url("coa-default-18.gif") no-repeat 8px 0;
   height: auto;
   width: auto;
-  padding-top: 30px;
+  padding-top: 23px;
   padding-left: 10px;
 
-  @include media-down(mobile) {
-    font-size: 13px;
-    line-height: (15/13);
-    padding-top: 23px;
-    background-image: image-url("coa-default-18.gif");
+  @include media(tablet) {
+    font-size: 19px;
+    line-height: (20 / 19);
+    padding-top: 30px;
+    background-image: image-url("coa-default-24.gif");
   }
 
   &.single-line {
-    padding: 5px 0 5px 45px;
-    background-position: 8px 50%;
+    padding: 1px 0 1px 31px;
+    background-position: 5px 50%;
     top: 0;
     position: static;
 
-    @include media-down(mobile) {
-      padding: 1px 0 1px 31px;
-      background-position: 5px 50%;
+    @include media(tablet) {
+      padding: 5px 0 5px 45px;
+      background-position: 8px 50%;
     }
   }
+
   &:visited {
     color: $text-colour;
   }
 }
 
 .organisation-logo {
-  @include organisation-logo-19
+  @include organisation-logo-19;
 }
 
 @mixin organisation-logo-border($colour) {
@@ -46,163 +47,144 @@
 }
 
 .attorney-generals-office {
-  @include organisation-logo-border($attorney-generals-office)
+  @include organisation-logo-border($attorney-generals-office);
 }
 
 .cabinet-office {
-  @include organisation-logo-border($cabinet-office)
+  @include organisation-logo-border($cabinet-office);
 }
 
 .department-for-business-innovation-skills {
-  @include organisation-logo-border($department-for-business-innovation-skills)
+  @include organisation-logo-border($department-for-business-innovation-skills);
 }
 
 .department-for-communities-and-local-government {
-  @include organisation-logo-border($department-for-communities-and-local-government)
+  @include organisation-logo-border($department-for-communities-and-local-government);
 }
 
 .department-for-culture-media-sport {
-  @include organisation-logo-border($department-for-culture-media-sport)
+  @include organisation-logo-border($department-for-culture-media-sport);
 }
 
 .department-for-education {
-  @include organisation-logo-border($department-for-education)
+  @include organisation-logo-border($department-for-education);
 }
 
 .department-of-energy-climate-change {
-  @include organisation-logo-border($department-of-energy-climate-change)
+  @include organisation-logo-border($department-of-energy-climate-change);
 }
 
 .department-for-environment-food-rural-affairs {
-  @include organisation-logo-border($department-for-environment-food-rural-affairs)
+  @include organisation-logo-border($department-for-environment-food-rural-affairs);
 }
 
 .department-of-health {
-  @include organisation-logo-border($department-of-health)
+  @include organisation-logo-border($department-of-health);
 }
 
 .department-for-international-development {
-  @include organisation-logo-border($department-for-international-development)
+  @include organisation-logo-border($department-for-international-development);
 }
 
 .department-for-transport {
-  @include organisation-logo-border($department-for-transport)
+  @include organisation-logo-border($department-for-transport);
 }
 
 .department-for-work-pensions {
-  @include organisation-logo-border($department-for-work-pensions)
+  @include organisation-logo-border($department-for-work-pensions);
 }
 
 .foreign-commonwealth-office {
-  @include organisation-logo-border($foreign-commonwealth-office)
+  @include organisation-logo-border($foreign-commonwealth-office);
 }
 
 .hm-government {
-  @include organisation-logo-border($hm-government)
+  @include organisation-logo-border($hm-government);
 }
 
 .hm-revenue-customs {
-  @include organisation-logo-border($hm-revenue-customs)
+  @include organisation-logo-border($hm-revenue-customs);
 }
 
 .hm-treasury {
-  @include organisation-logo-border($hm-treasury)
+  @include organisation-logo-border($hm-treasury);
 }
 
 .home-office {
-  @include organisation-logo-border($home-office)
+  @include organisation-logo-border($home-office);
 }
 
 .ministry-of-defence {
-  @include organisation-logo-border($ministry-of-defence)
+  @include organisation-logo-border($ministry-of-defence);
 }
 
 .ministry-of-justice {
-  @include organisation-logo-border($ministry-of-justice)
+  @include organisation-logo-border($ministry-of-justice);
 }
 
 .northern-ireland-office {
-  @include organisation-logo-border($northern-ireland-office)
+  @include organisation-logo-border($northern-ireland-office);
 }
 
 .office-of-the-advocate-general-for-scotland {
-  @include organisation-logo-border($office-of-the-advocate-general-for-scotland)
+  @include organisation-logo-border($office-of-the-advocate-general-for-scotland);
 }
 
 .office-of-the-leader-of-the-house-of-lords {
-  @include organisation-logo-border($office-of-the-leader-of-the-house-of-lords)
+  @include organisation-logo-border($office-of-the-leader-of-the-house-of-lords);
 }
 
 .scotland-office {
-  @include organisation-logo-border($scotland-office)
+  @include organisation-logo-border($scotland-office);
 }
 
 .the-office-of-the-leader-of-the-house-of-commons {
-  @include organisation-logo-border($the-office-of-the-leader-of-the-house-of-commons)
+  @include organisation-logo-border($the-office-of-the-leader-of-the-house-of-commons);
 }
 
 .uk-export-finance {
-  @include organisation-logo-border($uk-export-finance)
+  @include organisation-logo-border($uk-export-finance);
 }
 
 .uk-trade-investment {
-  @include organisation-logo-border($uk-trade-investment)
+  @include organisation-logo-border($uk-trade-investment);
 }
 
 .wales-office {
-  @include organisation-logo-border($wales-office)
+  @include organisation-logo-border($wales-office);
 }
 
-/* Crests */
+// Crests
 
 @mixin organisation-logo-image($crest) {
-  background: image-url($crest) no-repeat 8px 0;
+  background: image-url('crests/#{$crest}_13px.png') no-repeat 8px 0;
+
+  @include media(tablet) {
+    background-image: image-url('crests/#{$crest}_18px.png');
+  }
 }
 
 .organisation-logo-bis {
-  @include organisation-logo-image('crests/bis_crest_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/bis_crest_13px.png')
-  }
+  @include organisation-logo-image('bis_crest');
 }
 
 .organisation-logo-coastguard {
-  padding-top: 38px;  
-
-  @include organisation-logo-image('crests/coastguard_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/coastguard_13px.png')
-  }
+  padding-top: 38px;
+  @include organisation-logo-image('coastguard');
 }
 
 .organisation-logo-hmrc {
-  @include organisation-logo-image('crests/hmrc_crest_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/hmrc_crest_13px.png')
-  }
+  @include organisation-logo-image('hmrc_crest');
 }
 
 .organisation-logo-ho {
-  padding-top: 38px; 
-  
-  @include organisation-logo-image('crests/ho_crest_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/ho_crest_13px.png')
-  }
+  padding-top: 38px;
+  @include organisation-logo-image('ho_crest');
 }
 
 .organisation-logo-mod {
-  padding-top: 38px; 
-  
-  @include organisation-logo-image('crests/mod_crest_18px.png');  
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/mod_crest_13px.png')
-  }
+  padding-top: 38px;
+  @include organisation-logo-image('mod_crest');
 }
 
 .organisation-logo-no-identity {
@@ -212,61 +194,31 @@
 }
 
 .organisation-logo-org {
-  @include organisation-logo-image('crests/org_crest_18px.png');
-  
-  @include media-down(mobile) {
-    background-image: image-url('crests/org_crest_13px.png')
-  }
+  @include organisation-logo-image('org_crest');
 }
 
 .organisation-logo-portcullis {
-  @include organisation-logo-image('crests/portcullis_18px.png');  
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/portcullis_crest_13px.png')
-  }
+  @include organisation-logo-image('portcullis');
 }
 
 .organisation-logo-so {
-  @include organisation-logo-image('crests/so_crest_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/so_crest_13px.png')
-  }
+  @include organisation-logo-image('so_crest');
 }
 
 .organisation-logo-single-identity {
-  @include organisation-logo-image('crests/org_crest_18px.png');
-  
-  @include media-down(mobile) {
-    background-image: image-url('crests/org_crest_13px.png')
-  }
+  @include organisation-logo-image('org_crest');
 }
 
 .organisation-logo-ukaea {
-  @include organisation-logo-image('crests/ukaea_crest_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/ukaea_crest_13px.png')
-  }
+  @include organisation-logo-image('ukaea_crest');
 }
 
 .organisation-logo-ukho {
   padding-top: 38px;
-  
-  @include organisation-logo-image('crests/ukho_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/ukho_13px.png')
-  }
+  @include organisation-logo-image('ukho');
 }
 
 .organisation-logo-wales {
   padding-top: 38px;
-  
-  @include organisation-logo-image('crests/wales_crest_18px.png');
-
-  @include media-down(mobile) {
-    background-image: image-url('crests/wales_crest_13px.png')
-  }
+  @include organisation-logo-image('wales_crest');
 }
