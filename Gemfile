@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
+
 gem 'unicorn', '4.9.0'
 
 gem 'logstasher', '0.4.8'
