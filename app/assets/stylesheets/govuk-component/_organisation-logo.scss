@@ -1,3 +1,47 @@
+// Default logo corresponds with the "medium stacked" Whitehall equivalent
 .govuk-organisation-logo {
+  font-family: $Helvetica-Regular;
+  font-size: 13px;
+  line-height: (15 / 13);
+  font-weight: 400;
 
+  @include media(tablet) {
+    font-size: 19px;
+    line-height: (20 / 19);
+  }
+
+  .logo-container {
+    text-transform: none;
+    text-decoration: none;
+    display: block;
+    border-left: 2px solid $black;
+    color: $black;
+    height: auto;
+    width: auto;
+
+    // Logo direction never changes, even for rtl content.
+    direction: ltr;
+  }
+
+  // Use brand colours defined in toolkit to set logo border colour
+  @each $organisation in $all-organisation-brand-colours {
+    &.#{nth($organisation, 1)} .logo-container {
+      border-color: nth($organisation, 2);
+    }
+  }
+
+  .logo-with-crest {
+    padding-top: 23px;
+    padding-left: 10px;
+  }
+
+  .logo-link:link,
+  .logo-link:visited {
+    color: $black;
+  }
+
+  .logo-link:hover,
+  .logo-link:focus {
+    text-decoration: underline;
+  }
 }
