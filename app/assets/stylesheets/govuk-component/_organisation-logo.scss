@@ -78,6 +78,12 @@
     }
   }
 
+  @mixin tall-crest {
+    @include media(tablet) {
+      padding-top: 35px;
+    }
+  }
+
   .crest-bis {
     @include crest('bis_crest', 18px 20px, 25px 26px);
   }
@@ -87,13 +93,13 @@
   }
 
   .crest-ho {
-    padding-top: 38px;
     @include crest('ho_crest', 14px 25px, 19px 34px);
+    @include tall-crest;
   }
 
   .crest-mod {
-    padding-top: 38px;
     @include crest('mod_crest', 18px 25px, 24px 34px);
+    @include tall-crest;
   }
 
   .crest-single-identity,
@@ -114,12 +120,12 @@
   }
 
   .crest-ukho {
-    padding-top: 38px;
     @include crest('ukho', 18px 25px, 25px 34px);
+    @include tall-crest;
   }
 
   .crest-wales {
-    padding-top: 38px;
     @include crest('wales_crest', 16px 25px, 22px 34px);
+    @include tall-crest;
   }
 }
