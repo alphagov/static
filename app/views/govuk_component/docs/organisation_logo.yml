@@ -25,6 +25,12 @@ fixtures:
       url: '/government/organisations/department-for-business-innovation-skills'
       brand: 'department-for-business-innovation-skills'
       crest: 'bis'
+  executive_office:
+    organisation:
+      name: Prime Minister's Office, 10 Downing Street
+      url: '/government/organisations/prime-ministers-office-10-downing-street'
+      brand: 'executive-office'
+      crest: 'single-identity'
   home_office:
     organisation:
       name: 'Home Office'
