@@ -28,8 +28,13 @@
   .logo-with-crest {
     // Default brand colour
     border-left: 2px solid $black;
-    padding-top: 25px;
-    padding-left: 7px;
+    padding-top: 20px;
+    padding-left: 6px;
+
+    @include media(tablet) {
+      padding-top: 25px;
+      padding-left: 7px;
+    }
 
     span {
       position: relative;
@@ -60,72 +65,76 @@
     text-decoration: underline;
   }
 
-  @mixin crest($crest, $mobile-background-size, $tablet-background-size) {
-    background: image-url('crests/#{$crest}_13px.png') no-repeat 8px 0;
+  @mixin crest($crest) {
+    background: image-url('crests/#{$crest}_13px.png') no-repeat 5px 0;
+    background-size: auto 20px;
 
     @include device-pixel-ratio() {
       background-image: image-url('crests/#{$crest}_13px_x2.png');
-      background-size: $mobile-background-size;
     }
 
     @include media(tablet) {
-      background-image: image-url('crests/#{$crest}_18px.png');
+      background: image-url('crests/#{$crest}_18px.png') no-repeat 6px 0;
+      background-size: auto 25px;
 
       @include device-pixel-ratio() {
         background-image: image-url('crests/#{$crest}_18px_x2.png');
-        background-size: $tablet-background-size;
       }
     }
   }
 
   @mixin tall-crest {
+    padding-top: 25px;
+    background-size: auto 25px;
+
     @include media(tablet) {
       padding-top: 35px;
+      background-size: auto 35px;
     }
   }
 
   .crest-bis {
-    @include crest('bis_crest', 18px 20px, 25px 26px);
+    @include crest('bis_crest');
   }
 
   .crest-hmrc {
-    @include crest('hmrc_crest', 20px 20px, 26px 26px);
+    @include crest('hmrc_crest');
   }
 
   .crest-ho {
-    @include crest('ho_crest', 14px 25px, 19px 34px);
+    @include crest('ho_crest');
     @include tall-crest;
   }
 
   .crest-mod {
-    @include crest('mod_crest', 18px 25px, 24px 34px);
+    @include crest('mod_crest');
     @include tall-crest;
   }
 
   .crest-single-identity,
   .crest-org {
-    @include crest('org_crest', 24px 20px, 31px 26px);
+    @include crest('org_crest');
   }
 
   .crest-portcullis {
-    @include crest('portcullis', 18px 20px, 23px 26px);
+    @include crest('portcullis');
   }
 
   .crest-so {
-    @include crest('so_crest', 25px 20px, 32px 26px);
+    @include crest('so_crest');
   }
 
   .crest-ukaea {
-    @include crest('ukaea_crest', 22px 20px, 29px 26px);
+    @include crest('ukaea_crest');
   }
 
   .crest-ukho {
-    @include crest('ukho', 18px 25px, 25px 34px);
+    @include crest('ukho');
     @include tall-crest;
   }
 
   .crest-wales {
-    @include crest('wales_crest', 16px 25px, 22px 34px);
+    @include crest('wales_crest');
     @include tall-crest;
   }
 }
