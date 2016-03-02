@@ -2,7 +2,7 @@
   organisation ||= {}
   logo_container_class = "logo-container"
   logo_container_class = "#{logo_container_class} logo-link" if organisation[:url]
-  logo_container_class = "#{logo_container_class} logo-with-crest" if organisation[:crest]
+  logo_container_class = "#{logo_container_class} logo-with-crest crest-#{organisation[:crest]}" if organisation[:crest]
 %>
 <div class="govuk-organisation-logo <%= organisation[:brand] %>">
   <% if organisation[:url] %>
@@ -11,7 +11,7 @@
     <div class="<%= logo_container_class %>">
   <% end %>
 
-  <%= organisation[:name] %>
+  <span><%= raw organisation[:name] %></span>
 
   <% if organisation[:url] %>
     </a>

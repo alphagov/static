@@ -1,10 +1,28 @@
 name: "Organisation logo"
-description: "A short description of the Organisation logo component"
+description: "Organisation text with crest and branded border colour"
 body: |
-  A long form description of the Organisation logo component, which may
-  include markdown formatting.
-
-  It should try and describe the intent of the component, and document
-  any parameters passed to the component.
+  Organisation name must be provided with pre-formatted line breaks.
+  These cannot be inferred from the name alone.
 fixtures:
-  default: {}
+  default:
+    organisation:
+      name: 'Organisation<br>name'
+      url: 'http://www.gov.uk'
+  department_for_culture_media_and_sport:
+    organisation:
+      name: 'Department<br>for Culture<br>Media &amp; Sport'
+      url: '/government/organisations/department-for-culture-media-sport'
+      brand: 'department-for-culture-media-sport'
+      crest: 'org'
+  bona_vacantia:
+    organisation:
+      name: 'Bona Vacantia'
+      url: '/government/organisations/bona-vacantia'
+      brand: 'attorney-generals-office'
+      crest: 'org'
+  treasury_solicitors_office:
+    organisation:
+      name: 'Treasury <br>Solicitor’s <br>Department'
+      url: '/government/organisations/treasury-solicitor-s-department'
+      brand: 'attorney-generals-office'
+      crest: 'org'
