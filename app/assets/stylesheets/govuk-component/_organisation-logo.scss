@@ -1,0 +1,140 @@
+// Default logo corresponds with the "medium stacked" Whitehall equivalent
+.govuk-organisation-logo {
+  // Variable defined in frontend toolkit
+  // scss-lint:disable NameFormat
+  font-family: $Helvetica-Regular;
+  // scss-lint:enable NameFormat
+  font-size: 13px;
+  line-height: (15 / 13);
+  font-weight: 400;
+
+  @include media(tablet) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .logo-container {
+    text-transform: none;
+    text-decoration: none;
+    display: block;
+    color: $black;
+    height: auto;
+    width: auto;
+
+    // Logo direction never changes, even for rtl content.
+    direction: ltr;
+  }
+
+  .logo-with-crest {
+    // Default brand colour
+    border-left: 2px solid $black;
+    padding-top: 20px;
+    padding-left: 6px;
+
+    @include media(tablet) {
+      padding-top: 25px;
+      padding-left: 7px;
+    }
+
+    span {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  &.executive-office .logo-with-crest {
+    border-left-width: 0;
+    padding-left: 0;
+    background-position: 0 0;
+  }
+
+  // Use brand colours defined in toolkit to set logo border colour
+  @each $organisation in $all-organisation-brand-colours {
+    &.#{nth($organisation, 1)} .logo-with-crest {
+      border-color: nth($organisation, 2);
+    }
+  }
+
+  .logo-link:link,
+  .logo-link:visited {
+    color: $black;
+  }
+
+  .logo-link:hover,
+  .logo-link:focus {
+    text-decoration: underline;
+  }
+
+  @mixin crest($crest) {
+    background: image-url('crests/#{$crest}_13px.png') no-repeat 5px 0;
+    background-size: auto 20px;
+
+    @include device-pixel-ratio() {
+      background-image: image-url('crests/#{$crest}_13px_x2.png');
+    }
+
+    @include media(tablet) {
+      background: image-url('crests/#{$crest}_18px.png') no-repeat 6px 0;
+      background-size: auto 25px;
+
+      @include device-pixel-ratio() {
+        background-image: image-url('crests/#{$crest}_18px_x2.png');
+      }
+    }
+  }
+
+  @mixin tall-crest {
+    padding-top: 25px;
+    background-size: auto 25px;
+
+    @include media(tablet) {
+      padding-top: 35px;
+      background-size: auto 35px;
+    }
+  }
+
+  .crest-bis {
+    @include crest('bis_crest');
+  }
+
+  .crest-hmrc {
+    @include crest('hmrc_crest');
+  }
+
+  .crest-ho {
+    @include crest('ho_crest');
+    @include tall-crest;
+  }
+
+  .crest-mod {
+    @include crest('mod_crest');
+    @include tall-crest;
+  }
+
+  .crest-single-identity,
+  .crest-org {
+    @include crest('org_crest');
+  }
+
+  .crest-portcullis {
+    @include crest('portcullis');
+  }
+
+  .crest-so {
+    @include crest('so_crest');
+  }
+
+  .crest-ukaea {
+    @include crest('ukaea_crest');
+  }
+
+  .crest-ukho {
+    @include crest('ukho');
+    @include tall-crest;
+  }
+
+  .crest-wales {
+    @include crest('wales_crest');
+    @include tall-crest;
+  }
+}
