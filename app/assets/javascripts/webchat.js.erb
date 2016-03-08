@@ -16,7 +16,7 @@
         '/government/organisations/hm-revenue-customs/contact/self-assessment-online-services-helpdesk'
       ];
 
-      return (webchatEnabledPaths.indexOf(window.location.pathname) >= 0);
+      return ($.inArray(window.location.pathname, webchatEnabledPaths) >= 0);
     },
 
     validOrigin: function(origin){
