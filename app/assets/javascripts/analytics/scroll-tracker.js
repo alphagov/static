@@ -106,6 +106,13 @@
       ['Heading', 'Other email sending services'],
       ['Heading', 'Making DNS changes'],
       ['Heading', 'Assurance']
+    ],
+    '/government/publications/budget-2016-documents/budget-2016-document': [
+      ['Percent', 20],
+      ['Percent', 40],
+      ['Percent', 60],
+      ['Percent', 80],
+      ['Percent', 100]
     ]
   };
 
