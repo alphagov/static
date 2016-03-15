@@ -48,7 +48,4 @@ PLEK_SERVICE_STATIC_URI=0.0.0.0:3013 ./startup.sh
 
 Tests can run in browser at `/specs`
 
-Or in terminal to run only the jasmine tests you can use `bundle exec rake spec:javascript`
-
-
-
+Or in terminal to run only the jasmine tests you can use `RAILS_ENV=test bundle exec rake spec:javascript`
