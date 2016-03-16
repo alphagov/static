@@ -107,7 +107,7 @@
       ['Heading', 'Making DNS changes'],
       ['Heading', 'Assurance']
     ],
-    '/government/publications/budget-2016-documents/budget-2016-document': [
+    '/government/publications/budget-2016-documents/budget-2016': [
       ['Percent', 20],
       ['Percent', 40],
       ['Percent', 60],
