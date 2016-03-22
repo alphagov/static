@@ -92,6 +92,23 @@
         }
       }
     }
+
+    .stat-headline:first-child {
+      margin-top: $gutter;
+
+      @include media(tablet) {
+        margin-top: ($gutter * 2) + $gutter-two-thirds;
+      }
+    }
+
+    h2,
+    h3 {
+      margin-top: $gutter;
+
+      @include media(tablet) {
+        margin-top: ($gutter * 2) + $gutter-two-thirds;
+      }
+    }
   }
 
   .sticky-element {
