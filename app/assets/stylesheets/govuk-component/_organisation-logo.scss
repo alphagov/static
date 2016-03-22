@@ -112,6 +112,7 @@
   }
 
   .crest-single-identity,
+  .crest-eo,
   .crest-org {
     @include crest('org_crest');
   }
