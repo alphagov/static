@@ -5,6 +5,15 @@
   margin-bottom: $gutter * 1.5;
   z-index: 2;
 
+  // This fixes the positioning of the sticky element. The reason it's done on the parent element
+  // is because directly messing with the positioning of the sticky element produces undesirable results.
+  // The nested govspeak component handles its own text direction independently, but will
+  // coincide with the direction of its parent anyway in all usecases.
+  &.direction-rtl {
+    direction: rtl;
+    text-align: start;
+  }
+
   .govuk-govspeak {
     @include media(tablet) {
       width: 75%;
