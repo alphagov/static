@@ -449,6 +449,12 @@
         outline: $thumb-border-width solid transparentize($black, 0.9);
 
         @include ie-lte(8) {
+          // IE8 incorrectly asserts the "max-width: 100%" rule to be 0
+          // because of the collapsed width on its floating container
+          // Reset the max-width so that thumbnails render at the specified
+          // width above.
+          // http://www.456bereastreet.com/archive/201202/using_max-width_on_images_can_make_them_disappear_in_ie8/
+          max-width: none;
           border: $thumb-border-width solid $grey-3;
         }
 
