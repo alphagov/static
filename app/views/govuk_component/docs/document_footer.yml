@@ -69,3 +69,15 @@ fixtures:
     published: 20 January 2012
     from: <a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>
     part_of: <a href='/government/topics/energy'>Energy</a>
+  with_expandable_change_history:
+    history:
+    - display_time: 22 January 2012
+      timestamp: 22-01-2012Z14:19:00T
+      note: We updated the document
+    hidden_history:
+    - display_time: 24 January 2013
+      timestamp: 24-01-2012Z14:19:00T
+      note: We updated the document again
+    - display_time: 24 January 2014
+      timestamp: 24-01-2012Z14:19:00T
+      note: We updated the document again

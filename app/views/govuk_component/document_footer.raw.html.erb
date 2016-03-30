@@ -8,6 +8,9 @@
   history ||= []
   history = Array(history)
 
+  hidden_history ||= []
+  history = Array(history)
+
   other ||= nil
 
   other_dates ||= nil
@@ -32,14 +35,31 @@
     <% if history.any? %>
       <div class="change-notes" id="history">
         <h3>Page history</h3>
-        <ol>
-          <% history.each do |change| %>
-            <li>
-              <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
-              <%= change[:note] %>
-            </li>
-          <% end %>
-        </ol>
+        <% if history.any? %>
+          <ol>
+            <% history.each do |change| %>
+              <li>
+                <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
+                <%= change[:note] %>
+              </li>
+            <% end %>
+          </ol>
+        <% end %>
+        <% if hidden_history.any? %>
+          <div data-module="toggle">
+            <a href="#change-notes-hidden-history" data-expanded="false" data-controls="change-notes-hidden-history">
+              + full page history
+            </a>
+            <ol id="change-notes-hidden-history" class="js-hidden">
+              <% hidden_history.each do |change| %>
+                <li>
+                  <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
+                  <%= change[:note] %>
+                </li>
+              <% end %>
+            </ol>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

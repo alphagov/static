@@ -94,6 +94,39 @@ class DocumentFooterTestCase < ComponentTestCase
     assert_select '.change-notes li', count: 2
   end
 
+  test "renders document hidden history" do
+    render_component(
+      expand_full_history: true,
+      history: [
+          display_time: "26 October 2016",
+          timestamp: "26-10-2016Z14:19:00T",
+          note: "We updated the document"
+      ],
+      hidden_history: [
+        {
+          display_time: "22 January 2012",
+          timestamp: "22-01-2012Z14:19:00T",
+          note: "We updated the document"
+        },
+        {
+          display_time: "24 January 2012",
+          timestamp: "24-01-2012Z14:19:00T",
+          note: "We updated the document again"
+        }
+      ]
+    )
+
+    assert_timestamp_in('.change-notes #change-notes-hidden-history li', '22-01-2012Z14:19:00T', '22 January 2012')
+    assert_select '.change-notes #change-notes-hidden-history li', text: /We updated the document$/
+
+    assert_timestamp_in('.change-notes #change-notes-hidden-history li', '24-01-2012Z14:19:00T', '24 January 2012')
+    assert_select '.change-notes #change-notes-hidden-history li', text: /We updated the document again/
+
+    assert_select '.change-notes #change-notes-hidden-history[class=js-hidden]'
+    assert_select '.change-notes a[data-expanded=false]'
+    assert_select '.change-notes a[data-controls=change-notes-hidden-history]'
+  end
+
   test "supports right to left content" do
     render_component({direction: "rtl"})
     assert_select '.govuk-document-footer.direction-rtl'
