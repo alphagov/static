@@ -357,6 +357,7 @@
   .contact {
     @extend %contain-floats;
     margin-bottom: $gutter;
+    margin-top: $gutter;
     position: relative;
 
     .content {
