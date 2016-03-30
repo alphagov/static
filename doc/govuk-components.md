@@ -62,7 +62,7 @@ Documentation lives [`app/views/govuk_component/docs`](../app/views/govuk_compon
 * `description`: A longer form description of what the component does, when it should be used
 * `fixtures`: TBD: For components that expect arguments this will be a hash of fixtured example arguments
 
-Adding it to the documentation will allow you to preview it in the `govuk_component_guide`, which can be pointed to any
+Adding it to the documentation will allow you to preview it in the [alphagov/govuk_component_guide](https://github.com/alphagov/govuk_component_guide), which can be pointed to any
 version of static, including your local one running a branch. Which you should probably do.
 
 ### Unit tests
