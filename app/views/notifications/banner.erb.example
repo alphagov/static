@@ -10,4 +10,4 @@ notification that you would like to show.
 <p>Your message goes here<br />
 This is the second line of your message!</p>
 
-<a href="#" class="right">More information</a>
+<a href="#" class="more-information">More information</a>

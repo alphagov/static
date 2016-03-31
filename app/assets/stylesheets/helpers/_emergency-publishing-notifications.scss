@@ -32,14 +32,11 @@
   a {
     color: #fff;
 
-    &.right {
+    &.more-information {
       display: block;
-      padding: 0;
 
       @include media(tablet) {
-        padding: 0 30px 0 0;
-        margin-top: (25 / 19) * -1em;
-        text-align: right;
+        padding: 0 30px;
       }
     }
   }
