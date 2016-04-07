@@ -1,13 +1,9 @@
 .govuk-document-footer {
   @extend %grid-row;
   @include core-16;
+  @include direction-rtl;
   margin-top: $gutter * 1.5;
   margin-bottom: $gutter * 1.5;
-
-  &.direction-rtl {
-    direction: rtl;
-    text-align: start;
-  }
 
   .history-information {
     min-height: 1em;

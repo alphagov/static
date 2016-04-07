@@ -1,12 +1,8 @@
 .govuk-metadata {
   @include core-14;
   @include responsive-bottom-margin;
+  @include direction-rtl;
   @extend %contain-floats;
-
-  &.direction-rtl {
-    direction: rtl;
-    text-align: start;
-  }
 
   dt {
     float: left;
