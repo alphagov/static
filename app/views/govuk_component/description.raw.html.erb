@@ -1,3 +1,7 @@
-<div class="govuk-description">
-  Description
-</div>
+<%
+  direction_class = ""
+  direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
+%>
+<p class="govuk-description<%= direction_class %>">
+  <%= raw description %>
+</p>

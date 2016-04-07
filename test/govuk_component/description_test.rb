@@ -5,10 +5,21 @@ class DescriptionTestCase < ComponentTestCase
     "description"
   end
 
-  test "no error if no parameters passed in" do
-    assert_nothing_raised do
-      render_component({})
-      assert_select ".govuk-description"
-    end
+  test "renders a description" do
+    render_component(description: 'description')
+    assert_select ".govuk-description", text: 'description'
+  end
+
+  test "renders html in a description" do
+    render_component(description: 'description <a href="http://www.gov.uk">link</a>')
+    assert_select ".govuk-description a", text: 'link'
+  end
+
+  test "renders right to left content correctly" do
+    render_component(
+      direction: "rtl",
+      description: "right to left")
+
+    assert_select ".direction-rtl", text: 'right to left'
   end
 end

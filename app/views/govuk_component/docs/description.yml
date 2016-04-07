@@ -1,10 +1,12 @@
 name: "Description"
-description: "A short description of the Description component"
-body: |
-  A long form description of the Description component, which may
-  include markdown formatting.
-
-  It should try and describe the intent of the component, and document
-  any parameters passed to the component.
+description: "A single lead (or lede) paragraph for a piece of content."
 fixtures:
-  default: {}
+  description:
+    description: Some description
+  description_with_markup:
+    description: A description that might <a href="http://www.gov.uk">link to somewhere</a>, because sometimes simple markdown is allowed in the summary or description fields.
+  description_with_non_breaking_spaces_at_the_end:
+    description: To prevent widows in description fields we sometimes include non-breaking spaces between the last two&nbsp;words.
+  right_to_left:
+    description: سوف تستثمر المملكة المتحدة مبلغا إضافيا قدره 1.2 مليار جنيه استرليني من المساعدات الدولية في سورية والمنطقة لتمويل التعليم وتوفير فرص العمل والحماية الإنسانية.
+    direction: 'rtl'
