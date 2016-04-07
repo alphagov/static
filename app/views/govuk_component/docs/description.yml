@@ -1,0 +1,10 @@
+name: "Description"
+description: "A short description of the Description component"
+body: |
+  A long form description of the Description component, which may
+  include markdown formatting.
+
+  It should try and describe the intent of the component, and document
+  any parameters passed to the component.
+fixtures:
+  default: {}
