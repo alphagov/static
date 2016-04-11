@@ -25,7 +25,16 @@
   <div id="user-satisfaction-survey-container" data-survey-url="https://www.surveymonkey.com/s/2MRDLTW"></div>
 
   <% unless local_assigns[:hide_banner_notification] %>
-    <%= banner_notification %>
+    <% @banner_notification = banner_notification %>
+
+    <% if @banner_notification.present? %>
+      <%= @banner_notification %>
+    <% else %>
+      <div id="global-bar">
+        <p class="global-bar-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aaenean mattis turpis dolor, eu varius ligula porttitor vel prasent. <a href="">Call to action</a></p>
+      </div>
+    <% end %>
+
   <% end %>
 <% end %>
 

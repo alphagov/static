@@ -344,3 +344,16 @@
     }
   }
 }
+
+#global-bar {
+  padding: 10px 0;
+  background-color: $light-blue-25;
+
+  .global-bar-message {
+    @extend %site-width-container;
+
+    @include core-16;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
