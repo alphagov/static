@@ -1,14 +1,23 @@
 describe("toggling a global bar HTML class based on cookie", function () {
+  var root = window;
 
-  function globalBarSource() {
+  function globalBarSource(fakeWindow) {
+    var window = fakeWindow || root;
+
+    /* --------------------------------------- */
+
     (function (document) {
       "use strict"
       var documentElement = document.documentElement;
-      if (showGlobalBanner()) {
+      if (urlPermitsShow() && viewCountPermitsShow()) {
         documentElement.className = documentElement.className.concat(' show-global-bar');
       }
 
-      function showGlobalBanner() {
+      function urlPermitsShow() {
+        return !/^\/register-to-vote|^\/done/.test(window.location.pathname);
+      }
+
+      function viewCountPermitsShow() {
         var c = document.cookie.match('(?:^|[ ;])global_bar_seen=([0-9]+)');
         if (!c) {
           return true;
@@ -17,10 +26,16 @@ describe("toggling a global bar HTML class based on cookie", function () {
         return parseInt(c.pop(), 10) < 2;
       }
     })(document);
+
+    /* --------------------------------------- */
   }
 
-  function globalBarMinified() {
-    !function(a){"use strict";function e(){var e=a.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<2:!0}var c=a.documentElement;e()&&(c.className=c.className.concat(" show-global-bar"))}(document);
+  function globalBarMinified(fakeWindow) {
+    var window = fakeWindow || root;
+
+    /* --------------------------------------- */
+    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<2:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
+    /* --------------------------------------- */
   }
 
   afterEach(function() {
@@ -81,6 +96,16 @@ describe("toggling a global bar HTML class based on cookie", function () {
       GOVUK.setCookie('global_bar_seen', 'foo_bar2');
       globalBarFn();
       expectGlobalBarToShow();
+    });
+
+    it("does not show on register to vote pages", function() {
+      globalBarFn({location: {pathname: '/register-to-vote'}});
+      expectGlobalBarToBeHidden();
+    });
+
+    it("does not show on done pages", function() {
+      globalBarFn({location: {pathname: '/done'}});
+      expectGlobalBarToBeHidden();
     });
   }
 
