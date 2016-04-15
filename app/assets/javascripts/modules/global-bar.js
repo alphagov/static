@@ -16,16 +16,23 @@
 
       if ($el.is(':visible')) {
         incrementViewCount(count);
+        track('Viewed');
       }
 
       function hide(evt) {
         $el.hide();
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, 999, {days: 28});
+        track('Manually dismissed');
         evt.preventDefault();
       }
 
       function incrementViewCount(count) {
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, count + 1, {days: 28});
+        count = count + 1;
+        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, count, {days: 28});
+
+        if (count == 2) {
+          track('Automatically dismissed');
+        }
       }
 
       function viewCount() {
@@ -37,6 +44,12 @@
         }
 
         return viewCount;
+      }
+
+      function track(action) {
+        if (GOVUK.analytics && typeof GOVUK.analytics.trackEvent === "function") {
+          GOVUK.analytics.trackEvent('Global bar', action, {nonInteraction: 1});
+        }
       }
     };
   };
