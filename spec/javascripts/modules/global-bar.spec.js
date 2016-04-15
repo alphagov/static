@@ -23,7 +23,7 @@ describe('A global bar module', function() {
     });
 
     it('sets a new cookie with view count set to 1', function() {
-      expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 1, {days: 28});
+      expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 1, {days: 84});
     });
 
     it('tracks to analytics', function() {
@@ -42,7 +42,7 @@ describe('A global bar module', function() {
       });
 
       it('increments the view count in the cookie', function() {
-        expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 2, {days: 28});
+        expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 2, {days: 84});
       });
 
       it('tracks to analytics', function() {
@@ -73,7 +73,7 @@ describe('A global bar module', function() {
 
       element.find('.dismiss').trigger('click');
       expect(element.is(':visible')).toBe(false);
-      expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 999, {days: 28});
+      expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 999, {days: 84});
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('Global bar', 'Manually dismissed', {nonInteraction: 1});
     });
   });

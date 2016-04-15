@@ -21,14 +21,14 @@
 
       function hide(evt) {
         $el.hide();
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, 999, {days: 28});
+        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, 999, {days: 84});
         track('Manually dismissed');
         evt.preventDefault();
       }
 
       function incrementViewCount(count) {
         count = count + 1;
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, count, {days: 28});
+        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, count, {days: 84});
 
         if (count == 2) {
           track('Automatically dismissed');
