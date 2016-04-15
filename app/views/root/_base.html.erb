@@ -32,7 +32,7 @@
 
 <% content_for :content do %>
 
-  <% unless @banner_notification.present? %>
+  <% unless @banner_notification.present? || local_assigns[:hide_banner_notification] %>
     <div id="global-bar" data-module="global-bar">
       <div class="global-bar-message-container">
         <p class="global-bar-message"><strong>EU Referendum</strong> On Thursday 23 June there will be a vote on the UK’s membership of the European Union. <a href="https://www.eureferendum.gov.uk/" rel="external noreferrer">More&nbsp;information</a></p>
