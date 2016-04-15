@@ -346,19 +346,48 @@
 }
 
 #global-bar {
-  padding: 10px 0;
-  background-color: $panel-colour;
+  margin: 20px 0 15px;
+  padding: 15px 0;
+  background-color: $light-blue-25;
   display: none;
 
   .show-global-bar & {
     display: block;
   }
 
-  .global-bar-message {
+  .global-bar-message-container {
+    @include core-19;
     @extend %site-width-container;
+    position: relative;
 
-    @include core-16;
+    @include media(tablet) {
+      .dismiss {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .global-bar-message {
     margin-top: 0;
     margin-bottom: 0;
+
+    @include media(tablet) {
+      max-width: 66.67%;
+    }
+
+    strong {
+      margin-right: 10px;
+    }
+
+    a[rel~="external"] {
+      @include external-link-default;
+      @include external-link-16;
+
+      @include media(tablet) {
+        @include external-link-19;
+      }
+    }
   }
 }

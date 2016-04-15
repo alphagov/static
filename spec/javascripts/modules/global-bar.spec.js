@@ -6,7 +6,7 @@ describe('A global bar module', function() {
 
   beforeEach(function() {
     bar = new GOVUK.Modules.GlobalBar();
-    element = $('<div>Bar message</div>');
+    element = $('<div>Bar message <a href="#" class="dismiss">Dismiss</a></div>');
     $('body').append(element);
   });
 
@@ -44,6 +44,19 @@ describe('A global bar module', function() {
 
         expect(GOVUK.setCookie).not.toHaveBeenCalled();
       });
+    });
+  });
+
+  describe('when a dismiss link is clicked', function() {
+    it('hides the bar and sets a cookie so it doesn’t show again', function() {
+      spyOn(GOVUK, 'setCookie');
+      spyOn(GOVUK, 'getCookie').and.returnValue('1');
+      expect(element.is(':visible')).toBe(true);
+      bar.start(element);
+
+      element.find('.dismiss').trigger('click');
+      expect(element.is(':visible')).toBe(false);
+      expect(GOVUK.setCookie).toHaveBeenCalledWith('global_bar_seen', 999, {days: 28});
     });
   });
 });

@@ -12,8 +12,16 @@
       var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen",
           count = viewCount();
 
+      $el.on('click', '.dismiss', hide);
+
       if ($el.is(':visible')) {
         incrementViewCount(count);
+      }
+
+      function hide(evt) {
+        $el.hide();
+        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, 999, {days: 28});
+        evt.preventDefault();
       }
 
       function incrementViewCount(count) {
