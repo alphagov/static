@@ -23,7 +23,7 @@ describe("toggling a global bar HTML class based on cookie", function () {
           return true;
         }
 
-        return parseInt(c.pop(), 10) < 2;
+        return parseInt(c.pop(), 10) < 3;
       }
     })(document);
 
@@ -34,7 +34,7 @@ describe("toggling a global bar HTML class based on cookie", function () {
     var window = fakeWindow || root;
 
     /* --------------------------------------- */
-    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<2:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
+    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
     /* --------------------------------------- */
   }
 
@@ -69,23 +69,23 @@ describe("toggling a global bar HTML class based on cookie", function () {
       expectGlobalBarToShow();
     });
 
-    it("does not show when bar has been seen twice", function() {
-      GOVUK.setCookie('global_bar_seen', 2);
+    it("does not show when bar has been seen 3 times", function() {
+      GOVUK.setCookie('global_bar_seen', 3);
       expectGlobalBarToBeHidden();
       globalBarFn();
       expectGlobalBarToBeHidden();
     });
 
-    it("shows when the bar has been seen 1 time", function() {
-      GOVUK.setCookie('global_bar_seen', '1');
+    it("shows when the bar has been seen 2 times", function() {
+      GOVUK.setCookie('global_bar_seen', '2');
       globalBarFn();
       expectGlobalBarToShow();
     });
 
-    it("shows when the bar has been seen 1 time and there are lots of cookies", function() {
+    it("shows when the bar has been seen 2 times and there are lots of cookies", function() {
       GOVUK.setCookie('global_bar_thing', '10');
       GOVUK.setCookie('seen_cookie_message', 'true');
-      GOVUK.setCookie('global_bar_seen', '1');
+      GOVUK.setCookie('global_bar_seen', '2');
       GOVUK.setCookie('is_global_bar_seen', '8');
       GOVUK.setCookie('_ua', '1234873487');
       globalBarFn();
