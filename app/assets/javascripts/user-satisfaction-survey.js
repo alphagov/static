@@ -55,6 +55,9 @@
         return;
       }
 
+      // Hide global bar if one is showing
+      $('#global-bar').hide();
+
       var template = userSatisfaction.inTestPeriod() ? userSatisfaction.TEST_TEMPLATE : userSatisfaction.TEMPLATE;
       $("#user-satisfaction-survey-container").append(template);
 
