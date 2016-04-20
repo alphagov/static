@@ -17,7 +17,7 @@
 %>
 <div class="govuk-document-footer<%= direction_class %>">
   <h2 class="visuallyhidden">Document information</h2>
-  <div class="history-information">
+  <div class="history-information" id="history">
     <% if local_assigns.include?(:published) && published %>
       <p>Published: <span class="published definition"><%= published %></span></p>
     <% end %>
@@ -30,16 +30,20 @@
       <% end %>
     <% end %>
     <% if history.any? %>
-      <div class="change-notes" id="history">
-        <h3>Page history</h3>
-        <ol>
-          <% history.each do |change| %>
-            <li>
-              <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
-              <%= change[:note] %>
-            </li>
-          <% end %>
-        </ol>
+      <div class="change-notes" data-module="toggle">
+        <p>
+          <a href="#full-history" data-controls="full-history" data-expanded="false">+ full page history</a>
+        </p>
+        <div class="js-hidden" id="full-history"><span class="arrow"></span>
+          <ol>
+            <% history.each do |change| %>
+              <li>
+                <time datetime="<%= change[:timestamp] %>" class="timestamp"><%= change[:display_time] %></time>
+                <%= change[:note] %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
       </div>
     <% end %>
   </div>
