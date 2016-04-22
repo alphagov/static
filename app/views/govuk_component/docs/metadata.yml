@@ -7,6 +7,12 @@ fixtures:
     part_of: <a href='/government/topics/environment'>Environment</a>
   history_only:
     history: Updated 2 weeks ago
+  published_and_updated:
+    first_published: 14 June 2014
+    last_updated: 10 September 2015
+  updated_with_links_to_see_details:
+    last_updated: 10 September 2015
+    see_updates_link: true
   extensive:
     from:
     - <a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>
