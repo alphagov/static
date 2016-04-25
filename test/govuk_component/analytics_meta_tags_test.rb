@@ -82,6 +82,45 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_meta_tag('govuk:analytics:world-locations', '<WL3>')
   end
 
+  test "renders publishing government slug when government and political keys included" do
+    render_component(content_item: { details: { political: false, government: { current: true, slug: 'government' } } })
+    assert_meta_tag('govuk:publishing-government', 'government')
+  end
+
+  test "does not render publishing government or political status when political or government is missing" do
+    assert_empty render_component(content_item: { details: { government: { current: true, slug: 'government' } } })
+    assert_empty render_component(content_item: { details: { political: true } })
+  end
+
+  test "renders 'political' political status when political content and government is current" do
+    current = true
+    political = true
+    assert_political_status_for(political, current, 'political')
+  end
+
+  test "renders 'historic' political status when political content and government is historic" do
+    current = false
+    political = true
+    assert_political_status_for(political, current, 'historic')
+  end
+
+  test "renders 'non-political' political status when non-political content and government is current" do
+    current = true
+    political = false
+    assert_political_status_for(political, current, 'non-political')
+  end
+
+  test "renders 'non-political' political status when non-political content and government is historic" do
+    current = false
+    political = false
+    assert_political_status_for(political, current, 'non-political')
+  end
+
+  def assert_political_status_for(political, current, expected_political_status)
+    render_component(content_item: { details: { political: political, government: { current: current, slug: 'government' } } })
+    assert_meta_tag('govuk:political-status', expected_political_status)
+  end
+
   def assert_meta_tag(name, content)
     assert_select "meta[name='#{name}'][content='#{content}']"
   end
