@@ -51,8 +51,14 @@ describe("User Satisfaction Survey", function () {
       expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere");
     });
 
-    it("should show the survey approximately once in every 50 pageviews", function () {
+    it("should show the survey approximately 1 in every 50 pageviews", function () {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       expect(survey.surveyFrequency()).toBe(50);
+    });
+
+    it("should decrease the frequency to 1 in every 100 pageviews during test period", function () {
+      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
+      expect(survey.surveyFrequency()).toBe(100);
     });
 
     it("should display the survey when the random number matches", function () {
@@ -113,23 +119,23 @@ describe("User Satisfaction Survey", function () {
     });
 
     describe("inTestPeriod", function () {
-      it("should be false on 1st March 2016", function() {
-        spyOn(survey, 'currentDate').and.returnValue(new Date("March 1, 2016 23:50:00").getTime());
+      it("should be false on 3 May 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("May 3, 2016 23:50:00").getTime());
         expect(survey.inTestPeriod()).toBe(false);
       });
 
-      it("should be true on 2nd March 2016", function() {
-        spyOn(survey, 'currentDate').and.returnValue(new Date("March 2, 2016 00:01:00").getTime());
+      it("should be true on 4 May 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("May 4, 2016 00:01:00").getTime());
         expect(survey.inTestPeriod()).toBe(true);
       });
 
-      it("should be true on 2nd March 2016", function() {
-        spyOn(survey, 'currentDate').and.returnValue(new Date("March 3, 2016 23:50:00").getTime());
+      it("should be true on 5 May 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("May 5, 2016 23:50:00").getTime());
         expect(survey.inTestPeriod()).toBe(true);
       });
 
-      it("should be false on 4th March 2016", function() {
-        spyOn(survey, 'currentDate').and.returnValue(new Date("March 4, 2016 00:01:00").getTime());
+      it("should be false on 6 May 2016", function() {
+        spyOn(survey, 'currentDate').and.returnValue(new Date("May 6, 2016 00:01:00").getTime());
         expect(survey.inTestPeriod()).toBe(false);
       });
     });

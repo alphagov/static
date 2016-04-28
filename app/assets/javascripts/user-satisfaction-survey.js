@@ -68,6 +68,10 @@
       }
     },
     surveyFrequency: function() {
+      if (userSatisfaction.inTestPeriod()) {
+        return 100;
+      }
+
       return 50;
     },
     setSurveyUrl: function(href) {
@@ -81,8 +85,8 @@
       $surveyLink.attr('href', surveyUrl);
     },
     inTestPeriod: function() {
-      var starts = new Date("March 2, 2016").getTime();
-      var ends = new Date("March 3, 2016 23:59:59").getTime();
+      var starts = new Date("May 4, 2016").getTime();
+      var ends = new Date("May 5, 2016 23:59:59").getTime();
 
       return userSatisfaction.currentDate() >= starts &&
         userSatisfaction.currentDate() <= ends;
