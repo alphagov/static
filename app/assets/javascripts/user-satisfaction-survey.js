@@ -14,14 +14,6 @@
               '  </div>' +
               '</section>',
 
-    TEST_TEMPLATE: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                   '  <div class="wrapper">' +
-                   '    <h1>Are you visiting GOV.UK for professional or personal reasons?</h1>' +
-                   '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                   '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 1 question survey</a> This will open a short survey on another website</p>' +
-                   '  </div>' +
-                   '</section>',
-
     cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
     trackEvent: function (action, label) {
       GOVUK.analytics.trackEvent('user_satisfaction_survey', action, {
@@ -58,8 +50,7 @@
       // Hide global bar if one is showing
       $('#global-bar').hide();
 
-      var template = userSatisfaction.inTestPeriod() ? userSatisfaction.TEST_TEMPLATE : userSatisfaction.TEMPLATE;
-      $("#user-satisfaction-survey-container").append(template);
+      $("#user-satisfaction-survey-container").append(userSatisfaction.TEMPLATE);
 
       userSatisfaction.setEventHandlers();
       userSatisfaction.setSurveyUrl();
@@ -79,10 +70,6 @@
     setSurveyUrl: function(href) {
       var $surveyLink = $('#take-survey');
       var surveyUrl = $('#user-satisfaction-survey-container').data('survey-url');
-
-      if (userSatisfaction.inTestPeriod()) {
-        surveyUrl = 'https://www.surveymonkey.co.uk/r/D668G5Z';
-      }
 
       if (surveyUrl.indexOf('?c=') === -1) {
         surveyUrl += "?c=" + root.location.pathname;

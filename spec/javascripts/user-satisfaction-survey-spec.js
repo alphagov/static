@@ -37,42 +37,6 @@ describe("User Satisfaction Survey", function () {
       expect(survey.currentDate()).not.toBe(undefined);
     });
 
-    it("uses the temporary survey URL in the test period", function() {
-      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
-      survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.co.uk/r/D668G5Z?");
-    });
-
-    it("uses the original survey URL outside the test period", function() {
-      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
-      survey.showSurveyBar();
-      expect($('#take-survey').attr('href')).toMatch("https://www.surveymonkey.com/r/some-survey-id?");
-    });
-
-    it("uses the temporary survey heading in the test period", function() {
-      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
-      survey.showSurveyBar();
-      expect($('#user-satisfaction-survey h1').text()).toBe("Are you visiting GOV.UK for professional or personal reasons?");
-    });
-
-    it("uses the original survey heading outside the test period", function() {
-      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
-      survey.showSurveyBar();
-      expect($('#user-satisfaction-survey h1').text()).toBe("Tell us what you think of GOV.UK");
-    });
-
-    it("uses the temporary survey link in the test period", function() {
-      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(true);
-      survey.showSurveyBar();
-      expect($('#user-satisfaction-survey a#take-survey').text()).toBe("Take the 1 question survey");
-    });
-
-    it("uses the original survey link outside the test period", function() {
-      spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
-      survey.showSurveyBar();
-      expect($('#user-satisfaction-survey a#take-survey').text()).toBe("Take the 3 minute survey");
-    });
-
     it("should set the take survey link's href to the survey monkey's url as defined by the wrapper's data-survey-url, appending the page's current path when not already specified", function() {
       spyOn(GOVUK.userSatisfaction, 'inTestPeriod').and.returnValue(false);
       $("#user-satisfaction-survey-container").data('survey-url', 'https://www.surveymonkey.com/r/some-survey-id');
