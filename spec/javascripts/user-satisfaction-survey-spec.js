@@ -51,20 +51,15 @@ describe("User Satisfaction Survey", function () {
       expect($('#take-survey').attr('href')).toBe("https://www.surveymonkey.com/r/some-survey-id?c=/somewhere");
     });
 
-    it("should randomly display the user satisfaction div", function () {
-      pending(); //Fails randomly, disabling.
-      var counter = 0;
-      for (var i = 0; i < 100; i++) {
-        $('#user-satisfaction-survey').remove();
-        survey.randomlyShowSurveyBar();
+    it("should show the survey approximately once in every 50 pageviews", function () {
+      expect(survey.surveyFrequency()).toBe(50);
+    });
 
-        if ($('#user-satisfaction-survey').length > 0) {
-          counter += 1;
-        }
-      }
-
-      expect(counter).toBeGreaterThan(0);
-      expect(counter).toBeLessThan(5);
+    it("should display the survey when the random number matches", function () {
+      expect($('#user-satisfaction-survey').length).toBe(0);
+      spyOn(GOVUK.userSatisfaction, 'surveyFrequency').and.returnValue(1);
+      survey.randomlyShowSurveyBar();
+      expect($('#user-satisfaction-survey').length).toBe(1);
     });
 
     it("should not display the user satisfaction div if another notification banner is visible", function() {

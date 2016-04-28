@@ -63,9 +63,12 @@
       if ($('#user-satisfaction-survey-container').length <= 0) {
         return;
       }
-      if (Math.floor(Math.random() * 50) === 0) {
+      if (Math.floor(Math.random() * userSatisfaction.surveyFrequency()) === 0) {
         userSatisfaction.showSurveyBar();
       }
+    },
+    surveyFrequency: function() {
+      return 50;
     },
     setSurveyUrl: function(href) {
       var $surveyLink = $('#take-survey');
