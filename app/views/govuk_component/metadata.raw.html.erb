@@ -36,9 +36,14 @@
     <% end %>
     <% if other.present? %>
       <% other.each do |title, definition| %>
-        <% definition = Array(definition) %>
-        <dt><%= title %>:</dt>
-        <dd><%= definition.to_sentence.html_safe %></dd>
+        <%
+          definition ||= []
+          definition = Array(definition)
+        %>
+        <% if definition.any? %>
+          <dt><%= title %>:</dt>
+          <dd><%= definition.to_sentence.html_safe %></dd>
+        <% end %>
       <% end %>
     <% end %>
   </dl>

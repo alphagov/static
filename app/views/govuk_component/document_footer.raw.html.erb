@@ -68,14 +68,19 @@
     <% end %>
     <% if other.present? %>
       <% other.each do |title, definitions| %>
-        <% definitions = Array(definitions) %>
-        <p><%= title %>: <span class="other">
-          <% definitions.each do |definition| %>
-            <span class="definition">
-              <%= definition.html_safe %>
-            </span>
-          <% end %>
-        </span></p>
+        <%
+          definitions ||= []
+          definitions = Array(definitions)
+        %>
+        <% if definitions.any? %>
+          <p><%= title %>: <span class="other">
+            <% definitions.each do |definition| %>
+              <span class="definition">
+                <%= definition.html_safe %>
+              </span>
+            <% end %>
+          </span></p>
+        <% end %>
       <% end %>
     <% end %>
   </div>
