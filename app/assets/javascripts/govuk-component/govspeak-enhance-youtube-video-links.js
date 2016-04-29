@@ -24,15 +24,21 @@
     }
   }
 
-  function enhanceYoutubeVideoLinks($el){
-    $el.find("a[href*='youtube.com'], a[href*='youtu.be']").each(function(i){
-      if (!$(this).attr("data-youtube-player") == "off") {
-        var $link = $(this),
-          videoId = parseYoutubeVideoId($link.attr('href')),
-          $holder = $('<span class="media-player" />'),
-          $captions = $link.siblings('.captions');
+  function shouldConvertToEmbeddedPlayer($link){
+    return $link.attr("data-youtube-player") != "off";
+  }
 
-        if(typeof videoId !== 'undefined'){
+  function enhanceYoutubeVideoLinks($el) {
+    $el.find("a[href*='youtube.com'], a[href*='youtu.be']").each(function (i){
+
+      var $link = $(this);
+
+      if (shouldConvertToEmbeddedPlayer($link)) {
+        var videoId = parseYoutubeVideoId($link.attr('href')),
+        $holder = $('<span class="media-player" />'),
+        $captions = $link.siblings('.captions');
+
+        if(typeof videoId !== 'undefined') {
           $link.parent().replaceWith($holder);
 
           $holder.player({
