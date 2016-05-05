@@ -24,30 +24,22 @@
     }
   }
 
-  function shouldConvertToEmbeddedPlayer($link){
-    return $link.attr("data-youtube-player") != "off";
-  }
+  function enhanceYoutubeVideoLinks($el){
+    $el.find("a[href*='youtube.com'], a[href*='youtu.be']").each(function(i){
+      var $link = $(this),
+          videoId = parseYoutubeVideoId($link.attr('href')),
+          $holder = $('<span class="media-player" />'),
+          $captions = $link.siblings('.captions');
 
-  function enhanceYoutubeVideoLinks($el) {
-    $el.find("a[href*='youtube.com'], a[href*='youtu.be']").each(function (i){
+      if(typeof videoId !== 'undefined'){
+        $link.parent().replaceWith($holder);
 
-      var $link = $(this);
-
-      if (shouldConvertToEmbeddedPlayer($link)) {
-        var videoId = parseYoutubeVideoId($link.attr('href')),
-        $holder = $('<span class="media-player" />'),
-        $captions = $link.siblings('.captions');
-
-        if(typeof videoId !== 'undefined') {
-          $link.parent().replaceWith($holder);
-
-          $holder.player({
-            id: 'youtube-'+i,
-            media: videoId,
-            captions: $captions.length > 0 ? $captions.attr('href') : null,
-            url: (document.location.protocol + '//www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=')
-          });
-        }
+        $holder.player({
+          id: 'youtube-'+i,
+          media: videoId,
+          captions: $captions.length > 0 ? $captions.attr('href') : null,
+          url: (document.location.protocol + '//www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=')
+        });
       }
     });
   }
