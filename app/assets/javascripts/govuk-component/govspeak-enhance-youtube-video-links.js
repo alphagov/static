@@ -38,7 +38,7 @@
           id: 'youtube-'+i,
           media: videoId,
           captions: $captions.length > 0 ? $captions.attr('href') : null,
-          url: (document.location.protocol + '//www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=')
+          url: ('https://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=')
         });
       }
     });
