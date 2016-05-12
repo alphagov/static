@@ -24,6 +24,14 @@
     }
   }
 
+  function checkPrototcolScheme(){
+    var scheme = document.location.protocol;
+    if (scheme == "file:") {
+      scheme = "https:";
+      return scheme;
+    }
+  }
+
   function enhanceYoutubeVideoLinks($el){
     $el.find("a[href*='youtube.com'], a[href*='youtu.be']").each(function(i){
       var $link = $(this),
@@ -34,11 +42,13 @@
       if(typeof videoId !== 'undefined'){
         $link.parent().replaceWith($holder);
 
+        var protocol = checkPrototcolScheme();
+
         $holder.player({
           id: 'youtube-'+i,
           media: videoId,
           captions: $captions.length > 0 ? $captions.attr('href') : null,
-          url: ('https://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=')
+          url: (protocol + '//www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=')
         });
       }
     });
