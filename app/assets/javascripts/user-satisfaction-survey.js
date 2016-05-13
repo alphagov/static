@@ -47,9 +47,6 @@
         return;
       }
 
-      // Hide global bar if one is showing
-      $('#global-bar').hide();
-
       $("#user-satisfaction-survey-container").append(userSatisfaction.TEMPLATE);
 
       userSatisfaction.setEventHandlers();
