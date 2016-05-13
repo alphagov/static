@@ -36,7 +36,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
   test "renders organisations in a meta tag with angle brackets" do
     content_item = {
       links: {
-        organisations:            [{ analytics_identifier: "O1" }],
+        organisations:            [{ analytics_identifier: "O1" }, { analytics_identifier: "O1" }],
         lead_organisations:       [{ analytics_identifier: "L2" }],
         supporting_organisations: [{ analytics_identifier: "S3" }],
         worldwide_organisations:  [{ analytics_identifier: "W4" }],
