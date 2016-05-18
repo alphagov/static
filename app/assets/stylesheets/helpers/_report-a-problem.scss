@@ -68,6 +68,10 @@
        Guarantees correct appearance. */
     color: $secondary-text-colour !important;
     text-decoration: underline !important;
+
+    &:focus {
+      color: $text-colour !important;
+    }
   }
 
   @include ie-lte(7) {
