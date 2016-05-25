@@ -10,9 +10,9 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
 
   context "with related artefacts" do
     setup do
-      @related1 = stub("Artefact", web_url: "http://www.example.com/foo", title: "Foo", group: "subsection", content_id: 1)
-      @related2 = stub("Artefact", web_url: "http://www.example.com/bar", title: "Bar", group: "section", content_id: 2)
-      @related3 = stub("Artefact", web_url: "http://www.example.com/baz", title: "Baz", group: "other", content_id: 3)
+      @related1 = stub("Artefact", web_url: "http://www.example.com/foo", title: "Foo", group: "subsection")
+      @related2 = stub("Artefact", web_url: "http://www.example.com/bar", title: "Bar", group: "section")
+      @related3 = stub("Artefact", web_url: "http://www.example.com/baz", title: "Baz", group: "other")
       @artefact = stub("Artefact",
         related_artefacts: [@related1, @related2, @related3],
         related_external_links: [],
@@ -207,7 +207,7 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
   should "be blank with an artefact with no related_artefacts or related_external_links" do
     template = get_template
 
-    artefact = stub("Artefact", related_artefacts: [], related_external_links: [], format: "smart_answer")
+    artefact = stub("Artefact", related_artefacts: [], related_external_links: [])
     result = ERB.new(template).result(binding)
 
     assert_match /\A\s+\z/, result
@@ -216,24 +216,9 @@ class RelatedTemplateTest < ActionDispatch::IntegrationTest
   should "be blank with no related_artefacts and nil related_external_links" do
     template = get_template
 
-    artefact = stub("Artefact", related_artefacts: [], related_external_links: nil, format: "smart_answer")
+    artefact = stub("Artefact", related_artefacts: [], related_external_links: nil)
     result = ERB.new(template).result(binding)
 
     assert_match /\A\s+\z/, result
-  end
-
-  context "adding promo block to related links" do
-    should "have promo block for target formats" do
-      artefact = stub("Artefact", related_artefacts: [], related_external_links: nil, format: "completed_transaction", slug: "book-theory-test")
-      result = ERB.new(get_template).result(binding)
-      doc = Nokogiri::HTML.parse(result)
-      assert doc.at_css("h2#parent-promo")
-    end
-
-    should "not have promo block for artefact with excluded path" do
-      artefact = stub("Artefact", related_artefacts: [], related_external_links: nil, format: "completed_transaction", slug: "done/register-to-vote")
-      result = ERB.new(get_template).result(binding)
-      assert_match(/\A\s+\z/, result)
-    end
   end
 end

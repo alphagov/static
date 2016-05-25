@@ -1,34 +1,10 @@
 <%# Whilst they are both in use, this and the test copy in slimmer should be kept in sync %>
-
-<%
-  promo_target_formats = ['completed_transaction', 'transaction']
-  promo_excluded_regex = /register-to-vote/
-
-  has_promo_callout = (artefact and promo_target_formats.include?(artefact.format) and not promo_excluded_regex.match(URI.decode(artefact.slug)))
-%>
-<%# Whilst they are both in use, this and the test copy in slimmer should be kept in sync %>
-<% if artefact and (artefact.related_artefacts.any? or (artefact.related_external_links and artefact.related_external_links.any?) or has_promo_callout) %>
+<% if artefact and (artefact.related_artefacts.any? or (artefact.related_external_links and artefact.related_external_links.any?)) %>
   <!-- related -->
   <div class="related-container">
 
     <aside class="related" id="related">
-
-      <% if has_promo_callout %>
-        <div class="inner group related-callout">
-          <h2 id="parent-promo">Register to vote</h2>
-          <p>You need to be registered if you want to vote in elections and referendums.</p>
-          <p>You can <a href="/register-to-vote?source=related">register online</a> in less than 5 minutes</p>
-        </div>
-      <% end %>
-
-      <% related_artefacts = artefact.related_artefacts || [] %>
-
-      <%# Exclude '/register-to-vote', only if we're adding it manually (its easier to do by `content_id` than full `web_url`) %>
-      <% related_artefacts = related_artefacts.reject { |artefact|
-        artefact.content_id == "834a7921-260b-4061-9de1-edda3e998c68" and has_promo_callout
-      } %>
-
-      <% related_artefacts.group_by(&:group).each do |group, related_artefacts| %>
+      <% artefact.related_artefacts.group_by(&:group).each do |group, related_artefacts| %>
         <%
           section = case group
                     when 'subsection' then artefact.primary_section
@@ -36,7 +12,6 @@
                     when 'other' then { "title" => "Elsewhere on GOV.UK" }
                     end
           section = section['parent'] if artefact.format == "travel-advice" and group == "subsection"
-
         %>
         <div class="inner group related-<%= group %>">
           <% if section %>
