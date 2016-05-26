@@ -10,8 +10,10 @@
 
     shouldOpen: function(){
       var webchatEnabledPaths = [
+        '/changes-affect-tax-credits',
         '/check-if-you-need-a-tax-return/y/employed-even-if-just-for-part-of-the-year/no/no/no-neither-of-us-claimed-child-benefit/no/no/no/none-of-these',
         '/check-if-you-need-a-tax-return/y/retired/no/no-neither-of-us-claimed-child-benefit/no/no/no/none-of-these',
+        '/child-tax-credit/how-to-claim',
         '/childcare-costs-for-tax-credits/y/yes/yes/weekly_diff_amount',
         '/childcare-costs-for-tax-credits/y/no/regularly_less_than_year/monthly_diff_amount',
         '/government/organisations/hm-revenue-customs/contact/national-insurance-numbers',
@@ -22,9 +24,12 @@
         '/lost-national-insurance-number',
         '/manage-your-tax-credits',
         '/renewing-your-tax-credits-claim',
+        '/tax-credits-appeals-complaints',
+        '/tax-credits-if-you-have-baby',
         '/tax-credits-overpayments',
         '/vat-registration/changes-to-your-details',
-        '/when-is-your-next-tax-credits-payment'
+        '/when-is-your-next-tax-credits-payment',
+        '/working-tax-credit/how-to-claim'
       ];
 
       return ($.inArray(window.location.pathname, webchatEnabledPaths) >= 0);
