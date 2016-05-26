@@ -10,22 +10,21 @@
 
     shouldOpen: function(){
       var webchatEnabledPaths = [
-        '/government/organisations/hm-revenue-customs/contact/self-assessment',
-        '/government/organisations/hm-revenue-customs/contact/self-assessment-online-services-helpdesk',
         '/check-if-you-need-a-tax-return/y/employed-even-if-just-for-part-of-the-year/no/no/no-neither-of-us-claimed-child-benefit/no/no/no/none-of-these',
         '/check-if-you-need-a-tax-return/y/retired/no/no-neither-of-us-claimed-child-benefit/no/no/no/none-of-these',
-        '/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries',
-        '/when-is-your-next-tax-credits-payment',
-        '/renewing-your-tax-credits-claim',
         '/childcare-costs-for-tax-credits/y/yes/yes/weekly_diff_amount',
         '/childcare-costs-for-tax-credits/y/no/regularly_less_than_year/monthly_diff_amount',
-        '/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries',
-        '/tax-credits-overpayments',
-        '/government/organisations/hm-revenue-customs/contact/vat-enquiries',
-        '/vat-registration/changes-to-your-details',
         '/government/organisations/hm-revenue-customs/contact/national-insurance-numbers',
+        '/government/organisations/hm-revenue-customs/contact/self-assessment',
+        '/government/organisations/hm-revenue-customs/contact/self-assessment-online-services-helpdesk',
+        '/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries',
+        '/government/organisations/hm-revenue-customs/contact/vat-enquiries',
         '/lost-national-insurance-number',
-        '/manage-your-tax-credits'
+        '/manage-your-tax-credits',
+        '/renewing-your-tax-credits-claim',
+        '/tax-credits-overpayments',
+        '/vat-registration/changes-to-your-details',
+        '/when-is-your-next-tax-credits-payment'
       ];
 
       return ($.inArray(window.location.pathname, webchatEnabledPaths) >= 0);
