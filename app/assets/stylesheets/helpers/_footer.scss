@@ -6,14 +6,15 @@
 
   .footer-categories {
     @extend %contain-floats;
+    @extend %grid-row;
 
-    @include media(tablet){
-      padding: 0 $gutter-half $gutter;
+    @include media(tablet) {
+      padding-bottom: $gutter;
     }
 
     .footer-explore,
     .footer-inside-government {
-      @include media(tablet){
+      @include media(tablet) {
         float: left;
         width: 66.66%;
         padding-bottom: 60px;
@@ -36,24 +37,24 @@
       border: 1px solid $border-colour;
       border-width: 1px 0 0 0;
 
-      @include media(tablet){
+      @include media(tablet) {
         margin-bottom: 0;
       }
     }
-  
+
     ul {
       @include core-16;
       list-style: none;
       padding: 0;
       margin: 0;
 
-      @include media(tablet){
+      @include media(tablet) {
         float: left;
         margin: 15px 0 0 0;
         width: 50%;
       }
 
-    
+
       li {
         display: block;
         margin-bottom: 5px;
@@ -61,7 +62,7 @@
         padding: 10px 0 0;
         margin: 0 15px 5px;
 
-        @include media(tablet){
+        @include media(tablet) {
           padding: 20px 0 0;
           margin: 0 15px;
         }
@@ -69,7 +70,7 @@
     }
 
     .footer-inside-government {
-      @include media(tablet){
+      @include media(tablet) {
         float: left;
         width: 33.33%;
 
