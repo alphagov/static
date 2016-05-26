@@ -51,6 +51,7 @@
         if (message.evt === 'opened') {
           webchat.$banner.addClass('open');
           webchat.$banner.attr('aria-hidden', false);
+          GOVUK.analytics.trackEvent('webchat', 'offered');
         } else if (message.evt === 'closed') {
           webchat.$banner.removeClass('open');
           webchat.$banner.attr('aria-hidden', true);
