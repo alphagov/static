@@ -14,8 +14,6 @@
 
   organisations = []
   organisations += links_hash[:organisations] || []
-  organisations += links_hash[:lead_organisations] || []
-  organisations += links_hash[:supporting_organisations] || []
   organisations += links_hash[:worldwide_organisations] || []
   organisations_content = organisations.map { |link| "<#{link[:analytics_identifier]}>" }.uniq.join
   meta_tags["govuk:analytics:organisations"] = organisations_content if organisations.any?
