@@ -24,7 +24,7 @@
     GOVUK.analyticsPlugins.mailtoLinkTracker();
     GOVUK.analyticsPlugins.externalLinkTracker();
     GOVUK.analyticsPlugins.downloadLinkTracker({
-      selector: 'a[href*="/government/uploads"], a[href*="assets.digital.cabinet-office.gov.uk"]'
+      selector: 'a[href*="/government/uploads"], a[href*="assets.publishing.service.gov.uk"]'
     });
 
     function setPixelDensityDimension() {
