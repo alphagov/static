@@ -37,14 +37,12 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     content_item = {
       links: {
         organisations:            [{ analytics_identifier: "O1" }, { analytics_identifier: "O1" }],
-        lead_organisations:       [{ analytics_identifier: "L2" }],
-        supporting_organisations: [{ analytics_identifier: "S3" }],
         worldwide_organisations:  [{ analytics_identifier: "W4" }],
       }
     }
 
     render_component(content_item: content_item)
-    assert_meta_tag('govuk:analytics:organisations', '<O1><L2><S3><W4>')
+    assert_meta_tag('govuk:analytics:organisations', '<O1><W4>')
   end
 
   test "renders world locations in a meta tag with angle brackets" do

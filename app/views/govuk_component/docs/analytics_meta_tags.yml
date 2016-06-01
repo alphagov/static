@@ -12,10 +12,6 @@ fixtures:
         organisations:
         - analytics_identifier: D1
         - analytics_identifier: D3
-        lead_organisations:
-        - analytics_identifier: D2
-        supporting_organisations:
-        - analytics_identifier: EO3
         worldwide_organisations:
         - analytics_identifier: EO3
   with_world_locations:
