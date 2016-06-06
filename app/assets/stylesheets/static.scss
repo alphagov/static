@@ -1,17 +1,12 @@
-/* govuk_frontend_toolkit includes */
 @import "header-footer-only";
 
+/* govuk_frontend_toolkit includes */
 @import "shims";
 @import "design-patterns/buttons";
-
-/* local styleguide includes */
-@import "styleguide/conditionals2";
 
 /* styles */
 @import "helpers/buttons";
 @import "helpers/core";
-@import "helpers/footer";
-@import "helpers/header";
 @import "helpers/multi-step";
 @import "helpers/organisations";
 @import "helpers/publisher";
