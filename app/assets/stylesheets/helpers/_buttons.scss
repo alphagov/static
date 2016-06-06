@@ -12,6 +12,10 @@
 
 .button,
 .button.medium {
+  /*
+   * TODO: Remove button padding override, upstream (govuk_frontend_toolkit 4.12.0)
+   * has included better improvements to padding.
+   */
   padding: 0.3em 0.6em 0.2em 0.6em;
 }
 
@@ -75,7 +79,7 @@
 /* get started buttons */
 .get-started {
   margin:1.5em 0 0 0;
-  
+
   .destination {
     @include core-14;
     color: $text-colour;
@@ -98,7 +102,7 @@ input{
     min-width: 8em;
     margin: 0 0.5em;
     padding: 0.25em;
-  
+
     @include ie-lte(7) {
       width:8em;
     }
@@ -117,4 +121,3 @@ input{
     }
   }
 }
-
