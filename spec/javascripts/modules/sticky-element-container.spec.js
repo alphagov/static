@@ -64,24 +64,5 @@ describe('A sticky-element-container module', function () {
         expect($footer.hasClass('govuk-sticky-element--stuck-to-parent')).toBe(true);
       });
     });
-
-    describe('on mobile', function () {
-      beforeEach(function () {
-        instance._getWindowDimensions = function () {
-          return {
-            height: 960,
-            width: 640
-          };
-        };
-      });
-
-      it('shows the element, unstuck', function () {
-        instance.start($element);
-
-        expect($footer.hasClass('govuk-sticky-element--hidden')).toBe(false);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-window')).toBe(false);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-parent')).toBe(false);
-      });
-    });
   });
 });
