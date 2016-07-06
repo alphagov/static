@@ -34,7 +34,6 @@
       var _hasResized = true;
       var _hasScrolled = true;
       var _interval = 50;
-      var _isDesktop = true;
       var _windowVerticalPosition = 1;
       var _startPosition, _stopPosition;
 
@@ -64,14 +63,8 @@
           _hasScrolled = true;
 
           var windowDimensions = self._getWindowDimensions();
-          _isDesktop = windowDimensions.width > 768;
           _startPosition = $el.offset().top;
           _stopPosition = $el.offset().top + $el.height() - windowDimensions.height;
-
-          var isMobile = !_isDesktop;
-          if (isMobile) {
-            unstick();
-          }
         }
       }
 
@@ -81,13 +74,8 @@
 
           _windowVerticalPosition = self._getWindowPositions().scrollTop;
 
-          if (_isDesktop) {
-            updateVisibility();
-            updatePosition();
-          } else {
-            show();
-            unstick();
-          }
+          updateVisibility();
+          updatePosition();
         }
       }
 
@@ -107,11 +95,6 @@
         } else {
           stickToWindow();
         }
-      }
-
-      function unstick () {
-        $element.removeClass('govuk-sticky-element--stuck-to-parent');
-        $element.removeClass('govuk-sticky-element--stuck-to-window');
       }
 
       function stickToWindow () {

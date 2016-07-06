@@ -22,4 +22,8 @@
     bottom: 0;
     position: fixed;
   }
+
+  @include media(mobile) {
+    position: static;
+  }
 }
