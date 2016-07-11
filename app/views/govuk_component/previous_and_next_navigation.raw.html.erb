@@ -1,5 +1,9 @@
 <% if local_assigns.include?(:next_page) || local_assigns.include?(:previous_page) %>
-<nav class="govuk-previous-and-next-navigation" role="navigation" aria-label="Pagination">
+<nav
+  class="govuk-previous-and-next-navigation"
+  role="navigation"
+  aria-label="<%= translate("govuk_component.previous_and_next_navigation.pagination", default: "Pagination") %>"
+>
   <ul class="group">
     <% if local_assigns.include?(:previous_page) %>
       <li class="previous-page">
