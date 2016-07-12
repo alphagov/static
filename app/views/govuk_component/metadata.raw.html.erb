@@ -13,27 +13,27 @@
 <div class="govuk-metadata<%= direction_class %>">
   <dl>
     <% if from.any? %>
-      <dt><%= translate("govuk_component.metadata.from", default: "From") %>:</dt>
+      <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
       <dd><%= from.to_sentence.html_safe %></dd>
     <% end %>
     <% if part_of.any? %>
-      <dt><%= translate("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
+      <dt><%= t("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
       <dd><%= part_of.to_sentence.html_safe %></dd>
     <% end %>
     <% if local_assigns.include?(:history) %>
-      <dt><%= translate("govuk_component.metadata.history", default: "History") %>:</dt>
+      <dt><%= t("govuk_component.metadata.history", default: "History") %>:</dt>
       <dd><%= history %></dd>
     <% end %>
     <% if local_assigns.include?(:first_published) && first_published %>
-      <dt><%= translate("govuk_component.metadata.first_published", default: "First published") %>:</dt>
+      <dt><%= t("govuk_component.metadata.first_published", default: "First published") %>:</dt>
       <dd><%= first_published %></dd>
     <% end %>
     <% if local_assigns.include?(:last_updated) && last_updated %>
-      <dt><%= translate("govuk_component.metadata.last_updated", default: "Last updated") %>:</dt>
+      <dt><%= t("govuk_component.metadata.last_updated", default: "Last updated") %>:</dt>
       <dd>
         <%= last_updated %><% if local_assigns.include?(:see_updates_link) %>,
           <a href="#history">
-            <%= translate("govuk_component.metadata.see_all_updates", default: "see all updates") %>
+            <%= t("govuk_component.metadata.see_all_updates", default: "see all updates") %>
           </a>
         <% end %>
       </dd>
