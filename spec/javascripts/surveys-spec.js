@@ -37,6 +37,21 @@ describe("Surveys", function() {
     $block.remove();
   });
 
+  describe("init", function() {
+    it("shows the default survey", function() {
+      spyOn(surveys, 'randomNumberMatches').and.returnValue(true);
+      // So we're working with the user satisfaction survey, not any future small survey
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 201610:00:00").getTime());
+      surveys.init();
+
+      expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url);
+      expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
+      expect($('#user-satisfaction-survey').length).toBe(1);
+      expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true);
+      expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
+    });
+  });
+
   describe("displaySurvey", function() {
     it("displays the user satisfaction div", function () {
       expect($('#user-satisfaction-survey').length).toBe(0);

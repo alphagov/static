@@ -76,12 +76,31 @@
       if (userSurveys.otherNotificationVisible() ||
           GOVUK.cookie(userSurveys.cookieNameTakenSurvey) === 'true') {
         return false;
+      } else if (userSurveys.userCompletedTransaction()) {
+        // We don't want any survey appearing for users who have completed a
+        // transaction as they may complete the survey with the department's
+        // transaction in mind as opposed to the GOV.UK content.
+        return false;
       } else if ($('#user-satisfaction-survey-container').length <= 0) {
         return false;
       } else if (userSurveys.randomNumberMatches(survey.frequency)) {
         return true;
       } else {
         return false;
+      }
+    },
+
+    userCompletedTransaction: function() {
+      var currentURL = window.location.pathname;
+
+      function stringContains(str, substr) {
+        return str.indexOf(substr) > -1;
+      }
+
+      if (stringContains(currentURL, "/done") &&
+          stringContains(currentURL, "/transaction-finished") &&
+          stringContains(currentURL, "/driving-transaction-finished")) {
+            return true;
       }
     },
 
