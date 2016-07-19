@@ -22,6 +22,13 @@
     },
     smallSurveys: [],
 
+    init: function() {
+      var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys);
+      if (userSurveys.shouldSurveyDisplay(activeSurvey)) {
+        userSurveys.displaySurvey(activeSurvey);
+      }
+    },
+
     getActiveSurvey: function(defaultSurvey, smallSurveys) {
       var activeSurvey = defaultSurvey;
 

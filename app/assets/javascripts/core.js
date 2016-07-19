@@ -30,7 +30,7 @@ $(document).ready(function() {
       if (!stringContains(currentURL, "/done") &&
           !stringContains(currentURL, "/transaction-finished") &&
           !stringContains(currentURL, "/driving-transaction-finished")) {
-        GOVUK.userSatisfaction.randomlyShowSurveyBar();
+        GOVUK.userSurveys.init();
       }
     }
   }
