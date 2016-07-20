@@ -75,28 +75,27 @@ describe("Surveys", function() {
     });
   });
 
-  // this is a crap function name, fix it
-  describe("shouldSurveyDisplay", function() {
+  describe("isSurveyToBeDisplayed", function() {
     it("returns false if another notification banner is visible", function() {
       $('#global-cookie-message').css('display', 'block');
 
-      expect(surveys.shouldSurveyDisplay(defaultSurvey)).toBeFalsy();
+      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy();
     });
 
     it("returns false if the 'survey taken' cookie is set", function () {
       GOVUK.cookie(surveys.cookieNameTakenSurvey(defaultSurvey), 'true');
 
-      expect(surveys.shouldSurveyDisplay(defaultSurvey)).toBeFalsy();
+      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy();
     });
 
     it("returns false when the random number does not match", function() {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(false);
-      expect(surveys.shouldSurveyDisplay(defaultSurvey)).toBeFalsy();
+      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy();
     });
 
     it("returns true when the random number matches", function() {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true);
-      expect(surveys.shouldSurveyDisplay(defaultSurvey)).toBeTruthy();
+      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy();
     });
   });
 

@@ -24,7 +24,7 @@
 
     init: function() {
       var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys);
-      if (userSurveys.shouldSurveyDisplay(activeSurvey)) {
+      if (userSurveys.isSurveyToBeDisplayed(activeSurvey)) {
         userSurveys.displaySurvey(activeSurvey);
       }
     },
@@ -72,7 +72,7 @@
       });
     },
 
-    shouldSurveyDisplay: function(survey) {
+    isSurveyToBeDisplayed: function(survey) {
       if (userSurveys.otherNotificationVisible() ||
           GOVUK.cookie(userSurveys.cookieNameTakenSurvey(survey)) === 'true') {
         return false;
