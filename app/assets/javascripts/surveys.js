@@ -16,7 +16,7 @@
   var userSurveys = {
     defaultSurvey: {
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
-      analytics_code: 'user_satisfaction_survey',
+      identifier: 'user_satisfaction_survey',
       template: TEMPLATE,
       frequency: 50,
     },
@@ -53,7 +53,7 @@
       }
 
       $surveyLink.attr('href', surveyUrl);
-      userSurveys.trackEvent(survey.analytics_code, 'banner_shown', 'Banner has been shown');
+      userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown');
     },
 
     setEventHandlers: function(survey) {
@@ -61,20 +61,20 @@
       var $takeSurvey = $('#take-survey');
 
       $noThanks.click(function (e) {
-        userSurveys.setCookieTakenSurvey();
-        userSurveys.trackEvent(survey.analytics_code, 'banner_no_thanks', 'No thanks clicked');
+        userSurveys.setCookieTakenSurvey(survey);
+        userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked');
         e.stopPropagation();
         return false;
       });
       $takeSurvey.click(function () {
-        userSurveys.setCookieTakenSurvey();
-        userSurveys.trackEvent(survey.analytics_code, 'banner_taken', 'User taken survey');
+        userSurveys.setCookieTakenSurvey(survey);
+        userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
       });
     },
 
     shouldSurveyDisplay: function(survey) {
       if (userSurveys.otherNotificationVisible() ||
-          GOVUK.cookie(userSurveys.cookieNameTakenSurvey) === 'true') {
+          GOVUK.cookie(userSurveys.cookieNameTakenSurvey(survey)) === 'true') {
         return false;
       } else if (userSurveys.userCompletedTransaction()) {
         // We don't want any survey appearing for users who have completed a
@@ -104,16 +104,16 @@
       }
     },
 
-    trackEvent: function (analytics_code, action, label) {
-      GOVUK.analytics.trackEvent(analytics_code, action, {
+    trackEvent: function (identifier, action, label) {
+      GOVUK.analytics.trackEvent(identifier, action, {
         label: label,
         value: 1,
         nonInteraction: true
       });
     },
 
-    setCookieTakenSurvey: function () {
-      GOVUK.cookie(userSurveys.cookieNameTakenSurvey, true, { days: 30*4 });
+    setCookieTakenSurvey: function (survey) {
+      GOVUK.cookie(userSurveys.cookieNameTakenSurvey(survey), true, { days: 30*4 });
       $("#user-satisfaction-survey").removeClass('visible').attr('aria-hidden', 'true');
     },
 
@@ -124,9 +124,15 @@
     otherNotificationVisible: function() {
       return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
     },
-    cookieNameTakenSurvey: "govuk_takenUserSatisfactionSurvey",
+    cookieNameTakenSurvey: function(survey) {
+      //user_satisfaction_survey => takenUserSatisfactionSurvey
+      var cookieStr = "taken_" + survey.identifier;
+      var cookieStub = cookieStr.replace(/(\_\w)/g, function(m){return m[1].toUpperCase();});
+      return "govuk_" + cookieStub;
+    },
     currentTime: function() { return new Date().getTime(); }
   };
 
   root.GOVUK.userSurveys = userSurveys;
 }).call(this);
+
