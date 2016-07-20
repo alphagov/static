@@ -33,7 +33,7 @@ describe("Surveys", function() {
   });
 
   afterEach(function () {
-    GOVUK.cookie(surveys.cookieNameTakenSurvey(defaultSurvey), null);
+    GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), null);
     $block.remove();
   });
 
@@ -83,7 +83,7 @@ describe("Surveys", function() {
     });
 
     it("returns false if the 'survey taken' cookie is set", function () {
-      GOVUK.cookie(surveys.cookieNameTakenSurvey(defaultSurvey), 'true');
+      GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true');
 
       expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy();
     });
@@ -106,12 +106,12 @@ describe("Surveys", function() {
 
       it("sets a cookie when clicking 'take survey'", function () {
         $('#take-survey').trigger('click');
-        expect(GOVUK.cookie(surveys.cookieNameTakenSurvey(defaultSurvey))).toBe('true');
+        expect(GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey))).toBe('true');
       });
 
       it("sets a cookie when clicking 'no thanks'", function () {
         $('#survey-no-thanks').trigger('click');
-        expect(GOVUK.cookie(surveys.cookieNameTakenSurvey(defaultSurvey))).toBe('true');
+        expect(GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey))).toBe('true');
       });
 
       it("hides the satisfaction survey bar after clicking 'take survey'", function () {
@@ -144,10 +144,10 @@ describe("Surveys", function() {
     });
   });
 
-  describe("cookieNameTakenSurvey", function() {
+  describe("surveyTakenCookieName", function() {
     it("returns a cookie name based on the survey identifier", function() {
       var surveyMock = {identifier: 'sample_survey'}
-      expect(surveys.cookieNameTakenSurvey(surveyMock)).toBe('govuk_takenSampleSurvey');
+      expect(surveys.surveyTakenCookieName(surveyMock)).toBe('govuk_takenSampleSurvey');
     });
   });
 
