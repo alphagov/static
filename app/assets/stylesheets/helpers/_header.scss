@@ -63,7 +63,7 @@
     }
     label {
       float: left;
-      height: 35px;
+      min-height: 36px;
       line-height: 35px;
       text-indent: 15px;
       overflow: hidden;
@@ -88,10 +88,13 @@
       display: block;
       margin: 0;
       border: 0;
-      height: 35px;
+      min-height: 36px;
       padding: 6px 0;
-      @include ie-lte(7){
-        height: 23px;
+      @include ie-lte(8) {
+        min-height: 24px;
+      }
+      @include ie-lte(6) {
+        height: 24px;
       }
       @include appearance(none);
     }
@@ -122,8 +125,8 @@
       z-index: 4;
       right: 0;
       top: 0;
-      width: 35px;
-      height: 35px;
+      width: 36px;
+      height: 36px;
 
       border: 1px solid $mainstream-brand;
       border-width: 0 0 0 1px;
