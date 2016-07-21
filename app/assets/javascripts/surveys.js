@@ -106,15 +106,15 @@
     },
 
     userCompletedTransaction: function() {
-      var currentURL = window.location.pathname;
+      var path = userSurveys.currentPath();
 
       function stringContains(str, substr) {
         return str.indexOf(substr) > -1;
       }
 
-      if (stringContains(currentURL, "/done") &&
-          stringContains(currentURL, "/transaction-finished") &&
-          stringContains(currentURL, "/driving-transaction-finished")) {
+      if (stringContains(path, "/done") ||
+          stringContains(path, "/transaction-finished") ||
+          stringContains(path, "/driving-transaction-finished")) {
             return true;
       }
     },
@@ -147,7 +147,8 @@
       return "govuk_" + cookieStub;
     },
 
-    currentTime: function() { return new Date().getTime(); }
+    currentTime: function() { return new Date().getTime(); },
+    currentPath: function() { return window.location.pathname; }
   };
 
   root.GOVUK.userSurveys = userSurveys;

@@ -99,6 +99,28 @@ describe("Surveys", function() {
     });
   });
 
+  describe("userCompletedTransaction", function() {
+    it("normally returns false", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/');
+      expect(surveys.userCompletedTransaction()).toBeFalsy();
+    });
+
+    it("returns true when /done", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/done');
+      expect(surveys.userCompletedTransaction()).toBeTruthy();
+    });
+
+    it("returns true when /transaction-finished", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/transaction-finished');
+      expect(surveys.userCompletedTransaction()).toBeTruthy();
+    });
+
+    it("returns true when /driving-transaction-finished", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/driving-transaction-finished');
+      expect(surveys.userCompletedTransaction()).toBeTruthy();
+    });
+  });
+
   describe("Event handlers", function () {
       beforeEach(function() {
         surveys.displaySurvey(defaultSurvey);
