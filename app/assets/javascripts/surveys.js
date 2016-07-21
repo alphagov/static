@@ -20,7 +20,22 @@
       template: TEMPLATE,
       frequency: 50,
     },
-    smallSurveys: [],
+    smallSurveys: [
+      {
+        url: 'https://www.surveymonkey.com/s/VQ5X2SL',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>Which three words describe how you feel about your visit to GOV.UK today?</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 1 question survey</a> This will open a short survey on another website</p>' +
+                  '  </div>' +
+                  '</section>',
+        identifier: 'three_word_survey',
+        frequency: 50,
+        startTime: new Date("July 26, 2016").getTime(),
+        endTime: new Date("July 27, 2016 23:59:59").getTime()
+      }
+    ],
 
     init: function() {
       var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys);
