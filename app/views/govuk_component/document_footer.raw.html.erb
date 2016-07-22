@@ -22,13 +22,13 @@
   <div class="history-information" id="history">
     <% if local_assigns.include?(:published) && published %>
       <p>
-        <%= t("govuk_component.document_footer.published", default: "Published") %>
+        <%= t("govuk_component.document_footer.published", default: "Published") %>:
         <span class="published definition"><%= published %></span>
       </p>
     <% end %>
     <% if local_assigns.include?(:updated) && updated %>
       <p>
-        <%= t("govuk_component.document_footer.updated", default: "Updated") %>
+        <%= t("govuk_component.document_footer.updated", default: "Updated") %>:
         <span class="updated definition"><%= updated %></span>
       </p>
     <% end %>
