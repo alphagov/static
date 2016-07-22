@@ -113,6 +113,11 @@
       ['Percent', 60],
       ['Percent', 80],
       ['Percent', 100]
+    ],
+    '/government/collections/disability-confident-campaign': [
+      ['Heading', 'Become a Disability Confident employer'],
+      ['Heading', 'Aims and objectives'],
+      ['Heading', 'Inclusive communication']  
     ]
   };
 
