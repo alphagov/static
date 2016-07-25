@@ -22,6 +22,33 @@
       frequency: 50,
     },
     smallSurveys: [
+      {
+        url: 'https://www.surveymonkey.com/s/2MRDLTW',
+        identifier: 'user_satisfaction_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function breadcrumbMatches() {
+            var text = $('#global-breadcrumb').text() || "";
+            return (/Education/i.test(text) || /Schools/i.test(text) || /Childcare/i.test(text));
+          }
+
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (sectionName === 'education and learning' || sectionName === 'childcare and parenting');
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || breadcrumbMatches() || organisationMatches());
+        },
+        startTime: new Date("August 9, 2016").getTime(),
+        endTime: new Date("August 10, 2016 23:59:59").getTime()
+      }
     ],
 
     init: function() {
