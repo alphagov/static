@@ -13,6 +13,7 @@
                  '  </div>' +
                  '</section>';
 
+  /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
@@ -49,7 +50,11 @@
 
       $.each(smallSurveys, function(_index, survey) {
         if(userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
-          activeSurvey = survey;
+          if(typeof(survey.activeWhen) === 'function') {
+            if(survey.activeWhen()) { activeSurvey = survey; }
+          } else {
+            activeSurvey = survey;
+          }
         }
       });
 

@@ -97,6 +97,7 @@ describe("Surveys", function() {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true);
       expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy();
     });
+
   });
 
   describe("userCompletedTransaction", function() {
@@ -195,6 +196,34 @@ describe("Surveys", function() {
 
       var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
       expect(activeSurvey).toBe(smallSurvey);
+    });
+
+    describe("activeWhen function call", function() {
+      it("returns the test survey when the callback returns true", function() {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        var testSurvey = {
+          startTime: new Date("July 5, 2016").getTime(),
+          endTime: new Date("July 10, 2016 23:50:00").getTime(),
+          activeWhen: function() { return true; },
+          url: 'example.com/small-survey'
+        };
+
+        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        expect(activeSurvey).toBe(testSurvey);
+      });
+
+      it("returns the default when the callback returns false", function() {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        var testSurvey = {
+          startTime: new Date("July 5, 2016").getTime(),
+          endTime: new Date("July 10, 2016 23:50:00").getTime(),
+          activeWhen: function() { return false; },
+          url: 'example.com/small-survey'
+        };
+
+        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        expect(activeSurvey).toBe(defaultSurvey);
+      });
     });
   });
 });
