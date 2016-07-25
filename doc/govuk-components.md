@@ -13,6 +13,60 @@ The available components and their documentation are exposed by an API at `/temp
 * [Documentation](../app/views/govuk_component/docs) - a `.yml` per component, describing the component and containing fixture data.
 * a [unit test](../test/govuk_component) - testing the component renders correctly based on parameters passed in
 
+## Principles behind components
+
+### Encapsulate common UI
+
+GOV.UK Components aim to hide the complexity of a piece of common UI. Putting the templating logic, HTML, CSS and JS behind an abstraction, so that an app rendering a component only needs to know about the parameters to render it with. This is similar to how [React components](https://facebook.github.io/react/index.html) work.
+
+Think of it as a function call in a programming language, as long as the [interface](https://en.wikipedia.org/wiki/Application_programming_interface) doesn't change, then code rendering a component doesn't need to care about the changes.
+
+Here's an example of calling a component. The parameter is `title` with a value of `"My page title"`.
+
+```ruby
+<%= render partial: 'govuk_component/title', locals: { title: "My page title" } %>
+```
+
+This will output something like:
+
+```html
+<div class="govuk-title length-average">
+  <h1>My page title</h1>
+</div>
+```
+
+Apps should treat the output of a component like a [black box](https://en.wikipedia.org/wiki/Black_box), not relying on the internal implementation as it may change (eg, additional CSS based on the `govuk-title` or `h1` selector)
+
+If additional behavior in the component is needed then it should be made in the component itself, then used in an application.
+
+### Distribute via the network
+
+One of the goals of GOV.UK Components is to have consistency between the many different frontend applications. Because of this components live in a central place (the `static` application) and are distributed to the different frontends over the network. This is done via Slimmer, in a similar way to [layout templates](slimmer_templates.md).
+
+This allows a component to be changed and deployed within `static` and each frontend application will automatically fetch a new version of the [component template code](../app/views/govuk_component).
+
+The automatic updating allows changes to be made to every GOV.UK frontend app, without having to manually update and deploy them. With 20+ frontend apps, this makes updating components much easier.
+
+However, this approach does have some costs. It's less explicit, and not as clear how the common component code is included or updated. Changes to the component interface/parameters require [forwards-only migrations](http://engineering.skybettingandgaming.com/2016/02/02/how-we-release-so-frequently/#forward-only-migrations), which for components, would look like this:
+
+- Release a version of static that introduces backwards compatible change to a component
+- Migrate all frontends to use new API and stop depending on old one
+- Release version of static to remove old implementation for a component
+
+For components of established UI patterns this should be less of an issue.
+
+### Avoid complexity
+
+The parameters to a component should be simple data. This is to make components easier to understand and easier to test. Try to avoid passing complex objects into a component, as this complicates the interface and makes the component harder to reuse. A good rule of thumb for keeping the template logic simple is: "can the template logic be implemented in a simpler templating language like `mustache`", ie, avoiding ERB/ruby features.
+
+A long-term goal is that a component can be extracted out of the GOV.UK Publishing specific `static` repo and moved to a repo usable by wider government, like `govuk_template` or `govuk_frontend_toolkit`.
+
+There are some cases where components can expect a complex object as a parameter, so that logic is not duplicated in each application calling the component, for example the [analytics component](https://github.com/alphagov/static/blob/master/app/views/govuk_component/analytics_meta_tags.raw.html.erb#L2-L33) has complex logic to extract the analytics information from a content item, which can be updated without updating each application.
+
+The component is split into two parts, the complex logic can be thought of as a [Presenter](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter#Pattern_description) and the [simpler part](https://github.com/alphagov/static/blob/master/app/views/govuk_component/analytics_meta_tags.raw.html.erb#L36-L38) as the traditional template (ie, could be extracted out).
+
+
+
 ## Creating a new component
 
 There's a rails generator you can use to create the basic component files, but it's recommended you read below to understand how it works as well.
