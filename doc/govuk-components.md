@@ -9,7 +9,7 @@ The available components and their documentation are exposed by an API at `/temp
 
 * a [Partial View](../app/views/govuk_component) - The template logic and markup, also defines the arguments expected
 * a [SCSS module](../app/assets/stylesheets/govuk-component) - The styling of the component
-* a Javascript module - no examples yet.
+* a [Javascript module](../app/assets/javascripts/govuk-component) - JS behaviour of the component
 * [Documentation](../app/views/govuk_component/docs) - a `.yml` per component, describing the component and containing fixture data.
 * a [unit test](../test/govuk_component) - testing the component renders correctly based on parameters passed in
 
