@@ -123,7 +123,7 @@
 
   function ScrollTracker(sitewideConfig) {
     this.config = this.getConfigForCurrentPath(sitewideConfig);
-    this.SCROLL_TIMEOUT_DELAY = 500;
+    this.SCROLL_TIMEOUT_DELAY = 10;
 
     if ( !this.config ) {
       this.enabled = false;
