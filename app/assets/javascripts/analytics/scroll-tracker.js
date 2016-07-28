@@ -139,7 +139,9 @@
 
   ScrollTracker.prototype.getConfigForCurrentPath = function (sitewideConfig) {
     for ( var path in sitewideConfig ) {
-      if ( window.location.pathname == path ) return sitewideConfig[path];
+      if (this.concatPath(window.location.pathname) == this.concatPath(path)) {
+        return sitewideConfig[path];
+      }
     }
   };
 
@@ -154,6 +156,10 @@
     }
 
     return nodes;
+  };
+
+  ScrollTracker.prototype.concatPath = function (path){
+    return path.split("/").join("");
   };
 
   ScrollTracker.prototype.onScroll = function () {
