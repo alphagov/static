@@ -23,7 +23,13 @@
         <% if section[:url] %>
           <li class="related-items-more">
             <a href="<%= section[:url] %>">
-              More<% if section[:title] %> <span class="visuallyhidden">in <%= section[:title] %></span><% end %>
+              <%= t("govuk_component.related_items.more", default: "More") %>
+              <% if section[:title] %>
+                <span class="visuallyhidden">
+                  <%= t("govuk_component.related_items.in", default: "in") %>
+                  <%= section[:title] %>
+                </span>
+              <% end %>
             </a>
           </li>
         <% end %>

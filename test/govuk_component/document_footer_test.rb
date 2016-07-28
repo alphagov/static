@@ -63,8 +63,8 @@ class DocumentFooterTestCase < ComponentTestCase
       }
     })
 
-    assert_select 'p', text: 'Published: 20 January 2092'
-    assert_select 'p', text: 'Updated: 22 January 2092'
+    assert_select 'p', text: /Published:\s+20 January 2092/
+    assert_select 'p', text: /Updated:\s+22 January 2092/
     assert_select 'p', text: 'Date opened: 1 February 2092'
     assert_select 'p', text: 'Date closed: 1 March 2093'
   end

@@ -1,5 +1,32 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Passed to the Frontend app via slimmer, not used by static directly.
 
 en:
-  hello: "Hello world"
+  govuk_component:
+    document_footer:
+      document_information: "Document information"
+      published: "Published"
+      updated: "Updated"
+      full_page_history: "full page history"
+      part_of: "Part of"
+    government_navigation:
+      departments: "Departments"
+      worldwide: "Worldwide"
+      how-government-works: "How government works"
+      get-involved: "Get involved"
+      policies: "Policies"
+      publications: "Publications"
+      consultations: "Consultations"
+      statistics: "Statistics"
+      announcements: "Announcements"
+    metadata:
+      from: "From"
+      part_of: "Part of"
+      history: "History"
+      first_published: "First published"
+      last_updated: "Last updated"
+      see_all_updates: "see all updates"
+    previous_and_next_navigation:
+      pagination: "Pagination"
+    related_items:
+      more: "More"
+      in: "in"

@@ -24,14 +24,15 @@ class RootController < ApplicationController
   end
 
   def govuk_available_locales
-    locale_files = Rails.root.join('app', 'views', 'locales', '*.yml')
+    locale_files = Rails.root.join("config", "locales", "*.yml")
     locales = Dir[locale_files].map { |file| File.basename(file, '.yml') }
     render :json => locales
   end
 
   def govuk_locales
     return error_404 unless params[:locale].match(/^[a-z]{2}(-[a-z0-9]{2,3})?$/)
-    render_yaml_as_json("locales", "#{params[:locale]}.yml")
+    locale_file_path = Rails.root.join("config", "locales", "#{params[:locale]}.yml")
+    render_yaml_as_json(locale_file_path)
   end
 
   NON_LAYOUT_TEMPLATES = %w(
@@ -50,8 +51,7 @@ class RootController < ApplicationController
 
   private
 
-  def render_yaml_as_json(folder, file)
-    file_path = Rails.root.join('app', 'views', folder, file)
+  def render_yaml_as_json(file_path)
     error_404 and return unless File.exists?(file_path)
     render :json => YAML::load_file(file_path)
   end
