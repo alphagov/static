@@ -116,6 +116,6 @@ describe("GOVUK.ScrollTracker", function() {
       return ( $element[0] == elementScrolledTo );
     });
     $(window).scroll();
-    jasmine.clock().tick(510);
+    jasmine.clock().tick(20);
   };
 });
