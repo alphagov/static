@@ -13,6 +13,7 @@
                  '  </div>' +
                  '</section>';
 
+  /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
@@ -22,18 +23,31 @@
     },
     smallSurveys: [
       {
-        url: 'https://www.surveymonkey.com/s/VQ5X2SL',
-        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                  '  <div class="wrapper">' +
-                  '    <h1>Which three words describe how you feel about your visit to GOV.UK today?</h1>' +
-                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                  '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 1 question survey</a> This will open a short survey on another website</p>' +
-                  '  </div>' +
-                  '</section>',
-        identifier: 'three_word_survey',
-        frequency: 50,
-        startTime: new Date("July 26, 2016").getTime(),
-        endTime: new Date("July 27, 2016 23:59:59").getTime()
+        url: 'https://www.surveymonkey.com/s/2MRDLTW',
+        identifier: 'user_satisfaction_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function breadcrumbMatches() {
+            var text = $('#global-breadcrumb').text() || "";
+            return (/Education/i.test(text) || /Schools/i.test(text) || /Childcare/i.test(text));
+          }
+
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (sectionName === 'education and learning' || sectionName === 'childcare and parenting');
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || breadcrumbMatches() || organisationMatches());
+        },
+        startTime: new Date("August 9, 2016").getTime(),
+        endTime: new Date("August 10, 2016 23:59:59").getTime()
       }
     ],
 
@@ -49,7 +63,11 @@
 
       $.each(smallSurveys, function(_index, survey) {
         if(userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
-          activeSurvey = survey;
+          if(typeof(survey.activeWhen) === 'function') {
+            if(survey.activeWhen()) { activeSurvey = survey; }
+          } else {
+            activeSurvey = survey;
+          }
         }
       });
 
