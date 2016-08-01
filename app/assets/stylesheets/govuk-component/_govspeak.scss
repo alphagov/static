@@ -530,4 +530,14 @@
       margin-right: (($thumbnail-width * -1) - $gutter-half);
     }
   }
+
+  .example {
+    border-left: 10px solid $panel-colour;
+    padding-left: 1.5em;
+    margin: 2.5em 0;
+
+    strong {
+      display: block;
+    }
+  }
 }
