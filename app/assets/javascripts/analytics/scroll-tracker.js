@@ -118,6 +118,21 @@
       ['Heading', 'Become a Disability Confident employer'],
       ['Heading', 'Aims and objectives'],
       ['Heading', 'Inclusive communication']  
+    ],
+    '/government/publications/the-essential-trustee-what-you-need-to-know-cc3/the-essential-trustee-what-you-need-to-know-what-you-need-to-do': [
+      ['Heading', '1. About this guidance'],
+      ['Heading', '2. Trustees’ duties at a glance'],
+      ['Heading', '3. Who can be a trustee and how trustees are appointed'],
+      ['Heading', '4. Ensure your charity is carrying out its purposes for the public benefit'],
+      ['Heading', '5. Comply with your charity’s governing document and the law'],
+      ['Heading', '6. Act in your charity’s best interests'],
+      ['Heading', '7. Manage your charity’s resources responsibly'],
+      ['Heading', '8. Act with reasonable care and skill'],
+      ['Heading', '9. Ensure your charity is accountable'],
+      ['Heading', '10. Reduce the risk of liability'],
+      ['Heading', '11. Your charity’s legal structure and what it means'],
+      ['Heading', '12. Charity officers - the chair and treasurer'],
+      ['Heading', '13. Technical terms used in this guidance']
     ]
   };
 
