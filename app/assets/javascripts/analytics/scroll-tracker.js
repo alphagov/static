@@ -97,21 +97,6 @@
     }
   };
 
-  ScrollTracker.PercentNode = function (percentage) {
-    this.percentage = percentage;
-    this.eventData = {action: "Percent", label: String(percentage)};
-  };
-
-  ScrollTracker.PercentNode.prototype.isVisible = function () {
-    return this.currentScrollPercent() >= this.percentage;
-  };
-
-  ScrollTracker.PercentNode.prototype.currentScrollPercent = function () {
-    var $document = $(document);
-    var $window = $(window);
-    return( ($window.scrollTop() / ($document.height() - $window.height())) * 100.0 );
-  };
-
   ScrollTracker.HeadingNode = function (headingText) {
     this.$element = getHeadingElement(headingText);
     this.eventData = {action: "Heading", label: headingText};
