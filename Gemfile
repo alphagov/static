@@ -40,11 +40,11 @@ group :development, :test do
 end
 
 gem 'plek', '1.11.0'
-gem 'govuk_frontend_toolkit', '~> 4.12.0'
+gem 'govuk_frontend_toolkit', '~> 4.18.3'
 
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', :path => "../govuk_template"
 else
-  gem 'govuk_template', '0.17.3'
+  gem 'govuk_template', '0.18.3'
 end
 gem 'gds-api-adapters', '26.7.0'
