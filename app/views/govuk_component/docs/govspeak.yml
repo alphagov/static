@@ -507,3 +507,11 @@ fixtures:
           </div>
         </div>
       </section>
+  example:
+    content: |
+      <div class="example">
+        <p>
+          This is an indented example block.<br/>
+          It may span multiple lines, <a href="#">contain links</a>.
+        </p>
+      </div>
