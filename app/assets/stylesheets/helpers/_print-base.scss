@@ -4,6 +4,11 @@ a {
   text-decoration: none;
 }
 
+// Override relative link printing to include gov.uk
+a[href^="/"]:after {
+  content: " (https://www.gov.uk" attr(href) ")";
+}
+
 h1,
 h2,
 h3,
