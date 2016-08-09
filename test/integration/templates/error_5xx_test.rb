@@ -7,7 +7,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
 
     assert page.has_selector?("body.mainstream.error")
     within "head", :visible => :all do
-      assert page.has_selector?("title", :text => "Sorry, we are experiencing technical difficulties (500 error) - GOV.UK", :visible => :all)
+      assert page.has_selector?("title", text: "Sorry, we're experiencing technical difficulties (500 error) - GOV.UK", visible: :all)
 
       assert page.has_selector?("link[href='/static/static.css']", :visible => :all)
     end
@@ -22,7 +22,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#global-breadcrumb")
 
       within "#wrapper" do
-        assert page.has_selector?("h1", :text => "Sorry, we are experiencing technical difficulties")
+        assert page.has_selector?("h1", text: "Sorry, we're experiencing technical difficulties")
       end
 
       within "footer" do
