@@ -19,7 +19,7 @@
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
       identifier: 'user_satisfaction_survey',
       template: TEMPLATE,
-      frequency: 50,
+      frequency: 50
     },
     smallSurveys: [
       {
@@ -34,7 +34,7 @@
                   '</section>',
         startTime: new Date("September 7, 2016").getTime(),
         endTime: new Date("September 8, 2016 23:59:59").getTime(),
-        frequency: 50,
+        frequency: 50
       }
     ],
 
