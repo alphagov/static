@@ -19,35 +19,22 @@
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
       identifier: 'user_satisfaction_survey',
       template: TEMPLATE,
-      frequency: 50,
+      frequency: 50
     },
     smallSurveys: [
       {
-        url: 'https://www.surveymonkey.com/s/2MRDLTW',
-        identifier: 'user_satisfaction_survey',
-        template: TEMPLATE,
-        frequency: 10,
-        activeWhen: function() {
-          function breadcrumbMatches() {
-            var text = $('#global-breadcrumb').text() || "";
-            return (/Education/i.test(text) || /Schools/i.test(text) || /Childcare/i.test(text));
-          }
-
-          function sectionMatches() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (sectionName === 'education and learning' || sectionName === 'childcare and parenting');
-          }
-
-          function organisationMatches() {
-            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return (sectionMatches() || breadcrumbMatches() || organisationMatches());
-        },
-        startTime: new Date("August 9, 2016").getTime(),
-        endTime: new Date("August 10, 2016 23:59:59").getTime()
+        url: 'https://www.surveymonkey.co.uk/r/GZ2JDHZ',
+        identifier: 'three_word_survey',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>How do you feel about your visit to GOV.UK today?</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 1 question survey</a> This will open a short survey on another website</p>' +
+                  '  </div>' +
+                  '</section>',
+        startTime: new Date("September 7, 2016").getTime(),
+        endTime: new Date("September 8, 2016 23:59:59").getTime(),
+        frequency: 50
       }
     ],
 
