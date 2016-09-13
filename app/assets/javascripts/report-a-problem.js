@@ -26,6 +26,12 @@
   ReportAProblem.prototype.toggleForm = function(evt) {
     this.$container.toggle();
 
+    if (this.$container.is(':visible')) {
+      this.trackEvent('GOVUK Open Form');
+    } else {
+      this.trackEvent('GOVUK Close Form');
+    }
+
     if ($(evt.target).is('a')) {
       evt.preventDefault();
     }
@@ -43,6 +49,12 @@
 
     this.$container.find('.report-a-problem-content').html(response);
   }
+
+  ReportAProblem.prototype.trackEvent = function(action){
+    if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
+      GOVUK.analytics.trackEvent('Onsite Feedback', action, { label: '(not set)'} );
+    }
+  };
 
   GOVUK.ReportAProblem = ReportAProblem;
 

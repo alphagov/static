@@ -15,10 +15,26 @@ describe("form submission for reporting a problem", function () {
   describe("clicking on the toggle", function(){
     it("should toggle the visibility of the form", function() {
       expect($form).toBeVisible();
+
       $('.js-report-a-problem-toggle').click();
       expect($form).toBeHidden();
+
       $('.js-report-a-problem-toggle').click();
       expect($form).toBeVisible();
+    });
+
+    it("should track the event depending on the toggle state", function() {
+      spyOn(GOVUK.analytics, "trackEvent");
+
+      $('.js-report-a-problem-toggle').click();
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'Onsite Feedback', 'GOVUK Close Form', jasmine.any(Object)
+      );
+
+      $('.js-report-a-problem-toggle').click();
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'Onsite Feedback', 'GOVUK Open Form', jasmine.any(Object)
+      );
     });
   });
 
