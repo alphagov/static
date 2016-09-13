@@ -4,8 +4,8 @@
 
   var ReportAProblem = function ($container) {
     this.$container = $container;
-    var $form = $container.find('form'),
-        form = new GOVUK.ReportAProblemForm($form);
+    var $form = $container.find('form');
+    new GOVUK.ReportAProblemForm($form);
 
     $form.on("reportAProblemForm.success", this.showConfirmation.bind(this));
     $form.on("reportAProblemForm.error", this.showError.bind(this));
@@ -15,12 +15,11 @@
   };
 
   ReportAProblem.prototype.addToggleLink = function() {
-    this.$container.before('\
-      <div class="report-a-problem-toggle-wrapper js-footer">\
-        <p class="report-a-problem-toggle">\
-          <a href="" class="js-report-a-problem-toggle">Is there anything wrong with this page?</a>\
-        </p>\
-      </div>');
+    this.$container.before('<div class="report-a-problem-toggle-wrapper js-footer">' +
+        '<p class="report-a-problem-toggle">' +
+          '<a href="" class="js-report-a-problem-toggle">Is there anything wrong with this page?</a>' +
+        '</p>' +
+      '</div>');
   };
 
   ReportAProblem.prototype.toggleForm = function(evt) {
@@ -39,16 +38,15 @@
 
   ReportAProblem.prototype.showConfirmation = function(evt, data) {
     this.$container.find('.report-a-problem-content').html(data.message);
-  }
+  };
 
   ReportAProblem.prototype.showError = function() {
-    var response = "\
-      <h2>Sorry, we’re unable to receive your message right now.</h2>\
-      <p>We have other ways for you to provide feedback on the \
-      <a href='/contact'>contact page</a>.</p>";
+    var response = '<h2>Sorry, we’re unable to receive your message right now.</h2>' +
+      '<p>We have other ways for you to provide feedback on the ' +
+      '<a href="/contact">contact page</a>.</p>';
 
     this.$container.find('.report-a-problem-content').html(response);
-  }
+  };
 
   ReportAProblem.prototype.trackEvent = function(action){
     if (GOVUK.analytics && GOVUK.analytics.trackEvent) {

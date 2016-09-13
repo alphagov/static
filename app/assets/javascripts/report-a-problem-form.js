@@ -8,7 +8,7 @@
     $form.on('submit', this.submit.bind(this));
 
     this.appendHiddenContextInformation();
-  }
+  };
 
   ReportAProblemForm.prototype.appendHiddenContextInformation = function() {
     // form submission for reporting a problem
@@ -46,7 +46,7 @@
 
   ReportAProblemForm.prototype.setUrl = function() {
     this.$form.find('input#url').val(window.location);
-  }
+  };
 
   ReportAProblemForm.prototype.postFormViaAjax = function() {
     $.ajax({
