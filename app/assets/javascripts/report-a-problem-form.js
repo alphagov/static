@@ -65,6 +65,7 @@
   ReportAProblemForm.prototype.submit = function(evt) {
     this.hidePrompt();
     this.setUrl();
+    this.trackEvent('GOVUK Send Feedback');
     this.disableSubmitButton();
     this.postFormViaAjax();
 
@@ -77,6 +78,12 @@
 
   ReportAProblemForm.prototype.triggerSuccess = function(data) {
     this.$form.trigger('reportAProblemForm.success', data);
+  };
+
+  ReportAProblemForm.prototype.trackEvent = function(action){
+    if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
+      GOVUK.analytics.trackEvent('Onsite Feedback', action, { label: '(not set)' });
+    }
   };
 
   GOVUK.ReportAProblemForm = ReportAProblemForm;
