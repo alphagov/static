@@ -35,6 +35,17 @@
       ['Heading', '11. Your charity’s legal structure and what it means'],
       ['Heading', '12. Charity officers - the chair and treasurer'],
       ['Heading', '13. Technical terms used in this guidance']
+    ],
+    '/guidance/universal-credit-how-it-helps-you-into-work': [
+      ['Heading', 'Support from your work coach'],
+      ['Heading', 'Help available for parents'],
+      ['Heading', 'When you can claim Universal credit'] 
+      ['Heading', 'More detailed advice'] 
+    ],
+    '/openingupwork': [
+      ['Heading', 'How Universal Credit makes work pay'],
+      ['Heading', 'When you can claim Universal Credit'],
+      ['Heading', 'Help and advice'] 
     ]
   };
 
