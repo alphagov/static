@@ -87,6 +87,7 @@
     });
 
     this.setSectionDimension(dimensions['section']);
+    this.setBreadcrumbDimension(dimensions['breadcrumb']);
     this.setFormatDimension(dimensions['format']);
     this.setResultCountDimension(dimensions['search-result-count']);
     this.setPublishingGovernmentDimension(dimensions['publishing-government']);
@@ -122,6 +123,10 @@
 
   StaticAnalytics.prototype.setSectionDimension = function(section) {
     this.setDimension(1, section);
+  };
+
+  StaticAnalytics.prototype.setBreadcrumbDimension = function(breadcrumb) {
+    this.setDimension(30, breadcrumb);
   };
 
   StaticAnalytics.prototype.setFormatDimension = function(format) {
