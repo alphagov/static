@@ -1,0 +1,18 @@
+---
+et:
+  govuk_component:
+    document_footer:
+      published: Avaldatud
+      updated: Täiendatud
+      full_page_history: Tervikajalugu
+      part_of: Osa
+    metadata:
+      from: Kellelt
+      part_of: Osa
+      location: Asukoht
+      applies_to_nations: Seondub
+      field_of_operation: Tegevusvaldkond
+      history: Ajalugu
+      first_published: Esmane publikatsioon
+      last_updated: Esmane publikatsioon
+      see_all_updates: Vaadake kõiki täiendusi
