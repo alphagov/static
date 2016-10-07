@@ -1,0 +1,56 @@
+#! /usr/bin/env ruby
+
+require 'yaml'
+
+class Hash
+  def dig_by_path path
+    dig(*path.split("."))
+  end
+
+  def dig(key, *rest)
+    value = self[key]
+    if value.nil? || rest.empty?
+      value
+    elsif value.respond_to?(:dig)
+      value.dig(*rest)
+    else
+      fail TypeError, "#{value.class} does not have #dig method"
+    end
+  end
+end
+
+whitehall_path = ENV["WHITEHALL_PATH"] || File.expand_path("../../whitehall", __dir__)
+whitehall_locales = Dir.glob(File.join(whitehall_path, "config/locales/*.yml"))
+
+whitehall_locales.each do |locale_file|
+  src = YAML.load_file(locale_file)
+  locale = File.basename(locale_file, ".yml")
+  next if locale == "en"
+  new_locale_data = {
+    locale => {
+      "govuk_component" => {
+        "document_footer" => {
+          "published" => src.dig_by_path("#{locale}.document.footer_meta.published"),
+          "updated" => src.dig_by_path("#{locale}.document.footer_meta.updated"),
+          "full_page_history" => src.dig_by_path("#{locale}.document.footer_meta.full_page_history"),
+          "part_of" => src.dig_by_path("#{locale}.document.headings.part_of"),
+        },
+        "metadata" => {
+          "from" => src.dig_by_path("#{locale}.document.headings.from"),
+          "part_of" => src.dig_by_path("#{locale}.document.headings.part_of"),
+          "location" => src.dig_by_path("#{locale}.document.headings.location"),
+          "applies_to_nations" => src.dig_by_path("#{locale}.document.headings.applies_to_nations"),
+          "field_of_operation" => src.dig_by_path("#{locale}.document.headings.field_of_operation"),
+          "history" => src.dig_by_path("#{locale}.change_notes.page_history"),
+          "first_published" => src.dig_by_path("#{locale}.change_notes.published_at"),
+          "last_updated" => src.dig_by_path("#{locale}.change_notes.published_at"),
+          "see_all_updates" => src.dig_by_path("#{locale}.change_notes.see_all_updates"),
+        }
+      }
+    }
+  }
+
+  File.open(File.expand_path("../config/locales/#{locale}.yml", __dir__), "w") do |f|
+    f.write(YAML.dump(new_locale_data))
+  end
+end
