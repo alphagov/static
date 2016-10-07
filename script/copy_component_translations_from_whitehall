@@ -33,6 +33,7 @@ whitehall_locales.each do |locale_file|
           "published" => src.dig_by_path("#{locale}.document.footer_meta.published"),
           "updated" => src.dig_by_path("#{locale}.document.footer_meta.updated"),
           "full_page_history" => src.dig_by_path("#{locale}.document.footer_meta.full_page_history"),
+          "from" => src.dig_by_path("#{locale}.document.headings.from"),
           "part_of" => src.dig_by_path("#{locale}.document.headings.part_of"),
         },
         "metadata" => {
