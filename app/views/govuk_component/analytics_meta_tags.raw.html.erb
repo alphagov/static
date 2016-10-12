@@ -7,7 +7,7 @@
   details_hash = content_item_hash[:details] || {}
   meta_tags = {}
 
-  meta_tags["govuk:format"] = content_item_hash[:format] if content_item_hash[:format]
+  meta_tags["govuk:format"] = content_item_hash[:document_type] if content_item_hash[:document_type]
 
   need_ids = content_item_hash[:need_ids] || []
   meta_tags["govuk:need-ids"] = need_ids.join(',') if need_ids.any?

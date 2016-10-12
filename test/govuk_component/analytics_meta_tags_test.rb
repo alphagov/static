@@ -24,7 +24,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
   end
 
   test "renders format in a meta tag" do
-    render_component(content_item: { format: "case_study" })
+    render_component(content_item: { document_type: "case_study" })
     assert_meta_tag('govuk:format', 'case_study')
   end
 
