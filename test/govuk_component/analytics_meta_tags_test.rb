@@ -14,7 +14,6 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     render_component(content_item: example_document_for('case_study', 'case_study'))
 
     assert_meta_tag('govuk:format', 'case_study')
-    assert_meta_tag('govuk:need-ids', '100001,100002')
     assert_meta_tag('govuk:analytics:organisations', '<L2><W4>')
     assert_meta_tag('govuk:analytics:world-locations', '<WL3>')
   end
@@ -26,11 +25,6 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
   test "renders format in a meta tag" do
     render_component(content_item: { document_type: "case_study" })
     assert_meta_tag('govuk:format', 'case_study')
-  end
-
-  test "renders need IDs as a comma separated list" do
-    render_component(content_item: { need_ids: [100001, 100002] })
-    assert_meta_tag('govuk:need-ids', '100001,100002')
   end
 
   test "renders organisations in a meta tag with angle brackets" do
