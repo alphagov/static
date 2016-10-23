@@ -23,18 +23,31 @@
     },
     smallSurveys: [
       {
-        url: 'https://www.surveymonkey.co.uk/r/GZ2JDHZ',
-        identifier: 'three_word_survey',
-        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                  '  <div class="wrapper">' +
-                  '    <h1>How do you feel about your visit to GOV.UK today?</h1>' +
-                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                  '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 1 question survey</a> This will open a short survey on another website</p>' +
-                  '  </div>' +
-                  '</section>',
-        startTime: new Date("September 7, 2016").getTime(),
-        endTime: new Date("September 8, 2016 23:59:59").getTime(),
-        frequency: 50
+        url: 'https://www.surveymonkey.co.uk/r/73CQFCB',
+        identifier: 'international_content_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (sectionName === 'visas and immigration' || sectionName === 'passports, travel and living abroad');
+          }
+
+          function pathMatches() {
+            var pathMatchingExpr = /\/foreign-travel-advice|\/government\/world/;
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D13>|<OT554>|<D8>|<D1196>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || pathMatches() || organisationMatches());
+        },
+        startTime: new Date("October 25, 2016").getTime(),
+        endTime: new Date("October 28, 2016 23:59:59").getTime()
       }
     ],
 
