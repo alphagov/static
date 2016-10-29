@@ -41,8 +41,4 @@
   &.direction-rtl dd {
     float: right;
   }
-
-  a[rel="external"] {
-    @include external-link-14;
-  }
 }

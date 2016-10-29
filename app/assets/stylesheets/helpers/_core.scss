@@ -124,15 +124,6 @@ h4 {
       margin: 10px 0 10px;
     }
 
-    a[rel="external"]:after {
-      content: "\A0\A0\A0\A0\A0\A0";
-      background-position: 5px 0;
-    }
-
-    a[rel="external"]:hover:after {
-      background-position: 5px -388px;
-    }
-
   }
   .return-to-top {
     @include core-16;
@@ -533,7 +524,7 @@ header.page-header div {
     a,
     h1 {
       @include core-24($line-height: (45 / 24), $line-height-640: (45 / 17));
-      background: #FFF image-url('accordian-arrow.png') no-repeat 100% -2px;
+      background: #FFF image-url('accordion-arrow.png') no-repeat 100% -2px;
       display: block;
       padding: 0 16px;
       position: relative;
@@ -542,7 +533,7 @@ header.page-header div {
       top: 0;
 
       @include device-pixel-ratio() {
-        background-image: image-url("accordian-arrow-2x.png");
+        background-image: image-url("accordion-arrow-2x.png");
         background-size: 45px 90px;
       }
 
