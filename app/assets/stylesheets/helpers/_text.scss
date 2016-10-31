@@ -198,13 +198,6 @@ article {
     @include core-16($tabular-numbers: true);
     vertical-align: top;
     padding: .75em .5em .75em 0;
-
-    a[rel="external"] {
-      @include external-link-16;
-      @include media-down(mobile) {
-        @include external-link-14;
-      }
-    }
   }
 
   td {
@@ -417,10 +410,6 @@ article {
     margin-top: 2em;
   }
 
-  .info-notice a[rel="external"] {
-    display: inline;
-  }
-
   .form-download {
     padding: 0.25em 0 0.25em 0;
 
@@ -439,10 +428,6 @@ article {
         background-image: image-url("icon-file-download-2x.png");
         background-size: 25px 25px;
       }
-    }
-
-    a[rel="external"]:after {
-      content: none;
     }
   }
 

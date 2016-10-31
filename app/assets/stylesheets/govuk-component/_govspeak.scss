@@ -507,9 +507,6 @@
 
       .opendocument-help {
         @include core-14;
-        a {
-          @include external-link-14;
-        }
       }
 
       .accessibility-warning {
