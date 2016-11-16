@@ -4,22 +4,10 @@
   window.GOVUK = window.GOVUK || {};
 
   var CONFIG = {
-    '/contact-the-dvla/y/driving-licences-and-applications': [
-      ['Heading', 'Driving licencing enquiries'],
-      ['Heading', 'When to contact DVLA']
-    ],
-    '/contact-the-dvla/y/vehicle-tax-and-sorn': [
-      ['Heading', 'Vehicle tax enquiries'],
-      ['Heading', 'When to contact DVLA']
-    ],
-    '/contact-the-dvla/y/vehicle-registration-and-v5c-certificates-log-books': [
-      ['Heading', 'Vehicle registration enquiries'],
-      ['Heading', 'When to contact DVLA']
-    ],
     '/government/collections/disability-confident-campaign': [
       ['Heading', 'Become a Disability Confident employer'],
       ['Heading', 'Aims and objectives'],
-      ['Heading', 'Inclusive communication']  
+      ['Heading', 'Inclusive communication']
     ],
     '/government/publications/the-essential-trustee-what-you-need-to-know-cc3/the-essential-trustee-what-you-need-to-know-what-you-need-to-do': [
       ['Heading', '1. About this guidance'],
