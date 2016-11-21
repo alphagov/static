@@ -135,3 +135,110 @@ fixtures:
         <li>offering working families on Universal Credit support of up to 85% of their eligible childcare costs (where the lone parent or both parents in a couple are in work)</li>
         <li>helping parents understand the government’s childcare offer </li>
       </ul>
+  financial_table:
+    content: |
+      <table class="financial-data">
+        <caption>Table 1.6: Total Managed Expenditure (as produced by the <a href="https://alphagov.github.io/table-editor/financial-tables.html">financial table editor</a>)</caption>
+        <thead>
+          <tr>
+            <td></td>
+            <th class="numeric">2015-16</th>
+            <th class="numeric">2016-17</th>
+            <th class="numeric">2017-18</th>
+            <th class="numeric">2018-19</th>
+            <th class="numeric">2019-20</th>
+            <th class="numeric">2020-21</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-heading">
+            <th colspan="7">Current Expenditure</th>
+          </tr>
+          <tr>
+            <th>Resource AME</th>
+            <td class="numeric">345.3</td>
+            <td class="numeric">353.3</td>
+            <td class="numeric">365.9</td>
+            <td class="numeric">378.4</td>
+            <td class="numeric">391.8</td>
+            <td class="numeric">403.9</td>
+          </tr>
+          <tr>
+            <th>Resource DEL excluding depreciation</th>
+            <td class="numeric">315.1</td>
+            <td class="numeric">320.8</td>
+            <td class="numeric">322.9</td>
+            <td class="numeric">325.2</td>
+            <td class="numeric">328.3</td>
+            <td class="numeric">341.2</td>
+          </tr>
+          <tr>
+            <th>Ring-fenced depreciation</th>
+            <td class="numeric">21.9</td>
+            <td class="numeric">21.9</td>
+            <td class="numeric">21.9</td>
+            <td class="numeric">21.9</td>
+            <td class="numeric">21.9</td>
+            <td class="numeric">21.9</td>
+          </tr>
+          <tr class="subtotal">
+            <th>Public Sector Current Expenditure</th>
+            <td class="numeric">682.3</td>
+            <td class="numeric">696.0</td>
+            <td class="numeric">710.7</td>
+            <td class="numeric">725.5</td>
+            <td class="numeric">742.0</td>
+            <td class="numeric">767.0</td>
+          </tr>
+          <tr class="section-heading">
+            <th colspan="7">Capital Expenditure</th>
+          </tr>
+          <tr>
+            <th>Capital AME</th>
+            <td class="numeric">31.7</td>
+            <td class="numeric">33.4</td>
+            <td class="numeric">31.7</td>
+            <td class="numeric">30.7</td>
+            <td class="numeric">31.7</td>
+            <td class="numeric">34.5</td>
+          </tr>
+          <tr>
+            <th>Capital DEL</th>
+            <td class="numeric">41.7</td>
+            <td class="numeric">44.0</td>
+            <td class="numeric">45.0</td>
+            <td class="numeric">45.0</td>
+            <td class="numeric">47.3</td>
+            <td class="numeric">55.7</td>
+          </tr>
+          <tr class="subtotal">
+            <th>Public Sector Gross Investment</th>
+            <td class="numeric">73.4</td>
+            <td class="numeric">77.4</td>
+            <td class="numeric">76.7</td>
+            <td class="numeric">75.7</td>
+            <td class="numeric">79.0</td>
+            <td class="numeric">90.2</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="total">
+            <th>Total Managed Expenditure</th>
+            <td class="numeric">755.7</td>
+            <td class="numeric">773.3</td>
+            <td class="numeric">787.5</td>
+            <td class="numeric">801.2</td>
+            <td class="numeric">821.0</td>
+            <td class="numeric">857.2</td>
+          </tr>
+          <tr>
+            <th>Total Managed Expenditure (% GDP)</th>
+            <td class="numeric">39.7%</td>
+            <td class="numeric">39.1%</td>
+            <td class="numeric">38.1%</td>
+            <td class="numeric">37.2%</td>
+            <td class="numeric">36.5%</td>
+            <td class="numeric">36.4%</td>
+          </tr>
+        </tfoot>
+      </table>
