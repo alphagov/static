@@ -9,11 +9,18 @@
   }
 
   ul {
+    // reset the default browser styles
+    padding: 0;
+    margin: 0;
+
     @include core-16;
     list-style: none;
     margin-bottom: 1.25em;
 
     li {
+      // reset the default browser styles
+      padding: 0;
+
       margin-bottom: 0.75em;
 
       &.related-items-more {

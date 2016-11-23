@@ -2,5 +2,11 @@
 @import "design-patterns/breadcrumbs";
 
 .govuk-breadcrumbs {
+  // reset the default browser styles
+  ol {
+    padding: 0;
+    margin: 0;
+  }
+
   @include breadcrumbs;
 }
