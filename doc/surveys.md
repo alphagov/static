@@ -56,7 +56,22 @@ A callback function returning true or false allowing further scoping of when the
 
 In the example above, the survey will only be considered "active" on pages with a section of "education and learning", and will not display on pages where this function evaluates to false.
 
-Not providing this argument has the same effect as setting it to `return true`. The survey will therefore apply to all pages on GOV.UK between `startTime` and `endTime`.
+Additional examples of functions which control when a survey should be active based on the current path and organisation:
+
+```javascript
+function pathMatches() {
+  var pathMatchingExpr = /\/foreign-travel-advice|\/government\/world/;
+  return pathMatchingExpr.test(currentPath());
+}
+
+function organisationMatches() {
+  var orgMatchingExpr = /<D13>|<OT554>|<D8>|<D1196>/;
+  var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+  return orgMatchingExpr.test(metaText);
+}
+```
+
+Not providing the `activeWhen` argument has the same effect as setting it to `return true`. The survey will therefore apply to all pages on GOV.UK between `startTime` and `endTime`.
 
 ### `startTime` and `endTime`
 The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
