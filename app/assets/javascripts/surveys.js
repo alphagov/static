@@ -23,31 +23,26 @@
     },
     smallSurveys: [
       {
-        url: 'https://www.surveymonkey.co.uk/r/73CQFCB',
-        identifier: 'international_content_survey',
-        template: TEMPLATE,
-        frequency: 10,
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=marriage-abroad&utm_source=Marriage_abroad&utm_medium=Gov.UK&t=GDS',
+        identifier: 'user_research_panel_survey',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+          '  <div class="wrapper">' +
+          '    <h1>Help improve GOV.UK</h1>' +
+          '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+          '    <p><a href="javascript:void()" id="take-survey" target="_blank">Answer some questions about yourself to join the research community.</a> This link opens in a new tab.</p>' +
+          '  </div>' +
+          '</section>',
+        frequency: 1,
         activeWhen: function() {
-          function sectionMatches() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (sectionName === 'visas and immigration' || sectionName === 'passports, travel and living abroad');
-          }
-
           function pathMatches() {
-            var pathMatchingExpr = /\/foreign-travel-advice|\/government\/world/;
+            var pathMatchingExpr = /\/marriage-abroad/;
             return pathMatchingExpr.test(userSurveys.currentPath());
           }
 
-          function organisationMatches() {
-            var orgMatchingExpr = /<D13>|<OT554>|<D8>|<D1196>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return (sectionMatches() || pathMatches() || organisationMatches());
+          return (pathMatches());
         },
-        startTime: new Date("October 25, 2016").getTime(),
-        endTime: new Date("October 28, 2016 23:59:59").getTime()
+        startTime: new Date("December 5, 2016").getTime(),
+        endTime: new Date("December 18, 2016 23:59:59").getTime()
       }
     ],
 
@@ -81,7 +76,8 @@
       var $surveyLink = $('#take-survey');
       var surveyUrl = survey.url;
 
-      if (surveyUrl.indexOf('?c=') === -1) {
+      // Survey monkey can record the URL of the survey link if passed through as a query param
+      if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
         surveyUrl += "?c=" + root.location.pathname;
       }
 

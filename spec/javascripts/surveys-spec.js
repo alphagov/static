@@ -3,7 +3,7 @@ describe("Surveys", function() {
   var $block;
 
   var defaultSurvey = {
-    url: 'example.com/default',
+    url: 'surveymonkey.com/default',
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
     template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
@@ -45,7 +45,6 @@ describe("Surveys", function() {
       surveys.init();
 
       expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url);
-      expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
       expect($('#user-satisfaction-survey').length).toBe(1);
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true);
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
@@ -61,7 +60,7 @@ describe("Surveys", function() {
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
     });
 
-    it("links to the url for the survey with a completion redirect query parameter", function () {
+    it("links to the url for a surveymonkey survey with a completion redirect query parameter", function () {
       surveys.displaySurvey(defaultSurvey);
 
       expect($('#take-survey').attr('href')).toContain(defaultSurvey.url);
