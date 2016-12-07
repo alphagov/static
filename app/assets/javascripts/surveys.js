@@ -66,6 +66,28 @@
         startTime: new Date("December 12, 2016").getTime(),
         endTime: new Date("December 25, 2016 23:59:59").getTime()
       },
+      {
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=guidance/academies-funding-allocations&utm_source=Education&utm_medium=gov.uk&t=GDS',
+        identifier: 'user_research_panel_survey',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+          '  <div class="wrapper">' +
+          '    <h1>Help improve GOV.UK</h1>' +
+          '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+          '    <p><a href="javascript:void()" id="take-survey" target="_blank">Answer some questions about yourself to join the research community.</a> This link opens in a new tab.</p>' +
+          '  </div>' +
+          '</section>',
+        frequency: 1,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/guidance\/academies-funding-allocations/;
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        startTime: new Date("December 12, 2016").getTime(),
+        endTime: new Date("December 25, 2016 23:59:59").getTime()
+      },
     ],
 
     init: function() {
