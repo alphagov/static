@@ -23,6 +23,33 @@
     },
     smallSurveys: [
       {
+        url: 'https://www.surveymonkey.com/s/2MRDLTW',
+        identifier: 'education_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function breadcrumbMatches() {
+            var text = $('#global-breadcrumb').text() || "";
+            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          }
+
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (sectionName === 'education' || sectionName === 'childcare' || sectionName === 'schools');
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || organisationMatches() || breadcrumbMatches());
+        },
+        startTime: new Date("December 12, 2016").getTime(),
+        endTime: new Date("December 18, 2016 23:59:59").getTime()
+      },
+      {
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=marriage-abroad&utm_source=Marriage_abroad&utm_medium=Gov.UK&t=GDS',
         identifier: 'user_research_panel_survey',
         template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
@@ -87,33 +114,6 @@
         },
         startTime: new Date("December 12, 2016").getTime(),
         endTime: new Date("December 25, 2016 23:59:59").getTime()
-      },
-      {
-        url: 'https://www.surveymonkey.com/s/2MRDLTW',
-        identifier: 'education_survey',
-        template: TEMPLATE,
-        frequency: 10,
-        activeWhen: function() {
-          function breadcrumbMatches() {
-            var text = $('#global-breadcrumb').text() || "";
-            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
-          }
-
-          function sectionMatches() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (sectionName === 'education' || sectionName === 'childcare' || sectionName === 'schools');
-          }
-
-          function organisationMatches() {
-            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return (sectionMatches() || organisationMatches() || breadcrumbMatches());
-        },
-        startTime: new Date("December 12, 2016").getTime(),
-        endTime: new Date("December 18, 2016 23:59:59").getTime()
       },
       {
         url: 'https://www.surveymonkey.co.uk/r/W5LS62K',
