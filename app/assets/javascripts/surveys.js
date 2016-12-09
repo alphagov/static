@@ -114,6 +114,22 @@
         },
         startTime: new Date("December 12, 2016").getTime(),
         endTime: new Date("December 18, 2016 23:59:59").getTime()
+      },
+      {
+        url: 'https://www.surveymonkey.co.uk/r/W5LS62K',
+        identifier: 'family_visa_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/(remain-in-uk-family|join-family-in-uk)/;
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        startTime: new Date("December 12, 2016").getTime(),
+        endTime: new Date("January 8, 2017 23:59:59").getTime()
       }
     ],
 
