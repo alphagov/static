@@ -3,10 +3,19 @@
 %>
 <div class="govuk-breadcrumbs">
   <ol>
-  <% breadcrumbs.each do |crumb| %>
+  <% breadcrumbs.each_with_index do |crumb, index| %>
     <li>
       <% if crumb[:url] %>
-        <a href="<%= crumb[:url] %>"><%= crumb[:title] %></a>
+        <%= link_to(
+          crumb[:title],
+          crumb[:url],
+          data: {
+            track_category: 'breadcrumbClicked',
+            track_action: index + 1,
+            track_label: crumb[:url],
+            track_dimension: crumb[:title]
+          }
+        ) %>
       <% else %>
         <%= crumb[:title] %>
       <% end %>
