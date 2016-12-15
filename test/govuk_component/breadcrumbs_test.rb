@@ -18,6 +18,15 @@ class BreadcrumbsTestCase < ComponentTestCase
     assert_link_with_text_in('ol li:first-child', '/section', 'Section')
   end
 
+  test "renders all data attributes for tracking" do
+    render_component(breadcrumbs: [{ title: 'Section', url: '/section' }])
+
+    assert('ol li:first-child a[data-track-action=1]')
+    assert('ol li:first-child a[data-track-label="/section"]')
+    assert('ol li:first-child a[data-track-dimension="Section"]')
+    assert('ol li:first-child a[data-track-category="breadcrumbClicked"]')
+  end
+
   test "renders a list of breadcrumbs" do
     render_component({
       breadcrumbs: [
