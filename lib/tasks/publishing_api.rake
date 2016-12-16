@@ -90,14 +90,17 @@ namespace :publishing_api do
     ]
 
     routes.each do |route|
-      publisher.publish(route.merge(
-        format: "special_route",
-        type: "exact",
-        publishing_app: "static",
-        rendering_app: "static",
-        public_updated_at: Time.now.iso8601,
-        update_type: "major",
-      ))
+      publisher.publish(
+        route.merge(
+          document_type: "special_route",
+          schema_name: "special_route",
+          type: "exact",
+          publishing_app: "static",
+          rendering_app: "static",
+          public_updated_at: Time.now.iso8601,
+          update_type: "major",
+        )
+      )
     end
   end
 end
