@@ -8,9 +8,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       element.on('click', trackClick);
 
       var options = {},
-          category = element.data('track-category'),
-          action = element.data('track-action'),
-          label = element.data('track-label');
+          category = element.attr('data-track-category'),
+          action = element.attr('data-track-action'),
+          label = element.attr('data-track-label');
 
       if (label) {
         options.label = label;
