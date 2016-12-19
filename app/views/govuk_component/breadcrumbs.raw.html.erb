@@ -13,7 +13,8 @@
             track_category: 'breadcrumbClicked',
             track_action: index + 1,
             track_label: crumb[:url],
-            track_dimension: crumb[:title]
+            track_dimension: crumb[:title],
+            module: 'track-breadcrumb-click'
           }
         ) %>
       <% else %>
