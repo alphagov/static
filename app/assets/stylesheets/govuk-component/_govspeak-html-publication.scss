@@ -110,6 +110,18 @@
       }
     }
 
+    h2:first-child,
+    h3:first-child {
+      margin-top: 0;
+
+      // Reduce default margin by 2x gutter for first headings
+      // This accounts for the 2x gutter margin on the HTML pub header
+      // which doesn't collapse because of containers
+      @include media(tablet) {
+        margin-top: $gutter-two-thirds;
+      }
+    }
+
     // scss-lint:disable QualifyingElement
     // this class will only be for tables and is to distinguish from a bare `table`
     // the row classes below should not be applied to anything else but `tr`s
