@@ -194,7 +194,8 @@ aside .page-navigation {
     }
 
     &.active {
-      padding: 0.25em 0.25em 0.25em 0;
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
 
       span.part-number {
         padding: 0;
