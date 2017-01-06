@@ -12,7 +12,7 @@ class RelatedItemsTestCase < ComponentTestCase
   end
 
   test "renders a related items block" do
-    render_component({
+    render_component(
       sections: [
         {
           title: "Section title",
@@ -29,7 +29,7 @@ class RelatedItemsTestCase < ComponentTestCase
           ]
         }
       ],
-    })
+    )
 
     assert_select "h2", text: "Section title"
     assert_link_with_text_in("ul li:last-child", "/more-link", /More\s+in\s+Section title/)
@@ -38,7 +38,7 @@ class RelatedItemsTestCase < ComponentTestCase
   end
 
   test "renders a multiple related items block" do
-    render_component({
+    render_component(
       sections: [
         {
           title: "Section title",
@@ -61,7 +61,7 @@ class RelatedItemsTestCase < ComponentTestCase
           ]
         }
       ],
-    })
+    )
 
     assert_select "h2", text: "Section title"
     assert_link_with_text_in("ul li:last-child", "/more-link", /More\s+in\s+Section title/)
@@ -73,7 +73,7 @@ class RelatedItemsTestCase < ComponentTestCase
   end
 
   test "renders external links with a rel attribute" do
-    render_component({
+    render_component(
       sections: [
         {
           title: "Elsewhere on the web",
@@ -87,12 +87,12 @@ class RelatedItemsTestCase < ComponentTestCase
           ]
         },
       ],
-    })
+    )
     assert_select "a[rel=external]", text: "Wikivorce"
   end
 
   test "includes an id and aria-labelledby when a section id is provided" do
-    render_component({
+    render_component(
       sections: [
         {
           title: "Elsewhere on the web",
@@ -107,13 +107,13 @@ class RelatedItemsTestCase < ComponentTestCase
           ]
         },
       ],
-    })
+    )
     assert_select "#related-elsewhere-on-the-web", text: "Elsewhere on the web"
     assert_select "nav[aria-labelledby=related-elsewhere-on-the-web]"
   end
 
   test "renders all data attributes for tracking" do
-    render_component({
+    render_component(
       sections: [
         {
           title: "Section title",
@@ -140,7 +140,7 @@ class RelatedItemsTestCase < ComponentTestCase
           ],
         },
       ],
-    })
+    )
 
     assert_select "a[data-track-category=\"relatedLinkClicked\"]", 5
     assert_select "a[data-track-dimension=\"More\"]", 2

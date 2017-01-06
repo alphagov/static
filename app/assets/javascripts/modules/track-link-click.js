@@ -3,17 +3,20 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function(Modules) {
   "use strict";
 
-  Modules.TrackBreadcrumbClick = function () {
+  Modules.TrackLinkClick = function () {
     this.start = function (element) {
-      element.on('click', trackBreadcrumbClick);
 
-      var titleDimensionId = 29,
+      var LINK_TEXT_CUSTOM_DIMENSION_SLOT = 29;
+
+      element.on('click', onClick);
+
+      var titleDimensionId = LINK_TEXT_CUSTOM_DIMENSION_SLOT,
           dimension = element.data('track-dimension'),
           trackClick = new GOVUK.Modules.TrackClick();
 
       trackClick.start(element);
 
-      function trackBreadcrumbClick(e) {
+      function onClick(e) {
         if (GOVUK.analytics && GOVUK.analytics.setDimension) {
           GOVUK.analytics.setDimension(titleDimensionId, dimension);
         }
