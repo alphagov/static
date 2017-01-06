@@ -111,4 +111,56 @@ class RelatedItemsTestCase < ComponentTestCase
     assert_select "#related-elsewhere-on-the-web", text: "Elsewhere on the web"
     assert_select "nav[aria-labelledby=related-elsewhere-on-the-web]"
   end
+
+  test "renders all data attributes for tracking" do
+    render_component({
+      sections: [
+        {
+          title: "Section title",
+          url: "/more-link",
+          items: [
+            {
+              title: "Item title",
+              url: "/item"
+            },
+            {
+              title: "Other item title",
+              url: "/other-item"
+            },
+          ]
+        },
+        {
+          title: "Another section",
+          url: "/another-more-link",
+          items: [
+            {
+              title: "Foo",
+              url: "/foo"
+            },
+          ],
+        },
+      ],
+    })
+
+    assert_select "a[data-track-category=\"relatedLinkClicked\"]", 5
+    assert_select "a[data-track-dimension=\"More\"]", 2
+
+    assert_select "a[data-track-action=\"1.1\"]", 1
+    assert_select "a[data-track-label=\"/item\"]", 1
+    assert_select "a[data-track-dimension=\"Item title\"]", 1
+
+    assert_select "a[data-track-action=\"1.2\"]", 1
+    assert_select "a[data-track-label=\"/other-item\"]", 1
+    assert_select "a[data-track-dimension=\"Other item title\"]", 1
+
+    assert_select "a[data-track-action=\"1.3\"]", 1
+    assert_select "a[data-track-label=\"/more-link\"]", 1
+
+    assert_select "a[data-track-action=\"2.1\"]", 1
+    assert_select "a[data-track-label=\"/foo\"]", 1
+    assert_select "a[data-track-dimension=\"Foo\"]", 1
+
+    assert_select "a[data-track-action=\"2.2\"]", 1
+    assert_select "a[data-track-label=\"/another-more-link\"]", 1
+  end
 end
