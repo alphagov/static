@@ -9,7 +9,7 @@
                  '  <div class="wrapper">' +
                  '    <h1>Tell us what you think of GOV.UK</h1>' +
                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                 '    <p><a href="javascript:void()" id="take-survey" target="_blank">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
+                 '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
                  '  </div>' +
                  '</section>';
 
