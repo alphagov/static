@@ -30,6 +30,7 @@
         activeWhen: function() {
           function pathMatches() {
             var pathMatchingExpr = /\/(remain-in-uk-family|join-family-in-uk)/;
+
             return pathMatchingExpr.test(userSurveys.currentPath());
           }
 
@@ -37,6 +38,40 @@
         },
         startTime: new Date("December 12, 2016").getTime(),
         endTime: new Date("February 5, 2017 23:59:59").getTime()
+      },
+      {
+        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=" + window.location.pathname + "&utm_source=govukother&utm_medium=gov.uk&t=GDS",
+        identifier: 'env_ur_panel',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>Help improve GOV.UK</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a>. This link opens in a new tab.</p>' +
+                  '  </div>' +
+                  '</section>',
+        frequency: 10,
+        activeWhen: function() {
+
+          function pathMatches() {
+            var pathMatchingExpr = new RegExp('/(?:'
+              + /check-flood-risk/.source
+              + /|fishing-licences\/buy-a-fishing-licence/.source
+              + /|fishing-licences\/when-you-need-a-licence/.source
+              + /|topic\/environmental-management\/environmental-permits/.source
+              + /|topic\/environmental-management\/waste/.source
+              + /|hunting\/overview/.source
+              + /|report-dead-animal/.source
+              + /|browse\/environment-countryside\/flooding-extreme-weather/.source
+              + /|sign-up-for-flood-warnings/.source
+              + ')'
+            );
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        startTime: new Date("January 16, 2017").getTime(),
+        endTime: new Date("January 29, 2017 23:59:59").getTime()
       }
     ],
 
