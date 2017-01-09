@@ -80,4 +80,48 @@ describe('A click tracker', function() {
       { label: '/item' }
     );
   });
+
+  it('does not set dimension if dimension is not present', function() {
+    spyOn(GOVUK.analytics, 'setDimension');
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    element = $('\
+      <div \
+        data-track-category="category"\
+        data-track-action="action"\
+        data-track-label="Foo"\
+        data-track-custom-dimension="29">\
+        Bar!\
+      </div>\
+    ');
+
+    tracker.start(element);
+
+    element.trigger('click');
+
+    expect(GOVUK.analytics.setDimension).not.toHaveBeenCalled();
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo'});
+  });
+
+  it('does not set dimension if custom dimension is not present', function() {
+    spyOn(GOVUK.analytics, 'setDimension');
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    element = $('\
+      <div \
+        data-track-category="category"\
+        data-track-action="action"\
+        data-track-label="Foo"\
+        data-track-dimension="Home">\
+        Bar!\
+      </div>\
+    ');
+
+    tracker.start(element);
+
+    element.trigger('click');
+
+    expect(GOVUK.analytics.setDimension).not.toHaveBeenCalled();
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo'});
+  });
 });

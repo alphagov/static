@@ -23,7 +23,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           return;
         }
 
-        if (customDimension && GOVUK.analytics.setDimension) {
+        if (customDimension && dimension && GOVUK.analytics.setDimension) {
           GOVUK.analytics.setDimension(customDimension, dimension);
         }
 
