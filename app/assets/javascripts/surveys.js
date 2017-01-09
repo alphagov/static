@@ -129,7 +129,7 @@
           return (pathMatches());
         },
         startTime: new Date("December 12, 2016").getTime(),
-        endTime: new Date("January 8, 2017 23:59:59").getTime()
+        endTime: new Date("February 5, 2017 23:59:59").getTime()
       }
     ],
 
