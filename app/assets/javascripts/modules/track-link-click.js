@@ -8,17 +8,22 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       var LINK_TEXT_CUSTOM_DIMENSION_SLOT = 29;
 
-      element.on('click', onClick);
+      element.on('click', trackClick);
 
-      var titleDimensionId = LINK_TEXT_CUSTOM_DIMENSION_SLOT,
-          dimension = element.data('track-dimension'),
-          trackClick = new GOVUK.Modules.TrackClick();
+      var options = {},
+          category = element.attr('data-track-category'),
+          action = element.attr('data-track-action'),
+          label = element.attr('data-track-label'),
+          dimension = element.data('track-dimension');
 
-      trackClick.start(element);
+      if (label) {
+        options.label = label;
+      }
 
-      function onClick(e) {
-        if (GOVUK.analytics && GOVUK.analytics.setDimension) {
-          GOVUK.analytics.setDimension(titleDimensionId, dimension);
+      function trackClick() {
+        if (GOVUK.analytics && GOVUK.analytics.setDimension && GOVUK.analytics.trackEvent) {
+          GOVUK.analytics.setDimension(LINK_TEXT_CUSTOM_DIMENSION_SLOT, dimension);
+          GOVUK.analytics.trackEvent(category, action, options);
         }
       }
     };
