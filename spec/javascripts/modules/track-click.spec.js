@@ -50,7 +50,7 @@ describe('A click tracker', function() {
     expect(GOVUK.analytics.setDimension).toHaveBeenCalledWith(29, 'Home');
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
       'breadcrumbClicked',
-      1,
+      '1',
       { label: '/' }
     );
   });
@@ -76,7 +76,7 @@ describe('A click tracker', function() {
     expect(GOVUK.analytics.setDimension).toHaveBeenCalledWith(29, 'Related');
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
       'relatedLinkClicked',
-      1.1,
+      '1.1',
       { label: '/item' }
     );
   });
