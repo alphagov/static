@@ -19,7 +19,7 @@
                   track_label: item[:url],
                   track_dimension: item[:title],
                   track_custom_dimension: 29,
-                  module: 'track-link-click',
+                  module: 'track-click',
                 },
                 rel: item[:rel],
               ) %>
@@ -35,7 +35,7 @@
                   track_label: section[:url],
                   track_dimension: 'More',
                   track_custom_dimension: 29,
-                  module: 'track-link-click',
+                  module: 'track-click',
                 },
               ) do %>
                 <%= t("govuk_component.related_items.more", default: "More") %>
