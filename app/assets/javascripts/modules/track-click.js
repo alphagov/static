@@ -8,16 +8,26 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       element.on('click', trackClick);
 
       var options = {},
-          category = element.attr('data-track-category'),
-          action = element.attr('data-track-action'),
-          label = element.attr('data-track-label');
+          category = element.data('track-category'),
+          action = element.data('track-action'),
+          label = element.data('track-label'),
+          dimension = element.data('track-dimension'),
+          customDimension = element.data('track-custom-dimension');
 
       if (label) {
         options.label = label;
       }
 
       function trackClick() {
-        if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
+        if (!GOVUK.analytics) {
+          return;
+        }
+
+        if (customDimension && GOVUK.analytics.setDimension) {
+          GOVUK.analytics.setDimension(customDimension, dimension);
+        }
+
+        if (GOVUK.analytics.trackEvent) {
           GOVUK.analytics.trackEvent(category, action, options);
         }
       }

@@ -143,6 +143,7 @@ class RelatedItemsTestCase < ComponentTestCase
     )
 
     assert_select "a[data-track-category=\"relatedLinkClicked\"]", 5
+    assert_select "a[data-track-custom-dimension=\"29\"]", 5
     assert_select "a[data-track-dimension=\"More\"]", 2
 
     assert_select "a[data-track-action=\"1.1\"]", 1
