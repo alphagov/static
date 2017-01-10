@@ -306,7 +306,7 @@ jQuery.fn.tabs = function(settings){
 			if(currHash.indexOf("#") == 0){
         currHash = currHash.split("#")[1];
       }
-			var hashedTab = tabItems.find('a[href$=#' +  currHash + ']');
+			var hashedTab = tabItems.find('a[href$="#' +  currHash + '"]');
 
       if(hashedTab.size() > 0){
         selectTab(hashedTab,true);
