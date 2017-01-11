@@ -18,7 +18,6 @@ class HeaderFooterOnlyTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("#global-cookie-message")
       assert page.has_selector?("#user-satisfaction-survey-container")
-      assert page.has_selector?("#global-breadcrumb")
 
       assert page.has_selector?("#wrapper")
 

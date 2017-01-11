@@ -33,16 +33,10 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
   context "fetching raw templates" do
     should "be 200 for templates that exist" do
-      %w(related report_a_problem).each do |template|
+      %w(report_a_problem).each do |template|
         get "/templates/#{template}.raw.html.erb"
         assert_equal 200, last_response.status
       end
-    end
-
-    should "return the raw files" do
-      get "/templates/related.raw.html.erb"
-      expected = File.read(Rails.root.join("app", "views", "root", "related.raw.html.erb"))
-      assert_equal expected, last_response.body
     end
 
     should "404 for non-existent templates" do
