@@ -9,7 +9,6 @@ describe('A click tracker', function() {
   });
 
   it('tracks click events', function() {
-    spyOn(GOVUK.analytics, 'setDimension');
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -25,12 +24,10 @@ describe('A click tracker', function() {
 
     element.trigger('click');
 
-    expect(GOVUK.analytics.setDimension).not.toHaveBeenCalled();
-    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo'});
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
   });
 
   it('tracks breadcrumb click events', function() {
-    spyOn(GOVUK.analytics, 'setDimension');
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
@@ -38,7 +35,7 @@ describe('A click tracker', function() {
           data-track-action="1" \
           data-track-label="/" \
           data-track-dimension="Home" \
-          data-track-custom-dimension="29" \
+          data-track-dimension-index="29" \
           data-module="track-click" \
           href="/">Home</a>'
     );
@@ -47,16 +44,14 @@ describe('A click tracker', function() {
 
     element.trigger('click');
 
-    expect(GOVUK.analytics.setDimension).toHaveBeenCalledWith(29, 'Home');
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
       'breadcrumbClicked',
       '1',
-      { label: '/' }
+      { label: '/', dimension29: 'Home', transport: 'beacon' }
     );
   });
 
   it('tracks related item click events', function() {
-    spyOn(GOVUK.analytics, 'setDimension');
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
@@ -64,7 +59,7 @@ describe('A click tracker', function() {
           data-track-action="1.1" \
           data-track-label="/item" \
           data-track-dimension="Related" \
-          data-track-custom-dimension="29" \
+          data-track-dimension-index="29" \
           data-module="track-click" \
           href="/">Related</a>'
     );
@@ -73,16 +68,14 @@ describe('A click tracker', function() {
 
     element.trigger('click');
 
-    expect(GOVUK.analytics.setDimension).toHaveBeenCalledWith(29, 'Related');
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
       'relatedLinkClicked',
       '1.1',
-      { label: '/item' }
+      { label: '/item', dimension29: 'Related', transport: 'beacon' }
     );
   });
 
   it('does not set dimension if dimension is not present', function() {
-    spyOn(GOVUK.analytics, 'setDimension');
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -90,7 +83,7 @@ describe('A click tracker', function() {
         data-track-category="category"\
         data-track-action="action"\
         data-track-label="Foo"\
-        data-track-custom-dimension="29">\
+        data-track-dimension-index="29">\
         Bar!\
       </div>\
     ');
@@ -99,12 +92,10 @@ describe('A click tracker', function() {
 
     element.trigger('click');
 
-    expect(GOVUK.analytics.setDimension).not.toHaveBeenCalled();
-    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo'});
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
   });
 
-  it('does not set dimension if custom dimension is not present', function() {
-    spyOn(GOVUK.analytics, 'setDimension');
+  it('does not set dimension if dimension index is not present', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -121,7 +112,6 @@ describe('A click tracker', function() {
 
     element.trigger('click');
 
-    expect(GOVUK.analytics.setDimension).not.toHaveBeenCalled();
-    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo'});
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
   });
 });

@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 gem 'plek', '1.11.0'
-gem 'govuk_frontend_toolkit', '~> 5.0.2'
+gem 'govuk_frontend_toolkit', '~> 5.1.0'
 
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', :path => "../govuk_template"

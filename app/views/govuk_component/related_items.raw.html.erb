@@ -18,7 +18,7 @@
                   track_action: "#{section_index + 1}.#{item_index + 1}",
                   track_label: item[:url],
                   track_dimension: item[:title],
-                  track_custom_dimension: 29,
+                  track_dimension_index: 29,
                   module: 'track-click',
                 },
                 rel: item[:rel],
@@ -34,7 +34,7 @@
                   track_action: "#{section_index + 1}.#{section[:items].size + 1}",
                   track_label: section[:url],
                   track_dimension: 'More',
-                  track_custom_dimension: 29,
+                  track_dimension_index: 29,
                   module: 'track-click',
                 },
               ) do %>

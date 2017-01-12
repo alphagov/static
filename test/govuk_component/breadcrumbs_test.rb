@@ -25,7 +25,7 @@ class BreadcrumbsTestCase < ComponentTestCase
     assert_select 'ol li:first-child a[data-track-label="/section"]', 1
     assert_select 'ol li:first-child a[data-track-dimension="Section"]', 1
     assert_select 'ol li:first-child a[data-track-category="breadcrumbClicked"]', 1
-    assert_select 'ol li:first-child a[data-track-custom-dimension="29"]', 1
+    assert_select 'ol li:first-child a[data-track-dimension-index="29"]', 1
     assert_select 'ol li:first-child a[data-module="track-click"]', 1
   end
 
