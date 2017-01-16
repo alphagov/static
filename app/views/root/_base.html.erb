@@ -30,14 +30,6 @@
 <% end %>
 
 <% content_for :content do %>
-  <% unless local_assigns[:hide_nav] %>
-    <div id="global-breadcrumb" class="header-context">
-      <ol class="group">
-        <li><a href="/">Home</a></li>
-      </ol>
-    </div>
-  <% end %>
-
   <div id="wrapper" class="group">
     <%= yield :wrapper_content %>
   </div>
