@@ -21,10 +21,12 @@ class BreadcrumbsTestCase < ComponentTestCase
   test "renders all data attributes for tracking" do
     render_component(breadcrumbs: [{ title: 'Section', url: '/section' }])
 
-    assert('ol li:first-child a[data-track-action=1]')
-    assert('ol li:first-child a[data-track-label="/section"]')
-    assert('ol li:first-child a[data-track-dimension="Section"]')
-    assert('ol li:first-child a[data-track-category="breadcrumbClicked"]')
+    assert_select 'ol li:first-child a[data-track-action="1"]', 1
+    assert_select 'ol li:first-child a[data-track-label="/section"]', 1
+    assert_select 'ol li:first-child a[data-track-dimension="Section"]', 1
+    assert_select 'ol li:first-child a[data-track-category="breadcrumbClicked"]', 1
+    assert_select 'ol li:first-child a[data-track-dimension-index="29"]', 1
+    assert_select 'ol li:first-child a[data-module="track-click"]', 1
   end
 
   test "renders a list of breadcrumbs" do

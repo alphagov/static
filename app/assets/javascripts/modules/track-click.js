@@ -7,13 +7,19 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.start = function (element) {
       element.on('click', trackClick);
 
-      var options = {},
+      var options = {transport: 'beacon'},
           category = element.attr('data-track-category'),
           action = element.attr('data-track-action'),
-          label = element.attr('data-track-label');
+          label = element.attr('data-track-label'),
+          dimension = element.attr('data-track-dimension'),
+          dimensionIndex = element.attr('data-track-dimension-index');
 
       if (label) {
         options.label = label;
+      }
+
+      if (dimension && dimensionIndex) {
+        options['dimension' + dimensionIndex] = dimension;
       }
 
       function trackClick() {
