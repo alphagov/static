@@ -1,7 +1,7 @@
 <%
   breadcrumbs ||= []
 %>
-<div class="govuk-breadcrumbs">
+<div class="govuk-breadcrumbs" data-module="track-click">
   <ol>
   <% breadcrumbs.each_with_index do |crumb, index| %>
     <li>
@@ -15,7 +15,6 @@
             track_label: crumb[:url],
             track_dimension: crumb[:title],
             track_dimension_index: 29,
-            module: 'track-click',
           }
         ) %>
       <% else %>

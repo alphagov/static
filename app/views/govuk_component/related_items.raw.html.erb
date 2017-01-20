@@ -1,5 +1,5 @@
 <% if local_assigns[:sections] && !sections.blank? %>
-  <aside class="govuk-related-items" role="complementary">
+  <aside class="govuk-related-items" data-module="track-click" role="complementary">
     <% sections.each_with_index do |section, section_index| %>
       <h2
         <% if section[:id] %>id="<%= section[:id] %>"<% end %>
@@ -19,7 +19,6 @@
                   track_label: item[:url],
                   track_dimension: item[:title],
                   track_dimension_index: 29,
-                  module: 'track-click',
                 },
                 rel: item[:rel],
               ) %>
@@ -35,7 +34,6 @@
                   track_label: section[:url],
                   track_dimension: 'More',
                   track_dimension_index: 29,
-                  module: 'track-click',
                 },
               ) do %>
                 <%= t("govuk_component.related_items.more", default: "More") %>
