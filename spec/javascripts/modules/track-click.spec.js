@@ -8,7 +8,7 @@ describe('A click tracker', function() {
     tracker = new GOVUK.Modules.TrackClick();
   });
 
-  it('tracks click events', function() {
+  it('tracks click events using "beacon" as transport', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -27,14 +27,14 @@ describe('A click tracker', function() {
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
   });
 
-  it('tracks breadcrumb click events', function() {
+  it('tracks clicks with custom dimensions', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
-      '<a data-track-category="breadcrumbClicked" \
+      '<a data-track-category="category" \
           data-track-action="1" \
           data-track-label="/" \
-          data-track-dimension="Home" \
+          data-track-dimension="dimension-value" \
           data-track-dimension-index="29" \
           data-module="track-click" \
           href="/">Home</a>'
@@ -45,33 +45,9 @@ describe('A click tracker', function() {
     element.trigger('click');
 
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-      'breadcrumbClicked',
+      'category',
       '1',
-      { label: '/', dimension29: 'Home', transport: 'beacon' }
-    );
-  });
-
-  it('tracks related item click events', function() {
-    spyOn(GOVUK.analytics, 'trackEvent');
-
-    element = $(
-      '<a data-track-category="relatedLinkClicked" \
-          data-track-action="1.1" \
-          data-track-label="/item" \
-          data-track-dimension="Related" \
-          data-track-dimension-index="29" \
-          data-module="track-click" \
-          href="/">Related</a>'
-    );
-
-    tracker.start(element);
-
-    element.trigger('click');
-
-    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-      'relatedLinkClicked',
-      '1.1',
-      { label: '/item', dimension29: 'Related', transport: 'beacon' }
+      { label: '/', dimension29: 'dimension-value', transport: 'beacon' }
     );
   });
 
