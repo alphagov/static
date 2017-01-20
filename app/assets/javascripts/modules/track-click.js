@@ -5,24 +5,36 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   Modules.TrackClick = function () {
     this.start = function (element) {
-      element.on('click', trackClick);
+      var trackable = '[data-track-category][data-track-action]';
 
-      var options = {transport: 'beacon'},
-          category = element.attr('data-track-category'),
-          action = element.attr('data-track-action'),
-          label = element.attr('data-track-label'),
-          dimension = element.attr('data-track-dimension'),
-          dimensionIndex = element.attr('data-track-dimension-index');
-
-      if (label) {
-        options.label = label;
+      if (element.is(trackable)) {
+        element.on('click', trackClick);
+      } else {
+        element.on('click', trackable, trackClick);
       }
 
-      if (dimension && dimensionIndex) {
-        options['dimension' + dimensionIndex] = dimension;
-      }
+      function trackClick(evt) {
+        var $el = $(evt.target),
+            options = {transport: 'beacon'};
 
-      function trackClick() {
+        if ( ! $el.is(trackable)) {
+          $el = $el.parents(trackable);
+        }
+
+        var category = $el.attr('data-track-category'),
+            action = $el.attr('data-track-action'),
+            label = $el.attr('data-track-label'),
+            dimension = $el.attr('data-track-dimension'),
+            dimensionIndex = $el.attr('data-track-dimension-index');
+
+        if (label) {
+          options.label = label;
+        }
+
+        if (dimension && dimensionIndex) {
+          options['dimension' + dimensionIndex] = dimension;
+        }
+
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
           GOVUK.analytics.trackEvent(category, action, options);
         }
