@@ -54,7 +54,14 @@ ul,
 ol {
   @include core-14;
   padding-left: 13pt;
+}
+
+ul {
   list-style: disc;
+}
+
+ol {
+  list-style: decimal;
 }
 
 li {
