@@ -8,11 +8,8 @@ $is-print: true;
 
 // govuk_frontend_toolkit includes
 @import "colours";
-@import "measurements.scss";
-
-@import "styleguide/print";
-@import "styleguide/font-stacks";
-@import "styleguide/typography";
+@import "measurements";
+@import "typography";
 
 // OUTPUT
 // The following files and inline CSS will form the output of print.css

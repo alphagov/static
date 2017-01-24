@@ -7,7 +7,7 @@ main > header {
   position: relative;
 
   h1 {
-    @include core-24;
+    @include bold-24;
     border-bottom: solid 1pt black;
     padding-bottom: 6pt;
     width: 80%;
@@ -36,7 +36,7 @@ article {
   }
 
   header h1 {
-    @include core-19;
+    @include bold-19;
     border-bottom: 1pt solid $border-colour;
     padding-top: 7pt;
     padding-bottom: 7pt;
