@@ -142,9 +142,10 @@ class RelatedItemsTestCase < ComponentTestCase
       ],
     )
 
+    assert_select '.govuk-related-items[data-module="track-click"]', 1
+
     assert_select "a[data-track-category=\"relatedLinkClicked\"]", 5
     assert_select "a[data-track-dimension-index=\"29\"]", 5
-    assert_select "a[data-module=\"track-click\"]", 5
     assert_select "a[data-track-dimension=\"More\"]", 2
 
     assert_select "a[data-track-action=\"1.1\"]", 1

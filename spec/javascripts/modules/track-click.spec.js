@@ -8,7 +8,7 @@ describe('A click tracker', function() {
     tracker = new GOVUK.Modules.TrackClick();
   });
 
-  it('tracks click events', function() {
+  it('tracks click events using "beacon" as transport', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -27,16 +27,15 @@ describe('A click tracker', function() {
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
   });
 
-  it('tracks breadcrumb click events', function() {
+  it('tracks clicks with custom dimensions', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
-      '<a data-track-category="breadcrumbClicked" \
+      '<a data-track-category="category" \
           data-track-action="1" \
           data-track-label="/" \
-          data-track-dimension="Home" \
+          data-track-dimension="dimension-value" \
           data-track-dimension-index="29" \
-          data-module="track-click" \
           href="/">Home</a>'
     );
 
@@ -45,33 +44,9 @@ describe('A click tracker', function() {
     element.trigger('click');
 
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-      'breadcrumbClicked',
+      'category',
       '1',
-      { label: '/', dimension29: 'Home', transport: 'beacon' }
-    );
-  });
-
-  it('tracks related item click events', function() {
-    spyOn(GOVUK.analytics, 'trackEvent');
-
-    element = $(
-      '<a data-track-category="relatedLinkClicked" \
-          data-track-action="1.1" \
-          data-track-label="/item" \
-          data-track-dimension="Related" \
-          data-track-dimension-index="29" \
-          data-module="track-click" \
-          href="/">Related</a>'
-    );
-
-    tracker.start(element);
-
-    element.trigger('click');
-
-    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-      'relatedLinkClicked',
-      '1.1',
-      { label: '/item', dimension29: 'Related', transport: 'beacon' }
+      { label: '/', dimension29: 'dimension-value', transport: 'beacon' }
     );
   });
 
@@ -113,5 +88,58 @@ describe('A click tracker', function() {
     element.trigger('click');
 
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
+  });
+
+  it('tracks all trackable links within a container', function() {
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    element = $('\
+      <div>\
+        <a class="first" href="#" \
+          data-track-category="cat1"\
+          data-track-action="action1"\
+          data-track-label="label1">\
+          Link 1\
+        </a>\
+        <a class="second" href="#" \
+          data-track-category="cat2"\
+          data-track-action="action2"\
+          data-track-label="label2">\
+          Link 2\
+        </a>\
+        <span class="nothing"></span>\
+      </div>\
+    ');
+
+    tracker.start(element);
+
+    element.find('.nothing').trigger('click');
+    expect(GOVUK.analytics.trackEvent).not.toHaveBeenCalled();
+
+    element.find('a.first').trigger('click');
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('cat1', 'action1', {label: 'label1', transport: 'beacon'});
+
+    element.find('a.second').trigger('click');
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('cat2', 'action2', {label: 'label2', transport: 'beacon'});
+  });
+
+  it('tracks a click correctly when event target is a child element of trackable element', function() {
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    element = $('\
+      <div>\
+        <a class="first" href="#" \
+          data-track-category="parent-category"\
+          data-track-action="parent-action"\
+          data-track-label="parent-label">\
+          <b><span class="child-of-link">I am a child</span></b>\
+        </a>\
+      </div>\
+    ');
+
+    tracker.start(element);
+
+    element.find('.child-of-link').trigger('click');
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('parent-category', 'parent-action', {label: 'parent-label', transport: 'beacon'});
   });
 });
