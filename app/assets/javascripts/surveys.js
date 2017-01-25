@@ -99,6 +99,27 @@
         },
         startTime: new Date("January 30, 2017").getTime(),
         endTime: new Date("February 5, 2017 23:59:59").getTime()
+      },
+      {
+        url: 'https://www.smartsurvey.co.uk/s/6YYKX/',
+        identifier: 'ons_survey',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>Tell us what you think of GOV.UK</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Give us your feedback on government statistical data</a> This will open a short survey on another website</p>' +
+                  '  </div>' +
+                  '</section>',
+        frequency: 1,
+        activeWhen: function() {
+          function pathMatches() {
+            return /^\/government\/statistics\/?$/.test(userSurveys.currentPath());
+          }
+
+          return pathMatches();
+        },
+        startTime: new Date("January 25, 2017").getTime(),
+        endTime: new Date("February 27, 2017 23:59:59").getTime()
       }
     ],
 
