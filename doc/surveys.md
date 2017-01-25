@@ -6,6 +6,8 @@ Sometimes, a "small survey" or "test survey" needs to be run across GOV.UK for a
 
 This can easily be done by adding an entry to `GOVUK.userSurveys.smallSurveys` in `app/assets/javascripts/surveys.js`.
 
+There are sections of the site that should not show any surveys and these can be controlled via the `GOVUK.userSurveys.pathInBlacklist` function in `app/assets/javascripts/surveys.js`.  They are also never shown on "done" pages which can be controlled via the `GOVUK.userSurveys.userCompletedTransaction` function in the same file.
+
 ## Example
 
 ```javascript

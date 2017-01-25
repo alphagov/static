@@ -158,7 +158,9 @@
     },
 
     isSurveyToBeDisplayed: function(survey) {
-      if (userSurveys.otherNotificationVisible() ||
+      if (userSurveys.pathInBlacklist()) {
+        return false;
+      } else if (userSurveys.otherNotificationVisible() ||
           GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false;
       } else if (userSurveys.userCompletedTransaction()) {
@@ -173,6 +175,16 @@
       } else {
         return false;
       }
+    },
+
+    pathInBlacklist: function() {
+      var blackList = new RegExp('^/(?:'
+        + /service-manual/.source
+        // add more blacklist paths in the form:
+        // + /|path-to\/blacklist/.source
+        + ')(?:\/|$)'
+      );
+      return blackList.test(userSurveys.currentPath());
     },
 
     userCompletedTransaction: function() {
