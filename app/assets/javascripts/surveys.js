@@ -49,7 +49,7 @@
                   '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a>. This link opens in a new tab.</p>' +
                   '  </div>' +
                   '</section>',
-        frequency: 10,
+        frequency: 2,
         activeWhen: function() {
 
           function pathMatches() {
@@ -71,7 +71,7 @@
           return (pathMatches());
         },
         startTime: new Date("January 16, 2017").getTime(),
-        endTime: new Date("January 29, 2017 23:59:59").getTime()
+        endTime: new Date("February 12, 2017 23:59:59").getTime()
       },
       {
         url: 'https://www.surveymonkey.com/s/2MRDLTW',
