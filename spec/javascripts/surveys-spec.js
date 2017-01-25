@@ -81,6 +81,12 @@ describe("Surveys", function() {
       expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy();
     });
 
+    it("returns false if the path is blacklisted", function() {
+      spyOn(surveys, 'pathInBlacklist').and.returnValue(true);
+
+      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy();
+    })
+
     it("returns false if the 'survey taken' cookie is set", function () {
       GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true');
 
@@ -96,7 +102,39 @@ describe("Surveys", function() {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true);
       expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy();
     });
+  });
 
+  describe("pathInBlacklist", function() {
+    // we make sure that slash-terminated and slash-unterminated versions
+    // of these paths work
+    it("returns true if the path is /service-manual", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/service-manual', '/service-manual/');
+      expect(surveys.pathInBlacklist()).toBeTruthy();
+      expect(surveys.pathInBlacklist()).toBeTruthy();
+    });
+
+    it("returns true if the path is a sub-folder under /service-manual", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/service-manual/some-other-page', '/service-manual/some-other-page/');
+      expect(surveys.pathInBlacklist()).toBeTruthy();
+      expect(surveys.pathInBlacklist()).toBeTruthy();
+    });
+
+    it("returns false if the path is /service-manual-with-a-suffix", function() {
+      spyOn(surveys, 'currentPath').and.returnValues('/service-manual-with-a-suffix', '/service-manual-with-a-suffix/');
+      expect(surveys.pathInBlacklist()).toBeFalsy();
+      expect(surveys.pathInBlacklist()).toBeFalsy();
+    });
+
+    it("returns false if the path is /some-other-parent-of/service-manual", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/some-other-parent-of/service-manual', '/some-other-parent-of/service-manual/');
+      expect(surveys.pathInBlacklist()).toBeFalsy();
+      expect(surveys.pathInBlacklist()).toBeFalsy();
+    });
+
+    it("returns false otherwise", function() {
+      spyOn(surveys, 'currentPath').and.returnValue('/');
+      expect(surveys.pathInBlacklist()).toBeFalsy();
+    });
   });
 
   describe("userCompletedTransaction", function() {

@@ -49,7 +49,7 @@
                   '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a>. This link opens in a new tab.</p>' +
                   '  </div>' +
                   '</section>',
-        frequency: 10,
+        frequency: 2,
         activeWhen: function() {
 
           function pathMatches() {
@@ -71,7 +71,55 @@
           return (pathMatches());
         },
         startTime: new Date("January 16, 2017").getTime(),
-        endTime: new Date("January 29, 2017 23:59:59").getTime()
+        endTime: new Date("February 12, 2017 23:59:59").getTime()
+      },
+      {
+        url: 'https://www.surveymonkey.com/s/2MRDLTW',
+        identifier: 'education_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function breadcrumbMatches() {
+            var text = $('#global-breadcrumb').text() || "";
+            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          }
+
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (sectionName === 'education' || sectionName === 'childcare' || sectionName === 'schools');
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || organisationMatches() || breadcrumbMatches());
+        },
+        startTime: new Date("January 30, 2017").getTime(),
+        endTime: new Date("February 5, 2017 23:59:59").getTime()
+      },
+      {
+        url: 'https://www.smartsurvey.co.uk/s/6YYKX/',
+        identifier: 'ons_survey',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>Tell us what you think of GOV.UK</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Give us your feedback on government statistical data</a> This will open a short survey on another website</p>' +
+                  '  </div>' +
+                  '</section>',
+        frequency: 1,
+        activeWhen: function() {
+          function pathMatches() {
+            return /^\/government\/statistics\/?$/.test(userSurveys.currentPath());
+          }
+
+          return pathMatches();
+        },
+        startTime: new Date("January 25, 2017").getTime(),
+        endTime: new Date("February 27, 2017 23:59:59").getTime()
       }
     ],
 
@@ -131,7 +179,9 @@
     },
 
     isSurveyToBeDisplayed: function(survey) {
-      if (userSurveys.otherNotificationVisible() ||
+      if (userSurveys.pathInBlacklist()) {
+        return false;
+      } else if (userSurveys.otherNotificationVisible() ||
           GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false;
       } else if (userSurveys.userCompletedTransaction()) {
@@ -146,6 +196,16 @@
       } else {
         return false;
       }
+    },
+
+    pathInBlacklist: function() {
+      var blackList = new RegExp('^/(?:'
+        + /service-manual/.source
+        // add more blacklist paths in the form:
+        // + /|path-to\/blacklist/.source
+        + ')(?:\/|$)'
+      );
+      return blackList.test(userSurveys.currentPath());
     },
 
     userCompletedTransaction: function() {
