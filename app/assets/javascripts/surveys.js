@@ -72,6 +72,33 @@
         },
         startTime: new Date("January 16, 2017").getTime(),
         endTime: new Date("January 29, 2017 23:59:59").getTime()
+      },
+      {
+        url: 'https://www.surveymonkey.com/s/2MRDLTW',
+        identifier: 'education_survey',
+        template: TEMPLATE,
+        frequency: 10,
+        activeWhen: function() {
+          function breadcrumbMatches() {
+            var text = $('#global-breadcrumb').text() || "";
+            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          }
+
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (sectionName === 'education' || sectionName === 'childcare' || sectionName === 'schools');
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || organisationMatches() || breadcrumbMatches());
+        },
+        startTime: new Date("January 30, 2017").getTime(),
+        endTime: new Date("February 5, 2017 23:59:59").getTime()
       }
     ],
 
