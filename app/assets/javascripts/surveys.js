@@ -80,13 +80,13 @@
         frequency: 10,
         activeWhen: function() {
           function breadcrumbMatches() {
-            var text = $('#global-breadcrumb').text() || "";
+            var text = $('.govuk-breadcrumbs').text() || "";
             return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
           }
 
           function sectionMatches() {
             var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (sectionName === 'education' || sectionName === 'childcare' || sectionName === 'schools');
+            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
           }
 
           function organisationMatches() {
