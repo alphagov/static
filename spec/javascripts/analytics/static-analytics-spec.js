@@ -56,6 +56,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
         $('head').append('\
           <meta name="govuk:section" content="section">\
+          <meta name="govuk:breadcrumb" content="breadcrumb">\
           <meta name="govuk:format" content="format">\
           <meta name="govuk:search-result-count" content="1000">\
           <meta name="govuk:publishing-government" content="2005-to-2010-labour-government">\
@@ -66,14 +67,14 @@ describe("GOVUK.StaticAnalytics", function() {
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
-
         expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
-        expect(universalSetupArguments[5]).toEqual(['set', 'dimension2', 'format']);
-        expect(universalSetupArguments[6]).toEqual(['set', 'dimension5', '1000']);
-        expect(universalSetupArguments[7]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
-        expect(universalSetupArguments[8]).toEqual(['set', 'dimension7', 'historic']);
-        expect(universalSetupArguments[9]).toEqual(['set', 'dimension9', '<D10>']);
-        expect(universalSetupArguments[10]).toEqual(['set', 'dimension10', '<W1>']);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension30', 'breadcrumb']);
+        expect(universalSetupArguments[6]).toEqual(['set', 'dimension2', 'format']);
+        expect(universalSetupArguments[7]).toEqual(['set', 'dimension5', '1000']);
+        expect(universalSetupArguments[8]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
+        expect(universalSetupArguments[9]).toEqual(['set', 'dimension7', 'historic']);
+        expect(universalSetupArguments[10]).toEqual(['set', 'dimension9', '<D10>']);
+        expect(universalSetupArguments[11]).toEqual(['set', 'dimension10', '<W1>']);
       });
 
       it('ignores meta tags not set', function() {
@@ -100,6 +101,9 @@ describe("GOVUK.StaticAnalytics", function() {
 
       analytics.setSectionDimension('value');
       expect(window.ga.calls.mostRecent().args).toEqual(['set', 'dimension1', 'value']);
+
+      analytics.setBreadcrumbDimension('parent>child');
+      expect(window.ga.calls.mostRecent().args).toEqual(['set', 'dimension30', 'parent>child']);
     });
   });
 
