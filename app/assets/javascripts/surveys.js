@@ -23,6 +23,34 @@
     },
     smallSurveys: [
       {
+        url: 'https://www.surveymonkey.co.uk/r/6QC8RV8',
+        identifier: 'environment_survey',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>Why did you come to GOV.UK today?</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer 2 quick questions</a> to help us make GOV.UK better.</p>' +
+                  '  </div>' +
+                  '</section>',
+        frequency: 5,
+        activeWhen: function() {
+          function sectionMatches() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (/environment/i.test(sectionName) || /outdoor/i.test(sectionName));
+          }
+
+          function organisationMatches() {
+            var orgMatchingExpr = /<D7>|<EA199>|<EA1079>|<EA53>|<EA58>|<EA60>|<PB57>|<PB202>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return (sectionMatches() || organisationMatches());
+        },
+        startTime: new Date("February 5, 2017").getTime(),
+        endTime: new Date("February 10, 2017 23:59:59").getTime()
+      },
+      {
         url: 'https://www.surveymonkey.co.uk/r/W5LS62K',
         identifier: 'family_visa_survey',
         template: TEMPLATE,
