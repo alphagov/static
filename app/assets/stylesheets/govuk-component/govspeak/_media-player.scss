@@ -1,8 +1,8 @@
-// Scoped to govspeak container when included
+.govuk-govspeak {
+  // Video player styles from frontend toolkit
+  @import "design-patterns/media-player";
 
-// Video player styles from frontend toolkit
-@import "design-patterns/media-player";
-
-.media-player {
-  @include media-player;
+  .media-player {
+    @include media-player;
+  }
 }

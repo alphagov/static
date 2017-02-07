@@ -1,19 +1,18 @@
+@import "govspeak/attachment";
+@import "govspeak/contact";
+@import "govspeak/example";
+@import "govspeak/footnotes";
+@import "govspeak/fraction";
+@import "govspeak/images";
+@import "govspeak/information-block";
+@import "govspeak/legislative-list";
+@import "govspeak/magna-charta";
+@import "govspeak/media-player";
+@import "govspeak/stat-headline";
+@import "govspeak/tables";
+@import "govspeak/typography";
+
 .govuk-govspeak {
-
-  @import "govspeak/attachment";
-  @import "govspeak/contact";
-  @import "govspeak/example";
-  @import "govspeak/footnotes";
-  @import "govspeak/fraction";
-  @import "govspeak/images";
-  @import "govspeak/information-block";
-  @import "govspeak/legislative-list";
-  @import "govspeak/magna-charta";
-  @import "govspeak/media-player";
-  @import "govspeak/stat-headline";
-  @import "govspeak/tables";
-  @import "govspeak/typography";
-
   &.direction-rtl {
     direction: rtl;
     text-align: start;

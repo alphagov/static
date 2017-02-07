@@ -1,14 +1,14 @@
-// Scoped to govspeak container when included
+.govuk-govspeak {
+  .fraction {
+    sup,
+    sub {
+      @include core-14;
+    }
 
-.fraction {
-  sup,
-  sub {
-    @include core-14;
-  }
-
-  img {
-    display: inline-block;
-    width: auto;
-    margin: 0 0 -5px;
+    img {
+      display: inline-block;
+      width: auto;
+      margin: 0 0 -5px;
+    }
   }
 }
