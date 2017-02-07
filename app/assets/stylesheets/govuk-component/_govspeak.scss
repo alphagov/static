@@ -7,6 +7,7 @@
   @import "govspeak/example";
   @import "govspeak/fraction";
   @import "govspeak/images";
+  @import "govspeak/information-block";
   @import "govspeak/legislative-list";
   @import "govspeak/media-player";
   @import "govspeak/stat-headline";
@@ -22,50 +23,6 @@
     strong {
       font-weight: bold;
     }
-  }
-
-  .information-block,
-  .call-to-action {
-    margin-top: $gutter;
-    margin-bottom: $gutter;
-    background-color: $panel-colour;
-    padding: $gutter-half;
-    position: relative;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    p:last-child,
-    ul:last-child,
-    ol:last-child {
-      margin-bottom: 0;
-    }
-
-    ol {
-      @include media(desktop) {
-        list-style-position: outside;
-      }
-    }
-  }
-
-  .information-block {
-    padding-right: $gutter * 2;
-  }
-
-  .information-block:after {
-    content: "info";
-    text-indent: -9999px;
-    background-color: $govuk-blue;
-    background-image: image-url('govuk-component/govspeak-information-icon.png');
-    background-position: center;
-    height: $gutter;
-    width: $gutter;
-    position: absolute;
-    overflow: hidden;
-    top: $gutter-two-thirds;
-    right: $gutter-two-thirds;
-    @include border-radius($gutter);
   }
 
   .address,
