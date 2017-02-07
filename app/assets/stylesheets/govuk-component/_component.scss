@@ -5,6 +5,7 @@
 
 // Component mixins
 @import "mixins/margins";
+@import "mixins/rtl";
 
 // Components styles
 @import "alpha-label";
@@ -19,3 +20,4 @@
 @import "breadcrumbs";
 @import "related-items";
 @import "organisation-logo";
+@import "description";

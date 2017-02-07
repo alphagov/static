@@ -1,0 +1,6 @@
+@mixin direction-rtl {
+  &.direction-rtl {
+    direction: rtl;
+    text-align: start;
+  }
+}

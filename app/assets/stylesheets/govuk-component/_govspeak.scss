@@ -3,10 +3,7 @@
 @import "govspeak-magna-charta";
 
 .govuk-govspeak {
-  &.direction-rtl {
-    direction: rtl;
-    text-align: start;
-  }
+  @include direction-rtl;
 
   &.rich-govspeak {
     strong {
