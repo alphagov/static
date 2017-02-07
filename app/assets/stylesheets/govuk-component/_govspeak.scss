@@ -5,6 +5,7 @@
 
   @import "govspeak/attachment";
   @import "govspeak/example";
+  @import "govspeak/fraction";
   @import "govspeak/images";
   @import "govspeak/legislative-list";
   @import "govspeak/media-player";
@@ -65,19 +66,6 @@
     top: $gutter-two-thirds;
     right: $gutter-two-thirds;
     @include border-radius($gutter);
-  }
-
-  .fraction {
-    sup,
-    sub {
-      @include core-14;
-    }
-
-    img {
-      display: inline-block;
-      width: auto;
-      margin: 0 0 -5px;
-    }
   }
 
   .address,
