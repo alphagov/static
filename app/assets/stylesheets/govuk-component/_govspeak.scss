@@ -4,6 +4,7 @@
 
 .govuk-govspeak {
 
+  @import "govspeak/images";
   @import "govspeak/typography";
 
   &.direction-rtl {
@@ -33,31 +34,6 @@
       margin: 10px 0 10px $gutter;
       list-style: none;
     }
-  }
-
-  figure {
-    width: $full-width;
-    clear: both;
-    overflow: hidden;
-    padding: $gutter-one-third 0 0;
-
-    img {
-      display: inline;
-      text-align: center;
-      width: auto;
-      height: auto;
-      max-width: $full-width;
-    }
-
-    figcaption {
-      @include core-14;
-    }
-  }
-
-  img {
-    width: auto;
-    height: auto;
-    max-width: $full-width;
   }
 
   .information-block,
