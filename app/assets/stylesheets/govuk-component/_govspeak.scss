@@ -4,6 +4,7 @@
 .govuk-govspeak {
 
   @import "govspeak/attachment";
+  @import "govspeak/example";
   @import "govspeak/images";
   @import "govspeak/legislative-list";
   @import "govspeak/media-player";
@@ -144,16 +145,6 @@
       li p {
         margin: 10px 0;
       }
-    }
-  }
-
-  .example {
-    border-left: 10px solid $panel-colour;
-    padding-left: 1.5em;
-    margin: 2.5em 0;
-
-    strong {
-      display: block;
     }
   }
 }

@@ -1,0 +1,11 @@
+// Scoped to govspeak container when included
+
+.example {
+  border-left: 10px solid $panel-colour;
+  padding-left: 1.5em;
+  margin: 2.5em 0;
+
+  strong {
+    display: block;
+  }
+}
