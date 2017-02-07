@@ -6,6 +6,7 @@
   @import "govspeak/attachment";
   @import "govspeak/contact";
   @import "govspeak/example";
+  @import "govspeak/footnotes";
   @import "govspeak/fraction";
   @import "govspeak/images";
   @import "govspeak/information-block";
@@ -23,21 +24,6 @@
   &.rich-govspeak {
     strong {
       font-weight: bold;
-    }
-  }
-
-  .footnotes {
-    border-top: 1px solid $border-colour;
-    margin-top: $gutter;
-    padding-top: $gutter-one-third;
-
-    ol {
-      margin-top: 0;
-      padding-top: 0;
-
-      li p {
-        margin: 10px 0;
-      }
     }
   }
 }
