@@ -6,6 +6,7 @@
   @import "govspeak/attachment";
   @import "govspeak/images";
   @import "govspeak/media-player";
+  @import "govspeak/stat-headline";
   @import "govspeak/tables";
   @import "govspeak/typography";
 
@@ -92,27 +93,6 @@
       display: inline-block;
       width: auto;
       margin: 0 0 -5px;
-    }
-  }
-
-  .stat-headline {
-    margin-bottom: $gutter-half;
-    margin-top: $gutter-half;
-
-    @include media(tablet) {
-      margin-bottom: $gutter-two-thirds;
-      margin-top: $gutter-two-thirds;
-    }
-
-    p {
-      @include bold-19;
-      margin: 0;
-    }
-
-    em {
-      display: block;
-      @include bold-80;
-      margin: 3px 0 -5px;
     }
   }
 
