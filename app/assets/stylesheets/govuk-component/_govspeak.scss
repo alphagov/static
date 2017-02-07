@@ -1,11 +1,11 @@
-// Video player styles from frontend toolkit
-@import "design-patterns/media-player";
+
 @import "govspeak-magna-charta";
 
 .govuk-govspeak {
 
   @import "govspeak/attachment";
   @import "govspeak/images";
+  @import "govspeak/media-player";
   @import "govspeak/tables";
   @import "govspeak/typography";
 
@@ -183,12 +183,6 @@
       }
     }
   }
-
-  .media-player {
-    @include media-player;
-  }
-
-  
 
   .example {
     border-left: 10px solid $panel-colour;

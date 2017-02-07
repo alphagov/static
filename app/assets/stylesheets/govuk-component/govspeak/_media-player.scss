@@ -1,0 +1,8 @@
+// Scoped to govspeak container when included
+
+// Video player styles from frontend toolkit
+@import "design-patterns/media-player";
+
+.media-player {
+  @include media-player;
+}
