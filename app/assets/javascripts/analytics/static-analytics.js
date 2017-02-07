@@ -94,6 +94,7 @@
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
+    this.setAbTestDimension(dimensions['ab-test']);
   };
 
   StaticAnalytics.prototype.trackPageview = function(path, title, options) {
@@ -154,6 +155,10 @@
 
   StaticAnalytics.prototype.setSearchPositionDimension = function(position) {
     this.setDimension(21, position);
+  };
+
+  StaticAnalytics.prototype.setAbTestDimension = function(testNameAndBucket) {
+    this.setDimension(40, testNameAndBucket);
   };
 
   GOVUK.StaticAnalytics = StaticAnalytics;
