@@ -5,6 +5,7 @@
 
   @import "govspeak/attachment";
   @import "govspeak/images";
+  @import "govspeak/legislative-list";
   @import "govspeak/media-player";
   @import "govspeak/stat-headline";
   @import "govspeak/tables";
@@ -18,24 +19,6 @@
   &.rich-govspeak {
     strong {
       font-weight: bold;
-    }
-  }
-
-  .legislative-list {
-    list-style: none;
-    margin: 5px 0;
-
-    li {
-      margin: 5px 0;
-    }
-
-    p {
-      margin: 20px 0;
-    }
-
-    ol {
-      margin: 10px 0 10px $gutter;
-      list-style: none;
     }
   }
 
