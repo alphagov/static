@@ -1,6 +1,3 @@
-
-@import "govspeak-magna-charta";
-
 .govuk-govspeak {
 
   @import "govspeak/attachment";
@@ -11,6 +8,7 @@
   @import "govspeak/images";
   @import "govspeak/information-block";
   @import "govspeak/legislative-list";
+  @import "govspeak/magna-charta";
   @import "govspeak/media-player";
   @import "govspeak/stat-headline";
   @import "govspeak/tables";
