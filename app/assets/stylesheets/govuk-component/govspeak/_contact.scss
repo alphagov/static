@@ -1,4 +1,13 @@
+// Govspeak contact
+// http://govuk-component-guide.herokuapp.com/components/govspeak/fixtures/contact
+//
+// Support:
+// - alphagov/whitehall: ✔︎
+// - alphagov/govspeak: ✔︎
+
 .govuk-govspeak {
+  // No obvious signs of the address class being used in alphagov/whitehall or
+  // alphagov/govspeak.
   .address,
   .contact {
     border-left: 1px solid $border-colour;
