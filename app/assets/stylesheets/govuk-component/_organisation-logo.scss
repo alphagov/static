@@ -1,9 +1,6 @@
 // Default logo corresponds with the "medium stacked" Whitehall equivalent
 .govuk-organisation-logo {
-  // Variable defined in frontend toolkit
-  // scss-lint:disable NameFormat
-  font-family: $Helvetica-Regular;
-  // scss-lint:enable NameFormat
+  font-family: $helvetica-regular;
   font-size: 13px;
   line-height: (15 / 13);
   font-weight: 400;
