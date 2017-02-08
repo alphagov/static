@@ -31,4 +31,9 @@ class OrganisationLogoTestCase < ComponentTestCase
     render_component(organisation: { name: "Crested", crest: "single-identity" })
     assert_select ".logo-container.logo-with-crest.crest-single-identity"
   end
+
+  test "an image is rendered when specified" do
+    render_component(organisation: { name: "Custom image", image: { url: "url", "alt_text": "alt" } })
+    assert_select ".logo-container img[src='url'][alt='alt']"
+  end
 end

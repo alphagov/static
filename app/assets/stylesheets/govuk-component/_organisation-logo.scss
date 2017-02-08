@@ -22,6 +22,11 @@
     direction: ltr;
   }
 
+  // Scale images on smaller viewports
+  .logo-image {
+    max-width: 100%;
+  }
+
   .logo-with-crest {
     // Default brand colour
     border-left: 2px solid $black;
