@@ -2,11 +2,6 @@
 
 REPOSITORY = 'static'
 
-def sassLinter() {
-  echo 'Running SASS linter'
-  sh('bundle exec govuk-lint-sass app/assets/stylesheets/govuk-component')
-}
-
 node {
   // Deployed by Puppet's Govuk_jenkins::Pipeline manifest
   def govuk = load '/var/lib/jenkins/groovy_scripts/govuk_jenkinslib.groovy'
@@ -52,9 +47,7 @@ node {
 
     stage('Lint') {
       govuk.rubyLinter()
-
-      // Can't use govuk.sassLinter as no way to provide custom paths... yet.
-      sassLinter()
+      govuk.sassLinter('app/assets/stylesheets/govuk-component')
     }
 
     stage('Test') {
