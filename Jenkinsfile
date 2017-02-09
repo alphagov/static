@@ -27,6 +27,10 @@ node {
       throttleOption: 'category'],
     [$class: 'ParametersDefinitionProperty',
       parameterDefinitions: [
+        [$class: 'BooleanParameterDefinition',
+          name: 'IS_SCHEMA_TEST',
+          defaultValue: false,
+          description: 'Identifies whether this build is being triggered to test a change to the content schemas'],
         [$class: 'StringParameterDefinition',
           name: 'SCHEMA_BRANCH',
           defaultValue: 'deployed-to-production',
@@ -36,8 +40,13 @@ node {
   try {
     govuk.setEnvar('GOVUK_APP_DOMAIN', 'dev.gov.uk')
     govuk.initializeParameters([
+      'IS_SCHEMA_TEST': 'false',
       'SCHEMA_BRANCH': 'deployed-to-production',
     ])
+
+    if (!govuk.isAllowedBranchBuild(env.BRANCH_NAME)) {
+      return
+    }
 
     stage('Build') {
       checkout scm
