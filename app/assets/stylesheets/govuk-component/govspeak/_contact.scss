@@ -1,0 +1,63 @@
+// Govspeak contact
+// http://govuk-component-guide.herokuapp.com/components/govspeak/fixtures/contact
+//
+// Support:
+// - alphagov/whitehall: ✔︎
+// - alphagov/govspeak: ✔︎
+
+.govuk-govspeak {
+  // No obvious signs of the address class being used in alphagov/whitehall or
+  // alphagov/govspeak.
+  .address,
+  .contact {
+    border-left: 1px solid $border-colour;
+    padding-left: $gutter-half;
+  }
+
+  .contact {
+    @extend %contain-floats;
+    margin-bottom: $gutter;
+    margin-top: $gutter;
+    position: relative;
+
+    .content {
+      float: none;
+      width: $full-width;
+
+      h3 {
+        @include bold-19;
+        margin-bottom: 5px;
+      }
+
+      .adr,
+      .email-url-number,
+      .comments {
+        @include media(tablet) {
+          width: $half;
+          float: left;
+        }
+      }
+
+      .email-url-number {
+        p {
+          margin: 0;
+        }
+
+        .email {
+          word-wrap: break-word;
+        }
+
+        span {
+          display: block;
+        }
+      }
+
+      .comments {
+        @include core-16;
+        @include media(tablet) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+// Govspeak call out blocks
+// http://govuk-component-guide.herokuapp.com/components/govspeak/fixtures/call_out_blocks
+//
+// Support:
+//
+// `call-to-action` exists within alphagov/govspeak, but no signs of anything
+// that generates HTML using the `information-block` class in alphagov or
+// kramdown.
+//
+// - alphagov/whitehall: ⁉
+// - alphagov/govspeak: ⁉
+
+.govuk-govspeak {
+  .information-block,
+  .call-to-action {
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+    background-color: $panel-colour;
+    padding: $gutter-half;
+    position: relative;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child,
+    ul:last-child,
+    ol:last-child {
+      margin-bottom: 0;
+    }
+
+    ol {
+      @include media(desktop) {
+        list-style-position: outside;
+      }
+    }
+  }
+
+  .information-block {
+    padding-right: $gutter * 2;
+  }
+
+  .information-block:after {
+    content: "info";
+    text-indent: -9999px;
+    background-color: $govuk-blue;
+    background-image: image-url('govuk-component/govspeak-information-icon.png');
+    background-position: center;
+    height: $gutter;
+    width: $gutter;
+    position: absolute;
+    overflow: hidden;
+    top: $gutter-two-thirds;
+    right: $gutter-two-thirds;
+    @include border-radius($gutter);
+  }
+}
