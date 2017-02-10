@@ -529,3 +529,10 @@ fixtures:
           you exactly 42 minutes and 12 seconds to get to the other side.
         </p>
       </div>
+  warning_callout:
+    content: |
+      <div class="application-notice help-notice">
+        <p>
+          The water in the mouth of a blue whale weighs more than its body.
+        </p>
+      </div>
