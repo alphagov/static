@@ -121,12 +121,6 @@ fixtures:
         <p>My quote</p>
         <p class="last-child">about things</p>
       </blockquote>
-  information_block:
-    content: |
-      <div class="information-block">
-        <p>My important information</p>
-        <p>Information</p>
-      </div>
   tables:
     content: |
       <table>
