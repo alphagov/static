@@ -62,7 +62,6 @@ describe("GOVUK.StaticAnalytics", function() {
           <meta name="govuk:political-status" content="historic">\
           <meta name="govuk:analytics:organisations" content="<D10>">\
           <meta name="govuk:analytics:world-locations" content="<W1>">\
-          <meta name="govuk:ab-test" content="name-of-test:name-of-ab-bucket">\
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
@@ -75,7 +74,6 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(universalSetupArguments[8]).toEqual(['set', 'dimension7', 'historic']);
         expect(universalSetupArguments[9]).toEqual(['set', 'dimension9', '<D10>']);
         expect(universalSetupArguments[10]).toEqual(['set', 'dimension10', '<W1>']);
-        expect(universalSetupArguments[11]).toEqual(['set', 'dimension40', 'name-of-test:name-of-ab-bucket']);
       });
 
       it('ignores meta tags not set', function() {
@@ -86,8 +84,53 @@ describe("GOVUK.StaticAnalytics", function() {
         universalSetupArguments = window.ga.calls.allArgs();
 
         expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
-        expect(universalSetupArguments[5]).toEqual(['send', 'pageview']);
+        assertClosingArgumentIsAtIndex(universalSetupArguments, 5);
       });
+
+      it('sets A/B meta tags as dimensions', function() {
+        $('head').append('\
+          <meta name="govuk:ab-test" content="name-of-test:name-of-ab-bucket" data-analytics-dimension="42">\
+          <meta name="govuk:ab-test" content="name-of-other-test:name-of-other-ab-bucket" data-analytics-dimension="48">\
+        ');
+
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+        universalSetupArguments = window.ga.calls.allArgs();
+
+        expect(universalSetupArguments[4]).toEqual(['set', 'dimension42', 'name-of-test:name-of-ab-bucket']);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension48', 'name-of-other-test:name-of-other-ab-bucket']);
+      });
+
+      it('ignores dimensions outside of the A/B test range', function () {
+        $('head').append('\
+          <meta name="govuk:ab-test" content="name-of-test-dimension-too-low:some-bucket" data-analytics-dimension="39">\
+          <meta name="govuk:ab-test" content="name-of-valid-test:some-bucket" data-analytics-dimension="40">\
+          <meta name="govuk:ab-test" content="name-of-other-valid-test:some-bucket" data-analytics-dimension="49">\
+          <meta name="govuk:ab-test" content="name-of-test-dimension-too-high:some-bucket" data-analytics-dimension="50">\
+        ');
+
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+        universalSetupArguments = window.ga.calls.allArgs();
+
+        expect(universalSetupArguments[4]).toEqual(['set', 'dimension40', 'name-of-valid-test:some-bucket']);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension49', 'name-of-other-valid-test:some-bucket']);
+        assertClosingArgumentIsAtIndex(universalSetupArguments, 6);
+      });
+
+      it('ignores A/B meta tags with invalid dimensions', function () {
+        $('head').append('\
+          <meta name="govuk:ab-test" content="name-of-test:some-bucket">\
+          <meta name="govuk:ab-test" content="name-of-test:some-bucket" data-analytics-dimension="not a number">\
+        ');
+
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+        universalSetupArguments = window.ga.calls.allArgs();
+
+        assertClosingArgumentIsAtIndex(universalSetupArguments, 4);
+      });
+
+      function assertClosingArgumentIsAtIndex(setupArgs, argIndex) {
+        expect(setupArgs[argIndex]).toEqual(['send', 'pageview']);
+      }
     });
   });
 

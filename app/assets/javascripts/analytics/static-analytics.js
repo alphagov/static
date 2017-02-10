@@ -13,6 +13,7 @@
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
     this.setDimensionsFromMetaTags();
+    this.setAbTestDimensionsFromMetaTags();
     this.callMethodRequestedByPreviousPage();
 
     // Track initial pageview
@@ -94,8 +95,25 @@
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
-    this.setAbTestDimension(dimensions['ab-test']);
   };
+
+  StaticAnalytics.prototype.setAbTestDimensionsFromMetaTags = function() {
+      var $abMetas = $('meta[name^="govuk:ab-test"]'),
+          staticAnalytics = this,
+          // This is the block of dimensions assigned to A/B tests
+          minAbTestDimension = 40,
+          maxAbTestDimension = 49;
+
+      $abMetas.each(function() {
+        var $meta = $(this),
+        dimension = parseInt($meta.data('analytics-dimension')),
+        testNameAndBucket = $meta.attr('content');
+
+        if (dimension >= minAbTestDimension && dimension <= maxAbTestDimension) {
+          staticAnalytics.setDimension(dimension, testNameAndBucket);
+        }
+      });
+  }
 
   StaticAnalytics.prototype.trackPageview = function(path, title, options) {
     this.analytics.trackPageview(path, title, options);
@@ -155,10 +173,6 @@
 
   StaticAnalytics.prototype.setSearchPositionDimension = function(position) {
     this.setDimension(21, position);
-  };
-
-  StaticAnalytics.prototype.setAbTestDimension = function(testNameAndBucket) {
-    this.setDimension(40, testNameAndBucket);
   };
 
   GOVUK.StaticAnalytics = StaticAnalytics;
