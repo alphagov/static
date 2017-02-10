@@ -11,7 +11,7 @@
     margin-top: $gutter;
     margin-bottom: $gutter;
     background-color: $panel-colour;
-    padding: $gutter-half;
+    padding: 2em;
 
     &:first-child {
       margin-top: 0;
@@ -21,12 +21,6 @@
     ul:last-child,
     ol:last-child {
       margin-bottom: 0;
-    }
-
-    ol {
-      @include media(desktop) {
-        list-style-position: outside;
-      }
     }
   }
 }
