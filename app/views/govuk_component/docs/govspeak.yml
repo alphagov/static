@@ -121,14 +121,11 @@ fixtures:
         <p>My quote</p>
         <p class="last-child">about things</p>
       </blockquote>
-  call_out_blocks:
+  information_block:
     content: |
       <div class="information-block">
         <p>My important information</p>
         <p>Information</p>
-      </div>
-      <div class="call-to-action">
-        <p>Call to action</p>
       </div>
   tables:
     content: |
@@ -511,7 +508,16 @@ fixtures:
     content: |
       <div class="example">
         <p>
+          <strong>Example</strong>
           This is an indented example block.<br/>
           It may span multiple lines, <a href="#">contain links</a>.
         </p>
+        <p>
+          It may even span multiple paragraphs.
+        </p>
+      </div>
+  call_to_action:
+    content: |
+      <div class="call-to-action">
+        <p>Call to action</p>
       </div>
