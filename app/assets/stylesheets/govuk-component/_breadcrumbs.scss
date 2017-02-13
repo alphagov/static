@@ -9,4 +9,9 @@
   }
 
   @include breadcrumbs;
+
+  a[href^="#"] {
+    color: $secondary-text-colour;
+    text-decoration: none;
+  }
 }
