@@ -12,6 +12,7 @@
 
     setPixelDensityDimension();
     setHTTPStatusCodeDimension();
+    setTLSVersionDimension();
     this.setDimensionsFromMetaTags();
     this.setAbTestDimensionsFromMetaTags();
     this.callMethodRequestedByPreviousPage();
@@ -32,6 +33,11 @@
       if (window.devicePixelRatio) {
         analytics.setDimension(11, window.devicePixelRatio);
       }
+    }
+
+    function setTLSVersionDimension() {
+      var tls_version = GOVUK.cookie('TLSVersion') || 'unknown';
+      analytics.setDimension(16, tls_version);
     }
 
     function setHTTPStatusCodeDimension() {
