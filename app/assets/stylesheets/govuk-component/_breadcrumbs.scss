@@ -9,4 +9,9 @@
   }
 
   @include breadcrumbs;
+
+  .breadcrumb-for-current-page {
+    color: $secondary-text-colour;
+    text-decoration: none;
+  }
 }
