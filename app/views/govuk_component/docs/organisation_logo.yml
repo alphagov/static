@@ -3,6 +3,8 @@ description: "Organisation text with crest and branded border colour"
 body: |
   Organisation name must be provided with pre-formatted line breaks.
   These cannot be inferred from the name alone.
+
+  Alternatively a custom organisation logo can be provided as an image.
 fixtures:
   default:
     organisation:
@@ -91,3 +93,20 @@ fixtures:
       url: '/government/organisations/treasury-solicitor-s-department'
       brand: 'attorney-generals-office'
       crest: 'org'
+  land_registry:
+    organisation:
+      name: 'Land Registry'
+      url: '/government/organisations/land-registry'
+      brand: 'department-for-business-innovation-skills'
+      crest: null
+      image:
+        url: 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/organisation/logo/69/LR_logo_265.png'
+        alt_text: 'Land Registry'
+  hm_prison_service:
+    organisation:
+      name: 'HM Prison Service'
+      url: '/government/organisations/hm-prison-service'
+      brand: 'ministry-of-justice'
+      image:
+        url: 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/organisation/logo/321/HMPS.jpg'
+        alt_text: 'HM Prison Service'
