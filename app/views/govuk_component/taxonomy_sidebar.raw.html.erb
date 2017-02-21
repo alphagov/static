@@ -1,0 +1,33 @@
+<% if local_assigns[:sections] && !sections.blank? %>
+  <aside class='govuk-taxonomy-sidebar' data-module='track-click' role='complementary'>
+    <% sections.each_with_index do |section, section_index| %>
+
+      <h2> <%= section[:title] %> </h2>
+
+      <nav role='navigation'>
+        <ul>
+          <% section[:items].each_with_index do |item, item_index| %>
+            <li>
+              <%=
+                link_to(
+                  item[:title],
+                  item[:url],
+                  data: {
+                    track_category: 'relatedLinkClicked',
+                    track_action: "#{section_index + 1}.#{item_index + 1}",
+                    track_label: item[:url],
+                    track_dimension: item[:title],
+                    track_dimension_index: 29,
+                  },
+                  class: 'taxon-link',
+                )
+              %>
+
+              <p class='taxon-description'><%= item[:description] %></p>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    <% end %>
+  </aside>
+<% end %>
