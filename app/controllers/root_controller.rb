@@ -30,6 +30,11 @@ class RootController < ApplicationController
   end
 
   def govuk_locales
+    # Smart Answers uses "en-GB" instead of "en". We don't have a specfic en-GB
+    # locale for the components. This will make return the English locale since
+    # it's a reasonable fallback.
+    params[:locale] = "en" if params[:locale] == "en-GB"
+
     return error_404 unless params[:locale].match(/^[a-z]{2}(-[a-z0-9]{2,3})?$/)
     locale_file_path = Rails.root.join("config", "locales", "#{params[:locale]}.yml")
     render_yaml_as_json(locale_file_path)
