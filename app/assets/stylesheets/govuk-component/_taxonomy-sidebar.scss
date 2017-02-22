@@ -1,0 +1,35 @@
+.govuk-taxonomy-sidebar {
+  border-top: 10px solid $mainstream-brand;
+  padding-top: 5px;
+
+  h2 {
+    @include bold-24;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  ul {
+    // reset the default browser styles
+    padding: 0;
+    margin: 0;
+
+    @include core-16;
+    list-style: none;
+    margin-bottom: 1.25em;
+
+    li {
+      // reset the default browser styles
+      padding: 0;
+
+      margin-bottom: 0.75em;
+
+      .taxon-link {
+        font-size: 19px;
+      }
+
+      .taxon-description {
+        margin-top: 0.5em;
+      }
+    }
+  }
+}

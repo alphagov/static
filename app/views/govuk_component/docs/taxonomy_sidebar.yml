@@ -1,0 +1,19 @@
+name: "Taxonomy sidebar"
+description: "Sidebar navigation for displaying on pages tagged to the GOV.UK taxonomy."
+body: |
+  Accepts an array of sections. Each section can have a title and a list of
+  items - these items are typically the list of taxons the current content page
+  is tagged to.
+
+  Each item is a hash with a title, url, and description.
+fixtures:
+  default:
+    sections:
+      - title: "Parent taxons"
+        items:
+          - title: "School curriculum"
+            url: /education/school-curriculum
+          - title: "Tests (key stage 1)"
+            url: /key-stage-1-tests
+
+
