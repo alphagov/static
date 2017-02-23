@@ -90,6 +90,28 @@ describe('A click tracker', function() {
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action', {label: 'Foo', transport: 'beacon'});
   });
 
+  it('tracks clicks with values', function() {
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    element = $(
+      '<a data-track-category="category" \
+          data-track-action="1" \
+          data-track-label="/" \
+          data-track-value="9" \
+          href="/">Home</a>'
+    );
+
+    tracker.start(element);
+
+    element.trigger('click');
+
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+      'category',
+      '1',
+      { label: '/', value: '9', transport: 'beacon' }
+    );
+  });
+
   it('tracks all trackable links within a container', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
