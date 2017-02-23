@@ -24,11 +24,16 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         var category = $el.attr('data-track-category'),
             action = $el.attr('data-track-action'),
             label = $el.attr('data-track-label'),
+            value = $el.attr('data-track-value'),
             dimension = $el.attr('data-track-dimension'),
             dimensionIndex = $el.attr('data-track-dimension-index');
 
         if (label) {
           options.label = label;
+        }
+
+        if (value) {
+          options.value = value;
         }
 
         if (dimension && dimensionIndex) {
