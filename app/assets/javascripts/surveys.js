@@ -5,21 +5,45 @@
       $ = root.jQuery;
   if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
-  var TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                 '  <div class="wrapper">' +
-                 '    <h1>Tell us what you think of GOV.UK</h1>' +
-                 '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                 '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
-                 '  </div>' +
-                 '</section>';
+  var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                            '  <div class="wrapper">' +
+                            '    <h1>Tell us what you think of GOV.UK</h1>' +
+                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
+                            '  </div>' +
+                            '</section>',
+    EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                            '  <div id="email-survey-pre" class="wrapper">' +
+                            '    <h1>Tell us what you think of GOV.UK</h1>' +
+                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                            '    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">Your feedback will help us improve this website</a></p>' +
+                            '  </div>' +
+                            '  <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true">' +
+                            '    <div id="feedback-prototype-form">'+
+                            '      <h1>We\'d like to hear from you</h1>'+
+                            '      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>' +
+                            '      <label for="email">Tell us your email address and we\'ll send you a link to a quick feedback form.</label>' +
+                            '      <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
+                            '      <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
+                            '      <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">' +
+                            '      <div class="actions">' +
+                            '        <button class="button">Send</button>' +
+                            '        <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
+                            '      </div>' +
+                            '    </div>' +
+                            '  </form>' +
+                            '  <div id="email-survey-post" class="wrapper js-hidden" aria-hidden="true">' +
+                            '    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>' +
+                            '  </div>' +
+                            '</section>';
 
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
       identifier: 'user_satisfaction_survey',
-      template: TEMPLATE,
-      frequency: 50
+      frequency: 50,
+      surveyType: 'url',
     },
     smallSurveys: [
       {
@@ -40,6 +64,7 @@
 
           return pathMatches();
         },
+        surveyType: 'url',
         startTime: new Date("January 25, 2017").getTime(),
         endTime: new Date("February 27, 2017 23:59:59").getTime()
       }
@@ -69,8 +94,19 @@
     },
 
     displaySurvey: function(survey) {
-      $("#user-satisfaction-survey-container").append(survey.template);
-      userSurveys.setEventHandlers(survey);
+      var surveyContainer = $("#user-satisfaction-survey-container");
+      if (survey.surveyType === 'email') {
+        userSurveys.displayEmailSurvey(survey, surveyContainer);
+      } else if ((survey.surveyType === 'url') || (survey.surveyType === undefined)) {
+        userSurveys.displayURLSurvey(survey, surveyContainer);
+      } else {
+        return;
+      }
+      userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown');
+    },
+
+    displayURLSurvey: function(survey, surveyContainer) {
+      surveyContainer.append(survey.template || URL_SURVEY_TEMPLATE);
 
       var $surveyLink = $('#take-survey');
       var surveyUrl = survey.url;
@@ -81,10 +117,66 @@
       }
 
       $surveyLink.attr('href', surveyUrl);
-      userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown');
+
+      userSurveys.setURLSurveyEventHandlers(survey);
     },
 
-    setEventHandlers: function(survey) {
+    displayEmailSurvey: function(survey, surveyContainer) {
+      surveyContainer.append(survey.template || EMAIL_SURVEY_TEMPLATE);
+
+      var $surveyId = $('#email-survey-form input[name="email_survey_signup[survey_id]"]'),
+        $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]');
+
+      $surveyId.val(survey.identifier);
+      $surveySource.val(root.location.pathname);
+
+      userSurveys.setEmailSurveyEventHandlers(survey);
+    },
+
+    setEmailSurveyEventHandlers: function(survey) {
+      var $emailSurveyOpen = $('#email-survey-open'),
+        $emailSurveyCancel = $('#email-survey-cancel'),
+        $emailSurveyPre = $('#email-survey-pre'),
+        $emailSurveyForm = $('#email-survey-form'),
+        $emailSurveyPost = $('#email-survey-post'),
+        $noThanks = $('#survey-no-thanks');
+
+      $noThanks.click(function (e) {
+        userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
+        userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked');
+        e.stopPropagation();
+        return false;
+      });
+
+      $emailSurveyOpen.click(function (e) {
+        userSurveys.trackEvent(survey.identifier, 'email_survey_open', 'Email survey opened');
+        $emailSurveyPre.addClass('js-hidden').attr('aria-hidden', 'true');
+        $emailSurveyForm.removeClass('js-hidden').attr('aria-hidden', 'false');
+        e.stopPropagation();
+        return false;
+      });
+
+      $emailSurveyCancel.click(function (e) {
+        userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
+        userSurveys.trackEvent(survey.identifier, 'email_survey_cancel', 'Email survey cancelled');
+        e.stopPropagation();
+        return false;
+      });
+
+      $emailSurveyForm.submit(function(e) {
+        $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
+        $emailSurveyPost.removeClass('js-hidden').attr('aria-hidden', 'false');
+        userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken');
+        userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
+        e.stopPropagation();
+        return false;
+      });
+    },
+
+    setURLSurveyEventHandlers: function(survey) {
       var $noThanks = $('#survey-no-thanks');
       var $takeSurvey = $('#take-survey');
 

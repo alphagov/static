@@ -9,12 +9,23 @@ describe("Surveys", function() {
     template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
               '  <a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a>' +
               '  <a href="javascript:void()" id="take-survey" target="_blank"></a>' +
-              '</section>'
+              '</section>',
+    surveyType: 'url',
   };
   var smallSurvey = {
     startTime: new Date("July 5, 2016").getTime(),
     endTime: new Date("July 10, 2016 23:50:00").getTime(),
-    url: 'example.com/small-survey'
+    url: 'example.com/small-survey',
+    surveyType: 'url',
+  };
+  var urlSurvey = {
+    surveyType: 'url',
+    url: 'surveymonkey.com/default',
+    identifier: 'url-survey',
+  };
+  var emailSurvey = {
+    surveyType: 'email',
+    identifier: 'email-survey',
   };
 
   beforeEach(function () {
@@ -34,6 +45,9 @@ describe("Surveys", function() {
 
   afterEach(function () {
     GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), null);
+    GOVUK.cookie(surveys.surveyTakenCookieName(smallSurvey), null);
+    GOVUK.cookie(surveys.surveyTakenCookieName(urlSurvey), null);
+    GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey), null);
     $block.remove();
   });
 
@@ -60,17 +74,57 @@ describe("Surveys", function() {
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
     });
 
-    it("links to the url for a surveymonkey survey with a completion redirect query parameter", function () {
-      surveys.displaySurvey(defaultSurvey);
+    describe("for a 'url' survey", function() {
+      it("links to the url for a surveymonkey survey with a completion redirect query parameter", function () {
+        surveys.displaySurvey(urlSurvey);
 
-      expect($('#take-survey').attr('href')).toContain(defaultSurvey.url);
-      expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
+        expect($('#take-survey').attr('href')).toContain(urlSurvey.url);
+        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
+      });
+
+      it("records an event when showing the survey", function() {
+        spyOn(surveys, 'trackEvent');
+        surveys.displaySurvey(urlSurvey);
+        expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown');
+      });
+
+      it("sets event handlers on the survey", function() {
+        spyOn(surveys, 'setURLSurveyEventHandlers');
+        surveys.displaySurvey(urlSurvey);
+        expect(surveys.setURLSurveyEventHandlers).toHaveBeenCalledWith(urlSurvey);
+      });
+
+      it("records an event when showing the survey", function() {
+        spyOn(surveys, 'trackEvent');
+        surveys.displaySurvey(urlSurvey);
+        expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown');
+      });
     });
 
-    it("records an event when showing the survey", function() {
-      spyOn(surveys, 'trackEvent');
-      surveys.displaySurvey(defaultSurvey);
-      expect(surveys.trackEvent).toHaveBeenCalledWith(defaultSurvey.identifier, 'banner_shown', 'Banner has been shown');
+    describe("for an 'email' survey", function() {
+      it("adds the survey identifier to the form", function() {
+        surveys.displaySurvey(emailSurvey);
+
+        expect($('#email-survey-form input[name="email_survey_signup[survey_id]"]').val()).toEqual(emailSurvey.identifier);
+      });
+
+      it("adds the current path to the form", function() {
+        surveys.displaySurvey(emailSurvey);
+
+        expect($('#email-survey-form input[name="email_survey_signup[survey_source]"]').val()).toEqual(window.location.pathname);
+      });
+
+      it("sets event handlers on the survey", function() {
+        spyOn(surveys, 'setEmailSurveyEventHandlers');
+        surveys.displaySurvey(emailSurvey);
+        expect(surveys.setEmailSurveyEventHandlers).toHaveBeenCalledWith(emailSurvey);
+      });
+
+      it("records an event when showing the survey", function() {
+        spyOn(surveys, 'trackEvent');
+        surveys.displaySurvey(emailSurvey);
+        expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_shown', 'Banner has been shown');
+      });
     });
   });
 
@@ -160,6 +214,7 @@ describe("Surveys", function() {
   });
 
   describe("Event handlers", function () {
+    describe("for a url survey", function() {
       beforeEach(function() {
         surveys.displaySurvey(defaultSurvey);
       });
@@ -196,6 +251,90 @@ describe("Surveys", function() {
         $('#survey-no-thanks').trigger('click');
         expect(surveys.trackEvent).toHaveBeenCalledWith(defaultSurvey.identifier, 'banner_no_thanks', 'No thanks clicked');
       });
+    });
+
+    describe("for an email survey", function() {
+      var emailSurvey = {
+        surveyType: 'email',
+        identifier: 'email-survey',
+      };
+
+      beforeEach(function() {
+        surveys.displaySurvey(emailSurvey);
+      });
+
+      it("sets a cookie when clicking 'no thanks'", function () {
+        $('#survey-no-thanks').trigger('click');
+        expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true');
+      });
+
+      it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
+        $('#survey-no-thanks').trigger('click');
+        expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
+      });
+
+      it("records an event when clicking 'no thanks'", function() {
+        spyOn(surveys, 'trackEvent');
+        $('#survey-no-thanks').trigger('click');
+        expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_no_thanks', 'No thanks clicked');
+      });
+
+      it("opens the email form when clicking on 'Your feedback will help us ...'", function() {
+        $('#email-survey-open').trigger('click');
+        expect($('#email-survey-form').hasClass('js-hidden')).toBe(false);
+      });
+
+      it("hides the invitation to take the survey when clicking on 'Your feedback will help us ...'", function() {
+        $('#email-survey-open').trigger('click');
+        expect($('#email-survey-pre').hasClass('js-hidden')).toBe(true);
+      });
+
+      it("records an event when clicking on 'Your feedback will help us ...'", function() {
+        spyOn(surveys, 'trackEvent');
+        $('#email-survey-open').trigger('click');
+        expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_open', 'Email survey opened');
+      });
+
+      describe("once the email form is opened", function() {
+        it("opens the post submit message when submitting the form", function() {
+          $('#email-survey-form').trigger('submit');
+          expect($('#email-survey-post').hasClass('js-hidden')).toBe(false);
+        });
+
+        it("hides the email form when submitting the form", function() {
+          $('#email-survey-form').trigger('submit');
+          expect($('#email-survey-form').hasClass('js-hidden')).toBe(true);
+        });
+
+        it("sets a cookie when submitting the form", function () {
+          $('#email-survey-form').trigger('submit');
+          expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true');
+        });
+
+        it("records an event when submitting the form", function() {
+          spyOn(surveys, 'trackEvent');
+          $('#email-survey-form').trigger('submit');
+          expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_taken', 'Email survey taken');
+          expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_taken', 'User taken survey');
+        });
+
+        it("hides the email form when clicking 'No thanks'", function() {
+          $('#email-survey-cancel').trigger('click');
+          expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true');
+        });
+
+        it("hides the whole email survey interface after clicking 'no thanks'", function () {
+          $('#email-survey-cancel').trigger('click');
+          expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false);
+        });
+
+        it("records an event when clicking 'no thanks'", function() {
+          spyOn(surveys, 'trackEvent');
+          $('#email-survey-cancel').trigger('click');
+          expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_cancel', 'Email survey cancelled');
+        });
+      });
+    });
   });
 
   describe("currentTime", function() {
