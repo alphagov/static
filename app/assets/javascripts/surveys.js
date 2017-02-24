@@ -90,12 +90,14 @@
 
       $noThanks.click(function (e) {
         userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
         userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked');
         e.stopPropagation();
         return false;
       });
       $takeSurvey.click(function () {
         userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
         userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
       });
     },
@@ -154,6 +156,9 @@
 
     setSurveyTakenCookie: function (survey) {
       GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30*4 });
+    },
+
+    hideSurvey: function(_survey) {
       $("#user-satisfaction-survey").removeClass('visible').attr('aria-hidden', 'true');
     },
 
