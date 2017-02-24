@@ -32,8 +32,11 @@
                             '      </div>' +
                             '    </div>' +
                             '  </form>' +
-                            '  <div id="email-survey-post" class="wrapper js-hidden" aria-hidden="true">' +
+                            '  <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">' +
                             '    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>' +
+                            '  </div>' +
+                            '  <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">' +
+                            '    <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>' +
                             '  </div>' +
                             '</section>';
 
@@ -138,7 +141,8 @@
         $emailSurveyCancel = $('#email-survey-cancel'),
         $emailSurveyPre = $('#email-survey-pre'),
         $emailSurveyForm = $('#email-survey-form'),
-        $emailSurveyPost = $('#email-survey-post'),
+        $emailSurveyPostSuccess = $('#email-survey-post-success'),
+        $emailSurveyPostFailure = $('#email-survey-post-failure'),
         $noThanks = $('#survey-no-thanks');
 
       $noThanks.click(function (e) {
@@ -166,11 +170,28 @@
       });
 
       $emailSurveyForm.submit(function(e) {
-        $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
-        $emailSurveyPost.removeClass('js-hidden').attr('aria-hidden', 'false');
-        userSurveys.setSurveyTakenCookie(survey);
-        userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken');
-        userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
+        var successCallback = function() {
+          $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
+          $emailSurveyPostSuccess.removeClass('js-hidden').attr('aria-hidden', 'false');
+          userSurveys.setSurveyTakenCookie(survey);
+          userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken');
+          userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
+        },
+        errorCallback = function() {
+          $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
+          $emailSurveyPostFailure.removeClass('js-hidden').attr('aria-hidden', 'false');
+        };
+        $.ajax({
+          type: "POST",
+          url: $emailSurveyForm.attr('action'),
+          dataType: "json",
+          data: $emailSurveyForm.serialize(),
+          success: successCallback,
+          error: errorCallback,
+          statusCode: {
+            500: errorCallback
+          }
+        });
         e.stopPropagation();
         return false;
       });
