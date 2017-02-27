@@ -45,5 +45,7 @@ module Static
 
     # Disable Rack::Cache
     config.action_dispatch.rack_cache = nil
+
+    config.paths["log"] = ENV["LOG_PATH"] if ENV["LOG_PATH"]
   end
 end
