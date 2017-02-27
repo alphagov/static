@@ -95,6 +95,10 @@
     }
   }
 
+  .crest-dit {
+    @include crest('dit_crest');
+  }
+
   .crest-bis {
     @include crest('bis_crest');
   }

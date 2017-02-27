@@ -27,6 +27,12 @@ fixtures:
       url: '/government/organisations/department-for-business-innovation-skills'
       brand: 'department-for-business-innovation-skills'
       crest: 'bis'
+  department_for_international_trade:
+    organisation:
+      name: 'Department for<br>International Trade'
+      url: '/government/organisations/department-for-international-trade'
+      brand: 'department-for-international-trade'
+      crest: 'dit'
   executive_office:
     organisation:
       name: Prime Minister's Office, 10 Downing Street
