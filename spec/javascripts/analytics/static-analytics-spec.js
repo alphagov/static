@@ -32,7 +32,7 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     it('tracks a pageview in universal', function() {
-      expect(universalSetupArguments[4]).toEqual(['send', 'pageview']);
+      expect(universalSetupArguments[5]).toEqual(['send', 'pageview']);
     });
 
     it('begins print tracking', function() {
@@ -69,15 +69,15 @@ describe("GOVUK.StaticAnalytics", function() {
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
-        expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
-        expect(universalSetupArguments[5]).toEqual(['set', 'dimension2', 'format']);
-        expect(universalSetupArguments[6]).toEqual(['set', 'dimension5', '1000']);
-        expect(universalSetupArguments[7]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
-        expect(universalSetupArguments[8]).toEqual(['set', 'dimension7', 'historic']);
-        expect(universalSetupArguments[9]).toEqual(['set', 'dimension9', '<D10>']);
-        expect(universalSetupArguments[10]).toEqual(['set', 'dimension10', '<W1>']);
-        expect(universalSetupArguments[11]).toEqual(['set', 'dimension32', 'accordion']);
-        expect(universalSetupArguments[12]).toEqual(['set', 'dimension33', 'navigation']);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension1', 'section']);
+        expect(universalSetupArguments[6]).toEqual(['set', 'dimension2', 'format']);
+        expect(universalSetupArguments[7]).toEqual(['set', 'dimension5', '1000']);
+        expect(universalSetupArguments[8]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
+        expect(universalSetupArguments[9]).toEqual(['set', 'dimension7', 'historic']);
+        expect(universalSetupArguments[10]).toEqual(['set', 'dimension9', '<D10>']);
+        expect(universalSetupArguments[11]).toEqual(['set', 'dimension10', '<W1>']);
+        expect(universalSetupArguments[12]).toEqual(['set', 'dimension32', 'accordion']);
+        expect(universalSetupArguments[13]).toEqual(['set', 'dimension33', 'navigation']);
       });
 
       it('ignores meta tags not set', function() {
@@ -86,8 +86,8 @@ describe("GOVUK.StaticAnalytics", function() {
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
-        expect(universalSetupArguments[4]).toEqual(['set', 'dimension1', 'section']);
-        assertClosingArgumentIsAtIndex(universalSetupArguments, 5);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension1', 'section']);
+        assertClosingArgumentIsAtIndex(universalSetupArguments, 6);
       });
 
       it('sets A/B meta tags as dimensions', function() {
@@ -99,8 +99,8 @@ describe("GOVUK.StaticAnalytics", function() {
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
-        expect(universalSetupArguments[4]).toEqual(['set', 'dimension42', 'name-of-test:name-of-ab-bucket']);
-        expect(universalSetupArguments[5]).toEqual(['set', 'dimension48', 'name-of-other-test:name-of-other-ab-bucket']);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension42', 'name-of-test:name-of-ab-bucket']);
+        expect(universalSetupArguments[6]).toEqual(['set', 'dimension48', 'name-of-other-test:name-of-other-ab-bucket']);
       });
 
       it('ignores dimensions outside of the A/B test range', function () {
@@ -114,9 +114,9 @@ describe("GOVUK.StaticAnalytics", function() {
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
-        expect(universalSetupArguments[4]).toEqual(['set', 'dimension40', 'name-of-valid-test:some-bucket']);
-        expect(universalSetupArguments[5]).toEqual(['set', 'dimension49', 'name-of-other-valid-test:some-bucket']);
-        assertClosingArgumentIsAtIndex(universalSetupArguments, 6);
+        expect(universalSetupArguments[5]).toEqual(['set', 'dimension40', 'name-of-valid-test:some-bucket']);
+        expect(universalSetupArguments[6]).toEqual(['set', 'dimension49', 'name-of-other-valid-test:some-bucket']);
+        assertClosingArgumentIsAtIndex(universalSetupArguments, 7);
       });
 
       it('ignores A/B meta tags with invalid dimensions', function () {
@@ -128,12 +128,36 @@ describe("GOVUK.StaticAnalytics", function() {
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         universalSetupArguments = window.ga.calls.allArgs();
 
-        assertClosingArgumentIsAtIndex(universalSetupArguments, 4);
+        assertClosingArgumentIsAtIndex(universalSetupArguments, 5);
       });
 
       function assertClosingArgumentIsAtIndex(setupArgs, argIndex) {
         expect(setupArgs[argIndex]).toEqual(['send', 'pageview']);
       }
+    });
+  });
+
+  describe('when there is a TLSVersion cookie', function() {
+    beforeEach(function() {
+      GOVUK.cookie('TLSVersion', '2');
+      window.ga.calls.reset();
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+      universalSetupArguments = window.ga.calls.allArgs();
+    });
+    it("sets the cookie value as the value of the tls version custom dimension", function() {
+      expect(universalSetupArguments[4]).toEqual(['set', 'dimension16', '2']);
+    });
+  });
+
+  describe('when there is no TLSVersion cookie', function() {
+    beforeEach(function() {
+      GOVUK.cookie('TLSVersion', null);
+      window.ga.calls.reset();
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+      universalSetupArguments = window.ga.calls.allArgs();
+    });
+    it("sets unknown as the value of the tls version custom dimension", function() {
+      expect(universalSetupArguments[4]).toEqual(['set', 'dimension16', 'unknown']);
     });
   });
 
