@@ -4,31 +4,42 @@
 
   h2 {
     @include bold-24;
-    margin-top: 0.3em;
-    margin-bottom: 0.5em;
+    margin: 0;
+  }
+
+  p {
+    @include core-19;
+    margin-top: $gutter-one-third / 2;
+    margin-bottom: $gutter-two-thirds;
   }
 
   ul {
-    // reset the default browser styles
-    padding: 0;
     margin: 0;
+    padding: 0;
+  }
 
+  .sidebar-taxon {
     @include core-16;
-    list-style: none;
-    margin-bottom: 1.25em;
+    padding-bottom: 1.25em;
 
-    li {
-      // reset the default browser styles
-      padding: 0;
+    .taxon-link {
+      font-size: 19px;
+    }
+  }
 
-      margin-bottom: 0.75em;
+  .related-content {
+    line-height: 1.5;
 
-      .taxon-link {
-        font-size: 19px;
-      }
+    .related-content-item {
+      margin-bottom: 0;
+    }
 
-      .taxon-description {
-        margin-top: 0.5em;
+    .related-link {
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
       }
     }
   }
