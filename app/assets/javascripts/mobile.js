@@ -18,23 +18,29 @@ $(function () {
       if (this.$navbar.closest('aside').css('float') !== 'none') {
         return;
       }
-
       this.setup();
     },
     control : function (e) {
       var $this = $(e.target),
-          instance = this;
+          instance = this,
+          hasAnalytics = GOVUK.analytics && GOVUK.analytics.trackEvent;
 
       if(!$this.hasClass('show-all-parts-open')) {
         $this.addClass('show-all-parts-open');
         $this.text($this.text().replace(/Show/, 'Hide'));
         instance.$navbar.removeClass('page-navigation-closed');
         instance.$navbar.addClass('page-navigation-open');
+        if (hasAnalytics) {
+          GOVUK.analytics.trackEvent("contentsClicked", "openGuideNav");
+        }
       } else {
         $this.removeClass('show-all-parts-open');
         $this.text($this.text().replace(/Hide/, 'Show'));
         instance.$navbar.removeClass('page-navigation-open');
         instance.$navbar.addClass('page-navigation-closed');
+        if (hasAnalytics) {
+          GOVUK.analytics.trackEvent("contentsClicked", "closeGuideNav");
+        }
       }
 
       return false;
@@ -50,7 +56,7 @@ $(function () {
         this.$pageHeader.html(this.$pageHeader.html().replace(/Part\s(\d+)/, 'Part $1 of ' + this.$navlist.find('li').length));
       }
       this.$showAllLink.on('click', function (e) {
-        instance.control(e); 
+        instance.control(e);
         return false;
       });
 
