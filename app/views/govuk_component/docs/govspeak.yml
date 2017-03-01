@@ -237,10 +237,13 @@ fixtures:
         <li>تابعنا باللغة العربية عبر</li>
         <li>تابعنا باللغة العربية عبر تويتر </li>
       </ul>
+  with_bold_unstyled:
+    content: |
+      <p>This content has <strong>text in strong tags</strong>, but they are not styled as bold</p>
   with_rich_govspeak:
     rich_govspeak: true
     content: |
-      <p>This content has some <strong>rich govspeak</strong></p>
+      <p>This content uses rich govspeak and has <strong>text in strong tags</strong> that are styled as bold</p>
   with_youtube_embed:
     content: |
       <p>This content has a YouTube video link, converted to an accessible embedded player by component JavaScript.</p>
