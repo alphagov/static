@@ -29,6 +29,9 @@
     meta_tags["govuk:publishing-government"] = details_hash[:government][:slug]
   end
 
+  user_journey_stage = content_item_hash[:user_journey_document_supertype]
+  meta_tags["govuk:user-journey-stage"] = user_journey_stage if user_journey_stage
+
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">

@@ -84,6 +84,11 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_empty render_component(content_item: { details: { political: true } })
   end
 
+  test "renders user journey stage when user journey supertype is included" do
+    render_component(content_item: { user_journey_document_supertype: 'some-stage-of-journey' })
+    assert_meta_tag('govuk:user-journey-stage', 'some-stage-of-journey')
+  end
+
   test "renders 'political' political status when political content and government is current" do
     current = true
     political = true
