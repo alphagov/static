@@ -36,7 +36,7 @@
     }
 
     function setTLSVersionDimension() {
-      var tls_version = GOVUK.cookie('TLSVersion') || 'unknown';
+      var tls_version = GOVUK.cookie('TLSversion') || 'unknown';
       analytics.setDimension(16, tls_version);
     }
 
