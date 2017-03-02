@@ -137,9 +137,9 @@ describe("GOVUK.StaticAnalytics", function() {
     });
   });
 
-  describe('when there is a TLSVersion cookie', function() {
+  describe('when there is a TLSversion cookie', function() {
     beforeEach(function() {
-      GOVUK.cookie('TLSVersion', '2');
+      GOVUK.cookie('TLSversion', '2');
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
       universalSetupArguments = window.ga.calls.allArgs();
@@ -149,9 +149,9 @@ describe("GOVUK.StaticAnalytics", function() {
     });
   });
 
-  describe('when there is no TLSVersion cookie', function() {
+  describe('when there is no TLSversion cookie', function() {
     beforeEach(function() {
-      GOVUK.cookie('TLSVersion', null);
+      GOVUK.cookie('TLSversion', null);
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
       universalSetupArguments = window.ga.calls.allArgs();
