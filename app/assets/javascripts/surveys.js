@@ -116,7 +116,7 @@
 
       // Survey monkey can record the URL of the survey link if passed through as a query param
       if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
-        surveyUrl += "?c=" + root.location.pathname;
+        surveyUrl += "?c=" + userSurveys.currentPath();
       }
 
       $surveyLink.attr('href', surveyUrl);
@@ -131,7 +131,7 @@
         $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]');
 
       $surveyId.val(survey.identifier);
-      $surveySource.val(root.location.pathname);
+      $surveySource.val(userSurveys.currentPath());
 
       userSurveys.setEmailSurveyEventHandlers(survey);
     },
