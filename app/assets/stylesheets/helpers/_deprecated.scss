@@ -1,0 +1,161 @@
+
+/*
+ * Related box
+ *
+ * DEPRECATED - DO NOT USE
+ */
+.related-container {
+  @include grid-column(1/3, $full-width: desktop);
+  margin-top: 40px;
+}
+
+.related {
+  border-top: 10px solid $mainstream-brand;
+  padding-top: 5px;
+
+  nav {
+    margin-bottom: 1.25em;
+  }
+
+  h2 {
+    @include core-24;
+    font-weight: 600;
+    color: $text-colour;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+    position: relative;
+
+    @include media-down(mobile) {
+      font-size: 17px;
+      margin-bottom: 0.625em;
+    }
+  }
+
+  ul {
+    @include core-16;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    margin-bottom: 0.75em;
+    padding-left: 0;
+
+    &.related-topic {
+      list-style: none outside none;
+
+      a {
+        display: inline;
+        font-weight: bold;
+      }
+    }
+
+    a {
+      background-position: 0 -287px;
+      background-repeat: no-repeat;
+      display: block;
+      line-height:1.25em;
+      orphans: 2;
+
+      &:hover {
+        background-position: 0 10px;
+      }
+
+      @include ie-lte(8) {
+        height: 1%;
+      }
+    }
+
+    a[href*="#"] {
+      /* grey out stub links */
+      background: none;
+      color: #888;
+      cursor: default;
+      text-decoration: none;
+    }
+
+    a.view-all {
+      margin: 10px 0 10px;
+    }
+
+  }
+  .return-to-top {
+    @include core-16;
+    margin: 0.25em 0 0;
+    padding: 0.75em 0;
+
+    @include media(desktop){
+      position: absolute;
+      left: -9999em;
+    }
+  }
+}
+
+/*
+ * Related box
+ *
+ * DEPRECATED - DO NOT USE
+ */
+
+#global-breadcrumb {
+  background-color: #fff;
+  max-width: 1020px;
+  margin:0 auto;
+  z-index: 50;
+
+  @include media-down(mobile) {
+    padding: 0 1em;
+  }
+
+  @include ie(6) {
+    width: 960px;
+  }
+
+  ol {
+    max-width: 960px;
+    margin: 0 30px;
+    padding: 0.75em 0;
+
+    @include ie-lte(7) {
+      padding: 0.75em 16px 0;
+      width: 900px;
+    }
+
+    @include media-down(mobile) {
+      margin: 0;
+    }
+
+    li {
+      @include core-16;
+      background-image: image-url("separator.png");
+      background-position: 100% 50%;
+      background-repeat: no-repeat;
+      float: left;
+      list-style: none;
+      margin-left: 0;
+      margin-right: 0.5em;
+      margin-bottom: 0.4em;
+      padding-right: 1em;
+
+      @include device-pixel-ratio() {
+        background-image: image-url("separator-2x.png");
+        background-size: 6px 11px;
+      }
+
+      a {
+        color: $text-colour;
+      }
+
+      strong {
+        font-weight: normal;
+      }
+
+      &:last-child {
+        background-image: none;
+        margin-right: 0
+      }
+    }
+  }
+}
