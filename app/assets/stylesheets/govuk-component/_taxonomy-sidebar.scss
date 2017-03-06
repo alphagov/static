@@ -1,46 +1,41 @@
 .govuk-taxonomy-sidebar {
   border-top: 10px solid $mainstream-brand;
-  padding-top: 5px;
-
-  h2 {
-    @include bold-24;
-    margin: 0;
-  }
-
-  p {
-    @include core-19;
-    margin-top: $gutter-one-third / 2;
-    margin-bottom: $gutter-two-thirds;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
+  @include core-16;
 
   .sidebar-taxon {
-    @include core-16;
-    padding-bottom: 1.25em;
+    padding-top: 1.25em;
 
-    .taxon-link {
-      font-size: 19px;
+    h2 {
+      @include bold-24;
+      margin: 0 0 5px;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
-  }
 
-  .related-content {
-    line-height: 1.5;
-
-    .related-content-item {
-      margin-bottom: 0;
+    .taxon-description {
+      font-size: 16px;
+      margin: 0;
     }
 
-    .related-link {
-      text-decoration: none;
+    .related-content {
+      margin: 0 0 0 15px;
+      padding: 0;
+      list-style-type: none;
+      line-height: 1.5;
 
-      &:hover,
-      &:focus {
-        text-decoration: underline;
+      a:before {
+        content: "•";
+        display: inline-block;
+        width: 15px;
+        margin-left: -15px;
       }
     }
   }
+
 }
