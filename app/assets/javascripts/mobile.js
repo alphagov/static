@@ -1,7 +1,7 @@
 // Scripts for behaviour specific to use on mobile (non-desktop) devices
 
 $(function () {
-  var GOVUK = GOVUK || {};
+  var GOVUK = window.GOVUK || {};
 
   var guideTabs = function () {
       this.$navbar = $('div.article-container aside nav.page-navigation');
