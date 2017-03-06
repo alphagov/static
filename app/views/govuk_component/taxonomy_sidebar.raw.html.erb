@@ -4,7 +4,20 @@
 
       <div class='sidebar-taxon'>
         <h2>
-          <%= link_to item[:title], item[:url], class: 'taxon-link' %>
+          <%=
+            link_to(
+              item[:title],
+              item[:url],
+              class: 'taxon-link',
+              data: {
+                track_category: 'relatedLinkClicked',
+                track_action: "#{item_index + 1}",
+                track_label: item[:url],
+                track_dimension: item[:title],
+                track_dimension_index: 29,
+              },
+            )
+          %>
         </h2>
 
         <p class='taxon-description'>
