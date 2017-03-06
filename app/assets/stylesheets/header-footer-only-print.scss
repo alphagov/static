@@ -11,9 +11,6 @@ $is-print: true;
 @import "typography";
 @import "measurements.scss";
 
-// local styleguide includes
-@import "styleguide/print";
-
 // OUTPUT
 // The following files and inline CSS will form the output of print.css
 @import "helpers/print-base";
