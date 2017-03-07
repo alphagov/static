@@ -26,7 +26,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             label = $el.attr('data-track-label'),
             value = $el.attr('data-track-value'),
             dimension = $el.attr('data-track-dimension'),
-            dimensionIndex = $el.attr('data-track-dimension-index');
+            dimensionIndex = $el.attr('data-track-dimension-index'),
+            extraOptions = $el.attr('data-track-options');
 
         if (label) {
           options.label = label;
@@ -38,6 +39,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
         if (dimension && dimensionIndex) {
           options['dimension' + dimensionIndex] = dimension;
+        }
+
+        if (extraOptions) {
+          $.extend(options, JSON.parse(extraOptions));
         }
 
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {

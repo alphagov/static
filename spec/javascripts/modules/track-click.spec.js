@@ -112,6 +112,28 @@ describe('A click tracker', function() {
     );
   });
 
+  it('tracks clicks with arbitrary JSON', function() {
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    element = $(
+      "<a data-track-category='category' \
+          data-track-action='1' \
+          data-track-label='/' \
+          data-track-options='{\"dimension28\": \"foo\", \"dimension29\": \"bar\"}' \
+          href='/'>Home</a>"
+    );
+
+    tracker.start(element);
+
+    element.trigger('click');
+
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+      'category',
+      '1',
+      { label: '/', dimension28: 'foo', dimension29: 'bar', transport: 'beacon' }
+    );
+  });
+
   it('tracks all trackable links within a container', function() {
     spyOn(GOVUK.analytics, 'trackEvent');
 
