@@ -93,7 +93,17 @@
       dimensions[key] = value;
     });
 
+    // Set defaults first, so that we get a stable ordering in tests
+    this.setDimensionsThatHaveDefaultValues(dimensions);
+    this.setDimensionsThatDoNotHaveDefaultValues(dimensions);
+  };
+
+  StaticAnalytics.prototype.setDimensionsThatHaveDefaultValues = function(dimensions) {
+    this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
     this.setUserJourneyStage(dimensions['user-journey-stage']);
+  };
+
+  StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
     this.setSectionDimension(dimensions['section']);
     this.setFormatDimension(dimensions['format']);
     this.setResultCountDimension(dimensions['search-result-count']);
@@ -102,7 +112,6 @@
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
-    this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
   };
 
   StaticAnalytics.prototype.setAbTestDimensionsFromMetaTags = function() {
@@ -184,7 +193,7 @@
   };
 
   StaticAnalytics.prototype.setNavigationPageTypeDimension = function(pageType) {
-    this.setDimension(32, pageType);
+    this.setDimension(32, pageType || 'none');
   };
 
   StaticAnalytics.prototype.setUserJourneyStage = function(journeyStage) {
