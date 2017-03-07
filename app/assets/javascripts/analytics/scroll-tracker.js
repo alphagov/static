@@ -51,6 +51,16 @@
       ['Heading', 'How Universal Credit makes work pay'],
       ['Heading', 'When you can claim Universal Credit'],
       ['Heading', 'Help and advice']
+    ],
+    '/government/publications/spring-budget-2017-documents/spring-budget-2017': [
+      ['Heading', '1. Executive summary'],
+      ['Heading', '2. Economic context and public finances'],
+      ['Heading', '3. Policy decisions'],
+      ['Heading', '4. Tax'],
+      ['Heading', '5. Productivity'],
+      ['Heading', '6. Public services and markets'],
+      ['Heading', '7. Annex A: Financing'],
+      ['Heading', '8. Annex B: Office for Budget Responsibility\'s Economic and fiscal outlook']
     ]
   };
 
