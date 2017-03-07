@@ -128,6 +128,7 @@
     init: function() {
       var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys);
       if (userSurveys.isSurveyToBeDisplayed(activeSurvey)) {
+        $('#global-bar').hide(); // Hide global bar if one is showing
         userSurveys.displaySurvey(activeSurvey);
       }
     },
