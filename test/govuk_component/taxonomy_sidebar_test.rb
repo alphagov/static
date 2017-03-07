@@ -15,62 +15,67 @@ class TaxonomySidebarTestCase < ComponentTestCase
     render_component(
       items: [
         {
-          title: "Item title",
-          url: "/item",
-          description: "An item",
+          title: "Item 1 title",
+          url: "/item-1",
+          description: "item 1",
         },
         {
-          title: "Other item title",
-          url: "/other-item",
-          description: "Another item",
+          title: "Item 2 title",
+          url: "/item-2",
+          description: "item 2",
         },
       ]
     )
 
-    assert_select ".govuk-taxonomy-sidebar > :nth-of-type(1) h2", text: "More about Item title"
-    assert_link_with_text_in(".govuk-taxonomy-sidebar > :nth-of-type(1)", "/item", "See everything in Item title")
-    assert_select(".govuk-taxonomy-sidebar > :nth-of-type(1) p", "An item")
-
-    assert_select ".govuk-taxonomy-sidebar > :nth-of-type(2) h2", text: "More about Other item title"
-    assert_link_with_text_in(".govuk-taxonomy-sidebar > :nth-of-type(2)", "/other-item", "See everything in Other item title")
-    assert_select(".govuk-taxonomy-sidebar > :nth-of-type(2) p", "Another item")
+    taxon_titles = css_select(".sidebar-taxon h2").map { |taxon_title| taxon_title.text.strip }
+    taxon_titles = ["Item 1 title", "Item 2 title"]
   end
 
-  test "renders related content for taxons" do
+  test "renders related content for the first two taxons" do
     render_component(
       items: [
         {
-          title: "Item title",
-          url: "/item",
-          description: "An item",
+          title: "Item 1 title",
+          url: "/item-1",
+          description: "item 1",
           related_content: [
             {
-              title: "Related link 1",
-              link: "/related-link-1",
+              title: "Related link B",
+              link: "/related-link-b",
             },
             {
-              title: "Related link 2",
-              link: "/related-link-2",
+              title: "Related link A",
+              link: "/related-link-a",
             },
           ],
         },
         {
-          title: "Other item title",
-          url: "/other-item",
-          description: "Another item",
+          title: "Item 2 title",
+          url: "/item-2",
+          description: "item 2",
           related_content: [
             {
-              title: "Related link 3",
-              link: "/related-link-3",
+              title: "Related link C",
+              link: "/related-link-c",
             },
           ],
         },
+        {
+          title: "Item 3 title",
+          url: "/item-3",
+          description: "item 3",
+          related_content: [
+            {
+              title: "Related link D",
+              link: "/related-link-d",
+            },
+          ],
+        }
       ],
     )
 
-    assert_link_with_text_in(".related-content-item", "/related-link-1", "Related link 1")
-    assert_link_with_text_in(".related-content-item", "/related-link-2", "Related link 2")
-    assert_link_with_text_in(".related-content-item", "/related-link-3", "Related link 3")
+    related_links = css_select(".related-content a").map { |link| link.text }
+    assert_equal ["Related link B", "Related link A", "Related link C"], related_links
   end
 
   test "renders all data attributes for tracking" do
@@ -98,6 +103,10 @@ class TaxonomySidebarTestCase < ComponentTestCase
     assert_select "a[data-track-category=\"relatedLinkClicked\"]", 3
     assert_select "a[data-track-dimension-index=\"29\"]", 3
 
+    assert_select "a[data-track-dimension=\"Item title\"]", 1
+    assert_select "a[data-track-action=\"1\"]", 1
+    assert_select "a[data-track-label=\"/item\"]", 1
+
     assert_select "a[data-track-dimension=\"Related link 1\"]", 1
     assert_select "a[data-track-action=\"1.1\"]", 1
     assert_select "a[data-track-label=\"/related-link-1\"]", 1
@@ -105,9 +114,5 @@ class TaxonomySidebarTestCase < ComponentTestCase
     assert_select "a[data-track-dimension=\"Related link 2\"]", 1
     assert_select "a[data-track-action=\"1.2\"]", 1
     assert_select "a[data-track-label=\"/related-link-2\"]", 1
-
-    assert_select "a[data-track-dimension=\"Item title\"]", 1
-    assert_select "a[data-track-action=\"1.3\"]", 1
-    assert_select "a[data-track-label=\"/item\"]", 1
   end
 end
