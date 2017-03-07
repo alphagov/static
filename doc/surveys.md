@@ -40,6 +40,8 @@ How frequently to show the survey. A frequency of `1` means the survey shows to 
 ### `surveyType` - OPTIONAL (default: 'url')
 What type of survey is this.  Currently either `url` or `email` is supported.  `url` surveys present the user with a link that takes them direct to a survey to fill in.  `email` surveys present the user some UI to let them enter their email address and be sent more information to that address about how to take part in the survey.
 
+Note that for `email` surveys the users email is submitted back to the [feedback](https://github.com/alphagov/feedback) app which actually sends the email.  The email address is sent with the `identifier` of the survey and this identifier must match with the `id` of a survey defined in [`app/models/email_survey.rb`](https://github.com/alphagov/feedback/blob/85e07b0c572a91be02b64af1d551df313f2695f9/app/models/email_survey.rb#L24).  Make sure you define the survey in both `static` and `feedback`.
+
 ### `url` - required for `url` surveys
 This should link to a surveymonkey -- or other survey page -- that allows the visitor to take the survey.
 
