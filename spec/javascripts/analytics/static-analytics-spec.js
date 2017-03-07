@@ -13,6 +13,9 @@ describe("GOVUK.StaticAnalytics", function() {
   });
 
   describe('when created', function() {
+    // The number of setup arguments which are set before the dimensions
+    const expectedDefaultArgumentCount = 7;
+
     var universalSetupArguments;
 
     beforeEach(function() {
@@ -32,7 +35,7 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     it('tracks a pageview in universal', function() {
-      expect(universalSetupArguments[6]).toEqual(['send', 'pageview']);
+      expect(universalSetupArguments[expectedDefaultArgumentCount]).toEqual(['send', 'pageview']);
     });
 
     it('begins print tracking', function() {
@@ -44,9 +47,6 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     describe('when there are govuk: meta tags', function() {
-      // The number of setup arguments which are set before the dimensions
-      const expectedDefaultArgumentCount = 6;
-
       beforeEach(function() {
         window.ga.calls.reset();
       });
@@ -64,7 +64,6 @@ describe("GOVUK.StaticAnalytics", function() {
           <meta name="govuk:political-status" content="historic">\
           <meta name="govuk:analytics:organisations" content="<D10>">\
           <meta name="govuk:analytics:world-locations" content="<W1>">\
-          <meta name="govuk:navigation-page-type" content="accordion">\
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
@@ -77,7 +76,6 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(setupArguments[4]).toEqual(['set', 'dimension7', 'historic']);
         expect(setupArguments[5]).toEqual(['set', 'dimension9', '<D10>']);
         expect(setupArguments[6]).toEqual(['set', 'dimension10', '<W1>']);
-        expect(setupArguments[7]).toEqual(['set', 'dimension32', 'accordion']);
       });
 
       it('ignores meta tags not set', function() {
@@ -131,23 +129,39 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(setupArguments.length).toEqual(0);
       });
 
-      it('sets the user journey stage dimension from a meta tag if present', function () {
-        $('head').append('\
-          <meta name="govuk:user-journey-stage" content="some-user-journey-stage">\
+      [
+        {
+          name: 'navigation-page-type',
+          number: 32,
+          defaultValue: 'none',
+          setupArgumentsIndex: 5
+        },
+        {
+          name: 'user-journey-stage',
+          number: 33,
+          defaultValue: 'thing',
+          setupArgumentsIndex: 6
+        }
+      ].forEach(function (dimension) {
+        it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {
+          $('head').append('\
+          <meta name="govuk:' + dimension.name + '" content="some-' + dimension.name + '-value">\
         ');
 
-        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        setupArguments = window.ga.calls.allArgs();
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          setupArguments = window.ga.calls.allArgs();
 
-        expect(setupArguments[5]).toEqual(['set', 'dimension33', 'some-user-journey-stage']);
-      });
+          expect(setupArguments[dimension.setupArgumentsIndex])
+            .toEqual(['set', 'dimension' + dimension.number, 'some-' + dimension.name + '-value']);
+        });
 
-      it('sets the default dimension if no user journey stage meta tag is present', function () {
-        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        setupArguments = window.ga.calls.allArgs();
-        var defaultUserJourneyStage = 'thing';
+        it('sets the default dimension if no ' + dimension.name + ' meta tag is present', function () {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          setupArguments = window.ga.calls.allArgs();
 
-        expect(setupArguments[5]).toEqual(['set', 'dimension33', defaultUserJourneyStage]);
+          expect(setupArguments[dimension.setupArgumentsIndex])
+            .toEqual(['set', 'dimension' + dimension.number, dimension.defaultValue]);
+        });
       });
 
       function dimensionSetupArguments() {
