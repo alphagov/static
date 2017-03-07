@@ -51,9 +51,20 @@
       ['Heading', 'How Universal Credit makes work pay'],
       ['Heading', 'When you can claim Universal Credit'],
       ['Heading', 'Help and advice']
+    ],
+    '/government/publications/spring-statement-2017-documents/spring-statement-2017': [
+      ['Heading', 'Contents'],
+      ['Heading', 'Executive summary'],
+      ['Heading', 'Economy and public finances']
+      ['Heading', 'Policy decisions'],
+      ['Heading', 'A fair and sustainable tax system'],
+      ['Heading', 'Productivity and living standards']
+      ['Heading', 'Building an economy that works for everyone'],
+      ['Heading', 'Annex A: Financing'],
+      ['Heading', 'Annex C: Office for Budget Responsibility\'s Economic and fiscal outlook']
     ]
   };
-
+  
   function ScrollTracker(sitewideConfig) {
     this.config = this.getConfigForCurrentPath(sitewideConfig);
     this.SCROLL_TIMEOUT_DELAY = 10;
