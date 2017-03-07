@@ -52,6 +52,16 @@
       ['Heading', 'When you can claim Universal Credit'],
       ['Heading', 'Help and advice']
     ]
+    '/government/publications/spring-budget-2017-documents/spring-budget-2017': [
+      ['Heading', 'Executive summary'],
+      ['Heading', 'Economy and public finances'],
+      ['Heading', 'Policy decisions']
+      ['Heading', 'Tax']
+      ['Heading', 'Productivity']
+      ['Heading', 'Public services and markets']
+      ['Heading', 'Annex A: Financing']
+      ['Heading', 'Annex B: Office for Budget Responsibility\'s Economic and fiscal outlook']
+    ]
   };
 
   function ScrollTracker(sitewideConfig) {
