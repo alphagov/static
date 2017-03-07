@@ -93,6 +93,7 @@
       dimensions[key] = value;
     });
 
+    this.setUserJourneyStage(dimensions['user-journey-stage']);
     this.setSectionDimension(dimensions['section']);
     this.setFormatDimension(dimensions['format']);
     this.setResultCountDimension(dimensions['search-result-count']);
@@ -102,7 +103,6 @@
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
     this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
-    this.setUserJourneyStage(dimensions['user-journey-stage']);
   };
 
   StaticAnalytics.prototype.setAbTestDimensionsFromMetaTags = function() {
@@ -187,8 +187,11 @@
     this.setDimension(32, pageType);
   };
 
-  StaticAnalytics.prototype.setUserJourneyStage = function(pageType) {
-    this.setDimension(33, pageType);
+  StaticAnalytics.prototype.setUserJourneyStage = function(journeyStage) {
+    // Track the stage of a user's journey through GOV.UK. If the page does not
+    // set a page type in a meta tag, default to "thing", which identifes a page
+    // as containing content rather than some kind of navigation.
+    this.setDimension(33, journeyStage || "thing");
   };
 
   GOVUK.StaticAnalytics = StaticAnalytics;
