@@ -1,5 +1,6 @@
 .govuk-taxonomy-sidebar {
   border-top: 10px solid $mainstream-brand;
+  padding-bottom: $gutter * 2;
   @include core-16;
 
   .sidebar-taxon {
