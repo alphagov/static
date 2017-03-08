@@ -302,7 +302,17 @@ describe("Surveys", function() {
 
           expect($.ajax).toHaveBeenCalled();
           var args = $.ajax.calls.mostRecent().args;
-          expect(args[0].url).toBe('/contact/govuk/email-survey-signup');
+          expect(args[0].url).toBe('/contact/govuk/email-survey-signup.js');
+        });
+
+        it("doesn't add .js to the form action if it's already a .js url when submitting the form", function() {
+          spyOn($, "ajax");
+          $('#email-survey-form').attr('action', '/contact/govuk/js-already/email-survey-signup.js')
+          $('#email-survey-form').trigger('submit');
+
+          expect($.ajax).toHaveBeenCalled();
+          var args = $.ajax.calls.mostRecent().args;
+          expect(args[0].url).toBe('/contact/govuk/js-already/email-survey-signup.js');
         });
 
         describe("and submitting it is a success", function() {

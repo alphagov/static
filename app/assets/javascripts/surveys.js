@@ -180,10 +180,16 @@
         errorCallback = function() {
           $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
           $emailSurveyPostFailure.removeClass('js-hidden').attr('aria-hidden', 'false');
-        };
+        },
+        surveyFormUrl = $emailSurveyForm.attr('action');
+        // make sure the survey form is a js url
+        if (!(/\.js$/.test(surveyFormUrl))) {
+          surveyFormUrl += '.js';
+        }
+
         $.ajax({
           type: "POST",
-          url: $emailSurveyForm.attr('action'),
+          url: surveyFormUrl,
           dataType: "json",
           data: $emailSurveyForm.serialize(),
           success: successCallback,
