@@ -268,7 +268,13 @@
     },
 
     otherNotificationVisible: function() {
-      return $('#banner-notification:visible, #global-cookie-message:visible, #global-browser-prompt:visible').length > 0;
+      var notificationIds = [
+        '#banner-notification:visible',
+        '#global-cookie-message:visible',
+        '#global-browser-prompt:visible',
+        '#taxonomy-survey:visible'
+      ]
+      return $(notificationIds.join(', ')).length > 0;
     },
 
     surveyTakenCookieName: function(survey) {
