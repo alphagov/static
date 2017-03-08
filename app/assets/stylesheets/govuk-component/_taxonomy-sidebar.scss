@@ -8,14 +8,6 @@
     h2 {
       @include bold-24;
       margin: 0 0 5px;
-
-      a {
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
 
     .taxon-description {
