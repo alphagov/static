@@ -284,5 +284,36 @@
         }
       }
     }
+
+    input {
+      @include core-14;
+
+      display: block;
+      margin: 0 20px 0 20px;
+      max-width: 940px;
+      width: 100%;
+
+      @include ie-lte(6) {
+        width: 940px;
+      }
+    }
+
+    label {
+      @include core-14;
+      margin: 0 0 0 20px;
+    }
+
+    .actions {
+      margin: 0.5em 0 0.5em 20px;
+
+      button {
+        display: inline-block;
+      }
+
+      .button-info {
+        @include core-14;
+        display: inline-block;
+      }
+    }
   }
 }

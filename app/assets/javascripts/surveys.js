@@ -5,129 +5,50 @@
       $ = root.jQuery;
   if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
-  var TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                 '  <div class="wrapper">' +
-                 '    <h1>Tell us what you think of GOV.UK</h1>' +
-                 '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                 '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
-                 '  </div>' +
-                 '</section>';
+  var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                            '  <div class="wrapper">' +
+                            '    <h1>Tell us what you think of GOV.UK</h1>' +
+                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
+                            '  </div>' +
+                            '</section>',
+    EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                            '  <div id="email-survey-pre" class="wrapper">' +
+                            '    <h1>Tell us what you think of GOV.UK</h1>' +
+                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                            '    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">Your feedback will help us improve this website</a></p>' +
+                            '  </div>' +
+                            '  <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true">' +
+                            '    <div id="feedback-prototype-form">'+
+                            '      <h1>We\'d like to hear from you</h1>'+
+                            '      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>' +
+                            '      <label for="email">Tell us your email address and we\'ll send you a link to a quick feedback form.</label>' +
+                            '      <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
+                            '      <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
+                            '      <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">' +
+                            '      <div class="actions">' +
+                            '        <button class="button">Send</button>' +
+                            '        <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
+                            '      </div>' +
+                            '    </div>' +
+                            '  </form>' +
+                            '  <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">' +
+                            '    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>' +
+                            '  </div>' +
+                            '  <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">' +
+                            '    <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>' +
+                            '  </div>' +
+                            '</section>';
 
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
       url: 'https://www.surveymonkey.com/s/2MRDLTW',
       identifier: 'user_satisfaction_survey',
-      template: TEMPLATE,
-      frequency: 50
+      frequency: 50,
+      surveyType: 'url',
     },
     smallSurveys: [
-      {
-        url: 'https://www.surveymonkey.co.uk/r/6QC8RV8',
-        identifier: 'environment_survey',
-        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                  '  <div class="wrapper">' +
-                  '    <h1>Why did you come to GOV.UK today?</h1>' +
-                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer 2 quick questions</a> to help us make GOV.UK better.</p>' +
-                  '  </div>' +
-                  '</section>',
-        frequency: 5,
-        activeWhen: function() {
-          function sectionMatches() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (/environment/i.test(sectionName) || /outdoor/i.test(sectionName));
-          }
-
-          function organisationMatches() {
-            var orgMatchingExpr = /<D7>|<EA199>|<EA1079>|<EA53>|<EA58>|<EA60>|<PB57>|<PB202>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return (sectionMatches() || organisationMatches());
-        },
-        startTime: new Date("February 5, 2017").getTime(),
-        endTime: new Date("February 10, 2017 23:59:59").getTime()
-      },
-      {
-        url: 'https://www.surveymonkey.co.uk/r/W5LS62K',
-        identifier: 'family_visa_survey',
-        template: TEMPLATE,
-        frequency: 10,
-        activeWhen: function() {
-          function pathMatches() {
-            var pathMatchingExpr = /\/(remain-in-uk-family|join-family-in-uk)/;
-
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        startTime: new Date("December 12, 2016").getTime(),
-        endTime: new Date("February 5, 2017 23:59:59").getTime()
-      },
-      {
-        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=" + window.location.pathname + "&utm_source=govukother&utm_medium=gov.uk&t=GDS",
-        identifier: 'env_ur_panel',
-        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                  '  <div class="wrapper">' +
-                  '    <h1>Help improve GOV.UK</h1>' +
-                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a>. This link opens in a new tab.</p>' +
-                  '  </div>' +
-                  '</section>',
-        frequency: 2,
-        activeWhen: function() {
-
-          function pathMatches() {
-            var pathMatchingExpr = new RegExp('/(?:'
-              + /check-flood-risk/.source
-              + /|fishing-licences\/buy-a-fishing-licence/.source
-              + /|fishing-licences\/when-you-need-a-licence/.source
-              + /|topic\/environmental-management\/environmental-permits/.source
-              + /|topic\/environmental-management\/waste/.source
-              + /|hunting\/overview/.source
-              + /|report-dead-animal/.source
-              + /|browse\/environment-countryside\/flooding-extreme-weather/.source
-              + /|sign-up-for-flood-warnings/.source
-              + ')'
-            );
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        startTime: new Date("January 16, 2017").getTime(),
-        endTime: new Date("February 12, 2017 23:59:59").getTime()
-      },
-      {
-        url: 'https://www.surveymonkey.com/s/2MRDLTW',
-        identifier: 'education_survey',
-        template: TEMPLATE,
-        frequency: 10,
-        activeWhen: function() {
-          function breadcrumbMatches() {
-            var text = $('.govuk-breadcrumbs').text() || "";
-            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
-          }
-
-          function sectionMatches() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
-          }
-
-          function organisationMatches() {
-            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return (sectionMatches() || organisationMatches() || breadcrumbMatches());
-        },
-        startTime: new Date("January 30, 2017").getTime(),
-        endTime: new Date("February 5, 2017 23:59:59").getTime()
-      },
       {
         url: 'https://www.smartsurvey.co.uk/s/6YYKX/',
         identifier: 'ons_survey',
@@ -146,8 +67,61 @@
 
           return pathMatches();
         },
+        surveyType: 'url',
         startTime: new Date("January 25, 2017").getTime(),
         endTime: new Date("February 27, 2017 23:59:59").getTime()
+      },
+      {
+        identifier: 'govuk_email_survey_t01',
+        frequency: 1,
+        activeWhen: function() {
+          function breadcrumbExclude() {
+            var text = $('.govuk-breadcrumbs').text() || "";
+            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          }
+
+          function sectionExclude() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
+          }
+
+          function organisationExclude() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return !(sectionExclude() || breadcrumbExclude() || organisationExclude());
+        },
+        surveyType: 'email',
+        startTime: new Date("March 08, 2017").getTime(),
+        endTime: new Date("March 10, 2017 12:59:59").getTime()
+      },
+      {
+        identifier: 'govuk_email_survey_t02',
+        frequency: 2,
+        activeWhen: function() {
+          function breadcrumbExclude() {
+            var text = $('.govuk-breadcrumbs').text() || "";
+            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          }
+
+          function sectionExclude() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
+          }
+
+          function organisationExclude() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return !(sectionExclude() || breadcrumbExclude() || organisationExclude());
+        },
+        surveyType: 'email',
+        startTime: new Date("March 10, 2017 13:00:00").getTime(),
+        endTime: new Date("March 13, 2017 23:59:59").getTime()
       }
     ],
 
@@ -175,33 +149,126 @@
     },
 
     displaySurvey: function(survey) {
-      $("#user-satisfaction-survey-container").append(survey.template);
-      userSurveys.setEventHandlers(survey);
+      var surveyContainer = $("#user-satisfaction-survey-container");
+      if (survey.surveyType === 'email') {
+        userSurveys.displayEmailSurvey(survey, surveyContainer);
+      } else if ((survey.surveyType === 'url') || (survey.surveyType === undefined)) {
+        userSurveys.displayURLSurvey(survey, surveyContainer);
+      } else {
+        return;
+      }
+      userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown');
+    },
+
+    displayURLSurvey: function(survey, surveyContainer) {
+      surveyContainer.append(survey.template || URL_SURVEY_TEMPLATE);
 
       var $surveyLink = $('#take-survey');
       var surveyUrl = survey.url;
 
       // Survey monkey can record the URL of the survey link if passed through as a query param
       if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
-        surveyUrl += "?c=" + root.location.pathname;
+        surveyUrl += "?c=" + userSurveys.currentPath();
       }
 
       $surveyLink.attr('href', surveyUrl);
-      userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown');
+
+      userSurveys.setURLSurveyEventHandlers(survey);
     },
 
-    setEventHandlers: function(survey) {
+    displayEmailSurvey: function(survey, surveyContainer) {
+      surveyContainer.append(survey.template || EMAIL_SURVEY_TEMPLATE);
+
+      var $surveyId = $('#email-survey-form input[name="email_survey_signup[survey_id]"]'),
+        $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]');
+
+      $surveyId.val(survey.identifier);
+      $surveySource.val(userSurveys.currentPath());
+
+      userSurveys.setEmailSurveyEventHandlers(survey);
+    },
+
+    setEmailSurveyEventHandlers: function(survey) {
+      var $emailSurveyOpen = $('#email-survey-open'),
+        $emailSurveyCancel = $('#email-survey-cancel'),
+        $emailSurveyPre = $('#email-survey-pre'),
+        $emailSurveyForm = $('#email-survey-form'),
+        $emailSurveyPostSuccess = $('#email-survey-post-success'),
+        $emailSurveyPostFailure = $('#email-survey-post-failure'),
+        $noThanks = $('#survey-no-thanks');
+
+      $noThanks.click(function (e) {
+        userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
+        userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked');
+        e.stopPropagation();
+        return false;
+      });
+
+      $emailSurveyOpen.click(function (e) {
+        userSurveys.trackEvent(survey.identifier, 'email_survey_open', 'Email survey opened');
+        $emailSurveyPre.addClass('js-hidden').attr('aria-hidden', 'true');
+        $emailSurveyForm.removeClass('js-hidden').attr('aria-hidden', 'false');
+        e.stopPropagation();
+        return false;
+      });
+
+      $emailSurveyCancel.click(function (e) {
+        userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
+        userSurveys.trackEvent(survey.identifier, 'email_survey_cancel', 'Email survey cancelled');
+        e.stopPropagation();
+        return false;
+      });
+
+      $emailSurveyForm.submit(function(e) {
+        var successCallback = function() {
+          $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
+          $emailSurveyPostSuccess.removeClass('js-hidden').attr('aria-hidden', 'false');
+          userSurveys.setSurveyTakenCookie(survey);
+          userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken');
+          userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
+        },
+        errorCallback = function() {
+          $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true');
+          $emailSurveyPostFailure.removeClass('js-hidden').attr('aria-hidden', 'false');
+        },
+        surveyFormUrl = $emailSurveyForm.attr('action');
+        // make sure the survey form is a js url
+        if (!(/\.js$/.test(surveyFormUrl))) {
+          surveyFormUrl += '.js';
+        }
+
+        $.ajax({
+          type: "POST",
+          url: surveyFormUrl,
+          dataType: "json",
+          data: $emailSurveyForm.serialize(),
+          success: successCallback,
+          error: errorCallback,
+          statusCode: {
+            500: errorCallback
+          }
+        });
+        e.stopPropagation();
+        return false;
+      });
+    },
+
+    setURLSurveyEventHandlers: function(survey) {
       var $noThanks = $('#survey-no-thanks');
       var $takeSurvey = $('#take-survey');
 
       $noThanks.click(function (e) {
         userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
         userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked');
         e.stopPropagation();
         return false;
       });
       $takeSurvey.click(function () {
         userSurveys.setSurveyTakenCookie(survey);
+        userSurveys.hideSurvey(survey);
         userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey');
       });
     },
@@ -260,6 +327,9 @@
 
     setSurveyTakenCookie: function (survey) {
       GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30*4 });
+    },
+
+    hideSurvey: function(_survey) {
       $("#user-satisfaction-survey").removeClass('visible').attr('aria-hidden', 'true');
     },
 
