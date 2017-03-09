@@ -22,11 +22,15 @@
       list-style-type: none;
       line-height: 1.5;
 
-      a:before {
-        content: "•";
-        display: inline-block;
-        width: 15px;
-        margin-left: -15px;
+      a {
+        display: block;
+
+        &:before {
+          content: "•";
+          display: inline-block;
+          width: 15px;
+          margin-left: -15px;
+        }
       }
     }
   }
