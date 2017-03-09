@@ -29,20 +29,7 @@
         margin-bottom: 5px;
       }
 
-      .adr,
-      .email-url-number,
-      .comments {
-        @include media(tablet) {
-          width: $half;
-          float: left;
-        }
-      }
-
       .email-url-number {
-        p {
-          margin: 0;
-        }
-
         .email {
           word-wrap: break-word;
         }
