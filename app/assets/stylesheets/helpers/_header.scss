@@ -355,14 +355,5 @@
       font-weight: 700;
       margin-right: 10px;
     }
-
-    a[rel~="external"] {
-      @include external-link-default;
-      @include external-link-16;
-
-      @include media(tablet) {
-        @include external-link-19;
-      }
-    }
   }
 }
