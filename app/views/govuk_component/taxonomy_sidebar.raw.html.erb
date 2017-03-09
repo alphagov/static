@@ -32,7 +32,6 @@
                 <li>
                   <%=
                     link_to(
-                      related_item[:title],
                       related_item[:link],
                       data: {
                           track_category: 'relatedLinkClicked',
@@ -42,7 +41,9 @@
                           track_dimension_index: 29,
                       },
                       class: 'related-link',
-                    )
+                    ) do
+                      content_tag(:span, related_item[:title])
+                    end
                   %>
                 </li>
               <% end %>

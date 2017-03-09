@@ -22,8 +22,14 @@
       list-style-type: none;
       line-height: 1.5;
 
+      // We use a pseudo element to add bullet points to related links. This
+      // makes the bullets clickable and highlights them on link hover. With
+      // this approach, IE8 erroneously applies the anchor tag's underline to
+      // the pseudo element. Specifying separate text-decoration rules for the
+      // anchor tag and a nested span fixes this.
       a {
         display: block;
+        text-decoration: none;
 
         &:before {
           content: "•";
@@ -32,7 +38,10 @@
           margin-left: -15px;
         }
       }
+
+      a span {
+        text-decoration: underline;
+      }
     }
   }
-
 }
