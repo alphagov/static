@@ -108,6 +108,55 @@ describe('GOVUK.OptionSelect', function() {
     });
   });
 
+  describe('closed state field', function(){
+    var $hasClosedStateFixture;
+
+    beforeEach(function() {
+      $hasClosedStateFixture = $(
+        '<div class="govuk-option-select" data-closed-state-name="market-sector-closed">' +
+          '<div class="options-container">' +
+            '<div class="js-auto-height-inner"></div>' +
+          '</div>' +
+        '</div>'
+      );
+    });
+
+    afterEach(function(){
+      $hasClosedStateFixture.remove();
+    });
+
+    it("creates a closed state field if the 'data-closed-state-name' attribute is set", function(){
+      var $closedStateField;
+
+      $('body').append($hasClosedStateFixture);
+      optionSelect = new GOVUK.OptionSelect({$el:$hasClosedStateFixture});
+      $closedStateField = $hasClosedStateFixture.find('input[name="market-sector-closed"]');
+      expect($closedStateField.length).toEqual(1);
+      expect($closedStateField.val()).toBe('false');
+    });
+
+    it("sets the closed state field to 'closed' when it exists and optionSelect.close() is called", function(){
+      var $closedStateField;
+
+      $('body').append($hasClosedStateFixture);
+      optionSelect = new GOVUK.OptionSelect({$el:$hasClosedStateFixture});
+      $closedStateField = $hasClosedStateFixture.find('input[name="market-sector-closed"]');
+      optionSelect.close();
+      expect($closedStateField.val()).toBe('true');
+    });
+
+    it("sets the closed state field to 'open' when it exists and optionSelect.open() is called", function(){
+      var $closedStateField;
+
+      $hasClosedStateFixture.data('closed-on-load', 'true');
+      $('body').append($hasClosedStateFixture);
+      optionSelect = new GOVUK.OptionSelect({$el:$hasClosedStateFixture});
+      $closedStateField = $hasClosedStateFixture.find('input[name="market-sector-closed"]');
+      optionSelect.open();
+      expect($closedStateField.val()).toBe('false');
+    });
+  });
+
   describe('open', function(){
     beforeEach(function(){
       spyOn(optionSelect, "isClosed").and.returnValue(true);

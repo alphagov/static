@@ -43,6 +43,11 @@
       if (this.$optionSelect.data('closed-on-load') == true) {
         this.close();
       }
+
+      var closedStateName = this.$optionSelect.data('closed-state-name');
+      if (closedStateName !== undefined) {
+        this.$closedStateField = this.attachStateField(closedStateName);
+      }
     }
   }
 
@@ -71,8 +76,20 @@
     this.$optionSelect.find('.js-container-head').append('<div class="js-selected-counter">'+this.checkedString()+'</div>');
   };
 
+  OptionSelect.prototype.attachStateField = function attachStateField(name){
+    var $closedStateField = $('<input type="hidden" name="'+name+'" value="'+this.isClosed()+'" />');
+    this.$optionList.append($closedStateField);
+    return $closedStateField;
+  }
+
   OptionSelect.prototype.updateCheckedCount = function updateCheckedCount(){
     this.$optionSelect.find('.js-selected-counter').text(this.checkedString());
+  };
+
+  OptionSelect.prototype.updateClosedStateField = function updateClosedStateField(){
+    if (typeof this.$closedStateField !== 'undefined'){
+      this.$closedStateField.val(this.isClosed().toString());
+    }
   };
 
   OptionSelect.prototype.checkedString = function checkedString(){
@@ -103,11 +120,13 @@
         this.setupHeight();
       }
     }
+    this.updateClosedStateField();
   };
 
   OptionSelect.prototype.close = function close(){
     this.$optionSelect.addClass('js-closed');
     this.$optionSelect.find('.js-container-head').attr('aria-expanded', false);
+    this.updateClosedStateField();
   };
 
   OptionSelect.prototype.isClosed = function isClosed(){
