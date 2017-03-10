@@ -27,7 +27,7 @@
                             '      <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
                             '      <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">' +
                             '      <div class="actions">' +
-                            '        <button class="button">Send</button>' +
+                            '        <button type="submit">Send</button>' +
                             '        <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
                             '      </div>' +
                             '    </div>' +
