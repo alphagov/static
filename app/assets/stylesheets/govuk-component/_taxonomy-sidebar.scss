@@ -19,28 +19,25 @@
     .related-content {
       margin: 0 0 0 15px;
       padding: 0;
-      list-style-type: none;
-      line-height: 1.5;
 
-      // We use a pseudo element to add bullet points to related links. This
-      // makes the bullets clickable and highlights them on link hover. With
-      // this approach, IE8 erroneously applies the anchor tag's underline to
-      // the pseudo element. Specifying separate text-decoration rules for the
-      // anchor tag and a nested span fixes this.
-      a {
-        display: block;
-        text-decoration: none;
-
-        &:before {
-          content: "•";
-          display: inline-block;
-          width: 15px;
-          margin-left: -15px;
-        }
+      li {
+        font-size: 12px;
       }
 
-      a span {
-        text-decoration: underline;
+      a {
+        display: block;
+        font-size: 16px;
+        line-height: 1.5;
+
+        // For design reasons, we want the bullet points to be smaller than normal. This is achieved
+        // by giving the list a different font size to the actual link text.
+        // Since the bullet point has a different font size to the actual link text, the bullet's
+        // height is not vertically aligned correctly with the text. Having the text in this
+        // span element allows us to move the text relative to the bullet.
+        span {
+          position: relative;
+          top: 1px;
+        }
       }
     }
   }
