@@ -4,6 +4,7 @@ describe("toggling a global bar HTML class based on cookie", function () {
   function globalBarSource(fakeWindow) {
     var window = fakeWindow || root;
 
+    /* Full Javascript source for HTML class toggle */
     /* --------------------------------------- */
 
     (function (document) {
@@ -14,7 +15,7 @@ describe("toggling a global bar HTML class based on cookie", function () {
       }
 
       function urlPermitsShow() {
-        return !/^\/register-to-vote|^\/done/.test(window.location.pathname);
+        return !/^\/done/.test(window.location.pathname);
       }
 
       function viewCountPermitsShow() {
@@ -33,8 +34,9 @@ describe("toggling a global bar HTML class based on cookie", function () {
   function globalBarMinified(fakeWindow) {
     var window = fakeWindow || root;
 
+    /* Minified source for HTML class toggle using https://skalman.github.io/UglifyJS-online/ */
     /* --------------------------------------- */
-    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
+    !function(n){"use strict";function t(){return!/^\/done/.test(window.location.pathname)}function a(){var t=n.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return t?parseInt(t.pop(),10)<3:!0}var e=n.documentElement;t()&&a()&&(e.className=e.className.concat(" show-global-bar"))}(document);
     /* --------------------------------------- */
   }
 
@@ -96,11 +98,6 @@ describe("toggling a global bar HTML class based on cookie", function () {
       GOVUK.setCookie('global_bar_seen', 'foo_bar2');
       globalBarFn();
       expectGlobalBarToShow();
-    });
-
-    it("does not show on register to vote pages", function() {
-      globalBarFn({location: {pathname: '/register-to-vote'}});
-      expectGlobalBarToBeHidden();
     });
 
     it("does not show on done pages", function() {
