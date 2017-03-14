@@ -3,11 +3,15 @@
     display: none;
   }
 
-  .information-block,
+  .help-notice,
   .call-to-action {
     margin: $gutter-half 0;
     padding: 0 $gutter-half;
     border: 1pt solid $border-colour;
+  }
+
+  .help-notice p {
+    font-weight: 700;
   }
 
   .fraction {
