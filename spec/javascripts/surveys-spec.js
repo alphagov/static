@@ -122,11 +122,23 @@ describe("Surveys", function() {
     });
 
     describe("for a 'url' survey", function() {
-      it("links to the url for a surveymonkey survey with a completion redirect query parameter", function () {
+      it("links to the url for a surveymonkey survey and adds the current path as a `c` param", function () {
         surveys.displaySurvey(urlSurvey);
 
         expect($('#take-survey').attr('href')).toContain(urlSurvey.url);
         expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
+      });
+
+      it("links to the url for a non-surveymonkey survey without adding the current path as a `c` param", function () {
+        var nonSurveyMonkeyUrlSurvey = {
+          surveyType: 'url',
+          url: 'surveygorilla.com/default',
+          identifier: 'url-survey',
+        }
+        surveys.displaySurvey(nonSurveyMonkeyUrlSurvey);
+
+        expect($('#take-survey').attr('href')).toContain(nonSurveyMonkeyUrlSurvey.url);
+        expect($('#take-survey').attr('href')).not.toContain("?c=" + window.location.pathname);
       });
 
       it("records an event when showing the survey", function() {
