@@ -1,0 +1,39 @@
+<script type="text/html+template"
+        id="email-survey-template"
+        data-default-title="Tell us what you think of GOV.UK"
+        data-default-no-thanks="No thanks"
+        data-default-survey-cta="Your feedback will help us improve this website"
+        data-default-survey-form-title="We’d like to hear from you"
+        data-default-survey-form-email-label="Tell us your email address and we’ll send you a link to a quick feedback form."
+        data-default-survey-form-cta="Send"
+        data-default-survey-form-cta-postscript="We won’t store your email address or share it with anyone"
+        data-default-survey-success="Thanks, we’ve sent you an email with a link to the survey."
+        data-default-survey-failure="Sorry, we’re unable to send you an email right now.  Please try again later.">
+  <section id="user-satisfaction-survey" class="visible" aria-hidden="false">
+    <div id="email-survey-pre" class="wrapper">
+      <h1>{{title}}</h1>
+      <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p>
+      <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">{{surveyCta}}</a></p>
+    </div>
+    <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true">
+      <div id="feedback-prototype-form">
+        <h1>{{surveyFormTitle}}</h1>
+        <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">{{noThanks}}</a></p>
+        <label for="email">{{surveyFormEmailLabel}}</label>
+        <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">
+        <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">
+        <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">
+        <div class="actions">
+          <button type="submit">{{surveyFormCta}}</button>
+          <p class="button-info">{{surveyFormCtaPostscript}}</p>
+        </div>
+      </div>
+    </form>
+    <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">
+      <p>{{surveySuccess}}</p>
+    </div>
+    <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">
+      <p>{{surveyFailure}}</p>
+    </div>
+  </section>
+</script>

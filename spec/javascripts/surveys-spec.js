@@ -6,10 +6,6 @@ describe("Surveys", function() {
     url: 'surveymonkey.com/default',
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
-    template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-              '  <a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a>' +
-              '  <a href="javascript:void()" id="take-survey" target="_blank"></a>' +
-              '</section>',
     surveyType: 'url',
   };
   var smallSurvey = {
@@ -28,6 +24,56 @@ describe("Surveys", function() {
     identifier: 'email-survey',
   };
 
+  var urlSurveyTemplate = '\
+    <script type="text/html+template" \
+            id="url-survey-template" \
+            data-default-title="Tell us what you think of GOV.UK" \
+            data-default-no-thanks="No thanks" \
+            data-default-survey-cta="Take the 3 minute survey" \
+            data-default-survey-cta-postscript="This will open a short survey on another website"> \
+      <section id="user-satisfaction-survey" class="visible" aria-hidden="false"> \
+        <h1>{{title}}</h1> \
+        <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p> \
+        <p class="cta"><a href="{{surveyUrl}}" id="take-survey">{{surveyCta}}</a> <span>{{surveyCtaPostscript}}</span></p> \
+      </section> \
+    </script>';
+  var emailSurveyTemplate = '\
+    <script type="text/html+template" \
+            id="email-survey-template" \
+            data-default-title="Tell us what you think of GOV.UK" \
+            data-default-no-thanks="No thanks" \
+            data-default-survey-cta="Your feedback will help us improve this website" \
+            data-default-survey-form-title="We’d like to hear from you" \
+            data-default-survey-form-email-label="Tell us your email address and we’ll send you a link to a quick feedback form." \
+            data-default-survey-form-cta="Send" \
+            data-default-survey-form-cta-postscript="We won’t store your email address or share it with anyone" \
+            data-default-survey-success="Thanks, we’ve sent you an email with a link to the survey." \
+            data-default-survey-failure="Sorry, we’re unable to send you an email right now.  Please try again later."> \
+      <section id="user-satisfaction-survey" class="visible" aria-hidden="false"> \
+        <div id="email-survey-pre" class="wrapper"> \
+          <h1>{{title}}</h1> \
+          <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p> \
+          <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">{{surveyCta}}</a></p> \
+        </div> \
+        <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true"> \
+          <h1>{{surveyFormTitle}}</h1> \
+          <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">{{noThanks}}</a></p> \
+          <label for="email">{{surveyFormEmailLabel}}</label> \
+          <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}"> \
+          <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}"> \
+          <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address"> \
+          <button type="submit">{{surveyFormCta}}</button> \
+          <p class="button-info">{{surveyFormCtaPostscript}}</p> \
+        </form> \
+        <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true"> \
+          <p>{{surveySuccess}}</p> \
+        </div> \
+        <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true"> \
+          <p>{{surveyFailure}}</p> \
+        </div> \
+      </section> \
+    </script>';
+
   beforeEach(function () {
     $block = $('<div id="banner-notification" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
@@ -35,6 +81,7 @@ describe("Surveys", function() {
                '<div id="user-satisfaction-survey-container"></div>');
 
     $('body').append($block);
+    $('#user-satisfaction-survey-container').append(emailSurveyTemplate).append(urlSurveyTemplate);
     $("#user-satisfaction-survey").remove();
 
     // Don't actually try and take a survey in test.
@@ -99,6 +146,86 @@ describe("Surveys", function() {
         surveys.displaySurvey(urlSurvey);
         expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown');
       });
+
+      describe("without overrides for the template defaults", function() {
+        it("uses the title defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultTitle');
+
+          expect($('#user-satisfaction-survey h1').text()).toEqual(defaultText);
+        });
+
+        it("uses the no thanks text defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultNoThanks');
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual(defaultText);
+        });
+
+        it("uses the call to action text defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultSurveyCta');
+
+          expect($('#user-satisfaction-survey .cta a').text()).toEqual(defaultText);
+        });
+
+        it("uses the call to action postscript text defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultSurveyCtaPostscript');
+
+          expect($('#user-satisfaction-survey .cta span').text()).toEqual(defaultText);
+        });
+      });
+
+      describe("with overrides for the template defaults", function() {
+        it("uses the title defined in the survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { title: 'Take my survey' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey h1').text()).toEqual('Take my survey');
+        });
+
+        it("uses the no thanks text defined in survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { noThanks: 'Nuh-uh!' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual('Nuh-uh!');
+        });
+
+        it("uses the call to action text defined in survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { surveyCta: 'Do it, do it now!' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey .cta a').text()).toEqual('Do it, do it now!');
+        });
+
+        it("uses the call to action postscript text defined in the survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { surveyCtaPostscript: 'This is a nice survey, please take it.' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey .cta span').text()).toEqual('This is a nice survey, please take it.');
+        });
+      });
     });
 
     describe("for an 'email' survey", function() {
@@ -124,6 +251,192 @@ describe("Surveys", function() {
         spyOn(surveys, 'trackEvent');
         surveys.displaySurvey(emailSurvey);
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_shown', 'Banner has been shown');
+      });
+
+      describe("without overrides for the template defaults", function() {
+        it("uses the title defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultTitle');
+
+          expect($('#user-satisfaction-survey #email-survey-pre h1').text()).toEqual(defaultText);
+        });
+
+        it("uses the no thanks text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultNoThanks');
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual(defaultText);
+          expect($('#user-satisfaction-survey #email-survey-cancel').text()).toEqual(defaultText);
+        });
+
+        it("uses the call to action text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyCta');
+
+          expect($('#user-satisfaction-survey #email-survey-open').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form title text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormTitle');
+
+          expect($('#user-satisfaction-survey form h1').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form email label defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormEmailLabel');
+
+          expect($('#user-satisfaction-survey form label').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form call to action defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormCta');
+
+          expect($('#user-satisfaction-survey form button').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form call to action postscript defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormCtaPostscript');
+
+          expect($('#user-satisfaction-survey form .button-info').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form success text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveySuccess');
+
+          expect($('#user-satisfaction-survey  #email-survey-post-success p').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form failure text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFailure');
+
+          expect($('#user-satisfaction-survey  #email-survey-post-failure p').text()).toEqual(defaultText);
+        });
+      });
+
+      describe("with overrides for the template defaults", function() {
+        it("uses the title defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              title: 'Do you like email?'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #email-survey-pre h1').text()).toEqual('Do you like email?');
+        });
+
+        it("uses the no thanks text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              noThanks: 'No way!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual('No way!');
+          expect($('#user-satisfaction-survey #email-survey-cancel').text()).toEqual('No way!');
+        });
+
+        it("uses the call to action text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyCta: 'Click here now!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #email-survey-open').text()).toEqual('Click here now!');
+        });
+
+        it("uses the survey form title text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormTitle: 'Tell us your email address'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form h1').text()).toEqual('Tell us your email address');
+        });
+
+        it("uses the survey form email label defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormEmailLabel: 'Enter it here'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form label').text()).toEqual('Enter it here');
+        });
+
+        it("uses the survey form call to action defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormCta: 'Clicking this sends us your address'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form button').text()).toEqual('Clicking this sends us your address');
+        });
+
+        it("uses the survey form call to action postscript defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormCtaPostscript: 'We will not send you spam'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form .button-info').text()).toEqual('We will not send you spam');
+        });
+
+        it("uses the survey form success text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveySuccess: 'Yay, it worked!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey  #email-survey-post-success p').text()).toEqual('Yay, it worked!');
+        });
+
+        it("uses the survey form failure text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFailure: 'Boo, it failed'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey  #email-survey-post-failure p').text()).toEqual('Boo, it failed');
+        });
       });
     });
   });

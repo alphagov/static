@@ -5,41 +5,6 @@
       $ = root.jQuery;
   if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
-  var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                            '  <div class="wrapper">' +
-                            '    <h1>Help improve GOV.UK</h1>' +
-                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
-                            '  </div>' +
-                            '</section>',
-    EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                            '  <div id="email-survey-pre" class="wrapper">' +
-                            '    <h1>Tell us what you think of GOV.UK</h1>' +
-                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                            '    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">Your feedback will help us improve this website</a></p>' +
-                            '  </div>' +
-                            '  <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true">' +
-                            '    <div id="feedback-prototype-form">'+
-                            '      <h1>We\'d like to hear from you</h1>'+
-                            '      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>' +
-                            '      <label for="email">Tell us your email address and we\'ll send you a link to a quick feedback form.</label>' +
-                            '      <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
-                            '      <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
-                            '      <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">' +
-                            '      <div class="actions">' +
-                            '        <button type="submit">Send</button>' +
-                            '        <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
-                            '      </div>' +
-                            '    </div>' +
-                            '  </form>' +
-                            '  <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">' +
-                            '    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>' +
-                            '  </div>' +
-                            '  <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">' +
-                            '    <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>' +
-                            '  </div>' +
-                            '</section>';
-
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -214,6 +179,66 @@
       }
     },
 
+    getUrlSurveyTemplate: function() {
+      var $urlSurveyTemplate = $('#url-survey-template');
+      return {
+        template: $urlSurveyTemplate.text(),
+        title: $urlSurveyTemplate.data('defaultTitle'),
+        noThanks: $urlSurveyTemplate.data('defaultNoThanks'),
+        surveyCta: $urlSurveyTemplate.data('defaultSurveyCta'),
+        surveyCtaPostscript: $urlSurveyTemplate.data('defaultSurveyCtaPostscript'),
+        render: function(survey, surveyUrl) {
+          var templateArgs = (survey.templateArguments || {}),
+            surveyUrl = survey.url;
+
+          // Survey monkey can record the URL of the survey link if passed
+          // through as a query param
+          if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
+            surveyUrl += "?c=" + userSurveys.currentPath();
+          }
+
+          return this.template.
+            replace(/\{\{title\}\}/g, templateArgs.title || this.title).
+            replace(/\{\{noThanks\}\}/g, templateArgs.noThanks || this.noThanks).
+            replace(/\{\{surveyCta\}\}/g, templateArgs.surveyCta || this.surveyCta).
+            replace(/\{\{surveyCtaPostscript\}\}/g, templateArgs.surveyCtaPostscript || this.surveyCtaPostscript).
+            replace(/\{\{surveyUrl\}\}/g, surveyUrl);
+        }
+      };
+    },
+
+    getEmailSurveyTemplate: function() {
+      var $emailSurveyTemplate = $('#email-survey-template');
+      return {
+        template: $emailSurveyTemplate.text(),
+        title: $emailSurveyTemplate.data('defaultTitle'),
+        noThanks: $emailSurveyTemplate.data('defaultNoThanks'),
+        surveyCta: $emailSurveyTemplate.data('defaultSurveyCta'),
+        surveyFormTitle: $emailSurveyTemplate.data('defaultSurveyFormTitle'),
+        surveyFormEmailLabel:$emailSurveyTemplate.data('defaultSurveyFormEmailLabel'),
+        surveyFormCta: $emailSurveyTemplate.data('defaultSurveyFormCta'),
+        surveyFormCtaPostscript: $emailSurveyTemplate.data('defaultSurveyFormCtaPostscript'),
+        surveySuccess: $emailSurveyTemplate.data('defaultSurveySuccess'),
+        surveyFailure: $emailSurveyTemplate.data('defaultSurveyFailure'),
+        render: function(survey) {
+          var templateArguments = (survey.templateArguments || {});
+
+          return this.template.
+            replace(/\{\{title\}\}/g, templateArguments.title || this.title).
+            replace(/\{\{noThanks\}\}/g, templateArguments.noThanks || this.noThanks).
+            replace(/\{\{surveyCta\}\}/g, templateArguments.surveyCta || this.surveyCta).
+            replace(/\{\{surveyFormTitle\}\}/g, templateArguments.surveyFormTitle || this.surveyFormTitle).
+            replace(/\{\{surveyFormEmailLabel\}\}/g, templateArguments.surveyFormEmailLabel || this.surveyFormEmailLabel).
+            replace(/\{\{surveyFormCta\}\}/g, templateArguments.surveyFormCta || this.surveyFormCta).
+            replace(/\{\{surveyFormCtaPostscript\}\}/g, templateArguments.surveyFormCtaPostscript || this.surveyFormCtaPostscript).
+            replace(/\{\{surveySuccess\}\}/g, templateArguments.surveySuccess || this.surveySuccess).
+            replace(/\{\{surveyFailure\}\}/g, templateArguments.surveyFailure || this.surveyFailure).
+            replace(/\{\{surveyId\}\}/g, survey.identifier).
+            replace(/\{\{surveySource\}\}/g, userSurveys.currentPath());
+        }
+      };
+    },
+
     getActiveSurvey: function(defaultSurvey, smallSurveys) {
       var activeSurvey = defaultSurvey;
 
@@ -243,29 +268,17 @@
     },
 
     displayURLSurvey: function(survey, surveyContainer) {
-      surveyContainer.append(survey.template || URL_SURVEY_TEMPLATE);
+      var urlSurveyTemplate = userSurveys.getUrlSurveyTemplate();
 
-      var $surveyLink = $('#take-survey');
-      var surveyUrl = survey.url;
-
-      // Survey monkey can record the URL of the survey link if passed through as a query param
-      if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
-        surveyUrl += "?c=" + userSurveys.currentPath();
-      }
-
-      $surveyLink.attr('href', surveyUrl);
+      surveyContainer.append(urlSurveyTemplate.render(survey));
 
       userSurveys.setURLSurveyEventHandlers(survey);
     },
 
     displayEmailSurvey: function(survey, surveyContainer) {
-      surveyContainer.append(survey.template || EMAIL_SURVEY_TEMPLATE);
+      var emailSurveyTemplate = userSurveys.getEmailSurveyTemplate();
 
-      var $surveyId = $('#email-survey-form input[name="email_survey_signup[survey_id]"]'),
-        $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]');
-
-      $surveyId.val(survey.identifier);
-      $surveySource.val(userSurveys.currentPath());
+      surveyContainer.append(emailSurveyTemplate.render(survey));
 
       userSurveys.setEmailSurveyEventHandlers(survey);
     },

@@ -15,7 +15,9 @@ There are sections of the site that should not show any surveys and these can be
   url: 'https://www.surveymonkey.com/s/2AAAAAA/',
   identifier: 'education_only_survey',
   frequency: 50,
-  template: TEMPLATE,
+  templateArguments: {
+    title: "Help us improve GOV.UK",
+  },
   activeWhen: function() {
     function sectionMatches() {
       return $('meta[property="govuk:section"]').attr('content') === 'education and learning';
@@ -45,58 +47,86 @@ Note that for `email` surveys the users email is submitted back to the [feedback
 ### `url` - required for `url` surveys
 This should link to a surveymonkey -- or other survey page -- that allows the visitor to take the survey.
 
-### `template` - OPTIONAL
-This describes the UI that the survey will use to encourage users to sign up.  If omitted the default survey for the `surveyType` will be used.
+### `templateArguments` - OPTIONAL
+This allows you to customise the text in the survey.  The available options for customisation are based on the `surveyType`
 
-#### url survey template
-An HTML fragment representing the contents of the survey box. This **MUST** conform to the following minimum structure:
+#### `templateArguments` for `url` survey
+The template for a url survey is as follows:
 
 ```html
 <section id="user-satisfaction-survey" class="visible" aria-hidden="false">
   <div class="wrapper">
-    <h1>Heading copy</h1>
-    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>
-    <p><a href="javascript:void()" id="take-survey" target="_blank">Link text</a> This will open a short survey on another website</p>
+    <h1>{{title}}</h1>
+    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p>
+    <p><a href="" id="take-survey" target="_blank">{{surveyCta}}</a> {{surveyCtaPostscript}}</p>
   </div>
 </section>
 ```
 
-The `#survey-no-thanks` and `#take-survey` elements are required as the surveys code will expect these elements for setting cookies and tracking user behaviour.
+The behaviour of this template is that clicking the `#take-survey` link hides the survey banner.  Clicking the link, or dismissing the UI via `#survye-no-thanks` will set cookies to avoid re-showing the UI for this survey to the user again.
 
-#### email survey template
-An HTML fragment representing the interactive UI for entering an email address.  We expect something like the following:
+The parts of the template wrapped in braces are dynamic and are replaced at runtime.  The following are customisable via `templateArguments`:
+
+* title - (optional) the default is "Tell us what you think of GOV.UK"
+* noThanks - (optional) the default is "No thanks"; clicking this dismisses the banner and sets a cookie to not show it again for 4 months
+* surveyCta - (optional) the default is "Take the 3 minute survey"; clicking this takes the user to the survey specified by the `url` of the survey
+* surveyCtaPostscript - (optional) the default is "This will open a short survey on another website"
+
+The following are not customisable via `templateArguments`, but are calculated:
+
+* surveyUrl - this is filled in using the `url` argument on the survey.  If it is a surveymonkey url the current path will be added as a `c` param in the querystring.
+
+#### `templateArguments` for `email` survey
+The template for a url survey is as follows:
 
 ```html
 <section id="user-satisfaction-survey" class="visible" aria-hidden="false">
   <div id="email-survey-pre" class="wrapper">
-    <h1>Tell us what you think of GOV.UK</h1>
-    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>
-    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">Your feedback will help us improve this website</a></p>
+    <h1>{{title}}</h1>
+    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p>
+    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">{{surveyCta}}</a></p>
   </div>
-  <form id="email-survey-form" action="/contact/govuk/email-survey-request" method="post" class="wrapper js-hidden" aria-hidden="true">
+  <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true">
     <div id="feedback-prototype-form">
-      <h1>We'd like to hear from you</h1>
-      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>
-      <label for="email">Tell us your email address and we'll send you a link to a quick feedback form.</label>
-      <input name="survey_id" type="hidden" value="">
-      <input name="survey_source" type="hidden" value="">
-      <input name="email" type="text" placeholder="Your email address">
+      <h1>{{surveyFormTitle}}</h1>
+      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">{{noThanks}}</a></p>
+      <label for="email">{{surveyFormEmailLabel}}</label>
+      <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">
+      <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">
+      <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">
       <div class="actions">
-        <button class="button">Send</button>
-        <p class="button-info">We won't store your email address or share it with anyone</span>
+        <button type="submit">{{surveyFormCta}}</button>
+        <p class="button-info">{{surveyFormCtaPostscript}}</p>
       </div>
     </div>
   </form>
   <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">
-    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>
+    <p>{{surveySuccess}}</p>
   </div>
   <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">
-    <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>
+    <p>{{surveyFailure}}</p>
   </div>
 </section>
 ```
 
-Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#survey-no-thanks` and `#email-survey-cancel` are also required for dismissing the UI.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
+The behaviour of this template is that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  Successfully submitting the form or dismissing the UI via `#survey-no-thanks` or `#email-survey-cancel` will set cookies to avoid re-showing the UI for this survey to the user again.
+
+The parts of the template wrapped in braces are dynamic and are replaced at runtime.  The following are customisable via `templateArguments`:
+
+* title - (optional) the default is "Tell us what you think of GOV.UK"
+* noThanks - (optioanl) the default is "No thanks" - clicking either of these will dismiss the banner and sets a cookie to not show it again for 4 months
+* surveyCta - (optional) the default is "Your feedback will help us improve this website" - clicking this will open the form to ask for the email address
+* surveyFormTitle - (optional) the default is "We’d like to hear from you"
+* surveyFormEmailLabel - (optional) the default is "Tell us your email address and we’ll send you a link to a quick feedback form."
+* surveyFormCta - (optional) the default is "Send" - clicking this will submit the form to the [feedback](https://github.com/alphagov/feedback) application and if successful send the user an email to the survey
+* surveyFormCtaPostscript - (optional) the default is "We won’t store your email address or share it with anyone"
+* surveySuccess - (optional) the default is "Thanks, we’ve sent you an email with a link to the survey." - this is shown if the form submission succeeds and will set a cookie to not show the survey again for 4 months
+* surveyFailure - (optional) the default is "Sorry, we’re unable to send you an email right now.  Please try again later." - this is shown if the form submission succeeds, it does not set a cookie so they can try again if they see the survey.
+
+The following are not customisable via `templateArguments`, but are calculated:
+
+* surveyId - this is filled in with the `identifier` of the survey
+* surveySource - this is filled in with the current path
 
 ### `activeWhen` - OPTIONAL
 A callback function returning true or false allowing further scoping of when the survey is considered "active".

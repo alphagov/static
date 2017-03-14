@@ -1,0 +1,14 @@
+<script type="text/html+template"
+        id="url-survey-template"
+        data-default-title="Tell us what you think of GOV.UK"
+        data-default-no-thanks="No thanks"
+        data-default-survey-cta="Take the 3 minute survey"
+        data-default-survey-cta-postscript="This will open a short survey on another website">
+  <section id="user-satisfaction-survey" class="visible" aria-hidden="false">
+    <div class="wrapper">
+      <h1>{{title}}</h1>
+      <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p>
+      <p><a href="{{surveyUrl}}" id="take-survey" target="_blank" rel="noopener noreferrer">{{surveyCta}}</a> {{surveyCtaPostscript}}</p>
+    </div>
+  </section>
+</script>
