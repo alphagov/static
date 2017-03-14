@@ -15,4 +15,32 @@
     color: $secondary-text-colour;
     text-decoration: none;
   }
+
+  @include media-down(mobile) {
+    &.collapse-on-mobile li {
+      display: none;
+
+      &.parent-taxon {
+        background-image: none;
+        display: block;
+        margin-left: 0;
+        padding-left: 14px;
+        position: relative;
+
+        &:before {
+          border-bottom: 5px solid transparent;
+          border-right: 6px solid #0b0c0c;
+          border-top: 5px solid transparent;
+          content: '';
+          display: block;
+          height: 0;
+          left: 0;
+          margin-top: -6px;
+          position: absolute;
+          top: 50%;
+          width: 0;
+        }
+      }
+    }
+  }
 }
