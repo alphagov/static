@@ -1,34 +1,38 @@
 # Running test surveys on GOV.UK
 
-Across GOV.UK, a "survey" will pop up for one in 50 visitors, asking them what they thought of GOV.UK. This is known as the "user satisfaction survey".
+Across GOV.UK, a "survey" will pop up for one in 50 visitors, asking them what they thought of GOV.UK. This is known as the "user satisfaction survey", or "default survey".
 
-Sometimes, a "small survey" or "test survey" needs to be run across GOV.UK for a short time to evaluate content changes or taxonomy changes.
+Sometimes, we want to run some other survey across a different set of pages across GOV.UK for a short time to evaluate content changes or taxonomy changes.
 
-This can easily be done by adding an entry to `GOVUK.userSurveys.smallSurveys` in `app/assets/javascripts/surveys.js`.
+This can easily be done by adding an entry to `app/views/surveys/_survey_definitions.html.erb`.
 
 There are sections of the site that should not show any surveys and these can be controlled via the `GOVUK.userSurveys.pathInBlacklist` function in `app/assets/javascripts/surveys.js`.  They are also never shown on "done" pages which can be controlled via the `GOVUK.userSurveys.userCompletedTransaction` function in the same file.
 
 ## Example
 
-```javascript
-{
-  url: 'https://www.surveymonkey.com/s/2AAAAAA/',
-  identifier: 'education_only_survey',
-  frequency: 50,
-  templateArguments: {
-    title: "Help us improve GOV.UK",
-  },
-  activeWhen: {
-    section: ['education and learning'],
-    path: ['guidance/social-care-common-inspection-framework-sccif-boarding-schools'],
-    breadcrumbs: ['Schools'],
-    organisation: ['<D106>'],
-    matchType: 'include'
-  },
-  startTime: "July 25, 2016",
-  endTime: "August 3, 2016 23:59:50"
-}
+```html
+<script type="application/json" data-survey>
+  {
+    "url": "https://www.surveymonkey.com/s/2AAAAAA/",
+    "identifier": "education_only_survey",
+    "frequency": 50,
+    "templateArguments": {
+      "title": "Help us improve GOV.UK",
+    },
+    "activeWhen": {
+      "section": ["education and learning"],
+      "path": ["guidance/social-care-common-inspection-framework-sccif-boarding-schools"],
+      "breadcrumbs": ["Schools"],
+      "organisation": ["<D106>"],
+      "matchType": "include"
+    },
+    "startTime": "July 25, 2016",
+    "endTime": "August 3, 2016 23:59:50"
+  }
+</script>
 ```
+
+Any script tag with the `data-survey` attribute will be read in as a potential survey to run, the default survey has the `data-survey-default` attribute on its script tag instead of `data-survey`.
 
 ## About the data structure
 

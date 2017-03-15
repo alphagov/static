@@ -99,16 +99,152 @@ describe("Surveys", function() {
   });
 
   describe("init", function() {
-    it("shows the default survey", function() {
+    it("picks a survey and displays it", function() {
+      // Set up the world so that there's only the default survey and it'll
+      // definitely be shown
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([]);
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true);
-      // So we're working with the user satisfaction survey, not any future small survey
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 201610:00:00").getTime());
+
       surveys.init();
 
-      expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url);
+      expect($('#take-survey').attr('href')).toContain(defaultSurvey.url);
       expect($('#user-satisfaction-survey').length).toBe(1);
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true);
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
+    });
+  });
+
+  describe("getDefaultSurvey", function() {
+    it("loads the JSON defined in the element with a data-survey-default attribute", function() {
+      var defaultSurveyDefinition = '\
+          <script type="application/json" data-survey-default> \
+            {\
+              "url": "surveymonkey.com/default", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_1", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        otherSurveyDefinition = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "url" \
+            }\
+          </script>';
+      $('#user-satisfaction-survey-container').append(defaultSurveyDefinition).append(otherSurveyDefinition);
+
+      expect(surveys.getDefaultSurvey()).toEqual(
+        {
+          url: "surveymonkey.com/default",
+          frequency: 1,
+          identifier: "user_satisfaction_survey_1",
+          surveyType: "url",
+        }
+      );
+    });
+    it("returns undefined if there is no element with a data-survey-default attribute", function() {
+      expect(surveys.getDefaultSurvey()).toEqual(undefined);
+    });
+    it("returns undefined if the data-survey-default element contains broken JSON", function() {
+      var brokenDefaultSurveyDefinition = '\
+          <script type="application/json" data-survey-default> \
+            {\
+              url: "surveymonkey.com/default" \
+            }\
+          </script>';
+
+      $('#user-satisfaction-survey-container').append(brokenDefaultSurveyDefinition);
+      expect(surveys.getDefaultSurvey()).toEqual(undefined);
+    });
+  });
+
+  describe("getOtherSurveys", function() {
+    it("returns an array with the JSON objects defined in every element with a data-survey attribute", function() {
+      var defaultSurveyDefinition = '\
+          <script type="application/json" data-survey-default> \
+            {\
+              "url": "surveymonkey.com/default", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_1", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        otherSurveyDefinitionOne = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other_one", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        otherSurveyDefinitionTwo = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other_two", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "email", \
+              "activeWhen": { \
+                "path": ["/foo"] \
+              } \
+            }\
+          </script>';
+      $('#user-satisfaction-survey-container')
+          .append(defaultSurveyDefinition)
+          .append(otherSurveyDefinitionOne)
+          .append(otherSurveyDefinitionTwo);
+
+      var otherSurveys = surveys.getOtherSurveys();
+      expect(otherSurveys.length).toEqual(2);
+      expect(otherSurveys[0]).toEqual({
+        url: "surveymonkey.com/other_one",
+        frequency: 1,
+        identifier: "user_satisfaction_survey_2",
+        surveyType: "url"
+      });
+      expect(otherSurveys[1]).toEqual({
+        url: "surveymonkey.com/other_two",
+        frequency: 1,
+        identifier: "user_satisfaction_survey_2",
+        surveyType: "email",
+        activeWhen: {
+          path: ["/foo"]
+        }
+      });
+    });
+    it("returns an empty array if there is no element with a data-survey-default attribute", function() {
+      var otherSurveys = surveys.getOtherSurveys()
+      expect(otherSurveys.length).toEqual(0);
+    });
+    it("filters out elements with broken JSON", function() {
+      var otherSurveyDefinition = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other_one", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        brokenSurveyDefinition = '\
+          <script type="application/json" data-survey> \
+            {\
+              url: "surveymonkey.com/default" \
+            }\
+          </script>';
+
+      $('#user-satisfaction-survey-container')
+          .append(brokenSurveyDefinition)
+          .append(otherSurveyDefinition);
+
+      var otherSurveys = surveys.getOtherSurveys();
+      expect(otherSurveys.length).toEqual(1);
+      expect(otherSurveys[0].identifier).toEqual("user_satisfaction_survey_2")
     });
   });
 
@@ -1236,8 +1372,17 @@ describe("Surveys", function() {
   });
 
   describe("getActiveSurvey", function() {
+    it("returns undefined when no surveys are present", function() {
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(undefined);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([]);
+      var activeSurvey = surveys.getActiveSurvey();
+      expect(activeSurvey).toBeUndefined();
+    });
+
     it("returns the default survey when no other surveys are present", function() {
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, []);
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([]);
+      var activeSurvey = surveys.getActiveSurvey();
       expect(activeSurvey).toBe(defaultSurvey);
     });
 
@@ -1253,8 +1398,10 @@ describe("Surveys", function() {
           endTime: "July 20, 2016 23:50:00",
           url: 'example.com/not-started-survey'
         };
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([finishedSurvey, notStartedSurvey]);
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [finishedSurvey, notStartedSurvey]);
+      var activeSurvey = surveys.getActiveSurvey();
       expect(activeSurvey).toBe(defaultSurvey);
     });
 
@@ -1268,8 +1415,10 @@ describe("Surveys", function() {
           endTime: "July 10, 2016 23:50:00",
           url: 'example.com/small-survey'
         };
+        spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+        spyOn(surveys, 'getOtherSurveys').and.returnValue([testSurvey]);
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        var activeSurvey = surveys.getActiveSurvey();
         expect(activeSurvey).toBe(testSurvey);
       });
 
@@ -1284,7 +1433,10 @@ describe("Surveys", function() {
           url: 'example.com/small-survey'
         };
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+        spyOn(surveys, 'getOtherSurveys').and.returnValue([testSurvey]);
+
+        var activeSurvey = surveys.getActiveSurvey();
         expect(activeSurvey).toBe(defaultSurvey);
       });
     });

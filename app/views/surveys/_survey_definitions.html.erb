@@ -1,0 +1,54 @@
+<script type="application/json" data-survey-default>
+  {
+    "url": "https://www.surveymonkey.com/s/2MRDLTW",
+    "identifier": "user_satisfaction_survey",
+    "frequency": 50,
+    "surveyType": "url",
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "url:" "https://www.smartsurvey.co.uk/s/6YYKX/",
+    "identifier": "ons_survey",
+    "templateArguments": {
+      "surveyCta": "Give us your feedback on government statistical data"
+    },
+    "frequency": 1,
+    "activeWhen": {
+      "path": ["^\/government\/statistics\/?$"]
+    },
+    "surveyType": "url",
+    "startTime": "January 25, 2017",
+    "endTime": "February 27, 2017 23:59:59"
+  },
+</script>
+<script type="application/json" data-survey>
+  {
+    "identifier": "govuk_email_survey_t01",
+    "frequency": 1,
+    "activeWhen": {
+      "breadcrumb": ["Education", "Childcare", "Schools"],
+      "section": ["education", "childcare", "schools"],
+      "organisation": ["<D6>", "<D106>", "<D109>", "<EA243>", "<EA86>", "<EA242>", "<EA541>"],
+      "matchType": "exclude"
+    },
+    "surveyType": "email",
+    "startTime": "March 08, 2017",
+    "endTime": "March 10, 2017 12:59:59"
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "identifier": "govuk_email_survey_t02",
+    "frequency": 2,
+    "activeWhen": {
+      "breadcrumb": ["Education", "Childcare", "Schools"],
+      "section": ["education", "childcare", "schools"],
+      "organisation": ["<D6>", "<D106>", "<D109>", "<EA243>", "<EA86>", "<EA242>", "<EA541>"],
+      "matchType": "exclude"
+    },
+    "surveyType": "email",
+    "startTime": "March 10, 2017 13:00:00",
+    "endTime": "March 13, 2017 23:59:59"
+  }
+</script>
