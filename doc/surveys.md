@@ -25,8 +25,8 @@ There are sections of the site that should not show any surveys and these can be
     organisation: ['<D106>'],
     matchType: 'include'
   },
-  startTime: new Date("July 25, 2016").getTime(),
-  endTime: new Date("August 3, 2016 23:59:50").getTime()
+  startTime: "July 25, 2016",
+  endTime: "August 3, 2016 23:59:50"
 }
 ```
 
@@ -148,4 +148,4 @@ In the example above, the survey will only be considered "active" on pages with 
 Not providing any `activeWhen` parameters, or providing an empty `activeWhen` parameter will apply the survey to all pages on GOV.UK between `startTime` and `endTime`, so take care when doing this.
 
 ### `startTime` and `endTime`
-The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
+The survey will only be considered "active" between these dates and times. These strings are passed into `new Date(...)` to parse them into real times, so note that where an explicit time is not provided (e.g. startTime) this will assume 00:00:00.000 i.e. just after midnight.

@@ -243,10 +243,8 @@
       var activeSurvey = defaultSurvey;
 
       $.each(smallSurveys, function(_index, survey) {
-        if(userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
-          if (userSurveys.activeWhen(survey)) {
-            activeSurvey = survey;
-          }
+        if (userSurveys.surveyIsAllowedToRunBasedOnTimes(survey) && userSurveys.activeWhen(survey)) {
+          activeSurvey = survey;
         }
       });
 
@@ -489,6 +487,14 @@
         var orgMatchingExpr = new RegExp($.makeArray(organisations).join("|"));
         return orgMatchingExpr.test(userSurveys.currentOrganisation());
       }
+    },
+
+    surveyIsAllowedToRunBasedOnTimes: function(survey) {
+      var startTime = new Date(survey.startTime).getTime(),
+        endTime = new Date(survey.endTime).getTime(),
+        now = userSurveys.currentTime();
+
+      return now >= startTime && now <= endTime;
     },
 
     activeWhen: function(survey) {

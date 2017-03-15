@@ -9,8 +9,8 @@ describe("Surveys", function() {
     surveyType: 'url',
   };
   var smallSurvey = {
-    startTime: new Date("July 5, 2016").getTime(),
-    endTime: new Date("July 10, 2016 23:50:00").getTime(),
+    startTime: "July 5, 2016",
+    endTime: "July 10, 2016 23:50:00",
     url: 'example.com/small-survey',
     surveyType: 'url',
   };
@@ -1236,56 +1236,57 @@ describe("Surveys", function() {
   });
 
   describe("getActiveSurvey", function() {
-    it("returns the default survey when no smallSurveys are present", function() {
-      var smallSurveys = [smallSurvey];
-
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
+    it("returns the default survey when no other surveys are present", function() {
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, []);
       expect(activeSurvey).toBe(defaultSurvey);
     });
 
-    it("returns the default survey when a smallSurvey is not active", function() {
-      var smallSurveys = [smallSurvey];
+    it("returns the default survey when no other surveys are allowed to run because of the current time", function() {
       spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 2016 10:00:00").getTime());
+      var finishedSurvey = {
+          startTime: "July 5, 2016",
+          endTime: "July 10, 2016 23:50:00",
+          url: 'example.com/finished-survey'
+        },
+        notStartedSurvey = {
+          startTime: "July 12, 2016",
+          endTime: "July 20, 2016 23:50:00",
+          url: 'example.com/not-started-survey'
+        };
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [finishedSurvey, notStartedSurvey]);
       expect(activeSurvey).toBe(defaultSurvey);
     });
 
-    it("returns the small survey when a smallSurvey is active", function() {
-      var smallSurveys = [smallSurvey];
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+    describe("when a survey is allowed to run because of the current time", function() {
+      it("picks the survey from small surveys if the activeWhen function returns true for it", function() {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        spyOn(surveys, 'activeWhen').and.returnValue(true);
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
-      expect(activeSurvey).toBe(smallSurvey);
-    });
+        var testSurvey = {
+          startTime: "July 5, 2016",
+          endTime: "July 10, 2016 23:50:00",
+          url: 'example.com/small-survey'
+        };
 
-    it("picks the survey from small surveys if the activeWhen function returns true for it", function() {
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
-      spyOn(surveys, 'activeWhen').and.returnValue(true);
+        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        expect(activeSurvey).toBe(testSurvey);
+      });
 
-      var testSurvey = {
-        startTime: new Date("July 5, 2016").getTime(),
-        endTime: new Date("July 10, 2016 23:50:00").getTime(),
-        url: 'example.com/small-survey'
-      };
+      it("picks the default survey if the activeWhen function returns false for all the small surveys", function() {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        spyOn(surveys, 'activeWhen').and.returnValue(false);
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
-      expect(activeSurvey).toBe(testSurvey);
-    });
+        var testSurvey = {
+          startTime: "July 5, 2016",
+          endTime: "July 10, 2016 23:50:00",
+          activeWhen: function() { return false; },
+          url: 'example.com/small-survey'
+        };
 
-    it("picks the default survey if the activeWhen function returns false for all the small surveys", function() {
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
-      spyOn(surveys, 'activeWhen').and.returnValue(false);
-
-      var testSurvey = {
-        startTime: new Date("July 5, 2016").getTime(),
-        endTime: new Date("July 10, 2016 23:50:00").getTime(),
-        activeWhen: function() { return false; },
-        url: 'example.com/small-survey'
-      };
-
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
-      expect(activeSurvey).toBe(defaultSurvey);
+        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        expect(activeSurvey).toBe(defaultSurvey);
+      });
     });
   });
 });
