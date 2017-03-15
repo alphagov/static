@@ -258,24 +258,22 @@ describe("Surveys", function() {
     });
 
     describe("for a 'url' survey", function() {
-      it("links to the url for a surveymonkey survey and adds the current path as a `c` param", function () {
+      it("inserts the survey url in the template", function () {
         surveys.displaySurvey(urlSurvey);
 
-        expect($('#take-survey').attr('href')).toContain(urlSurvey.url);
-        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
+        expect($('#take-survey').attr('href')).toEqual(urlSurvey.url);
       });
 
-      it("links to the url for a non-surveymonkey survey without adding the current path as a `c` param", function () {
+      it("injects the current path if the survey url contains a {{currentPath}} tempalte parameter", function() {
         var nonSurveyMonkeyUrlSurvey = {
           surveyType: 'url',
-          url: 'surveygorilla.com/default',
+          url: 'surveygorilla.com/default?c={{currentPath}}',
           identifier: 'url-survey',
         }
         surveys.displaySurvey(nonSurveyMonkeyUrlSurvey);
 
-        expect($('#take-survey').attr('href')).toContain(nonSurveyMonkeyUrlSurvey.url);
-        expect($('#take-survey').attr('href')).not.toContain("?c=" + window.location.pathname);
-      });
+        expect($('#take-survey').attr('href')).toEqual('surveygorilla.com/default?c=' + window.location.pathname);
+      })
 
       it("records an event when showing the survey", function() {
         spyOn(surveys, 'trackEvent');

@@ -47,8 +47,11 @@ What type of survey is this.  Currently either `url` or `email` is supported.  `
 
 Note that for `email` surveys the users email is submitted back to the [feedback](https://github.com/alphagov/feedback) app which actually sends the email.  The email address is sent with the `identifier` of the survey and this identifier must match with the `id` of a survey defined in [`app/models/email_survey.rb`](https://github.com/alphagov/feedback/blob/85e07b0c572a91be02b64af1d551df313f2695f9/app/models/email_survey.rb#L24).  Make sure you define the survey in both `static` and `feedback`.
 
-### `url` - required for `url` surveys
-This should link to a surveymonkey -- or other survey page -- that allows the visitor to take the survey.
+### `url` - required for `url` surveys, ignored for `email` surveys
+This should link to a surveymonkey -- or other survey page -- that allows the visitor to take the survey.  If the url contains the template param `{{currentPath}}` this will be replaced with the current page path.  For example if the `url` param is:
+
+* `https://www.surveymonkey.com/s/2AAAAAA/` - it will be left alone and inserted in the template as-is.
+* `https://www.surveymonkey.com/s/2AAAAAA/?c={{currentPath}}` - will be transformed into `https://www.surveymonkey.com/s/2AAAAAA/?c=/government/publications/the-temple-of-the-jedi-order` (assuming the page the survey was shown on was https://www.gov.uk/government/publications/the-temple-of-the-jedi-order).
 
 ### `templateArguments` - OPTIONAL
 This allows you to customise the text in the survey.  The available options for customisation are based on the `surveyType`

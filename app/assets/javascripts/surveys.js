@@ -24,13 +24,7 @@
         surveyCtaPostscript: $urlSurveyTemplate.data('defaultSurveyCtaPostscript'),
         render: function(survey, surveyUrl) {
           var templateArgs = (survey.templateArguments || {}),
-            surveyUrl = survey.url;
-
-          // Survey monkey can record the URL of the survey link if passed
-          // through as a query param
-          if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
-            surveyUrl += "?c=" + userSurveys.currentPath();
-          }
+            surveyUrl = survey.url.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
 
           return this.template.
             replace(/\{\{title\}\}/g, templateArgs.title || this.title).
