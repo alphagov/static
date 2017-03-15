@@ -305,47 +305,39 @@
     },
 
     pathMatch: function(paths) {
-      if (paths === undefined) {
-        return false;
-      } else {
-        var pathMatchingExpr = new RegExp(
-          $.map($.makeArray(paths), function(path, _i) {
-            if (/[\^\$]/.test(path)) {
-              return "(?:"+path+")"
-            } else {
-              return "(?:\/"+path+"(?:\/|$))";
-            }
-          }).join("|")
-        );
-        return pathMatchingExpr.test(userSurveys.currentPath());
-      }
+      if (paths === undefined) { return false; }
+
+      var pathMatchingExpr = new RegExp(
+        $.map($.makeArray(paths), function(path, _i) {
+          if (/[\^\$]/.test(path)) {
+            return "(?:"+path+")"
+          } else {
+            return "(?:\/"+path+"(?:\/|$))";
+          }
+        }).join("|")
+      );
+      return pathMatchingExpr.test(userSurveys.currentPath());
     },
 
     breadcrumbMatch: function(breadcrumbs) {
-      if (breadcrumbs === undefined) {
-        return false;
-      } else {
-        var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join("|"), 'i');
-        return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb());
-      }
+      if (breadcrumbs === undefined) { return false; }
+
+      var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join("|"), 'i');
+      return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb());
     },
 
     sectionMatch: function(sections) {
-      if (sections === undefined) {
-        return false;
-      } else {
-        var sectionMatchingExpr = new RegExp($.makeArray(sections).join("|"), 'i');
-        return sectionMatchingExpr.test(userSurveys.currentSection());
-      }
+      if (sections === undefined) { return false; }
+
+      var sectionMatchingExpr = new RegExp($.makeArray(sections).join("|"), 'i');
+      return sectionMatchingExpr.test(userSurveys.currentSection());
     },
 
     organisationMatch: function(organisations) {
-      if (organisations === undefined) {
-        return false;
-      } else {
-        var orgMatchingExpr = new RegExp($.makeArray(organisations).join("|"));
-        return orgMatchingExpr.test(userSurveys.currentOrganisation());
-      }
+      if (organisations === undefined) { return false; }
+
+      var orgMatchingExpr = new RegExp($.makeArray(organisations).join("|"));
+      return orgMatchingExpr.test(userSurveys.currentOrganisation());
     },
 
     surveyIsAllowedToRunBasedOnTimes: function(survey) {
@@ -357,26 +349,24 @@
     },
 
     surveyIsAllowedToRunBasedOnActiveWhen: function(survey) {
-      if (survey.hasOwnProperty('activeWhen')) {
-        if (survey.activeWhen.hasOwnProperty('path') ||
-            survey.activeWhen.hasOwnProperty('breadcrumb') ||
-            survey.activeWhen.hasOwnProperty('section') ||
-            survey.activeWhen.hasOwnProperty('organisation')) {
+      if (!survey.hasOwnProperty('activeWhen')) { return true; }
 
-          var matchType = (survey.activeWhen.matchType || 'include'),
-            matchByPath = userSurveys.pathMatch(survey.activeWhen.path),
-            matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb),
-            matchBySection = userSurveys.sectionMatch(survey.activeWhen.section),
-            matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation),
-            pageMatches = (matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation);
+      if (survey.activeWhen.hasOwnProperty('path') ||
+          survey.activeWhen.hasOwnProperty('breadcrumb') ||
+          survey.activeWhen.hasOwnProperty('section') ||
+          survey.activeWhen.hasOwnProperty('organisation')) {
 
-          if (matchType !== 'exclude') {
-            return pageMatches;
-          } else {
-            return !pageMatches;
-          }
+        var matchType = (survey.activeWhen.matchType || 'include'),
+          matchByPath = userSurveys.pathMatch(survey.activeWhen.path),
+          matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb),
+          matchBySection = userSurveys.sectionMatch(survey.activeWhen.section),
+          matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation),
+          pageMatches = (matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation);
+
+        if (matchType !== 'exclude') {
+          return pageMatches;
         } else {
-          return true;
+          return !pageMatches;
         }
       } else {
         return true;
