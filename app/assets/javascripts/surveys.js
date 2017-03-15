@@ -243,7 +243,7 @@
       var activeSurvey = defaultSurvey;
 
       $.each(smallSurveys, function(_index, survey) {
-        if (userSurveys.surveyIsAllowedToRunBasedOnTimes(survey) && userSurveys.activeWhen(survey)) {
+        if (userSurveys.surveyIsAllowedToRunBasedOnTimes(survey) && userSurveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)) {
           activeSurvey = survey;
         }
       });
@@ -497,7 +497,7 @@
       return now >= startTime && now <= endTime;
     },
 
-    activeWhen: function(survey) {
+    surveyIsAllowedToRunBasedOnActiveWhen: function(survey) {
       if (survey.hasOwnProperty('activeWhen')) {
         if (survey.activeWhen.hasOwnProperty('path') ||
             survey.activeWhen.hasOwnProperty('breadcrumb') ||
