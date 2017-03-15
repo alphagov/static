@@ -50,78 +50,67 @@
     },
     smallSurveys: [
       {
-        url: 'https://www.smartsurvey.co.uk/s/6YYKX/',
-        identifier: 'ons_survey',
+        url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Hold_gov_to_account&utm_medium=gov.uk%20survey&t=GDS",
+        identifier: 'mar_ur_panel',
         template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                   '  <div class="wrapper">' +
-                  '    <h1>Tell us what you think of GOV.UK</h1>' +
+                  '    <h1>Help improve GOV.UK</h1>' +
                   '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Give us your feedback on government statistical data</a> This will open a short survey on another website</p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
                   '  </div>' +
                   '</section>',
-        frequency: 1,
+        frequency: 5,
         activeWhen: function() {
           function pathMatches() {
-            return /^\/government\/statistics\/?$/.test(userSurveys.currentPath());
+            var pathMatchingExpr = new RegExp('/(?:'
+                + /government\/policies/.source
+                + /|government\/how-government-works/.source
+                + /|make-a-freedom-of-information-request/.source
+                + /|government\/collections\/open-government/.source
+                + /|government\/publications\/uk-open-government-national-action-plan-2016-18\/uk-open-government-national-action-plan-2016-18/.source
+                + /|government\/policies\/government-transparency-and-accountability/.source
+                + /|topic\/local-government\/transparency/.source
+                + ')'
+            );
+            return pathMatchingExpr.test(userSurveys.currentPath());
           }
 
-          return pathMatches();
+          return (pathMatches());
         },
         surveyType: 'url',
-        startTime: new Date("January 25, 2017").getTime(),
-        endTime: new Date("February 27, 2017 23:59:59").getTime()
+        startTime: new Date("March 20, 2017").getTime(),
+        endTime: new Date("April 21, 2017 23:59:59").getTime()
       },
       {
-        identifier: 'govuk_email_survey_t01',
-        frequency: 1,
+        url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Improve_platform_basics&utm_medium=gov.uk%20survey&t=GDS",
+        identifier: 'mar_ur_panel',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+        '  <div class="wrapper">' +
+        '    <h1>Help improve GOV.UK</h1>' +
+        '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+        '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
+        '  </div>' +
+        '</section>',
+        frequency: 5,
         activeWhen: function() {
-          function breadcrumbExclude() {
-            var text = $('.govuk-breadcrumbs').text() || "";
-            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          function pathMatches() {
+            var pathMatchingExpr = new RegExp('/(?:'
+                + /government\/world/.source
+                + /|government\/world\/australia/.source
+                + /|government\/world\/china/.source
+                + /|government\/world\/india/.source
+                + /|government\/world\/pakistan/.source
+                + /|government\/world\/usa/.source
+                + ')'
+            );
+            return pathMatchingExpr.test(userSurveys.currentPath());
           }
 
-          function sectionExclude() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
-          }
-
-          function organisationExclude() {
-            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return !(sectionExclude() || breadcrumbExclude() || organisationExclude());
+          return (pathMatches());
         },
-        surveyType: 'email',
-        startTime: new Date("March 08, 2017").getTime(),
-        endTime: new Date("March 10, 2017 12:59:59").getTime()
-      },
-      {
-        identifier: 'govuk_email_survey_t02',
-        frequency: 2,
-        activeWhen: function() {
-          function breadcrumbExclude() {
-            var text = $('.govuk-breadcrumbs').text() || "";
-            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
-          }
-
-          function sectionExclude() {
-            var sectionName = $('meta[name="govuk:section"]').attr('content');
-            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
-          }
-
-          function organisationExclude() {
-            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
-            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-            return orgMatchingExpr.test(metaText);
-          }
-
-          return !(sectionExclude() || breadcrumbExclude() || organisationExclude());
-        },
-        surveyType: 'email',
-        startTime: new Date("March 10, 2017 13:00:00").getTime(),
-        endTime: new Date("March 13, 2017 23:59:59").getTime()
+        surveyType: 'url',
+        startTime: new Date("March 20, 2017").getTime(),
+        endTime: new Date("April 21, 2017 23:59:59").getTime()
       }
     ],
 
