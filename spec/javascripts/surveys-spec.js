@@ -487,13 +487,13 @@ describe("Surveys", function() {
     // we make sure that slash-terminated and slash-unterminated versions
     // of these paths work
     it("returns true if the path is /service-manual", function() {
-      spyOn(surveys, 'currentPath').and.returnValue('/service-manual', '/service-manual/');
+      spyOn(surveys, 'currentPath').and.returnValues('/service-manual', '/service-manual/');
       expect(surveys.pathInBlacklist()).toBeTruthy();
       expect(surveys.pathInBlacklist()).toBeTruthy();
     });
 
     it("returns true if the path is a sub-folder under /service-manual", function() {
-      spyOn(surveys, 'currentPath').and.returnValue('/service-manual/some-other-page', '/service-manual/some-other-page/');
+      spyOn(surveys, 'currentPath').and.returnValues('/service-manual/some-other-page', '/service-manual/some-other-page/');
       expect(surveys.pathInBlacklist()).toBeTruthy();
       expect(surveys.pathInBlacklist()).toBeTruthy();
     });
@@ -505,7 +505,7 @@ describe("Surveys", function() {
     });
 
     it("returns false if the path is /some-other-parent-of/service-manual", function() {
-      spyOn(surveys, 'currentPath').and.returnValue('/some-other-parent-of/service-manual', '/some-other-parent-of/service-manual/');
+      spyOn(surveys, 'currentPath').and.returnValues('/some-other-parent-of/service-manual', '/some-other-parent-of/service-manual/');
       expect(surveys.pathInBlacklist()).toBeFalsy();
       expect(surveys.pathInBlacklist()).toBeFalsy();
     });
