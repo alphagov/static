@@ -733,6 +733,508 @@ describe("Surveys", function() {
     });
   });
 
+  describe("activeWhen", function() {
+    it("returns true if the survey has empty activeWhen definitions", function() {
+      var survey = {
+        identifier: 'a_survey'
+      };
+      expect(surveys.activeWhen(survey)).toBe(true);
+
+      survey.activeWhen = {};
+      expect(surveys.activeWhen(survey)).toBe(true);
+    });
+
+    describe("for 'include' matchType", function() {
+      describe("path matches", function() {
+        it("returns true if the path definition matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("allows path separators in the path definition, returning true if they match a complete set of path segments in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo/bar']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo', '/baz/foo/bar/qux');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the path definition does not match the currentPath at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValue('/bar');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns false if the path definition matches an incomplete path segment of the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo-bar', '/bar-foo', '/i/like/food/');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the path definitions matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo', 'bar', 'baz']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food/bar', '/bard/baz/food');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("treats the path definition as a complete match, rather than a path segment match if it includes '^' or '$'", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['^/foo$']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food', 'foo/', '/foo/bar', '/bar/foo');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+      });
+
+      describe("breadcrumb matches", function() {
+        it("returns true if the breadcrumb definition matches something in the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education']
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the breadcrumb definition does not match the breadcrumb text at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['childcare']
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the breadcrumb definitions matches the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare']
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education and learning  Schools', 'Home  Childcare and parenting  Maternity leave');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if none of the breadcrumb definitions matches the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare'],
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Benefits  Benfits for families');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+      });
+
+      describe("section matches", function() {
+        it("returns true if the section definition matches something in the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the section definition does not match the section meta tag at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['childcare']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValues('Education', 'Childcare');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if none of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Schools');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+      });
+
+      describe("organisation matches", function() {
+        it("returns true if the organisation definition matches one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the organisation definition does not match one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the organisation definitions matches an id in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>', '<E1555>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValues('<D10><E1345>', '<D20><E1555>');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if none of the organisation definitions matches the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>', '<E1555>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+      });
+
+      it("treat combines multiple definitions in an OR; if any of them match activeWhen will return true", function() {
+        var survey = {
+          identifier: 'a_survey',
+          activeWhen: {
+            path: ['^/government/statistics/?$'],
+            breadcrumb: ['education'],
+            section: ['schools'],
+            organisation: ['<D10>']
+          }
+        };
+
+        spyOn(surveys, 'currentPath').and.returnValues('/government/statistics/a-long-detailed-report.xls', '/government/statistics', '/government/publications/', '/find-your-local-council', '/');
+        spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education', 'Home', 'Home  Schools  Applying for a place', 'Home  Benefits  Family benefits', 'Home');
+        spyOn(surveys, 'currentSection').and.returnValues('education', '', 'schools', 'benefits', 'homepage');
+        spyOn(surveys, 'currentOrganisation').and.returnValues('<E1555><F12>', '<D20>', '<E1234>', '<D20><F10>', '<D10><E134>');
+
+        expect(surveys.activeWhen(survey)).toBe(true); // because of the breadcrumb
+        expect(surveys.activeWhen(survey)).toBe(true); // because of the path
+        expect(surveys.activeWhen(survey)).toBe(true); // because of the section
+        expect(surveys.activeWhen(survey)).toBe(false); // because nothing matches
+        expect(surveys.activeWhen(survey)).toBe(true); // because of the organisation
+      });
+    });
+
+    describe("for 'exclude' matchType", function() {
+      describe("path matches", function() {
+        it("returns false if the path definition matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("allows path separators in the path definition, returning false if they match a complete set of path segments in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo/bar'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo', '/baz/foo/bar/qux');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the excludes path definition does not match the currentPath at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValue('/bar');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns true if the excludes path definition matches an incomplete path segment of the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo-bar', '/bar-foo', '/i/like/food/');
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the path definitions matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo', 'bar', 'baz'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food/bar', '/bard/baz/food');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("treats the path definition as a complete match, rather than a path segment match if it includes '^' or '$'", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['^/foo$'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food', 'foo/', '/foo/bar', '/bar/foo');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+      });
+
+      describe("breadcrumb matches", function() {
+        it("returns false if the breadcrumb definition matches something in the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the breadcrumb definition does not match the breadcrumb text at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the breadcrumb definitions matches the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education and learning  Schools', 'Home  Childcare and parenting  Maternity leave');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if none of the breadcrumb definitions matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Benefits  Benfits for families');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+      });
+
+      describe("section matches", function() {
+        it("returns false if the section definition matches something in the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the section definition does not match the section meta tag at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValues('Education', 'Childcare');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if none of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Schools');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+      });
+
+      describe("organisation matches", function() {
+        it("returns false if the organisation definition matches one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the organisation definition does not match one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the organisation definitions matches an id in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>', '<E1555>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValues('<D10><E1345>', '<D20><E1555>');
+          expect(surveys.activeWhen(survey)).toBe(false);
+          expect(surveys.activeWhen(survey)).toBe(false);
+        });
+
+        it("returns true if none of the organisation definitions matches the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>', '<E1555>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.activeWhen(survey)).toBe(true);
+        });
+      });
+    });
+  });
+
   describe("getActiveSurvey", function() {
     it("returns the default survey when no smallSurveys are present", function() {
       var smallSurveys = [smallSurvey];
@@ -757,32 +1259,33 @@ describe("Surveys", function() {
       expect(activeSurvey).toBe(smallSurvey);
     });
 
-    describe("activeWhen function call", function() {
-      it("returns the test survey when the callback returns true", function() {
-        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
-        var testSurvey = {
-          startTime: new Date("July 5, 2016").getTime(),
-          endTime: new Date("July 10, 2016 23:50:00").getTime(),
-          activeWhen: function() { return true; },
-          url: 'example.com/small-survey'
-        };
+    it("picks the survey from small surveys if the activeWhen function returns true for it", function() {
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+      spyOn(surveys, 'activeWhen').and.returnValue(true);
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
-        expect(activeSurvey).toBe(testSurvey);
-      });
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        url: 'example.com/small-survey'
+      };
 
-      it("returns the default when the callback returns false", function() {
-        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
-        var testSurvey = {
-          startTime: new Date("July 5, 2016").getTime(),
-          endTime: new Date("July 10, 2016 23:50:00").getTime(),
-          activeWhen: function() { return false; },
-          url: 'example.com/small-survey'
-        };
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+      expect(activeSurvey).toBe(testSurvey);
+    });
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
-        expect(activeSurvey).toBe(defaultSurvey);
-      });
+    it("picks the default survey if the activeWhen function returns false for all the small surveys", function() {
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+      spyOn(surveys, 'activeWhen').and.returnValue(false);
+
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        activeWhen: function() { return false; },
+        url: 'example.com/small-survey'
+      };
+
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+      expect(activeSurvey).toBe(defaultSurvey);
     });
   });
 });
