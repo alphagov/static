@@ -1,18 +1,22 @@
 <%
   breadcrumbs ||= []
+  collapse_on_mobile ||= false
 %>
-<div class="govuk-breadcrumbs" data-module="track-click">
+
+<div
+  class="govuk-breadcrumbs <%= "collapse-on-mobile" if collapse_on_mobile && breadcrumbs.any? { |crumb| crumb[:is_page_parent] } %>"
+  data-module="track-click">
   <ol>
   <% breadcrumbs.each_with_index do |crumb, index| %>
-    <li>
-      <%
-        is_link = crumb[:url].present? || crumb[:is_current_page]
-        path = crumb[:is_current_page] ? '#content' : crumb[:url]
-        aria_current = crumb[:is_current_page] ? 'page' : 'false'
-        css_class = crumb[:is_current_page] ? 'breadcrumb-for-current-page' : ''
+    <%
+      is_link = crumb[:url].present? || crumb[:is_current_page]
+      path = crumb[:is_current_page] ? '#content' : crumb[:url]
+      aria_current = crumb[:is_current_page] ? 'page' : 'false'
+      css_class = crumb[:is_current_page] ? 'breadcrumb-for-current-page' : ''
+    %>
 
-        if is_link
-      %>
+    <li class='<%= "parent-breadcrumb" if crumb[:is_page_parent] %>'>
+      <% if is_link %>
         <%= link_to(
           crumb[:title],
           path,

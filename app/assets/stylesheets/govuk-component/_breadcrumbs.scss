@@ -15,4 +15,22 @@
     color: $secondary-text-colour;
     text-decoration: none;
   }
+
+  @include media-down(mobile) {
+    &.collapse-on-mobile li {
+      display: none;
+
+      &.parent-breadcrumb {
+        background-image: none;
+        display: block;
+        margin-left: 0;
+        padding-left: 14px;
+        position: relative;
+
+        &:before {
+          @include back-arrow;
+        }
+      }
+    }
+  }
 }
