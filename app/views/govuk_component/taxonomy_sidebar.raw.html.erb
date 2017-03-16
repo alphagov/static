@@ -5,7 +5,8 @@
       <div class='sidebar-taxon'>
         <h2>
           <%=
-            link_to(
+            link_to_if(
+              item[:url],
               item[:title],
               item[:url],
               class: 'taxon-link',
