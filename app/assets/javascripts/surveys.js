@@ -50,6 +50,32 @@
     },
     smallSurveys: [
       {
+        identifier: 'govuk_email_survey_t02',
+        frequency: 50,
+        activeWhen: function() {
+          function breadcrumbExclude() {
+            var text = $('.govuk-breadcrumbs').text() || "";
+            return (/Education/i.test(text) || /Childcare/i.test(text) || /Schools/i.test(text));
+          }
+
+          function sectionExclude() {
+            var sectionName = $('meta[name="govuk:section"]').attr('content');
+            return (/education/i.test(sectionName) || /childcare/i.test(sectionName) || /schools/i.test(sectionName));
+          }
+
+          function organisationExclude() {
+            var orgMatchingExpr = /<D6>|<D106>|<D109>|<EA243>|<EA86>|<EA242>|<EA541>/;
+            var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
+            return orgMatchingExpr.test(metaText);
+          }
+
+          return !(sectionExclude() || breadcrumbExclude() || organisationExclude());
+        },
+        surveyType: 'email',
+        startTime: new Date("March 17, 2017 13:00:00").getTime(),
+        endTime: new Date("March 20, 2017 23:59:59").getTime()
+      },
+      {
         url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Hold_gov_to_account&utm_medium=gov.uk%20survey&t=GDS",
         identifier: 'mar_ur_panel',
         template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
