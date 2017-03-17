@@ -123,6 +123,86 @@
         surveyType: 'url',
         startTime: new Date("March 20, 2017").getTime(),
         endTime: new Date("April 21, 2017 23:59:59").getTime()
+      },
+      {
+        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Anti_Money_Laundering&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+        frequency: 5,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/government\/publications\/money-laundering-regulations-application-for-registration-mlr100/;
+
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        surveyType: 'url',
+        startTime: new Date("March 22, 2017").getTime(),
+        endTime: new Date("April 20, 2017 23:59:59").getTime()
+      },
+      {
+        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=P800&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+        frequency: 5,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/claim-tax-refund/;
+
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        surveyType: 'url',
+        startTime: new Date("March 22, 2017").getTime(),
+        endTime: new Date("April 20, 2017 23:59:59").getTime()
+      },
+      {
+        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=IHT&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+        frequency: 5,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/government\/publications\/inheritance-tax-inheritance-tax-account-iht400/;
+
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        surveyType: 'url',
+        startTime: new Date("March 22, 2017").getTime(),
+        endTime: new Date("April 20, 2017 23:59:59").getTime()
+      },
+      {
+        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=TAV_C&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+        frequency: 5,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/guidance\/venture-capital-schemes-apply-for-the-enterprise-investment-scheme/;
+
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        surveyType: 'url',
+        startTime: new Date("March 22, 2017").getTime(),
+        endTime: new Date("April 20, 2017 23:59:59").getTime()
+      },
+      {
+        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=capital_gains&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+        frequency: 5,
+        activeWhen: function() {
+          function pathMatches() {
+            var pathMatchingExpr = /\/capital-gains-tax/;
+
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return (pathMatches());
+        },
+        surveyType: 'url',
+        startTime: new Date("March 22, 2017").getTime(),
+        endTime: new Date("April 20, 2017 23:59:59").getTime()
       }
     ],
 
