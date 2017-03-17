@@ -7,9 +7,9 @@
 
   var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
-                            '    <h1>Tell us what you think of GOV.UK</h1>' +
+                            '    <h1>Help improve GOV.UK</h1>' +
                             '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
+                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
                             '  </div>' +
                             '</section>',
     EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
@@ -78,13 +78,6 @@
       {
         url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Hold_gov_to_account&utm_medium=gov.uk%20survey&t=GDS",
         identifier: 'mar_ur_panel',
-        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                  '  <div class="wrapper">' +
-                  '    <h1>Help improve GOV.UK</h1>' +
-                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
-                  '  </div>' +
-                  '</section>',
         frequency: 5,
         activeWhen: function() {
           function pathMatches() {
@@ -110,13 +103,6 @@
       {
         url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Improve_platform_basics&utm_medium=gov.uk%20survey&t=GDS",
         identifier: 'mar_ur_panel',
-        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-        '  <div class="wrapper">' +
-        '    <h1>Help improve GOV.UK</h1>' +
-        '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-        '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
-        '  </div>' +
-        '</section>',
         frequency: 5,
         activeWhen: function() {
           function pathMatches() {
