@@ -28,9 +28,9 @@ fixtures:
       Applies to: England
   basic_rtl:
     direction: rtl
-    from: <a href='/government/organisations/cabinet-office'>Cabinet Office</a>
-    history: Updated 2 weeks ago
-    part_of: <a href='/government/topics/environment'>Environment</a>
+    from: <a href='/government/organisations/cabinet-office'>مكتب مجلس الوزراء</a>
+    history: تم التحديث قبل أسبوعين
+    part_of: <a href='/government/topics/environment'>بيئة</a>
   external_link:
     from: <a href='/government/organisations/cabinet-office'>Cabinet Office</a>
     first_published: 14 June 2014
