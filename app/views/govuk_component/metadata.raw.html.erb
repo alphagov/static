@@ -9,34 +9,50 @@
 
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
+
+  # TODO: Should we be using [dir=rtl]?
+
+  # Includes divs to wrap definition list so they can be styled in a way that responds to content.
+  # This is in a working draft, so while it's techincally not valid HTML, it works in all browsers.
+  # https://www.w3.org/TR/html52/grouping-content.html#the-dl-element
 %>
 <div class="govuk-metadata<%= direction_class %>">
   <dl>
     <% if from.any? %>
-      <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
-      <dd><%= from.to_sentence.html_safe %></dd>
+      <div class="govuk-metadata-row">
+        <dt class="govuk-metadata-key"><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
+        <dd class="govuk-metadata-value"><%= from.to_sentence.html_safe %></dd>
+      </div>
     <% end %>
     <% if part_of.any? %>
-      <dt><%= t("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
-      <dd><%= part_of.to_sentence.html_safe %></dd>
+      <div class="govuk-metadata-row">
+        <dt class="govuk-metadata-key"><%= t("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
+        <dd class="govuk-metadata-value"><%= part_of.to_sentence.html_safe %></dd>
+      </div>
     <% end %>
     <% if local_assigns.include?(:history) %>
-      <dt><%= t("govuk_component.metadata.history", default: "History") %>:</dt>
-      <dd><%= history %></dd>
+      <div class="govuk-metadata-row">
+        <dt class="govuk-metadata-key"><%= t("govuk_component.metadata.history", default: "History") %>:</dt>
+        <dd class="govuk-metadata-value"><%= history %></dd>
+      </div>
     <% end %>
     <% if local_assigns.include?(:first_published) && first_published %>
-      <dt><%= t("govuk_component.metadata.first_published", default: "First published") %>:</dt>
-      <dd><%= first_published %></dd>
+      <div class="govuk-metadata-row">
+        <dt class="govuk-metadata-key"><%= t("govuk_component.metadata.first_published", default: "First published") %>:</dt>
+        <dd class="govuk-metadata-value"><%= first_published %></dd>
+      </div>
     <% end %>
     <% if local_assigns.include?(:last_updated) && last_updated %>
-      <dt><%= t("govuk_component.metadata.last_updated", default: "Last updated") %>:</dt>
-      <dd>
-        <%= last_updated %><% if local_assigns.include?(:see_updates_link) %>,
-          <a href="#history">
-            <%= t("govuk_component.metadata.see_all_updates", default: "see all updates") %>
-          </a>
-        <% end %>
-      </dd>
+      <div class="govuk-metadata-row">
+        <dt class="govuk-metadata-key"><%= t("govuk_component.metadata.last_updated", default: "Last updated") %>:</dt>
+        <dd class="govuk-metadata-value">
+          <%= last_updated %><% if local_assigns.include?(:see_updates_link) %>,
+            <a href="#history">
+              <%= t("govuk_component.metadata.see_all_updates", default: "see all updates") %>
+            </a>
+          <% end %>
+        </dd>
+      </div>
     <% end %>
     <% if other.present? %>
       <% other.each do |title, definition| %>
@@ -45,8 +61,10 @@
           definition = Array(definition)
         %>
         <% if definition.any? %>
-          <dt><%= title %>:</dt>
-          <dd><%= definition.to_sentence.html_safe %></dd>
+          <div class="govuk-metadata-row">
+            <dt class="govuk-metadata-key"><%= title %>:</dt>
+            <dd class="govuk-metadata-value"><%= definition.to_sentence.html_safe %></dd>
+          </div>
         <% end %>
       <% end %>
     <% end %>
