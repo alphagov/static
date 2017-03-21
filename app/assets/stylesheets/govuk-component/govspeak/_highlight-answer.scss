@@ -1,0 +1,40 @@
+$highlight-answer-bg-color: #28a197;
+$highlight-answer-color: #fff;
+
+.govuk-govspeak  .highlight-answer {
+  background-color: $highlight-answer-bg-color;
+  color: $highlight-answer-color;
+  text-align: center;
+  padding: 0.1em 2em 0.2em;
+  margin: 0 -1em 1em;
+
+  p {
+    line-height: 2.3em;
+    color: $highlight-answer-color;
+
+    em {
+      font-size: 2.45em;
+      font-style: normal;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5em;
+      color: $highlight-answer-color;
+    }
+  }
+
+  @include media-down(mobile) {
+    margin: 0 0 1em;
+
+    @include core-48;
+
+    p {
+      font-size: 1em;
+      line-height: inherit;
+
+      em {
+        font-size: 1em;
+        display: inline;
+      }
+    }
+  }
+}

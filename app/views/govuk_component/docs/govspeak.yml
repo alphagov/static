@@ -533,3 +533,28 @@ fixtures:
           The water in the mouth of a blue whale weighs more than its body.
         </p>
       </div>
+  advisory:
+    content: |
+      <h3 role="note" aria-label="Important" class="advisory">
+        <span>This is a very important message or warning</span>
+      </h3>
+  form_download:
+    content: |
+      <div class="form-download">
+        <p><a href="http://example.com/" title="Example form" rel="external">An example form download link.</a></p>
+      </div>
+  highlight_answer:
+    content: |
+      <div class="highlight-answer">
+        <p>The VAT rate is <em>20%</em></p>
+      </div>
+  place:
+    content: |
+      <div class="place">
+        <p>This is a place</p>
+      </div>
+  summary:
+    content: |
+      <div class="summary">
+        <p>This is a summary</p>
+      </div>
