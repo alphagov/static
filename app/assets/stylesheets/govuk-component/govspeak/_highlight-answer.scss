@@ -1,13 +1,16 @@
+$highlight-answer-bg-color: #28a197;
+$highlight-answer-color: #fff;
+
 .highlight-answer {
-  background-color: #28a197;
-  color: #fff;
+  background-color: $highlight-answer-bg-color;
+  color: $highlight-answer-color;
   text-align: center;
-  padding: 0.1em 2em 0.2em 2em;
-  margin: 0 -1em 1em -1em;
+  padding: 0.1em 2em 0.2em;
+  margin: 0 -1em 1em;
 
   p {
     line-height: 2.3em;
-    color: #fff;
+    color: $highlight-answer-color;
 
     em {
       font-size: 2.45em;
@@ -15,12 +18,12 @@
       font-weight: 700;
       display: block;
       margin-bottom: 0.5em;
-      color: #fff;
+      color: $highlight-answer-color;
     }
   }
 
   @include media-down(mobile) {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em;
 
     @include core-48;
 
