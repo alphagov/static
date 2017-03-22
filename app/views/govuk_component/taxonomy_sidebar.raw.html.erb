@@ -13,8 +13,10 @@
                 track_category: 'relatedLinkClicked',
                 track_action: "#{item_index + 1}",
                 track_label: item[:url],
-                track_dimension: item[:title],
-                track_dimension_index: 29,
+                track_options: {
+                  dimension28: items.length,
+                  dimension29: item[:title],
+                },
               },
             )
           %>
@@ -37,8 +39,10 @@
                           track_category: 'relatedLinkClicked',
                           track_action: "#{item_index + 1}.#{related_content_index + 1}",
                           track_label: related_item[:link],
-                          track_dimension: related_item[:title],
-                          track_dimension_index: 29,
+                          track_options: {
+                            dimension28: item[:related_content].length,
+                            dimension29: related_item[:title],
+                          }
                       },
                       class: 'related-link',
                     ) do

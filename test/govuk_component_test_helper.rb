@@ -37,6 +37,6 @@ class ComponentTestCase < ActionView::TestCase
   end
 
   def assert_tracking_link(name, value, total = 1)
-    assert_select "a[data-track-#{name}=\"#{value}\"]", total
+    assert_select "a[data-track-#{name}='#{value}']", total
   end
 end
