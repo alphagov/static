@@ -51,7 +51,7 @@
     smallSurveys: [
       {
         identifier: 'govuk_email_survey_t02',
-        frequency: 50,
+        frequency: 25,
         activeWhen: function() {
           function breadcrumbExclude() {
             var text = $('.govuk-breadcrumbs').text() || "";
@@ -72,8 +72,8 @@
           return !(sectionExclude() || breadcrumbExclude() || organisationExclude());
         },
         surveyType: 'email',
-        startTime: new Date("March 17, 2017 13:00:00").getTime(),
-        endTime: new Date("March 20, 2017 23:59:59").getTime()
+        startTime: new Date("March 22, 2017 00:01:00").getTime(),
+        endTime: new Date("March 24, 2017 23:59:59").getTime()
       },
       {
         url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Hold_gov_to_account&utm_medium=gov.uk%20survey&t=GDS",
