@@ -24,8 +24,10 @@
             track_category: 'breadcrumbClicked',
             track_action: index + 1,
             track_label: path,
-            track_dimension: crumb[:title],
-            track_dimension_index: 29,
+            track_options: {
+              dimension28: breadcrumbs.length,
+              dimension29: crumb[:title]
+            }
           },
           class: css_class,
           aria: {
