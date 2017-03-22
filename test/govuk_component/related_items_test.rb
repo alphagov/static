@@ -127,6 +127,10 @@ class RelatedItemsTestCase < ComponentTestCase
               title: "Other item title",
               url: "/other-item"
             },
+            {
+              title: "Another item title",
+              url: "/another-item"
+            },
           ]
         },
         {
@@ -142,28 +146,44 @@ class RelatedItemsTestCase < ComponentTestCase
       ],
     )
 
+    total_sections = 2
+    total_links_in_section_1 = 3
+    total_links_in_section_2 = 1
+
     assert_select '.govuk-related-items[data-module="track-click"]', 1
+    assert_tracking_link("category", "relatedLinkClicked", 6)
 
-    assert_select "a[data-track-category=\"relatedLinkClicked\"]", 5
-    assert_select "a[data-track-dimension-index=\"29\"]", 5
-    assert_select "a[data-track-dimension=\"More\"]", 2
+    assert_tracking_link(
+      "options",
+      { dimension28: total_sections, dimension29: "More" }.to_json,
+      2)
 
-    assert_select "a[data-track-action=\"1.1\"]", 1
-    assert_select "a[data-track-label=\"/item\"]", 1
-    assert_select "a[data-track-dimension=\"Item title\"]", 1
+    assert_tracking_link("action", "1.1")
+    assert_tracking_link("label", "/item")
+    expected_link_1_tracking_options = {
+      dimension28: total_links_in_section_1,
+      dimension29: "Item title",
+    }
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section_1, dimension29: "Item title" }.to_json)
 
-    assert_select "a[data-track-action=\"1.2\"]", 1
-    assert_select "a[data-track-label=\"/other-item\"]", 1
-    assert_select "a[data-track-dimension=\"Other item title\"]", 1
+    assert_tracking_link("action", "1.2")
+    assert_tracking_link("label", "/other-item")
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section_1, dimension29: "Other item title" }.to_json)
 
-    assert_select "a[data-track-action=\"1.3\"]", 1
-    assert_select "a[data-track-label=\"/more-link\"]", 1
+    assert_tracking_link("action", "1.3")
+    assert_tracking_link("label", "/more-link")
 
-    assert_select "a[data-track-action=\"2.1\"]", 1
-    assert_select "a[data-track-label=\"/foo\"]", 1
-    assert_select "a[data-track-dimension=\"Foo\"]", 1
+    assert_tracking_link("action", "2.1")
+    assert_tracking_link("label", "/foo")
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section_2, dimension29: "Foo" }.to_json)
 
-    assert_select "a[data-track-action=\"2.2\"]", 1
-    assert_select "a[data-track-label=\"/another-more-link\"]", 1
+    assert_tracking_link("action", "2.2")
+    assert_tracking_link("label", "/another-more-link")
   end
 end

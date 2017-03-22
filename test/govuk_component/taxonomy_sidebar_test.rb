@@ -87,32 +87,59 @@ class TaxonomySidebarTestCase < ComponentTestCase
           description: "An item",
           related_content: [
             {
-              title: "Related link 1",
-              link: "/related-link-1",
+              title: "Related link 1a",
+              link: "/related-link-1a",
             },
             {
-              title: "Related link 2",
-              link: "/related-link-2",
+              title: "Related link 1b",
+              link: "/related-link-1b",
+            },
+            {
+              title: "Related link 1c",
+              link: "/related-link-1c",
+            },
+          ],
+        },
+        {
+          title: "Second item title",
+          url: "/item-2",
+          description: "Another item",
+          related_content: [
+            {
+              title: "Related link 2a",
+              link: "/related-link-2a",
             },
           ],
         },
       ]
     )
 
+    total_sections = 2
+    total_links_in_section_1 = 3
+
     assert_select '.govuk-taxonomy-sidebar[data-module="track-click"]', 1
-    assert_select "a[data-track-category=\"relatedLinkClicked\"]", 3
-    assert_select "a[data-track-dimension-index=\"29\"]", 3
+    assert_tracking_link("category", "relatedLinkClicked", 6)
 
-    assert_select "a[data-track-dimension=\"Item title\"]", 1
-    assert_select "a[data-track-action=\"1\"]", 1
-    assert_select "a[data-track-label=\"/item\"]", 1
+    expected_title_tracking_options = {
+      dimension28: total_sections,
+      dimension29: "Item title"
+    }
+    assert_tracking_link(
+      "options",
+      { dimension28: total_sections, dimension29: "Item title" }.to_json)
+    assert_tracking_link("action", "1")
+    assert_tracking_link("label", "/item")
 
-    assert_select "a[data-track-dimension=\"Related link 1\"]", 1
-    assert_select "a[data-track-action=\"1.1\"]", 1
-    assert_select "a[data-track-label=\"/related-link-1\"]", 1
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section_1, dimension29: "Related link 1a" }.to_json)
+    assert_tracking_link("action", "1.1")
+    assert_tracking_link("label", "/related-link-1a")
 
-    assert_select "a[data-track-dimension=\"Related link 2\"]", 1
-    assert_select "a[data-track-action=\"1.2\"]", 1
-    assert_select "a[data-track-label=\"/related-link-2\"]", 1
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section_1, dimension29: "Related link 1a" }.to_json)
+    assert_tracking_link("action", "1.2")
+    assert_tracking_link("label", "/related-link-1b")
   end
 end
