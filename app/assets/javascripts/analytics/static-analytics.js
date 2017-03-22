@@ -112,6 +112,7 @@
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
+    this.setNavigationDocumentTypeDimension(dimensions['navigation-document-type']);
   };
 
   StaticAnalytics.prototype.setAbTestDimensionsFromMetaTags = function() {
@@ -201,6 +202,10 @@
     // set a page type in a meta tag, default to "thing", which identifes a page
     // as containing content rather than some kind of navigation.
     this.setDimension(33, journeyStage || "thing");
+  };
+
+  StaticAnalytics.prototype.setNavigationDocumentTypeDimension = function(documentType) {
+    this.setDimension(34, documentType);
   };
 
   GOVUK.StaticAnalytics = StaticAnalytics;
