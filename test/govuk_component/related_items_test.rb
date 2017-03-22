@@ -144,26 +144,26 @@ class RelatedItemsTestCase < ComponentTestCase
 
     assert_select '.govuk-related-items[data-module="track-click"]', 1
 
-    assert_select "a[data-track-category=\"relatedLinkClicked\"]", 5
-    assert_select "a[data-track-dimension-index=\"29\"]", 5
-    assert_select "a[data-track-dimension=\"More\"]", 2
+    assert_tracking_link("category", "relatedLinkClicked", 5)
+    assert_tracking_link("dimension-index", "29", 5)
+    assert_tracking_link("dimension", "More", 2)
 
-    assert_select "a[data-track-action=\"1.1\"]", 1
-    assert_select "a[data-track-label=\"/item\"]", 1
-    assert_select "a[data-track-dimension=\"Item title\"]", 1
+    assert_tracking_link("action", "1.1")
+    assert_tracking_link("label", "/item")
+    assert_tracking_link("dimension", "Item title")
 
-    assert_select "a[data-track-action=\"1.2\"]", 1
-    assert_select "a[data-track-label=\"/other-item\"]", 1
-    assert_select "a[data-track-dimension=\"Other item title\"]", 1
+    assert_tracking_link("action", "1.2")
+    assert_tracking_link("label", "/other-item")
+    assert_tracking_link("dimension", "Other item title")
 
-    assert_select "a[data-track-action=\"1.3\"]", 1
-    assert_select "a[data-track-label=\"/more-link\"]", 1
+    assert_tracking_link("action", "1.3")
+    assert_tracking_link("label", "/more-link")
 
-    assert_select "a[data-track-action=\"2.1\"]", 1
-    assert_select "a[data-track-label=\"/foo\"]", 1
-    assert_select "a[data-track-dimension=\"Foo\"]", 1
+    assert_tracking_link("action", "2.1")
+    assert_tracking_link("label", "/foo")
+    assert_tracking_link("dimension", "Foo")
 
-    assert_select "a[data-track-action=\"2.2\"]", 1
-    assert_select "a[data-track-label=\"/another-more-link\"]", 1
+    assert_tracking_link("action", "2.2")
+    assert_tracking_link("label", "/another-more-link")
   end
 end

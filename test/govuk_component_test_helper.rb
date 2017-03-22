@@ -35,4 +35,8 @@ class ComponentTestCase < ActionView::TestCase
   def assert_timestamp_in(selector, timestamp, text)
     assert_select "#{selector} time[datetime=\"#{timestamp}\"]", text: text
   end
+
+  def assert_tracking_link(name, value, total = 1)
+    assert_select "a[data-track-#{name}=\"#{value}\"]", total
+  end
 end

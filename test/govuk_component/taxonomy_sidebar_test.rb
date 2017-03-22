@@ -100,19 +100,19 @@ class TaxonomySidebarTestCase < ComponentTestCase
     )
 
     assert_select '.govuk-taxonomy-sidebar[data-module="track-click"]', 1
-    assert_select "a[data-track-category=\"relatedLinkClicked\"]", 3
-    assert_select "a[data-track-dimension-index=\"29\"]", 3
+    assert_tracking_link("category", "relatedLinkClicked", 3)
+    assert_tracking_link("dimension-index", "29", 3)
 
-    assert_select "a[data-track-dimension=\"Item title\"]", 1
-    assert_select "a[data-track-action=\"1\"]", 1
-    assert_select "a[data-track-label=\"/item\"]", 1
+    assert_tracking_link("dimension", "Item title")
+    assert_tracking_link("action", "1")
+    assert_tracking_link("label", "/item")
 
-    assert_select "a[data-track-dimension=\"Related link 1\"]", 1
-    assert_select "a[data-track-action=\"1.1\"]", 1
-    assert_select "a[data-track-label=\"/related-link-1\"]", 1
+    assert_tracking_link("dimension", "Related link 1")
+    assert_tracking_link("action", "1.1")
+    assert_tracking_link("label", "/related-link-1")
 
-    assert_select "a[data-track-dimension=\"Related link 2\"]", 1
-    assert_select "a[data-track-action=\"1.2\"]", 1
-    assert_select "a[data-track-label=\"/related-link-2\"]", 1
+    assert_tracking_link("dimension", "Related link 2")
+    assert_tracking_link("action", "1.2")
+    assert_tracking_link("label", "/related-link-2")
   end
 end
