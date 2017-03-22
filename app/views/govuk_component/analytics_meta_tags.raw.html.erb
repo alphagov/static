@@ -32,6 +32,8 @@
   user_journey_stage = content_item_hash[:user_journey_document_supertype]
   meta_tags["govuk:user-journey-stage"] = user_journey_stage if user_journey_stage
 
+  navigation_document_type = content_item_hash[:navigation_document_supertype]
+  meta_tags["govuk:navigation-document-type"] = navigation_document_type if navigation_document_type
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">

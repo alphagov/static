@@ -64,6 +64,7 @@ describe("GOVUK.StaticAnalytics", function() {
           <meta name="govuk:political-status" content="historic">\
           <meta name="govuk:analytics:organisations" content="<D10>">\
           <meta name="govuk:analytics:world-locations" content="<W1>">\
+          <meta name="govuk:navigation-document-type" content="guidance">\
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
@@ -76,6 +77,7 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(setupArguments[4]).toEqual(['set', 'dimension7', 'historic']);
         expect(setupArguments[5]).toEqual(['set', 'dimension9', '<D10>']);
         expect(setupArguments[6]).toEqual(['set', 'dimension10', '<W1>']);
+        expect(setupArguments[7]).toEqual(['set', 'dimension34', 'guidance']);
       });
 
       it('ignores meta tags not set', function() {

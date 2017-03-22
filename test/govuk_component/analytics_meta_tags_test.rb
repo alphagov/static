@@ -89,6 +89,11 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_meta_tag('govuk:user-journey-stage', 'some-stage-of-journey')
   end
 
+  test "renders navigation document type when content item has navigation document supertype" do
+    render_component(content_item: { navigation_document_supertype: 'guidance' })
+    assert_meta_tag('govuk:navigation-document-type', 'guidance')
+  end
+
   test "renders 'political' political status when political content and government is current" do
     current = true
     political = true
