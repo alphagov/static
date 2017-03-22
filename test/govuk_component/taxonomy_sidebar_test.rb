@@ -117,6 +117,7 @@ class TaxonomySidebarTestCase < ComponentTestCase
     total_sections = 2
     total_links_in_section_1 = 3
 
+    assert_select 'h2 a', "Item title"
     assert_select '.govuk-taxonomy-sidebar[data-module="track-click"]', 1
     assert_tracking_link("category", "relatedLinkClicked", 6)
 
@@ -141,5 +142,30 @@ class TaxonomySidebarTestCase < ComponentTestCase
       { dimension28: total_links_in_section_1, dimension29: "Related link 1a" }.to_json)
     assert_tracking_link("action", "1.2")
     assert_tracking_link("label", "/related-link-1b")
+  end
+
+
+  test "renders without url on the h2 heading" do
+    render_component(
+      items: [
+        {
+          title: "Without an url",
+          description: "An item",
+          related_content: [
+            {
+              title: "Related link 1",
+              link: "/related-link-1",
+            },
+            {
+              title: "Related link 2",
+              link: "/related-link-2",
+            },
+          ],
+        },
+      ]
+    )
+
+    assert_select 'h2', "Without an url"
+    assert_select 'h2 a', false
   end
 end
