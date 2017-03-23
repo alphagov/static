@@ -31,53 +31,6 @@ class TaxonomySidebarTestCase < ComponentTestCase
     taxon_titles = ["Item 1 title", "Item 2 title"]
   end
 
-  test "renders related content for the first two taxons" do
-    render_component(
-      items: [
-        {
-          title: "Item 1 title",
-          url: "/item-1",
-          description: "item 1",
-          related_content: [
-            {
-              title: "Related link B",
-              link: "/related-link-b",
-            },
-            {
-              title: "Related link A",
-              link: "/related-link-a",
-            },
-          ],
-        },
-        {
-          title: "Item 2 title",
-          url: "/item-2",
-          description: "item 2",
-          related_content: [
-            {
-              title: "Related link C",
-              link: "/related-link-c",
-            },
-          ],
-        },
-        {
-          title: "Item 3 title",
-          url: "/item-3",
-          description: "item 3",
-          related_content: [
-            {
-              title: "Related link D",
-              link: "/related-link-d",
-            },
-          ],
-        }
-      ],
-    )
-
-    related_links = css_select(".related-content a").map { |link| link.text }
-    assert_equal ["Related link B", "Related link A", "Related link C"], related_links
-  end
-
   test "renders all data attributes for tracking" do
     render_component(
       items: [
