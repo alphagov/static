@@ -121,4 +121,36 @@ class TaxonomySidebarTestCase < ComponentTestCase
     assert_select 'h2', "Without an url"
     assert_select 'h2 a', false
   end
+
+  test "includes the rel attribute when given" do
+    render_component(
+      items: [
+        {
+          title: "Without an url",
+          description: "An item",
+          related_content: [
+            {
+              title: "External link",
+              link: "/external-link-1",
+              rel: 'external'
+            }
+          ],
+        },
+      ]
+    )
+
+    related_links = css_select(".sidebar-taxon .related-content li a")
+    assert_equal(
+      1,
+      related_links.count,
+      "Expecting only one external link"
+    )
+
+    link = related_links.first
+    assert_equal(
+      "external",
+      link[:rel],
+      "The external link is missing a :rel attribute"
+    )
+  end
 end
