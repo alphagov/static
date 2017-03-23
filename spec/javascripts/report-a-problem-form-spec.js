@@ -51,7 +51,9 @@ describe("form submission for reporting a problem", function () {
     it("should trigger a success event", function() {
       spyOn($form, "trigger");
       spyOn($, "ajax").and.callFake(function(options) {
-        options.success({message: 'great success!'});
+        if (options.success) {
+          options.success({message: 'great success!'});
+        }
       });
 
       $form.triggerHandler('submit');
@@ -62,7 +64,9 @@ describe("form submission for reporting a problem", function () {
   describe("if the request is invalid", function() {
     it("should re-enable the submit button, in order to allow the user to resubmit", function () {
       spyOn($, "ajax").and.callFake(function(options) {
-        options.error({status: 422}, 'error');
+        if (options.error) {
+          options.error({status: 422}, 'error');
+        }
       });
 
       $form.triggerHandler('submit');
@@ -76,7 +80,9 @@ describe("form submission for reporting a problem", function () {
     it("sshould trigger an error event", function() {
       spyOn($form, "trigger");
       spyOn($, "ajax").and.callFake(function(options) {
-        options.statusCode[500]({responseText: 'this might not even be JSON because nginx intercepts the error'});
+        if (options.statusCode) {
+          options.statusCode[500]({responseText: 'this might not even be JSON because nginx intercepts the error'});
+        }
       });
 
       $form.triggerHandler('submit');

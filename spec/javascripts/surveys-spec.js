@@ -318,7 +318,9 @@ describe("Surveys", function() {
         describe("and submitting it is a success", function() {
           beforeEach(function() {
             spyOn($, "ajax").and.callFake(function(options) {
-              options.success({message: 'great success!'});
+              if (options.success) {
+                options.success({message: 'great success!'});
+              }
             });
           });
 
