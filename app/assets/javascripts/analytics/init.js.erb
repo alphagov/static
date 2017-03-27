@@ -1,4 +1,4 @@
-(function() {
+(function(global) {
   "use strict";
 
   // Load Google Analytics libraries
@@ -14,9 +14,16 @@
   var analytics = new GOVUK.StaticAnalytics({
     universalId: universalId,
     cookieDomain: cookieDomain,
+    allowLinker: true,
     govukTrackerGifUrl: '<%= asset_path "/static/a.gif" %>',
   });
 
   // Make interface public for virtual pageviews and events
   GOVUK.analytics = analytics;
-})();
+
+  if (global.ga) {
+    var ga = global.ga;
+    ga('require', 'linker');
+    ga('linker:autoLink', ['planforbritain.gov.uk']);
+  }
+})(window);
