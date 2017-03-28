@@ -47,4 +47,4 @@ if ENV['GOVUK_TEMPLATE_DEV']
 else
   gem 'govuk_template', '0.19.0'
 end
-gem 'gds-api-adapters', '38.1.0'
+gem 'gds-api-adapters', '41.2.0'
