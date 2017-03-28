@@ -146,17 +146,16 @@ class RelatedItemsTestCase < ComponentTestCase
       ],
     )
 
-    total_sections = 2
-    total_links_in_section_1 = 3
-    total_links_in_section_2 = 1
+    # These counts include the "More" link
+    total_links_in_section_1 = 4
+    total_links_in_section_2 = 2
 
     assert_select '.govuk-related-items[data-module="track-click"]', 1
     assert_tracking_link("category", "relatedLinkClicked", 6)
 
     assert_tracking_link(
       "options",
-      { dimension28: total_sections.to_s, dimension29: "More" }.to_json,
-      2)
+      { dimension28: total_links_in_section_1.to_s, dimension29: "More" }.to_json)
 
     assert_tracking_link("action", "1.1")
     assert_tracking_link("label", "/item")
@@ -185,5 +184,32 @@ class RelatedItemsTestCase < ComponentTestCase
 
     assert_tracking_link("action", "2.2")
     assert_tracking_link("label", "/another-more-link")
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section_2.to_s, dimension29: "More" }.to_json)
+  end
+
+  test "does not render a 'More' link if the section has no url" do
+    render_component(
+      sections: [
+        {
+          title: "Section title",
+          items: [
+            {
+              title: "Item title",
+              url: "/item"
+            },
+          ]
+        },
+      ],
+    )
+
+    assert_select "ul li", text: /More/, count: 0
+
+    # Expected total links does not include More link if More link is not rendered
+    total_links_in_section = 1
+    assert_tracking_link(
+      "options",
+      { dimension28: total_links_in_section.to_s, dimension29: "Item title" }.to_json)
   end
 end
