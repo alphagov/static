@@ -12,31 +12,25 @@
     }
 
     .taxon-description {
-      font-size: 16px;
+      @include core-16;
       margin: 0;
     }
 
     .related-content {
+      @include core-16;
       margin: 0 0 0 15px;
       padding: 0;
 
       li {
-        font-size: 12px;
-      }
+        // Scale the bullets down in size using this variable, and
+        // then scale the text back up by the reciprocal
+        $bullet-fraction: 0.75;
+        font-size: #{$bullet-fraction}em;
 
-      a {
-        display: block;
-        font-size: 16px;
-        line-height: 1.5;
-
-        // For design reasons, we want the bullet points to be smaller than normal. This is achieved
-        // by giving the list a different font size to the actual link text.
-        // Since the bullet point has a different font size to the actual link text, the bullet's
-        // height is not vertically aligned correctly with the text. Having the text in this
-        // span element allows us to move the text relative to the bullet.
-        span {
-          position: relative;
-          top: 1px;
+        a {
+          display: block;
+          font-size: #{1 / $bullet-fraction}em;
+          line-height: 1.5;
         }
       }
     }
