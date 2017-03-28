@@ -18,7 +18,7 @@
                   track_action: "#{section_index + 1}.#{item_index + 1}",
                   track_label: item[:url],
                   track_options: {
-                    dimension28: section[:items].length,
+                    dimension28: section[:items].length.to_s,
                     dimension29: item[:title],
                   },
                 },
@@ -35,7 +35,7 @@
                   track_action: "#{section_index + 1}.#{section[:items].size + 1}",
                   track_label: section[:url],
                   track_options: {
-                    dimension28: sections.length,
+                    dimension28: sections.length.to_s,
                     dimension29: "More",
                   },
                 },

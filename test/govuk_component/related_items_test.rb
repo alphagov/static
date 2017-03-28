@@ -155,24 +155,24 @@ class RelatedItemsTestCase < ComponentTestCase
 
     assert_tracking_link(
       "options",
-      { dimension28: total_sections, dimension29: "More" }.to_json,
+      { dimension28: total_sections.to_s, dimension29: "More" }.to_json,
       2)
 
     assert_tracking_link("action", "1.1")
     assert_tracking_link("label", "/item")
     expected_link_1_tracking_options = {
-      dimension28: total_links_in_section_1,
+      dimension28: total_links_in_section_1.to_s,
       dimension29: "Item title",
     }
     assert_tracking_link(
       "options",
-      { dimension28: total_links_in_section_1, dimension29: "Item title" }.to_json)
+      { dimension28: total_links_in_section_1.to_s, dimension29: "Item title" }.to_json)
 
     assert_tracking_link("action", "1.2")
     assert_tracking_link("label", "/other-item")
     assert_tracking_link(
       "options",
-      { dimension28: total_links_in_section_1, dimension29: "Other item title" }.to_json)
+      { dimension28: total_links_in_section_1.to_s, dimension29: "Other item title" }.to_json)
 
     assert_tracking_link("action", "1.3")
     assert_tracking_link("label", "/more-link")
@@ -181,7 +181,7 @@ class RelatedItemsTestCase < ComponentTestCase
     assert_tracking_link("label", "/foo")
     assert_tracking_link(
       "options",
-      { dimension28: total_links_in_section_2, dimension29: "Foo" }.to_json)
+      { dimension28: total_links_in_section_2.to_s, dimension29: "Foo" }.to_json)
 
     assert_tracking_link("action", "2.2")
     assert_tracking_link("label", "/another-more-link")
