@@ -22,7 +22,7 @@ class BreadcrumbsTestCase < ComponentTestCase
     render_component(breadcrumbs: [{ title: 'Section', url: '/section' }])
 
     expected_tracking_options = {
-      dimension28: 1,
+      dimension28: "1",
       dimension29: "Section"
     }
 
@@ -42,9 +42,9 @@ class BreadcrumbsTestCase < ComponentTestCase
     render_component(breadcrumbs: breadcrumbs)
 
     expected_tracking_options = [
-      {dimension28: 3, dimension29: "Section 1"},
-      {dimension28: 3, dimension29: "Section 2"},
-      {dimension28: 3, dimension29: "Section 3"},
+      {dimension28: "3", dimension29: "Section 1"},
+      {dimension28: "3", dimension29: "Section 2"},
+      {dimension28: "3", dimension29: "Section 3"},
     ]
 
     assert_select "ol li:nth-child(1) a[data-track-options='#{expected_tracking_options[0].to_json}']", 1

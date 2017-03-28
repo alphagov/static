@@ -122,24 +122,24 @@ class TaxonomySidebarTestCase < ComponentTestCase
     assert_tracking_link("category", "relatedLinkClicked", 6)
 
     expected_title_tracking_options = {
-      dimension28: total_sections,
+      dimension28: total_sections.to_s,
       dimension29: "Item title"
     }
     assert_tracking_link(
       "options",
-      { dimension28: total_sections, dimension29: "Item title" }.to_json)
+      { dimension28: total_sections.to_s, dimension29: "Item title" }.to_json)
     assert_tracking_link("action", "1")
     assert_tracking_link("label", "/item")
 
     assert_tracking_link(
       "options",
-      { dimension28: total_links_in_section_1, dimension29: "Related link 1a" }.to_json)
+      { dimension28: total_links_in_section_1.to_s, dimension29: "Related link 1a" }.to_json)
     assert_tracking_link("action", "1.1")
     assert_tracking_link("label", "/related-link-1a")
 
     assert_tracking_link(
       "options",
-      { dimension28: total_links_in_section_1, dimension29: "Related link 1a" }.to_json)
+      { dimension28: total_links_in_section_1.to_s, dimension29: "Related link 1a" }.to_json)
     assert_tracking_link("action", "1.2")
     assert_tracking_link("label", "/related-link-1b")
   end
