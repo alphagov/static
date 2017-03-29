@@ -34,27 +34,6 @@
 
   navigation_document_type = content_item_hash[:navigation_document_supertype]
   meta_tags["govuk:navigation-document-type"] = navigation_document_type if navigation_document_type
-
-  def root_taxons(content_item)
-    root_taxon_set = Set.new
-
-    links = content_item[:links]
-    # Taxons will have :parent_taxons, but content items will have :taxons
-    parent_taxons = links[:parent_taxons] || links[:taxons] unless links.nil?
-
-    if parent_taxons.blank?
-      root_taxon_set << content_item[:title] if content_item[:document_type] == 'taxon'
-    else
-      parent_taxons.each do |parent_taxon|
-        root_taxon_set += root_taxons(parent_taxon)
-      end
-    end
-
-    root_taxon_set
-  end
-
-  themes = root_taxons(content_item_hash)
-  meta_tags["govuk:themes"] = themes.to_a.sort.join('; ') unless themes.empty?
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">
