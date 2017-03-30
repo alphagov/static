@@ -8,6 +8,7 @@
       </h2>
       <nav role="navigation" <% if section[:id] %>aria-labelledby="<%= section[:id] %>"<% end %>>
         <ul>
+          <% total_links_in_section = section[:items].length + (section[:url] ? 1 : 0)  %>
           <% section[:items].each_with_index do |item, item_index| %>
             <li>
               <%= link_to(
@@ -18,7 +19,7 @@
                   track_action: "#{section_index + 1}.#{item_index + 1}",
                   track_label: item[:url],
                   track_options: {
-                    dimension28: section[:items].length.to_s,
+                    dimension28: total_links_in_section.to_s,
                     dimension29: item[:title],
                   },
                 },
@@ -35,7 +36,7 @@
                   track_action: "#{section_index + 1}.#{section[:items].size + 1}",
                   track_label: section[:url],
                   track_options: {
-                    dimension28: sections.length.to_s,
+                    dimension28: total_links_in_section.to_s,
                     dimension29: "More",
                   },
                 },
