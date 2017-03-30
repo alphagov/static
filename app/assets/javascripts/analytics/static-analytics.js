@@ -102,6 +102,7 @@
     this.setThemesDimension(dimensions['themes']);
     this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
     this.setUserJourneyStage(dimensions['user-journey-stage']);
+    this.setNavigationDocumentTypeDimension(dimensions['navigation-document-type']);
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
@@ -113,7 +114,6 @@
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
-    this.setNavigationDocumentTypeDimension(dimensions['navigation-document-type']);
   };
 
   StaticAnalytics.prototype.setAbTestDimensionsFromMetaTags = function() {
@@ -210,7 +210,7 @@
   };
 
   StaticAnalytics.prototype.setNavigationDocumentTypeDimension = function(documentType) {
-    this.setDimension(34, documentType);
+    this.setDimension(34, documentType || "other");
   };
 
   GOVUK.StaticAnalytics = StaticAnalytics;
