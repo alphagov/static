@@ -99,6 +99,7 @@
   };
 
   StaticAnalytics.prototype.setDimensionsThatHaveDefaultValues = function(dimensions) {
+    this.setThemesDimension(dimensions['themes']);
     this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
     this.setUserJourneyStage(dimensions['user-journey-stage']);
   };
@@ -163,6 +164,10 @@
 
   StaticAnalytics.prototype.setFormatDimension = function(format) {
     this.setDimension(2, format);
+  };
+
+  StaticAnalytics.prototype.setThemesDimension = function(themes) {
+    this.setDimension(3, themes || 'other');
   };
 
   StaticAnalytics.prototype.setResultCountDimension = function(count) {
