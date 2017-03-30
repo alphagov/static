@@ -52,4 +52,16 @@
   .govuk-metadata-value {
     width: 100%;
   }
+
+  // Not using namespacing since anchors can be passed as values.
+  // One solution would be to accept link metadata e.g. [href]
+  // and have the metadata component render anchors itself.
+  .govuk-metadata-value a {
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
 }
