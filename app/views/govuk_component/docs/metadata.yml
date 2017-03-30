@@ -31,8 +31,43 @@ fixtures:
     from: <a href='/government/organisations/cabinet-office'>مكتب مجلس الوزراء</a>
     history: تم التحديث قبل أسبوعين
     part_of: <a href='/government/topics/environment'>بيئة</a>
+  too_many_links:
+    from: <a href='#'>Department for Business, Energy &amp; Industrial Strategy</a>
+    first_published: 20 March 2017
+    other:
+      Type of support:
+        - <a href='#'>Finance</a>
+        - <a href='#'>Equity</a>
+        - <a href='#'>Grant</a>
+        - <a href='#'>Expertise and advice</a>
+      Business stage:
+        - <a href='#'>Not yet trading</a>
+        - <a href='#'>Start-ups (1-2 years trading)</a>
+        - <a href='#'>Established</a>
+      Industry:
+        - <a href='#'>Agriculture and food</a>
+        - <a href='#'>Business and finance</a>
+        - <a href='#'>Construction</a>
+        - <a href='#'>Education</a>
+        - <a href='#'>Health</a>
+        - <a href='#'>Hospitality and catering</a>
+        - <a href='#'>IT, digital and creative</a>
+        - <a href='#'>Manufacturing</a>
+        - <a href='#'>Mining</a>
+        - <a href='#'>Real estate and property</a>
+        - <a href='#'>Science and technology</a>
+        - <a href='#'>Service industries</a>
+        - <a href='#'>Transport and distribution</a>
+        - <a href='#'>Travel and leisure</a>
+        - <a href='#'>Utilities providers</a>
+        - <a href='#'>Wholesale and retail</a>
+      Number of employees:
+        - <a href='#'>0 to 9 employees</a>
+        - <a href='#'>10 to 249 employees</a>
+        - <a href='#'>250 to 500 employees</a>
+        - <a href='#'>More than 500 employees</a>
   external_link:
     from: <a href='/government/organisations/cabinet-office'>Cabinet Office</a>
     first_published: 14 June 2014
     other:
-      Applies to: England, Scotland, and Wales (see detailed guidance for <a href="http://www.dardni.gov.uk/news-dard-pa022-a-13-new-procedure-for" rel="external">Northern Ireland</a>)
+      Applies to: England, Scotland, and Wales (see detailed guidance for <a href='http://www.dardni.gov.uk/news-dard-pa022-a-13-new-procedure-for' rel='external'>Northern Ireland</a>)
