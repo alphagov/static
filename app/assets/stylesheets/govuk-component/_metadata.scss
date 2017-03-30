@@ -1,6 +1,5 @@
 .govuk-metadata {
   @include core-16($line-height: normal, $line-height-640: normal);
-  text-decoration: none;
   list-style: none;
   margin-bottom: $gutter-half;
 }
