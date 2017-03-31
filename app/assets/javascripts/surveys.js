@@ -43,7 +43,7 @@
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
-      url: 'https://www.surveymonkey.com/s/2MRDLTW',
+      url: 'https://www.smartsurvey.co.uk/s/gov-uk',
       identifier: 'user_satisfaction_survey',
       frequency: 50,
       surveyType: 'url',
