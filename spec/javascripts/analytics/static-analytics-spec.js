@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const expectedDefaultArgumentCount = 8;
+    const expectedDefaultArgumentCount = 9;
 
     var universalSetupArguments;
 
@@ -64,7 +64,6 @@ describe("GOVUK.StaticAnalytics", function() {
           <meta name="govuk:political-status" content="historic">\
           <meta name="govuk:analytics:organisations" content="<D10>">\
           <meta name="govuk:analytics:world-locations" content="<W1>">\
-          <meta name="govuk:navigation-document-type" content="guidance">\
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
@@ -77,7 +76,6 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(setupArguments[4]).toEqual(['set', 'dimension7', 'historic']);
         expect(setupArguments[5]).toEqual(['set', 'dimension9', '<D10>']);
         expect(setupArguments[6]).toEqual(['set', 'dimension10', '<W1>']);
-        expect(setupArguments[7]).toEqual(['set', 'dimension34', 'guidance']);
       });
 
       it('ignores meta tags not set', function() {
@@ -149,6 +147,12 @@ describe("GOVUK.StaticAnalytics", function() {
           number: 33,
           defaultValue: 'thing',
           setupArgumentsIndex: 7
+        },
+        {
+          name: 'navigation-document-type',
+          number: 34,
+          defaultValue: 'other',
+          setupArgumentsIndex: 8
         }
       ].forEach(function (dimension) {
         it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {
