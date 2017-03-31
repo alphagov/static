@@ -121,12 +121,13 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
   test "renders themes metatag for root taxon" do
     taxon = {
       title: 'Root taxon',
+      base_path: '/root-taxon',
       links: {
         parent_taxons: [],
       },
     }
     render_component(content_item: example_document_for('taxon', 'taxon').merge(taxon))
-    assert_meta_tag('govuk:themes', 'Root taxon')
+    assert_meta_tag('govuk:themes', 'root-taxon')
   end
 
   test "renders themes metatag for child taxon" do
@@ -136,13 +137,14 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
         parent_taxons: [
           {
             title: 'Root taxon',
+            base_path: '/root-taxon',
             document_type: 'taxon',
           },
         ],
       },
     }
     render_component(content_item: example_document_for('taxon', 'taxon').merge(taxon))
-    assert_meta_tag('govuk:themes', 'Root taxon')
+    assert_meta_tag('govuk:themes', 'root-taxon')
   end
 
   test "renders themes metatag for content item" do
@@ -156,6 +158,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
               parent_taxons: [
                 {
                   title: 'Root taxon',
+                  base_path: '/root-taxon',
                   document_type: 'taxon',
                 },
               ],
@@ -165,7 +168,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
       },
     }
     render_component(content_item: example_document_for('case_study', 'case_study').merge(content_item))
-    assert_meta_tag('govuk:themes', 'Root taxon')
+    assert_meta_tag('govuk:themes', 'root-taxon')
   end
 
   test "renders themes metatag for content item with multiple roots" do
@@ -179,6 +182,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
               parent_taxons: [
                 {
                   title: 'Education root taxon',
+                  base_path: '/education-root-taxon',
                   document_type: 'taxon',
                 },
               ],
@@ -195,6 +199,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
                   parent_taxons: [
                     {
                       title: 'Parenting root taxon',
+                      base_path: '/parenting-root-taxon',
                       document_type: 'taxon',
                     }
                   ],
@@ -206,7 +211,7 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
       },
     }
     render_component(content_item: example_document_for('case_study', 'case_study').merge(content_item))
-    assert_meta_tag('govuk:themes', 'Education root taxon; Parenting root taxon')
+    assert_meta_tag('govuk:themes', 'education-root-taxon, parenting-root-taxon')
   end
 
   test "does not render themes metatag for content item with no taxon" do
