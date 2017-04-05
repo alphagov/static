@@ -9,6 +9,26 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     Static.banner = @original_banner
   end
 
+  context "emergency banner file" do
+    should "have an emergency banner file" do
+      assert File.exist? "#{Rails.root}/app/views/notifications/_emergency_banner.html.erb"
+    end
+  end
+
+  context "emergency banner notifications" do
+    should "render a banner" do
+      EmergencyBanner.any_instance.stubs(:enabled?).returns(true)
+      visit "/templates/wrapper.html.erb"
+      assert page.has_selector? "#emergency-banner-notification"
+    end
+
+    should "not render a banner if one does not exist" do
+      EmergencyBanner.any_instance.stubs(:enabled?).returns(false)
+      visit "/templates/wrapper.html.erb"
+      refute page.has_selector? "#emergency-banner-notification"
+    end
+  end
+
   context "banner files" do
     should "have a green file" do
       assert File.exist? "#{Rails.root}/app/views/notifications/banner_green.erb"
