@@ -2,24 +2,37 @@ require 'test_helper'
 require_relative '../../lib/emergency_banner'
 
 describe "Emergency Banner" do
-  should "return enabled is true when enabled key is true in Redis" do
-    banner = EmergencyBanner.new
-    Redis.any_instance.stubs(:get).with("emergency_banner:enabled").returns(true)
-
-    assert banner.enabled?
+  before do
+    @banner = EmergencyBanner.new
   end
 
-  should "return enabled is false when enabled key is false in Redis" do
-    banner = EmergencyBanner.new
-    Redis.any_instance.stubs(:get).with("emergency_banner:enabled").returns(false)
+  context "#enabled?" do
+    should "return enabled is true when all content for the emergency banner is set in Redis" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+          campaign_class: "black",
+        })
 
-    refute banner.enabled?
-  end
+      assert @banner.enabled?
+    end
 
-  should "return enabled is false when enabled key does not exist in Redis" do
-    banner = EmergencyBanner.new
-    Redis.any_instance.stubs(:get).with("emergency_banner:enabled").returns(nil)
+    should "return enabled is false when the content for the emergency_banner is missing in Redis" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        campaign_class: ""
+        })
 
-    refute banner.enabled?
+      refute @banner.enabled?
+    end
+
+    should "return enabled is false when the emergency_banner is empty in Redis" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({})
+
+      refute @banner.enabled?
+    end
+
+    should "return enabled is false when the emergency_banner does not exist in Redis" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(nil)
+
+      refute @banner.enabled?
+    end
   end
 end
