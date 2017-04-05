@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const expectedDefaultArgumentCount = 9;
+    const expectedDefaultArgumentCount = 10;
 
     var universalSetupArguments;
 
@@ -153,6 +153,12 @@ describe("GOVUK.StaticAnalytics", function() {
           number: 34,
           defaultValue: 'other',
           setupArgumentsIndex: 8
+        },
+        {
+          name: 'content-id',
+          number: 4,
+          defaultValue: '00000000-0000-0000-0000-000000000000',
+          setupArgumentsIndex: 9
         }
       ].forEach(function (dimension) {
         it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {

@@ -103,6 +103,7 @@
     this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
     this.setUserJourneyStage(dimensions['user-journey-stage']);
     this.setNavigationDocumentTypeDimension(dimensions['navigation-document-type']);
+    this.setContentIdDimension(dimensions['content-id']);
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
@@ -168,6 +169,10 @@
 
   StaticAnalytics.prototype.setThemesDimension = function(themes) {
     this.setDimension(3, themes || 'other');
+  }
+
+  StaticAnalytics.prototype.setContentIdDimension = function(contentId) {
+    this.setDimension(4, contentId || '00000000-0000-0000-0000-000000000000');
   };
 
   StaticAnalytics.prototype.setResultCountDimension = function(count) {
