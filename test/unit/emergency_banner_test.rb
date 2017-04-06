@@ -70,4 +70,61 @@ describe "Emergency Banner" do
       refute @banner.enabled?
     end
   end
+
+  context "content" do
+    should "return the heading as An Emergency" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        heading: "An Emergency"
+      })
+
+      assert_equal "An Emergency", @banner.heading
+    end
+
+    should "return the campaign class as green" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        campaign_class: "green"
+      })
+
+      assert_equal "green", @banner.campaign_class
+    end
+
+    should "return the short description if it is present" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        short_description: "the short description"
+      })
+
+      assert_equal "the short description", @banner.short_description
+    end
+
+    should "return nil for the short description if it is empty" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        short_description: ""
+      })
+
+      assert_nil @banner.short_description
+    end
+
+    should "return the link if it is present" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        link: "https://gov.uk"
+      })
+
+      assert_equal "https://gov.uk", @banner.link
+    end
+
+    should "return nil for the link if it is empty" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({
+        link: ""
+      })
+
+      assert_nil @banner.link
+    end
+
+    should "return nil for the short description and the link if they are not present" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({})
+
+      assert_nil @banner.short_description
+      assert_nil @banner.link
+    end
+  end
 end
