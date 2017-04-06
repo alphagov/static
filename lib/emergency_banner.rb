@@ -4,7 +4,7 @@ class EmergencyBanner
   end
 
   def enabled?
-    content && campaign_class
+    content && campaign_class && heading
   end
 
 private
@@ -16,5 +16,9 @@ private
 
   def campaign_class
     content[:campaign_class] if content[:campaign_class].present?
+  end
+
+  def heading
+    content[:heading] if content[:heading].present?
   end
 end
