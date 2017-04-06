@@ -55,6 +55,27 @@
 
   themes = root_taxon_slugs(content_item_hash)
   meta_tags["govuk:themes"] = themes.to_a.sort.join(', ') unless themes.empty?
+
+  if content_item_hash[:document_type] == 'taxon'
+    taxons = [content_item_hash]
+  else
+    taxons = links_hash[:taxons] || []
+  end
+
+  taxons.sort_by! { |taxon| taxon[:title] }
+  taxon_slugs_without_theme = taxons.map do |taxon|
+    base_path = taxon[:base_path] || ""
+    slug_without_theme = base_path[%r{/[^/]+/(.+)}, 1]
+    # Return the slug without the theme, or in the special case of a root taxon,
+    # just return the full slug (because it doesn't have a slug beneath the theme)
+    slug_without_theme || base_path.sub(%r(^/), '')
+  end
+  taxon_ids = taxons.map { |taxon| taxon[:content_id] }
+
+  meta_tags["govuk:taxon-id"] = taxon_ids.first unless taxon_ids.empty?
+  meta_tags["govuk:taxon-ids"] = taxon_ids.join(',') unless taxon_ids.empty?
+  meta_tags["govuk:taxon-slug"] = taxon_slugs_without_theme.first unless taxon_slugs_without_theme.empty?
+  meta_tags["govuk:taxon-slugs"] = taxon_slugs_without_theme.join(',') unless taxon_slugs_without_theme.empty?
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">

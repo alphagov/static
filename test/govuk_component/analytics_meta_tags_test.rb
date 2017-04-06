@@ -222,6 +222,132 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_select "meta[name='govuk:themes']", 0
   end
 
+  test "renders taxon metatags for root taxon" do
+    taxon = {
+      title: 'Root taxon',
+      content_id: 'root-taxon-id',
+      base_path: '/root-taxon',
+      links: {
+        parent_taxons: [],
+      },
+    }
+    render_component(content_item: example_document_for('taxon', 'taxon').merge(taxon))
+    assert_meta_tag('govuk:taxon-ids', 'root-taxon-id')
+    assert_meta_tag('govuk:taxon-id', 'root-taxon-id')
+    assert_meta_tag('govuk:taxon-slugs', 'root-taxon')
+    assert_meta_tag('govuk:taxon-slug', 'root-taxon')
+  end
+
+  test "renders taxon metatags for child taxon" do
+    taxon = {
+      title: 'Child taxon',
+      content_id: 'child-taxon-id',
+      base_path: '/root-taxon/child-taxon',
+      links: {
+        parent_taxons: [
+          {
+            title: 'Root taxon',
+            base_path: '/root-taxon',
+            document_type: 'taxon',
+          },
+        ],
+      },
+    }
+    render_component(content_item: example_document_for('taxon', 'taxon').merge(taxon))
+    assert_meta_tag('govuk:taxon-ids', 'child-taxon-id')
+    assert_meta_tag('govuk:taxon-id', 'child-taxon-id')
+    assert_meta_tag('govuk:taxon-slugs', 'child-taxon')
+    assert_meta_tag('govuk:taxon-slug', 'child-taxon')
+  end
+
+  test "renders taxon metatags for content item" do
+    content_item = {
+      links: {
+        taxons: [
+          {
+            title: 'Child taxon',
+            content_id: 'child-taxon-id',
+            base_path: '/root-taxon/child-taxon',
+            document_type: 'taxon',
+            links: {
+              parent_taxons: [
+                {
+                  title: 'Root taxon',
+                  content_id: 'root-taxon-id',
+                  base_path: '/root-taxon',
+                  document_type: 'taxon',
+                },
+              ],
+            },
+          },
+        ],
+      },
+    }
+    render_component(content_item: example_document_for('case_study', 'case_study').merge(content_item))
+    assert_meta_tag('govuk:taxon-ids', 'child-taxon-id')
+    assert_meta_tag('govuk:taxon-id', 'child-taxon-id')
+    assert_meta_tag('govuk:taxon-slugs', 'child-taxon')
+    assert_meta_tag('govuk:taxon-slug', 'child-taxon')
+  end
+
+  test "renders taxon metatags for content item with multiple taxons" do
+    content_item = {
+      links: {
+        taxons: [
+          {
+            title: 'Education child taxon',
+            base_path: '/education/education-child-taxon',
+            content_id: 'education-child-taxon-id',
+            document_type: 'taxon',
+            links: {
+              parent_taxons: [
+                {
+                  title: 'Education root taxon',
+                  base_path: '/education-root-taxon',
+                  document_type: 'taxon',
+                },
+              ],
+            },
+          },
+          {
+            title: 'Parenting grandchild taxon',
+            content_id: 'parenting-grandchild-taxon-id',
+            base_path: '/parenting/parenting-grandchild-taxon',
+            document_type: 'taxon',
+            links: {
+              parent_taxons: [
+                title: 'Parenting child taxon',
+                document_type: 'taxon',
+                links: {
+                  parent_taxons: [
+                    {
+                      title: 'Parenting root taxon',
+                      base_path: '/parenting-root-taxon',
+                      document_type: 'taxon',
+                    }
+                  ],
+                },
+              ],
+            },
+          },
+        ],
+      },
+    }
+    render_component(content_item: example_document_for('case_study', 'case_study').merge(content_item))
+    assert_meta_tag('govuk:taxon-ids', 'education-child-taxon-id,parenting-grandchild-taxon-id')
+    assert_meta_tag('govuk:taxon-id', 'education-child-taxon-id') # Expecting first alphabetical taxon
+    assert_meta_tag('govuk:taxon-slugs', 'education-child-taxon,parenting-grandchild-taxon')
+    assert_meta_tag('govuk:taxon-slug', 'education-child-taxon') # Expecting first alphabetical taxon
+  end
+
+  test "does not render taxon ID metatag for content item with no taxon" do
+    content_item = {
+      links: {},
+    }
+    render_component(content_item: example_document_for('case_study', 'case_study').merge(content_item))
+    assert_select "meta[name='govuk:taxon-ids']", 0
+  end
+
   def assert_political_status_for(political, current, expected_political_status)
     render_component(content_item: { details: { political: political, government: { current: current, slug: 'government' } } })
     assert_meta_tag('govuk:political-status', expected_political_status)

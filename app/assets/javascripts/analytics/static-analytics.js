@@ -104,6 +104,10 @@
     this.setUserJourneyStage(dimensions['user-journey-stage']);
     this.setNavigationDocumentTypeDimension(dimensions['navigation-document-type']);
     this.setContentIdDimension(dimensions['content-id']);
+    this.setTaxonSlugDimension(dimensions['taxon-slug']);
+    this.setTaxonIdDimension(dimensions['taxon-id']);
+    this.setTaxonSlugsDimension(dimensions['taxon-slugs']);
+    this.setTaxonIdsDimension(dimensions['taxon-ids']);
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
@@ -216,6 +220,22 @@
 
   StaticAnalytics.prototype.setNavigationDocumentTypeDimension = function(documentType) {
     this.setDimension(34, documentType || "other");
+  };
+
+  StaticAnalytics.prototype.setTaxonSlugDimension = function(taxonSlug) {
+    this.setDimension(56, taxonSlug || "other");
+  };
+
+  StaticAnalytics.prototype.setTaxonIdDimension = function(taxonId) {
+    this.setDimension(57, taxonId || "other");
+  };
+
+  StaticAnalytics.prototype.setTaxonSlugsDimension = function(taxonSlugs) {
+    this.setDimension(58, taxonSlugs || "other");
+  };
+
+  StaticAnalytics.prototype.setTaxonIdsDimension = function (taxonIds) {
+    this.setDimension(59, taxonIds || "other");
   };
 
   GOVUK.StaticAnalytics = StaticAnalytics;
