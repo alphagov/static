@@ -33,7 +33,7 @@
   <% end %>
 
   <% if @emergency_banner %>
-    <%= render partial: "notifications/emergency_banner" %>
+    <%= render "notifications/emergency_banner", banner: @emergency_banner %>
   <% end %>
 <% end %>
 
