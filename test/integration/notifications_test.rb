@@ -82,6 +82,22 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "promo banner" do
+    should "not display if the Emergency Banner is enabled" do
+      EmergencyBanner.any_instance.stubs(:enabled?).returns(true)
+      visit "/templates/wrapper.html.erb"
+
+      refute page.has_selector? ".global-bar-message"
+    end
+
+    should "display if the Emergency Banner is not enabled" do
+      EmergencyBanner.any_instance.stubs(:enabled?).returns(false)
+      visit "/templates/wrapper.html.erb"
+
+      assert page.has_selector? ".global-bar-message"
+    end
+  end
+
   context "banner files" do
     should "have a green file" do
       assert File.exist? "#{Rails.root}/app/views/notifications/banner_green.erb"
