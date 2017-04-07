@@ -38,8 +38,10 @@
 <% end %>
 
 <% content_for :content do %>
-  <% show_global_bar = @banner_notification.blank? && !local_assigns[:hide_banner_notification] %>
-  <%= render partial: "promo_banner" if show_global_bar %>
+  <% unless @emergency_banner %>
+    <% show_global_bar = @banner_notification.blank? && !local_assigns[:hide_banner_notification] && !@emergency_banner %>
+    <%= render partial: "promo_banner" if show_global_bar %>
+  <% end %>
 
   <div id="wrapper" class="group">
     <%= yield :wrapper_content %>
