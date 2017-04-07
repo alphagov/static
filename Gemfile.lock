@@ -183,6 +183,7 @@ GEM
     rainbow (2.1.0)
     raindrops (0.15.0)
     rake (10.5.0)
+    redis (3.3.3)
     rest-client (2.0.1)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -270,6 +271,7 @@ DEPENDENCIES
   quiet_assets (= 1.1.0)
   rack_strip_client_ip (= 0.0.1)
   rails (= 4.2.7.1)
+  redis (~> 3.3.3)
   sass-rails (= 5.0.6)
   shoulda
   sprockets-rails (= 2.3.3)

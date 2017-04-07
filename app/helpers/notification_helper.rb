@@ -1,4 +1,5 @@
 require "notification_file_lookup"
+require "emergency_banner"
 
 module NotificationHelper
   include ActionView::Helpers::TagHelper
@@ -10,5 +11,10 @@ module NotificationHelper
     else
       ''
     end
+  end
+
+  def emergency_banner_notification
+    emergency_banner = EmergencyBanner.new
+    return emergency_banner if emergency_banner.enabled?
   end
 end
