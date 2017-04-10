@@ -8,4 +8,9 @@ namespace :emergency_banner do
 
     EmergencyBanner::Deploy.new.run(args.campaign_class, args.heading, args.short_description, args.link)
   end
+
+  desc 'Remove the emergency banner'
+  task remove: :environment do
+    EmergencyBanner::Remove.new.run
+  end
 end

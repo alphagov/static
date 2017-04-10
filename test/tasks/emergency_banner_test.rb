@@ -1,7 +1,8 @@
 require 'test_helper'
 require_relative '../../lib/emergency_banner/deploy'
+require_relative '../../lib/emergency_banner/remove'
 
-describe 'emergency_banner' do
+describe 'emergency_banner:deploy' do
   before do
     Rake::Task['emergency_banner:deploy'].reenable
   end
@@ -34,5 +35,13 @@ describe 'emergency_banner' do
     EmergencyBanner::Deploy.any_instance.expects(:run).with('campaign class', 'heading', 'short description', 'link')
 
     Rake::Task['emergency_banner:deploy'].invoke('campaign class', 'heading', 'short description', 'link')
+  end
+end
+
+describe 'emergency_banner:remove' do
+  should 'run the process to remove the emergency banner' do
+    EmergencyBanner::Remove.any_instance.expects(:run)
+
+    Rake::Task['emergency_banner:remove'].invoke
   end
 end
