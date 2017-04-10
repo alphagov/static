@@ -16,69 +16,112 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   end
 
   context "emergency banner notifications" do
-    should "not render a banner if one does not exist" do
-      EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(false)
-      visit "/templates/wrapper.html.erb"
-      refute page.has_selector? "#emergency-banner-notification"
+    context "homepage" do
+      should "not render a banner if one does not exist" do
+        EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(false)
+        visit "/templates/homepage.html.erb"
+        refute page.has_selector? "#campaign"
+      end
+
+      should "render a banner if one does exist" do
+        EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
+        visit "/templates/homepage.html.erb"
+        assert page.has_selector? "#campaign"
+      end
+
+      should "only render the homepage emergency banner, not the general population emergency banner" do
+        EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
+        visit "/templates/homepage.html.erb"
+        assert page.has_selector? "#campaign"
+        refute page.has_selector? "#emergency-banner-notification"
+      end
+
+      should "render a homepage banner with a heading and campaign colour" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        visit "/templates/homepage.html.erb"
+        assert page.has_selector? "#campaign.black"
+        assert_match 'Alas poor Yorick', page.body
+      end
+
+      should "render the short description and more information link" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        EmergencyBanner::Display.any_instance.stubs(:link).returns("https://yoricks.gov")
+        EmergencyBanner::Display.any_instance.stubs(:short_description).returns("I knew him well")
+
+        visit "/templates/homepage.html.erb"
+        assert_match "I knew him well", page.body
+        assert_match "More information", page.body
+        assert_match(/yoricks\.gov/, page.body)
+      end
     end
 
-    should "render a banner if one does exist" do
-      EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
-      visit "/templates/wrapper.html.erb"
-      assert page.has_selector? "#emergency-banner-notification"
-    end
+    context "all other pages" do
+      should "not render a banner if one does not exist" do
+        EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(false)
+        visit "/templates/wrapper.html.erb"
+        refute page.has_selector? "#emergency-banner-notification"
+      end
 
-    should "render a banner with a heading and campaign colour" do
-      EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
-      EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+      should "render a banner if one does exist" do
+        EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
+        visit "/templates/wrapper.html.erb"
+        assert page.has_selector? "#emergency-banner-notification"
+      end
 
-      visit "/templates/wrapper.html.erb"
+      should "render a banner with a heading and campaign colour" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
 
-      assert page.has_selector? "#emergency-banner-notification.black"
-      assert_match 'Alas poor Yorick', page.body
-    end
+        visit "/templates/wrapper.html.erb"
 
-    should "render the more information link" do
-      EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
-      EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
-      EmergencyBanner::Display.any_instance.stubs(:link).returns("https://yoricks.gov")
+        assert page.has_selector? "#emergency-banner-notification.black"
+        assert_match 'Alas poor Yorick', page.body
+      end
 
-      visit "/templates/wrapper.html.erb"
+      should "render the more information link" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        EmergencyBanner::Display.any_instance.stubs(:link).returns("https://yoricks.gov")
 
-      assert page.has_selector? ".more-information"
-      assert_match "More information", page.body
-      assert_match(/yoricks\.gov/, page.body)
-    end
+        visit "/templates/wrapper.html.erb"
 
-    should "not render the more information link if it does not exist" do
-      EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
-      EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
-      EmergencyBanner::Display.any_instance.stubs(:link).returns(nil)
+        assert page.has_selector? ".more-information"
+        assert_match "More information", page.body
+        assert_match(/yoricks\.gov/, page.body)
+      end
 
-      visit "/templates/wrapper.html.erb"
+      should "not render the more information link if it does not exist" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        EmergencyBanner::Display.any_instance.stubs(:link).returns(nil)
 
-      refute page.has_selector? ".more-information"
-      refute_match(/yoricks\.gov/, page.body)
-    end
+        visit "/templates/wrapper.html.erb"
 
-    should "render the extra information" do
-      EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
-      EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
-      EmergencyBanner::Display.any_instance.stubs(:short_description).returns("I knew him well")
+        refute page.has_selector? ".more-information"
+        refute_match(/yoricks\.gov/, page.body)
+      end
 
-      visit "/templates/wrapper.html.erb"
+      should "render the extra information" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        EmergencyBanner::Display.any_instance.stubs(:short_description).returns("I knew him well")
 
-      assert_match "I knew him well", page.body
-    end
+        visit "/templates/wrapper.html.erb"
 
-    should "does not render the extra information if it does not exist" do
-      EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
-      EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
-      EmergencyBanner::Display.any_instance.stubs(:short_description).returns(nil)
+        assert_match "I knew him well", page.body
+      end
 
-      visit "/templates/wrapper.html.erb"
+      should "does not render the extra information if it does not exist" do
+        EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        EmergencyBanner::Display.any_instance.stubs(:short_description).returns(nil)
 
-      refute_match "I knew him well", page.body
+        visit "/templates/wrapper.html.erb"
+
+        refute_match "I knew him well", page.body
+      end
     end
   end
 
