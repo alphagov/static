@@ -1,4 +1,5 @@
 require_relative '../emergency_banner/deploy'
+require_relative '../emergency_banner/remove'
 
 namespace :emergency_banner do
   desc 'Deploy the emergency banner'
