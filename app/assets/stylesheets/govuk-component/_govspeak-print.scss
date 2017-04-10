@@ -52,4 +52,13 @@
   .footnotes {
     border-top: 1px solid $text-colour;
   }
+
+  .legislative-list {
+    padding-left: 0;
+
+    &,
+    ol {
+      list-style: none;
+    }
+  }
 }
