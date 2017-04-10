@@ -4,6 +4,6 @@ namespace :emergency_banner do
     raise ArgumentError unless args.campaign_class
     raise ArgumentError unless args.heading
 
-    EmergencyBanner::Deploy.new.run
+    EmergencyBanner::Deploy.new.run(args.campaign_class, args.heading, args.short_description, args.link)
   end
 end
