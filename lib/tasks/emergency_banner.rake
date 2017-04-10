@@ -1,3 +1,5 @@
+require_relative '../emergency_banner/deploy'
+
 namespace :emergency_banner do
   desc 'Deploy the emergency banner'
   task :deploy, [:campaign_class, :heading, :short_description, :link] => :environment do |_, args|
