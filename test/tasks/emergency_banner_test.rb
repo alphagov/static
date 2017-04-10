@@ -23,4 +23,10 @@ describe 'emergency_banner' do
       Rake::Task['emergency_banner:deploy'].invoke('campaign class')
     end
   end
+
+  should 'allow the short description and link to be passed to the rake task' do
+    EmergencyBanner::Deploy.any_instance.expects(:run)
+
+    Rake::Task['emergency_banner:deploy'].invoke('campaign class', 'heading', 'short description', 'link')
+  end
 end
