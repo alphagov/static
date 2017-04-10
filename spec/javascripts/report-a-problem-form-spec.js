@@ -36,15 +36,6 @@ describe("form submission for reporting a problem", function () {
       args = $.ajax.calls.mostRecent().args;
       expect(args[0].url).toBe('ajax-endpoint');
     });
-
-    it("should track the event", function() {
-      spyOn(GOVUK.analytics, "trackEvent");
-      $form.triggerHandler('submit');
-
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
-        'Onsite Feedback', 'GOVUK Send Feedback', jasmine.any(Object)
-      );
-    });
   });
 
   describe("if the request succeeds", function() {

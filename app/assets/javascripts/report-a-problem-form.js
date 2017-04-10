@@ -65,7 +65,6 @@
   ReportAProblemForm.prototype.submit = function(evt) {
     this.hidePrompt();
     this.setUrl();
-    this.trackEvent('GOVUK Send Feedback');
     this.disableSubmitButton();
     this.postFormViaAjax();
 
