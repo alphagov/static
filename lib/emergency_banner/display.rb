@@ -1,7 +1,13 @@
 module EmergencyBanner
   class Display
-    def initialize
-      @redis = Redis.new
+    class << self
+      def client
+        @client ||= Redis.new(timeout: 0.1)
+      end
+    end
+
+    def client
+      self.class.client
     end
 
     def enabled?
@@ -27,7 +33,7 @@ module EmergencyBanner
   private
 
     def content
-      @data ||= @redis.hgetall("emergency_banner")
+      @data ||= client.hgetall("emergency_banner")
       @data.symbolize_keys if @data
     end
   end
