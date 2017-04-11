@@ -1,9 +1,9 @@
 require 'test_helper'
-require_relative '../../lib/emergency_banner'
+require_relative '../../../lib/emergency_banner/display'
 
-describe "Emergency Banner" do
+describe "Emergency Banner::Display" do
   before do
-    @banner = EmergencyBanner.new
+    @banner = EmergencyBanner::Display.new
   end
 
   context "#enabled?" do
