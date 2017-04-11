@@ -1,9 +1,5 @@
 module EmergencyBanner
   class Display
-    def initialize
-      @redis = Redis.new
-    end
-
     def enabled?
       content && campaign_class && heading
     end
@@ -27,8 +23,12 @@ module EmergencyBanner
   private
 
     def content
-      @data ||= @redis.hgetall("emergency_banner")
+      @data ||= connect.hgetall("emergency_banner")
       @data.symbolize_keys if @data
+    end
+
+    def connect
+      Redis.new
     end
   end
 end
