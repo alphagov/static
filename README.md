@@ -18,6 +18,7 @@ There are docs for:
 - [Image optimisation](doc/image-optimisation.md)
 - [GOV.UK components](doc/govuk-components.md)
 - [Slimmer templates](doc/slimmer_templates.md)
+- [Emergency Banner](doc/emergency-banner.md)
 
 ### Running the application
 
