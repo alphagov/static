@@ -37,6 +37,8 @@
   };
 
   ReportAProblem.prototype.showConfirmation = function(evt, data) {
+    this.trackEvent('GOVUK Send Feedback');
+
     this.$container.find('.report-a-problem-content').html(data.message);
   };
 

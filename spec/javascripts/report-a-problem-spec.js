@@ -46,6 +46,16 @@ describe("form submission for reporting a problem", function () {
       expect($form).toBeHidden();
       expect($('.report-a-problem-content').html()).toEqual('great success!');
     });
+
+    it("should track the event", function() {
+      spyOn(GOVUK.analytics, "trackEvent");
+
+      $form.trigger('reportAProblemForm.success', {});
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith(
+        'Onsite Feedback', 'GOVUK Send Feedback', jasmine.any(Object)
+      );
+    });
   });
 
   describe("if the request has failed", function() {
@@ -55,6 +65,16 @@ describe("form submission for reporting a problem", function () {
 
       expect($form).not.toBeVisible();
       expect($('.report-a-problem-content').html()).toContain("Sorry, we’re unable to receive your message");
+    });
+
+    it("should not track the event", function() {
+      spyOn(GOVUK.analytics, "trackEvent");
+
+      $form.trigger('reportAProblemForm.error');
+
+      expect(GOVUK.analytics.trackEvent).not.toHaveBeenCalledWith(
+        'Onsite Feedback', 'GOVUK Send Feedback', jasmine.any(Object)
+      );
     });
   });
 });
