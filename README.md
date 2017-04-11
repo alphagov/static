@@ -40,6 +40,18 @@ To run this app locally, and have it point at its own assets, run it like this:
 PLEK_SERVICE_STATIC_URI=0.0.0.0:3013 ./startup.sh
 ```
 
+If you're making front end changes to `static` and testing them out
+on your development VM, you may find that it takes several minutes for changes to
+appear due to caching in Slimmer. One approach to speed this up is to run all of the
+relevant app's dependencies (including static), then start that app separately.
+Restarting the app should pick up the changes.
+
+For example, to see changes made to static templates which
+are wrapped around feedback pages, run `bowl feedback
+--without=feedback` in one terminal and the `.startup.sh` script for `feedback`
+in a separate terminal. Following local edits to `static`, restarting just
+`feedback` should be sufficient.
+
 ### Running the test suite
 
 `bundle exec rake` runs the test suite.
