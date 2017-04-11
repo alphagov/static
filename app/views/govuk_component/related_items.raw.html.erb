@@ -1,7 +1,7 @@
 <% if local_assigns[:sections] && !sections.blank? %>
   <aside class="govuk-related-items" data-module="track-click" role="complementary">
     <% sections.each_with_index do |section, section_index| %>
-      <h2
+      <h2 data-track-count="sidebarRelatedItemSection"
         <% if section[:id] %>id="<%= section[:id] %>"<% end %>
       >
         <%= section[:title] %>
