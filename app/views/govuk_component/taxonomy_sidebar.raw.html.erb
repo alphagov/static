@@ -28,7 +28,7 @@
         </p>
 
         <% item[:related_content] ||= [] %>
-        <% if item[:related_content].any? && item_index < 2 %>
+        <% if item[:related_content].any? %>
           <nav role='navigation'>
             <ul class='related-content'>
               <% item[:related_content].each_with_index do |related_item, related_content_index| %>
@@ -46,6 +46,7 @@
                           }
                       },
                       class: 'related-link',
+                      rel: related_item[:rel],
                     ) do
                       content_tag(:span, related_item[:title])
                     end
