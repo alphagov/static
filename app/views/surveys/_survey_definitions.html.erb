@@ -1,6 +1,6 @@
 <script type="application/json" data-survey-default>
   {
-    "url": "https://www.surveymonkey.com/s/2MRDLTW?c={{currentPath}}",
+    "url": "https://www.smartsurvey.co.uk/s/gov-uk",
     "identifier": "user_satisfaction_survey",
     "frequency": 50,
     "surveyType": "url",
@@ -8,47 +8,134 @@
 </script>
 <script type="application/json" data-survey>
   {
-    "url:" "https://www.smartsurvey.co.uk/s/6YYKX/",
-    "identifier": "ons_survey",
-    "templateArguments": {
-      "surveyCta": "Give us your feedback on government statistical data"
-    },
-    "frequency": 1,
+    "identifier": "govuk_email_survey_t02",
+    "frequency": 10,
     "activeWhen": {
-      "path": ["^\/government\/statistics\/?$"]
+      "breadcrumb": ["Education", "Childcare", "Schools"],
+      "section": ["education", "childcare", "schools"],
+      "organisation": ["<D6>", "<D106>", "<D109>", "<EA243>", "<EA86>", "<EA242>", "<EA541>"],
+      "matchType": "exclude"
     },
-    "surveyType": "url",
-    "startTime": "January 25, 2017",
-    "endTime": "February 27, 2017 23:59:59"
+    "surveyType": "email",
+    "startTime": "April 3, 2017 10:00:00",
+    "endTime": "April 4, 2017 23:59:59"
   },
 </script>
 <script type="application/json" data-survey>
   {
-    "identifier": "govuk_email_survey_t01",
-    "frequency": 1,
+    "url": "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign={{currentPath}}&utm_source=Hold_gov_to_account&utm_medium=gov.uk%20survey&t=GDS",
+    "identifier": "mar_ur_panel",
+    "frequency": 5,
     "activeWhen": {
-      "breadcrumb": ["Education", "Childcare", "Schools"],
-      "section": ["education", "childcare", "schools"],
-      "organisation": ["<D6>", "<D106>", "<D109>", "<EA243>", "<EA86>", "<EA242>", "<EA541>"],
-      "matchType": "exclude"
+      "path": [
+        "government/policies",
+        "government/how-government-works",
+        "make-a-freedom-of-information-request",
+        "government/collections/open-government",
+        "government/publications/uk-open-government-national-action-plan-2016-18/uk-open-government-national-action-plan-2016-18",
+        "government/policies/government-transparency-and-accountability",
+        "topic/local-government/transparency"
+      ],
+      "matchType": "include"
     },
-    "surveyType": "email",
-    "startTime": "March 08, 2017",
-    "endTime": "March 10, 2017 12:59:59"
+    "surveyType": "url",
+    "startTime": "March 20, 2017 00:00:00",
+    "endTime": "April 21, 2017 23:59:59"
   }
 </script>
 <script type="application/json" data-survey>
   {
-    "identifier": "govuk_email_survey_t02",
-    "frequency": 2,
+    "url": "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign={{currentPath}}&utm_source=Improve_platform_basics&utm_medium=gov.uk%20survey&t=GDS",
+    "identifier": "mar_ur_panel",
+    "frequency": 5,
     "activeWhen": {
-      "breadcrumb": ["Education", "Childcare", "Schools"],
-      "section": ["education", "childcare", "schools"],
-      "organisation": ["<D6>", "<D106>", "<D109>", "<EA243>", "<EA86>", "<EA242>", "<EA541>"],
-      "matchType": "exclude"
+      "path": [
+        "government/world",
+        "government/world/australia",
+        "government/world/china",
+        "government/world/india",
+        "government/world/pakistan",
+        "government/world/usa"
+      ],
+      "matchType": "include"
     },
-    "surveyType": "email",
-    "startTime": "March 10, 2017 13:00:00",
-    "endTime": "March 13, 2017 23:59:59"
+    "surveyType": "url",
+    "startTime": "March 20, 2017 00:00:00",
+    "endTime": "April 21, 2017 23:59:59"
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "url": "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Anti_Money_Laundering&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+    "frequency": 5,
+    "activeWhen": {
+      "path": [
+        "government/publications/money-laundering-regulations-application-for-registration-mlr100"
+      ],
+      "matchType": "include"
+    },
+    "surveyType": "url",
+    "startTime": "March 22, 2017 00:00:00",
+    "endTime": "April 20, 2017 23:59:59"
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "url": "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=P800&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+    "frequency": 5,
+    "activeWhen": {
+      "path": [
+        "claim-tax-refund"
+      ],
+      "matchType": "include"
+    },
+    "surveyType": "url",
+    "startTime": "March 22, 2017 00:00:00",
+    "endTime": "April 20, 2017 23:59:59"
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "url": "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=IHT&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+    "frequency": 5,
+    "activeWhen": {
+      "path": [
+        "government/publications/inheritance-tax-inheritance-tax-account-iht400"
+      ],
+      "matchType": "include"
+    },
+    "surveyType": "url",
+    "startTime": "March 22, 2017 00:00:00",
+    "endTime": "April 20, 2017 23:59:59"
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "url": "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=TAV_C&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+    "frequency": 5,
+    "activeWhen": {
+      "path": [
+        "guidance/venture-capital-schemes-apply-for-the-enterprise-investment-scheme"
+      ],
+      "matchType": "include"
+    },
+    "surveyType": "url",
+    "startTime": "March 22, 2017 00:00:00",
+    "endTime": "April 20, 2017 23:59:59"
+  }
+</script>
+<script type="application/json" data-survey>
+  {
+    "url": "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=capital_gains&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
+    "frequency": 5,
+    "activeWhen": {
+      "path": [
+        "capital-gains-tax"
+      ],
+      "matchType": "include"
+    },
+    "surveyType": "url",
+    "startTime": "March 22, 2017 00:00:00",
+    "endTime": "April 20, 2017 23:59:59"
   }
 </script>
