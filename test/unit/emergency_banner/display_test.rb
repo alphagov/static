@@ -7,6 +7,15 @@ describe "Emergency Banner::Display" do
   end
 
   context "#enabled?" do
+    should "return enabled is false when redis connection times out and send an error to Airbrake" do
+      err = Redis::CannotConnectError.new("Timed out connecting to Redis")
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").raises(err)
+
+      Airbrake.expects(:notify_or_ignore)
+        .with(err)
+      refute @banner.enabled?
+    end
+
     should "return enabled is true when all content for the emergency banner is set in Redis" do
       Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
         heading: "Emergency!",

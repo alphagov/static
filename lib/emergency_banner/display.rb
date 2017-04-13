@@ -33,8 +33,13 @@ module EmergencyBanner
   private
 
     def content
-      @data ||= client.hgetall("emergency_banner")
-      @data.symbolize_keys if @data
+      return @content if defined? @content
+      @content = begin
+        client.hgetall("emergency_banner").try(:symbolize_keys)
+      rescue => e
+        Airbrake.notify_or_ignore(e) if defined?(Airbrake)
+        nil
+      end
     end
   end
 end
