@@ -1,6 +1,8 @@
 <% content_for :homepage_url, Plek.new.website_root %>
 <% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
 <% @banner_notification = banner_notification unless local_assigns[:hide_banner_notification] %>
+<% @emergency_banner = emergency_banner_notification %>
+<% @is_home_page = local_assigns[:is_home_page] %>
 
 <% if ENV["DRAFT_ENVIRONMENT"].present? %>
   <% content_for :body_classes, "draft" %>
@@ -30,11 +32,21 @@
   <% if @banner_notification.present? %>
     <%= @banner_notification %>
   <% end %>
+
+  <% if @emergency_banner %>
+    <% if @is_home_page %>
+      <%= render "notifications/homepage_emergency_banner", banner: @emergency_banner %>
+    <% else %>
+      <%= render "notifications/emergency_banner", banner: @emergency_banner %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% content_for :content do %>
-  <% show_global_bar = @banner_notification.blank? && !local_assigns[:hide_banner_notification] %>
-  <%= render partial: "promo_banner" if show_global_bar %>
+  <% unless @emergency_banner %>
+    <% show_global_bar = @banner_notification.blank? && !local_assigns[:hide_banner_notification] && !@emergency_banner %>
+    <%= render partial: "promo_banner" if show_global_bar %>
+  <% end %>
 
   <div id="wrapper" class="group">
     <%= yield :wrapper_content %>

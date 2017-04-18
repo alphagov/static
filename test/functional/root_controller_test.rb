@@ -4,6 +4,7 @@ class RootControllerTest < ActionController::TestCase
   context "a template using the base partial" do
     setup do
       stub_template "root/dummy.html.erb" => "<%= render partial: 'base' %>"
+      EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(false)
     end
 
     context "with a blank promo banner partial" do
