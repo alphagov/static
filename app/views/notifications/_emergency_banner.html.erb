@@ -1,9 +1,9 @@
-<section id="emergency-banner-notification" class="<%= banner.campaign_class %>">
+<section id="emergency-banner-notification" class="<%= banner.campaign_class %>" role="banner">
   <div>
-    <p><%= banner.heading %><br>
-    <%= banner.short_description %></p>
+    <h1><%= banner.heading %></h1>
+    <p><%= banner.short_description %></p>
     <% if banner.link %>
-      <a href="<%= banner.link %>" class="more-information">More information</a>
+      <a href="<%= banner.link %>">More information</a>
     <% end %>
   </div>
 </section>

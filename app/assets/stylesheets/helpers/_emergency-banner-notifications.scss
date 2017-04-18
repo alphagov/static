@@ -1,113 +1,67 @@
 #emergency-banner-notification {
+
   background-color: $panel-colour;
-  border-top: 2px solid white;
-  padding: 0.5em 1em;
+  color: $white;
+  border-top: 2px solid $white;
+  padding: $gutter-half 0;
 
   @include media(tablet) {
-    padding: 0;
+    padding: $gutter 0;
   }
 
   div {
-    @include core-19;
-    color: #fff;
-    margin: 0 auto;
-    padding:0.5em 0;
-    max-width: 1020px;
-    overflow: hidden;
+    @extend %site-width-container;
+  }
 
-    @include ie-lte(7) {
-      width: 956px;
+  h1 {
+    @include bold-24;
+    margin-bottom: 0;
+
+    .homepage & {
+      @include bold-48;
+      @include media(tablet) {
+        margin-bottom: $gutter-two-thirds;
+      }
     }
   }
 
   p {
-    padding: 0;
-    margin: 0;
+    @include core-19;
+    color: $white;
+    margin-top: 0;
+    margin-bottom: $gutter-two-thirds;
 
     @include media(tablet) {
-      padding: 0 30px 0 30px;
+      width: percentage(2/3);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .homepage & {
+      margin: $gutter-two-thirds 0;
     }
   }
 
-  a {
-    color: #fff;
-
-    &.more-information {
-      display: block;
-
-      @include media(tablet) {
-        padding: 0 30px;
-      }
-    }
+  h1, p, a {
+    color: inherit;
   }
 
-  &.green {
-    background: #28a197;
+  .homepage & {
+    border: 5px solid $white;
+    border-width: 5px 0;
   }
 
-  &.red {
-    background: #b10e1e;
+  &.notable-death {
+    background-color: $black;
   }
 
-  &.black {
-    background: #000000;
-  }
-}
-
-@mixin campaign-styles($background, $foreground) {
-  background: $background;
-
-  h1,
-  p,
-  a {
-    color: $foreground;
-  }
-}
-
-#campaign {
-  &.black {
-    @include campaign-styles($black, $white);
+  &.national-emergency {
+    background-color: $red;
   }
 
-  &.red {
-    @include campaign-styles($red, $white);
-  }
-
-  &.green {
-    @include campaign-styles($turquoise, $white);
-  }
-
-  border: 5px solid $white;
-  border-width: 5px 0;
-
-  .campaign-inner {
-    @extend %contain-floats;
-    @extend %site-width-container;
-    position: relative;
-    padding: 15px 0;
-
-    h1 {
-      @include bold-48;
-    }
-
-    p {
-      @include media(tablet) {
-        width: 66.66%; // this is the same as .welcome-text
-        float: left;
-      }
-    }
-
-    a {
-      // this is the same as .content-links
-      @include media(tablet) {
-        position: absolute;
-        bottom: 1em;
-        left: 66.66%;
-        width: 33.33%;
-        padding: 0 10px;
-        display: block;
-      }
-      @include core-19;
-    }
+  &.local-emergency {
+    background-color: $red;
   }
 }
