@@ -152,6 +152,21 @@ fixtures:
           </tr>
         </tbody>
       </table>
+  address:
+    content: |
+      <div class="address">
+        <div class="adr org fn">
+          <p>
+            First line of address
+            <br>Second line of address
+            <br>75 This street
+            <br>United Kindom
+            <br>Phone: 07123456789
+            <br>
+          </p>
+        </div>
+      </div>
+      <p>Addresses are generated when using the `$A` markdown pattern.</p>
   contact:
     content: |
       <div class="contact" id="contact_1017">

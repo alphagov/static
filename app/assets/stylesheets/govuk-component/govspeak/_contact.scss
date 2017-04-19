@@ -6,18 +6,17 @@
 // - alphagov/govspeak: ✔︎
 
 .govuk-govspeak {
-  // No obvious signs of the address class being used in alphagov/whitehall or
-  // alphagov/govspeak.
+  // .address is used by the `$A` markdown pattern
   .address,
   .contact {
     border-left: 1px solid $border-colour;
     padding-left: $gutter-half;
+    margin-bottom: $gutter;
+    margin-top: $gutter;
   }
 
   .contact {
     @extend %contain-floats;
-    margin-bottom: $gutter;
-    margin-top: $gutter;
     position: relative;
 
     .content {
