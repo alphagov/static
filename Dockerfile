@@ -3,6 +3,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y build-essenti
 
 ENV GOVUK_APP_NAME static
 ENV RAILS_ENV development
+ENV REDIS_URL redis://redis
 ENV PORT 3013
 
 ENV APP_HOME /app
