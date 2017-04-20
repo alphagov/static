@@ -12,9 +12,9 @@
     @extend %site-width-container;
   }
 
-  h1 {
+  h2 {
     @include bold-24;
-    margin-bottom: 0;
+    margin: 0;
 
     .homepage & {
       @include bold-48;
