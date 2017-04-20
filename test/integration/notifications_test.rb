@@ -18,21 +18,14 @@ class NotificationsTest < ActionDispatch::IntegrationTest
       should "render a banner if one does exist" do
         EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
         visit "/templates/homepage.html.erb"
-        assert page.has_selector? "#campaign"
-      end
-
-      should "only render the homepage emergency banner, not the general population emergency banner" do
-        EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
-        visit "/templates/homepage.html.erb"
-        assert page.has_selector? "#campaign"
-        refute page.has_selector? "#emergency-banner-notification"
+        assert page.has_selector? "#emergency-banner-notification"
       end
 
       should "render a homepage banner with a heading and campaign colour" do
         EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
-        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("black")
+        EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("notable-death")
         visit "/templates/homepage.html.erb"
-        assert page.has_selector? "#campaign.black"
+        assert page.has_selector? ".notable-death"
         assert_match 'Alas poor Yorick', page.body
       end
 
@@ -79,7 +72,6 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
         visit "/templates/wrapper.html.erb"
 
-        assert page.has_selector? ".more-information"
         assert_match "More information", page.body
         assert_match(/yoricks\.gov/, page.body)
       end
