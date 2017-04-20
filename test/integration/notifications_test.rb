@@ -132,13 +132,6 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       refute page.has_selector? ".global-bar-message"
     end
-
-    should "display if the Emergency Banner is not enabled" do
-      EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(false)
-      visit "/templates/wrapper.html.erb"
-
-      assert page.has_selector? ".global-bar-message"
-    end
   end
 
   context "banner files" do
