@@ -1,7 +1,7 @@
 .govuk-emergency-banner {
   background-color: $panel-colour;
   color: $white;
-  border-top: 2px solid $white;
+  margin-top: 2px;
   padding: $gutter-half 0;
 
   @include media(tablet) {
@@ -60,8 +60,8 @@
   }
 
   .homepage & {
-    border: 5px solid $white;
-    border-width: 5px 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   &.notable-death {
