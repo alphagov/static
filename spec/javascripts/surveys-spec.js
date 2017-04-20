@@ -29,7 +29,7 @@ describe("Surveys", function() {
   };
 
   beforeEach(function () {
-    $block = $('<div id="banner-notification" style="display: none"></div>' +
+    $block = $('<div class="govuk-emergency-banner" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
                '<div id="global-browser-prompt" style="display: none"></div>' +
                '<div id="user-satisfaction-survey-container"></div>');

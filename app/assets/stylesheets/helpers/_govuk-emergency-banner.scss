@@ -1,5 +1,4 @@
-#emergency-banner-notification {
-
+.govuk-emergency-banner {
   background-color: $panel-colour;
   color: $white;
   border-top: 2px solid $white;
@@ -62,6 +61,6 @@
   }
 
   &.local-emergency {
-    background-color: $red;
+    background-color: $turquoise;
   }
 }
