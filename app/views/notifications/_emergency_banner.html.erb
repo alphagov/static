@@ -1,7 +1,9 @@
 <div class="govuk-emergency-banner <%= banner.campaign_class %>" role="banner">
   <div>
     <h2><%= banner.heading %></h2>
-    <p><%= banner.short_description %></p>
+    <% unless banner.short_description.blank? %>
+      <p><%= banner.short_description %></p>
+    <% end %>
     <% if banner.link %>
       <a href="<%= banner.link %>">More information</a>
     <% end %>
