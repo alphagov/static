@@ -43,8 +43,20 @@
     }
   }
 
-  h1, p, a {
-    color: inherit;
+  a {
+    &:link,
+    &:visited {
+      color: $white;
+    }
+
+    &:active,
+    &:hover {
+      color: darken($white, 20%);
+    }
+
+    &:focus {
+      color: $black;
+    }
   }
 
   .homepage & {
