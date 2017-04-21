@@ -23,8 +23,13 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
   end
 
   test "renders format in a meta tag" do
-    render_component(content_item: example_document_for('case_study', 'case_study'))
-    assert_meta_tag('govuk:format', 'case_study')
+    render_component(content_item: example_document_for('publication', 'statistics_publication'))
+    assert_meta_tag('govuk:format', 'national_statistics')
+  end
+
+  test "renders schema-name in a meta tag" do
+    render_component(content_item: example_document_for('publication', 'statistics_publication'))
+    assert_meta_tag('govuk:schema-name', 'publication')
   end
 
   test "renders organisations in a meta tag with angle brackets" do
