@@ -121,6 +121,7 @@
     this.setOrganisationsDimension(dimensions['analytics:organisations']);
     this.setWorldLocationsDimension(dimensions['analytics:world-locations']);
     this.setRenderingApplicationDimension(dimensions['rendering-application']);
+    this.setSchemaNameDimension(dimensions['schema-name']);
   };
 
   StaticAnalytics.prototype.setAbTestDimensionsFromMetaTags = function() {
@@ -207,6 +208,10 @@
 
   StaticAnalytics.prototype.setSearchPositionDimension = function(position) {
     this.setDimension(21, position);
+  };
+
+  StaticAnalytics.prototype.setSchemaNameDimension = function(position) {
+    this.setDimension(17, position);
   };
 
   StaticAnalytics.prototype.setTotalNumberOfSections = function() {
