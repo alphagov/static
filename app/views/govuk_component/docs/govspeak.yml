@@ -558,6 +558,19 @@ fixtures:
       <div class="form-download">
         <p><a href="http://example.com/" title="Example form" rel="external">An example form download link.</a></p>
       </div>
+  steps:
+    content:
+      <ol class="steps">
+        <li>
+          <p>Add numbers.</p>
+        </li>
+        <li>
+          <p>Check numbers.</p>
+        </li>
+        <li>
+          <p>Love numbers.</p>
+        </li>
+      </ol>
   highlight_answer:
     content: |
       <div class="highlight-answer">
