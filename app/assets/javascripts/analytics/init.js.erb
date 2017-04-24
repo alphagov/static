@@ -15,6 +15,8 @@
     universalId: universalId,
     cookieDomain: cookieDomain,
     allowLinker: true,
+    // This is served by Fastly in production, and returns an empty 200 response
+    govukTrackerGifUrl: '<%= asset_path "/static/a" %>',
   });
 
   // Make interface public for virtual pageviews and events
