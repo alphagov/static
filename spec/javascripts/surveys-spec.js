@@ -3,7 +3,7 @@ describe("Surveys", function() {
   var $block;
 
   var defaultSurvey = {
-    url: 'surveymonkey.com/default',
+    url: 'smartsurvey.co.uk/default',
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
     template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
@@ -20,7 +20,7 @@ describe("Surveys", function() {
   };
   var urlSurvey = {
     surveyType: 'url',
-    url: 'surveymonkey.com/default',
+    url: 'smartsurvey.co.ukdefault',
     identifier: 'url-survey',
   };
   var emailSurvey = {
@@ -75,7 +75,7 @@ describe("Surveys", function() {
     });
 
     describe("for a 'url' survey", function() {
-      it("links to the url for a surveymonkey survey with a completion redirect query parameter", function () {
+      it("links to the url for a smartsurvey survey with a completion redirect query parameter", function () {
         surveys.displaySurvey(urlSurvey);
 
         expect($('#take-survey').attr('href')).toContain(urlSurvey.url);
