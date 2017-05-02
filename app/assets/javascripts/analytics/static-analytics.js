@@ -8,7 +8,6 @@
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/analytics.md
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js
     var analytics = new GOVUK.Analytics(config);
-    var staticAnalytics = this;
     this.analytics = analytics;
 
     setPixelDensityDimension();
@@ -18,11 +17,8 @@
     this.setAbTestDimensionsFromMetaTags();
     this.callMethodRequestedByPreviousPage();
 
-    $(function() {
-      staticAnalytics.setDimensionsFromDom();
-      // Track initial pageview
-      analytics.trackPageview();
-    });
+    // Track initial pageview
+    analytics.trackPageview();
 
     // Begin error and print tracking
     GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
@@ -102,11 +98,6 @@
     this.setDimensionsThatDoNotHaveDefaultValues(dimensions);
   };
 
-  StaticAnalytics.prototype.setDimensionsFromDom = function() {
-    this.setTotalNumberOfSections();
-    this.setTotalNumberOfSectionLinks();
-  };
-
   StaticAnalytics.prototype.setDimensionsThatHaveDefaultValues = function(dimensions) {
     this.setThemesDimension(dimensions['themes']);
     this.setNavigationPageTypeDimension(dimensions['navigation-page-type']);
@@ -117,6 +108,8 @@
     this.setTaxonIdDimension(dimensions['taxon-id']);
     this.setTaxonSlugsDimension(dimensions['taxon-slugs']);
     this.setTaxonIdsDimension(dimensions['taxon-ids']);
+    this.setTotalNumberOfSections();
+    this.setTotalNumberOfSectionLinks();
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {

@@ -14,9 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const expectedDefaultArgumentCount = 14;
-    // The number of setup argumnets which are set on DOM ready, after everything else
-    const expectedDomReadyArgumentCount = 2;
+    const expectedDefaultArgumentCount = 16;
 
     var universalSetupArguments;
 
@@ -37,8 +35,7 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     it('tracks a pageview in universal', function() {
-      expect(universalSetupArguments[expectedDefaultArgumentCount + expectedDomReadyArgumentCount])
-        .toEqual(['send', 'pageview']);
+      expect(universalSetupArguments[expectedDefaultArgumentCount]).toEqual(['send', 'pageview']);
     });
 
     it('begins print tracking', function() {
@@ -503,7 +500,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
       function dimensionSetupArguments() {
         // Remove the default calls to the analytics object
-        return window.ga.calls.allArgs().slice(expectedDefaultArgumentCount, -1 - expectedDomReadyArgumentCount);
+        return window.ga.calls.allArgs().slice(expectedDefaultArgumentCount, -1);
       }
     });
   });
