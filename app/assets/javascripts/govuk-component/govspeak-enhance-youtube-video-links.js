@@ -73,6 +73,6 @@
   }
 
   GOVUK.enhanceYoutubeVideoLinks = new GovspeakYoutubeVideoLinks();
-  GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak'));
+  GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak:not(.disable-youtube)'));
 
 })(jQuery);

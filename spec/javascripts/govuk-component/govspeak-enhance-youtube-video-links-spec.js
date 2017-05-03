@@ -62,7 +62,30 @@ describe('Links to YouTube in govspeak content', function () {
     it("is not converted to an embedded player", function () {
       expect($('.media-player')).not.toHaveLength(1);
     });
+  });
 
+  describe('- Link expansion disabled when disable-youtube class provided on parent', function () {
+
+    beforeEach(function() {
+
+      $turnOffEnhanceYoutubeVideoLinksHTML = $('<div class="govuk-govspeak disable-youtube">'+
+                                                '<a href="https://youtu.be/OzjogCFO4Zo">'+
+                                                  'This link to YouTube'+
+                                                '</a>'+
+                                              '</div>');
+
+      $('body').append($turnOffEnhanceYoutubeVideoLinksHTML);
+      GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak:not(.disable-youtube)'));
+    });
+
+    afterEach(function() {
+      $turnOffEnhanceYoutubeVideoLinksHTML.remove();
+      $('.media-player').remove();
+    });
+
+    it("is not converted to an embedded player", function () {
+      expect($('.media-player')).not.toHaveLength(1);
+    });
   });
 
 });
