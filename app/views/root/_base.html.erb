@@ -28,7 +28,9 @@
 <% end %>
 
 <% content_for :after_header do %>
-  <div id="user-satisfaction-survey-container"></div>
+  <div id="user-satisfaction-survey-container">
+    <%= render :partial => 'surveys' %>
+  </div>
   <% if @banner_notification.present? %>
     <%= @banner_notification %>
   <% end %>

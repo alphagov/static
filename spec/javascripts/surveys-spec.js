@@ -6,15 +6,11 @@ describe("Surveys", function() {
     url: 'surveymonkey.com/default',
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
-    template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-              '  <a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a>' +
-              '  <a href="javascript:void()" id="take-survey" target="_blank"></a>' +
-              '</section>',
     surveyType: 'url',
   };
   var smallSurvey = {
-    startTime: new Date("July 5, 2016").getTime(),
-    endTime: new Date("July 10, 2016 23:50:00").getTime(),
+    startTime: "July 5, 2016",
+    endTime: "July 10, 2016 23:50:00",
     url: 'example.com/small-survey',
     surveyType: 'url',
   };
@@ -28,6 +24,56 @@ describe("Surveys", function() {
     identifier: 'email-survey',
   };
 
+  var urlSurveyTemplate = '\
+    <script type="text/html+template" \
+            id="url-survey-template" \
+            data-default-title="Tell us what you think of GOV.UK" \
+            data-default-no-thanks="No thanks" \
+            data-default-survey-cta="Take the 3 minute survey" \
+            data-default-survey-cta-postscript="This will open a short survey on another website"> \
+      <section id="user-satisfaction-survey" class="visible" aria-hidden="false"> \
+        <h1>{{title}}</h1> \
+        <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p> \
+        <p class="cta"><a href="{{surveyUrl}}" id="take-survey">{{surveyCta}}</a> <span>{{surveyCtaPostscript}}</span></p> \
+      </section> \
+    </script>';
+  var emailSurveyTemplate = '\
+    <script type="text/html+template" \
+            id="email-survey-template" \
+            data-default-title="Tell us what you think of GOV.UK" \
+            data-default-no-thanks="No thanks" \
+            data-default-survey-cta="Your feedback will help us improve this website" \
+            data-default-survey-form-title="We’d like to hear from you" \
+            data-default-survey-form-email-label="Tell us your email address and we’ll send you a link to a quick feedback form." \
+            data-default-survey-form-cta="Send" \
+            data-default-survey-form-cta-postscript="We won’t store your email address or share it with anyone" \
+            data-default-survey-success="Thanks, we’ve sent you an email with a link to the survey." \
+            data-default-survey-failure="Sorry, we’re unable to send you an email right now.  Please try again later."> \
+      <section id="user-satisfaction-survey" class="visible" aria-hidden="false"> \
+        <div id="email-survey-pre" class="wrapper"> \
+          <h1>{{title}}</h1> \
+          <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">{{noThanks}}</a></p> \
+          <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">{{surveyCta}}</a></p> \
+        </div> \
+        <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true"> \
+          <h1>{{surveyFormTitle}}</h1> \
+          <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">{{noThanks}}</a></p> \
+          <label for="email">{{surveyFormEmailLabel}}</label> \
+          <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}"> \
+          <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}"> \
+          <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address"> \
+          <button type="submit">{{surveyFormCta}}</button> \
+          <p class="button-info">{{surveyFormCtaPostscript}}</p> \
+        </form> \
+        <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true"> \
+          <p>{{surveySuccess}}</p> \
+        </div> \
+        <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true"> \
+          <p>{{surveyFailure}}</p> \
+        </div> \
+      </section> \
+    </script>';
+
   beforeEach(function () {
     $block = $('<div id="banner-notification" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
@@ -35,6 +81,7 @@ describe("Surveys", function() {
                '<div id="user-satisfaction-survey-container"></div>');
 
     $('body').append($block);
+    $('#user-satisfaction-survey-container').append(emailSurveyTemplate).append(urlSurveyTemplate);
     $("#user-satisfaction-survey").remove();
 
     // Don't actually try and take a survey in test.
@@ -52,16 +99,152 @@ describe("Surveys", function() {
   });
 
   describe("init", function() {
-    it("shows the default survey", function() {
+    it("picks a survey and displays it", function() {
+      // Set up the world so that there's only the default survey and it'll
+      // definitely be shown
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([]);
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true);
-      // So we're working with the user satisfaction survey, not any future small survey
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 201610:00:00").getTime());
+
       surveys.init();
 
-      expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url);
+      expect($('#take-survey').attr('href')).toContain(defaultSurvey.url);
       expect($('#user-satisfaction-survey').length).toBe(1);
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true);
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false');
+    });
+  });
+
+  describe("getDefaultSurvey", function() {
+    it("loads the JSON defined in the element with a data-survey-default attribute", function() {
+      var defaultSurveyDefinition = '\
+          <script type="application/json" data-survey-default> \
+            {\
+              "url": "surveymonkey.com/default", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_1", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        otherSurveyDefinition = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "url" \
+            }\
+          </script>';
+      $('#user-satisfaction-survey-container').append(defaultSurveyDefinition).append(otherSurveyDefinition);
+
+      expect(surveys.getDefaultSurvey()).toEqual(
+        {
+          url: "surveymonkey.com/default",
+          frequency: 1,
+          identifier: "user_satisfaction_survey_1",
+          surveyType: "url",
+        }
+      );
+    });
+    it("returns undefined if there is no element with a data-survey-default attribute", function() {
+      expect(surveys.getDefaultSurvey()).toEqual(undefined);
+    });
+    it("returns undefined if the data-survey-default element contains broken JSON", function() {
+      var brokenDefaultSurveyDefinition = '\
+          <script type="application/json" data-survey-default> \
+            {\
+              url: "surveymonkey.com/default" \
+            }\
+          </script>';
+
+      $('#user-satisfaction-survey-container').append(brokenDefaultSurveyDefinition);
+      expect(surveys.getDefaultSurvey()).toEqual(undefined);
+    });
+  });
+
+  describe("getOtherSurveys", function() {
+    it("returns an array with the JSON objects defined in every element with a data-survey attribute", function() {
+      var defaultSurveyDefinition = '\
+          <script type="application/json" data-survey-default> \
+            {\
+              "url": "surveymonkey.com/default", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_1", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        otherSurveyDefinitionOne = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other_one", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        otherSurveyDefinitionTwo = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other_two", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "email", \
+              "activeWhen": { \
+                "path": ["/foo"] \
+              } \
+            }\
+          </script>';
+      $('#user-satisfaction-survey-container')
+          .append(defaultSurveyDefinition)
+          .append(otherSurveyDefinitionOne)
+          .append(otherSurveyDefinitionTwo);
+
+      var otherSurveys = surveys.getOtherSurveys();
+      expect(otherSurveys.length).toEqual(2);
+      expect(otherSurveys[0]).toEqual({
+        url: "surveymonkey.com/other_one",
+        frequency: 1,
+        identifier: "user_satisfaction_survey_2",
+        surveyType: "url"
+      });
+      expect(otherSurveys[1]).toEqual({
+        url: "surveymonkey.com/other_two",
+        frequency: 1,
+        identifier: "user_satisfaction_survey_2",
+        surveyType: "email",
+        activeWhen: {
+          path: ["/foo"]
+        }
+      });
+    });
+    it("returns an empty array if there is no element with a data-survey-default attribute", function() {
+      var otherSurveys = surveys.getOtherSurveys()
+      expect(otherSurveys.length).toEqual(0);
+    });
+    it("filters out elements with broken JSON", function() {
+      var otherSurveyDefinition = '\
+          <script type="application/json" data-survey> \
+            {\
+              "url": "surveymonkey.com/other_one", \
+              "frequency": 1, \
+              "identifier": "user_satisfaction_survey_2", \
+              "surveyType": "url" \
+            }\
+          </script>',
+        brokenSurveyDefinition = '\
+          <script type="application/json" data-survey> \
+            {\
+              url: "surveymonkey.com/default" \
+            }\
+          </script>';
+
+      $('#user-satisfaction-survey-container')
+          .append(brokenSurveyDefinition)
+          .append(otherSurveyDefinition);
+
+      var otherSurveys = surveys.getOtherSurveys();
+      expect(otherSurveys.length).toEqual(1);
+      expect(otherSurveys[0].identifier).toEqual("user_satisfaction_survey_2")
     });
   });
 
@@ -75,12 +258,22 @@ describe("Surveys", function() {
     });
 
     describe("for a 'url' survey", function() {
-      it("links to the url for a surveymonkey survey with a completion redirect query parameter", function () {
+      it("inserts the survey url in the template", function () {
         surveys.displaySurvey(urlSurvey);
 
-        expect($('#take-survey').attr('href')).toContain(urlSurvey.url);
-        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname);
+        expect($('#take-survey').attr('href')).toEqual(urlSurvey.url);
       });
+
+      it("injects the current path if the survey url contains a {{currentPath}} tempalte parameter", function() {
+        var nonSurveyMonkeyUrlSurvey = {
+          surveyType: 'url',
+          url: 'surveygorilla.com/default?c={{currentPath}}',
+          identifier: 'url-survey',
+        }
+        surveys.displaySurvey(nonSurveyMonkeyUrlSurvey);
+
+        expect($('#take-survey').attr('href')).toEqual('surveygorilla.com/default?c=' + window.location.pathname);
+      })
 
       it("records an event when showing the survey", function() {
         spyOn(surveys, 'trackEvent');
@@ -98,6 +291,86 @@ describe("Surveys", function() {
         spyOn(surveys, 'trackEvent');
         surveys.displaySurvey(urlSurvey);
         expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown');
+      });
+
+      describe("without overrides for the template defaults", function() {
+        it("uses the title defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultTitle');
+
+          expect($('#user-satisfaction-survey h1').text()).toEqual(defaultText);
+        });
+
+        it("uses the no thanks text defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultNoThanks');
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual(defaultText);
+        });
+
+        it("uses the call to action text defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultSurveyCta');
+
+          expect($('#user-satisfaction-survey .cta a').text()).toEqual(defaultText);
+        });
+
+        it("uses the call to action postscript text defined in the template data attributes", function() {
+          surveys.displaySurvey(urlSurvey);
+          defaultText = $('#url-survey-template').data('defaultSurveyCtaPostscript');
+
+          expect($('#user-satisfaction-survey .cta span').text()).toEqual(defaultText);
+        });
+      });
+
+      describe("with overrides for the template defaults", function() {
+        it("uses the title defined in the survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { title: 'Take my survey' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey h1').text()).toEqual('Take my survey');
+        });
+
+        it("uses the no thanks text defined in survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { noThanks: 'Nuh-uh!' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual('Nuh-uh!');
+        });
+
+        it("uses the call to action text defined in survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { surveyCta: 'Do it, do it now!' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey .cta a').text()).toEqual('Do it, do it now!');
+        });
+
+        it("uses the call to action postscript text defined in the survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArguments: { surveyCtaPostscript: 'This is a nice survey, please take it.' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey .cta span').text()).toEqual('This is a nice survey, please take it.');
+        });
       });
     });
 
@@ -124,6 +397,192 @@ describe("Surveys", function() {
         spyOn(surveys, 'trackEvent');
         surveys.displaySurvey(emailSurvey);
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_shown', 'Banner has been shown');
+      });
+
+      describe("without overrides for the template defaults", function() {
+        it("uses the title defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultTitle');
+
+          expect($('#user-satisfaction-survey #email-survey-pre h1').text()).toEqual(defaultText);
+        });
+
+        it("uses the no thanks text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultNoThanks');
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual(defaultText);
+          expect($('#user-satisfaction-survey #email-survey-cancel').text()).toEqual(defaultText);
+        });
+
+        it("uses the call to action text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyCta');
+
+          expect($('#user-satisfaction-survey #email-survey-open').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form title text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormTitle');
+
+          expect($('#user-satisfaction-survey form h1').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form email label defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormEmailLabel');
+
+          expect($('#user-satisfaction-survey form label').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form call to action defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormCta');
+
+          expect($('#user-satisfaction-survey form button').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form call to action postscript defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFormCtaPostscript');
+
+          expect($('#user-satisfaction-survey form .button-info').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form success text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveySuccess');
+
+          expect($('#user-satisfaction-survey  #email-survey-post-success p').text()).toEqual(defaultText);
+        });
+
+        it("uses the survey form failure text defined in the template data attributes", function() {
+          surveys.displaySurvey(emailSurvey);
+          defaultText = $('#email-survey-template').data('defaultSurveyFailure');
+
+          expect($('#user-satisfaction-survey  #email-survey-post-failure p').text()).toEqual(defaultText);
+        });
+      });
+
+      describe("with overrides for the template defaults", function() {
+        it("uses the title defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              title: 'Do you like email?'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #email-survey-pre h1').text()).toEqual('Do you like email?');
+        });
+
+        it("uses the no thanks text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              noThanks: 'No way!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #survey-no-thanks').text()).toEqual('No way!');
+          expect($('#user-satisfaction-survey #email-survey-cancel').text()).toEqual('No way!');
+        });
+
+        it("uses the call to action text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyCta: 'Click here now!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey #email-survey-open').text()).toEqual('Click here now!');
+        });
+
+        it("uses the survey form title text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormTitle: 'Tell us your email address'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form h1').text()).toEqual('Tell us your email address');
+        });
+
+        it("uses the survey form email label defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormEmailLabel: 'Enter it here'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form label').text()).toEqual('Enter it here');
+        });
+
+        it("uses the survey form call to action defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormCta: 'Clicking this sends us your address'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form button').text()).toEqual('Clicking this sends us your address');
+        });
+
+        it("uses the survey form call to action postscript defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFormCtaPostscript: 'We will not send you spam'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form .button-info').text()).toEqual('We will not send you spam');
+        });
+
+        it("uses the survey form success text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveySuccess: 'Yay, it worked!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey  #email-survey-post-success p').text()).toEqual('Yay, it worked!');
+        });
+
+        it("uses the survey form failure text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            templateArguments: {
+              surveyFailure: 'Boo, it failed'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey  #email-survey-post-failure p').text()).toEqual('Boo, it failed');
+        });
       });
     });
   });
@@ -162,13 +621,13 @@ describe("Surveys", function() {
     // we make sure that slash-terminated and slash-unterminated versions
     // of these paths work
     it("returns true if the path is /service-manual", function() {
-      spyOn(surveys, 'currentPath').and.returnValue('/service-manual', '/service-manual/');
+      spyOn(surveys, 'currentPath').and.returnValues('/service-manual', '/service-manual/');
       expect(surveys.pathInBlacklist()).toBeTruthy();
       expect(surveys.pathInBlacklist()).toBeTruthy();
     });
 
     it("returns true if the path is a sub-folder under /service-manual", function() {
-      spyOn(surveys, 'currentPath').and.returnValue('/service-manual/some-other-page', '/service-manual/some-other-page/');
+      spyOn(surveys, 'currentPath').and.returnValues('/service-manual/some-other-page', '/service-manual/some-other-page/');
       expect(surveys.pathInBlacklist()).toBeTruthy();
       expect(surveys.pathInBlacklist()).toBeTruthy();
     });
@@ -180,7 +639,7 @@ describe("Surveys", function() {
     });
 
     it("returns false if the path is /some-other-parent-of/service-manual", function() {
-      spyOn(surveys, 'currentPath').and.returnValue('/some-other-parent-of/service-manual', '/some-other-parent-of/service-manual/');
+      spyOn(surveys, 'currentPath').and.returnValues('/some-other-parent-of/service-manual', '/some-other-parent-of/service-manual/');
       expect(surveys.pathInBlacklist()).toBeFalsy();
       expect(surveys.pathInBlacklist()).toBeFalsy();
     });
@@ -408,54 +867,574 @@ describe("Surveys", function() {
     });
   });
 
-  describe("getActiveSurvey", function() {
-    it("returns the default survey when no smallSurveys are present", function() {
-      var smallSurveys = [smallSurvey];
+  describe("surveyIsAllowedToRunBasedOnActiveWhen", function() {
+    it("returns true if the survey has empty activeWhen definitions", function() {
+      var survey = {
+        identifier: 'a_survey'
+      };
+      expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
-      expect(activeSurvey).toBe(defaultSurvey);
+      survey.activeWhen = {};
+      expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
     });
 
-    it("returns the default survey when a smallSurvey is not active", function() {
-      var smallSurveys = [smallSurvey];
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 2016 10:00:00").getTime());
+    describe("for 'include' matchType", function() {
+      describe("path matches", function() {
+        it("returns true if the path definition matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
-      expect(activeSurvey).toBe(defaultSurvey);
-    });
+        it("allows path separators in the path definition, returning true if they match a complete set of path segments in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo/bar']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo', '/baz/foo/bar/qux');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
 
-    it("returns the small survey when a smallSurvey is active", function() {
-      var smallSurveys = [smallSurvey];
-      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        it("returns false if the path definition does not match the currentPath at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValue('/bar');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys);
-      expect(activeSurvey).toBe(smallSurvey);
-    });
+        it("returns false if the path definition matches an incomplete path segment of the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo-bar', '/bar-foo', '/i/like/food/');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
 
-    describe("activeWhen function call", function() {
-      it("returns the test survey when the callback returns true", function() {
-        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
-        var testSurvey = {
-          startTime: new Date("July 5, 2016").getTime(),
-          endTime: new Date("July 10, 2016 23:50:00").getTime(),
-          activeWhen: function() { return true; },
-          url: 'example.com/small-survey'
+        it("returns true if any of the path definitions matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo', 'bar', 'baz']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food/bar', '/bard/baz/food');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("treats the path definition as a complete match, rather than a path segment match if it includes '^' or '$'", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['^/foo$']
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food', 'foo/', '/foo/bar', '/bar/foo');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+      });
+
+      describe("breadcrumb matches", function() {
+        it("returns true if the breadcrumb definition matches something in the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education']
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the breadcrumb definition does not match the breadcrumb text at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['childcare']
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the breadcrumb definitions matches the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare']
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education and learning  Schools', 'Home  Childcare and parenting  Maternity leave');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if none of the breadcrumb definitions matches the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare'],
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Benefits  Benfits for families');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+      });
+
+      describe("section matches", function() {
+        it("returns true if the section definition matches something in the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the section definition does not match the section meta tag at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['childcare']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValues('Education', 'Childcare');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if none of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Schools');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+      });
+
+      describe("organisation matches", function() {
+        it("returns true if the organisation definition matches one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if the organisation definition does not match one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if any of the organisation definitions matches an id in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>', '<E1555>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValues('<D10><E1345>', '<D20><E1555>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if none of the organisation definitions matches the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>', '<E1555>']
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+      });
+
+      it("treat combines multiple definitions in an OR; if any of them match activeWhen will return true", function() {
+        var survey = {
+          identifier: 'a_survey',
+          activeWhen: {
+            path: ['^/government/statistics/?$'],
+            breadcrumb: ['education'],
+            section: ['schools'],
+            organisation: ['<D10>']
+          }
         };
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        spyOn(surveys, 'currentPath').and.returnValues('/government/statistics/a-long-detailed-report.xls', '/government/statistics', '/government/publications/', '/find-your-local-council', '/');
+        spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education', 'Home', 'Home  Schools  Applying for a place', 'Home  Benefits  Family benefits', 'Home');
+        spyOn(surveys, 'currentSection').and.returnValues('education', '', 'schools', 'benefits', 'homepage');
+        spyOn(surveys, 'currentOrganisation').and.returnValues('<E1555><F12>', '<D20>', '<E1234>', '<D20><F10>', '<D10><E134>');
+
+        expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true); // because of the breadcrumb
+        expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true); // because of the path
+        expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true); // because of the section
+        expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false); // because nothing matches
+        expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true); // because of the organisation
+      });
+    });
+
+    describe("for 'exclude' matchType", function() {
+      describe("path matches", function() {
+        it("returns false if the path definition matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("allows path separators in the path definition, returning false if they match a complete set of path segments in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo/bar'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/foo/bar', '/bar/foo', '/baz/foo/bar/qux');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the excludes path definition does not match the currentPath at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValue('/bar');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns true if the excludes path definition matches an incomplete path segment of the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo-bar', '/bar-foo', '/i/like/food/');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the path definitions matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['foo', 'bar', 'baz'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food/bar', '/bard/baz/food');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("treats the path definition as a complete match, rather than a path segment match if it includes '^' or '$'", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              path: ['^/foo$'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentPath').and.returnValues('/foo', '/food', 'foo/', '/foo/bar', '/bar/foo');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+      });
+
+      describe("breadcrumb matches", function() {
+        it("returns false if the breadcrumb definition matches something in the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the breadcrumb definition does not match the breadcrumb text at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the breadcrumb definitions matches the breadcrumb text", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education and learning  Schools', 'Home  Childcare and parenting  Maternity leave');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if none of the breadcrumb definitions matches a complete path segment in the currentPath", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              breadcrumb: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Benefits  Benfits for families');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+      });
+
+      describe("section matches", function() {
+        it("returns false if the section definition matches something in the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the section definition does not match the section meta tag at all", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Education');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValues('Education', 'Childcare');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if none of the section definitions matches the section meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Schools');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+      });
+
+      describe("organisation matches", function() {
+        it("returns false if the organisation definition matches one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if the organisation definition does not match one of the ids in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+
+        it("returns false if any of the organisation definitions matches an id in the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D10>', '<E1555>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValues('<D10><E1345>', '<D20><E1555>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(false);
+        });
+
+        it("returns true if none of the organisation definitions matches the organisation meta tag", function() {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              organisation: ['<D20>', '<E1555>'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>');
+          expect(surveys.surveyIsAllowedToRunBasedOnActiveWhen(survey)).toBe(true);
+        });
+      });
+    });
+  });
+
+  describe("getActiveSurvey", function() {
+    it("returns undefined when no surveys are present", function() {
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(undefined);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([]);
+      var activeSurvey = surveys.getActiveSurvey();
+      expect(activeSurvey).toBeUndefined();
+    });
+
+    it("returns the default survey when no other surveys are present", function() {
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([]);
+      var activeSurvey = surveys.getActiveSurvey();
+      expect(activeSurvey).toBe(defaultSurvey);
+    });
+
+    it("returns the default survey when no other surveys are allowed to run because of the current time", function() {
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 2016 10:00:00").getTime());
+      var finishedSurvey = {
+          startTime: "July 5, 2016",
+          endTime: "July 10, 2016 23:50:00",
+          url: 'example.com/finished-survey'
+        },
+        notStartedSurvey = {
+          startTime: "July 12, 2016",
+          endTime: "July 20, 2016 23:50:00",
+          url: 'example.com/not-started-survey'
+        };
+      spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+      spyOn(surveys, 'getOtherSurveys').and.returnValue([finishedSurvey, notStartedSurvey]);
+
+      var activeSurvey = surveys.getActiveSurvey();
+      expect(activeSurvey).toBe(defaultSurvey);
+    });
+
+    describe("when a survey is allowed to run because of the current time", function() {
+      it("picks the survey from small surveys if the activeWhen function returns true for it", function() {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        spyOn(surveys, 'surveyIsAllowedToRunBasedOnActiveWhen').and.returnValue(true);
+
+        var testSurvey = {
+          startTime: "July 5, 2016",
+          endTime: "July 10, 2016 23:50:00",
+          url: 'example.com/small-survey'
+        };
+        spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+        spyOn(surveys, 'getOtherSurveys').and.returnValue([testSurvey]);
+
+        var activeSurvey = surveys.getActiveSurvey();
         expect(activeSurvey).toBe(testSurvey);
       });
 
-      it("returns the default when the callback returns false", function() {
+      it("picks the default survey if the activeWhen function returns false for all the small surveys", function() {
         spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime());
+        spyOn(surveys, 'surveyIsAllowedToRunBasedOnActiveWhen').and.returnValue(false);
+
         var testSurvey = {
-          startTime: new Date("July 5, 2016").getTime(),
-          endTime: new Date("July 10, 2016 23:50:00").getTime(),
+          startTime: "July 5, 2016",
+          endTime: "July 10, 2016 23:50:00",
           activeWhen: function() { return false; },
           url: 'example.com/small-survey'
         };
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey]);
+        spyOn(surveys, 'getDefaultSurvey').and.returnValue(defaultSurvey);
+        spyOn(surveys, 'getOtherSurveys').and.returnValue([testSurvey]);
+
+        var activeSurvey = surveys.getActiveSurvey();
         expect(activeSurvey).toBe(defaultSurvey);
       });
     });
