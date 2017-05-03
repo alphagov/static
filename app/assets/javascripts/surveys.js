@@ -46,7 +46,7 @@
       url: 'https://www.smartsurvey.co.uk/s/gov-uk',
       identifier: 'user_satisfaction_survey',
       frequency: 50,
-      surveyType: 'url',
+      surveyType: 'url'
     },
     smallSurveys: [
       {
