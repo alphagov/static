@@ -263,6 +263,11 @@ fixtures:
     content: |
       <p>This content has a YouTube video link, converted to an accessible embedded player by component JavaScript.</p>
       <p><a href="https://www.youtube.com/watch?v=y6hbrS3DheU">Operations: a developer's guide, by Anna Shipman</a></p>
+  with_youtube_embed_disabled:
+    disable_youtube_expansions: true
+    content: |
+      <p>This content has a YouTube video link, where the govspeak expansion has been disabled</p>
+      <p><a href="https://www.youtube.com/watch?v=y6hbrS3DheU">Operations: a developer's guide, by Anna Shipman</a></p>
   statistic_headlines:
     content: |
       <aside class="stat-headline">
