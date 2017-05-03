@@ -22,7 +22,7 @@ en:
       from: "From"
       part_of: "Part of"
       history: "History"
-      first_published: "First published"
+      published: "Published"
       last_updated: "Last updated"
       see_all_updates: "see all updates"
     previous_and_next_navigation:

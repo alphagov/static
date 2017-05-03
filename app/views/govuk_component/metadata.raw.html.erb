@@ -25,7 +25,7 @@
       <dd><%= history %></dd>
     <% end %>
     <% if local_assigns.include?(:first_published) && first_published %>
-      <dt><%= t("govuk_component.metadata.first_published", default: "First published") %>:</dt>
+      <dt><%= t("govuk_component.metadata.published", default: "Published") %>:</dt>
       <dd><%= first_published %></dd>
     <% end %>
     <% if local_assigns.include?(:last_updated) && last_updated %>
