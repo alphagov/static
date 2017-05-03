@@ -64,7 +64,7 @@ describe('Links to YouTube in govspeak content', function () {
     });
   });
 
-  describe('- An external link to YouTube disabled at component', function () {
+  describe('- Link expansion disabled when disable-youtube class provided on parent', function () {
 
     beforeEach(function() {
 
@@ -75,7 +75,7 @@ describe('Links to YouTube in govspeak content', function () {
                                               '</div>');
 
       $('body').append($turnOffEnhanceYoutubeVideoLinksHTML);
-      GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak'));
+      GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak:not(.disable-youtube)'));
     });
 
     afterEach(function() {

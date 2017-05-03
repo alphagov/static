@@ -40,7 +40,6 @@
     }
 
     function enhanceYoutubeVideoLinks($el) {
-      if ($($el).hasClass('disable-youtube')) return ;
       $el.find("a[href*='youtube.com'], a[href*='youtu.be']").each(function (i){
 
         var $link = $(this);
@@ -74,6 +73,6 @@
   }
 
   GOVUK.enhanceYoutubeVideoLinks = new GovspeakYoutubeVideoLinks();
-  GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak'));
+  GOVUK.enhanceYoutubeVideoLinks.enhanceYoutubeVideoLinks($('.govuk-govspeak:not(.disable-youtube)'));
 
 })(jQuery);
