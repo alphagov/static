@@ -18,6 +18,15 @@ class GovspeakTestCase < ComponentTestCase
     assert_select ".direction-rtl h2", text: 'right to left'
   end
 
+  test "can disable youtube expansion" do
+    render_component({
+      disable_youtube_expansions: true,
+      content: "<h2>youtube</h2>"
+    })
+
+    assert_select ".disable-youtube h2", text: "youtube"
+  end
+
   test "can enable rich govspeak" do
     render_component({
       rich_govspeak: true,
@@ -25,4 +34,6 @@ class GovspeakTestCase < ComponentTestCase
 
     assert_select ".rich-govspeak strong", text: 'boldly go'
   end
+
+
 end
