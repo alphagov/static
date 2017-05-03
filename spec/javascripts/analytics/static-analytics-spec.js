@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const expectedDefaultArgumentCount = 16;
+    const expectedDefaultArgumentCount = 17;
 
     var universalSetupArguments;
 
@@ -23,19 +23,19 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     it('configures a universal tracker', function() {
-      expect(universalSetupArguments[0]).toEqual(['create', 'universal-id', {'cookieDomain': '.www.gov.uk'}]);
+      expect(window.ga).toHaveBeenCalledWith('create', 'universal-id', {'cookieDomain': '.www.gov.uk'});
     });
 
     it('sets the device pixel ratio', function() {
-      expect(universalSetupArguments[2][1]).toEqual('dimension11');
+      expect(window.ga).toHaveBeenCalledWith('set', 'dimension11', '1');
     });
 
     it('sets the HTTP status code', function() {
-      expect(universalSetupArguments[3][1]).toEqual('dimension15');
+      expect(window.ga).toHaveBeenCalledWith('set', 'dimension15', '200');
     });
 
     it('tracks a pageview in universal', function() {
-      expect(universalSetupArguments[expectedDefaultArgumentCount]).toEqual(['send', 'pageview']);
+      expect(window.ga).toHaveBeenCalledWith('send', 'pageview');
     });
 
     it('begins print tracking', function() {
@@ -68,26 +68,23 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        setupArguments = dimensionSetupArguments();
 
-        expect(setupArguments[0]).toEqual(['set', 'dimension1', 'section']);
-        expect(setupArguments[1]).toEqual(['set', 'dimension2', 'format']);
-        expect(setupArguments[2]).toEqual(['set', 'dimension5', '1000']);
-        expect(setupArguments[3]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
-        expect(setupArguments[4]).toEqual(['set', 'dimension7', 'historic']);
-        expect(setupArguments[5]).toEqual(['set', 'dimension9', '<D10>']);
-        expect(setupArguments[6]).toEqual(['set', 'dimension10', '<W1>']);
-        expect(setupArguments[7]).toEqual(['set', 'dimension17', 'schema-name']);
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension1', 'section');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension2', 'format');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension5', '1000');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension6', '2005-to-2010-labour-government');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension7', 'historic');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension9', '<D10>');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension10', '<W1>');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension17', 'schema-name');
       });
 
       it('ignores meta tags not set', function() {
         $('head').append('<meta name="govuk:section" content="section">');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        setupArguments = dimensionSetupArguments();
 
-        expect(setupArguments.length).toEqual(1);
-        expect(setupArguments[0]).toEqual(['set', 'dimension1', 'section']);
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension1', 'section');
       });
 
       it('sets A/B meta tags as dimensions', function() {
@@ -97,10 +94,9 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        setupArguments = dimensionSetupArguments();
 
-        expect(setupArguments[0]).toEqual(['set', 'dimension42', 'name-of-test:name-of-ab-bucket']);
-        expect(setupArguments[1]).toEqual(['set', 'dimension48', 'name-of-other-test:name-of-other-ab-bucket']);
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension42', 'name-of-test:name-of-ab-bucket');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension48', 'name-of-other-test:name-of-other-ab-bucket');
       });
 
       it('ignores dimensions outside of the A/B test range', function () {
@@ -112,11 +108,11 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        setupArguments = dimensionSetupArguments();
 
-        expect(setupArguments.length).toEqual(2);
-        expect(setupArguments[0]).toEqual(['set', 'dimension40', 'name-of-valid-test:some-bucket']);
-        expect(setupArguments[1]).toEqual(['set', 'dimension49', 'name-of-other-valid-test:some-bucket']);
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension40', 'name-of-valid-test:some-bucket');
+        expect(window.ga).toHaveBeenCalledWith('set', 'dimension49', 'name-of-other-valid-test:some-bucket');
+        expect(window.ga).not.toHaveBeenCalledWith('set', 'dimension39', jasmine.any(Object));
+        expect(window.ga).not.toHaveBeenCalledWith('set', 'dimension50', jasmine.any(Object));
       });
 
       it('ignores A/B meta tags with invalid dimensions', function () {
@@ -205,18 +201,16 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-          setupArguments = window.ga.calls.allArgs();
 
-          expect(setupArguments[dimension.setupArgumentsIndex])
-            .toEqual(['set', 'dimension' + dimension.number, 'some-' + dimension.name + '-value']);
+          expect(window.ga)
+            .toHaveBeenCalledWith('set', 'dimension' + dimension.number, 'some-' + dimension.name + '-value');
         });
 
         it('sets the default dimension if no ' + dimension.name + ' meta tag is present', function () {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-          setupArguments = window.ga.calls.allArgs();
 
-          expect(setupArguments[dimension.setupArgumentsIndex])
-            .toEqual(['set', 'dimension' + dimension.number, dimension.defaultValue]);
+          expect(window.ga)
+            .toHaveBeenCalledWith('set', 'dimension' + dimension.number, dimension.defaultValue);
         });
       });
 
@@ -232,10 +226,9 @@ describe("GOVUK.StaticAnalytics", function() {
       GOVUK.cookie('TLSversion', '2');
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-      universalSetupArguments = window.ga.calls.allArgs();
     });
     it("sets the cookie value as the value of the tls version custom dimension", function() {
-      expect(universalSetupArguments[4]).toEqual(['set', 'dimension16', '2']);
+      expect(window.ga).toHaveBeenCalledWith('set', 'dimension16', '2');
     });
   });
 
@@ -244,10 +237,9 @@ describe("GOVUK.StaticAnalytics", function() {
       GOVUK.cookie('TLSversion', null);
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-      universalSetupArguments = window.ga.calls.allArgs();
     });
     it("sets unknown as the value of the tls version custom dimension", function() {
-      expect(universalSetupArguments[4]).toEqual(['set', 'dimension16', 'unknown']);
+      expect(window.ga).toHaveBeenCalledWith('set', 'dimension16', 'unknown');
     });
   });
 
