@@ -14,14 +14,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const numberOfDimensionsWithDefaultValues = 14;
+    const expectedDefaultArgumentCount = 16;
 
     var universalSetupArguments;
-    var pageViewObject;
 
     beforeEach(function() {
       universalSetupArguments = window.ga.calls.allArgs();
-      pageViewObject = universalSetupArguments[2][2];
     });
 
     it('configures a universal tracker', function() {
@@ -29,16 +27,15 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     it('sets the device pixel ratio', function() {
-      expect(Object.keys(pageViewObject)).toContain('dimension11');
+      expect(universalSetupArguments[2][1]).toEqual('dimension11');
     });
 
     it('sets the HTTP status code', function() {
-      expect(Object.keys(pageViewObject)).toContain('dimension15');
+      expect(universalSetupArguments[3][1]).toEqual('dimension15');
     });
 
     it('tracks a pageview in universal', function() {
-      expect(universalSetupArguments[2][0]).toEqual('send');
-      expect(universalSetupArguments[2][1]).toEqual('pageview');
+      expect(universalSetupArguments[expectedDefaultArgumentCount]).toEqual(['send', 'pageview']);
     });
 
     it('begins print tracking', function() {
@@ -71,26 +68,26 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = window.ga.calls.allArgs()[2][2];
+        setupArguments = dimensionSetupArguments();
 
-        expect(pageViewObject.dimension1).toEqual('section');
-        expect(pageViewObject.dimension2).toEqual('format');
-        expect(pageViewObject.dimension5).toEqual('1000');
-        expect(pageViewObject.dimension6).toEqual('2005-to-2010-labour-government');
-        expect(pageViewObject.dimension7).toEqual('historic');
-        expect(pageViewObject.dimension9).toEqual('<D10>');
-        expect(pageViewObject.dimension10).toEqual('<W1>');
-        expect(pageViewObject.dimension17).toEqual('schema-name');
+        expect(setupArguments[0]).toEqual(['set', 'dimension1', 'section']);
+        expect(setupArguments[1]).toEqual(['set', 'dimension2', 'format']);
+        expect(setupArguments[2]).toEqual(['set', 'dimension5', '1000']);
+        expect(setupArguments[3]).toEqual(['set', 'dimension6', '2005-to-2010-labour-government']);
+        expect(setupArguments[4]).toEqual(['set', 'dimension7', 'historic']);
+        expect(setupArguments[5]).toEqual(['set', 'dimension9', '<D10>']);
+        expect(setupArguments[6]).toEqual(['set', 'dimension10', '<W1>']);
+        expect(setupArguments[7]).toEqual(['set', 'dimension17', 'schema-name']);
       });
 
       it('ignores meta tags not set', function() {
         $('head').append('<meta name="govuk:section" content="section">');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
+        setupArguments = dimensionSetupArguments();
 
-        expect(Object.keys(pageViewObject).length).toEqual(1 + numberOfDimensionsWithDefaultValues);
-        expect(pageViewObject.dimension1).toEqual('section');
+        expect(setupArguments.length).toEqual(1);
+        expect(setupArguments[0]).toEqual(['set', 'dimension1', 'section']);
       });
 
       it('sets A/B meta tags as dimensions', function() {
@@ -100,10 +97,10 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
+        setupArguments = dimensionSetupArguments();
 
-        expect(pageViewObject.dimension42).toEqual('name-of-test:name-of-ab-bucket');
-        expect(pageViewObject.dimension48).toEqual('name-of-other-test:name-of-other-ab-bucket');
+        expect(setupArguments[0]).toEqual(['set', 'dimension42', 'name-of-test:name-of-ab-bucket']);
+        expect(setupArguments[1]).toEqual(['set', 'dimension48', 'name-of-other-test:name-of-other-ab-bucket']);
       });
 
       it('ignores dimensions outside of the A/B test range', function () {
@@ -115,11 +112,11 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
+        setupArguments = dimensionSetupArguments();
 
-        expect(Object.keys(pageViewObject).length).toEqual(2 + numberOfDimensionsWithDefaultValues);
-        expect(pageViewObject.dimension40).toEqual('name-of-valid-test:some-bucket');
-        expect(pageViewObject.dimension49).toEqual('name-of-other-valid-test:some-bucket');
+        expect(setupArguments.length).toEqual(2);
+        expect(setupArguments[0]).toEqual(['set', 'dimension40', 'name-of-valid-test:some-bucket']);
+        expect(setupArguments[1]).toEqual(['set', 'dimension49', 'name-of-other-valid-test:some-bucket']);
       });
 
       it('ignores A/B meta tags with invalid dimensions', function () {
@@ -129,56 +126,65 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
+        setupArguments = dimensionSetupArguments();
 
-        expect(Object.keys(pageViewObject).length).toEqual(numberOfDimensionsWithDefaultValues);
+        expect(setupArguments.length).toEqual(0);
       });
 
       [
         {
           name: 'themes',
           number: 3,
-          defaultValue: 'other'
+          defaultValue: 'other',
+          setupArgumentsIndex: 5
         },
         {
           name: 'navigation-page-type',
           number: 32,
-          defaultValue: 'none'
+          defaultValue: 'none',
+          setupArgumentsIndex: 6
         },
         {
           name: 'user-journey-stage',
           number: 33,
-          defaultValue: 'thing'
+          defaultValue: 'thing',
+          setupArgumentsIndex: 7
         },
         {
           name: 'navigation-document-type',
           number: 34,
-          defaultValue: 'other'
+          defaultValue: 'other',
+          setupArgumentsIndex: 8
         },
         {
           name: 'content-id',
           number: 4,
-          defaultValue: '00000000-0000-0000-0000-000000000000'
+          defaultValue: '00000000-0000-0000-0000-000000000000',
+          setupArgumentsIndex: 9
         },
         {
           name: 'taxon-slug',
           number: 56,
-          defaultValue: 'other'
+          defaultValue: 'other',
+          setupArgumentsIndex: 10
         },
         {
           name: 'taxon-id',
           number: 57,
-          defaultValue: 'other'
+          defaultValue: 'other',
+          setupArgumentsIndex: 11
         },
         {
           name: 'taxon-slugs',
           number: 58,
-          defaultValue: 'other'
+          defaultValue: 'other',
+          setupArgumentsIndex: 12
         },
         {
           name: 'taxon-ids',
           number: 59,
-          defaultValue: 'other'
+          defaultValue: 'other',
+          setupArgumentsIndex: 13
         }
       ].forEach(function (dimension) {
         it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {
@@ -187,16 +193,18 @@ describe("GOVUK.StaticAnalytics", function() {
         ');
 
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-          pageViewObject = getPageViewObject();
+          setupArguments = window.ga.calls.allArgs();
 
-          expect(pageViewObject['dimension' + dimension.number]).toEqual('some-' + dimension.name + '-value');
+          expect(setupArguments[dimension.setupArgumentsIndex])
+            .toEqual(['set', 'dimension' + dimension.number, 'some-' + dimension.name + '-value']);
         });
 
         it('sets the default dimension if no ' + dimension.name + ' meta tag is present', function () {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-          pageViewObject = getPageViewObject();
+          setupArguments = window.ga.calls.allArgs();
 
-          expect(pageViewObject['dimension' + dimension.number]).toEqual(dimension.defaultValue);
+          expect(setupArguments[dimension.setupArgumentsIndex])
+            .toEqual(['set', 'dimension' + dimension.number, dimension.defaultValue]);
         });
       });
 
@@ -242,14 +250,16 @@ describe("GOVUK.StaticAnalytics", function() {
 
           it('tracks the number of sidebar sections', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[14])
+              .toEqual(['set', 'dimension26', '2']);
           });
 
           it('tracks the total number of related links', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('3');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[15])
+              .toEqual(['set', 'dimension27', '3']);
           });
         });
 
@@ -298,14 +308,16 @@ describe("GOVUK.StaticAnalytics", function() {
 
           it('tracks the number of sidebar sections', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[14])
+              .toEqual(['set', 'dimension26', '2']);
           });
 
           it('tracks the total number of related links, including headers', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('5');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[15])
+              .toEqual(['set', 'dimension27', '5']);
           });
         });
 
@@ -360,14 +372,16 @@ describe("GOVUK.StaticAnalytics", function() {
 
           it('tracks the number of accordion sections', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[14])
+              .toEqual(['set', 'dimension26', '2']);
           });
 
           it('tracks the total number of accordion section links', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('3');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[15])
+              .toEqual(['set', 'dimension27', '3']);
           });
         });
 
@@ -425,14 +439,16 @@ describe("GOVUK.StaticAnalytics", function() {
 
           it('does tracks sections equal to the number of grid links', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('3');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[14])
+              .toEqual(['set', 'dimension26', '3']);
           });
 
           it('tracks the total number of grid links and leaf links', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('5');
+            setupArguments = window.ga.calls.allArgs();
+            expect(setupArguments[15])
+              .toEqual(['set', 'dimension27', '5']);
           });
         });
       });
@@ -469,61 +485,61 @@ describe("GOVUK.StaticAnalytics", function() {
 
         it('does not track any sections', function() {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-          pageViewObject = getPageViewObject();
-          expect(pageViewObject.dimension26).toEqual('0');
+          setupArguments = window.ga.calls.allArgs();
+          expect(setupArguments[14])
+            .toEqual(['set', 'dimension26', '0']);
         });
 
         it('tracks the total number of leaf links', function() {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-          pageViewObject = getPageViewObject();
-          expect(pageViewObject.dimension27).toEqual('2');
+          setupArguments = window.ga.calls.allArgs();
+          expect(setupArguments[15])
+            .toEqual(['set', 'dimension27', '2']);
         });
       });
+
+      function dimensionSetupArguments() {
+        // Remove the default calls to the analytics object
+        return window.ga.calls.allArgs().slice(expectedDefaultArgumentCount, -1);
+      }
     });
   });
 
   describe('when there is a TLSversion cookie', function() {
-    var pageViewObject;
-
     beforeEach(function() {
       GOVUK.cookie('TLSversion', '2');
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-      pageViewObject = getPageViewObject();
+      universalSetupArguments = window.ga.calls.allArgs();
     });
-
     it("sets the cookie value as the value of the tls version custom dimension", function() {
-      expect(pageViewObject.dimension16).toEqual('2');
+      expect(universalSetupArguments[4]).toEqual(['set', 'dimension16', '2']);
     });
   });
 
   describe('when there is no TLSversion cookie', function() {
-    var pageViewObject;
-
     beforeEach(function() {
       GOVUK.cookie('TLSversion', null);
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-      pageViewObject = getPageViewObject();
+      universalSetupArguments = window.ga.calls.allArgs();
     });
-
     it("sets unknown as the value of the tls version custom dimension", function() {
-      expect(pageViewObject.dimension16).toEqual('unknown');
+      expect(universalSetupArguments[4]).toEqual(['set', 'dimension16', 'unknown']);
     });
   });
 
-  describe('when tracking pageviews and events', function() {
+  describe('when tracking pageviews, events and custom dimensions', function() {
     it('tracks them in universal', function() {
 
       analytics.trackPageview('/path', 'Title');
-      trackingArguments = window.ga.calls.mostRecent().args;
-      expect(trackingArguments[0]).toEqual('send');
-      expect(trackingArguments[1]).toEqual('pageview');
-      expect(trackingArguments[2].page).toEqual('/path');
-      expect(trackingArguments[2].title).toEqual('Title');
+      expect(window.ga.calls.mostRecent().args).toEqual(['send', 'pageview', {page: '/path', title: 'Title'}]);
 
       analytics.trackEvent('category', 'action');
       expect(window.ga.calls.mostRecent().args).toEqual(['send', {hitType: 'event', eventCategory: 'category', eventAction: 'action'}]);
+
+      analytics.setSectionDimension('value');
+      expect(window.ga.calls.mostRecent().args).toEqual(['set', 'dimension1', 'value']);
     });
   });
 
@@ -587,8 +603,4 @@ describe("GOVUK.StaticAnalytics", function() {
       expect(analytics.trackPageview).toHaveBeenCalledWith('/path', 'Title');
     });
   });
-
-  function getPageViewObject() {
-    return window.ga.calls.allArgs()[2][2];
-  }
 });
