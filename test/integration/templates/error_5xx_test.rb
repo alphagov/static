@@ -1,7 +1,6 @@
 require_relative "../../integration_test_helper"
 
 class Error5XXTest < ActionDispatch::IntegrationTest
-
   should "render the 500 template" do
     visit "/templates/500.html.erb"
 
@@ -29,7 +28,6 @@ class Error5XXTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(".footer-meta")
       end
-
     end
 
     assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.11.3.js']", visible: :all)

@@ -1,7 +1,6 @@
 require_relative "../../integration_test_helper"
 
 class WrapperWithJSLastTest < ActionDispatch::IntegrationTest
-
   should "render the template" do
     visit "/templates/wrapper_with_js_last.html.erb"
 

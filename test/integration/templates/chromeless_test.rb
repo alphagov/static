@@ -1,7 +1,6 @@
 require_relative "../../integration_test_helper"
 
 class ChromelessTest < ActionDispatch::IntegrationTest
-
   should "render the template" do
     visit "/templates/chromeless.html.erb"
 

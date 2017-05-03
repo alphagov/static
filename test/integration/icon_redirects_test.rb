@@ -1,7 +1,6 @@
 require_relative "../integration_test_helper"
 
 class IconRedirectsTest < ActionDispatch::IntegrationTest
-
   [
     'favicon.ico',
     'apple-touch-icon-152x152.png',

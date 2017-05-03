@@ -13,7 +13,7 @@ class BreadcrumbsTestCase < ComponentTestCase
   end
 
   test "renders a single breadcrumb" do
-    render_component({ breadcrumbs: [{title: 'Section', url: '/section'}] })
+    render_component(breadcrumbs: [{ title: 'Section', url: '/section' }])
 
     assert_link_with_text_in('ol li:first-child', '/section', 'Section')
   end
@@ -42,9 +42,9 @@ class BreadcrumbsTestCase < ComponentTestCase
     render_component(breadcrumbs: breadcrumbs)
 
     expected_tracking_options = [
-      {dimension28: "3", dimension29: "Section 1"},
-      {dimension28: "3", dimension29: "Section 2"},
-      {dimension28: "3", dimension29: "Section 3"},
+      { dimension28: "3", dimension29: "Section 1" },
+      { dimension28: "3", dimension29: "Section 2" },
+      { dimension28: "3", dimension29: "Section 3" },
     ]
 
     assert_select "ol li:nth-child(1) a[data-track-options='#{expected_tracking_options[0].to_json}']", 1
@@ -53,13 +53,11 @@ class BreadcrumbsTestCase < ComponentTestCase
   end
 
   test "renders a list of breadcrumbs" do
-    render_component({
-      breadcrumbs: [
-        {title: 'Home', url: '/'},
-        {title: 'Section', url: '/section'},
-        {title: 'Sub-section', url: '/sub-section'},
-      ]
-    })
+    render_component(breadcrumbs: [
+        { title: 'Home', url: '/' },
+        { title: 'Section', url: '/section' },
+        { title: 'Sub-section', url: '/sub-section' },
+      ])
 
     assert_link_with_text_in('ol li:first-child', '/', 'Home')
     assert_link_with_text_in('ol li:first-child + li', '/section', 'Section')
@@ -69,8 +67,8 @@ class BreadcrumbsTestCase < ComponentTestCase
   test "allows the last breadcrumb to be text only" do
     render_component(
       breadcrumbs: [
-        {title: 'Topic', url: '/topic'},
-        {title: 'Current Page'},
+        { title: 'Topic', url: '/topic' },
+        { title: 'Current Page' },
       ]
     )
     assert_select('ol li:last-child', 'Current Page')

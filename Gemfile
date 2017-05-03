@@ -25,7 +25,7 @@ end
 group :test do
   gem 'capybara', '~> 2.5.0'
   gem 'govuk-content-schema-test-helpers', '~> 1.4'
-  gem 'mocha', '~> 1.1.0', :require => false
+  gem 'mocha', '~> 1.1.0', require: false
   gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
@@ -44,7 +44,7 @@ gem 'plek', '1.11.0'
 gem 'govuk_frontend_toolkit', '~> 6.0.1'
 
 if ENV['GOVUK_TEMPLATE_DEV']
-  gem 'govuk_template', :path => "../govuk_template"
+  gem 'govuk_template', path: "../govuk_template"
 else
   gem 'govuk_template', '0.20.0'
 end
