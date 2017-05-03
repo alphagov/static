@@ -108,8 +108,6 @@
     this.setTaxonIdDimension(dimensions['taxon-id']);
     this.setTaxonSlugsDimension(dimensions['taxon-slugs']);
     this.setTaxonIdsDimension(dimensions['taxon-ids']);
-    this.setTotalNumberOfSections();
-    this.setTotalNumberOfSectionLinks();
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
@@ -176,7 +174,7 @@
 
   StaticAnalytics.prototype.setThemesDimension = function(themes) {
     this.setDimension(3, themes || 'other');
-  };
+  }
 
   StaticAnalytics.prototype.setContentIdDimension = function(contentId) {
     this.setDimension(4, contentId || '00000000-0000-0000-0000-000000000000');
@@ -212,26 +210,6 @@
 
   StaticAnalytics.prototype.setSchemaNameDimension = function(position) {
     this.setDimension(17, position);
-  };
-
-  StaticAnalytics.prototype.setTotalNumberOfSections = function() {
-    var sidebarSections = $('[data-track-count="sidebarRelatedItemSection"]').length;
-    var sidebarTaxons = $('[data-track-count="sidebarTaxonSection"]').length;
-    var accordionSubsections = $('[data-track-count="accordionSection"]').length;
-    var gridSections = $('a[data-track-category="navGridLinkClicked"]').length;
-    var totalNumberOfSections = sidebarSections || sidebarTaxons || accordionSubsections || gridSections;
-    this.setDimension(26, totalNumberOfSections);
-  };
-
-  StaticAnalytics.prototype.setTotalNumberOfSectionLinks = function() {
-    var relatedLinks = $('a[data-track-category="relatedLinkClicked"]').length;
-    var accordionLinks = $('a[data-track-category="navAccordionLinkClicked"]').length;
-    // Grid links are counted both as "sections" (see dimension 26), and as part of the total link count
-    var gridLinks = $('a[data-track-category="navGridLinkClicked"]').length
-      + $('a[data-track-category="navGridLeafLinkClicked"]').length;
-    var leafLinks = $('a[data-track-category="navLeafLinkClicked"]').length;
-    var totalNumberOfSectionLinks = relatedLinks || accordionLinks || gridLinks || leafLinks;
-    this.setDimension(27, totalNumberOfSectionLinks);
   };
 
   StaticAnalytics.prototype.setNavigationPageTypeDimension = function(pageType) {
