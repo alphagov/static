@@ -12,7 +12,7 @@ There are sections of the site that should not show any surveys and these can be
 
 ```javascript
 {
-  url: 'https://www.surveymonkey.com/s/2AAAAAA/',
+  url: 'https://www.smartsurvey.co.uk/s/gov-uk',
   identifier: 'education_only_survey',
   frequency: 50,
   template: TEMPLATE,
@@ -43,7 +43,7 @@ What type of survey is this.  Currently either `url` or `email` is supported.  `
 Note that for `email` surveys the users email is submitted back to the [feedback](https://github.com/alphagov/feedback) app which actually sends the email.  The email address is sent with the `identifier` of the survey and this identifier must match with the `id` of a survey defined in [`app/models/email_survey.rb`](https://github.com/alphagov/feedback/blob/85e07b0c572a91be02b64af1d551df313f2695f9/app/models/email_survey.rb#L24).  Make sure you define the survey in both `static` and `feedback`.
 
 ### `url` - required for `url` surveys
-This should link to a surveymonkey -- or other survey page -- that allows the visitor to take the survey.
+This should link to a smartsurvey -- or other survey page -- that allows the visitor to take the survey.
 
 ### `template` - OPTIONAL
 This describes the UI that the survey will use to encourage users to sign up.  If omitted the default survey for the `surveyType` will be used.

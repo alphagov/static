@@ -248,8 +248,8 @@
       var $surveyLink = $('#take-survey');
       var surveyUrl = survey.url;
 
-      // Survey monkey can record the URL of the survey link if passed through as a query param
-      if ((/surveymonkey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
+      // Smart survey can record the URL of the survey link if passed through as a query param
+      if ((/smartsurvey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
         surveyUrl += "?c=" + userSurveys.currentPath();
       }
 
