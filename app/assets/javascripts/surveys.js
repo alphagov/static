@@ -46,7 +46,7 @@
       url: 'https://www.smartsurvey.co.uk/s/gov-uk',
       identifier: 'user_satisfaction_survey',
       frequency: 50,
-      surveyType: 'url',
+      surveyType: 'url'
     },
     smallSurveys: [
       {
@@ -432,7 +432,9 @@
     surveyTakenCookieName: function(survey) {
       //user_satisfaction_survey => takenUserSatisfactionSurvey
       var cookieStr = "taken_" + survey.identifier;
-      var cookieStub = cookieStr.replace(/(\_\w)/g, function(m){return m[1].toUpperCase();});
+      var cookieStub = cookieStr.replace(/(\_\w)/g, function(m) {
+        return m.charAt(1).toUpperCase();
+      });
       return "govuk_" + cookieStub;
     },
 
