@@ -13,6 +13,13 @@
       >
         <%= section[:title] %>
       </h2>
+
+      <% if section[:description].present? %>
+        <p class='description'>
+          <%= section[:description] %>
+        </p>
+      <% end %>
+
       <nav role="navigation" <% if section[:id] %>aria-labelledby="<%= section[:id] %>"<% end %>>
         <ul>
           <% total_links_in_section = section[:items].length + (section[:url] ? 1 : 0)  %>
