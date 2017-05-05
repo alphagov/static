@@ -108,8 +108,8 @@
     this.setTaxonIdDimension(dimensions['taxon-id']);
     this.setTaxonSlugsDimension(dimensions['taxon-slugs']);
     this.setTaxonIdsDimension(dimensions['taxon-ids']);
-    this.setNavigationSectionsDimension(dimensions['navigation-sections']);
-    this.setNavigationLinksDimension(dimensions['navigation-links']);
+    this.setTotalNumberOfSections();
+    this.setTotalNumberOfSectionLinks();
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
@@ -176,7 +176,7 @@
 
   StaticAnalytics.prototype.setThemesDimension = function(themes) {
     this.setDimension(3, themes || 'other');
-  }
+  };
 
   StaticAnalytics.prototype.setContentIdDimension = function(contentId) {
     this.setDimension(4, contentId || '00000000-0000-0000-0000-000000000000');
@@ -202,10 +202,6 @@
     this.setDimension(10, locations);
   };
 
-  StaticAnalytics.prototype.setSchemaNameDimension = function(position) {
-    this.setDimension(17, position);
-  };
-
   StaticAnalytics.prototype.setRenderingApplicationDimension = function(app) {
     this.setDimension(20, app);
   };
@@ -214,12 +210,28 @@
     this.setDimension(21, position);
   };
 
-  StaticAnalytics.prototype.setNavigationSectionsDimension = function(sections) {
-    this.setDimension(26, sections || '0');
+  StaticAnalytics.prototype.setSchemaNameDimension = function(position) {
+    this.setDimension(17, position);
   };
 
-  StaticAnalytics.prototype.setNavigationLinksDimension = function(links) {
-    this.setDimension(27, links || '0');
+  StaticAnalytics.prototype.setTotalNumberOfSections = function() {
+    var sidebarSections = $('[data-track-count="sidebarRelatedItemSection"]').length;
+    var sidebarTaxons = $('[data-track-count="sidebarTaxonSection"]').length;
+    var accordionSubsections = $('[data-track-count="accordionSection"]').length;
+    var gridSections = $('a[data-track-category="navGridLinkClicked"]').length;
+    var totalNumberOfSections = sidebarSections || sidebarTaxons || accordionSubsections || gridSections;
+    this.setDimension(26, totalNumberOfSections);
+  };
+
+  StaticAnalytics.prototype.setTotalNumberOfSectionLinks = function() {
+    var relatedLinks = $('a[data-track-category="relatedLinkClicked"]').length;
+    var accordionLinks = $('a[data-track-category="navAccordionLinkClicked"]').length;
+    // Grid links are counted both as "sections" (see dimension 26), and as part of the total link count
+    var gridLinks = $('a[data-track-category="navGridLinkClicked"]').length
+      + $('a[data-track-category="navGridLeafLinkClicked"]').length;
+    var leafLinks = $('a[data-track-category="navLeafLinkClicked"]').length;
+    var totalNumberOfSectionLinks = relatedLinks || accordionLinks || gridLinks || leafLinks;
+    this.setDimension(27, totalNumberOfSectionLinks);
   };
 
   StaticAnalytics.prototype.setNavigationPageTypeDimension = function(pageType) {
