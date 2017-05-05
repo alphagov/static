@@ -1,13 +1,6 @@
 <% if local_assigns[:sections] && !sections.blank? %>
-
-  <%
-    number_of_sections = 0
-    number_of_links = 0
-  %>
-
   <aside class="govuk-related-items" data-module="track-click" role="complementary">
     <% sections.each_with_index do |section, section_index| %>
-      <% number_of_sections += 1 %>
       <h2
         <% if section[:id] %>id="<%= section[:id] %>"<% end %>
       >
@@ -39,7 +32,6 @@
                 },
                 rel: item[:rel],
               ) %>
-              <% number_of_links += 1 %>
             </li>
           <% end %>
           <% if section[:url] %>
@@ -64,18 +56,10 @@
                   </span>
                 <% end %>
               <% end %>
-              <% number_of_links += 1 %>
             </li>
           <% end %>
         </ul>
       </nav>
     <% end %>
   </aside>
-
-  <%= render file: 'govuk_component/analytics_meta_tags_navigation.raw',
-    locals: {
-      number_of_sections: number_of_sections,
-      number_of_links: number_of_links,
-    } %>
-
 <% end %>

@@ -108,8 +108,6 @@
     this.setTaxonIdDimension(dimensions['taxon-id']);
     this.setTaxonSlugsDimension(dimensions['taxon-slugs']);
     this.setTaxonIdsDimension(dimensions['taxon-ids']);
-    this.setNavigationSectionsDimension(dimensions['navigation-sections']);
-    this.setNavigationLinksDimension(dimensions['navigation-links']);
   };
 
   StaticAnalytics.prototype.setDimensionsThatDoNotHaveDefaultValues = function(dimensions) {
@@ -202,10 +200,6 @@
     this.setDimension(10, locations);
   };
 
-  StaticAnalytics.prototype.setSchemaNameDimension = function(position) {
-    this.setDimension(17, position);
-  };
-
   StaticAnalytics.prototype.setRenderingApplicationDimension = function(app) {
     this.setDimension(20, app);
   };
@@ -214,12 +208,8 @@
     this.setDimension(21, position);
   };
 
-  StaticAnalytics.prototype.setNavigationSectionsDimension = function(sections) {
-    this.setDimension(26, sections || '0');
-  };
-
-  StaticAnalytics.prototype.setNavigationLinksDimension = function(links) {
-    this.setDimension(27, links || '0');
+  StaticAnalytics.prototype.setSchemaNameDimension = function(position) {
+    this.setDimension(17, position);
   };
 
   StaticAnalytics.prototype.setNavigationPageTypeDimension = function(pageType) {
