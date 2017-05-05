@@ -8,6 +8,10 @@
     margin-bottom: 0.5em;
   }
 
+  .description {
+    @include core-16;
+  }
+
   ul {
     // reset the default browser styles
     padding: 0;
