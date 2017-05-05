@@ -40,7 +40,12 @@
     <% if history.any? %>
       <div class="change-notes" data-module="toggle">
         <p>
-          <a href="#full-history" data-controls="full-history" data-expanded="false">
+          <a href="#full-history" data-controls="full-history"
+                                  data-expanded="false"
+                                  data-module="track-click"
+                                  data-track-category="content-history"
+                                  data-track-action="full-page-history-toggled"
+                                  data-track-label="full-history">
             + <%= t("govuk_component.document_footer.full_page_history", default: "full page history") %>
           </a>
         </p>
