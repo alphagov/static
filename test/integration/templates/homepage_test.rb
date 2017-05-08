@@ -1,7 +1,6 @@
 require_relative "../../integration_test_helper"
 
 class HomepageTest < ActionDispatch::IntegrationTest
-
   should "render the template" do
     visit "/templates/homepage.html.erb"
 

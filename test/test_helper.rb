@@ -11,7 +11,7 @@ class ActiveSupport::TestCase
   def create_test_file(filename:, content:)
     FileUtils.mkdir_p location_of_test_files
     full_path = File.join(location_of_test_files, filename)
-    File.open(full_path, "w") {|f| f << content }
+    File.open(full_path, "w") { |f| f << content }
   end
 
   def location_of_test_files

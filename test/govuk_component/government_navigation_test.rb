@@ -19,7 +19,7 @@ class GovernmentNavigationTestCase < ComponentTestCase
   end
 
   test "can mark a link as active" do
-    render_component({active: 'departments'})
+    render_component(active: 'departments')
     assert_select "a.active", text: "Departments"
   end
 end

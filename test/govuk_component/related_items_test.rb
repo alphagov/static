@@ -159,10 +159,7 @@ class RelatedItemsTestCase < ComponentTestCase
 
     assert_tracking_link("action", "1.1")
     assert_tracking_link("label", "/item")
-    expected_link_1_tracking_options = {
-      dimension28: total_links_in_section_1.to_s,
-      dimension29: "Item title",
-    }
+
     assert_tracking_link(
       "options",
       { dimension28: total_links_in_section_1.to_s, dimension29: "Item title" }.to_json)

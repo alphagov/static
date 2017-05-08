@@ -1,7 +1,6 @@
 require_relative "../../integration_test_helper"
 
 class WrapperTest < ActionDispatch::IntegrationTest
-
   should "render the template" do
     visit "/templates/wrapper.html.erb"
 
@@ -9,7 +8,6 @@ class WrapperTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("title", text: "GOV.UK - The best place to find government services and information", visible: :all)
 
       assert page.has_selector?("link[href='/static/static.css']", visible: :all)
-
     end
 
     within "body" do
@@ -27,7 +25,6 @@ class WrapperTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(".footer-meta")
       end
-
     end
 
     assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.11.3.js']", visible: :all)

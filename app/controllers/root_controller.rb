@@ -18,7 +18,7 @@ class RootController < ApplicationController
   def govuk_component_docs
     doc_files = Rails.root.join('app', 'views', 'govuk_component', 'docs', '*.yml')
     docs = Dir[doc_files].sort.map do |file|
-      {id: File.basename(file, '.yml')}.merge(YAML::load_file(file))
+      { id: File.basename(file, '.yml') }.merge(YAML::load_file(file))
     end
     render json: docs
   end
@@ -54,16 +54,16 @@ class RootController < ApplicationController
     end
   end
 
-  private
+private
 
   def render_yaml_as_json(file_path)
-    error_404 and return unless File.exists?(file_path)
+    error_404 && return unless File.exist?(file_path)
     render json: YAML::load_file(file_path)
   end
 
   def render_raw_template(prefix, file_name)
     file_path = Rails.root.join("app", "views", prefix, "#{file_name}.raw.html.erb")
-    error_404 and return unless File.exists?(file_path)
+    error_404 && return unless File.exist?(file_path)
     render text: File.read(file_path)
   end
 

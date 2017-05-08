@@ -28,7 +28,7 @@ class TaxonomySidebarTestCase < ComponentTestCase
     )
 
     taxon_titles = css_select(".sidebar-taxon h2").map { |taxon_title| taxon_title.text.strip }
-    taxon_titles = ["Item 1 title", "Item 2 title"]
+    assert_equal ["Item 1 title", "Item 2 title"], taxon_titles
   end
 
   test "renders related content for the first two taxons" do
@@ -74,7 +74,7 @@ class TaxonomySidebarTestCase < ComponentTestCase
       ],
     )
 
-    related_links = css_select(".related-content a").map { |link| link.text }
+    related_links = css_select(".related-content a").map(&:text)
     assert_equal ["Related link B", "Related link A", "Related link C"], related_links
   end
 
@@ -121,10 +121,6 @@ class TaxonomySidebarTestCase < ComponentTestCase
     assert_select '.govuk-taxonomy-sidebar[data-module="track-click"]', 1
     assert_tracking_link("category", "relatedLinkClicked", 6)
 
-    expected_title_tracking_options = {
-      dimension28: total_sections.to_s,
-      dimension29: "Item title"
-    }
     assert_tracking_link(
       "options",
       { dimension28: total_sections.to_s, dimension29: "Item title" }.to_json)

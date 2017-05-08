@@ -1,7 +1,6 @@
 require_relative "../../integration_test_helper"
 
 class HeaderFooterOnlyTest < ActionDispatch::IntegrationTest
-
   should "render the template" do
     visit "/templates/header_footer_only.html.erb"
 
