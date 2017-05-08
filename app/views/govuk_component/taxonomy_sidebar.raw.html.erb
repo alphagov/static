@@ -1,14 +1,8 @@
 <% if local_assigns[:items] && !items.blank? %>
 
-  <%
-    number_of_sections = 0
-    number_of_links = 0
-  %>
-
   <aside class='govuk-taxonomy-sidebar' data-module='track-click' role='complementary'>
     <% items.each_with_index do |item, item_index| %>
-      <% number_of_sections += 1 %>
-      <div class='sidebar-taxon'>
+      <div class='sidebar-taxon' data-track-count="sidebarTaxonSection">
         <h2>
           <%=
             link_to_if(
@@ -27,7 +21,6 @@
               },
             )
           %>
-          <% number_of_links +=1 %>
         </h2>
 
         <p class='taxon-description'>
@@ -56,7 +49,6 @@
                       class: 'related-link',
                     )
                   %>
-                  <% number_of_links += 1 %>
                 </li>
               <% end %>
             </ul>
@@ -65,11 +57,5 @@
       </div>
     <% end %>
   </aside>
-
-  <%= render file: 'govuk_component/analytics_meta_tags_navigation.raw',
-    locals: {
-      number_of_sections: number_of_sections,
-      number_of_links: number_of_links,
-    } %>
 
 <% end %>
