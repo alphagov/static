@@ -10,9 +10,10 @@
     this.analytics = new GOVUK.Analytics(config);
 
     this.callMethodRequestedByPreviousPage();
+    var trackingOptions = getOptionsFromCookie();
 
     // Track initial pageview
-    this.trackPageview();
+    this.trackPageview(null, null, trackingOptions);
 
     // Begin error and print tracking
     GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
@@ -24,6 +25,7 @@
     });
   };
 
+  // TODO: Remove once we're using setOptionsForNextPageview instead
   StaticAnalytics.prototype.callOnNextPage = function (method, params) {
     params = params || [];
 
@@ -37,6 +39,7 @@
     }
   };
 
+  // TODO: Remove once we're using setOptionsForNextPageview instead
   StaticAnalytics.prototype.callMethodRequestedByPreviousPage = function () {
     if (GOVUK.cookie && GOVUK.cookie('analytics_next_page_call') !== null) {
       var params, method;
@@ -49,10 +52,9 @@
 
       if (method && typeof this[method] === "function") {
         this[method].apply(this, params);
+        // Delete cookie
+        GOVUK.cookie('analytics_next_page_call', null);
       }
-
-      // Delete cookie
-      GOVUK.cookie('analytics_next_page_call', null);
     }
   };
 
@@ -87,6 +89,7 @@
     this.analytics.trackEvent(category, action, options);
   };
 
+  // TODO: Check for usage external to this file, and remove
   StaticAnalytics.prototype.setDimension = function (index, value, name, scope) {
     if (typeof value === "undefined") {
       return;
@@ -115,6 +118,43 @@
     return $.each(dimensions, function (key, value) {
       dimensions[key] = String(value);
     });
+  };
+
+  StaticAnalytics.prototype.setOptionsForNextPageview = function (options) {
+    if (typeof options !== 'object') {
+      return;
+    }
+
+    var cookieOptions = getOptionsFromCookie();
+    $.extend(cookieOptions, options);
+
+    this.setCookie('analytics_next_page_call', cookieOptions);
+  };
+
+  StaticAnalytics.prototype.setCookie = function (cookieName, object) {
+    if (!GOVUK.cookie) {
+      return;
+    }
+
+    if (!object) {
+      GOVUK.cookie(cookieName, null);
+    } else {
+      // Singly-stringified JSON sometimes gets escaped when put into a cookie, but inconsistently. The command-line
+      // tests will escape, but browser tests will not. Double-stringify in order to get consistently-escaped strings.
+      GOVUK.cookie(cookieName, JSON.stringify(JSON.stringify(object)));
+    }
+  };
+
+  StaticAnalytics.prototype.getCookie = function(cookieName) {
+    if (!GOVUK.cookie) {
+      return;
+    }
+
+    try {
+      return JSON.parse(JSON.parse(GOVUK.cookie(cookieName)));
+    } catch (error) {
+      return null;
+    }
   };
 
   function customDimensionsFromBrowser() {
@@ -219,6 +259,16 @@
     });
 
     return customDimensions;
+  }
+
+  function getOptionsFromCookie() {
+    try {
+      var cookie = StaticAnalytics.prototype.getCookie('analytics_next_page_call');
+      StaticAnalytics.prototype.setCookie('analytics_next_page_call', null);
+      return cookie || {};
+    } catch (e) {
+      return {};
+    }
   }
 
   GOVUK.StaticAnalytics = StaticAnalytics;
