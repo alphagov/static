@@ -227,7 +227,9 @@
       var sidebarTaxons = $('[data-track-count="sidebarTaxonSection"]').length;
       var accordionSubsections = $('[data-track-count="accordionSection"]').length;
       var gridSections = $('a[data-track-category="navGridLinkClicked"]').length;
-      return sidebarSections || sidebarTaxons || accordionSubsections || gridSections;
+      var browsePageSections = $('#subsection ul:visible').length ||
+        $('#section ul').length;
+      return sidebarSections || sidebarTaxons || accordionSubsections || gridSections || browsePageSections;
     }
 
     function totalNumberOfSectionLinks() {
@@ -237,7 +239,9 @@
       var gridLinks = $('a[data-track-category="navGridLinkClicked"]').length
         + $('a[data-track-category="navGridLeafLinkClicked"]').length;
       var leafLinks = $('a[data-track-category="navLeafLinkClicked"]').length;
-      return relatedLinks || accordionLinks || gridLinks || leafLinks;
+      var browsePageLinks = $('#subsection ul a:visible').length ||
+        $('#section ul a').length;
+      return relatedLinks || accordionLinks || gridLinks || leafLinks || browsePageLinks;
     }
   }
 
