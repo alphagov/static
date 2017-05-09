@@ -1,9 +1,0 @@
-<%
-  number_of_sections ||= 0
-  number_of_links ||= 0
-%>
-
-<% content_for :analytics_meta_tags do %>
-  <meta name="govuk:navigation-sections" content="<%= number_of_sections %>">
-  <meta name="govuk:navigation-links" content="<%= number_of_links %>">
-<% end %>
