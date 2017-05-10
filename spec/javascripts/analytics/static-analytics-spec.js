@@ -588,6 +588,40 @@ describe("GOVUK.StaticAnalytics", function() {
     });
   });
 
+  describe('when setting an options object for the next pageview', function() {
+    beforeEach(function() {
+      analytics.setCookie('analytics_next_page_call', null);
+    });
+
+    it('sets a cookie with the options', function() {
+      analytics.setOptionsForNextPageview({dimension99: 'Test'});
+      expect(analytics.getCookie('analytics_next_page_call')).toEqual({dimension99: "Test"});
+    });
+
+    it('sets a cookie with the options when set sequentially', function() {
+      analytics.setOptionsForNextPageview({dimension1: 'First'});
+      analytics.setOptionsForNextPageview({dimension2: 'Second'});
+      expect(analytics.getCookie('analytics_next_page_call')).toEqual({dimension1: "First", dimension2: "Second"});
+    });
+  });
+
+  describe('when there is a cookie setting options for the next pageview', function() {
+    beforeEach(function() {
+      analytics.setCookie('analytics_next_page_call', {dimension99: "Test"});
+      window.ga.calls.reset();
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+    });
+
+    it('includes the options for the pageview', function() {
+      var pageViewObject = getPageViewObject();
+      expect(pageViewObject.dimension99).toEqual('Test');
+    });
+
+    it('clears the cookie after being used', function() {
+      expect(GOVUK.cookie('analytics_next_page_call')).toBeNull();
+    });
+  });
+
   function getPageViewObject() {
     return window.ga.calls.allArgs()[3][2];
   }
