@@ -53,6 +53,9 @@ are wrapped around feedback pages, run `bowl feedback
 in a separate terminal. Following local edits to `static`, restarting just
 `feedback` should be sufficient.
 
+#### Testing a local version of govuk_frontend_toolkit
+To test any local updates to [govuk_frontend_toolkit](https://github.com/alphagov/govuk_frontend_toolkit) you can use `./startup.sh --test-govuk-frontend-toolkit`
+
 ### Running the test suite
 
 `bundle exec rake` runs the test suite.
