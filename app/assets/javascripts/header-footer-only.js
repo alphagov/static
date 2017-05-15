@@ -2,7 +2,6 @@
 //= require vendor/polyfills/bind
 //= require analytics
 //= require start-modules
-//= require surveys
 //= require core
 //= require report-a-problem-form
 //= require report-a-problem

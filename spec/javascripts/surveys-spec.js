@@ -1,3 +1,4 @@
+//= require surveys
 describe("Surveys", function() {
   var surveys = GOVUK.userSurveys;
   var $block;

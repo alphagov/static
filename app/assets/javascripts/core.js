@@ -7,11 +7,11 @@ $(document).ready(function() {
       $(el).addClass('focus');
     }
   });
-  
+
   $searchFocus.on('focus', function(e) {
     $(e.target).addClass('focus');
   });
-  
+
   $searchFocus.on('blur', function(e) {
     if($(e.target).val() === '') {
       $(e.target).removeClass('focus');
@@ -19,10 +19,6 @@ $(document).ready(function() {
   });
 
   if (window.GOVUK) {
-    if (GOVUK.userSurveys) {
-      GOVUK.userSurveys.init();
-    }
-
     // for radio buttons and checkboxes
     var buttonsSelector = "label.selectable input[type='radio'], label.selectable input[type='checkbox']";
     new GOVUK.SelectionButtons(buttonsSelector);
