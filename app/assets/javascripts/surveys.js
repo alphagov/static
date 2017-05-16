@@ -7,9 +7,9 @@
 
   var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
-                            '    <h1>Help improve GOV.UK</h1>' +
+                            '    <h1>Tell us what you think of GOV.UK</h1>' +
                             '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
+                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
                             '  </div>' +
                             '</section>',
     EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
@@ -78,6 +78,13 @@
       {
         url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Hold_gov_to_account&utm_medium=gov.uk%20survey&t=GDS",
         identifier: 'mar_ur_panel',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                  '  <div class="wrapper">' +
+                  '    <h1>Help improve GOV.UK</h1>' +
+                  '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                  '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
+                  '  </div>' +
+                  '</section>',
         frequency: 5,
         activeWhen: function() {
           function pathMatches() {
@@ -103,6 +110,13 @@
       {
         url: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=" + window.location.pathname + "&utm_source=Improve_platform_basics&utm_medium=gov.uk%20survey&t=GDS",
         identifier: 'mar_ur_panel',
+        template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+        '  <div class="wrapper">' +
+        '    <h1>Help improve GOV.UK</h1>' +
+        '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+        '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Answer some questions about yourself to join the research community</a> This link opens in a new tab.</p>' +
+        '  </div>' +
+        '</section>',
         frequency: 5,
         activeWhen: function() {
           function pathMatches() {
@@ -123,86 +137,6 @@
         surveyType: 'url',
         startTime: new Date("March 20, 2017").getTime(),
         endTime: new Date("April 21, 2017 23:59:59").getTime()
-      },
-      {
-        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Anti_Money_Laundering&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
-        frequency: 5,
-        activeWhen: function() {
-          function pathMatches() {
-            var pathMatchingExpr = /\/government\/publications\/money-laundering-regulations-application-for-registration-mlr100/;
-
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        surveyType: 'url',
-        startTime: new Date("March 22, 2017").getTime(),
-        endTime: new Date("April 20, 2017 23:59:59").getTime()
-      },
-      {
-        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=P800&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
-        frequency: 5,
-        activeWhen: function() {
-          function pathMatches() {
-            var pathMatchingExpr = /\/claim-tax-refund/;
-
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        surveyType: 'url',
-        startTime: new Date("March 22, 2017").getTime(),
-        endTime: new Date("April 20, 2017 23:59:59").getTime()
-      },
-      {
-        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=IHT&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
-        frequency: 5,
-        activeWhen: function() {
-          function pathMatches() {
-            var pathMatchingExpr = /\/government\/publications\/inheritance-tax-inheritance-tax-account-iht400/;
-
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        surveyType: 'url',
-        startTime: new Date("March 22, 2017").getTime(),
-        endTime: new Date("April 20, 2017 23:59:59").getTime()
-      },
-      {
-        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=TAV_C&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
-        frequency: 5,
-        activeWhen: function() {
-          function pathMatches() {
-            var pathMatchingExpr = /\/guidance\/venture-capital-schemes-apply-for-the-enterprise-investment-scheme/;
-
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        surveyType: 'url',
-        startTime: new Date("March 22, 2017").getTime(),
-        endTime: new Date("April 20, 2017 23:59:59").getTime()
-      },
-      {
-        url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=capital_gains&utm_source=govukother&utm_medium=gov.uk%20survey&t=HMRC",
-        frequency: 5,
-        activeWhen: function() {
-          function pathMatches() {
-            var pathMatchingExpr = /\/capital-gains-tax/;
-
-            return pathMatchingExpr.test(userSurveys.currentPath());
-          }
-
-          return (pathMatches());
-        },
-        surveyType: 'url',
-        startTime: new Date("March 22, 2017").getTime(),
-        endTime: new Date("April 20, 2017 23:59:59").getTime()
       }
     ],
 
