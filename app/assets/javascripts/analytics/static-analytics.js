@@ -80,13 +80,13 @@
   };
 
   StaticAnalytics.prototype.trackPageview = function (path, title, options) {
-    var trackingOptions = this.customDimensions();
-    $.extend(trackingOptions, options);
+    var trackingOptions = this.getAndExtendDefaultTrackingOptions(options);
     this.analytics.trackPageview(path, title, trackingOptions);
   };
 
   StaticAnalytics.prototype.trackEvent = function (category, action, options) {
-    this.analytics.trackEvent(category, action, options);
+    var trackingOptions = this.getAndExtendDefaultTrackingOptions(options);
+    this.analytics.trackEvent(category, action, trackingOptions);
   };
 
   // TODO: Check for usage external to this file, and remove
@@ -99,7 +99,8 @@
   };
 
   StaticAnalytics.prototype.trackShare = function (network) {
-    this.analytics.trackShare(network);
+    var trackingOptions = this.getAndExtendDefaultTrackingOptions();
+    this.analytics.trackShare(network, trackingOptions);
   };
 
   StaticAnalytics.prototype.addLinkedTrackerDomain = function (trackerId, name, domain) {
@@ -145,7 +146,7 @@
     }
   };
 
-  StaticAnalytics.prototype.getCookie = function(cookieName) {
+  StaticAnalytics.prototype.getCookie = function (cookieName) {
     if (!GOVUK.cookie) {
       return;
     }
@@ -155,6 +156,11 @@
     } catch (error) {
       return null;
     }
+  };
+
+  StaticAnalytics.prototype.getAndExtendDefaultTrackingOptions = function (extraOptions) {
+    var trackingOptions = this.customDimensions();
+    return $.extend(trackingOptions, extraOptions);
   };
 
   function customDimensionsFromBrowser() {

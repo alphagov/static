@@ -523,7 +523,14 @@ describe("GOVUK.StaticAnalytics", function() {
       expect(trackingArguments[2].title).toEqual('Title');
 
       analytics.trackEvent('category', 'action');
-      expect(window.ga.calls.mostRecent().args).toEqual(['send', {hitType: 'event', eventCategory: 'category', eventAction: 'action'}]);
+
+      var lastArguments = window.ga.calls.mostRecent().args;
+      expect(lastArguments[0]).toEqual('send');
+      
+      var trackingOptions = lastArguments[1];
+      expect(trackingOptions.hitType).toEqual('event');
+      expect(trackingOptions.eventCategory).toEqual('category');
+      expect(trackingOptions.eventAction).toEqual('action');
     });
   });
 
