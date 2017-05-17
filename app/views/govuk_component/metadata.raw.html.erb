@@ -14,11 +14,15 @@
   <dl>
     <% if from.any? %>
       <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
-      <dd><%= from.to_sentence.html_safe %></dd>
+      <dd>
+        <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: from, toggle_id: "from" } %>
+      </dd>
     <% end %>
     <% if part_of.any? %>
       <dt><%= t("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
-      <dd><%= part_of.to_sentence.html_safe %></dd>
+      <dd>
+        <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: part_of, toggle_id: "part-of" } %>
+      </dd>
     <% end %>
     <% if local_assigns.include?(:history) %>
       <dt><%= t("govuk_component.metadata.history", default: "History") %>:</dt>
@@ -42,28 +46,15 @@
       </dd>
     <% end %>
     <% if other.present? %>
-      <% other.each_with_index do |(title, definition), i| %>
+      <% other.each_with_index do |(title, definition), index| %>
         <%
           definition ||= []
           definition = Array(definition)
-          list_limit = 5
-          remaining = []
-          if definition.length > (list_limit + 2)
-            remaining = definition[list_limit..definition.length]
-            definition = definition[0...list_limit]
-          end
         %>
         <% if definition.any? %>
           <dt><%= title %>:</dt>
           <dd>
-            <% if remaining.any? %>
-              <%= definition.to_sentence(last_word_connector: ', ').html_safe %><span id="metadata-<%= i %>" class="js-hidden">, <%= remaining.to_sentence.html_safe %></span>
-              <div class="toggle-wrap">
-                <a href="#" data-controls="metadata-<%= i %>" data-expanded="false" data-toggled-text="- show fewer">+ <%= remaining.length %> more</a>
-              </div>
-            <% else %>
-              <%= definition.to_sentence.html_safe %>
-            <% end %>
+            <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: definition, toggle_id: index } %>
           </dd>
         <% end %>
       <% end %>
