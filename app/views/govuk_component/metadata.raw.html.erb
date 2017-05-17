@@ -59,7 +59,7 @@
             <% if remaining.any? %>
               <%= definition.to_sentence(last_word_connector: ', ').html_safe %><span id="metadata-<%= i %>" class="js-hidden">, <%= remaining.to_sentence.html_safe %></span>
               <div class="toggle-wrap">
-                <a href="#" data-controls="metadata-<%= i %>" data-expanded="false" data-toggled-text="- show less">+ <%= remaining.length %> more</a>
+                <a href="#" data-controls="metadata-<%= i %>" data-expanded="false" data-toggled-text="- show fewer">+ <%= remaining.length %> more</a>
               </div>
             <% else %>
               <%= definition.to_sentence.html_safe %>
