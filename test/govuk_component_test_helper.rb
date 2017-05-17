@@ -39,4 +39,12 @@ class ComponentTestCase < ActionView::TestCase
   def assert_tracking_link(name, value, total = 1)
     assert_select "a[data-track-#{name}='#{value}']", total
   end
+
+  def assert_long_list_truncation(links)
+    assert_select "dd[class=\"js-truncatedwrap\"]", html: links
+  end
+
+  def assert_long_list_without_truncation(links)
+    assert_select "dd", html: links
+  end
 end

@@ -10,7 +10,7 @@
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
 %>
-<div class="govuk-metadata<%= direction_class %>">
+<div class="govuk-metadata<%= direction_class %>" data-module="toggle-metadata">
   <dl>
     <% if from.any? %>
       <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
@@ -46,10 +46,22 @@
         <%
           definition ||= []
           definition = Array(definition)
+          listlimit = 5
+          remaining = []
+          if definition.length > (listlimit + 2)
+            remaining = definition[listlimit..definition.length]
+            definition = definition[0...listlimit]
+          end
         %>
         <% if definition.any? %>
           <dt><%= title %>:</dt>
-          <dd><%= definition.to_sentence.html_safe %></dd>
+          <% if remaining.any? %>
+            <dd class="js-truncated-wrap">
+              <%= definition.to_sentence(last_word_connector: ', ').html_safe %><span class="js-truncated truncated">, <%= remaining.to_sentence.html_safe %></span><a href="#" class="js-truncated-toggle truncated-toggle" data-text="+ <%= remaining.length %> more" aria-expanded="false">+ <%= remaining.length %> more</a>
+            </dd>
+          <% else %>
+            <dd><%= definition.to_sentence.html_safe %></dd>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>

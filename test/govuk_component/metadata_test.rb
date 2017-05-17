@@ -59,4 +59,44 @@ class MetadataTestCase < ComponentTestCase
     assert_definition('Part of:', 'this and that')
     assert_definition('Related topics:', 'a, b, and c')
   end
+
+  test "rendering of long metadata into wrapping for Javascript interaction" do
+    render_component(other:{
+        "Industry": [
+          "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=construction\">Construction</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=education\">Education</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=health\">Health</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=hospitality-and-catering\">Hospitality and catering</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=information-technology-digital-and-creative\">IT, digital and creative</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=manufacturing\">Manufacturing</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=mining\">Mining</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=real-estate-and-property\">Real estate and property</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=science-and-technology\">Science and technology</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=service-industries\">Service industries</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=transport-and-distribution\">Transport and distribution</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=travel-and-leisure\">Travel and leisure</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=utilities-providers\">Utilities providers</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=wholesale-and-retail\">Wholesale and retail</a>"
+        ]
+    })
+    result = "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>, <a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>, <a href=\"/business-finance-support?industries%5B%5D=construction\">Construction</a>, <a href=\"/business-finance-support?industries%5B%5D=education\">Education</a>, <a href=\"/business-finance-support?industries%5B%5D=health\">Health</a><span class=\"js-truncated truncated\">, <a href=\"/business-finance-support?industries%5B%5D=hospitality-and-catering\">Hospitality and catering</a>, <a href=\"/business-finance-support?industries%5B%5D=information-technology-digital-and-creative\">IT, digital and creative</a>, <a href=\"/business-finance-support?industries%5B%5D=manufacturing\">Manufacturing</a>, <a href=\"/business-finance-support?industries%5B%5D=mining\">Mining</a>, <a href=\"/business-finance-support?industries%5B%5D=real-estate-and-property\">Real estate and property</a>, <a href=\"/business-finance-support?industries%5B%5D=science-and-technology\">Science and technology</a>, <a href=\"/business-finance-support?industries%5B%5D=service-industries\">Service industries</a>, <a href=\"/business-finance-support?industries%5B%5D=transport-and-distribution\">Transport and distribution</a>, <a href=\"/business-finance-support?industries%5B%5D=travel-and-leisure\">Travel and leisure</a>, <a href=\"/business-finance-support?industries%5B%5D=utilities-providers\">Utilities providers</a>, and <a href=\"/business-finance-support?industries%5B%5D=wholesale-and-retail\">Wholesale and retail</a></span><a href=\"#\" class=\"js-truncatedtoggle truncatedtoggle\" data-text=\"+ 11 more\" aria-expanded=\"false\">+ 11 more</a>"
+    assert_long_list_truncation(result)
+  end
+
+  test "rendering of metadata not too long to trigger wrapping for Javascript interaction" do
+    render_component(other:{
+        "Industry": [
+          "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=construction\">Construction</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=education\">Education</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=health\">Health</a>",
+          "<a href=\"/business-finance-support?industries%5B%5D=hospitality-and-catering\">Hospitality and catering</a>",
+        ]
+    })
+    result = "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>, <a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>, <a href=\"/business-finance-support?industries%5B%5D=construction\">Construction</a>, <a href=\"/business-finance-support?industries%5B%5D=education\">Education</a>, <a href=\"/business-finance-support?industries%5B%5D=health\">Health</a>, and <a href=\"/business-finance-support?industries%5B%5D=hospitality-and-catering\">Hospitality and catering</a>"
+    assert_long_list_without_truncation(result)
+  end
 end

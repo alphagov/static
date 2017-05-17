@@ -2,6 +2,7 @@
 //= require modules/global-bar
 //= require modules/sticky-element-container
 //= require modules/toggle
+//= require modules/toggle-metadata
 //= require modules/track-click
 
 $(document).ready(function () {
