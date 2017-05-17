@@ -42,21 +42,11 @@
     float: right;
   }
 
-  .truncated-toggle {
-    display:none;
+  .toggle-wrap {
+    display: none;
   }
 
-  .truncated {
-    &[aria-hidden="true"]{
-      display:none;
-    }
-  }
-}
-
-.js-enabled {
-  .govuk-metadata {
-    .truncated-toggle {
-      display:block;
-    }
+  .js-enabled & .toggle-wrap {
+    display: block;
   }
 }

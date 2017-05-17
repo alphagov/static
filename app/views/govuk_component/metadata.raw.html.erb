@@ -10,7 +10,7 @@
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
 %>
-<div class="govuk-metadata<%= direction_class %>" data-module="toggle-metadata">
+<div class="govuk-metadata<%= direction_class %>" data-module="toggle">
   <dl>
     <% if from.any? %>
       <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
@@ -42,26 +42,29 @@
       </dd>
     <% end %>
     <% if other.present? %>
-      <% other.each do |title, definition| %>
+      <% other.each_with_index do |(title, definition), i| %>
         <%
           definition ||= []
           definition = Array(definition)
-          listlimit = 5
+          list_limit = 5
           remaining = []
-          if definition.length > (listlimit + 2)
-            remaining = definition[listlimit..definition.length]
-            definition = definition[0...listlimit]
+          if definition.length > (list_limit + 2)
+            remaining = definition[list_limit..definition.length]
+            definition = definition[0...list_limit]
           end
         %>
         <% if definition.any? %>
           <dt><%= title %>:</dt>
-          <% if remaining.any? %>
-            <dd class="js-truncated-wrap">
-              <%= definition.to_sentence(last_word_connector: ', ').html_safe %><span class="js-truncated truncated">, <%= remaining.to_sentence.html_safe %></span><a href="#" class="js-truncated-toggle truncated-toggle" data-text="+ <%= remaining.length %> more" aria-expanded="false">+ <%= remaining.length %> more</a>
-            </dd>
-          <% else %>
-            <dd><%= definition.to_sentence.html_safe %></dd>
-          <% end %>
+          <dd>
+            <% if remaining.any? %>
+              <%= definition.to_sentence(last_word_connector: ', ').html_safe %><span id="metadata-<%= i %>" class="js-hidden">, <%= remaining.to_sentence.html_safe %></span>
+              <div class="toggle-wrap">
+                <a href="#" data-controls="metadata-<%= i %>" data-expanded="false" data-toggled-text="- show less">+ <%= remaining.length %> more</a>
+              </div>
+            <% else %>
+              <%= definition.to_sentence.html_safe %>
+            <% end %>
+          </dd>
         <% end %>
       <% end %>
     <% end %>
