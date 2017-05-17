@@ -36,6 +36,16 @@
     @include media(tablet) {
       width: 70%;
     }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:focus,
+    a:active,
+    a:hover {
+      text-decoration: underline;
+    }
   }
 
   &.direction-rtl dd {
@@ -44,6 +54,10 @@
 
   .toggle-wrap {
     display: none;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   .js-enabled & .toggle-wrap {
