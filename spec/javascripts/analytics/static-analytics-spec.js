@@ -526,7 +526,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
       var lastArguments = window.ga.calls.mostRecent().args;
       expect(lastArguments[0]).toEqual('send');
-      
+
       var trackingOptions = lastArguments[1];
       expect(trackingOptions.hitType).toEqual('event');
       expect(trackingOptions.eventCategory).toEqual('category');
@@ -538,12 +538,14 @@ describe("GOVUK.StaticAnalytics", function() {
     it('tracks them in universal', function() {
       analytics.trackShare('network');
 
-      expect(window.ga.calls.mostRecent().args).toEqual(['send', {
-        hitType: 'social',
-        socialNetwork: 'network',
-        socialAction: 'share',
-        socialTarget: jasmine.any(String)
-      }]);
+      var lastArguments = window.ga.calls.mostRecent().args;
+      expect(lastArguments[0]).toEqual('send');
+
+      var trackingOptions = lastArguments[1];
+      expect(trackingOptions.hitType).toEqual('social');
+      expect(trackingOptions.socialNetwork).toEqual('network');
+      expect(trackingOptions.socialAction).toEqual('share');
+      expect(trackingOptions.socialTarget).toEqual(jasmine.any(String));
     });
   });
 
