@@ -9,7 +9,9 @@
       <li class="previous-page">
         <a href="<%= previous_page[:url] %>" rel="prev" >
           <span class="pagination-part-title"><%= previous_page[:title] %></span>
-          <span class="pagination-label"><%= previous_page[:label] %></span>
+          <% if previous_page.key?(:label) %>
+            <span class="pagination-label"><%= previous_page[:label] %></span>
+          <% end %>
         </a>
       </li>
     <% end %>
@@ -17,7 +19,9 @@
       <li class="next-page">
         <a href="<%= next_page[:url] %>" rel="next">
           <span class="pagination-part-title"><%= next_page[:title] %></span>
-          <span class="pagination-label"><%= next_page[:label] %></span>
+          <% if next_page.key?(:label) %>
+            <span class="pagination-label"><%= next_page[:label] %></span>
+          <% end %>
         </a>
       </li>
     <% end %>

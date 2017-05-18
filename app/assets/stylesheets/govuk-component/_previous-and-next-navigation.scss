@@ -49,13 +49,13 @@
     }
 
     &.next-page a:before {
-      background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -102px -11px;
+      background: transparent image-url("govuk-component/arrow-right.svg") no-repeat 50% 50%;
       margin-right: -32px;
       float: right;
     }
 
     &.previous-page a:before {
-      background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -20px -11px;
+      background: transparent image-url("govuk-component/arrow-left.svg") no-repeat 50% 50%;
       margin-left: -32px;
       float: left;
     }
