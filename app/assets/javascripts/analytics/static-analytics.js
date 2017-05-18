@@ -9,7 +9,6 @@
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js
     this.analytics = new GOVUK.Analytics(config);
 
-    this.callMethodRequestedByPreviousPage();
     var trackingOptions = getOptionsFromCookie();
 
     // Track initial pageview
@@ -23,39 +22,6 @@
     GOVUK.analyticsPlugins.downloadLinkTracker({
       selector: 'a[href*="/government/uploads"], a[href*="assets.publishing.service.gov.uk"]'
     });
-  };
-
-  // TODO: Remove once we're using setOptionsForNextPageview instead
-  StaticAnalytics.prototype.callOnNextPage = function (method, params) {
-    params = params || [];
-
-    if (!$.isArray(params)) {
-      params = [params];
-    }
-
-    if (GOVUK.cookie && typeof this[method] === "function") {
-      params.unshift(method);
-      GOVUK.cookie('analytics_next_page_call', JSON.stringify(params));
-    }
-  };
-
-  // TODO: Remove once we're using setOptionsForNextPageview instead
-  StaticAnalytics.prototype.callMethodRequestedByPreviousPage = function () {
-    if (GOVUK.cookie && GOVUK.cookie('analytics_next_page_call') !== null) {
-      var params, method;
-
-      try {
-        params = JSON.parse(GOVUK.cookie('analytics_next_page_call'));
-        method = params.shift();
-      } catch (e) {
-      }
-
-      if (method && typeof this[method] === "function") {
-        this[method].apply(this, params);
-        // Delete cookie
-        GOVUK.cookie('analytics_next_page_call', null);
-      }
-    }
   };
 
   StaticAnalytics.load = function () {
