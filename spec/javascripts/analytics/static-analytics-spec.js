@@ -549,54 +549,6 @@ describe("GOVUK.StaticAnalytics", function() {
     });
   });
 
-  describe('when setting a method to call on a following page', function() {
-    beforeEach(function() {
-      spyOn(GOVUK, 'cookie');
-    });
-
-    describe('and the method exists', function() {
-      it('sets a cookie with the method name', function() {
-        analytics.callOnNextPage('trackPageview');
-        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview"]');
-      });
-
-      it('sets a cookie with the parameters to call', function() {
-        analytics.callOnNextPage('trackPageview', ['/path', 'Custom Title']);
-        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview","/path","Custom Title"]');
-      });
-
-      it('sets a cookie with the single parameter to call', function() {
-        analytics.callOnNextPage('trackPageview', '/path');
-        expect(GOVUK.cookie).toHaveBeenCalledWith('analytics_next_page_call', '["trackPageview","/path"]');
-      });
-    });
-
-    describe('and the method doesn’t exist', function() {
-      it('no cookie is set', function() {
-        analytics.callOnNextPage('trackPageviewToNowhere');
-        expect(GOVUK.cookie).not.toHaveBeenCalled();
-      });
-    });
-  });
-
-  describe('when there is a cookie indicating a method to call', function() {
-    beforeEach(function() {
-      spyOn(analytics, 'trackPageview');
-    });
-
-    it('calls the method', function() {
-      spyOn(GOVUK, 'cookie').and.returnValue('["trackPageview"]');
-      analytics.callMethodRequestedByPreviousPage();
-      expect(analytics.trackPageview).toHaveBeenCalledWith();
-    });
-
-    it('calls the method with given parameters', function() {
-      spyOn(GOVUK, 'cookie').and.returnValue('["trackPageview","/path","Title"]');
-      analytics.callMethodRequestedByPreviousPage();
-      expect(analytics.trackPageview).toHaveBeenCalledWith('/path', 'Title');
-    });
-  });
-
   describe('when setting an options object for the next pageview', function() {
     beforeEach(function() {
       analytics.setCookie('analytics_next_page_call', null);

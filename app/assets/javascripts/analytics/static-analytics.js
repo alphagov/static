@@ -9,7 +9,6 @@
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js
     this.analytics = new GOVUK.Analytics(config);
 
-    this.callMethodRequestedByPreviousPage();
     var trackingOptions = getOptionsFromCookie();
 
     // Track initial pageview
@@ -25,58 +24,8 @@
     });
   };
 
-  // TODO: Remove once we're using setOptionsForNextPageview instead
-  StaticAnalytics.prototype.callOnNextPage = function (method, params) {
-    params = params || [];
-
-    if (!$.isArray(params)) {
-      params = [params];
-    }
-
-    if (GOVUK.cookie && typeof this[method] === "function") {
-      params.unshift(method);
-      GOVUK.cookie('analytics_next_page_call', JSON.stringify(params));
-    }
-  };
-
-  // TODO: Remove once we're using setOptionsForNextPageview instead
-  StaticAnalytics.prototype.callMethodRequestedByPreviousPage = function () {
-    if (GOVUK.cookie && GOVUK.cookie('analytics_next_page_call') !== null) {
-      var params, method;
-
-      try {
-        params = JSON.parse(GOVUK.cookie('analytics_next_page_call'));
-        method = params.shift();
-      } catch (e) {
-      }
-
-      if (method && typeof this[method] === "function") {
-        this[method].apply(this, params);
-        // Delete cookie
-        GOVUK.cookie('analytics_next_page_call', null);
-      }
-    }
-  };
-
   StaticAnalytics.load = function () {
     GOVUK.Analytics.load();
-  };
-
-  // TODO: Remove this, and its corresponding call in collections
-  StaticAnalytics.prototype.setSectionDimension = function () {
-  };
-
-  // TODO: We're setting this at a session level, because it's called in frontend's live-search.js to update
-  // the search count. We should make this consistent with the other dimensions and pass the dimension
-  // directly into the pageview arguments.
-  StaticAnalytics.prototype.setResultCountDimension = function (count) {
-    this.setDimension(5, count);
-  };
-
-  // TODO: We're setting this at a session level, because it's used by search through callOnNextPage. We should
-  // make this consistent with the other dimensions and pass the dimension directly into the pageview arguments.
-  StaticAnalytics.prototype.setSearchPositionDimension = function (position) {
-    this.setDimension(21, position);
   };
 
   StaticAnalytics.prototype.trackPageview = function (path, title, options) {
@@ -89,7 +38,6 @@
     this.analytics.trackEvent(category, action, trackingOptions);
   };
 
-  // TODO: Check for usage external to this file, and remove
   StaticAnalytics.prototype.setDimension = function (index, value, name, scope) {
     if (typeof value === "undefined") {
       return;
