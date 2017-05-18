@@ -9,15 +9,27 @@
     list-style-type: decimal;
     margin-left: 0;
     padding: 0.75em 0 0.75em 2.2em;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      margin-top: -1px;
+      height: 18px;
+      width: 18px;
+      padding: 4px;
+      border-radius: 50%;
+      background-color: $black;
+      color: $white;
+      @include core-16();
+      font-weight: bold;
+      text-align: center;
+    }
 
     @for $i from 1 through 14 {
-      &:nth-child(#{$i}) {
-        background-image: image-url("icon-steps/icon-step-#{$i}.png");
-
-        @include device-pixel-ratio() {
-          background-image: image-url("icon-steps/icon-step-#{$i}-2x.png");
-          background-size: 24px 24px;
-        }
+      &:nth-child(#{$i}):before,
+      .steps-step#{$i}:before {
+        content: "#{$i}";
       }
     }
   }
