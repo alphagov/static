@@ -60,8 +60,69 @@ class MetadataTestCase < ComponentTestCase
     assert_definition('Related topics:', 'a, b, and c')
   end
 
-  test "rendering of long metadata into wrapping for Javascript interaction" do
-    limit = 5
+  test "long lists of metadata are truncated and the remainder hidden behind a toggle for from" do
+    links = [
+      "<a href=\"/government/organisations/ministry-of-defence\">Ministry of Defence</a>",
+      "<a href=\"/government/organisations/cabinet-office\">Cabinet Office</a>",
+      "<a href=\"/government/organisations/department-for-business-energy-and-industrial-strategy\">Department for Business, Energy &amp; Industrial Strategy</a>",
+      "<a href=\"/government/organisations/foreign-commonwealth-office\">Foreign &amp; Commonwealth Office</a>",
+      "<a href=\"/government/people/william-hague\">The Rt Hon William Hague</a>",
+      "<a href=\"/government/organisations/department-for-environment-food-rural-affairs\">Department for Environment, Food &amp; Rural Affairs</a>",
+      "<a href=\"/government/organisations/department-for-work-pensions\">Department for work and pensions</a>",
+      "<a href=\"/government/organisations/foreign-commonwealth-office\">Foreign and Commonwealth Office</a>",
+    ]
+    render_component(from: links)
+
+    assert_truncation(links.length, 5)
+  end
+
+  test "short lists of metadata are not truncated for from" do
+    links = [
+      "<a href=\"/government/organisations/ministry-of-defence\">Ministry of Defence</a>",
+      "<a href=\"/government/organisations/cabinet-office\">Cabinet Office</a>",
+      "<a href=\"/government/organisations/department-for-business-energy-and-industrial-strategy\">Department for Business, Energy &amp; Industrial Strategy</a>",
+      "<a href=\"/government/organisations/foreign-commonwealth-office\">Foreign &amp; Commonwealth Office</a>",
+      "<a href=\"/government/people/william-hague\">The Rt Hon William Hague</a>",
+      "<a href=\"/government/organisations/department-for-environment-food-rural-affairs\">Department for Environment, Food &amp; Rural Affairs</a>",
+      "<a href=\"/government/organisations/department-for-work-pensions\">Department for work and pensions</a>",
+    ]
+    render_component(from: links)
+
+    assert_no_truncation(links.length)
+  end
+
+  test "long lists of metadata are truncated and the remainder hidden behind a toggle for part of" do
+    links = [
+      "<a href=\"/government/topics/energy\">Energy</a>",
+      "<a href=\"/government/topics/environment\">Environment</a>",
+      "<a href=\"/government/topics/arts-and-culture\">Arts and Culture</a>",
+      "<a href=\"/government/topics/borders-and-immigration\">Borders and Immigration</a>",
+      "<a href=\"/government/topics/business-and-enterprise\">Business and Enterprise</a>",
+      "<a href=\"/government/topics/children-and-young-people\">Children and Young People</a>",
+      "<a href=\"/government/topics/climate-change\">Climate Change</a>",
+      "<a href=\"/government/topics/community-and-society\">Community and Society</a>",
+    ]
+    render_component(part_of: links)
+
+    assert_truncation(links.length, 5)
+  end
+
+  test "short lists of metadata are not truncated for part of" do
+    links = [
+      "<a href=\"/government/topics/energy\">Energy</a>",
+      "<a href=\"/government/topics/environment\">Environment</a>",
+      "<a href=\"/government/topics/arts-and-culture\">Arts and Culture</a>",
+      "<a href=\"/government/topics/borders-and-immigration\">Borders and Immigration</a>",
+      "<a href=\"/government/topics/business-and-enterprise\">Business and Enterprise</a>",
+      "<a href=\"/government/topics/children-and-young-people\">Children and Young People</a>",
+      "<a href=\"/government/topics/climate-change\">Climate Change</a>",
+    ]
+    render_component(from: links)
+
+    assert_no_truncation(links.length)
+  end
+
+  test "long lists of metadata are truncated and the remainder hidden behind a toggle for other" do
     links = [
       "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>",
       "<a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>",
@@ -83,12 +144,11 @@ class MetadataTestCase < ComponentTestCase
     render_component(other: {
         "Industry": links
     })
-    assert_select "span", count: 1
-    assert_select "dd > a", count: limit
-    assert_select "dd span a", count: links.length - limit
+
+    assert_truncation(links.length, 5)
   end
 
-  test "rendering of metadata not too long to trigger wrapping for Javascript interaction" do
+  test "short lists of metadata are not truncated for other" do
     links = [
       "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>",
       "<a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>",
@@ -100,7 +160,18 @@ class MetadataTestCase < ComponentTestCase
     render_component(other: {
         "Industry": links
     })
-    assert_select "dd > a", count: links.length
+
+    assert_no_truncation(links.length)
+  end
+
+  def assert_truncation(length, limit)
+    assert_select "span", count: 1
+    assert_select "dd > a", count: limit
+    assert_select "dd span a", count: length - limit
+  end
+
+  def assert_no_truncation(length)
+    assert_select "dd > a", count: length
     assert_select "span", count: 0
   end
 end
