@@ -9,7 +9,7 @@
 <% if remaining.any? %>
   <%= items.to_sentence(last_word_connector: ', ').html_safe %><span id="toggle-<%= toggle_id %>" class="js-hidden">, <%= remaining.to_sentence.html_safe %></span>
   <div class="toggle-wrap">
-    <a href="#" data-controls="toggle-<%= toggle_id %>" data-expanded="false" data-toggled-text="- show fewer">+ <%= remaining.length %> more</a>
+    <a href="#" data-controls="toggle-<%= toggle_id %>" data-expanded="false" data-toggled-text="- <%= t("govuk_component.metadata.toggle_less", default: "show fewer") %>">+ <%= remaining.length %> <%= t("govuk_component.metadata.toggle_more", default: "more") %></a>
   </div>
 <% else %>
   <%= items.to_sentence.html_safe %>
