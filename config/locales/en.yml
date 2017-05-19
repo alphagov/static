@@ -25,7 +25,7 @@ en:
       published: "Published"
       last_updated: "Last updated"
       see_all_updates: "see all updates"
-      toggle_less: "show fewer"
+      toggle_less: "Show fewer"
       toggle_more: "more"
     previous_and_next_navigation:
       pagination: "Pagination"
