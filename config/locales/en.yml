@@ -26,7 +26,7 @@ en:
       last_updated: "Last updated"
       see_all_updates: "see all updates"
       toggle_less: "Show fewer"
-      toggle_more: "more"
+      toggle_more: "+ %{number} more"
     previous_and_next_navigation:
       pagination: "Pagination"
     related_items:
