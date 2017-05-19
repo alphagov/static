@@ -17,9 +17,6 @@ fixtures:
     from:
     - <a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>
     - <a href='/government/organisations/cabinet-office'>Cabinet Office</a>
-    from:
-    - <a href='/government/organisations/ministry-of-defence'>Ministry of Defence</a>
-    - <a href='/government/organisations/cabinet-office'>Cabinet Office</a>
     - <a href="/government/organisations/department-for-business-energy-and-industrial-strategy">Department for Business, Energy &amp; Industrial Strategy</a>
     - <a href="/government/organisations/foreign-commonwealth-office">Foreign &amp; Commonwealth Office</a>
     - <a href="/government/people/william-hague">The Rt Hon William Hague</a>
