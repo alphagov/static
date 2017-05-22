@@ -31,7 +31,7 @@ describe('A toggle module', function () {
     beforeEach(function () {
       element = $('\
         <div>\
-          <a href="#" class="my-toggle" data-expanded="false" data-controls="target">Toggle</a>\
+          <a href="#" class="my-toggle" data-expanded="false" data-controls="target" data-toggled-text="Show fewer">Toggle</a>\
           <div id="target" class="js-hidden">Target</div>\
         </div>')
 
@@ -50,6 +50,14 @@ describe('A toggle module', function () {
 
       element.find('.my-toggle').trigger('click')
       expect(element.find('.my-toggle').attr('aria-expanded')).toBe('false')
+    })
+
+    it('updates the text shown in the toggle link when expanded if such text is supplied', function () {
+      expect(element.find('.my-toggle').data('toggled-text')).toBe('Toggle')
+      expect(element.find('.my-toggle').text()).toBe('Show fewer')
+      element.find('.my-toggle').trigger('click')
+      expect(element.find('.my-toggle').data('toggled-text')).toBe('Show fewer')
+      expect(element.find('.my-toggle').text()).toBe('Toggle')
     })
   })
 

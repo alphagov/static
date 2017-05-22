@@ -10,15 +10,19 @@
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
 %>
-<div class="govuk-metadata<%= direction_class %>">
+<div class="govuk-metadata<%= direction_class %>" data-module="toggle">
   <dl>
     <% if from.any? %>
       <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
-      <dd><%= from.to_sentence.html_safe %></dd>
+      <dd>
+        <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: from, toggle_id: "from" } %>
+      </dd>
     <% end %>
     <% if part_of.any? %>
       <dt><%= t("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
-      <dd><%= part_of.to_sentence.html_safe %></dd>
+      <dd>
+        <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: part_of, toggle_id: "part-of" } %>
+      </dd>
     <% end %>
     <% if local_assigns.include?(:history) %>
       <dt><%= t("govuk_component.metadata.history", default: "History") %>:</dt>
@@ -42,14 +46,16 @@
       </dd>
     <% end %>
     <% if other.present? %>
-      <% other.each do |title, definition| %>
+      <% other.each_with_index do |(title, definition), index| %>
         <%
           definition ||= []
           definition = Array(definition)
         %>
         <% if definition.any? %>
           <dt><%= title %>:</dt>
-          <dd><%= definition.to_sentence.html_safe %></dd>
+          <dd>
+            <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: definition, toggle_id: index } %>
+          </dd>
         <% end %>
       <% end %>
     <% end %>

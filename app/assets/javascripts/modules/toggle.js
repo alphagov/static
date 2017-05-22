@@ -44,6 +44,12 @@
           $targets.removeClass('js-hidden')
         }
 
+        var toggledText = $toggle.data('toggled-text')
+        if (typeof toggledText === 'string') {
+          $toggle.data('toggled-text', $toggle.text())
+          $toggle.text(toggledText)
+        }
+
         event.preventDefault()
       }
 
