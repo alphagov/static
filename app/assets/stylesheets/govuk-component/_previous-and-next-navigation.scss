@@ -36,37 +36,23 @@
         margin-bottom: 0.1em;
         display: block;
       }
-
     }
 
-    &.next-page a:before,
-    &.previous-page a:before {
-      margin-top: -4px;
-      display: block;
-      width: 30px;
-      height: 38px;
-      content: " ";
-    }
+  .previous-page {
+    float: left;
+    text-align: left;
+  }
 
-    &.next-page a:before {
-      background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -102px -11px;
-      margin-right: -32px;
-      float: right;
-    }
+  .next-page {
+    float: right;
+    text-align: right;
+  }
 
-    &.previous-page a:before {
-      background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -20px -11px;
-      margin-left: -32px;
-      float: left;
-    }
-
-    &.previous-page {
-      float: left;
-      text-align: left;
-    }
-
-    &.previous-page a {
-      padding: 0.75em 0 0.75em 3em;
+  @include media-down(mobile) {
+    .previous-page,
+    .next-page {
+      float: none;
+      width: 100%;
     }
 
     &.next-page {
