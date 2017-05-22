@@ -148,6 +148,34 @@ class MetadataTestCase < ComponentTestCase
     assert_truncation(links.length, 5)
   end
 
+  test "long lists of metadata are truncated and the remainder hidden behind a toggle for other in a foreign language" do
+    links = [
+      "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=business-and-finance\">Business and finance</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=construction\">Construction</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=education\">Education</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=health\">Health</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=hospitality-and-catering\">Hospitality and catering</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=information-technology-digital-and-creative\">IT, digital and creative</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=manufacturing\">Manufacturing</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=mining\">Mining</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=real-estate-and-property\">Real estate and property</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=science-and-technology\">Science and technology</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=service-industries\">Service industries</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=transport-and-distribution\">Transport and distribution</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=travel-and-leisure\">Travel and leisure</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=utilities-providers\">Utilities providers</a>",
+      "<a href=\"/business-finance-support?industries%5B%5D=wholesale-and-retail\">Wholesale and retail</a>"
+    ]
+    I18n.with_locale('zh') do
+      render_component(other: {
+          "Industry": links
+      })
+    end
+
+    assert_truncation(links.length, 5)
+  end
+
   test "short lists of metadata are not truncated for other" do
     links = [
       "<a href=\"/business-finance-support?industries%5B%5D=agriculture-and-food\">Agriculture and food</a>",
@@ -168,6 +196,7 @@ class MetadataTestCase < ComponentTestCase
     assert_select "span", count: 1
     assert_select "dd > a", count: limit
     assert_select "dd span a", count: length - limit
+    assert_select "a[href=\"#\"]", text: "+ #{length - limit} more"
   end
 
   def assert_no_truncation(length)
