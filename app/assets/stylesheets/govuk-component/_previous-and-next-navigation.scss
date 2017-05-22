@@ -73,6 +73,7 @@
     display: inline-block;
     margin-top: 0.1em;
     text-decoration: underline;
+
     &:empty {
       display: none;
     }
