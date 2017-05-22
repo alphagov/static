@@ -38,3 +38,12 @@ fixtures:
     next_page:
       url: next-page
       title: Next page
+  become_a_lorry_bus_driver_example:
+    previous_page:
+      url: previous-page
+      title: Previous
+      label: Applying for a provisional lorry or bus licence
+    next_page:
+      url: next-page
+      title: Next
+      label: 'Driver CPC part 1 test: theory'
