@@ -2,10 +2,29 @@
   display: none;
 }
 
-.report-a-problem-container{
+.report-a-problem-container,
+.report-a-problem-toggle-wrapper {
   @extend %site-width-container;
   clear: both;
 
+  // TODO: Refactor to avoid having to extend site-width-container
+  //       The pattern should be flexible in its placement
+  // #wrapper extends `site-width-container` too, which leads to
+  // double margins on mobile viewports, reset margins when nested
+  // within #wrapper
+  #wrapper & {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // The homepage removes margins from wrapper
+  // Be specific to override the above margin resets
+  .homepage #wrapper & {
+    @extend %site-width-container;
+  }
+}
+
+.report-a-problem-container {
   .report-a-problem-inner {
     margin-bottom: 60px;
     .report-a-problem-content {
@@ -83,9 +102,4 @@
   @include media-down(mobile) {
     margin-top:2em;
   }
-}
-
-.report-a-problem-toggle-wrapper {
-  @extend %site-width-container;
-  clear:both;
 }
