@@ -1,7 +1,6 @@
 /* visited link colour overrides */
 #content.multi-page li a:visited,
-#content.multi-page .pagination li a:visited,
-#wrapper.programme .article-container nav a:visited {
+#content.multi-page .pagination li a:visited {
   color: $link-visited-colour;
 }
 
