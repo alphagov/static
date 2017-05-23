@@ -67,7 +67,7 @@
 %>
 <div class="govuk-metadata<%= direction_class %>" data-module="toggle">
   <dl>
-    <% metadata_items.each_with_index do |(title, items, extratext), index| %>
+    <% metadata_items.each_with_index do |(title, items, see_all_updates_text), index| %>
       <dt>
         <%= title %>:
       </dt>
@@ -93,14 +93,14 @@
           <span id="toggle-<%= index %>" class="js-hidden"><%= remaining.to_sentence.html_safe %></span>
         <% else %>
           <%= items.to_sentence.html_safe %>
-          <% unless extratext.nil? %>
+          <% unless see_all_updates_text.nil? %>
             ,
             <a href="#history"
               data-module="track-click"
               data-track-category="content-history"
               data-track-action="see-all-updates-link-clicked"
               data-track-label="history">
-              <%= extratext %>
+              <%= see_all_updates_text %>
             </a>
           <% end %>
         <% end %>
