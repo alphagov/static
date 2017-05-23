@@ -132,31 +132,6 @@ header.page-header div {
   }
 }
 
-.print-link {
-  text-align: left;
-  margin: 2em 0 0 0;
-
-  a, a:link, a:visited {
-    background: image-url("icon-print.png") no-repeat 0% 50%;
-    padding: 0.5em 0 0.5em 28px;
-
-    @include device-pixel-ratio() {
-      background-image: image-url("icon-print-2x.png");
-      background-size: 16px 18px;
-    }
-
-    zoom: 1;
-  }
-
-  @include media-down(mobile) {
-    width:60%;
-
-    a, a:link, a:visited {
-      padding-bottom:4px;
-    }
-  }
-}
-
 /* Error messages */
 .error-notification {
   border: 1px solid #ffc946;
