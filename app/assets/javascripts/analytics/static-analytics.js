@@ -143,7 +143,8 @@
       'taxon-slug': {dimension: 56, defaultValue: 'other'},
       'taxon-id': {dimension: 57, defaultValue: 'other'},
       'taxon-slugs': {dimension: 58, defaultValue: 'other'},
-      'taxon-ids': {dimension: 59, defaultValue: 'other'}
+      'taxon-ids': {dimension: 59, defaultValue: 'other'},
+      'content-has-history': {dimension: 39, defaultValue: 'false'}
     };
 
     var $metas = $('meta[name^="govuk:"]');

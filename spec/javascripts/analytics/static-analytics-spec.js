@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const numberOfDimensionsWithDefaultValues = 14;
+    const numberOfDimensionsWithDefaultValues = 15;
 
     var universalSetupArguments;
     var pageViewObject;

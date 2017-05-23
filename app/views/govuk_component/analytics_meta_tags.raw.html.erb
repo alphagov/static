@@ -77,6 +77,15 @@
   meta_tags["govuk:taxon-ids"] = taxon_ids.join(',') unless taxon_ids.empty?
   meta_tags["govuk:taxon-slug"] = taxon_slugs_without_theme.first unless taxon_slugs_without_theme.empty?
   meta_tags["govuk:taxon-slugs"] = taxon_slugs_without_theme.join(',') unless taxon_slugs_without_theme.empty?
+
+  def has_content_history(content_item)
+    details = content_item.fetch(:details, {})
+
+    (content_item[:public_updated_at] && details[:first_public_at] && content_item[:public_updated_at] != details[:first_public_at]) ||
+      (details[:change_history] && details[:change_history].size > 1)
+  end
+
+  meta_tags["govuk:content-has-history"] = "true" if has_content_history(content_item_hash)
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">
