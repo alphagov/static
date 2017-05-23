@@ -80,33 +80,6 @@ header.page-header div {
   }
 }
 
-/* Business support format */
-.business_support article.tab-pane {
-  width: auto;
-}
-.business_support .support-info {
-  background: #E1E8E8;
-  border-left: 1px solid #BBB;
-}
-.business_support section.support-info:last-child {
-  border-bottom: 1px dotted #BBB;
-}
-.business_support .support-info h2 {
-  @include core-16($line-height: 1.25);
-  margin: 0;
-  text-align: left;
-  color: black;
-  background-color: #E1E8E8;
-  border-top: solid 1px #BBB;
-  float: left;
-  width: 30%;
-  padding: 0.25em;
-}
-.business_support .long-description p,
-.business_support .long-description li {
-  @include core-16;
-}
-
 /* Licence Application */
 
 .relevant-authority {
