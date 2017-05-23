@@ -13,7 +13,7 @@ gem 'sass-rails', "5.0.6"
 gem 'airbrake', '~> 4.3.1'
 
 gem 'nokogiri', "~> 1.6.6.4"
-gem 'sprockets-rails', "2.3.3" #FIXME: This is temporary, will allow to upgrade rails to 4.2.5.1 to address security fixes without breaking tests http://weblog.rubyonrails.org/2016/1/25/Rails-5-0-0-beta1-1-4-2-5-1-4-1-14-1-3-2-22-1-and-rails-html-sanitizer-1-0-3-have-been-released/
+gem 'sprockets-rails', "~> 3.2.0"
 gem 'redis', "~> 3.3.3"
 
 group :development do
@@ -46,6 +46,6 @@ gem 'govuk_frontend_toolkit', '~> 6.0.3'
 if ENV['GOVUK_TEMPLATE_DEV']
   gem 'govuk_template', path: "../govuk_template"
 else
-  gem 'govuk_template', '0.20.0'
+  gem 'govuk_template', '0.21.0'
 end
 gem 'gds-api-adapters', '41.2.0'
