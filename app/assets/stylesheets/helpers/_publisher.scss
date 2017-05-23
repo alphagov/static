@@ -23,14 +23,6 @@
     @include ie(6) {
       zoom: 1;
     }
-
-    @include media-down(mobile) {
-      width:auto;
-      overflow:hidden;
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-left: 0;
-    }
   }
 }
 
@@ -55,36 +47,6 @@
 .licence .content-block .inner,
 .licence article .inner {
   padding-top: 0;
-}
-
-aside .show-all-parts {
-  @include core-19($line-height: (45/19), $line-height-640: (45/13));
-  border: solid 1px $border-colour;
-  border-width: 1px 0;
-
-  padding: 0 16px;
-  display: none;
-
-  @include media-down(mobile) {
-    display: block;
-    background: transparent image-url("accordion-arrow.png") 100% 6px no-repeat;
-  }
-
-  @include device-pixel-ratio() {
-    background-image: image-url("accordion-arrow-2x.png");
-    background-size: 45px 90px;
-  }
-
-  &,
-  &:hover,
-  &:focus {
-    text-decoration:none;
-  }
-
-  &.show-all-parts-open {
-    background-position: 100% -40px;
-    border-bottom: none;
-  }
 }
 
 aside .page-navigation {
@@ -238,26 +200,6 @@ aside .page-navigation {
 
     @include media-down(mobile) {
       margin-left: 2.25em;
-    }
-  }
-}
-
-aside .page-navigation-open {
-  border-bottom: solid 1px $border-colour;
-
-  ol {
-    position: static;
-    left: auto;
-  }
-}
-
-aside .page-navigation-closed {
-  border-bottom: none;
-
-  @include media-down(mobile) {
-    ol {
-      position: absolute;
-      left: -9999em;
     }
   }
 }
