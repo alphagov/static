@@ -132,23 +132,6 @@ header.page-header div {
   ============================== Stuff (mainly) used in publications =============================
 */
 
-#wrapper.travel-advice p img {
-  display: block;
-  margin: 0 -1em;
-  padding-left: 1em;
-
-  @include media-down(tablet) {
-    max-width: 100%;
-  }
-}
-
-.article-container {
-  /* Make webkit browsers contain the margin-bottom of report-a-problem */
-  .travel-advice & {
-    padding-bottom: 0.01em;
-  }
-}
-
 /* Meta-data */
 .meta-data {
   @include core-16;
