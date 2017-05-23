@@ -1,0 +1,27 @@
+// PRINT STYLESHEET COMPILER
+
+// STYLEGUIDE
+// Mixins to be shared across gov.uk sites. Anything set in these
+// files can be used in the view files.
+
+// is-print is used by govuk_frontend_toolkit to alter the printed font-stack
+$is-print: true;
+
+// govuk_frontend_toolkit includes
+@import "colours";
+@import "measurements";
+@import "typography";
+
+// OUTPUT
+// The following files and inline CSS will form the output of print.css
+@import "helpers/core-print";
+@import "helpers/print-base";
+
+section > header h1:after {
+  content: "";
+}
+
+#how-to-claim {
+  border: 1pt solid rgb(225,225,225);
+  padding: 2pt 4pt;
+}

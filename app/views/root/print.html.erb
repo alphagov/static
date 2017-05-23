@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex, nofollow">
+
+  <%= stylesheet_link_tag 'guides-print', media: 'all' %>
+  <script type="text/javascript">
+    window.onload = function() { window.print(); }
+  </script>
+</head>
+<body>
+  <header role="banner" class="group" id="global-header">
+    <div id="logo">
+      <img src="<%= asset_path 'gov.uk_logotype_crown_invert.png' %>" alt=""> GOV.UK
+    </div>
+  </header>
+
+  <div id="wrapper">
+    <section id="content" role="main" class="group">
+    </section>
+  </div>
+</body>
+</html>
