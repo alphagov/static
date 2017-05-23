@@ -1,9 +1,8 @@
-(function() {
-  "use strict";
+//= require_self
 
-  var root = this,
-      $ = root.jQuery;
-  if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
+(function($) {
+  "use strict";
+  window.GOVUK = window.GOVUK || {};
 
   var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
@@ -287,6 +286,12 @@
     currentPath: function() { return window.location.pathname; }
   };
 
-  root.GOVUK.userSurveys = userSurveys;
-}).call(this);
+  GOVUK.userSurveys = userSurveys;
+
+  $(document).ready(function() {
+    if (GOVUK.userSurveys) {
+      GOVUK.userSurveys.init();
+    }
+  });
+})(jQuery);
 
