@@ -19,7 +19,7 @@ describe "Emergency Banner::Display" do
     should "return enabled is true when all content for the emergency banner is set in Redis" do
       Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
         heading: "Emergency!",
-        campaign_class: "black",
+        campaign_class: "notable-death",
       )
 
       assert @banner.enabled?
@@ -89,12 +89,12 @@ describe "Emergency Banner::Display" do
       assert_equal "An Emergency", @banner.heading
     end
 
-    should "return the campaign class as green" do
+    should "return the campaign class as local-emergency" do
       Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
-        campaign_class: "green"
+        campaign_class: "local-emergency"
       )
 
-      assert_equal "green", @banner.campaign_class
+      assert_equal "local-emergency", @banner.campaign_class
     end
 
     should "return the short description if it is present" do
