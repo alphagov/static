@@ -353,6 +353,22 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_select "meta[name='govuk:taxon-ids']", 0
   end
 
+  test "renders the has-content-history tag as true when the content has history" do
+    content_item = {
+      public_updated_at: Time.parse("2017-01-01"),
+      details: {
+        first_public_at: Time.parse("2016-01-01"),
+        change_history: [
+          { note: "test", public_timestamp: Time.parse("2016-01-01") }
+        ]
+      }
+    }
+
+    render_component(content_item: example_document_for('case_study', 'case_study').merge(content_item))
+
+    assert_meta_tag("govuk:content-has-history", "true")
+  end
+
   def assert_political_status_for(political, current, expected_political_status)
     render_component(content_item: { details: { political: political, government: { current: current, slug: 'government' } } })
     assert_meta_tag('govuk:political-status', expected_political_status)
