@@ -2,6 +2,8 @@
   display: block;
   margin-top: $gutter;
   margin-bottom: $gutter;
+  margin-left: -$gutter-half;
+  margin-right: -$gutter-half;
 
   ul {
     margin: 0;
@@ -15,15 +17,15 @@
     text-align: right;
     margin: 0;
     padding: 0;
-    width: 49%;
+    width: 50%;
 
     a {
       display: block;
-      color: $link-colour;
+      padding: $gutter-half;
       text-decoration: none;
 
-      @include ie-lte(7) {
-        height: 4.5em;
+      &:visited {
+        color: $link-colour;
       }
 
       &:hover,
@@ -33,62 +35,47 @@
 
       .pagination-part-title {
         @include core-27($line-height: (33.75 / 27));
-        margin-bottom: 0.1em;
         display: block;
-      }
-
-    }
-
-    &.next-page a:before,
-    &.previous-page a:before {
-      margin-top: -4px;
-      display: block;
-      width: 30px;
-      height: 38px;
-      content: " ";
-    }
-
-    &.next-page a:before {
-      background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -102px -11px;
-      margin-right: -32px;
-      float: right;
-    }
-
-    &.previous-page a:before {
-      background: transparent image-url("govuk-component/arrow-sprite.png") no-repeat -20px -11px;
-      margin-left: -32px;
-      float: left;
-    }
-
-    &.previous-page {
-      float: left;
-      text-align: left;
-    }
-
-    &.previous-page a {
-      padding: 0.75em 0 0.75em 3em;
-    }
-
-    &.next-page {
-      float: right;
-      text-align: right;
-    }
-
-    &.next-page a {
-      padding: 0.75em 3em 0.75em 0;
-    }
-
-    @include media-down(mobile) {
-      &.previous-page,
-      &.next-page {
-        float: none;
-        width: 100%;
-      }
-
-      &.next-page a {
-        text-align: right;
       }
     }
   }
 
+  .previous-page {
+    float: left;
+    text-align: left;
+  }
+
+  .next-page {
+    float: right;
+    text-align: right;
+  }
+
+  @include media-down(mobile) {
+    .previous-page,
+    .next-page {
+      float: none;
+      width: 100%;
+    }
+
+    .next-page a {
+      text-align: right;
+    }
+  }
+
+  .pagination-icon {
+    display: inline-block;
+    margin-bottom: 1px;
+    height: .482em;
+    width: .63em;
+  }
+
+  .pagination-label {
+    display: inline-block;
+    margin-top: 0.1em;
+    text-decoration: underline;
+
+    &:empty {
+      display: none;
+    }
+  }
 }
