@@ -265,7 +265,7 @@
 
     otherNotificationVisible: function() {
       var notificationIds = [
-        '#banner-notification:visible',
+        '.govuk-emergency-banner:visible',
         '#global-cookie-message:visible',
         '#global-browser-prompt:visible',
         '#taxonomy-survey:visible'
@@ -294,4 +294,3 @@
     }
   });
 })(jQuery);
-

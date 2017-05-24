@@ -1,0 +1,66 @@
+.govuk-emergency-banner {
+  background-color: $panel-colour;
+  color: $white;
+  border-top: 2px solid $white;
+  padding: $gutter-half 0;
+
+  @include media(tablet) {
+    padding: $gutter 0;
+  }
+
+  div {
+    @extend %site-width-container;
+  }
+
+  h1 {
+    @include bold-24;
+    margin-bottom: 0;
+
+    .homepage & {
+      @include bold-48;
+      @include media(tablet) {
+        margin-bottom: $gutter-two-thirds;
+      }
+    }
+  }
+
+  p {
+    @include core-19;
+    color: $white;
+    margin-top: 0;
+    margin-bottom: $gutter-two-thirds;
+
+    @include media(tablet) {
+      width: percentage(2/3);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .homepage & {
+      margin: $gutter-two-thirds 0;
+    }
+  }
+
+  h1, p, a {
+    color: inherit;
+  }
+
+  .homepage & {
+    border: 5px solid $white;
+    border-width: 5px 0;
+  }
+
+  &.notable-death, &.black {
+    background-color: $black;
+  }
+
+  &.national-emergency, &.red {
+    background-color: $red;
+  }
+
+  &.local-emergency, &.green {
+    background-color: $turquoise;
+  }
+}

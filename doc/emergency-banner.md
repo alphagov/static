@@ -12,7 +12,7 @@ bundle exec rake emergency_banner:deploy['{campaign_class}','{heading}','{short_
 
 Where
 
-* `campaign_class` is the colour of the banner. At the moment this is should be one of black, red or green
+* `campaign_class` is the type of banner. At the moment this is should be one of "notable-death", "national-emergency" or "local-emergency"
 * `heading` is the \<H1\> title
 * `short_description` is the text that appears under the title
 * `link` is the more information link

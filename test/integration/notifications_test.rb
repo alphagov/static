@@ -11,13 +11,13 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     should "not render a banner if one does not exist" do
       EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(false)
       visit "/templates/wrapper.html.erb"
-      refute page.has_selector? "#campaign"
+      refute page.has_selector? ".govuk-emergency-banner"
     end
 
     should "render a banner if one does exist" do
       EmergencyBanner::Display.any_instance.stubs(:enabled?).returns(true)
       visit "/templates/wrapper.html.erb"
-      assert page.has_selector? "#campaign"
+      assert page.has_selector? ".govuk-emergency-banner"
     end
 
     should "render a banner with a heading and campaign colour" do
@@ -26,9 +26,9 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/wrapper.html.erb"
 
-        assert page.has_selector? "#campaign.black"
-        assert_match 'Alas poor Yorick', page.body
-      end
+      assert page.has_selector? ".govuk-emergency-banner.black"
+      assert_match 'Alas poor Yorick', page.body
+    end
 
     should "render the more information link" do
       EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
