@@ -1,7 +1,6 @@
 <% content_for :homepage_url, Plek.new.website_root %>
 <% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
 <% @emergency_banner = emergency_banner_notification %>
-<% @is_home_page = local_assigns[:is_home_page] %>
 
 <% if ENV["DRAFT_ENVIRONMENT"].present? %>
   <% content_for :body_classes, "draft" %>
@@ -26,11 +25,7 @@
 <% content_for :after_header do %>
   <div id="user-satisfaction-survey-container"></div>
   <% if @emergency_banner %>
-    <% if @is_home_page %>
-      <%= render "notifications/homepage_emergency_banner", banner: @emergency_banner %>
-    <% else %>
-      <%= render "notifications/emergency_banner", banner: @emergency_banner %>
-    <% end %>
+    <%= render "notifications/emergency_banner", banner: @emergency_banner %>
   <% end %>
 <% end %>
 
