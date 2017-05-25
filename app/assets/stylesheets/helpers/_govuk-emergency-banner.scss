@@ -64,15 +64,15 @@
     margin-bottom: 5px;
   }
 
-  &.notable-death, &.black {
+  &.notable-death {
     background-color: $black;
   }
 
-  &.national-emergency, &.red {
+  &.national-emergency {
     background-color: $red;
   }
 
-  &.local-emergency, &.green {
+  &.local-emergency {
     background-color: $turquoise;
   }
 }
