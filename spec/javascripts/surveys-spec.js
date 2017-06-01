@@ -8,7 +8,7 @@ describe('Surveys', function () {
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
     template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-              '  <a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a>' +
+              '  <a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a>' +
               '  <a href="javascript:void()" id="take-survey" target="_blank"></a>' +
               '</section>',
     surveyType: 'url'
@@ -226,7 +226,7 @@ describe('Surveys', function () {
       })
 
       it("sets a cookie when clicking 'no thanks'", function () {
-        $('#survey-no-thanks').trigger('click')
+        $('#email-survey-cancel').trigger('click')
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey))).toBe('true')
       })
 
@@ -237,7 +237,7 @@ describe('Surveys', function () {
       })
 
       it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
-        $('#survey-no-thanks').trigger('click')
+        $('#email-survey-cancel').trigger('click')
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
       })
 
@@ -249,7 +249,7 @@ describe('Surveys', function () {
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#survey-no-thanks').trigger('click')
+        $('#email-survey-cancel').trigger('click')
         expect(surveys.trackEvent).toHaveBeenCalledWith(defaultSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
     })
@@ -265,18 +265,18 @@ describe('Surveys', function () {
       })
 
       it("sets a cookie when clicking 'no thanks'", function () {
-        $('#survey-no-thanks').trigger('click')
+        $('#email-survey-cancel').trigger('click')
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
       })
 
       it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
-        $('#survey-no-thanks').trigger('click')
+        $('#email-survey-cancel').trigger('click')
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
       })
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#survey-no-thanks').trigger('click')
+        $('#email-survey-cancel').trigger('click')
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
 

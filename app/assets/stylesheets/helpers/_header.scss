@@ -246,43 +246,43 @@
     clear: both;
     padding: 0 15px;
 
+    .inner-wrapper {
+      max-width: 30em;
+    }
+
     h1 {
       @include bold-19;
 
       margin-left: 20px;
     }
 
+    a {
+      &:link,
+      &:active,
+      &:visited {
+        color: #fff;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+
+      &#take-survey {
+        @include core-19;
+
+        padding-right: 5px;
+      }
+    }
+
+    .close-button {
+      float: right;
+      margin: 0px 20px 0 0;
+      @include core-14;
+    }
+
     p {
       @include core-14;
-
       margin: 0 0 0 20px;
-
-      a {
-        &:link,
-        &:active,
-        &:visited {
-          color: #fff;
-        }
-
-        &:hover {
-          color: #fff;
-        }
-
-        &#take-survey {
-          @include core-19;
-
-          padding-right: 5px;
-        }
-      }
-
-      &.right {
-        float: right;
-        margin: -20px 20px 0 0;
-
-        @include ie-lte(7) {
-          margin-top: -25px;
-        }
-      }
     }
 
     input {

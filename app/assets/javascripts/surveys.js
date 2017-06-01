@@ -3,39 +3,42 @@
 (function ($) {
   'use strict'
   window.GOVUK = window.GOVUK || {}
+  var cancelButton = '<a href="#email-survey-cancel" aria-labelledby="feedback-heading email-survey-cancel" id="email-survey-cancel" role="button" class="close-button">Close</a>'
 
   var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
-                            '    <h1>Tell us what you think of GOV.UK</h1>' +
-                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
+                                 cancelButton +
+                            '    <h1 id="feedback-heading">Tell us what you think of GOV.UK</h1>' +
                             '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
                             '  </div>' +
                             '</section>',
     EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-                            '  <div id="email-survey-pre" class="wrapper">' +
-                            '    <h1>Tell us what you think of GOV.UK</h1>' +
-                            '    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>' +
-                            '    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">Your feedback will help us improve this website</a></p>' +
-                            '  </div>' +
-                            '  <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="wrapper js-hidden" aria-hidden="true">' +
-                            '    <div id="feedback-prototype-form">' +
-                            '      <h1>We\'d like to hear from you</h1>' +
-                            '      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>' +
-                            '      <label for="email">Tell us your email address and we\'ll send you a link to a quick feedback form.</label>' +
-                            '      <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
-                            '      <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
-                            '      <input name="email_survey_signup[email_address]" type="text" placeholder="Your email address">' +
-                            '      <div class="actions">' +
-                            '        <button type="submit">Send</button>' +
-                            '        <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
+                            '  <div class="wrapper">' +
+                                 cancelButton +
+                            '    <div class="inner-wrapper">' +
+                            '      <h1 id="feedback-heading">We\'d like to hear from you</h1>' +
+                            '      <div id="email-survey-pre">' +
+                            '        <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">Your feedback will help us improve this website</a></p>' +
                             '      </div>' +
+                            '      <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">' +
+                            '        <div id="feedback-prototype-form">' +
+                            '          <label for="survey-email-address">Tell us your email address and we\'ll send you a link to a quick feedback form.</label>' +
+                            '          <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
+                            '          <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
+                            '          <input name="email_survey_signup[email_address]" id="survey-email-address" type="text" placeholder="Your email address">' +
+                            '          <div class="actions">' +
+                            '            <button type="submit">Send</button>' +
+                            '            <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
+                            '          </div>' +
+                            '        </div>' +
+                            '      </form>' +
+                            '      <p id="email-survey-post-success" class="js-hidden" aria-hidden="true" tabindex="-1">' +
+                            '        Thanks, we\'ve sent you an email with a link to the survey.' +
+                            '      </p>' +
+                            '      <p id="email-survey-post-failure" class="js-hidden" aria-hidden="true" tabindex="-1">' +
+                            '        Sorry, we’re unable to send you an email right now.  Please try again later.' +
+                            '      </p>' +
                             '    </div>' +
-                            '  </form>' +
-                            '  <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">' +
-                            '    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>' +
-                            '  </div>' +
-                            '  <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">' +
-                            '    <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>' +
                             '  </div>' +
                             '</section>'
 
@@ -48,6 +51,13 @@
       surveyType: 'url'
     },
     smallSurveys: [
+      {
+        url: 'https://www.smartsurvey.co.uk/s/gov-uk',
+        identifier: 'user_satisfaction_survey',
+        frequency: 50,
+        surveyType: 'email',
+        surveyExpanded: false
+      }
     ],
 
     init: function () {
@@ -120,20 +130,14 @@
         $emailSurveyForm = $('#email-survey-form'),
         $emailSurveyPostSuccess = $('#email-survey-post-success'),
         $emailSurveyPostFailure = $('#email-survey-post-failure'),
-        $noThanks = $('#survey-no-thanks')
-
-      $noThanks.click(function (e) {
-        userSurveys.setSurveyTakenCookie(survey)
-        userSurveys.hideSurvey(survey)
-        userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
-        e.stopPropagation()
-        return false
-      })
+        $emailSurveyField = $('#survey-email-address')
 
       $emailSurveyOpen.click(function (e) {
+        survey.surveyExpanded = true
         userSurveys.trackEvent(survey.identifier, 'email_survey_open', 'Email survey opened')
         $emailSurveyPre.addClass('js-hidden').attr('aria-hidden', 'true')
         $emailSurveyForm.removeClass('js-hidden').attr('aria-hidden', 'false')
+        $emailSurveyField.focus()
         e.stopPropagation()
         return false
       })
@@ -141,7 +145,11 @@
       $emailSurveyCancel.click(function (e) {
         userSurveys.setSurveyTakenCookie(survey)
         userSurveys.hideSurvey(survey)
-        userSurveys.trackEvent(survey.identifier, 'email_survey_cancel', 'Email survey cancelled')
+        if (survey.surveyExpanded) {
+          userSurveys.trackEvent(survey.identifier, 'email_survey_cancel', 'Email survey cancelled')
+        } else {
+          userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
+        }
         e.stopPropagation()
         return false
       })
@@ -150,6 +158,7 @@
         var successCallback = function () {
             $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true')
             $emailSurveyPostSuccess.removeClass('js-hidden').attr('aria-hidden', 'false')
+            $emailSurveyPostSuccess.focus()
             userSurveys.setSurveyTakenCookie(survey)
             userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken')
             userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey')
@@ -157,6 +166,7 @@
           errorCallback = function () {
             $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true')
             $emailSurveyPostFailure.removeClass('js-hidden').attr('aria-hidden', 'false')
+            $emailSurveyPostFailure.focus()
           },
           surveyFormUrl = $emailSurveyForm.attr('action')
         // make sure the survey form is a js url
@@ -181,10 +191,10 @@
     },
 
     setURLSurveyEventHandlers: function (survey) {
-      var $noThanks = $('#survey-no-thanks')
+      var $emailSurveyCancel = $('#email-survey-cancel')
       var $takeSurvey = $('#take-survey')
 
-      $noThanks.click(function (e) {
+      $emailSurveyCancel.click(function (e) {
         userSurveys.setSurveyTakenCookie(survey)
         userSurveys.hideSurvey(survey)
         userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
