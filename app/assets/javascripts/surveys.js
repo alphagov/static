@@ -66,9 +66,28 @@
     ],
 
     init: function () {
-      var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
-      if (userSurveys.isSurveyToBeDisplayed(activeSurvey)) {
-        userSurveys.displaySurvey(activeSurvey)
+      if (userSurveys.canShowAnySurvey()) {
+        var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
+        if (userSurveys.isSurveyToBeDisplayed(activeSurvey)) {
+          userSurveys.displaySurvey(activeSurvey)
+        }
+      }
+    },
+
+    canShowAnySurvey: function() {
+      if (userSurveys.pathInBlacklist()) {
+        return false
+      } else if (userSurveys.otherNotificationVisible()) {
+        return false
+      } else if (userSurveys.userCompletedTransaction()) {
+        // We don't want any survey appearing for users who have completed a
+        // transaction as they may complete the survey with the department's
+        // transaction in mind as opposed to the GOV.UK content.
+        return false
+      } else if ($('#user-satisfaction-survey-container').length <= 0) {
+        return false
+      } else {
+        return true
       }
     },
 
@@ -224,17 +243,7 @@
     },
 
     isSurveyToBeDisplayed: function (survey) {
-      if (userSurveys.pathInBlacklist()) {
-        return false
-      } else if (userSurveys.otherNotificationVisible() ||
-          window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
-        return false
-      } else if (userSurveys.userCompletedTransaction()) {
-        // We don't want any survey appearing for users who have completed a
-        // transaction as they may complete the survey with the department's
-        // transaction in mind as opposed to the GOV.UK content.
-        return false
-      } else if ($('#user-satisfaction-survey-container').length <= 0) {
+      if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
       } else if (userSurveys.randomNumberMatches(survey.frequency)) {
         return true

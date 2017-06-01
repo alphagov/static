@@ -33,6 +33,7 @@ describe('Surveys', function () {
     $block = $('<div class="govuk-emergency-banner" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
                '<div id="global-browser-prompt" style="display: none"></div>' +
+               '<div id="taxonomy-survey" style="display: none"></div>' +
                '<div id="user-satisfaction-survey-container"></div>')
 
     $('body').append($block)
@@ -53,16 +54,24 @@ describe('Surveys', function () {
   })
 
   describe('init', function () {
-    it('shows the default survey', function () {
+    it("shows a survey if we can show any surveys", function () {
+      spyOn(surveys, 'canShowAnySurvey').and.returnValue(true)
+      spyOn(surveys, 'getActiveSurvey').and.returnValue(surveys.defaultSurvey)
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
-      // So we're working with the user satisfaction survey, not any future small survey
-      spyOn(surveys, 'currentTime').and.returnValue(new Date('July 11, 201610:00:00').getTime())
       surveys.init()
 
       expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url)
       expect($('#user-satisfaction-survey').length).toBe(1)
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true)
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')
+    })
+
+    it("fails quickly if we cannot show any surveys", function () {
+      spyOn(surveys, 'canShowAnySurvey').and.returnValue(false)
+      spyOn(surveys, 'getActiveSurvey')
+      surveys.init()
+
+      expect(surveys.getActiveSurvey).not.toHaveBeenCalled()
     })
   })
 
@@ -129,19 +138,63 @@ describe('Surveys', function () {
     })
   })
 
-  describe('isSurveyToBeDisplayed', function () {
-    it('returns false if another notification banner is visible', function () {
-      $('#global-cookie-message').css('display', 'block')
+  describe("canShowAnySurvey", function() {
+    it("returns false if any other notification is visible", function () {
+      spyOn(surveys, 'otherNotificationVisible').and.returnValue(true)
 
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
     })
 
-    it('returns false if the path is blacklisted', function () {
+    it("returns false if the user has completed a transaction", function () {
+      spyOn(surveys, 'userCompletedTransaction').and.returnValue(true)
+
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
+    })
+
+    it("returns false if the survey container isn't present", function () {
+      $("#user-satisfaction-survey-container").remove()
+
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
+    })
+
+    it("returns false if the path is blacklisted", function () {
       spyOn(surveys, 'pathInBlacklist').and.returnValue(true)
 
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
     })
 
+    it("returns true otherwise", function () {
+      expect(surveys.canShowAnySurvey()).toBeTruthy()
+    })
+  })
+
+  describe("otherNotificationVisible", function () {
+    it("returns false if the global cookie banner is visible", function () {
+      $('#global-cookie-message').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+
+    it("returns false if the emergency banner is visible", function () {
+      $('.govuk-emergency-banner').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+
+    it("returns false if the global browser prompt message is visible", function () {
+      $('#global-browser-prompt').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+
+    it("returns false if the taxonomy survey is visible", function () {
+      $('#taxonomy-survey').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+  })
+
+  describe("isSurveyToBeDisplayed", function () {
     it("returns false if the 'survey taken' cookie is set", function () {
       GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true')
 
