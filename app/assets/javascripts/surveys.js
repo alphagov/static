@@ -68,7 +68,7 @@
     init: function () {
       if (userSurveys.canShowAnySurvey()) {
         var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
-        if (userSurveys.isSurveyToBeDisplayed(activeSurvey)) {
+        if (activeSurvey !== undefined) {
           userSurveys.displaySurvey(activeSurvey)
         }
       }
@@ -91,20 +91,38 @@
       }
     },
 
-    getActiveSurvey: function (defaultSurvey, smallSurveys) {
-      var activeSurvey = defaultSurvey
-
-      $.each(smallSurveys, function (_index, survey) {
+    getActiveSurveys: function (surveys) {
+      return $.grep(surveys, function (survey, _index) {
         if (userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
           if (typeof (survey.activeWhen) === 'function') {
-            if (survey.activeWhen()) { activeSurvey = survey }
+            return survey.activeWhen()
           } else {
-            activeSurvey = survey
+            return true
           }
         }
       })
+    },
 
-      return activeSurvey
+    getDisplayableSurveys: function (surveys) {
+      return $.grep(surveys, function (survey, _index) {
+        return userSurveys.isSurveyToBeDisplayed(survey)
+      })
+    },
+
+    getActiveSurvey: function (defaultSurvey, smallSurveys) {
+      var activeSurveys = userSurveys.getActiveSurveys(smallSurveys)
+      var allSurveys = [defaultSurvey].concat(activeSurveys)
+      var displayableSurveys = userSurveys.getDisplayableSurveys(allSurveys)
+
+      if (displayableSurveys.length < 1) {
+        return displayableSurveys[0]
+      } else {
+        // At this point, if there are multiple surveys that could be shown
+        // it is fair to roll the dice and pick one; we've already considered
+        // frequency in isSurveyToBeDisplayed so we don't need to worry about
+        // it here
+        return displayableSurveys[Math.floor(Math.random() * displayableSurveys.length)]
+      }
     },
 
     displaySurvey: function (survey) {
