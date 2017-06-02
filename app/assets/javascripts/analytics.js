@@ -8,5 +8,6 @@
 //= require govuk/analytics/download-link-tracker
 
 //= require analytics/static-analytics
+//= require analytics/ecommerce
 //= require analytics/init
 //= require analytics/scroll-tracker

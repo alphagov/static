@@ -1,7 +1,6 @@
 (function () {
   "use strict";
   window.GOVUK = window.GOVUK || {};
-
   var StaticAnalytics = function (config) {
 
     // Create universal tracker
@@ -29,6 +28,9 @@
   };
 
   StaticAnalytics.prototype.trackPageview = function (path, title, options) {
+    if(StaticAnalytics.beforeTrackPage) {
+      StaticAnalytics.beforeTrackPage();
+    }
     var trackingOptions = this.getAndExtendDefaultTrackingOptions(options);
     this.analytics.trackPageview(path, title, trackingOptions);
   };
