@@ -230,9 +230,10 @@
    * JavaScript enabled.
    */
   display: none;
-  background-color: #2B358B;
-  padding: 0.5em 0;
-  color: #fff;
+  background-color: $govuk-blue;
+  margin-bottom: 1px;
+  color: $white;
+  @include core-16;
 
   &.visible {
     @include media(desktop) {
@@ -240,80 +241,83 @@
     }
   }
 
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
   .wrapper {
-    margin: 0 auto;
-    max-width: 990px;
+    @extend %site-width-container;
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-two-thirds;
     clear: both;
-    padding: 0 15px;
 
     .inner-wrapper {
       max-width: 30em;
     }
 
-    h1 {
+    .survey-title {
       @include bold-19;
-
-      margin-left: 20px;
+      margin-bottom: .5em;
     }
 
     a {
       &:link,
       &:active,
+      &:hover,
       &:visited {
-        color: #fff;
+        color: inherit;
       }
-
-      &:hover {
-        color: #fff;
-      }
-
-      &#take-survey {
-        @include core-19;
-
-        padding-right: 5px;
+      &:focus {
+        color: $black;
       }
     }
 
     .close-button {
       float: right;
-      margin: 0px 20px 0 0;
       @include core-14;
     }
 
-    p {
-      @include core-14;
-      margin: 0 0 0 20px;
+    .survey-primary-link {
+      @include core-19;
+      margin-right: .5em;
+    }
+
+    .survey-form-label {
+      display: block;
+      margin-bottom: .25em;
     }
 
     input {
-      @include core-14;
-
       display: block;
-      margin: 0 20px 0 20px;
-      max-width: 940px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
       width: 100%;
-
-      @include ie-lte(6) {
-        width: 940px;
-      }
+      padding: 5px 4px 4px;
+      border: 2px solid $white;
+      margin-bottom: 1em;
     }
 
-    label {
+    .survey-form-description {
       @include core-14;
-      margin: 0 0 0 20px;
+      margin-bottom: .5em;
     }
 
     .actions {
-      margin: 0.5em 0 0.5em 20px;
-
       button {
-        @include button;
-        display: inline-block;
-      }
+        @include button($white);
+        @include bold-19($line-height: 1.1);
+        color: $govuk-blue;
 
-      .button-info {
-        @include core-14;
-        display: inline-block;
+        &:hover,
+        &:focus {
+          color: darken($govuk-blue, 5%);
+        }
+
+        &:focus {
+          outline: 3px solid $focus-colour;
+        }
+        margin-right: .5em;
       }
     }
   }

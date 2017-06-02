@@ -3,41 +3,55 @@
 (function ($) {
   'use strict'
   window.GOVUK = window.GOVUK || {}
-  var cancelButton = '<a href="#email-survey-cancel" aria-labelledby="feedback-heading email-survey-cancel" id="email-survey-cancel" role="button" class="close-button">Close</a>'
+  var cancelButton = '<a href="#email-survey-cancel" aria-labelledby="survey-title email-survey-cancel" id="email-survey-cancel" role="button" class="close-button">Close</a>'
+  var surveyTitle = ' <h2 class="survey-title" id="survey-title">Tell us what you think of GOV.UK</h2>'
+  var takeSurveyLink = function (text, className) {
+    className = className ? 'class="' + className + '"' : ''
+    return '<a ' + className + ' href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">' + text + '</a>'
+  }
 
   var URL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
                                  cancelButton +
-                            '    <h1 id="feedback-heading">Tell us what you think of GOV.UK</h1>' +
-                            '    <p><a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Take the 3 minute survey</a> This will open a short survey on another website</p>' +
+                                 surveyTitle +
+                            '    <p>' +
+                                 takeSurveyLink('Take the 3 minute survey', 'survey-primary-link') +
+                            '    This will open a short survey on another website</p>' +
                             '  </div>' +
                             '</section>',
     EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
                                  cancelButton +
                             '    <div class="inner-wrapper">' +
-                            '      <h1 id="feedback-heading">We\'d like to hear from you</h1>' +
+                                   surveyTitle +
                             '      <div id="email-survey-pre">' +
-                            '        <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">Your feedback will help us improve this website</a></p>' +
+                            '        <a class="survey-primary-link" href="#email-survey-form" aria-labelledby="survey-title email-survey-open" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">' +
+                            '          Take a short survey to give us your feedback' +
+                            '        </a>' +
                             '      </div>' +
                             '      <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">' +
                             '        <div id="feedback-prototype-form">' +
-                            '          <label for="survey-email-address">Tell us your email address and we\'ll send you a link to a quick feedback form.</label>' +
+                            '          <div id="survey-form-description" class="survey-form-description">We\'ll send you a link to a feedback form. It only takes 2 minutes to fill in.<br> Don\'t worry: we won\'t send you spam or share your email address with anyone.</div>' +
+                            '          <label class="survey-form-label" aria-describedby="survey-form-description" for="survey-email-address">' +
+                            '            Email Address' +
+                            '          </label>' +
                             '          <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
                             '          <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
-                            '          <input name="email_survey_signup[email_address]" id="survey-email-address" type="text" placeholder="Your email address">' +
+                            '          <input name="email_survey_signup[email_address]" id="survey-email-address" type="text">' +
                             '          <div class="actions">' +
                             '            <button type="submit">Send</button>' +
-                            '            <p class="button-info">We won\'t store your email address or share it with anyone</span>' +
+                            '            <span class="button-info">' +
+                                           takeSurveyLink('Don\'t have an email address?') +
+                            '            </span >' +
                             '          </div>' +
                             '        </div>' +
                             '      </form>' +
-                            '      <p id="email-survey-post-success" class="js-hidden" aria-hidden="true" tabindex="-1">' +
+                            '      <div id="email-survey-post-success" class="js-hidden" aria-hidden="true" tabindex="-1">' +
                             '        Thanks, we\'ve sent you an email with a link to the survey.' +
-                            '      </p>' +
-                            '      <p id="email-survey-post-failure" class="js-hidden" aria-hidden="true" tabindex="-1">' +
+                            '      </div>' +
+                            '      <div id="email-survey-post-failure" class="js-hidden" aria-hidden="true" tabindex="-1">' +
                             '        Sorry, we’re unable to send you an email right now.  Please try again later.' +
-                            '      </p>' +
+                            '      </div>' +
                             '    </div>' +
                             '  </div>' +
                             '</section>'
@@ -97,17 +111,7 @@
 
     displayURLSurvey: function (survey, surveyContainer) {
       surveyContainer.append(survey.template || URL_SURVEY_TEMPLATE)
-
-      var $surveyLink = $('#take-survey')
-      var surveyUrl = survey.url
-
-      // Smart survey can record the URL of the survey link if passed through as a query param
-      if ((/smartsurvey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
-        surveyUrl += '?c=' + userSurveys.currentPath()
-      }
-
-      $surveyLink.attr('href', surveyUrl)
-
+      userSurveys.setURLSurveyLink(survey)
       userSurveys.setURLSurveyEventHandlers(survey)
     },
 
@@ -120,7 +124,20 @@
       $surveyId.val(survey.identifier)
       $surveySource.val(userSurveys.currentPath())
 
+      userSurveys.setURLSurveyLink(survey)
       userSurveys.setEmailSurveyEventHandlers(survey)
+    },
+
+    setURLSurveyLink: function (survey) {
+      var $surveyLink = $('#take-survey')
+      var surveyUrl = survey.url
+
+      // Smart survey can record the URL of the survey link if passed through as a query param
+      if ((/smartsurvey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
+        surveyUrl += '?c=' + userSurveys.currentPath()
+      }
+
+      $surveyLink.attr('href', surveyUrl)
     },
 
     setEmailSurveyEventHandlers: function (survey) {
