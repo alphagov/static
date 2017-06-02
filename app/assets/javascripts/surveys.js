@@ -65,13 +65,6 @@
       surveyType: 'url'
     },
     smallSurveys: [
-      {
-        url: 'https://www.smartsurvey.co.uk/s/gov-uk',
-        identifier: 'user_satisfaction_survey',
-        frequency: 50,
-        surveyType: 'email',
-        surveyExpanded: false
-      }
     ],
 
     init: function () {
