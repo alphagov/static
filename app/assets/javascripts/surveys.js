@@ -42,7 +42,7 @@
     '    <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
     '    <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
     '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text">' +
-    '    <button class="survey-form-button" type="submit">Send</button>' +
+    '    <button class="survey-form-button" type="submit">Send me the survey</button>' +
          takeSurveyLink('Don\'t have an email address?') +
     '  </div>' +
     '</form>' +
