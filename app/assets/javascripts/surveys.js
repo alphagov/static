@@ -18,8 +18,8 @@
                                  takeSurveyLink('Take the 3 minute survey', 'survey-primary-link') +
                             '    This will open a short survey on another website</p>' +
                             '  </div>' +
-                            '</section>',
-    EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
+                            '</section>'
+  var EMAIL_SURVEY_TEMPLATE = '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
                             '  <div class="wrapper">' +
                                  cancelButton +
                             '    <div class="inner-wrapper">' +
@@ -118,8 +118,8 @@
     displayEmailSurvey: function (survey, surveyContainer) {
       surveyContainer.append(survey.template || EMAIL_SURVEY_TEMPLATE)
 
-      var $surveyId = $('#email-survey-form input[name="email_survey_signup[survey_id]"]'),
-        $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]')
+      var $surveyId = $('#email-survey-form input[name="email_survey_signup[survey_id]"]')
+      var $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]')
 
       $surveyId.val(survey.identifier)
       $surveySource.val(userSurveys.currentPath())
@@ -141,13 +141,13 @@
     },
 
     setEmailSurveyEventHandlers: function (survey) {
-      var $emailSurveyOpen = $('#email-survey-open'),
-        $emailSurveyCancel = $('#email-survey-cancel'),
-        $emailSurveyPre = $('#email-survey-pre'),
-        $emailSurveyForm = $('#email-survey-form'),
-        $emailSurveyPostSuccess = $('#email-survey-post-success'),
-        $emailSurveyPostFailure = $('#email-survey-post-failure'),
-        $emailSurveyField = $('#survey-email-address')
+      var $emailSurveyOpen = $('#email-survey-open')
+      var $emailSurveyCancel = $('#email-survey-cancel')
+      var $emailSurveyPre = $('#email-survey-pre')
+      var $emailSurveyForm = $('#email-survey-form')
+      var $emailSurveyPostSuccess = $('#email-survey-post-success')
+      var $emailSurveyPostFailure = $('#email-survey-post-failure')
+      var $emailSurveyField = $('#survey-email-address')
 
       $emailSurveyOpen.click(function (e) {
         survey.surveyExpanded = true
@@ -173,19 +173,19 @@
 
       $emailSurveyForm.submit(function (e) {
         var successCallback = function () {
-            $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true')
-            $emailSurveyPostSuccess.removeClass('js-hidden').attr('aria-hidden', 'false')
-            $emailSurveyPostSuccess.focus()
-            userSurveys.setSurveyTakenCookie(survey)
-            userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken')
-            userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey')
-          },
-          errorCallback = function () {
-            $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true')
-            $emailSurveyPostFailure.removeClass('js-hidden').attr('aria-hidden', 'false')
-            $emailSurveyPostFailure.focus()
-          },
-          surveyFormUrl = $emailSurveyForm.attr('action')
+          $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true')
+          $emailSurveyPostSuccess.removeClass('js-hidden').attr('aria-hidden', 'false')
+          $emailSurveyPostSuccess.focus()
+          userSurveys.setSurveyTakenCookie(survey)
+          userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken')
+          userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey')
+        }
+        var errorCallback = function () {
+          $emailSurveyForm.addClass('js-hidden').attr('aria-hidden', 'true')
+          $emailSurveyPostFailure.removeClass('js-hidden').attr('aria-hidden', 'false')
+          $emailSurveyPostFailure.focus()
+        }
+        var surveyFormUrl = $emailSurveyForm.attr('action')
         // make sure the survey form is a js url
         if (!(/\.js$/.test(surveyFormUrl))) {
           surveyFormUrl += '.js'
@@ -229,7 +229,7 @@
       if (userSurveys.pathInBlacklist()) {
         return false
       } else if (userSurveys.otherNotificationVisible() ||
-          GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
+          window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
       } else if (userSurveys.userCompletedTransaction()) {
         // We don't want any survey appearing for users who have completed a
@@ -270,7 +270,7 @@
     },
 
     trackEvent: function (identifier, action, label) {
-      GOVUK.analytics.trackEvent(identifier, action, {
+      window.GOVUK.analytics.trackEvent(identifier, action, {
         label: label,
         value: 1,
         nonInteraction: true
@@ -278,7 +278,7 @@
     },
 
     setSurveyTakenCookie: function (survey) {
-      GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 4 })
+      window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 4 })
     },
 
     hideSurvey: function (_survey) {
@@ -312,11 +312,11 @@
     currentPath: function () { return window.location.pathname }
   }
 
-  GOVUK.userSurveys = userSurveys
+  window.GOVUK.userSurveys = userSurveys
 
   $(document).ready(function () {
-    if (GOVUK.userSurveys) {
-      GOVUK.userSurveys.init()
+    if (window.GOVUK.userSurveys) {
+      window.GOVUK.userSurveys.init()
     }
   })
-})(jQuery)
+})(window.jQuery)
