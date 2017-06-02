@@ -3,15 +3,17 @@
 (function ($) {
   'use strict'
   window.GOVUK = window.GOVUK || {}
+
   var takeSurveyLink = function (text, className) {
     className = className ? 'class="' + className + '"' : ''
     return '<a ' + className + ' href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">' + text + '</a>'
   }
+
   var templateBase = function (children) {
     return (
       '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-      '  <div class="wrapper">' +
-      '    <a href="#email-survey-cancel" aria-labelledby="survey-title email-survey-cancel" id="email-survey-cancel" role="button" class="close-button">Close</a>' +
+      '  <div class="survey-wrapper">' +
+      '    <a class="survey-close-button" href="#email-survey-cancel" aria-labelledby="survey-title email-survey-cancel" id="email-survey-cancel" role="button">Close</a>' +
       '    <h2 class="survey-title" id="survey-title">Tell us what you think of GOV.UK</h2>' +
            children +
       '  </div>' +
@@ -31,21 +33,17 @@
     '    Take a short survey to give us your feedback' +
     '  </a>' +
     '</div>' +
-    '<form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden inner-wrapper" aria-hidden="true">' +
-    '  <div id="feedback-prototype-form">' +
+    '<form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">' +
+    '  <div class="survey-inner-wrapper">' +
     '    <div id="survey-form-description" class="survey-form-description">We\'ll send you a link to a feedback form. It only takes 2 minutes to fill in.<br> Don\'t worry: we won\'t send you spam or share your email address with anyone.</div>' +
     '    <label class="survey-form-label" aria-describedby="survey-form-description" for="survey-email-address">' +
     '      Email Address' +
     '    </label>' +
     '    <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
     '    <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
-    '    <input name="email_survey_signup[email_address]" id="survey-email-address" type="text">' +
-    '    <div class="actions">' +
-    '      <button type="submit">Send</button>' +
-    '      <span class="button-info">' +
-             takeSurveyLink('Don\'t have an email address?') +
-    '      </span>' +
-    '    </div>' +
+    '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text">' +
+    '    <button class="survey-form-button" type="submit">Send</button>' +
+         takeSurveyLink('Don\'t have an email address?') +
     '  </div>' +
     '</form>' +
     '<div id="email-survey-post-success" class="js-hidden" aria-hidden="true" tabindex="-1">' +

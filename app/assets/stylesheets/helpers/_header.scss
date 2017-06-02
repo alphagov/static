@@ -245,80 +245,78 @@
     outline: none;
   }
 
-  .wrapper {
+  a {
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+      color: inherit;
+    }
+    &:focus {
+      color: $black;
+    }
+  }
+
+  .survey-wrapper {
     @extend %site-width-container;
     padding-top: $gutter-half;
     padding-bottom: $gutter-two-thirds;
     clear: both;
+  }
 
-    .inner-wrapper {
-      max-width: 30em;
+  .survey-inner-wrapper {
+    max-width: 30em;
+  }
+
+  .survey-title {
+    @include bold-19;
+    margin-bottom: .5em;
+  }
+
+  .survey-close-button {
+    float: right;
+    @include core-14;
+  }
+
+  .survey-primary-link {
+    @include core-19;
+    margin-right: .5em;
+  }
+
+  .survey-form-label {
+    display: block;
+    margin-bottom: .25em;
+  }
+
+  .survey-form-input {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 4px 4px;
+    border: 2px solid $white;
+    margin-bottom: 1em;
+  }
+
+  .survey-form-description {
+    @include core-14;
+    margin-bottom: .5em;
+  }
+
+  .survey-form-button {
+    @include button($white);
+    @include bold-19($line-height: 1.1);
+    color: $govuk-blue;
+
+    &:hover,
+    &:focus {
+      color: darken($govuk-blue, 5%);
     }
 
-    .survey-title {
-      @include bold-19;
-      margin-bottom: .5em;
+    &:focus {
+      outline: 3px solid $focus-colour;
     }
-
-    a {
-      &:link,
-      &:active,
-      &:hover,
-      &:visited {
-        color: inherit;
-      }
-      &:focus {
-        color: $black;
-      }
-    }
-
-    .close-button {
-      float: right;
-      @include core-14;
-    }
-
-    .survey-primary-link {
-      @include core-19;
-      margin-right: .5em;
-    }
-
-    .survey-form-label {
-      display: block;
-      margin-bottom: .25em;
-    }
-
-    input {
-      display: block;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      width: 100%;
-      padding: 5px 4px 4px;
-      border: 2px solid $white;
-      margin-bottom: 1em;
-    }
-
-    .survey-form-description {
-      @include core-14;
-      margin-bottom: .5em;
-    }
-
-    .actions {
-      button {
-        @include button($white);
-        @include bold-19($line-height: 1.1);
-        color: $govuk-blue;
-
-        &:hover,
-        &:focus {
-          color: darken($govuk-blue, 5%);
-        }
-
-        &:focus {
-          outline: 3px solid $focus-colour;
-        }
-        margin-right: .5em;
-      }
-    }
+    margin-right: .5em;
   }
 }
