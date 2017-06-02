@@ -392,6 +392,22 @@ describe('Surveys', function () {
           $('#email-survey-cancel').trigger('click')
           expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_cancel', 'Email survey cancelled')
         })
+
+        it("hides the email form when clicking 'take survey' if no email", function () {
+          $('#take-survey').trigger('click')
+          expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
+        })
+
+        it("hides the whole email survey interface after clicking 'take survey' if no email", function () {
+          $('#take-survey').trigger('click')
+          expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
+        })
+
+        it("records an event when clicking 'take survey' if no email", function () {
+          spyOn(surveys, 'trackEvent')
+          $('#take-survey').trigger('click')
+          expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'no_email_link', 'User taken survey via no email link')
+        })
       })
     })
   })

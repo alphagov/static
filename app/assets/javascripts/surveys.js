@@ -139,6 +139,13 @@
       var $emailSurveyPostSuccess = $('#email-survey-post-success')
       var $emailSurveyPostFailure = $('#email-survey-post-failure')
       var $emailSurveyField = $('#survey-email-address')
+      var $takeSurvey = $('#take-survey')
+
+      $takeSurvey.click(function () {
+        userSurveys.setSurveyTakenCookie(survey)
+        userSurveys.hideSurvey(survey)
+        userSurveys.trackEvent(survey.identifier, 'no_email_link', 'User taken survey via no email link')
+      })
 
       $emailSurveyOpen.click(function (e) {
         survey.surveyExpanded = true
