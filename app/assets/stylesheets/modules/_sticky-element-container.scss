@@ -2,6 +2,16 @@
   position: absolute;
   bottom: 0;
 
+  &--stuck-to-parent {
+    bottom: 0;
+    position: absolute;
+  }
+
+  &--stuck-to-window {
+    bottom: 0;
+    position: fixed;
+  }
+
   &--enabled {
     @include transition (opacity, .3s, ease);
     opacity: 1;
@@ -21,15 +31,4 @@
       left: -9999em;
     }
   }
-
-  &--stuck-to-parent {
-    bottom: 0;
-    position: absolute;
-  }
-
-  &--stuck-to-window {
-    bottom: 0;
-    position: fixed;
-  }
-
 }

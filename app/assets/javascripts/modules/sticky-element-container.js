@@ -99,11 +99,9 @@
 
       function stickToWindow () {
         $element.addClass('govuk-sticky-element--stuck-to-window');
-        $element.removeClass('govuk-sticky-element--stuck-to-parent');
       }
 
       function stickToParent () {
-        $element.addClass('govuk-sticky-element--stuck-to-parent');
         $element.removeClass('govuk-sticky-element--stuck-to-window');
       }
 
