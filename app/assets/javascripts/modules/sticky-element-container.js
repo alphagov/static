@@ -46,7 +46,7 @@
         setInterval(checkScroll, _interval);
         checkResize();
         checkScroll();
-        $element.addClass('govuk-sticky-element');
+        $element.addClass('enabled');
       }
 
       function onResize () {
@@ -98,21 +98,21 @@
       }
 
       function stickToWindow () {
-        $element.addClass('govuk-sticky-element--stuck-to-window');
-        $element.removeClass('govuk-sticky-element--stuck-to-parent');
+        $element.addClass('enabled--stuck-to-window');
+        $element.removeClass('enabled--stuck-to-parent');
       }
 
       function stickToParent () {
-        $element.addClass('govuk-sticky-element--stuck-to-parent');
-        $element.removeClass('govuk-sticky-element--stuck-to-window');
+        $element.addClass('enabled--stuck-to-parent');
+        $element.removeClass('enabled--stuck-to-window');
       }
 
       function show () {
-        $element.removeClass('govuk-sticky-element--hidden');
+        $element.removeClass('enabled--hidden');
       }
 
       function hide () {
-        $element.addClass('govuk-sticky-element--hidden');
+        $element.addClass('enabled--hidden');
       }
     };
   };

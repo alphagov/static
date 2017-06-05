@@ -1,8 +1,8 @@
-.sticky-element {
+.govuk-sticky-element {
   position: absolute;
   bottom: 0;
 
-  &.govuk-sticky-element {
+  &.enabled {
     @include transition (opacity, .3s, ease);
     opacity: 1;
 

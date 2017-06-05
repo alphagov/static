@@ -35,7 +35,7 @@ describe('A sticky-element-container module', function () {
       it('hides the element, when scrolled at the top', function () {
         instance.start($element);
 
-        expect($footer.hasClass('govuk-sticky-element--hidden')).toBe(true);
+        expect($footer.hasClass('enabled--hidden')).toBe(true);
       });
 
       it('shows the element, stuck to the window, when scrolled in the middle', function () {
@@ -46,9 +46,9 @@ describe('A sticky-element-container module', function () {
         };
         instance.start($element);
 
-        expect($footer.hasClass('govuk-sticky-element--hidden')).toBe(false);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-window')).toBe(true);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-parent')).toBe(false);
+        expect($footer.hasClass('enabled--hidden')).toBe(false);
+        expect($footer.hasClass('enabled--stuck-to-window')).toBe(true);
+        expect($footer.hasClass('enabled--stuck-to-parent')).toBe(false);
       });
 
       it('shows the element, stuck to the parent, when scrolled at the bottom', function () {
@@ -59,9 +59,9 @@ describe('A sticky-element-container module', function () {
         };
         instance.start($element);
 
-        expect($footer.hasClass('govuk-sticky-element--hidden')).toBe(false);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-window')).toBe(false);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-parent')).toBe(true);
+        expect($footer.hasClass('enabled--hidden')).toBe(false);
+        expect($footer.hasClass('enabled--stuck-to-window')).toBe(false);
+        expect($footer.hasClass('enabled--stuck-to-parent')).toBe(true);
       });
     });
   });
