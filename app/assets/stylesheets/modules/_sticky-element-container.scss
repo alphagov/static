@@ -1,29 +1,34 @@
-.govuk-sticky-element {
-  @include transition (opacity, .3s, ease);
-  opacity: 1;
+.sticky-element {
+  position: absolute;
+  bottom: 0;
 
-  &--hidden {
-    opacity: 0;
-    pointer-events: none;
+  &.govuk-sticky-element {
+    @include transition (opacity, .3s, ease);
+    opacity: 1;
 
-    @include ie-lte(8) {
-      // XXX: Would be nice to `@include .visuallyhidden`.
-      position: absolute;
-      left: -9999em;
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+
+      @include ie-lte(8) {
+        // XXX: Would be nice to `@include .visuallyhidden`.
+        position: absolute;
+        left: -9999em;
+      }
     }
-  }
 
-  &--stuck-to-parent {
-    bottom: 0;
-    position: absolute;
-  }
+    &--stuck-to-parent {
+      bottom: 0;
+      position: absolute;
+    }
 
-  &--stuck-to-window {
-    bottom: 0;
-    position: fixed;
-  }
+    &--stuck-to-window {
+      bottom: 0;
+      position: fixed;
+    }
 
-  @include media(mobile) {
-    position: static;
+    @include media(mobile) {
+      position: static;
+    }
   }
 }
