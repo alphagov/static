@@ -76,7 +76,7 @@ An HTML fragment representing the interactive UI for entering an email address. 
   <form id="email-survey-form" action="/contact/govuk/email-survey-request" method="post" class="wrapper js-hidden" aria-hidden="true">
     <div id="feedback-prototype-form">
       <h1>We'd like to hear from you</h1>
-      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>
+      <p class="right"><a href="#user-survey-cancel" id="user-survey-cancel">No thanks</a></p>
       <label for="email">Tell us your email address and we'll send you a link to a quick feedback form.</label>
       <input name="survey_id" type="hidden" value="">
       <input name="survey_source" type="hidden" value="">
@@ -96,7 +96,7 @@ An HTML fragment representing the interactive UI for entering an email address. 
 </section>
 ```
 
-Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#survey-no-thanks` and `#email-survey-cancel` are also required for dismissing the UI.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
+Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#survey-no-thanks` and `#user-survey-cancel` are also required for dismissing the UI.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
 
 ### `activeWhen` - OPTIONAL
 A callback function returning true or false allowing further scoping of when the survey is considered "active".

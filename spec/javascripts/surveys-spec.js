@@ -8,7 +8,7 @@ describe('Surveys', function () {
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
     template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-              '  <a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a>' +
+              '  <a href="#user-survey-cancel" id="user-survey-cancel">No thanks</a>' +
               '  <a href="javascript:void()" id="take-survey" target="_blank"></a>' +
               '</section>',
     surveyType: 'url'
@@ -226,7 +226,7 @@ describe('Surveys', function () {
       })
 
       it("sets a cookie when clicking 'no thanks'", function () {
-        $('#email-survey-cancel').trigger('click')
+        $('#user-survey-cancel').trigger('click')
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey))).toBe('true')
       })
 
@@ -237,7 +237,7 @@ describe('Surveys', function () {
       })
 
       it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
-        $('#email-survey-cancel').trigger('click')
+        $('#user-survey-cancel').trigger('click')
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
       })
 
@@ -249,7 +249,7 @@ describe('Surveys', function () {
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#email-survey-cancel').trigger('click')
+        $('#user-survey-cancel').trigger('click')
         expect(surveys.trackEvent).toHaveBeenCalledWith(defaultSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
     })
@@ -265,18 +265,18 @@ describe('Surveys', function () {
       })
 
       it("sets a cookie when clicking 'no thanks'", function () {
-        $('#email-survey-cancel').trigger('click')
+        $('#user-survey-cancel').trigger('click')
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
       })
 
       it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
-        $('#email-survey-cancel').trigger('click')
+        $('#user-survey-cancel').trigger('click')
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
       })
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#email-survey-cancel').trigger('click')
+        $('#user-survey-cancel').trigger('click')
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
 
@@ -378,18 +378,18 @@ describe('Surveys', function () {
         })
 
         it("hides the email form when clicking 'No thanks'", function () {
-          $('#email-survey-cancel').trigger('click')
+          $('#user-survey-cancel').trigger('click')
           expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
         })
 
         it("hides the whole email survey interface after clicking 'no thanks'", function () {
-          $('#email-survey-cancel').trigger('click')
+          $('#user-survey-cancel').trigger('click')
           expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
         })
 
         it("records an event when clicking 'no thanks'", function () {
           spyOn(surveys, 'trackEvent')
-          $('#email-survey-cancel').trigger('click')
+          $('#user-survey-cancel').trigger('click')
           expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_cancel', 'Email survey cancelled')
         })
 

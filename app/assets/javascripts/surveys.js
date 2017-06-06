@@ -13,7 +13,7 @@
     return (
       '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
       '  <div class="survey-wrapper">' +
-      '    <a class="survey-close-button" href="#email-survey-cancel" aria-labelledby="survey-title email-survey-cancel" id="email-survey-cancel" role="button">Close</a>' +
+      '    <a class="survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>' +
       '    <h2 class="survey-title" id="survey-title">Tell us what you think of GOV.UK</h2>' +
            children +
       '  </div>' +
@@ -133,7 +133,7 @@
 
     setEmailSurveyEventHandlers: function (survey) {
       var $emailSurveyOpen = $('#email-survey-open')
-      var $emailSurveyCancel = $('#email-survey-cancel')
+      var $emailSurveyCancel = $('#user-survey-cancel')
       var $emailSurveyPre = $('#email-survey-pre')
       var $emailSurveyForm = $('#email-survey-form')
       var $emailSurveyPostSuccess = $('#email-survey-post-success')
@@ -206,7 +206,7 @@
     },
 
     setURLSurveyEventHandlers: function (survey) {
-      var $emailSurveyCancel = $('#email-survey-cancel')
+      var $emailSurveyCancel = $('#user-survey-cancel')
       var $takeSurvey = $('#take-survey')
 
       $emailSurveyCancel.click(function (e) {
