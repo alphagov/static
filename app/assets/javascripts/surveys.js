@@ -29,19 +29,19 @@
   )
   var EMAIL_SURVEY_TEMPLATE = templateBase(
     '<div id="email-survey-pre">' +
-    '  <a class="survey-primary-link" href="#email-survey-form" aria-labelledby="survey-title email-survey-open" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">' +
+    '  <a class="survey-primary-link" href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">' +
     '    Take a short survey to give us your feedback' +
     '  </a>' +
     '</div>' +
     '<form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">' +
     '  <div class="survey-inner-wrapper">' +
     '    <div id="survey-form-description" class="survey-form-description">We\'ll send you a link to a feedback form. It only takes 2 minutes to fill in.<br> Don\'t worry: we won\'t send you spam or share your email address with anyone.</div>' +
-    '    <label class="survey-form-label" aria-describedby="survey-form-description" for="survey-email-address">' +
+    '    <label class="survey-form-label" for="survey-email-address">' +
     '      Email Address' +
     '    </label>' +
     '    <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
     '    <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
-    '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text">' +
+    '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">' +
     '    <button class="survey-form-button" type="submit">Send me the survey</button>' +
          takeSurveyLink('Don\'t have an email address?') +
     '  </div>' +
