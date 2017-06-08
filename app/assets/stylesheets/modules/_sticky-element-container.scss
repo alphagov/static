@@ -1,11 +1,6 @@
-.govuk-sticky-element {
+.js-enabled .govuk-sticky-element {
   position: absolute;
   bottom: 0;
-
-  &--stuck-to-parent {
-    bottom: 0;
-    position: absolute;
-  }
 
   &--stuck-to-window {
     bottom: 0;
@@ -31,4 +26,5 @@
       left: -9999em;
     }
   }
+
 }
