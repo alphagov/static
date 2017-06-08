@@ -130,14 +130,30 @@ describe('Ecommerce reporter for results pages', function() {
     ');
 
     ecommerce.init(element);
-    element.find('[data-ecommerce-row]').click()
+    element.find('[data-ecommerce-row]').click();
 
     expect(ga).toHaveBeenCalledWith('ec:addProduct', {
       id: 'AAAA-1111',
       position: 1
     });
     expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Site search results'})
-    expect(ga).toHaveBeenCalledWith('send', 'event', 'UX', 'click', 'Results')
+    expect(ga).toHaveBeenCalledWith('send', 'event', 'UX', 'click', 'Results', {
+      dimension15: '200',
+      dimension16: 'unknown',
+      dimension11: '1',
+      dimension3: 'other',
+      dimension4: '00000000-0000-0000-0000-000000000000',
+      dimension32: 'none',
+      dimension33: 'thing',
+      dimension34: 'other',
+      dimension56: 'other',
+      dimension57: 'other',
+      dimension58: 'other',
+      dimension59: 'other',
+      dimension39: 'false',
+      dimension26: '0',
+      dimension27: '0',
+    })
   });
 
   it('will only require the ec library once', function() {

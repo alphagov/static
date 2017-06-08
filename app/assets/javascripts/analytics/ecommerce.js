@@ -41,7 +41,9 @@
         });
 
         ga('ec:setAction', 'click', {list: 'Site search results'});
-        ga('send', 'event', 'UX', 'click', 'Results');
+        ga('send', 'event', 'UX', 'click', 'Results',
+          GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions({})
+        );
       })
     }
   }
@@ -49,7 +51,6 @@
   Ecommerce.ecLoaded = false;
   Ecommerce.start = function (element) {
     element = element || $('[data-analytics-ecommerce]');
-
     if(element.length > 0) {
       if(!Ecommerce.ecLoaded) {
         ga('require', 'ec');
