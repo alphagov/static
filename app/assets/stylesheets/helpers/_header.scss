@@ -90,6 +90,9 @@
       border: 0;
       min-height: 36px;
       padding: 6px 0;
+      &::-moz-focus-inner {
+        border: 0;
+      }
       @include ie-lte(8) {
         min-height: 24px;
       }
@@ -109,6 +112,7 @@
       &.focus,
       &:focus {
         background: #fff;
+        outline-offset: -3px;
       }
 
       @include ie-lte(7){
@@ -116,7 +120,7 @@
       }
       .js-enabled & {
         width: 86%;
-        @include calc(width, "100% - 37px");
+        @include calc(width, "100% - 35.1px"); /* 35.1 is for Safari, which renders this input too narrow */
       }
     }
 
@@ -157,6 +161,11 @@
 
       &:hover {
         background-color: darken($mainstream-brand, 5%);
+      }
+
+      &.focus,
+      &:focus {
+        outline-offset: -3px;
       }
     }
 
