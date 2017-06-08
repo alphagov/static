@@ -9,55 +9,102 @@
 
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
+
+  metadata_items = []
+
+  if from.any?
+    metadata_items << [
+      t("govuk_component.metadata.from", default: "From"),
+      from
+    ]
+  end
+
+  if part_of.any?
+    metadata_items << [
+      t("govuk_component.metadata.part_of", default: "Part of"),
+      part_of
+    ]
+  end
+
+  if local_assigns.include?(:history)
+    metadata_items << [
+      t("govuk_component.metadata.history", default: "History"),
+      [history]
+    ]
+  end
+
+  if local_assigns.include?(:first_published) && first_published
+    metadata_items << [
+      t("govuk_component.metadata.published", default: "Published"),
+      [first_published]
+    ]
+  end
+
+  if local_assigns.include?(:last_updated) && last_updated
+    if local_assigns.include?(:see_updates_link)
+      update_text = t("govuk_component.metadata.see_all_updates", default: "see all updates")
+    end
+
+    metadata_items << [
+      t("govuk_component.metadata.last_updated", default: "Last updated"),
+      [last_updated],
+      update_text || nil
+    ]
+  end
+
+  if other.present?
+      other.each do |title, definition|
+        definition ||= []
+        definition = Array(definition)
+        if definition.any?
+          metadata_items << [
+            title,
+            definition
+          ]
+        end
+      end
+  end
 %>
 <div class="govuk-metadata<%= direction_class %>" data-module="toggle">
   <dl>
-    <% if from.any? %>
-      <dt><%= t("govuk_component.metadata.from", default: "From") %>:</dt>
+    <% metadata_items.each_with_index do |(title, items, see_all_updates_text), index| %>
+      <dt>
+        <%= title %>:
+      </dt>
       <dd>
-        <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: from, toggle_id: "from" } %>
-      </dd>
-    <% end %>
-    <% if part_of.any? %>
-      <dt><%= t("govuk_component.metadata.part_of", default: "Part of") %>:</dt>
-      <dd>
-        <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: part_of, toggle_id: "part-of" } %>
-      </dd>
-    <% end %>
-    <% if local_assigns.include?(:history) %>
-      <dt><%= t("govuk_component.metadata.history", default: "History") %>:</dt>
-      <dd><%= history %></dd>
-    <% end %>
-    <% if local_assigns.include?(:first_published) && first_published %>
-      <dt><%= t("govuk_component.metadata.published", default: "Published") %>:</dt>
-      <dd><%= first_published %></dd>
-    <% end %>
-    <% if local_assigns.include?(:last_updated) && last_updated %>
-      <dt><%= t("govuk_component.metadata.last_updated", default: "Last updated") %>:</dt>
-      <dd>
-        <%= last_updated %><% if local_assigns.include?(:see_updates_link) %>,
-          <a href="#history" data-module="track-click"
-                             data-track-category="content-history"
-                             data-track-action="see-all-updates-link-clicked"
-                             data-track-label="history">
-            <%= t("govuk_component.metadata.see_all_updates", default: "see all updates") %>
-          </a>
-        <% end %>
-      </dd>
-    <% end %>
-    <% if other.present? %>
-      <% other.each_with_index do |(title, definition), index| %>
         <%
-          definition ||= []
-          definition = Array(definition)
+          list_limit = 5
+          remaining = []
+          if items.length > (list_limit + 2)
+            remaining = items[list_limit..items.length]
+            items = items[0...list_limit]
+          end
         %>
-        <% if definition.any? %>
-          <dt><%= title %>:</dt>
-          <dd>
-            <%= render file: 'govuk_component/metadata_sentence.raw', locals: { items: definition, toggle_id: index } %>
-          </dd>
+        <% if remaining.any? %>
+          <%= items.to_sentence(last_word_connector: ', ').html_safe %>
+          <div class="toggle-wrap">
+            <a href="#"
+               data-controls="toggle-<%= index %>"
+               data-expanded="false"
+               data-toggled-text="<%= t("govuk_component.metadata.toggle_less", default: "Show fewer") %>">
+                <%= t("govuk_component.metadata.toggle_more", number: remaining.length, default: "+ #{remaining.length} more") %>
+            </a>
+          </div>
+          <span id="toggle-<%= index %>" class="js-hidden"><%= remaining.to_sentence.html_safe %></span>
+        <% else %>
+          <%= items.to_sentence.html_safe %>
+          <% unless see_all_updates_text.nil? %>
+            ,
+            <a href="#history"
+              data-module="track-click"
+              data-track-category="content-history"
+              data-track-action="see-all-updates-link-clicked"
+              data-track-label="history">
+              <%= see_all_updates_text %>
+            </a>
+          <% end %>
         <% end %>
-      <% end %>
+      </dd>
     <% end %>
   </dl>
 </div>
