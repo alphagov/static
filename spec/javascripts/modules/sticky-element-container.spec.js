@@ -48,7 +48,6 @@ describe('A sticky-element-container module', function () {
 
         expect($footer.hasClass('govuk-sticky-element--hidden')).toBe(false);
         expect($footer.hasClass('govuk-sticky-element--stuck-to-window')).toBe(true);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-parent')).toBe(false);
       });
 
       it('shows the element, stuck to the parent, when scrolled at the bottom', function () {
@@ -61,7 +60,6 @@ describe('A sticky-element-container module', function () {
 
         expect($footer.hasClass('govuk-sticky-element--hidden')).toBe(false);
         expect($footer.hasClass('govuk-sticky-element--stuck-to-window')).toBe(false);
-        expect($footer.hasClass('govuk-sticky-element--stuck-to-parent')).toBe(true);
       });
     });
   });

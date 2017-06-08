@@ -1,6 +1,20 @@
-.govuk-sticky-element {
-  @include transition (opacity, .3s, ease);
-  opacity: 1;
+.js-enabled .govuk-sticky-element {
+  position: absolute;
+  bottom: 0;
+
+  &--stuck-to-window {
+    bottom: 0;
+    position: fixed;
+  }
+
+  &--enabled {
+    @include transition (opacity, .3s, ease);
+    opacity: 1;
+
+    @include media(mobile) {
+      position: static;
+    }
+  }
 
   &--hidden {
     opacity: 0;
@@ -13,17 +27,4 @@
     }
   }
 
-  &--stuck-to-parent {
-    bottom: 0;
-    position: absolute;
-  }
-
-  &--stuck-to-window {
-    bottom: 0;
-    position: fixed;
-  }
-
-  @include media(mobile) {
-    position: static;
-  }
 }
