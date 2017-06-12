@@ -239,9 +239,10 @@
    * JavaScript enabled.
    */
   display: none;
-  background-color: #2B358B;
-  padding: 0.5em 0;
-  color: #fff;
+  background-color: $govuk-blue;
+  margin-bottom: 1px;
+  color: $white;
+  @include core-16;
 
   &.visible {
     @include media(desktop) {
@@ -249,81 +250,82 @@
     }
   }
 
-  .wrapper {
-    margin: 0 auto;
-    max-width: 990px;
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  a {
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+      color: inherit;
+    }
+    &:focus {
+      color: $black;
+    }
+  }
+
+  .survey-wrapper {
+    @extend %site-width-container;
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-two-thirds;
     clear: both;
-    padding: 0 15px;
+  }
 
-    h1 {
-      @include bold-19;
+  .survey-inner-wrapper {
+    max-width: 30em;
+  }
 
-      margin-left: 20px;
+  .survey-title {
+    @include bold-19;
+    margin-bottom: .5em;
+  }
+
+  .survey-close-button {
+    float: right;
+    @include core-14;
+  }
+
+  .survey-primary-link {
+    @include core-19;
+    margin-right: .5em;
+  }
+
+  .survey-form-label {
+    display: block;
+    margin-bottom: .25em;
+  }
+
+  .survey-form-input {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 4px 4px;
+    border: 2px solid $white;
+    margin-bottom: 1em;
+  }
+
+  .survey-form-description {
+    @include core-14;
+    margin-bottom: .5em;
+  }
+
+  .survey-form-button {
+    @include button($white);
+    @include bold-19($line-height: 1.1);
+    color: $govuk-blue;
+
+    &:hover,
+    &:focus {
+      color: darken($govuk-blue, 5%);
     }
 
-    p {
-      @include core-14;
-
-      margin: 0 0 0 20px;
-
-      a {
-        &:link,
-        &:active,
-        &:visited {
-          color: #fff;
-        }
-
-        &:hover {
-          color: #fff;
-        }
-
-        &#take-survey {
-          @include core-19;
-
-          padding-right: 5px;
-        }
-      }
-
-      &.right {
-        float: right;
-        margin: -20px 20px 0 0;
-
-        @include ie-lte(7) {
-          margin-top: -25px;
-        }
-      }
+    &:focus {
+      outline: 3px solid $focus-colour;
     }
-
-    input {
-      @include core-14;
-
-      display: block;
-      margin: 0 20px 0 20px;
-      max-width: 940px;
-      width: 100%;
-
-      @include ie-lte(6) {
-        width: 940px;
-      }
-    }
-
-    label {
-      @include core-14;
-      margin: 0 0 0 20px;
-    }
-
-    .actions {
-      margin: 0.5em 0 0.5em 20px;
-
-      button {
-        @include button;
-        display: inline-block;
-      }
-
-      .button-info {
-        @include core-14;
-        display: inline-block;
-      }
-    }
+    margin-right: .5em;
   }
 }

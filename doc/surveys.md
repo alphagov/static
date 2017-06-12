@@ -42,8 +42,8 @@ What type of survey is this.  Currently either `url` or `email` is supported.  `
 
 Note that for `email` surveys the users email is submitted back to the [feedback](https://github.com/alphagov/feedback) app which actually sends the email.  The email address is sent with the `identifier` of the survey and this identifier must match with the `id` of a survey defined in [`app/models/email_survey.rb`](https://github.com/alphagov/feedback/blob/85e07b0c572a91be02b64af1d551df313f2695f9/app/models/email_survey.rb#L24).  Make sure you define the survey in both `static` and `feedback`.
 
-### `url` - required for `url` surveys
-This should link to a smartsurvey -- or other survey page -- that allows the visitor to take the survey.
+### `url` - required
+Used in a link in the survey that the user is directed to click on. This should be the URL of a smartsurvey -- or other survey page -- that allows the visitor to take the survey. Required, but not currently used in 'email'.
 
 ### `template` - OPTIONAL
 This describes the UI that the survey will use to encourage users to sign up.  If omitted the default survey for the `surveyType` will be used.
@@ -76,7 +76,7 @@ An HTML fragment representing the interactive UI for entering an email address. 
   <form id="email-survey-form" action="/contact/govuk/email-survey-request" method="post" class="wrapper js-hidden" aria-hidden="true">
     <div id="feedback-prototype-form">
       <h1>We'd like to hear from you</h1>
-      <p class="right"><a href="#email-survey-cancel" id="email-survey-cancel">No thanks</a></p>
+      <p class="right"><a href="#user-survey-cancel" id="user-survey-cancel">No thanks</a></p>
       <label for="email">Tell us your email address and we'll send you a link to a quick feedback form.</label>
       <input name="survey_id" type="hidden" value="">
       <input name="survey_source" type="hidden" value="">
@@ -96,7 +96,7 @@ An HTML fragment representing the interactive UI for entering an email address. 
 </section>
 ```
 
-Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#survey-no-thanks` and `#email-survey-cancel` are also required for dismissing the UI.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
+Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#survey-no-thanks` and `#user-survey-cancel` are also required for dismissing the UI.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
 
 ### `activeWhen` - OPTIONAL
 A callback function returning true or false allowing further scoping of when the survey is considered "active".
