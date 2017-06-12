@@ -201,9 +201,6 @@
   }
 
   function abTestCustomDimensions() {
-    // This is the block of dimensions assigned to A/B tests
-    var minAbTestDimension = 40;
-    var maxAbTestDimension = 49;
     var $abMetas = $('meta[name^="govuk:ab-test"]');
     var customDimensions = {};
 
@@ -212,7 +209,7 @@
       var dimension = parseInt($meta.data('analytics-dimension'));
       var testNameAndBucket = $meta.attr('content');
 
-      if (dimension >= minAbTestDimension && dimension <= maxAbTestDimension) {
+      if(dimension) {
         customDimensions['dimension' + dimension] = testNameAndBucket;
       }
     });

@@ -106,21 +106,6 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension48).toEqual('name-of-other-test:name-of-other-ab-bucket');
       });
 
-      it('ignores dimensions outside of the A/B test range', function () {
-        $('head').append('\
-          <meta name="govuk:ab-test" content="name-of-test-dimension-too-low:some-bucket" data-analytics-dimension="39">\
-          <meta name="govuk:ab-test" content="name-of-valid-test:some-bucket" data-analytics-dimension="40">\
-          <meta name="govuk:ab-test" content="name-of-other-valid-test:some-bucket" data-analytics-dimension="49">\
-          <meta name="govuk:ab-test" content="name-of-test-dimension-too-high:some-bucket" data-analytics-dimension="50">\
-        ');
-
-        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
-
-        expect(Object.keys(pageViewObject).length).toEqual(2 + numberOfDimensionsWithDefaultValues);
-        expect(pageViewObject.dimension40).toEqual('name-of-valid-test:some-bucket');
-        expect(pageViewObject.dimension49).toEqual('name-of-other-valid-test:some-bucket');
-      });
 
       it('ignores A/B meta tags with invalid dimensions', function () {
         $('head').append('\
