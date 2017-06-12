@@ -57,10 +57,10 @@
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
-      url: 'https://www.smartsurvey.co.uk/s/gov-uk',
+      url: 'https://www.smartsurvey.co.uk/s/gov_uk',
       identifier: 'user_satisfaction_survey',
-      frequency: 50,
-      surveyType: 'url'
+      frequency: 10,
+      surveyType: 'email'
     },
     smallSurveys: [
     ],
