@@ -75,20 +75,20 @@ An HTML fragment representing the interactive UI for entering an email address. 
   </div>
   <form id="email-survey-form" action="/contact/govuk/email-survey-request" method="post" class="wrapper js-hidden" aria-hidden="true">
     <div id="feedback-prototype-form">
-      <h1>We'd like to hear from you</h1>
+      <h1>We’d like to hear from you</h1>
       <p class="right"><a href="#user-survey-cancel" id="user-survey-cancel">No thanks</a></p>
-      <label for="email">Tell us your email address and we'll send you a link to a quick feedback form.</label>
+      <label for="email">Tell us your email address and we’ll send you a link to a quick feedback form.</label>
       <input name="survey_id" type="hidden" value="">
       <input name="survey_source" type="hidden" value="">
       <input name="email" type="text" placeholder="Your email address">
       <div class="actions">
         <button class="button">Send</button>
-        <p class="button-info">We won't store your email address or share it with anyone</span>
+        <p class="button-info">We won’t store your email address or share it with anyone</span>
       </div>
     </div>
   </form>
   <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">
-    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>
+    <p>Thanks, we’ve sent you an email with a link to the survey.</p>
   </div>
   <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">
     <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>
