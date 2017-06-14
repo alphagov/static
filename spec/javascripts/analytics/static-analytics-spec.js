@@ -61,7 +61,7 @@ describe("GOVUK.StaticAnalytics", function() {
       it('sends the ecommerce fields', function() {
         $('body').append('\
           <div class="test-fixture">\
-            <div data-analytics-ecommerce data-ecommerce-start-index="1">\
+            <div data-analytics-ecommerce data-ecommerce-start-index="1" data-search-query="search query">\
              <div \
                data-ecommerce-row\
                data-ecommerce-path="/path/to/page"\
@@ -71,20 +71,11 @@ describe("GOVUK.StaticAnalytics", function() {
           </div>\
         ')
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
 
-        universalSetupArguments = window.ga.calls.allArgs();
-
-        expect(universalSetupArguments[3][0]).toEqual("ec:addImpression")
-        expect(universalSetupArguments[3][1]).toEqual({
-          id: "static-analytics-test",
-          position: 1,
-          list: "Site search results"
-        })
-        expect(universalSetupArguments[4][0]).toEqual("send")
-        expect(universalSetupArguments[4][1]).toEqual("pageview")
-      })
-    })
+        expect(universalSetupArguments[3][0]).toEqual("send");
+        expect(universalSetupArguments[3][1]).toEqual("pageview");
+      });
+    });
 
     describe('when there are govuk: meta tags', function() {
       beforeEach(function() {

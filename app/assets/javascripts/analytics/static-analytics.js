@@ -28,9 +28,7 @@
   };
 
   StaticAnalytics.prototype.trackPageview = function (path, title, options) {
-    if(StaticAnalytics.beforeTrackPage) {
-      StaticAnalytics.beforeTrackPage();
-    }
+    GOVUK.Ecommerce.start();
     var trackingOptions = GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions(options);
     this.analytics.trackPageview(path, title, trackingOptions);
   };

@@ -1,17 +1,15 @@
+// https://developers.google.com/analytics/devguides/collection/analyticsjs/enhanced-ecommerce
 (function () {
   "use strict";
   window.GOVUK = window.GOVUK || {};
 
   var Ecommerce = function (config) {
     this.init = function (element) {
-      this.forEachEcommerceRow(element, this._sendImpression);
-      this.forEachEcommerceRow(element, this._trackProductClick);
-    }
-
-    this.forEachEcommerceRow = function (element, fct) {
-      var ecommerceRowCss = '[data-ecommerce-row]';
-      var ecommerceRows = element.find(ecommerceRowCss);
-      var startPosition = parseInt(element.data('ecommerce-start-index'));
+      // Limiting to 100 characters to avoid noise from extra longs search queries
+      // and to stop the size of the payload going over 8k limit.
+      var searchQuery   = element.attr('data-search-query').substring(0, 100).toLowerCase();
+      var ecommerceRows = element.find('[data-ecommerce-row]');
+      var startPosition = parseInt(element.data('ecommerce-start-index'), 10);
 
       ecommerceRows.each(function(index, ecommerceRow) {
         var $ecommerceRow = $(ecommerceRow);
@@ -19,32 +17,35 @@
         var contentId = $ecommerceRow.attr('data-ecommerce-content-id'),
           path = $ecommerceRow.attr('data-ecommerce-path');
 
-        fct($ecommerceRow, contentId, path, index + startPosition);
+        addImpression(contentId, path, index + startPosition, searchQuery);
+        trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery);
       });
     }
 
-    this._sendImpression = function (_row, contentId, path, position) {
-      // We only send the id to GA as additional product data is linked when it is uploaded.
+    function addImpression (contentId, path, position, searchQuery) {
+      // We only add the id to GA as additional product data is linked when it is uploaded.
       // This approach is taken to avoid the GA data packet exceeding the 8k limit
       ga('ec:addImpression', {
         id: contentId || path,
         position: position,
-        list: 'Site search results'
+        list: 'Site search results',
+        dimension71: searchQuery
       });
     }
 
-    this._trackProductClick = function (row, contentId, path, position) {
+    function trackProductOnClick (row, contentId, path, position, searchQuery) {
       row.click(function(event) {
         ga('ec:addProduct', {
           id: contentId || path,
-          position: position
+          position: position,
+          dimension71: searchQuery
         });
 
         ga('ec:setAction', 'click', {list: 'Site search results'});
         ga('send', 'event', 'UX', 'click', 'Results',
           GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions({})
         );
-      })
+      });
     }
   }
 
@@ -61,6 +62,5 @@
     }
   }
 
-  window.GOVUK.Ecommerce = Ecommerce;
-  window.GOVUK.StaticAnalytics.beforeTrackPage = Ecommerce.start;
+  GOVUK.Ecommerce = Ecommerce;
 })()
