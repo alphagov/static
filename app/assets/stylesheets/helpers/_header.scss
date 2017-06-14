@@ -305,6 +305,7 @@
     width: 100%;
     padding: 5px 4px 4px;
     border: 2px solid $white;
+    margin: 0; // TODO: Remove this when all applications are moved away from the 'wrapper' template
     margin-bottom: 1em;
   }
 
