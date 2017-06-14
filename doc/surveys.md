@@ -53,50 +53,60 @@ An HTML fragment representing the contents of the survey box. This **MUST** conf
 
 ```html
 <section id="user-satisfaction-survey" class="visible" aria-hidden="false">
-  <div class="wrapper">
-    <h1>Heading copy</h1>
-    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>
-    <p><a href="javascript:void()" id="take-survey" target="_blank">Link text</a> This will open a short survey on another website</p>
+  <div class="survey-wrapper">
+    <a class="survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>
+    <h2 class="survey-title" id="survey-title">Heading copy</h2>
+    <p>
+      <a class="survey-primary-link" href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Link text</a>
+      This will open a short survey on another website
+    </p>
   </div>
 </section>
 ```
 
-The `#survey-no-thanks` and `#take-survey` elements are required as the surveys code will expect these elements for setting cookies and tracking user behaviour.
+The `#user-survey-cancel` and `#take-survey` elements are required as the surveys code will expect these elements for setting cookies and tracking user behaviour.
 
 #### email survey template
 An HTML fragment representing the interactive UI for entering an email address.  We expect something like the following:
 
 ```html
 <section id="user-satisfaction-survey" class="visible" aria-hidden="false">
-  <div id="email-survey-pre" class="wrapper">
-    <h1>Tell us what you think of GOV.UK</h1>
-    <p class="right"><a href="#survey-no-thanks" id="survey-no-thanks">No thanks</a></p>
-    <p><a href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer">Your feedback will help us improve this website</a></p>
-  </div>
-  <form id="email-survey-form" action="/contact/govuk/email-survey-request" method="post" class="wrapper js-hidden" aria-hidden="true">
-    <div id="feedback-prototype-form">
-      <h1>We'd like to hear from you</h1>
-      <p class="right"><a href="#user-survey-cancel" id="user-survey-cancel">No thanks</a></p>
-      <label for="email">Tell us your email address and we'll send you a link to a quick feedback form.</label>
-      <input name="survey_id" type="hidden" value="">
-      <input name="survey_source" type="hidden" value="">
-      <input name="email" type="text" placeholder="Your email address">
-      <div class="actions">
-        <button class="button">Send</button>
-        <p class="button-info">We won't store your email address or share it with anyone</span>
-      </div>
+  <div class="survey-wrapper">
+    <a class="survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>
+    <h2 class="survey-title" id="survey-title">Heading copy</h2>
+    <div id="email-survey-pre">
+      <a class="survey-primary-link" href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">
+       Invite to take survey text
+      </a>
     </div>
-  </form>
-  <div id="email-survey-post-success" class="wrapper js-hidden" aria-hidden="true">
-    <p>Thanks, we\'ve sent you an email with a link to the survey.</p>
-  </div>
-  <div id="email-survey-post-failure" class="wrapper js-hidden" aria-hidden="true">
-    <p>Sorry, we’re unable to send you an email right now.  Please try again later.</h2>
+    <form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">
+      <div class="survey-inner-wrapper">
+        <div id="survey-form-description" class="survey-form-description">Description of survey text</div>
+        <label class="survey-form-label" for="survey-email-address">
+          Email Address
+        </label>
+        <input name="email_survey_signup[survey_id]" type="hidden" value="">
+        <input name="email_survey_signup[survey_source]" type="hidden" value="">
+        <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">
+        <button class="survey-form-button" type="submit">Send me the survey</button>
+        <a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">Invite to take survey without email text</a>
+      </div>
+    </form>
+    <div id="email-survey-post-success" class="js-hidden" aria-hidden="true" tabindex="-1">
+      Successful email delivery text
+    </div>
+    <div id="email-survey-post-failure" class="js-hidden" aria-hidden="true" tabindex="-1">
+      Failed to delivery email text
+    </div>
   </div>
 </section>
 ```
 
-Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#survey-no-thanks` and `#user-survey-cancel` are also required for dismissing the UI.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
+Behaviour will be added so that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX.  The `survey_id` and `survey_source` inputs will be filled in with the appropriate elements.  The `#user-survey-cancel` element is also required for dismissing the UI if the form is open or closed.  Successfully submitting the form or dismissing the UI will set cookies to avoid re-showing the UI to the user again.
+
+#### Writing custom templates
+
+In most cases it is ok to just reuse the defaults, but if you must write your own you can follow the examples above and make use of the functions `templateBase` and `takeSurveyLink`.  These make sure the correct boilerplate code is present.
 
 ### `activeWhen` - OPTIONAL
 A callback function returning true or false allowing further scoping of when the survey is considered "active".
