@@ -27,7 +27,7 @@ class WrapperTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.11.3.js']", visible: :all)
+    assert page.has_selector?("script[src='/static/libs/jquery/jquery-1.12.4.js']", visible: :all)
     assert page.has_selector?("script[src='/static/application.js']", visible: :all)
   end
 end

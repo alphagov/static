@@ -40,7 +40,7 @@ Static::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( ie.js libs/jquery/jquery-1.11.3.min.js high-contrast.css dyslexic.css admin.css libs/jquery/jquery-ui-1.8.16.custom.min.js libs/jquery/plugins/jquery.mustache.js )
+  # config.assets.precompile += %w( ie.js libs/jquery/jquery-1.12.4.min.js high-contrast.css dyslexic.css admin.css libs/jquery/jquery-ui-1.8.16.custom.min.js libs/jquery/plugins/jquery.mustache.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
