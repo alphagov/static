@@ -1,7 +1,5 @@
 // Override govspeak styles with HTML publication specific ones
 .govuk-govspeak-html-publication {
-  @extend %contain-floats;
-  position: relative;
   margin-bottom: $gutter * 1.5;
   z-index: 2;
 
@@ -15,82 +13,12 @@
   }
 
   .govuk-govspeak {
-    @include media(tablet) {
-      width: 75%;
-      float: right;
-
-      &.direction-rtl {
-        float: left;
-      }
-    }
-
-    .number {
-      background: $white;
-    }
-
     h2 {
       @include bold-36;
-      padding-right: $gutter-one-third;
-
-      .number {
-        @include media(tablet) {
-          @include bold-80;
-          position: absolute;
-          margin-top: -$gutter;
-          margin-left: -25%;
-          width: 22%;
-          padding: ($gutter + $gutter / 6) 0 $gutter 3%;
-
-          @include ie(7) {
-            margin-left: -35%;
-          }
-        }
-      }
-    }
-
-    &.direction-rtl h2 {
-      padding-right: 0;
-      padding-left: $gutter-one-third;
-
-      .number {
-        @include media(tablet) {
-          margin-left: 0;
-          margin-right: -25%;
-          padding-left: 0;
-          padding-right: 3%;
-        }
-      }
     }
 
     h3 {
       @include bold-27;
-      padding-right: $gutter-one-third;
-
-      @include media(table) {
-        padding-right: 0;
-      }
-
-      .number {
-        color: $secondary-text-colour;
-
-        @include media(tablet) {
-          position: absolute;
-          width: $gutter * 2.5;
-          margin-left: $gutter * -2.5;
-        }
-      }
-    }
-
-    &.direction-rtl h3 {
-      padding-right: 0;
-      padding-left: $gutter-one-third;
-
-      .number {
-        @include media(tablet) {
-          margin-left: 0;
-          margin-right: $gutter * -2.5;
-        }
-      }
     }
 
     .stat-headline:first-child {
@@ -112,13 +40,22 @@
 
     h2:first-child,
     h3:first-child {
-      margin-top: 0;
+      margin-top: $gutter-two-thirds;
 
-      // Reduce default margin by 2x gutter for first headings
-      // This accounts for the 2x gutter margin on the HTML pub header
-      // which doesn't collapse because of containers
       @include media(tablet) {
-        margin-top: $gutter-two-thirds;
+        margin-top: 0;
+      }
+    }
+
+    h3 .number,
+    h4 .number,
+    h5 .number,
+    h6 .number {
+      margin-right: 0.1em;
+
+      .direction-rtl & {
+        margin-right: 0;
+        margin-left: 0.1em;
       }
     }
 
@@ -193,9 +130,5 @@
       }
     }
     // scss-lint:enable QualifyingElement
-  }
-
-  .govuk-sticky-element {
-    clear: both;
   }
 }
