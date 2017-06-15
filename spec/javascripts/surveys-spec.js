@@ -91,11 +91,29 @@ describe('Surveys', function () {
     })
 
     describe("for a 'url' survey", function () {
-      it('links to the url for a smartsurvey survey with a completion redirect query parameter', function () {
+      it('links to the url for a smartsurvey survey and adds the current path as a `c` param', function () {
         surveys.displaySurvey(urlSurvey)
 
         expect($('#take-survey').attr('href')).toContain(urlSurvey.url)
         expect($('#take-survey').attr('href')).toContain('?c=' + window.location.pathname)
+      })
+
+      it("links to the url for a non-smartsurvey survey without adding the current path as a `c` param", function () {
+        var nonSmartSurveyUrlSurvey = {
+          surveyType: 'url',
+          url: 'cleversurvey.com/default',
+          identifier: 'url-survey',
+        }
+        surveys.displaySurvey(nonSmartSurveyUrlSurvey);
+
+        expect($('#take-survey').attr('href')).toContain(nonSmartSurveyUrlSurvey.url);
+        expect($('#take-survey').attr('href')).not.toContain("?c=" + window.location.pathname);
+      })
+
+      it('records an event when showing the survey', function () {
+        spyOn(surveys, 'trackEvent')
+        surveys.displaySurvey(urlSurvey)
+        expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown')
       })
 
       it('sets event handlers on the survey', function () {
