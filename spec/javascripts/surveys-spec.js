@@ -33,6 +33,7 @@ describe('Surveys', function () {
     $block = $('<div class="govuk-emergency-banner" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
                '<div id="global-browser-prompt" style="display: none"></div>' +
+               '<div id="taxonomy-survey" style="display: none"></div>' +
                '<div id="user-satisfaction-survey-container"></div>')
 
     $('body').append($block)
@@ -53,16 +54,24 @@ describe('Surveys', function () {
   })
 
   describe('init', function () {
-    it('shows the default survey', function () {
+    it("shows a survey if we can show any surveys", function () {
+      spyOn(surveys, 'canShowAnySurvey').and.returnValue(true)
+      spyOn(surveys, 'getActiveSurvey').and.returnValue(surveys.defaultSurvey)
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
-      // So we're working with the user satisfaction survey, not any future small survey
-      spyOn(surveys, 'currentTime').and.returnValue(new Date('July 11, 201610:00:00').getTime())
       surveys.init()
 
       expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url)
       expect($('#user-satisfaction-survey').length).toBe(1)
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true)
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')
+    })
+
+    it("fails quickly if we cannot show any surveys", function () {
+      spyOn(surveys, 'canShowAnySurvey').and.returnValue(false)
+      spyOn(surveys, 'getActiveSurvey')
+      surveys.init()
+
+      expect(surveys.getActiveSurvey).not.toHaveBeenCalled()
     })
   })
 
@@ -129,19 +138,63 @@ describe('Surveys', function () {
     })
   })
 
-  describe('isSurveyToBeDisplayed', function () {
-    it('returns false if another notification banner is visible', function () {
-      $('#global-cookie-message').css('display', 'block')
+  describe("canShowAnySurvey", function () {
+    it("returns false if any other notification is visible", function () {
+      spyOn(surveys, 'otherNotificationVisible').and.returnValue(true)
 
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
     })
 
-    it('returns false if the path is blacklisted', function () {
+    it("returns false if the user has completed a transaction", function () {
+      spyOn(surveys, 'userCompletedTransaction').and.returnValue(true)
+
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
+    })
+
+    it("returns false if the survey container isn't present", function () {
+      $("#user-satisfaction-survey-container").remove()
+
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
+    })
+
+    it("returns false if the path is blacklisted", function () {
       spyOn(surveys, 'pathInBlacklist').and.returnValue(true)
 
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      expect(surveys.canShowAnySurvey()).toBeFalsy()
     })
 
+    it("returns true otherwise", function () {
+      expect(surveys.canShowAnySurvey()).toBeTruthy()
+    })
+  })
+
+  describe("otherNotificationVisible", function () {
+    it("returns false if the global cookie banner is visible", function () {
+      $('#global-cookie-message').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+
+    it("returns false if the emergency banner is visible", function () {
+      $('.govuk-emergency-banner').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+
+    it("returns false if the global browser prompt message is visible", function () {
+      $('#global-browser-prompt').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+
+    it("returns false if the taxonomy survey is visible", function () {
+      $('#taxonomy-survey').css('display', 'block')
+
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+    })
+  })
+
+  describe("isSurveyToBeDisplayed", function () {
     it("returns false if the 'survey taken' cookie is set", function () {
       GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true')
 
@@ -425,33 +478,51 @@ describe('Surveys', function () {
     })
   })
 
-  describe('getActiveSurvey', function () {
-    it('returns the default survey when no smallSurveys are present', function () {
-      var smallSurveys = [smallSurvey]
-
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys)
-      expect(activeSurvey).toBe(defaultSurvey)
+  describe("getActiveSurveys", function () {
+    it("returns an empty array when no surveys are present", function () {
+      expect(surveys.getActiveSurveys([])).toHaveLength(0)
     })
 
-    it('returns the default survey when a smallSurvey is not active', function () {
-      var smallSurveys = [smallSurvey]
-      spyOn(surveys, 'currentTime').and.returnValue(new Date('July 11, 2016 10:00:00').getTime())
+    it("does not include a survey that has not started yet", function () {
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        url: 'example.com/test-survey'
+      }
+      var smallSurveys = []
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 04, 2016 10:00:00").getTime())
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys)
-      expect(activeSurvey).toBe(defaultSurvey)
+      var activeSurveys = surveys.getActiveSurveys([testSurvey])
+      expect(activeSurveys).not.toContain(testSurvey)
     })
 
-    it('returns the small survey when a smallSurvey is active', function () {
-      var smallSurveys = [smallSurvey]
-      spyOn(surveys, 'currentTime').and.returnValue(new Date('July 9, 2016 10:00:00').getTime())
+    it("does not include a survey that has finished", function () {
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        url: 'example.com/test-survey'
+      }
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 11, 2016 10:00:00").getTime())
 
-      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, smallSurveys)
-      expect(activeSurvey).toBe(smallSurvey)
+      var activeSurveys = surveys.getActiveSurveys([testSurvey])
+      expect(activeSurveys).not.toContain(testSurvey)
     })
 
-    describe('activeWhen function call', function () {
-      it('returns the test survey when the callback returns true', function () {
-        spyOn(surveys, 'currentTime').and.returnValue(new Date('July 9, 2016 10:00:00').getTime())
+    it("includes the survey when we are between its start and end times", function () {
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        url: 'example.com/test-survey'
+      }
+      spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime())
+
+      var activeSurveys = surveys.getActiveSurveys([testSurvey])
+      expect(activeSurveys).toContain(testSurvey)
+    })
+
+    describe("checking activeWhen attribute", function () {
+      it("includes the survey when the activeWhen function returns true", function () {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime())
         var testSurvey = {
           startTime: new Date('July 5, 2016').getTime(),
           endTime: new Date('July 10, 2016 23:50:00').getTime(),
@@ -459,12 +530,12 @@ describe('Surveys', function () {
           url: 'example.com/small-survey'
         }
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey])
-        expect(activeSurvey).toBe(testSurvey)
+        var activeSurveys = surveys.getActiveSurveys([testSurvey])
+        expect(activeSurveys).toContain(testSurvey)
       })
 
-      it('returns the default when the callback returns false', function () {
-        spyOn(surveys, 'currentTime').and.returnValue(new Date('July 9, 2016 10:00:00').getTime())
+      it("does not include the survey when the activeWhen function returns false", function () {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime())
         var testSurvey = {
           startTime: new Date('July 5, 2016').getTime(),
           endTime: new Date('July 10, 2016 23:50:00').getTime(),
@@ -472,9 +543,80 @@ describe('Surveys', function () {
           url: 'example.com/small-survey'
         }
 
-        var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [testSurvey])
-        expect(activeSurvey).toBe(defaultSurvey)
+        var activeSurveys = surveys.getActiveSurveys([testSurvey])
+        expect(activeSurveys).not.toContain(testSurvey)
       })
+
+      it("includes the survey when it has no activeWhen function", function () {
+        spyOn(surveys, 'currentTime').and.returnValue(new Date("July 9, 2016 10:00:00").getTime())
+        var testSurvey = {
+          startTime: new Date("July 5, 2016").getTime(),
+          endTime: new Date("July 10, 2016 23:50:00").getTime(),
+          url: 'example.com/small-survey'
+        }
+
+        var activeSurveys = surveys.getActiveSurveys([testSurvey])
+        expect(activeSurveys).toContain(testSurvey)
+      })
+    })
+  })
+
+  describe("getDisplayableSurveys", function () {
+    it("does not include a survey that should not be displayed", function () {
+      spyOn(surveys, 'isSurveyToBeDisplayed').and.returnValue(false)
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        url: 'example.com/small-survey'
+      }
+
+      var displayableSurveys = surveys.getDisplayableSurveys([testSurvey])
+      expect(displayableSurveys).not.toContain(testSurvey)
+    })
+
+    it("includes a survey if it should be displayed", function () {
+      spyOn(surveys, 'isSurveyToBeDisplayed').and.returnValue(true)
+      var testSurvey = {
+        startTime: new Date("July 5, 2016").getTime(),
+        endTime: new Date("July 10, 2016 23:50:00").getTime(),
+        url: 'example.com/small-survey'
+      }
+
+      var displayableSurveys = surveys.getDisplayableSurveys([testSurvey])
+      expect(displayableSurveys).toContain(testSurvey)
+    })
+  })
+
+  describe("getActiveSurvey", function () {
+    it("combines the default survey with the active small surveys to find all possible surveys to display", function () {
+      spyOn(surveys, 'getActiveSurveys').and.returnValue([smallSurvey, urlSurvey])
+      spyOn(surveys, 'getDisplayableSurveys').and.callThrough()
+      surveys.getActiveSurvey(defaultSurvey, [smallSurvey, urlSurvey])
+      expect(surveys.getActiveSurveys).toHaveBeenCalledWith([smallSurvey, urlSurvey])
+      expect(surveys.getDisplayableSurveys).toHaveBeenCalledWith([defaultSurvey, smallSurvey, urlSurvey])
+    })
+
+    it("returns nothing if no surveys are displayable", function () {
+      spyOn(surveys, 'getDisplayableSurveys').and.returnValue([])
+
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [smallSurvey, urlSurvey])
+      expect(activeSurvey).toBe(undefined)
+    })
+
+    it("returns the only displayable survey", function () {
+      spyOn(surveys, 'getDisplayableSurveys').and.returnValue([urlSurvey])
+
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [smallSurvey, urlSurvey])
+      expect(activeSurvey).toBe(urlSurvey)
+    })
+
+    it("randomly chooses a survey if multiple surveys are displayable", function () {
+      spyOn(surveys, 'getDisplayableSurveys').and.returnValue([defaultSurvey, smallSurvey, urlSurvey])
+      spyOn(Math, 'random').and.returnValue(0.5) // this'll result in us picking the 2nd item
+
+      var activeSurvey = surveys.getActiveSurvey(defaultSurvey, [smallSurvey, urlSurvey])
+      expect(Math.random).toHaveBeenCalled()
+      expect(activeSurvey).toBe(smallSurvey)
     })
   })
 })

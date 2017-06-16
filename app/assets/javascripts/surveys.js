@@ -66,26 +66,63 @@
     ],
 
     init: function () {
-      var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
-      if (userSurveys.isSurveyToBeDisplayed(activeSurvey)) {
-        userSurveys.displaySurvey(activeSurvey)
+      if (userSurveys.canShowAnySurvey()) {
+        var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
+        if (activeSurvey !== undefined) {
+          userSurveys.displaySurvey(activeSurvey)
+        }
       }
     },
 
-    getActiveSurvey: function (defaultSurvey, smallSurveys) {
-      var activeSurvey = defaultSurvey
+    canShowAnySurvey: function() {
+      if (userSurveys.pathInBlacklist()) {
+        return false
+      } else if (userSurveys.otherNotificationVisible()) {
+        return false
+      } else if (userSurveys.userCompletedTransaction()) {
+        // We don't want any survey appearing for users who have completed a
+        // transaction as they may complete the survey with the department's
+        // transaction in mind as opposed to the GOV.UK content.
+        return false
+      } else if ($('#user-satisfaction-survey-container').length <= 0) {
+        return false
+      } else {
+        return true
+      }
+    },
 
-      $.each(smallSurveys, function (_index, survey) {
+    getActiveSurveys: function (surveys) {
+      return $.grep(surveys, function (survey, _index) {
         if (userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
           if (typeof (survey.activeWhen) === 'function') {
-            if (survey.activeWhen()) { activeSurvey = survey }
+            return survey.activeWhen()
           } else {
-            activeSurvey = survey
+            return true
           }
         }
       })
+    },
 
-      return activeSurvey
+    getDisplayableSurveys: function (surveys) {
+      return $.grep(surveys, function (survey, _index) {
+        return userSurveys.isSurveyToBeDisplayed(survey)
+      })
+    },
+
+    getActiveSurvey: function (defaultSurvey, smallSurveys) {
+      var activeSurveys = userSurveys.getActiveSurveys(smallSurveys)
+      var allSurveys = [defaultSurvey].concat(activeSurveys)
+      var displayableSurveys = userSurveys.getDisplayableSurveys(allSurveys)
+
+      if (displayableSurveys.length < 1) {
+        return displayableSurveys[0]
+      } else {
+        // At this point, if there are multiple surveys that could be shown
+        // it is fair to roll the dice and pick one; we've already considered
+        // frequency in isSurveyToBeDisplayed so we don't need to worry about
+        // it here
+        return displayableSurveys[Math.floor(Math.random() * displayableSurveys.length)]
+      }
     },
 
     displaySurvey: function (survey) {
@@ -224,17 +261,7 @@
     },
 
     isSurveyToBeDisplayed: function (survey) {
-      if (userSurveys.pathInBlacklist()) {
-        return false
-      } else if (userSurveys.otherNotificationVisible() ||
-          window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
-        return false
-      } else if (userSurveys.userCompletedTransaction()) {
-        // We don't want any survey appearing for users who have completed a
-        // transaction as they may complete the survey with the department's
-        // transaction in mind as opposed to the GOV.UK content.
-        return false
-      } else if ($('#user-satisfaction-survey-container').length <= 0) {
+      if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
       } else if (userSurveys.randomNumberMatches(survey.frequency)) {
         return true
