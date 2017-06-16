@@ -7,6 +7,8 @@
 //= require govuk/analytics/external-link-tracker
 //= require govuk/analytics/download-link-tracker
 
+//= require analytics/custom-dimensions
 //= require analytics/static-analytics
+//= require analytics/ecommerce
 //= require analytics/init
 //= require analytics/scroll-tracker
