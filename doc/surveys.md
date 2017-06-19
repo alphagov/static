@@ -44,8 +44,11 @@ What type of survey is this.  Currently either `url` or `email` is supported.  `
 
 Note that for `email` surveys the users email is submitted back to the [feedback](https://github.com/alphagov/feedback) app which actually sends the email.  The email address is sent with the `identifier` of the survey and this identifier must match with the `id` of a survey defined in [`app/models/email_survey.rb`](https://github.com/alphagov/feedback/blob/85e07b0c572a91be02b64af1d551df313f2695f9/app/models/email_survey.rb#L24).  Make sure you define the survey in both `static` and `feedback`.
 
-### `url` - required
-Used in a link in the survey that the user is directed to click on. This should be the URL of a smartsurvey -- or other survey page -- that allows the visitor to take the survey. Required, but not currently used in 'email'.
+### `url` - required for both `url` surveys and `email` surveys
+Used in a link in the survey that the user is directed to click on. This should be the URL of a smartsurvey -- or other survey page -- that allows the visitor to take the survey. If the url contains the template param `{{currentPath}}` this will be replaced with the current page path.  For example if the `url` param is:
+
+* `https://www.smartsurvey.com/s/2AAAAAA` - it will be left alone and inserted in the template as-is.
+* `https://www.smartsurvey.com/s/2AAAAAA?c={{currentPath}}` - will be transformed into `https://www.smartsurvey.com/s/2AAAAAA?c=/government/publications/the-kingdom-of-the-crystal-skull` (assuming the page the survey was shown on was https://www.gov.uk/government/publications/the-kindgom-of-the-crystal-skull).
 
 ### `template` - OPTIONAL
 This describes the UI that the survey will use to encourage users to sign up.  If omitted the default survey for the `surveyType` will be used.

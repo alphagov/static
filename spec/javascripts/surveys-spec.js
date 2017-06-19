@@ -26,6 +26,7 @@ describe('Surveys', function () {
   }
   var emailSurvey = {
     surveyType: 'email',
+    url: 'smartsurvey.co.ukdefault',
     identifier: 'email-survey'
   }
 
@@ -60,7 +61,7 @@ describe('Surveys', function () {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
       surveys.init()
 
-      expect($('#take-survey').attr('href')).toContain(surveys.defaultSurvey.url)
+      expect($('#take-survey').attr('href')).toContain(surveys.addCurrentPathtoURL(surveys.defaultSurvey))
       expect($('#user-satisfaction-survey').length).toBe(1)
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true)
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')
@@ -91,25 +92,6 @@ describe('Surveys', function () {
     })
 
     describe("for a 'url' survey", function () {
-      it('links to the url for a smartsurvey survey and adds the current path as a `c` param', function () {
-        surveys.displaySurvey(urlSurvey)
-
-        expect($('#take-survey').attr('href')).toContain(urlSurvey.url)
-        expect($('#take-survey').attr('href')).toContain('?c=' + window.location.pathname)
-      })
-
-      it("links to the url for a non-smartsurvey survey without adding the current path as a `c` param", function () {
-        var nonSmartSurveyUrlSurvey = {
-          surveyType: 'url',
-          url: 'cleversurvey.com/default',
-          identifier: 'url-survey',
-        }
-        surveys.displaySurvey(nonSmartSurveyUrlSurvey);
-
-        expect($('#take-survey').attr('href')).toContain(nonSmartSurveyUrlSurvey.url);
-        expect($('#take-survey').attr('href')).not.toContain("?c=" + window.location.pathname);
-      })
-
       it('records an event when showing the survey', function () {
         spyOn(surveys, 'trackEvent')
         surveys.displaySurvey(urlSurvey)
@@ -126,6 +108,35 @@ describe('Surveys', function () {
         spyOn(surveys, 'trackEvent')
         surveys.displaySurvey(urlSurvey)
         expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown')
+      })
+
+      it("replaces the current path if the survey url contains the {{currentPath}} template parameter", function () {
+        var urlSurveyWithCurrentPath = {
+          surveyType: 'url',
+          url: 'smartsurvey.com/default?c={{currentPath}}',
+          identifier: 'url-survey',
+        }
+        surveys.displaySurvey(urlSurveyWithCurrentPath)
+
+        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname)
+      })
+
+      it("does not inject the current path if the survey url does not contain the {{currentPath}} template parameter", function () {
+        surveys.displaySurvey(urlSurvey)
+
+        expect($('#take-survey').attr('href')).toEqual(urlSurvey.url)
+      })
+
+      it("allows the `currentPath` to be a relative url with a query-string", function () {
+        spyOn(surveys, 'currentPath').and.returnValue('/done/some-transaction?cachebust=1234')
+        var urlSurveyWithCurrentPath = {
+          surveyType: 'url',
+          url: 'smartsurvey.com/default?c={{currentPath}}',
+          identifier: 'url-survey',
+        }
+        surveys.displaySurvey(urlSurveyWithCurrentPath);
+
+        expect($('#take-survey').attr('href')).toEqual('smartsurvey.com/default?c=/done/some-transaction?cachebust=1234')
       })
     })
 
@@ -152,6 +163,35 @@ describe('Surveys', function () {
         spyOn(surveys, 'trackEvent')
         surveys.displaySurvey(emailSurvey)
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_shown', 'Banner has been shown')
+      })
+
+      it("replaces the current path if the survey url contains the {{currentPath}} template parameter", function () {
+        var emailSurveyWithCurrentPath = {
+          surveyType: 'email',
+          url: 'smartsurvey.com/default?c={{currentPath}}',
+          identifier: 'email-survey',
+        }
+        surveys.displaySurvey(emailSurveyWithCurrentPath)
+
+        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname)
+      })
+
+      it("does not inject the current path if the survey url does not contain the {{currentPath}} template parameter", function () {
+        surveys.displaySurvey(emailSurvey)
+
+        expect($('#take-survey').attr('href')).toEqual(emailSurvey.url)
+      })
+
+      it("allows the `currentPath` to be a relative url with a query-string", function () {
+        spyOn(surveys, 'currentPath').and.returnValue('/done/some-transaction?cachebust=1234')
+        var emailSurveyWithCurrentPath = {
+          surveyType: 'email',
+          url: 'smartsurvey.com/default?c={{currentPath}}',
+          identifier: 'email-survey',
+        }
+        surveys.displaySurvey(emailSurveyWithCurrentPath);
+
+        expect($('#take-survey').attr('href')).toEqual('smartsurvey.com/default?c=/done/some-transaction?cachebust=1234')
       })
     })
   })
@@ -332,7 +372,8 @@ describe('Surveys', function () {
     describe('for an email survey', function () {
       var emailSurvey = {
         surveyType: 'email',
-        identifier: 'email-survey'
+        identifier: 'email-survey',
+        url: 'smartsurvey.co.ukdefault',
       }
 
       beforeEach(function () {

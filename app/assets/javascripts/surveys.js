@@ -95,7 +95,7 @@
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
-      url: 'https://www.smartsurvey.co.uk/s/gov_uk',
+      url: 'https://www.smartsurvey.co.uk/s/gov_uk?c={{currentPath}}',
       identifier: 'user_satisfaction_survey',
       frequency: 6,
       surveyType: 'email'
@@ -257,14 +257,13 @@
 
     setURLSurveyLink: function (survey) {
       var $surveyLink = $('#take-survey')
-      var surveyUrl = survey.url
-
-      // Smart survey can record the URL of the survey link if passed through as a query param
-      if ((/smartsurvey/.test(surveyUrl)) && (surveyUrl.indexOf('?c=') === -1)) {
-        surveyUrl += '?c=' + userSurveys.currentPath()
-      }
+      var surveyUrl = userSurveys.addCurrentPathtoURL(survey)
 
       $surveyLink.attr('href', surveyUrl)
+    },
+
+    addCurrentPathtoURL: function (survey) {
+      return survey.url.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
     },
 
     setEmailSurveyEventHandlers: function (survey) {
