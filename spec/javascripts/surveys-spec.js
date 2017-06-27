@@ -214,7 +214,7 @@ describe('Surveys', function () {
     })
 
     it('returns false if the survey has been seen too many times', function () {
-      spyOn(surveys, 'surveySeenTooManyTimes').and.returnValue(true)
+      spyOn(surveys, 'surveyHasBeenSeenTooManyTimes').and.returnValue(true)
       expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
     })
 
@@ -497,31 +497,85 @@ describe('Surveys', function () {
     })
   })
 
-  describe("surveySeenTooManyTimes", function () {
+  describe("surveyHasBeenSeenTooManyTimes", function () {
     it('returns false if the survey seen cookie is not set', function () {
       GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), null)
-      expect(surveys.surveySeenTooManyTimes(smallSurvey)).toBeFalsy()
+      expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeFalsy()
     })
 
     it('returns false if the survey seen cookie is set but the value is not a number', function () {
       GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 'a few times')
-      expect(surveys.surveySeenTooManyTimes(smallSurvey)).toBeFalsy()
+      expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeFalsy()
     })
 
-    it('returns false if the survey seen cookie is set but the value is less than 2', function () {
-      GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 0)
-      expect(surveys.surveySeenTooManyTimes(smallSurvey)).toBeFalsy()
+    describe("for surveys without a configured seenTooManyTimesLimit", function () {
+      it('returns false if the survey seen cookie is set and the value is less than 2', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 0)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeFalsy()
 
-      GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 1)
-      expect(surveys.surveySeenTooManyTimes(smallSurvey)).toBeFalsy()
+        GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 1)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeFalsy()
+      })
+
+      it('returns true if the survey seen cookie is set and the value is exactly 2', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 2)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeTruthy()
+      })
+
+      it('returns true if the survey seen cookie is set and the value is more than 2', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 10)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeTruthy()
+      })
     })
 
-    it('returns true if the survey seen cookie is set but the value is 2 or more', function () {
-      GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 2)
-      expect(surveys.surveySeenTooManyTimes(smallSurvey)).toBeTruthy()
+    describe("for surveys that configure their own seenTooManyTimesLimit", function () {
+      var bigLimitSurvey = { identifier: 'big_limit_survey', seenTooManyTimesLimit: 4 }
 
-      GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 10)
-      expect(surveys.surveySeenTooManyTimes(smallSurvey)).toBeTruthy()
+      it('returns false if the survey seen cookie is set and the value is less than the limit', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(bigLimitSurvey), 0)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(bigLimitSurvey)).toBeFalsy()
+
+        GOVUK.cookie(surveys.surveySeenCookieName(bigLimitSurvey), 1)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(bigLimitSurvey)).toBeFalsy()
+
+        GOVUK.cookie(surveys.surveySeenCookieName(bigLimitSurvey), 2)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(bigLimitSurvey)).toBeFalsy()
+
+        GOVUK.cookie(surveys.surveySeenCookieName(bigLimitSurvey), 3)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(bigLimitSurvey)).toBeFalsy()
+      })
+
+      it('returns true if the survey seen cookie is set and the value is exactly the limit', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(bigLimitSurvey), 4)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(bigLimitSurvey)).toBeTruthy()
+      })
+
+      it ('returns true if the survey seen cookie is set and the value is greater than the limit', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(smallSurvey), 10)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeTruthy()
+      })
+    })
+  })
+
+  describe("surveySeenTooManyTimesLimit", function () {
+    it("returns the default limit (2) if the survey is not configured with a limit", function () {
+      var survey = { identifier: 'no_configured_limit' }
+      expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(2)
+    })
+
+    it("returns the configured limit if the survey is configured with a limit", function () {
+      var survey = { identifier: 'no_configured_limit', seenTooManyTimesLimit: 3 }
+      expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(3)
+    })
+
+    it("returns the default limit (2) if the survey is configured with a limit that is not a number", function () {
+      var survey = { identifier: 'no_configured_limit', seenTooManyTimesLimit: 'a couple of times' }
+      expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(2)
+    })
+
+    it("returns the default limit (2) if the survey is configured with a limit that is less than 1", function () {
+      var survey = { identifier: 'no_configured_limit', seenTooManyTimesLimit: 0 }
+      expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(2)
     })
   })
 

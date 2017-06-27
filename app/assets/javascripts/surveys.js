@@ -265,7 +265,7 @@
     isSurveyToBeDisplayed: function (survey) {
       if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
-      } else if (userSurveys.surveySeenTooManyTimes(survey)) {
+      } else if (userSurveys.surveyHasBeenSeenTooManyTimes(survey)) {
         return false
       } else {
         return userSurveys.randomNumberMatches(survey.frequency)
@@ -330,8 +330,17 @@
       return $(notificationIds.join(', ')).length > 0
     },
 
-    surveySeenTooManyTimes: function (survey) {
-      return (userSurveys.surveySeenCount(survey) >= SURVEY_SEEN_TOO_MANY_TIMES_LIMIT)
+    surveyHasBeenSeenTooManyTimes: function (survey) {
+      return (userSurveys.surveySeenCount(survey) >= userSurveys.surveySeenTooManyTimesLimit(survey))
+    },
+
+    surveySeenTooManyTimesLimit: function (survey) {
+      var limit = parseInt(survey.seenTooManyTimesLimit, 10)
+      if (isNaN(limit) || limit < 1) {
+        return SURVEY_SEEN_TOO_MANY_TIMES_LIMIT
+      } else {
+        return limit
+      }
     },
 
     surveySeenCount: function (survey) {

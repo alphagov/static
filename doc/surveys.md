@@ -8,7 +8,7 @@ This can easily be done by adding an entry to `GOVUK.userSurveys.smallSurveys` i
 
 There are sections of the site that should not show any surveys and these can be controlled via the `GOVUK.userSurveys.pathInBlacklist` function in `app/assets/javascripts/surveys.js`.  They are also never shown on "done" pages which can be controlled via the `GOVUK.userSurveys.userCompletedTransaction` function in the same file.
 
-Once a user takes the survey (clicks the link or fills in their email address and submits the form) we set a cookie to say they've taken it (we don't know they've actually taken it, but we assume their interaction means they have).  This cookie is used to make sure we don't show that survey to the user again for ~4 months (120 days).  We also record a session cookie that counts how many times the user has been shown a given survey and if they have already seen it two times we don't show it to them again.
+Once a user takes the survey (clicks the link or fills in their email address and submits the form) we set a cookie to say they've taken it (we don't know they've actually taken it, but we assume their interaction means they have).  This cookie is used to make sure we don't show that survey to the user again for ~4 months (120 days).  We also record a session cookie that counts how many times the user has been shown a given survey and if they have already seen it two (this number is configurable) times we don't show it to them again.
 
 ## Example
 
@@ -134,6 +134,9 @@ Not providing the `activeWhen` argument has the same effect as setting it to `re
 
 ### `startTime` and `endTime`
 The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
+
+### `surveySeenTooManyTimesLimit` - OPTIONAL (default: 2)
+We record how many times a given survey is shown to a user and won't show it again if they've seen it too many times.  The default for that limit is 2 (e.g. we show it 2 times, but not 3 or more) but you can change that by adding a custom value here.  Anything that's not a number is ignored.
 
 ## Testing Surveys
 If you need to force a particular survey to display – for example for testing – you can call  e.g. `GOVUK.userSurveys.displaySurvey(GOVUK.userSurveys.defaultSurvey)` or `GOVUK.userSurveys.displaySurvey(GOVUK.userSurveys.smallSurveys[0])` from your browser console.
