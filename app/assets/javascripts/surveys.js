@@ -309,7 +309,22 @@
     },
 
     incrementSurveySeenCounter: function (survey) {
-      window.GOVUK.cookie(userSurveys.surveySeenCookieName(survey), userSurveys.surveySeenCount(survey) + 1)
+      var cookieName = userSurveys.surveySeenCookieName(survey)
+      var seenCount = (userSurveys.surveySeenCount(survey) + 1)
+      var cooloff = userSurveys.seenTooManyTimesCooloff(survey)
+      if (cooloff) {
+        window.GOVUK.cookie(cookieName, seenCount, { days: cooloff })
+      } else {
+        window.GOVUK.cookie(cookieName, seenCount)
+      }
+    },
+
+    seenTooManyTimesCooloff: function (survey) {
+      if (survey.seenTooManyTimesCooloff) {
+        return extractNumber(survey.seenTooManyTimesCooloff, undefined, 1)
+      } else {
+        return undefined
+      }
     },
 
     hideSurvey: function (_survey) {
@@ -335,22 +350,11 @@
     },
 
     surveySeenTooManyTimesLimit: function (survey) {
-      var limit = parseInt(survey.seenTooManyTimesLimit, 10)
-      if (isNaN(limit) || limit < 1) {
-        return SURVEY_SEEN_TOO_MANY_TIMES_LIMIT
-      } else {
-        return limit
-      }
+      return extractNumber(survey.seenTooManyTimesLimit, SURVEY_SEEN_TOO_MANY_TIMES_LIMIT, 1)
     },
 
     surveySeenCount: function (survey) {
-      var seenCookieName = userSurveys.surveySeenCookieName(survey)
-      var seenCount = parseInt(GOVUK.cookie(seenCookieName), 10)
-      if (isNaN(seenCount) || seenCount < 0) {
-        return 0
-      } else {
-        return seenCount
-      }
+      return extractNumber(GOVUK.cookie(userSurveys.surveySeenCookieName(survey)), 0, 0)
     },
 
     surveyTakenCookieName: function (survey) {
@@ -371,6 +375,15 @@
       return m.charAt(1).toUpperCase()
     })
     return 'govuk_' + cookieStub
+  }
+
+  var extractNumber = function (value, defaultValue, limit) {
+    var parsedValue = parseInt(value, 10)
+    if (isNaN(parsedValue) || (parsedValue < limit)) {
+      return defaultValue
+    } else {
+      return parsedValue
+    }
   }
 
   window.GOVUK.userSurveys = userSurveys

@@ -88,14 +88,6 @@ describe('Surveys', function () {
       GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey), null)
       surveys.displaySurvey(defaultSurvey)
       expect(GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey))).toBe('1')
-
-      GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey), 10)
-      surveys.displaySurvey(defaultSurvey)
-      expect(GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey))).toBe('11')
-
-      GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey), 'a few times')
-      surveys.displaySurvey(defaultSurvey)
-      expect(GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey))).toBe('1')
     })
 
     describe("for a 'url' survey", function () {
@@ -658,6 +650,60 @@ describe('Surveys', function () {
 
         var activeSurveys = surveys.getActiveSurveys([testSurvey])
         expect(activeSurveys).toContain(testSurvey)
+      })
+    })
+  })
+
+  describe("incrementSurveySeenCounter", function () {
+    it("sets the value of the cookie to 1 if it's not set", function () {
+      var survey = { identifier: 'my_survey' }
+      var cookieName = surveys.surveySeenCookieName(survey)
+      GOVUK.cookie(cookieName, null)
+      surveys.incrementSurveySeenCounter(survey)
+      expect(GOVUK.cookie(cookieName)).toBe('1')
+    })
+
+    it("increments the value of the cookie by 1 if it's already set", function () {
+      var survey = { identifier: 'my_survey' }
+      var cookieName = surveys.surveySeenCookieName(survey)
+      GOVUK.cookie(cookieName, 3)
+      surveys.incrementSurveySeenCounter(survey)
+      expect(GOVUK.cookie(cookieName)).toBe('4')
+    })
+
+    it("sets the value of the cookie to 1 if it's set to something that's not a number", function () {
+      var survey = { identifier: 'my_survey' }
+      var cookieName = surveys.surveySeenCookieName(survey)
+      GOVUK.cookie(cookieName, 'a couple of times')
+      surveys.incrementSurveySeenCounter(survey)
+      expect(GOVUK.cookie(cookieName)).toBe('1')
+    })
+
+    it("sets the value of the cookie to 1 if it's set to a number less than 1", function () {
+      var survey = { identifier: 'my_survey' }
+      var cookieName = surveys.surveySeenCookieName(survey)
+      GOVUK.cookie(cookieName, -1)
+      surveys.incrementSurveySeenCounter(survey)
+      expect(GOVUK.cookie(cookieName)).toBe('1')
+    })
+
+    describe("for surveys with no seenTooManyTimesCooloff", function () {
+      it("sets the cookie to session scope", function () {
+        var survey = { identifier: 'my_survey' }
+        var cookieName = surveys.surveySeenCookieName(survey)
+        spyOn(GOVUK, 'cookie')
+        surveys.incrementSurveySeenCounter(survey)
+        expect(GOVUK.cookie).toHaveBeenCalledWith(cookieName, 1)
+      })
+    })
+
+    describe("for surveys with a seenTooManyTimesCooloff", function () {
+      it("sets the cookie to expire in that many days", function () {
+        var survey = { identifier: 'my_survey', seenTooManyTimesCooloff: 10 }
+        var cookieName = surveys.surveySeenCookieName(survey)
+        spyOn(GOVUK, 'cookie')
+        surveys.incrementSurveySeenCounter(survey)
+        expect(GOVUK.cookie).toHaveBeenCalledWith(cookieName, 1, { days: 10 })
       })
     })
   })
