@@ -8,6 +8,8 @@ This can easily be done by adding an entry to `GOVUK.userSurveys.smallSurveys` i
 
 There are sections of the site that should not show any surveys and these can be controlled via the `GOVUK.userSurveys.pathInBlacklist` function in `app/assets/javascripts/surveys.js`.  They are also never shown on "done" pages which can be controlled via the `GOVUK.userSurveys.userCompletedTransaction` function in the same file.
 
+Once a user takes the survey (clicks the link or fills in their email address and submits the form) we set a cookie to say they've taken it (we don't know they've actually taken it, but we assume their interaction means they have).  This cookie is used to make sure we don't show that survey to the user again for ~4 months (120 days).  We also record a session cookie that counts how many times the user has been shown a given survey and if they have already seen it two times we don't show it to them again.
+
 ## Example
 
 ```javascript

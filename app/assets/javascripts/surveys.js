@@ -53,6 +53,7 @@
     '  Sorry, we’re unable to send you an email right now.  Please try again later.' +
     '</div>'
   )
+  var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
@@ -134,6 +135,7 @@
       } else {
         return
       }
+      userSurveys.incrementSurveySeenCounter(survey)
       userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown')
     },
 
@@ -263,10 +265,10 @@
     isSurveyToBeDisplayed: function (survey) {
       if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
-      } else if (userSurveys.randomNumberMatches(survey.frequency)) {
-        return true
-      } else {
+      } else if (userSurveys.surveySeenTooManyTimes(survey)) {
         return false
+      } else {
+        return userSurveys.randomNumberMatches(survey.frequency)
       }
     },
 
@@ -306,6 +308,10 @@
       window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 4 })
     },
 
+    incrementSurveySeenCounter: function (survey) {
+      window.GOVUK.cookie(userSurveys.surveySeenCookieName(survey), userSurveys.surveySeenCount(survey) + 1)
+    },
+
     hideSurvey: function (_survey) {
       $('#user-satisfaction-survey').removeClass('visible').attr('aria-hidden', 'true')
     },
@@ -324,17 +330,38 @@
       return $(notificationIds.join(', ')).length > 0
     },
 
+    surveySeenTooManyTimes: function (survey) {
+      return (userSurveys.surveySeenCount(survey) >= SURVEY_SEEN_TOO_MANY_TIMES_LIMIT)
+    },
+
+    surveySeenCount: function (survey) {
+      var seenCookieName = userSurveys.surveySeenCookieName(survey)
+      var seenCount = parseInt(GOVUK.cookie(seenCookieName), 10)
+      if (isNaN(seenCount) || seenCount < 0) {
+        return 0
+      } else {
+        return seenCount
+      }
+    },
+
     surveyTakenCookieName: function (survey) {
-      // user_satisfaction_survey => takenUserSatisfactionSurvey
-      var cookieStr = 'taken_' + survey.identifier
-      var cookieStub = cookieStr.replace(/(\_\w)/g, function (m) {
-        return m.charAt(1).toUpperCase()
-      })
-      return 'govuk_' + cookieStub
+      return generateCookieName('taken_' + survey.identifier)
+    },
+
+    surveySeenCookieName: function (survey) {
+      return generateCookieName('survey_seen_' + survey.identifier)
     },
 
     currentTime: function () { return new Date().getTime() },
     currentPath: function () { return window.location.pathname }
+  }
+
+  var generateCookieName = function (cookieName) {
+      // taken_user_satisfaction_survey => takenUserSatisfactionSurvey
+    var cookieStub = cookieName.replace(/(\_\w)/g, function (m) {
+      return m.charAt(1).toUpperCase()
+    })
+    return 'govuk_' + cookieStub
   }
 
   window.GOVUK.userSurveys = userSurveys
