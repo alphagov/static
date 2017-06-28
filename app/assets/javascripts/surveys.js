@@ -305,7 +305,7 @@
     },
 
     setSurveyTakenCookie: function (survey) {
-      window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 4 })
+      window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 3 })
     },
 
     incrementSurveySeenCounter: function (survey) {
