@@ -547,6 +547,15 @@ describe('Surveys', function () {
         expect(surveys.surveyHasBeenSeenTooManyTimes(smallSurvey)).toBeTruthy()
       })
     })
+
+    describe("for unlimited surveys", function () {
+      var unlimitedSurvey = { identifier: 'unlimited_survey', seenTooManyTimesLimit: 'unlimited' }
+
+      it('returns false', function () {
+        GOVUK.cookie(surveys.surveySeenCookieName(unlimitedSurvey), 2000)
+        expect(surveys.surveyHasBeenSeenTooManyTimes(unlimitedSurvey)).toBeFalsy()
+      })
+    })
   })
 
   describe("surveySeenTooManyTimesLimit", function () {
@@ -568,6 +577,14 @@ describe('Surveys', function () {
     it("returns the default limit (2) if the survey is configured with a limit that is less than 1", function () {
       var survey = { identifier: 'no_configured_limit', seenTooManyTimesLimit: 0 }
       expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(2)
+    })
+
+    it("returns Infinity if the survey is configured with a limit that is the string \"unlimited\"", function () {
+      var survey = { identifier: 'no_configured_limit', seenTooManyTimesLimit: 'unlimited' }
+      expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(Infinity)
+
+      survey.seenTooManyTimesLimit = 'UNLIMITED'
+      expect(surveys.surveySeenTooManyTimesLimit(survey)).toBe(Infinity)
     })
   })
 

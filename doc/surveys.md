@@ -136,7 +136,7 @@ Not providing the `activeWhen` argument has the same effect as setting it to `re
 The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
 
 ### `surveySeenTooManyTimesLimit` - OPTIONAL (default: 2)
-We record how many times a given survey is shown to a user and won't show it again if they've seen it too many times.  The default for that limit is 2 (e.g. we show it 2 times, but not 3 or more) but you can change that by adding a custom value here.  Anything that's not a number is ignored.
+We record how many times a given survey is shown to a user and won't show it again if they've seen it too many times.  The default for that limit is 2 (e.g. we show it 2 times, but not 3 or more) but you can change that by adding a custom value here.  The custom value should be a positive integer or the string `unlimited` (this means the survey should always show regardless of how many times it's been shown).  Any other value is ignored and treated as the default of 2.
 
 ## Testing Surveys
 If you need to force a particular survey to display – for example for testing – you can call  e.g. `GOVUK.userSurveys.displaySurvey(GOVUK.userSurveys.defaultSurvey)` or `GOVUK.userSurveys.displaySurvey(GOVUK.userSurveys.smallSurveys[0])` from your browser console.

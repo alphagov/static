@@ -350,7 +350,12 @@
     },
 
     surveySeenTooManyTimesLimit: function (survey) {
-      return extractNumber(survey.seenTooManyTimesLimit, SURVEY_SEEN_TOO_MANY_TIMES_LIMIT, 1)
+      var limitValue = survey.seenTooManyTimesLimit
+      if (String(limitValue).toLowerCase() === 'unlimited') {
+        return Infinity
+      } else {
+        return extractNumber(limitValue, SURVEY_SEEN_TOO_MANY_TIMES_LIMIT, 1)
+      }
     },
 
     surveySeenCount: function (survey) {
