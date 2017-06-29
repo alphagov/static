@@ -60,7 +60,7 @@
     defaultSurvey: {
       url: 'https://www.smartsurvey.co.uk/s/gov_uk',
       identifier: 'user_satisfaction_survey',
-      frequency: 10,
+      frequency: 6,
       surveyType: 'email'
     },
     smallSurveys: [
