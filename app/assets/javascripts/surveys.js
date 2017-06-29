@@ -53,6 +53,7 @@
     '  Sorry, we’re unable to send you an email right now.  Please try again later.' +
     '</div>'
   )
+  var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
@@ -134,6 +135,7 @@
       } else {
         return
       }
+      userSurveys.incrementSurveySeenCounter(survey)
       userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown')
     },
 
@@ -263,10 +265,10 @@
     isSurveyToBeDisplayed: function (survey) {
       if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
-      } else if (userSurveys.randomNumberMatches(survey.frequency)) {
-        return true
-      } else {
+      } else if (userSurveys.surveyHasBeenSeenTooManyTimes(survey)) {
         return false
+      } else {
+        return userSurveys.randomNumberMatches(survey.frequency)
       }
     },
 
@@ -303,7 +305,26 @@
     },
 
     setSurveyTakenCookie: function (survey) {
-      window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 4 })
+      window.GOVUK.cookie(userSurveys.surveyTakenCookieName(survey), true, { days: 30 * 3 })
+    },
+
+    incrementSurveySeenCounter: function (survey) {
+      var cookieName = userSurveys.surveySeenCookieName(survey)
+      var seenCount = (userSurveys.surveySeenCount(survey) + 1)
+      var cooloff = userSurveys.seenTooManyTimesCooloff(survey)
+      if (cooloff) {
+        window.GOVUK.cookie(cookieName, seenCount, { days: cooloff })
+      } else {
+        window.GOVUK.cookie(cookieName, seenCount)
+      }
+    },
+
+    seenTooManyTimesCooloff: function (survey) {
+      if (survey.seenTooManyTimesCooloff) {
+        return extractNumber(survey.seenTooManyTimesCooloff, undefined, 1)
+      } else {
+        return undefined
+      }
     },
 
     hideSurvey: function (_survey) {
@@ -324,17 +345,50 @@
       return $(notificationIds.join(', ')).length > 0
     },
 
+    surveyHasBeenSeenTooManyTimes: function (survey) {
+      return (userSurveys.surveySeenCount(survey) >= userSurveys.surveySeenTooManyTimesLimit(survey))
+    },
+
+    surveySeenTooManyTimesLimit: function (survey) {
+      var limitValue = survey.seenTooManyTimesLimit
+      if (String(limitValue).toLowerCase() === 'unlimited') {
+        return Infinity
+      } else {
+        return extractNumber(limitValue, SURVEY_SEEN_TOO_MANY_TIMES_LIMIT, 1)
+      }
+    },
+
+    surveySeenCount: function (survey) {
+      return extractNumber(GOVUK.cookie(userSurveys.surveySeenCookieName(survey)), 0, 0)
+    },
+
     surveyTakenCookieName: function (survey) {
-      // user_satisfaction_survey => takenUserSatisfactionSurvey
-      var cookieStr = 'taken_' + survey.identifier
-      var cookieStub = cookieStr.replace(/(\_\w)/g, function (m) {
-        return m.charAt(1).toUpperCase()
-      })
-      return 'govuk_' + cookieStub
+      return generateCookieName('taken_' + survey.identifier)
+    },
+
+    surveySeenCookieName: function (survey) {
+      return generateCookieName('survey_seen_' + survey.identifier)
     },
 
     currentTime: function () { return new Date().getTime() },
     currentPath: function () { return window.location.pathname }
+  }
+
+  var generateCookieName = function (cookieName) {
+      // taken_user_satisfaction_survey => takenUserSatisfactionSurvey
+    var cookieStub = cookieName.replace(/(\_\w)/g, function (m) {
+      return m.charAt(1).toUpperCase()
+    })
+    return 'govuk_' + cookieStub
+  }
+
+  var extractNumber = function (value, defaultValue, limit) {
+    var parsedValue = parseInt(value, 10)
+    if (isNaN(parsedValue) || (parsedValue < limit)) {
+      return defaultValue
+    } else {
+      return parsedValue
+    }
   }
 
   window.GOVUK.userSurveys = userSurveys
