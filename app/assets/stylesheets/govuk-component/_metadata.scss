@@ -1,5 +1,5 @@
 .govuk-metadata {
-  @include core-14;
+  @include core-16;
   @include responsive-bottom-margin;
   @extend %contain-floats;
 
@@ -9,13 +9,16 @@
   }
 
   dt {
-    float: left;
-    clear: left;
-    width: auto;
-    min-width: 120px;
+    margin-top: 0.5em;
+    line-height: normal;
 
     @include media(tablet) {
+      float: left;
+      clear: left;
+      width: calc(30% - 10px);
+      max-width: 10em;
       padding-right: $gutter-one-third;
+      margin-top: 0;
     }
   }
 
@@ -30,10 +33,10 @@
   }
 
   dd {
-    float: left;
-    width: 55%;
+   line-height: normal;
 
-    @include media(tablet) {
+   @include media(tablet) {
+      float: left;
       width: 70%;
     }
 
