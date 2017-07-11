@@ -192,11 +192,7 @@
     getActiveSurveys: function (surveys) {
       return $.grep(surveys, function (survey, _index) {
         if (userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
-          if (typeof (survey.activeWhen) === 'function') {
-            return survey.activeWhen()
-          } else {
-            return true
-          }
+          return userSurveys.activeWhen(survey)
         }
       })
     },
@@ -466,8 +462,82 @@
       return generateCookieName('survey_seen_' + survey.identifier)
     },
 
+    pathMatch: function(paths) {
+      if (paths === undefined) {
+          return false;
+        } else {
+          var pathMatchingExpr = new RegExp(
+              $.map($.makeArray(paths), function(path, _i) {
+                  if (/[\^\$]/.test(path)) {
+                      return "(?:"+path+")"
+                      } else {
+                      return "(?:\/"+path+"(?:\/|$))";
+                    }
+                }).join("|")
+            );
+          return pathMatchingExpr.test(userSurveys.currentPath());
+        }
+    },
+
+    breadcrumbMatch: function(breadcrumbs) {
+      if (breadcrumbs === undefined) {
+          return false;
+        } else {
+          var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join("|"), 'i');
+          return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb());
+        }
+    },
+
+    sectionMatch: function(sections) {
+      if (sections === undefined) {
+          return false;
+        } else {
+          var sectionMatchingExpr = new RegExp($.makeArray(sections).join("|"), 'i');
+          return sectionMatchingExpr.test(userSurveys.currentSection());
+        }
+    },
+
+    organisationMatch: function(organisations) {
+      if (organisations === undefined) {
+          return false;
+        } else {
+          var orgMatchingExpr = new RegExp($.makeArray(organisations).join("|"));
+          return orgMatchingExpr.test(userSurveys.currentOrganisation());
+        }
+    },
+
+    activeWhen: function(survey) {
+      if (survey.hasOwnProperty('activeWhen')) {
+        if (survey.activeWhen.hasOwnProperty('path') ||
+          survey.activeWhen.hasOwnProperty('breadcrumb') ||
+          survey.activeWhen.hasOwnProperty('section') ||
+          survey.activeWhen.hasOwnProperty('organisation')) {
+
+          var matchType = (survey.activeWhen.matchType || 'include'),
+            matchByPath = userSurveys.pathMatch(survey.activeWhen.path),
+            matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb),
+            matchBySection = userSurveys.sectionMatch(survey.activeWhen.section),
+            matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation),
+            pageMatches = (matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation);
+
+          if (matchType !== 'exclude') {
+            return pageMatches;
+          } else {
+            return !pageMatches;
+          }
+        } else {
+          return true;
+        }
+      } else {
+        return true;
+      }
+    },
+
     currentTime: function () { return new Date().getTime() },
-    currentPath: function () { return window.location.pathname }
+    currentPath: function () { return window.location.pathname },
+    currentBreadcrumb: function() { return $('.govuk-breadcrumbs').text() || ""; },
+    currentSection: function() { return $('meta[name="govuk:section"]').attr('content') || ""; },
+    currentOrganisation: function() { return $('meta[name="govuk:analytics:organisations"]').attr('content') || ""; }
   }
 
   var generateCookieName = function (cookieName) {

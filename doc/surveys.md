@@ -18,13 +18,12 @@ Once a user takes the survey (clicks the link or fills in their email address an
   identifier: 'education_only_survey',
   frequency: 50,
   template: TEMPLATE,
-  activeWhen: function() {
-    function sectionMatches() {
-      return $('meta[property="govuk:section"]').attr('content') === 'education and learning';
-    }
-    function pageClassMatches() { return $('#page').hasClass('magic-content'); }
-
-    return (sectionMatches() || pageClassMatches());
+  activeWhen: {
+    section: ['education and learning'],
+    path: ['guidance/social-care-common-inspection-framework-sccif-boarding-schools'],
+    breadcrumbs: ['Schools'],
+    organisation: ['<D106>'],
+    matchType: 'include'
   },
   startTime: new Date("July 25, 2016").getTime(),
   endTime: new Date("August 3, 2016 23:59:50").getTime()
@@ -114,26 +113,24 @@ Behaviour will be added so that clicking the `#email-survey-open` element hides 
 In most cases it is ok to just reuse the defaults, but if you must write your own you can follow the examples above and make use of the functions `templateBase` and `takeSurveyLink`.  These make sure the correct boilerplate code is present.
 
 ### `activeWhen` - OPTIONAL
-A callback function returning true or false allowing further scoping of when the survey is considered "active".
+By default a survey will run on all pages on GOV.UK. If you specify parameters in the `activeWhen` we limit which pages the survey will appear on. There are five params, all are optional:
 
-In the example above, the survey will only be considered "active" on pages with a section of "education and learning", and will not display on pages where this function evaluates to false.
+* `matchType` - (optional) the default is "include".  This tells us how to interpret the other params.  For "include" we treat the params as limiting the survey to only display on those pages that match one or more of the params.  For "exclude" we treat the params as limiting the survey to only display on those pages that do not match any of the params.  If the value is other than "include" or "exclude" it is assumed to be "include".
+* `path` - (optional).  If present this is used to match complete path segments in the path of the page.  Each entry is turned into a regexp as follows: `statistcis` becomes `/\/statistics(\/|$)/` and this means that a value of "statistics" would match a path like "/government/statistics/a-very-large-report", but not a path like "/guidance/how-to-download-statistics-and-announcements".  If you use regex special characters `^` or `$` then the string is not changed before being turned into a regexp to match paths.
+* `breadcrumb` - (optional).  If present this is used to match against the text in the `.govuk-breadcrumb` element on the page.  The text match is case-insensitive and does not attempt to match complete words so `hats` would match `Hats` and `Chats`.
+* `section` - (optional).  If present this is used to match against the value of the content attribute of the `govuk:section` meta tag on the page.  The text match is case-insensitive and does not attempt to match complete words so `hats` would match `Hats` and `Chats`.
+* `organisation` - (optional).  If present this is used to match against the value of the content attribute of the `govuk:analytics:organisations` meta tag on the page.  The text match is case-sensitive and does not attempt to match complete words so `hats` would match `hats` and `Chats`, but not `Hats`.
 
-Additional examples of functions which control when a survey should be active based on the current path and organisation:
+Other than `matchType`, all params are specified as arrays, allowing multiple possible values.  All values are OR'd together so that only one of them has to match, not all of them.
 
-```javascript
-function pathMatches() {
-  var pathMatchingExpr = /\/foreign-travel-advice|\/government\/world/;
-  return pathMatchingExpr.test(currentPath());
-}
+In the example above, the survey will only be considered "active" on pages with any of:
 
-function organisationMatches() {
-  var orgMatchingExpr = /<D13>|<OT554>|<D8>|<D1196>/;
-  var metaText = $('meta[name="govuk:analytics:organisations"]').attr('content') || "";
-  return orgMatchingExpr.test(metaText);
-}
-```
+1. a govuk:section meta tag with "education and learning",
+2. a path that includes `guidance/social-care-common-inspection-framework-sccif-boarding-schools`
+3. a govuk:analytics:organisation that includes `<D106>`
+4. the word `Schools` appearing in the text of the `.govuk-breadcrumb` element on the page
 
-Not providing the `activeWhen` argument has the same effect as setting it to `return true`. The survey will therefore apply to all pages on GOV.UK between `startTime` and `endTime`.
+Not providing any `activeWhen` parameters, or providing an empty `activeWhen` parameter will apply the survey to all pages on GOV.UK between `startTime` and `endTime`, so take care when doing this.
 
 ### `startTime` and `endTime`
 The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
