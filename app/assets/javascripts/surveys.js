@@ -64,6 +64,30 @@
       surveyType: 'email'
     },
     smallSurveys: [
+      {
+        identifier: 'publisher_guidance_survey',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date("July 17, 2017").getTime(),
+        endTime: new Date("August 16, 2017 23:59:50").getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance',
+        activeWhen: function () {
+          function pathMatches() {
+            var pathMatchingExpr = new RegExp(
+              '^/(?:' +
+              /guidance\/content-design/.source +
+              /|guidance\/how-to-publish-on-gov-uk/.source +
+              /|guidance\/style-guide/.source +
+              /|guidance\/contact-the-government-digital-service/.source +
+              /|topic\/government-digital-guidance\/content-publishing/.source +
+              ')(?:\/|$)'
+            )
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return pathMatches()
+        }
+      }
     ],
 
     init: function () {
