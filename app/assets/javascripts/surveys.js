@@ -55,6 +55,26 @@
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
+  var hmrc_survey_utm_campaign_value_map = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/working-tax-credit(?:\/|$)/.test(path): return 'Working%20Tax%20Credit'
+      case /^\/guidance\/money-laundering-regulations-register-with-hmrc(?:\/|$)/.test(path): return 'Money%20Laundering%20Regulations'
+      case /^\/child-tax-credit(?:\/|$)/.test(path): return 'Child%20Tax%20Credit'
+      case /^\/check-state-pension(?:\/|$)/.test(path): return 'Check%20State%20Pension'
+      case /^\/apply-marriage-allowance(?:\/|$)/.test(path): return 'Marriage%20Allowance'
+      case /^\/stamp-duty-land-tax(?:\/|$)/.test(path): return 'Stamp%20Duty'
+      case /^\/guidance\/pay-apprenticeship-levy(?:\/|$)/.test(path): return 'Apprenticeship%20Levy'
+      case /^\/update-company-car-details(?:\/|$)/.test(path): return 'Company%20Car%20Details'
+      case /^\/guidance\/paying-your-employees-expenses-and-benefits-through-your-payroll(?:\/|$)/.test(path): return 'Employee%20Expenses%20and%20Benefits%20Through%20Payroll'
+      case /^\/guidance\/pension-schemes-protect-your-lifetime-allowance(?:\/|$)/.test(path): return 'Pension%20Lifetime%20Allowance'
+      case /^\/send-employment-intermediary-report(?:\/|$)/.test(path): return 'Employment%20Intermediary%20Report'
+      case /^\/guidance\/tell-hmrc-about-your-employment-related-securities(?:\/|$)/.test(path): return 'Employment%20Related%20Securities'
+      case /^\/guidance\/pension-administrators-check-a-members-gmp(?:\/|$)/.test(path): return 'Pension%20Administration%20Members%20GMP'
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -83,6 +103,24 @@
               ')(?:\/|$)'
             )
             return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return pathMatches()
+        }
+      },
+      {
+        identifier: 'hmrc_jul2017',
+        surveyType: 'url',
+        frequency: 20,
+        startTime: new Date("July 21, 2017").getTime(),
+        endTime: new Date("August 20, 2017 23:59:50").getTime(),
+        // use a map to translate the path into the utm_campaign value
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign='+hmrc_survey_utm_campaign_value_map()+'&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
+        activeWhen: function () {
+          function pathMatches() {
+            // use the same map as the utm_campaign value to make sure we don't
+            // show the survey on a page without a utm_campaign value.
+            return hmrc_survey_utm_campaign_value_map() !== ''
           }
 
           return pathMatches()
