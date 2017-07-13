@@ -55,6 +55,43 @@
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
+  var hmrc_survey_utm_campaign_value_map = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/working-tax-credit(?:\/|$)/.test(path): return 'Working%20Tax%20Credit'
+      case /^\/guidance\/money-laundering-regulations-register-with-hmrc(?:\/|$)/.test(path): return 'Money%20Laundering%20Regulations'
+      case /^\/child-tax-credit(?:\/|$)/.test(path): return 'Child%20Tax%20Credit'
+      case /^\/check-state-pension(?:\/|$)/.test(path): return 'Check%20State%20Pension'
+      case /^\/apply-marriage-allowance(?:\/|$)/.test(path): return 'Marriage%20Allowance'
+      case /^\/stamp-duty-land-tax(?:\/|$)/.test(path): return 'Stamp%20Duty'
+      case /^\/guidance\/pay-apprenticeship-levy(?:\/|$)/.test(path): return 'Apprenticeship%20Levy'
+      case /^\/update-company-car-details(?:\/|$)/.test(path): return 'Company%20Car%20Details'
+      case /^\/guidance\/paying-your-employees-expenses-and-benefits-through-your-payroll(?:\/|$)/.test(path): return 'Employee%20Expenses%20and%20Benefits%20Through%20Payroll'
+      case /^\/guidance\/pension-schemes-protect-your-lifetime-allowance(?:\/|$)/.test(path): return 'Pension%20Lifetime%20Allowance'
+      case /^\/send-employment-intermediary-report(?:\/|$)/.test(path): return 'Employment%20Intermediary%20Report'
+      case /^\/guidance\/tell-hmrc-about-your-employment-related-securities(?:\/|$)/.test(path): return 'Employment%20Related%20Securities'
+      case /^\/guidance\/pension-administrators-check-a-members-gmp(?:\/|$)/.test(path): return 'Pension%20Administration%20Members%20GMP'
+      default: return ''
+    }
+  }
+
+  var dfe_survey_utm_campaign_value_map = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/complain-about-school(?:\/|$)/.test(path): return 'Complain%20about%20a%20school%20or%20childminder'
+      case /^\/children-with-special-educational-needs(?:\/|$)/.test(path): return 'Special%20educational%20needs%20SEN'
+      case /^\/school-term-holiday-dates(?:\/|$)/.test(path): return 'School%20term%20and%20holiday%20dates'
+      case /^\/school-attendance-absence(?:\/|$)/.test(path): return 'School%20attendance%20and%20absence'
+      case /^\/school-uniform(?:\/|$)/.test(path): return 'School%20uniform'
+      case /^\/bullying-at-school(?:\/|$)/.test(path): return 'Bullying%20at%20school'
+      case /^\/health-safety-school-children(?:\/|$)/.test(path): return 'Health%20and%20safety%20for%20school%20children'
+      case /^\/school-discipline-exclusions(?:\/|$)/.test(path): return 'School%20discipline%20and%20exclusions'
+      case /^\/childcare-out-of-school-hours(?:\/|$)/.test(path): return 'Childcare%20out%20of%20school%20hours'
+      case /^\/after-school-holiday-club(?:\/|$)/.test(path): return 'Find%20before%20and%20after%20school%20and%20holiday%20clubs'
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -64,6 +101,66 @@
       surveyType: 'email'
     },
     smallSurveys: [
+      {
+        identifier: 'publisher_guidance_survey',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date("July 17, 2017").getTime(),
+        endTime: new Date("August 16, 2017 23:59:50").getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance',
+        activeWhen: function () {
+          function pathMatches() {
+            var pathMatchingExpr = new RegExp(
+              '^/(?:' +
+              /guidance\/content-design/.source +
+              /|guidance\/how-to-publish-on-gov-uk/.source +
+              /|guidance\/style-guide/.source +
+              /|guidance\/contact-the-government-digital-service/.source +
+              /|topic\/government-digital-guidance\/content-publishing/.source +
+              ')(?:\/|$)'
+            )
+            return pathMatchingExpr.test(userSurveys.currentPath());
+          }
+
+          return pathMatches()
+        }
+      },
+      {
+        identifier: 'hmrc_jul2017',
+        surveyType: 'url',
+        frequency: 20,
+        startTime: new Date("July 21, 2017").getTime(),
+        endTime: new Date("August 20, 2017 23:59:50").getTime(),
+        // use a map to translate the path into the utm_campaign value
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign='+hmrc_survey_utm_campaign_value_map()+'&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
+        activeWhen: function () {
+          function pathMatches() {
+            // use the same map as the utm_campaign value to make sure we don't
+            // show the survey on a page without a utm_campaign value.
+            return hmrc_survey_utm_campaign_value_map() !== ''
+          }
+
+          return pathMatches()
+        }
+      },
+      {
+        identifier: 'dfe_jul2017',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date("July 18, 2017").getTime(),
+        endTime: new Date("August 18, 2017 23:59:50").getTime(),
+        // use a map to translate the path into the utm_campaign value
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign='+dfe_survey_utm_campaign_value_map()+'&utm_source=Education&utm_medium=gov.uk&t=DfE',
+        activeWhen: function () {
+          function pathMatches() {
+            // use the same map as the utm_campaign value to make sure we don't
+            // show the survey on a page without a utm_campaign value.
+            return dfe_survey_utm_campaign_value_map() !== ''
+          }
+
+          return pathMatches()
+        }
+      }
     ],
 
     init: function () {
