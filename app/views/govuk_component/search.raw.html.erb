@@ -7,12 +7,12 @@
   label_text = "#{label_text}".html_safe
 %>
 
-<div class="govuk-search <%= appearance_class %> <%= layout_class %>">
+<div class="govuk-search <%= appearance_class %> <%= layout_class %>" data-module="toggle-input-class-on-focus">
   <label for="search-main-<%= input_id %>" class="search-label">
     <%= label_text %>
   </label>
   <div class="search-wrapper">
-    <input type="search" value="<%= search_term %>" id="search-main-<%= input_id %>" name="q" title="Search" class="search-element search-input js-search-input-focus">
+    <input type="search" value="<%= search_term %>" id="search-main-<%= input_id %>" name="q" title="Search" class="search-element search-input js-class-toggle">
     <div class="search-element search-submit-wrapper">
       <button type="submit" class="search-submit">Search</button>
     </div>
