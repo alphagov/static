@@ -58,7 +58,7 @@
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
-  var hmrc_survey_utm_campaign_value_map = function () {
+  var hmrcSurveyUtmCampaignValueMap = function () {
     var path = window.location.pathname
     switch (true) {
       case /^\/working-tax-credit(?:\/|$)/.test(path): return 'Working%20Tax%20Credit'
@@ -78,7 +78,7 @@
     }
   }
 
-  var dfe_survey_utm_campaign_value_map = function () {
+  var dfeSurveyUtmCampaignValueMap = function () {
     var path = window.location.pathname
     switch (true) {
       case /^\/complain-about-school(?:\/|$)/.test(path): return 'Complain%20about%20a%20school%20or%20childminder'
@@ -108,11 +108,11 @@
         identifier: 'publisher_guidance_survey',
         surveyType: 'url',
         frequency: 6,
-        startTime: new Date("July 17, 2017").getTime(),
-        endTime: new Date("August 16, 2017 23:59:50").getTime(),
+        startTime: new Date('July 17, 2017').getTime(),
+        endTime: new Date('August 16, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
         activeWhen: function () {
-          function pathMatches() {
+          function pathMatches () {
             var pathMatchingExpr = new RegExp(
               '^/(?:' +
               /guidance\/content-design/.source +
@@ -122,7 +122,7 @@
               /|topic\/government-digital-guidance\/content-publishing/.source +
               ')(?:\/|$)'
             )
-            return pathMatchingExpr.test(userSurveys.currentPath());
+            return pathMatchingExpr.test(userSurveys.currentPath())
           }
 
           return pathMatches()
@@ -132,15 +132,15 @@
         identifier: 'hmrc_jul2017',
         surveyType: 'url',
         frequency: 20,
-        startTime: new Date("July 21, 2017").getTime(),
-        endTime: new Date("August 20, 2017 23:59:50").getTime(),
+        startTime: new Date('July 21, 2017').getTime(),
+        endTime: new Date('August 20, 2017 23:59:50').getTime(),
         // use a map to translate the path into the utm_campaign value
-        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign='+hmrc_survey_utm_campaign_value_map()+'&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + hmrcSurveyUtmCampaignValueMap() + '&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
         activeWhen: function () {
-          function pathMatches() {
+          function pathMatches () {
             // use the same map as the utm_campaign value to make sure we don't
             // show the survey on a page without a utm_campaign value.
-            return hmrc_survey_utm_campaign_value_map() !== ''
+            return hmrcSurveyUtmCampaignValueMap() !== ''
           }
 
           return pathMatches()
@@ -150,15 +150,15 @@
         identifier: 'dfe_jul2017',
         surveyType: 'url',
         frequency: 6,
-        startTime: new Date("July 18, 2017").getTime(),
-        endTime: new Date("August 18, 2017 23:59:50").getTime(),
+        startTime: new Date('July 18, 2017').getTime(),
+        endTime: new Date('August 18, 2017 23:59:50').getTime(),
         // use a map to translate the path into the utm_campaign value
-        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign='+dfe_survey_utm_campaign_value_map()+'&utm_source=Education&utm_medium=gov.uk&t=DfE',
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + dfeSurveyUtmCampaignValueMap() + '&utm_source=Education&utm_medium=gov.uk&t=DfE',
         activeWhen: function () {
-          function pathMatches() {
+          function pathMatches () {
             // use the same map as the utm_campaign value to make sure we don't
             // show the survey on a page without a utm_campaign value.
-            return dfe_survey_utm_campaign_value_map() !== ''
+            return dfeSurveyUtmCampaignValueMap() !== ''
           }
 
           return pathMatches()
@@ -175,7 +175,7 @@
       }
     },
 
-    canShowAnySurvey: function() {
+    canShowAnySurvey: function () {
       if (userSurveys.pathInBlacklist()) {
         return false
       } else if (userSurveys.otherNotificationVisible()) {
@@ -209,15 +209,15 @@
             title: 'Tell us what you think of GOV.UK',
             surveyCta: 'Take the 3 minute survey',
             surveyCtaPostscript: 'This will open a short survey on another website',
-            surveyUrl: userSurveys.addCurrentPathtoURL(survey.url),
+            surveyUrl: userSurveys.addCurrentPathToURL(survey.url),
           }
           var mergedArgs = $.extend(defaultUrlArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, URL_SURVEY_TEMPLATE)
         }
-      };
+      }
     },
 
-    getEmailSurveyTemplate: function() {
+    getEmailSurveyTemplate: function () {
       return {
         render: function(survey) {
           var defaultEmailArgs = {
@@ -231,12 +231,12 @@
             surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.',
             surveyId: survey.identifier,
             surveySource: userSurveys.currentPath(),
-            surveyUrl: userSurveys.addCurrentPathtoURL(survey.url),
+            surveyUrl: userSurveys.addCurrentPathToURL(survey.url),
           }
           var mergedArgs = $.extend(defaultEmailArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, EMAIL_SURVEY_TEMPLATE)
         }
-      };
+      }
     },
 
     getActiveSurveys: function (surveys) {
@@ -294,7 +294,7 @@
       userSurveys.setEmailSurveyEventHandlers(survey)
     },
 
-    addCurrentPathtoURL: function (surveyUrl) {
+    addCurrentPathToURL: function (surveyUrl) {
       return surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
     },
 
@@ -498,82 +498,81 @@
       return generateCookieName('survey_seen_' + survey.identifier)
     },
 
-    pathMatch: function(paths) {
+    pathMatch: function (paths) {
       if (paths === undefined) {
-          return false;
-        } else {
-          var pathMatchingExpr = new RegExp(
-              $.map($.makeArray(paths), function(path, _i) {
-                  if (/[\^\$]/.test(path)) {
-                      return "(?:"+path+")"
-                      } else {
-                      return "(?:\/"+path+"(?:\/|$))";
-                    }
-                }).join("|")
-            );
-          return pathMatchingExpr.test(userSurveys.currentPath());
-        }
+        return false
+      } else {
+        var pathMatchingExpr = new RegExp(
+              $.map($.makeArray(paths), function (path, _i) {
+                if (/[\^\$]/.test(path)) {
+                  return '(?:' + path + ')'
+                } else {
+                  return '(?:\/' + path + '(?:\/|$))'
+                }
+              }).join('|')
+            )
+        return pathMatchingExpr.test(userSurveys.currentPath())
+      }
     },
 
-    breadcrumbMatch: function(breadcrumbs) {
+    breadcrumbMatch: function (breadcrumbs) {
       if (breadcrumbs === undefined) {
-          return false;
-        } else {
-          var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join("|"), 'i');
-          return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb());
-        }
+        return false
+      } else {
+        var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join('|'), 'i')
+        return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb())
+      }
     },
 
-    sectionMatch: function(sections) {
+    sectionMatch: function (sections) {
       if (sections === undefined) {
-          return false;
-        } else {
-          var sectionMatchingExpr = new RegExp($.makeArray(sections).join("|"), 'i');
-          return sectionMatchingExpr.test(userSurveys.currentSection());
-        }
+        return false
+      } else {
+        var sectionMatchingExpr = new RegExp($.makeArray(sections).join('|'), 'i')
+        return sectionMatchingExpr.test(userSurveys.currentSection())
+      }
     },
 
-    organisationMatch: function(organisations) {
+    organisationMatch: function (organisations) {
       if (organisations === undefined) {
-          return false;
-        } else {
-          var orgMatchingExpr = new RegExp($.makeArray(organisations).join("|"));
-          return orgMatchingExpr.test(userSurveys.currentOrganisation());
-        }
+        return false
+      } else {
+        var orgMatchingExpr = new RegExp($.makeArray(organisations).join('|'))
+        return orgMatchingExpr.test(userSurveys.currentOrganisation())
+      }
     },
 
-    activeWhen: function(survey) {
+    activeWhen: function (survey) {
       if (survey.hasOwnProperty('activeWhen')) {
         if (survey.activeWhen.hasOwnProperty('path') ||
           survey.activeWhen.hasOwnProperty('breadcrumb') ||
           survey.activeWhen.hasOwnProperty('section') ||
           survey.activeWhen.hasOwnProperty('organisation')) {
-
-          var matchType = (survey.activeWhen.matchType || 'include'),
-            matchByPath = userSurveys.pathMatch(survey.activeWhen.path),
-            matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb),
-            matchBySection = userSurveys.sectionMatch(survey.activeWhen.section),
-            matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation),
-            pageMatches = (matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation);
+          var matchType = (survey.activeWhen.matchType || 'include')
+          var matchByPath = userSurveys.pathMatch(survey.activeWhen.path)
+          var matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb)
+          var matchBySection = userSurveys.sectionMatch(survey.activeWhen.section)
+          var matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation)
+          var pageMatches = (matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation)
 
           if (matchType !== 'exclude') {
-            return pageMatches;
+            return pageMatches
           } else {
-            return !pageMatches;
+            return !pageMatches
           }
         } else {
-          return true;
+          return true
         }
       } else {
-        return true;
+        return true
       }
     },
 
     currentTime: function () { return new Date().getTime() },
     currentPath: function () { return window.location.pathname },
-    currentBreadcrumb: function() { return $('.govuk-breadcrumbs').text() || ""; },
-    currentSection: function() { return $('meta[name="govuk:section"]').attr('content') || ""; },
-    currentOrganisation: function() { return $('meta[name="govuk:analytics:organisations"]').attr('content') || ""; }
+    currentBreadcrumb: function () { return $('.govuk-breadcrumbs').text() || '' },
+    currentSection: function () { return $('meta[name="govuk:section"]').attr('content') || '' },
+    currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' }
   }
 
   var generateCookieName = function (cookieName) {
