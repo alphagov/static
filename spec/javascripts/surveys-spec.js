@@ -7,10 +7,6 @@ describe('Surveys', function () {
     url: 'smartsurvey.co.uk/default',
     frequency: 1, // no randomness in the test suite pls
     identifier: 'user_satisfaction_survey',
-    template: '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-              '  <a href="#user-survey-cancel" id="user-survey-cancel">No thanks</a>' +
-              '  <a href="javascript:void()" id="take-survey" target="_blank"></a>' +
-              '</section>',
     surveyType: 'url'
   }
   var smallSurvey = {
@@ -61,7 +57,7 @@ describe('Surveys', function () {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
       surveys.init()
 
-      expect($('#take-survey').attr('href')).toContain(surveys.addCurrentPathtoURL(surveys.defaultSurvey))
+      expect($('#take-survey').attr('href')).toContain(surveys.addCurrentPathtoURL(surveys.defaultSurvey.url))
       expect($('#user-satisfaction-survey').length).toBe(1)
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true)
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')
@@ -92,12 +88,6 @@ describe('Surveys', function () {
     })
 
     describe("for a 'url' survey", function () {
-      it('records an event when showing the survey', function () {
-        spyOn(surveys, 'trackEvent')
-        surveys.displaySurvey(urlSurvey)
-        expect(surveys.trackEvent).toHaveBeenCalledWith(urlSurvey.identifier, 'banner_shown', 'Banner has been shown')
-      })
-
       it('sets event handlers on the survey', function () {
         spyOn(surveys, 'setURLSurveyEventHandlers')
         surveys.displaySurvey(urlSurvey)
@@ -127,16 +117,65 @@ describe('Surveys', function () {
         expect($('#take-survey').attr('href')).toEqual(urlSurvey.url)
       })
 
-      it("allows the `currentPath` to be a relative url with a query-string", function () {
-        spyOn(surveys, 'currentPath').and.returnValue('/done/some-transaction?cachebust=1234')
-        var urlSurveyWithCurrentPath = {
-          surveyType: 'url',
-          url: 'smartsurvey.com/default?c={{currentPath}}',
-          identifier: 'url-survey',
-        }
-        surveys.displaySurvey(urlSurveyWithCurrentPath);
+      describe('without overrides for the template defaults', function () {
+        it('uses the default title', function () {
+          surveys.displaySurvey(urlSurvey)
+          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
-        expect($('#take-survey').attr('href')).toEqual('smartsurvey.com/default?c=/done/some-transaction?cachebust=1234')
+          expect($('#user-satisfaction-survey h2').text()).toEqual('Tell us what you think of GOV.UK')
+        })
+
+        it('uses the default call-to-action text', function () {
+          surveys.displaySurvey(urlSurvey)
+          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
+
+          expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('Take the 3 minute survey')
+        })
+
+        it('uses the default call-to-action postscript text', function () {
+          surveys.displaySurvey(urlSurvey)
+          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
+
+          expect($('#user-satisfaction-survey .postscript-cta').text()).toEqual('This will open a short survey on another website')
+        })
+      })
+
+      describe("with overrides for the template defaults", function() {
+        it("uses the title defined in the survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArgs: { title: 'Take my survey' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey h2').text()).toEqual('Take my survey');
+        })
+
+        it("uses the call to action text defined in survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArgs: { surveyCta: 'Do it, do it now!' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('Do it, do it now!');
+        });
+
+        it("uses the call to action postscript text defined in the survey", function() {
+          var survey = {
+            surveyType: 'url',
+            url: 'surveymonkey.com/default',
+            identifier: 'url-survey',
+            templateArgs: { surveyCtaPostscript: 'This is a nice survey, please take it.' }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey .postscript-cta').text()).toEqual('This is a nice survey, please take it.');
+        });
       })
     })
 
@@ -182,17 +221,154 @@ describe('Surveys', function () {
         expect($('#take-survey').attr('href')).toEqual(emailSurvey.url)
       })
 
-      it("allows the `currentPath` to be a relative url with a query-string", function () {
-        spyOn(surveys, 'currentPath').and.returnValue('/done/some-transaction?cachebust=1234')
-        var emailSurveyWithCurrentPath = {
-          surveyType: 'email',
-          url: 'smartsurvey.com/default?c={{currentPath}}',
-          identifier: 'email-survey',
-        }
-        surveys.displaySurvey(emailSurveyWithCurrentPath);
+      describe("without overrides for the template defaults", function() {
+        it("uses the default title", function() {
+          surveys.displaySurvey(emailSurvey);
+          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
 
-        expect($('#take-survey').attr('href')).toEqual('smartsurvey.com/default?c=/done/some-transaction?cachebust=1234')
-      })
+          expect($('#user-satisfaction-survey h2').text()).toEqual('Tell us what you think of GOV.UK');
+        });
+
+        it("uses the default call-to-action text", function() {
+          surveys.displaySurvey(emailSurvey);
+          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+
+          expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('    Take a short survey to give us your feedback  ');
+        });
+
+        it("uses the default survey form call-to-action text", function() {
+          surveys.displaySurvey(emailSurvey);
+          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+
+          expect($('#user-satisfaction-survey form button').text()).toEqual('Send me the survey');
+        });
+
+        it("uses the default survey form call-to-action-postscript text", function() {
+          surveys.displaySurvey(emailSurvey);
+          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+
+          expect($('#user-satisfaction-survey form #survey-form-description').text()).toEqual('We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.       Don’t worry: we won’t send you spam or share your email address with anyone.    ');
+        });
+
+        it("uses the default survey form success text", function() {
+          surveys.displaySurvey(emailSurvey);
+          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+
+          expect($('#user-satisfaction-survey #email-survey-post-success').text()).toEqual('  Thanks, we’ve sent you an email with a link to the survey.');
+        });
+
+        it("uses the default survey form failure text", function() {
+          surveys.displaySurvey(emailSurvey);
+          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+
+          expect($('#user-satisfaction-survey  #email-survey-post-failure').text()).toEqual('  Sorry, we’re unable to send you an email right now. Please try again later.');
+        });
+      });
+
+      describe("with overrides for the template defaults", function() {
+        it("uses the title defined in the survey", function() {
+            var survey = {
+                surveyType: 'email',
+                identifier: 'email_survey',
+                frequency: 6,
+                startTime: new Date("July 17, 2017").getTime(),
+                endTime: new Date("August 16, 2017 23:59:50").getTime(),
+                url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+                templateArgs: {
+                  title: 'Do you like email?'
+                }
+            };
+            surveys.displaySurvey(survey);
+
+            expect($('#user-satisfaction-survey h2').text()).toEqual('Do you like email?');
+          });
+
+        it("uses the call to action text defined in the survey", function() {
+            var survey = {
+                surveyType: 'email',
+                identifier: 'email_survey',
+                frequency: 6,
+                startTime: new Date("July 17, 2017").getTime(),
+                endTime: new Date("August 16, 2017 23:59:50").getTime(),
+                url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+                templateArgs: {
+                  surveyCta: 'Click here now!'
+                }
+            };
+            surveys.displaySurvey(survey);
+
+            expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('    Click here now!  ');
+        });
+
+        it("uses the survey form call to action defined in the survey", function() {
+            var survey = {
+                surveyType: 'email',
+                identifier: 'email_survey',
+                frequency: 6,
+                startTime: new Date("July 17, 2017").getTime(),
+                endTime: new Date("August 16, 2017 23:59:50").getTime(),
+                url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+                templateArgs: {
+                  surveyFormCta: 'Clicking this sends us your address'
+                }
+            };
+            surveys.displaySurvey(survey);
+
+            expect($('#user-satisfaction-survey form button').text()).toEqual('Clicking this sends us your address');
+        });
+
+        it("uses the survey form call to action postscript defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            frequency: 6,
+            startTime: new Date("July 17, 2017").getTime(),
+            endTime: new Date("August 16, 2017 23:59:50").getTime(),
+            url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+            templateArgs: {
+              surveyFormDescription: 'We will be sending you a link.',
+              surveyFormCtaPostscript: 'We will not send you spam'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey form #survey-form-description').text()).toEqual('We will be sending you a link.       We will not send you spam    ');
+        });
+
+        it("uses the survey form success text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            frequency: 6,
+            startTime: new Date("July 17, 2017").getTime(),
+            endTime: new Date("August 16, 2017 23:59:50").getTime(),
+            url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+            templateArgs: {
+              surveySuccess: 'Yay, it worked!'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey  #email-survey-post-success').text()).toEqual('  Yay, it worked!');
+        });
+
+        it("uses the survey form failure text defined in the survey", function() {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            frequency: 6,
+            startTime: new Date("July 17, 2017").getTime(),
+            endTime: new Date("August 16, 2017 23:59:50").getTime(),
+            url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+            templateArgs: {
+              surveyFailure: 'Boo, it failed'
+            }
+          };
+          surveys.displaySurvey(survey);
+
+          expect($('#user-satisfaction-survey  #email-survey-post-failure').text()).toEqual('  Boo, it failed');
+        });
+      });
     })
   })
 
@@ -698,6 +874,7 @@ describe('Surveys', function () {
           activeWhen: function () { return true },
           url: 'example.com/small-survey'
         }
+        spyOn(surveys, 'activeWhen').and.returnValue(true)
 
         var activeSurveys = surveys.getActiveSurveys([testSurvey])
         expect(activeSurveys).toContain(testSurvey)

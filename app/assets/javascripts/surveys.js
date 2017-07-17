@@ -6,7 +6,7 @@
 
   var takeSurveyLink = function (text, className) {
     className = className ? 'class="' + className + '"' : ''
-    return '<a ' + className + ' href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">' + text + '</a>'
+    return '<a ' + className + ' href="{{surveyUrl}}" id="take-survey" target="_blank" rel="noopener noreferrer">' + text + '</a>'
   }
 
   var templateBase = function (children) {
@@ -14,7 +14,7 @@
       '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
       '  <div class="survey-wrapper">' +
       '    <a class="survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>' +
-      '    <h2 class="survey-title" id="survey-title">Tell us what you think of GOV.UK</h2>' +
+      '    <h2 class="survey-title" id="survey-title">{{title}}</h2>' +
            children +
       '  </div>' +
       '</section>'
@@ -23,34 +23,37 @@
 
   var URL_SURVEY_TEMPLATE = templateBase(
     '<p>' +
-      takeSurveyLink('Take the 3 minute survey', 'survey-primary-link') +
-    '  This will open a short survey on another website' +
+      takeSurveyLink('{{surveyCta}}', 'survey-primary-link') +
+    ' <span class="postscript-cta">{{surveyCtaPostscript}}</span>' +
     '</p>'
   )
+
   var EMAIL_SURVEY_TEMPLATE = templateBase(
     '<div id="email-survey-pre">' +
     '  <a class="survey-primary-link" href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">' +
-    '    Take a short survey to give us your feedback' +
+    '    {{surveyCta}}' +
     '  </a>' +
     '</div>' +
     '<form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">' +
     '  <div class="survey-inner-wrapper">' +
-    '    <div id="survey-form-description" class="survey-form-description">We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.<br> Don’t worry: we won’t send you spam or share your email address with anyone.</div>' +
+    '    <div id="survey-form-description" class="survey-form-description">{{surveyFormDescription}}' +
+    '      <br> {{surveyFormCtaPostscript}}' +
+    '    </div>' +
     '    <label class="survey-form-label" for="survey-email-address">' +
     '      Email Address' +
     '    </label>' +
-    '    <input name="email_survey_signup[survey_id]" type="hidden" value="">' +
-    '    <input name="email_survey_signup[survey_source]" type="hidden" value="">' +
+    '    <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">' +
+    '    <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">' +
     '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">' +
-    '    <button class="survey-form-button" type="submit">Send me the survey</button>' +
-         takeSurveyLink('Don’t have an email address?') +
+    '    <button class="survey-form-button" type="submit">{{surveyFormCta}}</button>' +
+         takeSurveyLink('{{surveyFormNoEmailInvite}}') +
     '  </div>' +
     '</form>' +
     '<div id="email-survey-post-success" class="js-hidden" aria-hidden="true" tabindex="-1">' +
-    '  Thanks, we’ve sent you an email with a link to the survey.' +
+    '  {{surveySuccess}}' +
     '</div>' +
     '<div id="email-survey-post-failure" class="js-hidden" aria-hidden="true" tabindex="-1">' +
-    '  Sorry, we’re unable to send you an email right now.  Please try again later.' +
+    '  {{surveyFailure}}' +
     '</div>'
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
@@ -107,7 +110,7 @@
         frequency: 6,
         startTime: new Date("July 17, 2017").getTime(),
         endTime: new Date("August 16, 2017 23:59:50").getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance',
+        url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
         activeWhen: function () {
           function pathMatches() {
             var pathMatchingExpr = new RegExp(
@@ -189,6 +192,53 @@
       }
     },
 
+    processTemplate: function (args, template) {
+      $.each(args, function (key, value) {
+        template = template.replace(
+          new RegExp('\{\{' + key + '\}\}', 'g'),
+          value
+        )
+      })
+      return template
+    },
+
+    getUrlSurveyTemplate: function () {
+      return {
+        render: function(survey) {
+          var defaultUrlArgs = {
+            title: 'Tell us what you think of GOV.UK',
+            surveyCta: 'Take the 3 minute survey',
+            surveyCtaPostscript: 'This will open a short survey on another website',
+            surveyUrl: userSurveys.addCurrentPathtoURL(survey.url),
+          }
+          var mergedArgs = $.extend(defaultUrlArgs, survey.templateArgs)
+          return userSurveys.processTemplate(mergedArgs, URL_SURVEY_TEMPLATE)
+        }
+      };
+    },
+
+    getEmailSurveyTemplate: function() {
+      return {
+        render: function(survey) {
+          var defaultEmailArgs = {
+            title: 'Tell us what you think of GOV.UK',
+            surveyCta: 'Take a short survey to give us your feedback',
+            surveyFormDescription: 'We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.',
+            surveyFormCta: 'Send me the survey',
+            surveyFormCtaPostscript: 'Don’t worry: we won’t send you spam or share your email address with anyone.',
+            surveyFormNoEmailInvite: 'Don’t have an email address?',
+            surveySuccess: 'Thanks, we’ve sent you an email with a link to the survey.',
+            surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.',
+            surveyId: survey.identifier,
+            surveySource: userSurveys.currentPath(),
+            surveyUrl: userSurveys.addCurrentPathtoURL(survey.url),
+          }
+          var mergedArgs = $.extend(defaultEmailArgs, survey.templateArgs)
+          return userSurveys.processTemplate(mergedArgs, EMAIL_SURVEY_TEMPLATE)
+        }
+      };
+    },
+
     getActiveSurveys: function (surveys) {
       return $.grep(surveys, function (survey, _index) {
         if (userSurveys.currentTime() >= survey.startTime && userSurveys.currentTime() <= survey.endTime) {
@@ -233,33 +283,19 @@
     },
 
     displayURLSurvey: function (survey, surveyContainer) {
-      surveyContainer.append(survey.template || URL_SURVEY_TEMPLATE)
-      userSurveys.setURLSurveyLink(survey)
+      var emailSurveyTemplate = userSurveys.getUrlSurveyTemplate()
+      surveyContainer.append(emailSurveyTemplate.render(survey))
       userSurveys.setURLSurveyEventHandlers(survey)
     },
 
     displayEmailSurvey: function (survey, surveyContainer) {
-      surveyContainer.append(survey.template || EMAIL_SURVEY_TEMPLATE)
-
-      var $surveyId = $('#email-survey-form input[name="email_survey_signup[survey_id]"]')
-      var $surveySource = $('#email-survey-form input[name="email_survey_signup[survey_source]"]')
-
-      $surveyId.val(survey.identifier)
-      $surveySource.val(userSurveys.currentPath())
-
-      userSurveys.setURLSurveyLink(survey)
+      var urlSurveyTemplate = userSurveys.getEmailSurveyTemplate()
+      surveyContainer.append(urlSurveyTemplate.render(survey))
       userSurveys.setEmailSurveyEventHandlers(survey)
     },
 
-    setURLSurveyLink: function (survey) {
-      var $surveyLink = $('#take-survey')
-      var surveyUrl = userSurveys.addCurrentPathtoURL(survey)
-
-      $surveyLink.attr('href', surveyUrl)
-    },
-
-    addCurrentPathtoURL: function (survey) {
-      return survey.url.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
+    addCurrentPathtoURL: function (surveyUrl) {
+      return surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
     },
 
     setEmailSurveyEventHandlers: function (survey) {
