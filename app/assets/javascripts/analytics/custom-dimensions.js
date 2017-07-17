@@ -95,7 +95,17 @@
       var gridSections = $('a[data-track-category="navGridLinkClicked"]').length;
       var browsePageSections = $('#subsection ul:visible').length ||
         $('#section ul').length;
-      return sidebarSections || sidebarTaxons || accordionSubsections || gridSections || browsePageSections;
+      var topicPageSections = $('.topics-page nav.index-list').length
+
+      var sectionCount =
+        sidebarSections ||
+        sidebarTaxons ||
+        accordionSubsections ||
+        gridSections ||
+        browsePageSections ||
+        topicPageSections;
+
+      return sectionCount;
     }
 
     function totalNumberOfSectionLinks() {
