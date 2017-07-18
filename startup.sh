@@ -11,6 +11,7 @@ if [[ $1 == "--test-govuk-frontend-toolkit" ]] ; then
   rm -rf ${temporary_location}
 
   # Copy the old assets aside
+  # Using sudo here since the installed location has elevated permissions
   sudo cp -r ${installed_location} ${temporary_location}
 
   # Remove current submoduled assets
