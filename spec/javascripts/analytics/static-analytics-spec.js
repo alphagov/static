@@ -493,6 +493,49 @@ describe("GOVUK.StaticAnalytics", function() {
         });
       });
 
+      describe('on a topic page', function() {
+        beforeEach(function() {
+          $('body').append('\
+            <div class="test-fixture">\
+              <main id="content" role="main" class="content topics-page">\
+                <nav class="topics">\
+                  <ul>\
+                    <li>\
+                      <a href="/topic/business-tax/aggregates-levy">Aggregates Levy</a>\
+                    </li>\
+                    <li>\
+                      <a href="/topic/business-tax/air-passenger-duty">Air Passenger Duty</a>\
+                    </li>\
+                    <li>\
+                      <a href="/topic/business-tax/alcohol-duties">Alcohol duties</a>\
+                    </li>\
+                    <li>\
+                      <a href="/topic/business-tax/capital-allowances">Capital allowances</a>\
+                    </li>\
+                  </ul>\
+                </nav>\
+              </main>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('0');
+        });
+
+        it('tracks the total number of links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('4');
+        });
+      });
+
       describe('on a sub topic page', function() {
         beforeEach(function() {
           $('body').append('\
@@ -546,6 +589,12 @@ describe("GOVUK.StaticAnalytics", function() {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
           pageViewObject = getPageViewObject();
           expect(pageViewObject.dimension26).toEqual('2');
+        });
+
+        it('tracks the total number of links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('6');
         });
       });
     });
