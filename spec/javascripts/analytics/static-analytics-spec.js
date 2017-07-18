@@ -492,6 +492,62 @@ describe("GOVUK.StaticAnalytics", function() {
           expect(pageViewObject.dimension27).toEqual('2');
         });
       });
+
+      describe('on a sub topic page', function() {
+        beforeEach(function() {
+          $('body').append('\
+            <div class="test-fixture">\
+              <main id="content" role="main" class="content topics-page">\
+                <div class="browse-container full-width">\
+                  <nav class="index-list with-title"">\
+                    <h1 id="getting-started">Getting started</h1>\
+                    <ul>\
+                      <li>\
+                        <a href="/corporation-tax">Corporation Tax</a>\
+                      </li>\
+                      <li>\
+                        <a href="/limited-company-formation">Set up a private limited company</a>\
+                      </li>\
+                      <li>\
+                        <a href="/running-a-limited-company">Running a limited company</a>\
+                      </li>\
+                    </ul>\
+                  </nav>\
+                  <nav class="index-list with-title"">\
+                    <ul>\
+                      <li>\
+                        <a href="/prepare-file-annual-accounts-for-limited-company">\
+                          Accounts and tax returns for private limited companies\
+                        </a>\
+                      </li\>\
+                      <li>\
+                        <a href="/first-company-accounts-and-return">\
+                          Your limited company first accounts and Company Tax Return\
+                        </a>\
+                      </li>\
+                      <li>\
+                        <a href="/corporation-tax-accounting-period">\
+                          Accounting periods for Corporation Tax\
+                        </a>\
+                      </li>\
+                    </ul>\
+                  </nav>\
+                </div>\
+              </main>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
+      });
     });
   });
 
