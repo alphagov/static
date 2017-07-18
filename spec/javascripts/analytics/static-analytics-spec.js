@@ -598,6 +598,70 @@ describe("GOVUK.StaticAnalytics", function() {
         });
       });
 
+      describe('on a policy area page', function() {
+        beforeEach(function() {
+          $('body').append('\
+            <div class="test-fixture">\
+              <div class="topic classification topic">\
+                <section id="announcements" class="document-block">\
+                  <h1 class="label">Announcements</h1>\
+                  <div class="content">\
+                    <ol class="document-list">\
+                      <li class="news_article document-row">\
+                        <h2>\
+                          <a href="/government/news/news1">\
+                            Announcement 1\
+                          </a>\
+                        </h2>\
+                      </li>\
+                      <li class="news_article document-row">\
+                        <h2>\
+                          <a href="/government/news/news2">\
+                            Announcement 2\
+                          </a>\
+                        </h2>\
+                      </li>\
+                    </ol>\
+                  </div>\
+                </section>\
+                <section class="detailed-guidance">\
+                  <h1 class="label">Detailed guides</h1>\
+                  <div class="content">\
+                    <ol class="collection-list one-column">\
+                      <li class="detailed_guide topic collection-item">\
+                        <div class="container">\
+                          <h2>\
+                            <a href="/guidance/how-to">\
+                              How to guidance\
+                            </a>\
+                          </h2>\
+                        </div>\
+                      </li>\
+                    </ol>\
+                  </div>\
+                </section>\
+              </div>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
+
+        it('tracks the total number of links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('3');
+        });
+      });
+
       describe('on a document collection page', function() {
         beforeEach(function() {
           $('body').append('\
