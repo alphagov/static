@@ -4,6 +4,5 @@
 //= require govuk_toolkit
 //= require jquery.history
 //= require jquery.tabs
-//= require mobile
 //= require browser-check
 //= require webchat
