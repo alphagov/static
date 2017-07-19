@@ -96,6 +96,7 @@
       var browsePageSections = $('#subsection ul:visible').length ||
         $('#section ul').length;
       var topicPageSections = $('.topics-page nav.index-list').length
+      var documentCollectionSections = $('.document-collection .group-title').length;
 
       var sectionCount =
         sidebarSections ||
@@ -103,7 +104,8 @@
         accordionSubsections ||
         gridSections ||
         browsePageSections ||
-        topicPageSections;
+        topicPageSections ||
+        documentCollectionSections;
 
       return sectionCount;
     }

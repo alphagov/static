@@ -548,6 +548,51 @@ describe("GOVUK.StaticAnalytics", function() {
           expect(pageViewObject.dimension26).toEqual('2');
         });
       });
+
+      describe('on a document collection page', function() {
+        beforeEach(function() {
+          $('body').append('\
+            <div class="test-fixture">\
+              <main role="main" id="content" class="document-collection">\
+                <h3 class="group-title" id="ancient-history">\
+                  Ancient history\
+                </h3>\
+                <ol class="group-document-list">\
+                  <li class="group-document-list-item">\
+                    <h3 class="group-document-list-item-title">\
+                      <a href="conditions-requirements-ancient-history">\
+                        GCSE (9 to 1) subject-level conditions and requirements for ancient history\
+                      </a>\
+                    </h3>\
+                  </li>\
+                </ol>\
+                <h3 class="group-title" id="ancient-languages">\
+                  Ancient languages\
+                </h3>\
+                <ol class="group-document-list">\
+                  <li class="group-document-list-item">\
+                    <h3 class="group-document-list-item-title">\
+                      <a href="/conditions-requirements-ancient-languages">\
+                        GCSE (9 to 1) subject-level conditions and requirements for ancient languages\
+                      </a>\
+                    </h3>\
+                  </li>\
+              </ol>\
+              </main>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
+      });
     });
   });
 
