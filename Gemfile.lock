@@ -85,8 +85,8 @@ GEM
     govuk-lint (0.6.1)
       rubocop (~> 0.35.0)
       scss_lint (~> 0.44.0)
-    govuk_frontend_toolkit (6.0.3)
-      rails (>= 3.1.0)
+    govuk_frontend_toolkit (7.0.1)
+      railties (>= 3.1.0)
       sass (>= 3.2.0)
     govuk_template (0.22.2)
       rails (>= 3.1)
@@ -257,7 +257,7 @@ DEPENDENCIES
   gds-api-adapters (= 41.2.0)
   govuk-content-schema-test-helpers (~> 1.4)
   govuk-lint (~> 0.6.0)
-  govuk_frontend_toolkit (~> 6.0.3)
+  govuk_frontend_toolkit (~> 7.0.1)
   govuk_template (= 0.22.2)
   image_optim (= 0.17.1)
   jasmine-rails (~> 0.10.6)
@@ -281,4 +281,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.5
+   1.15.1
