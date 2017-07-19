@@ -1,18 +1,22 @@
 <%
-  appearance_class ||= "on-light-background"
-  layout_class ||= ""
-  search_term ||= ""
-  input_id ||= SecureRandom.hex(4)
+  class_name = "on-light-background"
+  class_name = "on-dark-background" if local_assigns.include?(:on_dark_background)
+  size ||= ""
+  class_name = "#{class_name} search-large" if size == 'large'
+  class_name = "#{class_name} search-separate-label" if local_assigns.include?(:inline_label)
+
+  value ||= ""
+  id ||= "search-main-" + SecureRandom.hex(4)
   label_text ||= "Search GOV.UK"
   label_text = "#{label_text}".html_safe
 %>
 
-<div class="govuk-search <%= appearance_class %> <%= layout_class %>" data-module="toggle-input-class-on-focus">
-  <label for="search-main-<%= input_id %>" class="search-label">
+<div class="govuk-search <%= class_name %>" data-module="toggle-input-class-on-focus">
+  <label for="<%= id %>" class="search-label">
     <%= label_text %>
   </label>
   <div class="search-wrapper">
-    <input type="search" value="<%= search_term %>" id="search-main-<%= input_id %>" name="q" title="Search" class="search-element search-input js-class-toggle">
+    <input type="search" value="<%= value %>" id="<%= id %>" name="q" title="Search" class="search-element search-input js-class-toggle">
     <div class="search-element search-submit-wrapper">
       <button type="submit" class="search-submit">Search</button>
     </div>

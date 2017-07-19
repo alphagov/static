@@ -11,7 +11,7 @@ class SearchTestCase < ComponentTestCase
   end
 
   test "renders a search box for a dark background" do
-    render_component(appearance_class: "on-dark-background")
+    render_component(on_dark_background: true)
     assert_select ".govuk-search.on-dark-background"
   end
 
@@ -21,23 +21,25 @@ class SearchTestCase < ComponentTestCase
   end
 
   test "renders a search box with a custom label content" do
-    render_component(layout_class: "search-separate-label", label_text: "<h1>This is a heading 1</h1>")
+    render_component(inline_label: false, label_text: "<h1>This is a heading 1</h1>")
     assert_select ".govuk-search .search-label h1", text: "This is a heading 1"
     assert_select ".govuk-search.search-separate-label"
   end
 
   test "renders a search box with a value" do
-    render_component(search_term: "I searched for this")
-    assert_select ".govuk-search .search-input", value: "I searched for this"
+    render_component(value: "I searched for this")
+    assert_select ".govuk-search .search-input" do
+      assert_select "[value=?]", "I searched for this"
+    end
   end
 
   test "renders a search box with a custom id" do
-    render_component(input_id: "my-unique-id")
-    assert_select ".govuk-search #search-main-my-unique-id.search-input"
+    render_component(id: "my-unique-id")
+    assert_select ".govuk-search #my-unique-id.search-input"
   end
 
-  test "renders a search box with a given class" do
-    render_component(layout_class: "my-style")
-    assert_select ".govuk-search.my-style"
+  test "renders a large search box" do
+    render_component(size: "large")
+    assert_select ".govuk-search.search-large"
   end
 end

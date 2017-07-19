@@ -3,15 +3,17 @@ description: "Search box"
 fixtures:
   default: {}
   for_use_on_a_dark_but_not_black_background:
-    appearance_class: "on-dark-background"
+    on_dark_background: true
   change_label_text:
     label_text: "Search all the things"
-  make_the_label_be_a_heading:
-    layout_class: "search-separate-label"
-    label_text: "<h3 class=\"fixture-title\">Make the label be a heading</h3>"
+  stop_the_label_appearing_inline:
+    inline_label: false
+  apply_custom_styling_to_the_label:
+    inline_label: false
+    label_text: "<span class=\"fixture-title\">Search this website</span>"
   set_id_for_search_input:
-    input_id: "my_unique_id"
+    id: "my_unique_id"
   set_search_input_value:
-    search_term: "This is what I searched for"
+    value: "This is what I searched for"
   large_version:
-    layout_class: "search-large"
+    size: "large"
