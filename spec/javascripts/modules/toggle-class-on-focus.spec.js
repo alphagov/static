@@ -13,15 +13,9 @@ describe('A toggle class module', function () {
   describe('when the search box is interacted with', function () {
     beforeEach(function () {
       element = $('\
-        <form class="govuk-search" action="/search" method="get" role="search" data-module="toggle-class-on-focus">\
-          <label for="search-box" class="search-label">Search GOV.UK</label>\
-          <div class="search-wrapper">\
-            <input type="search" id="search-box" name="q" title="Search" class="search-element search-input js-class-toggle">\
-            <div class="search-element search-submit-wrapper">\
-              <button type="submit" class="search-submit">Search</button>\
-            </div>\
-          </div>\
-        </form>')
+        <div data-module="toggle-class-on-focus">\
+            <input type="search" class="js-class-toggle"/>\
+        </div>')
 
       $('body').append(element);
       toggle = new GOVUK.Modules.ToggleInputClassOnFocus();
@@ -41,15 +35,9 @@ describe('A toggle class module', function () {
   describe('when the search box has a value', function () {
     beforeEach(function () {
       element = $('\
-        <form class="govuk-search" action="/search" method="get" role="search" data-module="toggle-class-on-focus">\
-          <label for="search-box" class="search-label">Search GOV.UK</label>\
-          <div class="search-wrapper">\
-            <input type="search" id="search-box" name="q" title="Search" value="Find this" class="search-element search-input js-class-toggle">\
-            <div class="search-element search-submit-wrapper">\
-              <button type="submit" class="search-submit">Search</button>\
-            </div>\
-          </div>\
-        </form>')
+        <div data-module="toggle-class-on-focus">\
+            <input type="search" value="My search query" class="js-class-toggle">\
+        </div>')
 
       $('body').append(element);
       toggle = new GOVUK.Modules.ToggleInputClassOnFocus();
