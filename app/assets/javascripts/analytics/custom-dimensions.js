@@ -125,6 +125,8 @@
       var policyAreaLinks =
         $('section.document-block a').length +
         $('section .collection-list h2 a').length
+      var whitehallFinderPageLinks =
+        $('.document-list .document-row h3 a').length;
 
       var linksCount =
         relatedLinks ||
@@ -133,7 +135,8 @@
         leafLinks ||
         browsePageLinks ||
         topicPageLinks ||
-        policyAreaLinks;
+        policyAreaLinks ||
+        whitehallFinderPageLinks;
 
       return linksCount;
     }
