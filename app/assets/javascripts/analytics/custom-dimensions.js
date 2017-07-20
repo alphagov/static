@@ -97,6 +97,7 @@
         $('#section ul').length;
       var topicPageSections = $('.topics-page nav.index-list').length
       var documentCollectionSections = $('.document-collection .group-title').length;
+      var policyAreaSections = $('.topic section h1.label').length;
 
       var sectionCount =
         sidebarSections ||
@@ -105,7 +106,8 @@
         gridSections ||
         browsePageSections ||
         topicPageSections ||
-        documentCollectionSections;
+        documentCollectionSections ||
+        policyAreaSections;
 
       return sectionCount;
     }
@@ -120,6 +122,9 @@
       var browsePageLinks = $('#subsection ul a:visible').length ||
         $('#section ul a').length;
       var topicPageLinks = $('.topics-page ul a').length;
+      var policyAreaLinks =
+        $('section.document-block a').length +
+        $('section .collection-list h2 a').length
 
       var linksCount =
         relatedLinks ||
@@ -127,7 +132,8 @@
         gridLinks ||
         leafLinks ||
         browsePageLinks ||
-        topicPageLinks;
+        topicPageLinks ||
+        policyAreaLinks;
 
       return linksCount;
     }
