@@ -706,6 +706,53 @@ describe("GOVUK.StaticAnalytics", function() {
           expect(pageViewObject.dimension26).toEqual('2');
         });
       });
+
+      describe('on a whitehall finder page (e.g Announcements)', function() {
+        beforeEach(function() {
+          $('body').append('\
+            <div class="test-fixture">\
+              <ol class="document-list">\
+                <li class="document-row">\
+                  <h3>\
+                    <a href="/government/news/news-article-1">\
+                      Creative sector receives record boost of £700 million pounds\
+                    </a>\
+                  </h3>\
+                </li>\
+                <li class="document-row">\
+                  <h3>\
+                    <a href="/government/news/news-article-2">\
+                      Dangerous occurrence at Broad Oak level crossing\
+                    </a>\
+                  </h3>\
+                </li>\
+                <li class="document-row">\
+                  <h3>\
+                    <a href="/government/news/news-article-3">\
+                      Outbreaks of Koi herpesvirus (KHV) disease in 2017\
+                    </a>\
+                  </h3>\
+                </li>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('0');
+        });
+
+        it('tracks the total number of links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('3');
+        });
+      });
     });
   });
 
