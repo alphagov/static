@@ -119,7 +119,17 @@
       var leafLinks = $('a[data-track-category="navLeafLinkClicked"]').length;
       var browsePageLinks = $('#subsection ul a:visible').length ||
         $('#section ul a').length;
-      return relatedLinks || accordionLinks || gridLinks || leafLinks || browsePageLinks;
+      var topicPageLinks = $('.topics-page ul a').length;
+
+      var linksCount =
+        relatedLinks ||
+        accordionLinks ||
+        gridLinks ||
+        leafLinks ||
+        browsePageLinks ||
+        topicPageLinks;
+
+      return linksCount;
     }
   }
 
