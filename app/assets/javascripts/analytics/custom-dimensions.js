@@ -121,7 +121,8 @@
       var leafLinks = $('a[data-track-category="navLeafLinkClicked"]').length;
       var browsePageLinks = $('#subsection ul a:visible').length ||
         $('#section ul a').length;
-      var topicPageLinks = $('.topics-page ul a').length;
+      var subTopicPageLinks = $('.topics-page .index-list ul a').length;
+      var topicPageLinks = $('.topics-page .topics ul a').length;
       var policyAreaLinks =
         $('section.document-block a').length +
         $('section .collection-list h2 a').length
@@ -134,6 +135,7 @@
         gridLinks ||
         leafLinks ||
         browsePageLinks ||
+        subTopicPageLinks ||
         topicPageLinks ||
         policyAreaLinks ||
         whitehallFinderPageLinks;

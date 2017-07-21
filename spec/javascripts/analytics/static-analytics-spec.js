@@ -541,6 +541,15 @@ describe("GOVUK.StaticAnalytics", function() {
           $('body').append('\
             <div class="test-fixture">\
               <main id="content" role="main" class="content topics-page">\
+                <header class="page-header group">\
+                  <ul>\
+                    <li>\
+                    <a href="/topic/business-tax/corporation-tax/email-signup">\
+                      Subscribe to email alerts\
+                    </a>\
+                    </li>\
+                  </ul>\
+                </header>\
                 <div class="browse-container full-width">\
                   <nav class="index-list with-title"">\
                     <h1 id="getting-started">Getting started</h1>\
