@@ -111,6 +111,11 @@
         startTime: new Date('July 17, 2017').getTime(),
         endTime: new Date('August 16, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+        templateArgs: {
+          title: 'Are you a government publisher?',
+          surveyCta: 'Answer a couple of questions about the publishing guidance.',
+          surveyCtaPostscript: 'This will open in a new tab'
+        },
         activeWhen: function () {
           function pathMatches () {
             var pathMatchingExpr = new RegExp(
@@ -136,6 +141,11 @@
         endTime: new Date('August 20, 2017 23:59:50').getTime(),
         // use a map to translate the path into the utm_campaign value
         url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + hmrcSurveyUtmCampaignValueMap() + '&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
+        templateArgs: {
+          title: 'Help improve GOV.UK.',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: '. This link opens in a new tab.'
+        },
         activeWhen: function () {
           function pathMatches () {
             // use the same map as the utm_campaign value to make sure we don't
@@ -154,6 +164,11 @@
         endTime: new Date('August 18, 2017 23:59:50').getTime(),
         // use a map to translate the path into the utm_campaign value
         url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + dfeSurveyUtmCampaignValueMap() + '&utm_source=Education&utm_medium=gov.uk&t=DfE',
+        templateArgs: {
+          title: 'Help improve GOV.UK.',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: '. This link opens in a new tab.'
+        },
         activeWhen: function () {
           function pathMatches () {
             // use the same map as the utm_campaign value to make sure we don't
