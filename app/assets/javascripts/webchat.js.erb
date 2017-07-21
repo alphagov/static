@@ -43,18 +43,28 @@
         if (message.evt === 'opened') {
           webchat.$banner.addClass('open');
           webchat.$banner.attr('aria-hidden', false);
-          GOVUK.analytics.trackEvent('webchat', 'offered');
+          webchat.trackEvent('offered');
         } else if (message.evt === 'closed') {
           webchat.$banner.removeClass('open');
           webchat.$banner.attr('aria-hidden', true);
+          webchat.trackEvent('unavailable');
         } else if (message.evt === 'error') {
-          GOVUK.analytics.trackEvent('webchat', 'error');
+          webchat.trackEvent('error');
         }
+      }
+    },
+
+    lastTrackedEventState: null,
+    trackEvent: function (status) {
+      if (webchat.lastTrackedEventState !== status.toLowerCase()) {
+        GOVUK.analytics.trackEvent('webchat', status);
+        webchat.lastTrackedEventState = status.toLowerCase();
       }
     },
 
     init: function (){
       var insertionPoint;
+      webchat.lastTrackedEventState = null;
 
       // IE7 can’t access webchat
       if (window.sessionStorage && window.postMessage) {
@@ -86,11 +96,11 @@
           webchat.$banner.on('click', '.accept', function(e) {
             e.preventDefault();
             webchat.sendMessage({ evt: 'accept' });
-            GOVUK.analytics.trackEvent('webchat', 'accepted');
+            webchat.trackEvent('accepted');
           }).on('click', '.reject', function(e) {
             e.preventDefault();
             webchat.sendMessage({ evt: 'reject' });
-            GOVUK.analytics.trackEvent('webchat', 'rejected');
+            webchat.trackEvent('rejected');
           });
 
         }
