@@ -52,6 +52,14 @@ namespace :publishing_api do
                       See https://support.google.com/webmasters/answer/35658",
       },
       {
+        base_path: "/BingSiteAuth.xml",
+        content_id: "d793dba8-4ff7-4a3f-a6d3-54f52b7bd259",
+        title: "Bing site verification",
+        description: "This file allows Bing to verify ownership of a site.
+                      It should not be removed as that can cause the site to become unverified
+                      See https://www.bing.com/webmaster/help/how-to-verify-ownership-of-your-site-afcfefc6",
+      },
+      {
         base_path: "/apple-touch-icon.png",
         content_id: "cdc36458-74d4-42a7-86c8-221e03877dfc",
         title: "Crest for Apple iOS bookmarks",
