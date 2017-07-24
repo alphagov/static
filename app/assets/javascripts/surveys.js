@@ -116,21 +116,14 @@
           surveyCta: 'Answer a couple of questions about the publishing guidance.',
           surveyCtaPostscript: 'This will open in a new tab.'
         },
-        activeWhen: function () {
-          function pathMatches () {
-            var pathMatchingExpr = new RegExp(
-              '^/(?:' +
-              /guidance\/content-design/.source +
-              /|guidance\/how-to-publish-on-gov-uk/.source +
-              /|guidance\/style-guide/.source +
-              /|guidance\/contact-the-government-digital-service/.source +
-              /|topic\/government-digital-guidance\/content-publishing/.source +
-              ')(?:\/|$)'
-            )
-            return pathMatchingExpr.test(userSurveys.currentPath())
-          }
-
-          return pathMatches()
+        activeWhen: {
+          path: [
+            '^/guidance/content-design(?:/|$)',
+            '^/guidance/how-to-publish-on-gov-uk(?:/|$)',
+            '^/guidance/style-guide(?:/|$)',
+            '^/guidance/contact-the-government-digital-service(?:/|$)',
+            '^/topic/government-digital-guidance/content-publishing(?:/|$)'
+          ]
         }
       },
       {
@@ -146,14 +139,22 @@
           surveyCta: 'Answer some questions about yourself to join the research community.',
           surveyCtaPostscript: 'This link opens in a new tab.'
         },
-        activeWhen: function () {
-          function pathMatches () {
-            // use the same map as the utm_campaign value to make sure we don't
-            // show the survey on a page without a utm_campaign value.
-            return hmrcSurveyUtmCampaignValueMap() !== ''
-          }
-
-          return pathMatches()
+        activeWhen: {
+          path: [
+            '^/working-tax-credit(?:/|$)',
+            '^/guidance/money-laundering-regulations-register-with-hmrc(?:/|$)',
+            '^/child-tax-credit(?:/|$)',
+            '^/check-state-pension(?:/|$)',
+            '^/apply-marriage-allowance(?:/|$)',
+            '^/stamp-duty-land-tax(?:/|$)',
+            '^/guidance/pay-apprenticeship-levy(?:/|$)',
+            '^/update-company-car-details(?:/|$)',
+            '^/guidance/paying-your-employees-expenses-and-benefits-through-your-payroll(?:/|$)',
+            '^/guidance/pension-schemes-protect-your-lifetime-allowance(?:/|$)',
+            '^/send-employment-intermediary-report(?:/|$)',
+            '^/guidance/tell-hmrc-about-your-employment-related-securities(?:/|$)',
+            '^/guidance/pension-administrators-check-a-members-gmp(?:/|$)'
+          ]
         }
       },
       {
@@ -169,14 +170,19 @@
           surveyCta: 'Answer some questions about yourself to join the research community.',
           surveyCtaPostscript: 'This link opens in a new tab.'
         },
-        activeWhen: function () {
-          function pathMatches () {
-            // use the same map as the utm_campaign value to make sure we don't
-            // show the survey on a page without a utm_campaign value.
-            return dfeSurveyUtmCampaignValueMap() !== ''
-          }
-
-          return pathMatches()
+        activeWhen: {
+          path: [
+            '^/complain-about-school(?:/|$)',
+            '^/children-with-special-educational-needs(?:/|$)',
+            '^/school-term-holiday-dates(?:/|$)',
+            '^/school-attendance-absence(?:/|$)',
+            '^/school-uniform(?:/|$)',
+            '^/bullying-at-school(?:/|$)',
+            '^/health-safety-school-children(?:/|$)',
+            '^/school-discipline-exclusions(?:/|$)',
+            '^/childcare-out-of-school-hours(?:/|$)',
+            '^/after-school-holiday-club(?:/|$)'
+          ]
         }
       }
     ],
