@@ -160,6 +160,7 @@ describe('Ecommerce reporter for results pages', function() {
       dimension39: 'false',
       dimension26: '0',
       dimension27: '0',
+      dimension90: 'other'
     })
   });
 
