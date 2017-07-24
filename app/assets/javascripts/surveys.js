@@ -114,7 +114,7 @@
         templateArgs: {
           title: 'Are you a government publisher?',
           surveyCta: 'Answer a couple of questions about the publishing guidance.',
-          surveyCtaPostscript: 'This will open in a new tab'
+          surveyCtaPostscript: 'This will open in a new tab.'
         },
         activeWhen: function () {
           function pathMatches () {
@@ -144,7 +144,7 @@
         templateArgs: {
           title: 'Help improve GOV.UK.',
           surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: '. This link opens in a new tab.'
+          surveyCtaPostscript: 'This link opens in a new tab.'
         },
         activeWhen: function () {
           function pathMatches () {
@@ -167,7 +167,7 @@
         templateArgs: {
           title: 'Help improve GOV.UK.',
           surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: '. This link opens in a new tab.'
+          surveyCtaPostscript: 'This link opens in a new tab.'
         },
         activeWhen: function () {
           function pathMatches () {
