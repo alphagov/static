@@ -10,6 +10,7 @@
   meta_tags["govuk:format"] = content_item_hash[:document_type] if content_item_hash[:document_type]
   meta_tags["govuk:first-public-at"] = details_hash[:first_public_at] if details_hash[:first_public_at]
   meta_tags["govuk:schema-name"] = content_item_hash[:schema_name] if content_item_hash[:schema_name]
+  meta_tags["govuk:state"] = content_item_hash[:state] if content_item_hash[:state]
 
   organisations = []
   organisations += links_hash[:organisations] || []

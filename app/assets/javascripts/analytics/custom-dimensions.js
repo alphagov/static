@@ -46,6 +46,7 @@
       'political-status': {dimension: 7},
       'analytics:organisations': {dimension: 9},
       'analytics:world-locations': {dimension: 10},
+      'state': {dimension: 12, defaultValue: 'other'},
       'schema-name': {dimension: 17},
       'rendering-application': {dimension: 20},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},
