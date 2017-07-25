@@ -690,6 +690,13 @@ describe("GOVUK.StaticAnalytics", function() {
                       </a>\
                     </h3>\
                   </li>\
+                  <li class="group-document-list-item">\
+                    <h3 class="group-document-list-item-title">\
+                      <a href="/guidance-for-ancient-languages">\
+                        GCSE (9 to 1) subject-level guidance for ancient languages\
+                      </a>\
+                    </h3>\
+                  </li>\
               </ol>\
               </main>\
             </div>\
@@ -704,6 +711,12 @@ describe("GOVUK.StaticAnalytics", function() {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
           pageViewObject = getPageViewObject();
           expect(pageViewObject.dimension26).toEqual('2');
+        });
+
+        it('tracks the total number of links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('3');
         });
       });
 

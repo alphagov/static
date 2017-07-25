@@ -99,14 +99,17 @@
       var documentCollectionSections = $('.document-collection .group-title').length;
       var policyAreaSections = $('.topic section h1.label').length;
 
+      // Document collections, being a content item, might have related links.
+      // That means we need to check for sections on it first, before we default
+      // to the sections on the side bar.
       var sectionCount =
+        documentCollectionSections ||
         sidebarSections ||
         sidebarTaxons ||
         accordionSubsections ||
         gridSections ||
         browsePageSections ||
         topicPageSections ||
-        documentCollectionSections ||
         policyAreaSections;
 
       return sectionCount;
@@ -127,8 +130,14 @@
         $('section .collection-list h2 a').length
       var whitehallFinderPageLinks =
         $('.document-list .document-row h3 a').length;
+      var documentCollectionLinks =
+        $('.document-collection .group-document-list li a').length;
 
+      // Document collections, being a content item, might have related links.
+      // That means we need to check for links on it first, before we default
+      // to the sections on the side bar.
       var linksCount =
+        documentCollectionLinks ||
         relatedLinks ||
         accordionLinks ||
         gridLinks ||
