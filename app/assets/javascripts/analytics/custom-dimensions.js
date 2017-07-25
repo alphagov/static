@@ -133,6 +133,7 @@
         $('.document-list .document-row h3 a').length;
       var documentCollectionLinks =
         $('.document-collection .group-document-list li a').length;
+      var finderLinks = $('.finder-frontend-content li.document a').length;
 
       // Document collections, being a content item, might have related links.
       // That means we need to check for links on it first, before we default
@@ -147,7 +148,8 @@
         subTopicPageLinks ||
         topicPageLinks ||
         policyAreaLinks ||
-        whitehallFinderPageLinks;
+        whitehallFinderPageLinks ||
+        finderLinks;
 
       return linksCount;
     }
