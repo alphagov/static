@@ -775,6 +775,57 @@ describe("GOVUK.StaticAnalytics", function() {
           expect(pageViewObject.dimension27).toEqual('3');
         });
       });
+
+      describe('on a finder page', function() {
+        beforeEach(function() {
+          $('body').append('\
+            <div class="test-fixture">\
+              <main id="content" role="main" class="finder-frontend-content">\
+                <div id="finder-frontend">\
+                  <div class="filtering">\
+                    <div class="filtered-results">\
+                      <div id="js-results">\
+                        <ul>\
+                          <li class="document">\
+                            <h3>\
+                              <a href="/2012-olympic-and-paralympic-legacy">\
+                                2012 Olympic and Paralympic legacy\
+                              </a>\
+                            </h3>\
+                          </li>\
+                          <li class="document">\
+                            <h3>\
+                              <a href="/academies-and-free-schools">Academies and free schools</a></h3>\
+                          </li>\
+                          <li class="document">\
+                            <h3><a href="/government/policies/access-to-financial-services">Access to financial services</a></h3>\
+                          </li>\
+                        </ul>\
+                      </div>\
+                    </div>\
+                  </div>\
+                </div>\
+              </main>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('0');
+        });
+
+        it('tracks the total number of links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('3');
+        });
+      });
     });
   });
 
