@@ -93,7 +93,7 @@
     }
   }
 
-  &.on-dark-background {
+  &.on-govuk-blue {
     .search-label {
       color: $white;
     }
@@ -117,7 +117,7 @@
   }
 
 
-  &.on-light-background {
+  &.on-white {
     .search-label {
       color: $black;
     }
@@ -175,10 +175,6 @@
     .search-label {
       position: relative;
       left: auto;
-
-      h1 {
-        color: $black;
-      }
     }
   }
 }

@@ -1,6 +1,6 @@
 <%
-  class_name = "on-light-background"
-  class_name = "on-dark-background" if local_assigns.include?(:on_dark_background)
+  class_name = "on-white"
+  class_name = "on-govuk-blue" if local_assigns.include?(:on_govuk_blue)
   size ||= ""
   class_name = "#{class_name} search-large" if size == 'large'
   class_name = "#{class_name} search-separate-label" if local_assigns.include?(:inline_label)
@@ -22,4 +22,3 @@
     </div>
   </div>
 </div>
-

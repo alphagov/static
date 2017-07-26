@@ -1,6 +1,3 @@
-/* eslint-env jasmine */
-/* eslint-disable no-multi-str */
-
 describe('A toggle class module', function () {
   'use strict';
 

@@ -7,12 +7,12 @@ class SearchTestCase < ComponentTestCase
 
   test "renders a search box with default options" do
     render_component({})
-    assert_select ".govuk-search.on-light-background"
+    assert_select ".govuk-search.on-white"
   end
 
   test "renders a search box for a dark background" do
-    render_component(on_dark_background: true)
-    assert_select ".govuk-search.on-dark-background"
+    render_component(on_govuk_blue: true)
+    assert_select ".govuk-search.on-govuk-blue"
   end
 
   test "renders a search box with a custom label text" do
