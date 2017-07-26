@@ -150,16 +150,18 @@ describe('Ecommerce reporter for results pages', function() {
       dimension11: '1',
       dimension3: 'other',
       dimension4: '00000000-0000-0000-0000-000000000000',
+      dimension12: 'current',
+      dimension23: 'unknown',
+      dimension26: '0',
+      dimension27: '0',
       dimension32: 'none',
       dimension33: 'thing',
       dimension34: 'other',
+      dimension39: 'false',
       dimension56: 'other',
       dimension57: 'other',
       dimension58: 'other',
       dimension59: 'other',
-      dimension39: 'false',
-      dimension26: '0',
-      dimension27: '0',
     })
   });
 

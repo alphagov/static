@@ -46,6 +46,7 @@
       'political-status': {dimension: 7},
       'analytics:organisations': {dimension: 9},
       'analytics:world-locations': {dimension: 10},
+      'withdrawn': {dimension: 12, defaultValue: 'current'},
       'schema-name': {dimension: 17},
       'rendering-application': {dimension: 20},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},
@@ -78,6 +79,8 @@
         customDimensions['dimension' + dimension.dimension] = value;
       }
     });
+
+    customDimensions['dimension23'] = $('main[id="content"]').attr('lang') || 'unknown';
 
     return customDimensions;
   }
