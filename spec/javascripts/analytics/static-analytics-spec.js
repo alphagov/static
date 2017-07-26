@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const numberOfDimensionsWithDefaultValues = 15;
+    const numberOfDimensionsWithDefaultValues = 17;
 
     var universalSetupArguments;
     var pageViewObject;
@@ -90,6 +90,8 @@ describe("GOVUK.StaticAnalytics", function() {
         $('head').append('\
           <meta name="govuk:section" content="section">\
           <meta name="govuk:format" content="format">\
+          <meta name="govuk:first-public-at" content="2016-02-28 09:24:10 UTC">\
+          <meta name="govuk:state" content="published">\
           <meta name="govuk:search-result-count" content="1000">\
           <meta name="govuk:publishing-government" content="2005-to-2010-labour-government">\
           <meta name="govuk:political-status" content="historic">\
@@ -108,7 +110,9 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension7).toEqual('historic');
         expect(pageViewObject.dimension9).toEqual('<D10>');
         expect(pageViewObject.dimension10).toEqual('<W1>');
+        expect(pageViewObject.dimension12).toEqual('published');
         expect(pageViewObject.dimension17).toEqual('schema-name');
+        expect(pageViewObject.dimension90).toEqual('2016-02-28 09:24:10 UTC');
       });
 
       it('ignores meta tags not set', function() {

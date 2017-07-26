@@ -46,6 +46,7 @@
       'political-status': {dimension: 7},
       'analytics:organisations': {dimension: 9},
       'analytics:world-locations': {dimension: 10},
+      'state': {dimension: 12, defaultValue: 'other'},
       'schema-name': {dimension: 17},
       'rendering-application': {dimension: 20},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},
@@ -55,7 +56,8 @@
       'taxon-id': {dimension: 57, defaultValue: 'other'},
       'taxon-slugs': {dimension: 58, defaultValue: 'other'},
       'taxon-ids': {dimension: 59, defaultValue: 'other'},
-      'content-has-history': {dimension: 39, defaultValue: 'false'}
+      'content-has-history': {dimension: 39, defaultValue: 'false'},
+      'first-public-at': {dimension: 90, defaultValue: 'other'}
     };
 
     var $metas = $('meta[name^="govuk:"]');
