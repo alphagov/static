@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
 
   @include media-down(mobile) {
-    background-position: 110% 50%;
+    background-position: center right -.35em;
   }
 
   @include ie(7) {
