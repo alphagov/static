@@ -30,7 +30,15 @@ module EmergencyBanner
       content[:link] if content[:link].present?
     end
 
+    def link_text
+      return nil if link.blank?
+      return content[:link_text] if content[:link_text].present?
+      MORE_INFORMATION
+    end
+
   private
+
+    MORE_INFORMATION = "More information"
 
     def content
       return @content if defined? @content
