@@ -1,0 +1,38 @@
+name: "Button"
+description: "Use buttons to move though a transaction, aim to use only one button per page."
+body: |
+  Button text should be short and describe the action the button performs.
+
+  GOV.UK Elements has more information on how buttons should be used https://govuk-elements.herokuapp.com/buttons/
+
+  Note: We do not consume GOV.UK Elements directly due to the naming conventions being leaky,
+  in time this component will be a wrapper for the GOV.UK Frontend projects button component.
+
+  Global button styles seen at `app/assets/stylesheets/helpers/_buttons.scss`
+  should be considered deprecated with this component replacing any instances.
+
+  govuk-* namespace replaced with pub-c-* otherwise we will conflict with https://github.com/alphagov/govuk-frontend/blob/master/docs/components.m
+
+  FIXME: Should link_button be allowed?
+fixtures:
+  default:
+    text: "Submit"
+  link_button:
+    text: "I'm really a link sssh"
+    href: "#"
+  start_now_button:
+    text: "Start now"
+    href: "#"
+    start: true
+  start_now_button_with_info_text:
+    text: "Start now"
+    href: "#"
+    start: true
+    info_text: "Sometimes you want to explain where a user is going to."
+  extreme_text:
+    text: "I'm a button with lots of text to test how the component scales at extremes."
+    href: "#"
+  extreme_text_start_now_button:
+    text: "I'm a start now button with lots of text to test how the component scales at extremes."
+    start: true
+    href: "#"

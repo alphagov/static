@@ -1,0 +1,37 @@
+.pub-c-button {
+  @include button;
+}
+
+.pub-c-button--start {
+  @include bold-24($line-height: (16 / 24));
+  display: inline-block;
+  padding: 0.60em 1.7em 0.45em 0.67em;
+  background-image: image-url("icon-pointer.png");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+
+  @include media-down(mobile) {
+    background-position: 110% 50%;
+  }
+
+  @include ie(7) {
+    padding: 0.45em 1.7em 0.62em 0.67em;
+  }
+
+  @include ie(6) {
+    background-image: image-url('icon-pointer-indexed.png');
+    /* IE6 adds its own side padding so requires no extra */
+    padding: 0.45em 0.5em 0.62em 0em;
+  }
+
+  @include device-pixel-ratio() {
+    background-image: image-url("icon-pointer-2x.png");
+    background-size: 30px 19px;
+  }
+}
+
+.pub-c-button__info-text {
+  display: block;
+  margin-top: .5em;
+  max-width: 14em;
+}
