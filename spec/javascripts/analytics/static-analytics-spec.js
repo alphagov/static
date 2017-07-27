@@ -216,6 +216,12 @@ describe("GOVUK.StaticAnalytics", function() {
       describe('when tracking the number of sections and links on a page', function() {
         describe('on a page with a normal sidebar', function() {
           beforeEach(function() {
+            $('head').append('\
+              <div class="test-meta-tags">\
+                <meta name="govuk:rendering-application" content="government-frontend">\
+                <meta name="govuk:format" content="transaction">\
+              </div>\
+            ')
             $('body').append('\
               <div class="test-fixture">\
                 <aside class="govuk-related-items">\
@@ -250,6 +256,7 @@ describe("GOVUK.StaticAnalytics", function() {
           });
 
           afterEach(function() {
+            $('.test-meta-tags').remove();
             $('.test-fixture').remove();
           });
 
@@ -268,6 +275,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
         describe('on a page with a taxon sidebar', function() {
           beforeEach(function() {
+            $('head').append('\
+              <div class="test-meta-tags">\
+                <meta name="govuk:rendering-application" content="government-frontend">\
+                <meta name="govuk:format" content="transaction">\
+              </div>\
+            ')
             $('body').append('\
               <div class="test-fixture">\
                 <aside class="govuk-taxonomy-sidebar">\
@@ -306,6 +319,7 @@ describe("GOVUK.StaticAnalytics", function() {
           });
 
           afterEach(function() {
+            $('.test-meta-tags').remove();
             $('.test-fixture').remove();
           });
 
@@ -324,6 +338,13 @@ describe("GOVUK.StaticAnalytics", function() {
 
         describe('on a page with an accordion', function() {
           beforeEach(function() {
+            $('head').append('\
+              <div class="test-meta-tags">\
+                <meta name="govuk:rendering-application" content="collections">\
+                <meta name="govuk:navigation-page-type" content="accordion">\
+                <meta name="govuk:format" content="taxon">\
+              </div>\
+            ')
             $('body').append('\
               <div class="test-fixture">\
                 <div class="accordion-with-descriptions">\
@@ -368,6 +389,7 @@ describe("GOVUK.StaticAnalytics", function() {
           });
 
           afterEach(function() {
+            $('.test-meta-tags').remove();
             $('.test-fixture').remove();
           });
 
@@ -384,8 +406,15 @@ describe("GOVUK.StaticAnalytics", function() {
           });
         });
 
-        describe('on a page with an grid', function() {
+        describe('on a page with a grid', function() {
           beforeEach(function() {
+            $('head').append('\
+              <div class="test-meta-tags">\
+                <meta name="govuk:rendering-application" content="collections">\
+                <meta name="govuk:navigation-page-type" content="grid">\
+                <meta name="govuk:format" content="taxon">\
+              </div>\
+            ')
             $('body').append('\
               <div class="test-fixture">\
                 <main class="taxon-page">\
@@ -433,6 +462,7 @@ describe("GOVUK.StaticAnalytics", function() {
           });
 
           afterEach(function() {
+            $('.test-meta-tags').remove();
             $('.test-fixture').remove();
           });
 
@@ -452,6 +482,13 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a navigation leaf page', function() {
         beforeEach(function() {
+            $('head').append('\
+              <div class="test-meta-tags">\
+                <meta name="govuk:rendering-application" content="collections">\
+                <meta name="govuk:navigation-page-type" content="leaf">\
+                <meta name="govuk:format" content="taxon">\
+              </div>\
+            ')
           $('body').append('\
               <div class="test-fixture">\
                 <div class="topic-content">\
@@ -477,6 +514,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 
@@ -495,6 +533,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a topic page', function() {
         beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="collections">\
+              <meta name="govuk:format" content="topic">\
+            </div>\
+          ')
           $('body').append('\
             <div class="test-fixture">\
               <main id="content" role="main" class="content topics-page">\
@@ -520,6 +564,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 
@@ -538,6 +583,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a sub topic page', function() {
         beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="collections">\
+              <meta name="govuk:format" content="topic">\
+            </div>\
+          ')
           $('body').append('\
             <div class="test-fixture">\
               <main id="content" role="main" class="content topics-page">\
@@ -591,6 +642,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 
@@ -609,6 +661,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a policy area page', function() {
         beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="whitehall">\
+              <meta name="govuk:format" content="placeholder_policy_area">\
+            </div>\
+          ')
           $('body').append('\
             <div class="test-fixture">\
               <div class="topic classification topic">\
@@ -655,6 +713,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 
@@ -673,6 +732,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a document collection page', function() {
         beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="government-frontend">\
+              <meta name="govuk:format" content="document_collection">\
+            </div>\
+          ')
           $('body').append('\
             <div class="test-fixture">\
               <main role="main" id="content" class="document-collection">\
@@ -713,6 +778,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 
@@ -731,6 +797,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a whitehall finder page (e.g Announcements)', function() {
         beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="whitehall">\
+              <meta name="govuk:format" content="finder">\
+            </div>\
+          ')
           $('body').append('\
             <div class="test-fixture">\
               <ol class="document-list">\
@@ -760,6 +832,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 
@@ -778,6 +851,12 @@ describe("GOVUK.StaticAnalytics", function() {
 
       describe('on a finder page', function() {
         beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="finder-frontend">\
+              <meta name="govuk:format" content="finder">\
+            </div>\
+          ')
           $('body').append('\
             <div class="test-fixture">\
               <main id="content" role="main" class="finder-frontend-content">\
@@ -811,6 +890,7 @@ describe("GOVUK.StaticAnalytics", function() {
         });
 
         afterEach(function() {
+          $('.test-meta-tags').remove();
           $('.test-fixture').remove();
         });
 

@@ -84,75 +84,9 @@
 
   function customDimensionsFromDom() {
     return {
-      dimension26: totalNumberOfSections(),
-      dimension27: totalNumberOfSectionLinks()
+      dimension26: GOVUK.PageContent.getNumberOfSections(),
+      dimension27: GOVUK.PageContent.getNumberOfLinks()
     };
-
-    function totalNumberOfSections() {
-      var sidebarSections = $('[data-track-count="sidebarRelatedItemSection"]').length;
-      var sidebarTaxons = $('[data-track-count="sidebarTaxonSection"]').length;
-      var accordionSubsections = $('[data-track-count="accordionSection"]').length;
-      var gridSections = $('a[data-track-category="navGridLinkClicked"]').length;
-      var browsePageSections = $('#subsection ul:visible').length ||
-        $('#section ul').length;
-      var topicPageSections = $('.topics-page nav.index-list').length
-      var documentCollectionSections = $('.document-collection .group-title').length;
-      var policyAreaSections = $('.topic section h1.label').length;
-
-      // Document collections, being a content item, might have related links.
-      // That means we need to check for sections on it first, before we default
-      // to the sections on the side bar.
-      var sectionCount =
-        documentCollectionSections ||
-        sidebarSections ||
-        sidebarTaxons ||
-        accordionSubsections ||
-        gridSections ||
-        browsePageSections ||
-        topicPageSections ||
-        policyAreaSections;
-
-      return sectionCount;
-    }
-
-    function totalNumberOfSectionLinks() {
-      var relatedLinks = $('a[data-track-category="relatedLinkClicked"]').length;
-      var accordionLinks = $('a[data-track-category="navAccordionLinkClicked"]').length;
-      // Grid links are counted both as "sections" (see dimension 26), and as part of the total link count
-      var gridLinks = $('a[data-track-category="navGridLinkClicked"]').length
-        + $('a[data-track-category="navGridLeafLinkClicked"]').length;
-      var leafLinks = $('a[data-track-category="navLeafLinkClicked"]').length;
-      var browsePageLinks = $('#subsection ul a:visible').length ||
-        $('#section ul a').length;
-      var subTopicPageLinks = $('.topics-page .index-list ul a').length;
-      var topicPageLinks = $('.topics-page .topics ul a').length;
-      var policyAreaLinks =
-        $('section.document-block a').length +
-        $('section .collection-list h2 a').length
-      var whitehallFinderPageLinks =
-        $('.document-list .document-row h3 a').length;
-      var documentCollectionLinks =
-        $('.document-collection .group-document-list li a').length;
-      var finderLinks = $('.finder-frontend-content li.document a').length;
-
-      // Document collections, being a content item, might have related links.
-      // That means we need to check for links on it first, before we default
-      // to the sections on the side bar.
-      var linksCount =
-        documentCollectionLinks ||
-        relatedLinks ||
-        accordionLinks ||
-        gridLinks ||
-        leafLinks ||
-        browsePageLinks ||
-        subTopicPageLinks ||
-        topicPageLinks ||
-        policyAreaLinks ||
-        whitehallFinderPageLinks ||
-        finderLinks;
-
-      return linksCount;
-    }
   }
 
   function abTestCustomDimensions() {
