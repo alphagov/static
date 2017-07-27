@@ -24,16 +24,6 @@
     background-position: center right -.35em;
   }
 
-  @include ie(7) {
-    padding: 0.45em 1.7em 0.62em 0.67em;
-  }
-
-  @include ie(6) {
-    background-image: image-url('icon-pointer-indexed.png');
-    /* IE6 adds its own side padding so requires no extra */
-    padding: 0.45em 0.5em 0.62em 0em;
-  }
-
   @include device-pixel-ratio() {
     background-image: image-url("icon-pointer-2x.png");
     background-size: 30px 19px;
