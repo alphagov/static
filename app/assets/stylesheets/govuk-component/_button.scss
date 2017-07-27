@@ -1,5 +1,11 @@
 .pub-c-button {
   @include button;
+
+  @media(max-width: 425px) {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .pub-c-button--start {
