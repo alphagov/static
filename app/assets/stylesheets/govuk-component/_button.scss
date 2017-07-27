@@ -3,9 +3,13 @@
 }
 
 .pub-c-button--start {
-  @include bold-24($line-height: (16 / 24));
+  @include bold-24($line-height: (24 / 20));
   display: inline-block;
   padding: 0.60em 1.7em 0.45em 0.67em;
+  @include media(tablet) {
+    padding-top: 0.3em;
+    padding-bottom: 0.15em;
+  }
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
   background-repeat: no-repeat;
