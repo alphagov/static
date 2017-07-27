@@ -41,6 +41,17 @@ class NotificationsTest < ActionDispatch::IntegrationTest
       assert_match(/yoricks\.gov/, page.body)
     end
 
+    should "render the more information link with specified text" do
+      EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
+      EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("notable-death")
+      EmergencyBanner::Display.any_instance.stubs(:link).returns("https://yoricks.gov")
+      EmergencyBanner::Display.any_instance.stubs(:link_text).returns("Some specified text for more information")
+
+      visit "/templates/wrapper.html.erb"
+
+      assert_match "Some specified text for more information", page.body
+    end
+
     should "not render the more information link if it does not exist" do
       EmergencyBanner::Display.any_instance.stubs(:heading).returns("Alas poor Yorick")
       EmergencyBanner::Display.any_instance.stubs(:campaign_class).returns("notable-death")
