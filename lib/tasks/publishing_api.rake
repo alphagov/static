@@ -1,5 +1,5 @@
 namespace :publishing_api do
-  desc "Publish special routes such as robots.txt"
+  desc "Publish special routes such as humans.txt"
   task :publish_special_routes do
     require 'gds_api/publishing_api/special_route_publisher'
 
