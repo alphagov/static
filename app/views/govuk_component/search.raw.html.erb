@@ -1,0 +1,24 @@
+<%
+  class_name = "on-white"
+  class_name = "on-govuk-blue" if local_assigns.include?(:on_govuk_blue)
+  size ||= ""
+  class_name = "#{class_name} search-large" if size == 'large'
+  class_name = "#{class_name} search-separate-label" if local_assigns.include?(:inline_label)
+
+  value ||= ""
+  id ||= "search-main-" + SecureRandom.hex(4)
+  label_text ||= "Search GOV.UK"
+  label_text = "#{label_text}".html_safe
+%>
+
+<div class="govuk-search <%= class_name %>" data-module="toggle-input-class-on-focus">
+  <label for="<%= id %>" class="search-label">
+    <%= label_text %>
+  </label>
+  <div class="search-wrapper">
+    <input type="search" value="<%= value %>" id="<%= id %>" name="q" title="Search" class="search-element search-input js-class-toggle">
+    <div class="search-element search-submit-wrapper">
+      <button type="submit" class="search-submit">Search</button>
+    </div>
+  </div>
+</div>
