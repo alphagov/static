@@ -7,7 +7,7 @@ See the [opsmanual](https://docs.publishing.service.gov.uk/manual/emergency-publ
 ### Deploying the Emergency banner
 
 ```
-bundle exec rake emergency_banner:deploy['{campaign_class}','{heading}','{short_description}','{link}']
+bundle exec rake emergency_banner:deploy['{campaign_class}','{heading}','{short_description}','{link}','{link_text}']
 ```
 
 Where
@@ -16,6 +16,8 @@ Where
 * `heading` is the \<H1\> title
 * `short_description` is the text that appears under the title
 * `link` is the more information link
+* 'link_text' is the anchor text for the more information link above.
+  Defaults to "More information"
 
 N.B. Don't add spaces between the parameters.
 
