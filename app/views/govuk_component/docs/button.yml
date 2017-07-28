@@ -6,14 +6,12 @@ body: |
   GOV.UK Elements has more information on how buttons should be used https://govuk-elements.herokuapp.com/buttons/
 
   Note: We do not consume GOV.UK Elements directly due to the naming conventions being leaky,
-  in time this component will be a wrapper for the GOV.UK Frontend projects button component.
+  in time this component will be a wrapper for the [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend) project's button component.
 
   Global button styles seen at `app/assets/stylesheets/helpers/_buttons.scss`
   should be considered deprecated with this component replacing any instances.
 
   govuk-* namespace replaced with pub-c-* otherwise we will conflict with https://github.com/alphagov/govuk-frontend/blob/master/docs/components.m
-
-  FIXME: Should link_button be allowed?
 fixtures:
   default:
     text: "Submit"
