@@ -17,6 +17,12 @@
         return $('.topics-page nav.index-list').length;
       case isPolicyAreaPage():
         return $('.topic section h1.label').length;
+      case isFinderPage():
+      case isWhitehallFinderPage():
+        // The default in finders should be one, so it's comparable with A-Z
+        // lists in other navigation pages. Request made by performance
+        // analysts.
+        return 1;
       default:
         // It's a content page, not a "finding" page
         var sidebarSections = $('[data-track-count="sidebarRelatedItemSection"]').length;
