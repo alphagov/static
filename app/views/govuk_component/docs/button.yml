@@ -12,6 +12,16 @@ body: |
   should be considered deprecated with this component replacing any instances.
 
   govuk-* namespace replaced with pub-c-* otherwise we will conflict with https://github.com/alphagov/govuk-frontend/blob/master/docs/components.m
+accessibility_criteria: |
+  The button must:
+
+  - accept focus
+  - be focusable with a keyboard
+  - indicate when it has focus
+  - activate when focused and space is pressed
+  - activate when focused and enter is pressed
+  - have a role of button
+  - have an accessible label
 fixtures:
   default:
     text: "Submit"
