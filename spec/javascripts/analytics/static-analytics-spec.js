@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const numberOfDimensionsWithDefaultValues = 15;
+    const numberOfDimensionsWithDefaultValues = 17;
 
     var universalSetupArguments;
     var pageViewObject;
@@ -87,6 +87,11 @@ describe("GOVUK.StaticAnalytics", function() {
       });
 
       it('sets them as dimensions', function() {
+        $('body').append('\
+          <div class="test-fixture">\
+            <main role="main" id="content" class="document-collection" lang="fr"></main>\
+          </div>\
+        ');
         $('head').append('\
           <meta name="govuk:section" content="section">\
           <meta name="govuk:format" content="format">\
@@ -95,9 +100,9 @@ describe("GOVUK.StaticAnalytics", function() {
           <meta name="govuk:political-status" content="historic">\
           <meta name="govuk:analytics:organisations" content="<D10>">\
           <meta name="govuk:analytics:world-locations" content="<W1>">\
+          <meta name="govuk:withdrawn" content="withdrawn">\
           <meta name="govuk:schema-name" content="schema-name">\
         ');
-
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         pageViewObject = getPageViewObject();
 
@@ -108,7 +113,9 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension7).toEqual('historic');
         expect(pageViewObject.dimension9).toEqual('<D10>');
         expect(pageViewObject.dimension10).toEqual('<W1>');
+        expect(pageViewObject.dimension12).toEqual('withdrawn');
         expect(pageViewObject.dimension17).toEqual('schema-name');
+        expect(pageViewObject.dimension23).toEqual('fr');
       });
 
       it('ignores meta tags not set', function() {
