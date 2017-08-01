@@ -1,3 +1,4 @@
+%pub-c-button,
 .pub-c-button {
   @include button;
 
@@ -8,6 +9,7 @@
   }
 }
 
+%pub-c-button--start,
 .pub-c-button--start {
   @include bold-24($line-height: (24 / 20));
   display: inline-block;
