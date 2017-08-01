@@ -12,6 +12,13 @@ class ButtonTestCase < ComponentTestCase
     end
   end
 
+  test "renders the correct defaults" do
+    render_component(text: "Submit")
+    assert_select ".pub-c-button", text: "Submit"
+    assert_select ".pub-c-button--start", false
+    assert_select ".pub-c-button__info-text", false
+  end
+
   test "renders text correctly" do
     render_component(text: "Submit")
     assert_select ".pub-c-button", text: "Submit"
