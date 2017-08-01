@@ -591,3 +591,8 @@ fixtures:
       <div class="summary">
         <p>This is a summary</p>
       </div>
+  button:
+    content: |
+      <a href="#" class="button button-start" role="button">
+        Start now
+      </a>

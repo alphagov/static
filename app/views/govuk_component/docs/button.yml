@@ -11,7 +11,13 @@ body: |
   Global button styles seen at `app/assets/stylesheets/helpers/_buttons.scss`
   should be considered deprecated with this component replacing any instances.
 
-  govuk-* namespace replaced with pub-c-* otherwise we will conflict with https://github.com/alphagov/govuk-frontend/blob/master/docs/components.m
+  govuk-* namespace replaced with pub-c-* otherwise we will conflict with https://github.com/alphagov/govuk-frontend/blob/master/docs/components.md
+
+  This component is also extended for use in govspeak (http://govuk-component-guide.herokuapp.com/components/govspeak/fixtures/button).
+
+  These instances of buttons are added by Content Designers, ideally this duplication would not exist but we currently don't have shared markup
+  via our components within the generated [govspeak](https://github.com/alphagov/govspeak).
+  (This is a challenge to the reader :))
 accessibility_criteria: |
   The button must:
 
