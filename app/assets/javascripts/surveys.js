@@ -107,7 +107,7 @@
       {
         identifier: 'publisher_guidance_survey',
         surveyType: 'url',
-        frequency: 6,
+        frequency: 1,
         startTime: new Date('July 17, 2017').getTime(),
         endTime: new Date('August 16, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
