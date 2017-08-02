@@ -1,7 +1,7 @@
 class RootController < ApplicationController
   layout false
 
-  before_filter :validate_template_param, only: [:template, :raw_govuk_component_template, :raw_root_template]
+  before_action :validate_template_param, only: [:template, :raw_govuk_component_template, :raw_root_template]
 
   rescue_from ActionView::MissingTemplate, with: :error_404
 
