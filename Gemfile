@@ -33,7 +33,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'jasmine-rails', '~> 0.10.6'
+  gem 'jasmine-rails', '~> 0.14.1'
   gem 'govuk-lint', '~> 0.6.0'
   gem 'pry'
 end
