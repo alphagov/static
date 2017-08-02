@@ -30,5 +30,8 @@ Static::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Disable logging of assets
+  config.assets.quiet = true
+
   config.eager_load = false
 end

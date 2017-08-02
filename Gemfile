@@ -35,7 +35,6 @@ end
 
 group :development, :test do
   gem 'jasmine-rails', '~> 0.10.6'
-  gem 'quiet_assets', '1.1.0'
   gem 'govuk-lint', '~> 0.6.0'
   gem 'pry'
 end
