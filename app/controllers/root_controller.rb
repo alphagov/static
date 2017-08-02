@@ -64,7 +64,7 @@ private
   def render_raw_template(prefix, file_name)
     file_path = Rails.root.join("app", "views", prefix, "#{file_name}.raw.html.erb")
     error_404 && return unless File.exist?(file_path)
-    render text: File.read(file_path)
+    render plain: File.read(file_path)
   end
 
   def validate_template_param
