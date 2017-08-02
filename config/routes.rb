@@ -1,11 +1,11 @@
-Static::Application.routes.draw do
-  controller "root", format: false do
-    get "/templates/:template.raw.html.erb" => :raw_root_template
-    get "/templates/govuk_component/:template.raw.html.erb" => :raw_govuk_component_template
-    get "/templates/govuk_component/docs" => :govuk_component_docs
-    get "/templates/locales" => :govuk_available_locales
-    get "/templates/locales/:locale" => :govuk_locales
-    get "/templates/:template.html.erb" => :template
+Rails.application.routes.draw do
+  scope format: false do
+    get "/templates/:template.raw.html.erb", to: "root#raw_root_template"
+    get "/templates/govuk_component/:template.raw.html.erb", to: "root#raw_govuk_component_template"
+    get "/templates/govuk_component/docs", to: "root#govuk_component_docs"
+    get "/templates/locales", to: "root#govuk_available_locales"
+    get "/templates/locales/:locale", to: "root#govuk_locales"
+    get "/templates/:template.html.erb", to: "root#template"
   end
 
   # Icon redirects
