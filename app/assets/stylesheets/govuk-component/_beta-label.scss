@@ -1,4 +1,4 @@
 .govuk-beta-label {
-  @include phase-banner($state: beta);
-  @include touch-friendly-links();
+  @include phase-banner;
+  @include touch-friendly-links;
 }
