@@ -129,11 +129,47 @@ describe "Emergency Banner::Display" do
       assert_nil @banner.link
     end
 
-    should "return nil for the short description and the link if they are not present" do
+    should "return the link_text if there is a link and the link_text it is present" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
+        link: "https://www.gov.uk",
+        link_text: "More information link text"
+      )
+
+      assert_equal "More information link text", @banner.link_text
+    end
+
+    should "return default link_text if link is present but link_text is not" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
+        link: "https://www.gov.uk/some-or-other-url",
+      )
+
+      assert_equal "More information", @banner.link_text
+    end
+
+    should "return default link_text if link is present but link_text is empty string" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
+        link: "https://www.gov.uk",
+        link_text: ""
+      )
+
+      assert_equal "More information", @banner.link_text
+    end
+
+    should "return nil for the link_text if there is no link, even if link_text is present" do
+      Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(
+        link: "",
+        link_text: "More information link text"
+      )
+
+      assert_nil @banner.link_text
+    end
+
+    should "return nil for the short description, link and link_text if they are not present in redis" do
       Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns({})
 
       assert_nil @banner.short_description
       assert_nil @banner.link
+      assert_nil @banner.link_text
     end
   end
 end

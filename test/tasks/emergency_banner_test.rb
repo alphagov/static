@@ -32,9 +32,9 @@ describe 'emergency_banner:deploy' do
   end
 
   should 'pass all supplied parameters to the deploy job' do
-    EmergencyBanner::Deploy.any_instance.expects(:run).with('campaign class', 'heading', 'short description', 'link')
+    EmergencyBanner::Deploy.any_instance.expects(:run).with('campaign class', 'heading', 'short description', 'link', 'link_text')
 
-    Rake::Task['emergency_banner:deploy'].invoke('campaign class', 'heading', 'short description', 'link')
+    Rake::Task['emergency_banner:deploy'].invoke('campaign class', 'heading', 'short description', 'link', 'link_text')
   end
 end
 
