@@ -1,0 +1,26 @@
+<%
+  start ||= false
+  href ||= false
+  info_text ||= false
+  text ||= ""
+  tag_name = href ? "a" : "button"
+%>
+<<%= tag_name %>
+  class="
+    pub-c-button
+    <% if start == true %>
+      pub-c-button--start
+    <% end %>
+  "
+  <% if href %>
+    href="<%= href.try(:html_safe) %>"
+    role="button"
+  <% end %>
+>
+  <%= text %>
+</<%= tag_name %>>
+<% if info_text %>
+  <span class="pub-c-button__info-text">
+    <%= info_text.try(:html_safe) %>
+  </span>
+<% end %>

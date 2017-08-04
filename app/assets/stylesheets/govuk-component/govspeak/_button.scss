@@ -1,0 +1,9 @@
+.govuk-govspeak {
+  .button {
+    @extend %pub-c-button;
+  }
+
+  .button-start {
+    @extend %pub-c-button--start;
+  }
+}
