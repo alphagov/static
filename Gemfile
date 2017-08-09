@@ -1,19 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '~> 5.1'
 
 gem 'unicorn', '4.9.0'
 
 gem 'logstasher', '0.4.8'
-gem 'rack_strip_client_ip', '0.0.1'
-gem 'actionpack-page_caching', '1.0.2'
+gem 'rack_strip_client_ip', '0.0.2'
+gem 'actionpack-page_caching', '1.1.0'
 
 gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.6"
-gem 'airbrake', '~> 4.3.1'
+gem 'airbrake', github: 'alphagov/airbrake', branch: 'silence-dep-warnings-for-rails-5'
 
-gem 'nokogiri', "~> 1.6.6.4"
-gem 'sprockets-rails', "2.3.3" #FIXME: This is temporary, will allow to upgrade rails to 4.2.5.1 to address security fixes without breaking tests http://weblog.rubyonrails.org/2016/1/25/Rails-5-0-0-beta1-1-4-2-5-1-4-1-14-1-3-2-22-1-and-rails-html-sanitizer-1-0-3-have-been-released/
+gem 'nokogiri', "~> 1.7"
 gem 'redis', "~> 3.3.3"
 
 group :development do
@@ -34,18 +33,12 @@ group :test do
 end
 
 group :development, :test do
-  gem 'jasmine-rails', '~> 0.10.6'
-  gem 'quiet_assets', '1.1.0'
+  gem 'jasmine-rails', '~> 0.14.1'
   gem 'govuk-lint', '~> 0.6.0'
   gem 'pry'
 end
 
 gem 'plek', '1.11.0'
 gem 'govuk_frontend_toolkit', '~> 7.0.1'
-
-if ENV['GOVUK_TEMPLATE_DEV']
-  gem 'govuk_template', path: "../govuk_template"
-else
-  gem 'govuk_template', '0.22.2'
-end
+gem 'govuk_template', '0.22.2'
 gem 'gds-api-adapters', '41.2.0'

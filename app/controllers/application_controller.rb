@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
 protected
 
   def error_404
-    render nothing: true, status: :not_found
+    head :not_found
   end
 end

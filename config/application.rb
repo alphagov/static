@@ -1,12 +1,12 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require "action_controller/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
 
-if defined?(Bundler)
-  Bundler.require(*Rails.groups)
-end
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module Static
   class Application < Rails::Application

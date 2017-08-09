@@ -1,4 +1,4 @@
 .govuk-alpha-label {
-  @include phase-banner($state: alpha);
-  @include touch-friendly-links();
+  @include phase-banner;
+  @include touch-friendly-links;
 }
