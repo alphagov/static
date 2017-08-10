@@ -9,6 +9,7 @@ gem 'rack_strip_client_ip', '0.0.2'
 gem 'actionpack-page_caching', '1.1.0'
 gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.6"
+gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.7"
 gem 'redis', "~> 3.3.3"
 gem 'govuk_publishing_components', '~> 1.10.0', require: false
