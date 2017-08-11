@@ -46,7 +46,7 @@
       'political-status': {dimension: 7},
       'analytics:organisations': {dimension: 9},
       'analytics:world-locations': {dimension: 10},
-      'withdrawn': {dimension: 12, defaultValue: 'current'},
+      'withdrawn': {dimension: 12, defaultValue: 'not withdrawn'},
       'schema-name': {dimension: 17},
       'rendering-application': {dimension: 20},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},

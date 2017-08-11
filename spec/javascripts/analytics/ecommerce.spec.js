@@ -150,7 +150,7 @@ describe('Ecommerce reporter for results pages', function() {
       dimension11: '1',
       dimension3: 'other',
       dimension4: '00000000-0000-0000-0000-000000000000',
-      dimension12: 'current',
+      dimension12: 'not withdrawn',
       dimension23: 'unknown',
       dimension26: '0',
       dimension27: '0',
