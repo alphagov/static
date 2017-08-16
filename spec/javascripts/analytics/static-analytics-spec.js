@@ -528,7 +528,7 @@ describe("GOVUK.StaticAnalytics", function() {
         it('does not track any sections', function() {
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
           pageViewObject = getPageViewObject();
-          expect(pageViewObject.dimension26).toEqual('0');
+          expect(pageViewObject.dimension26).toEqual('1');
         });
 
         it('tracks the total number of leaf links', function() {

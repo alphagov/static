@@ -19,6 +19,7 @@
         return $('.topic section h1.label').length;
       case isFinderPage():
       case isWhitehallFinderPage():
+      case isNavigationLeafPage():
         // The default in finders should be one, so it's comparable with A-Z
         // lists in other navigation pages. Request made by performance
         // analysts.
