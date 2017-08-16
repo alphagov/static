@@ -473,10 +473,10 @@ describe("GOVUK.StaticAnalytics", function() {
             $('.test-fixture').remove();
           });
 
-          it('does tracks sections equal to the number of grid links', function() {
+          it('tracks the number of sections', function() {
             analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
             pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('3');
+            expect(pageViewObject.dimension26).toEqual('2');
           });
 
           it('tracks the total number of grid links and leaf links', function() {

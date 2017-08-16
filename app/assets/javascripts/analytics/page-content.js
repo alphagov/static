@@ -6,7 +6,7 @@
   PageContent.getNumberOfSections = function () {
     switch(true) {
       case isNavigationGridPage():
-        return $('a[data-track-category="navGridLinkClicked"]').length;
+        return 1 + $('.parent-topic-contents').length;
       case isNavigationAccordionPage():
         return $('[data-track-count="accordionSection"]').length;
       case isDocumentCollectionPage():
