@@ -131,7 +131,7 @@
         surveyType: 'url',
         frequency: 20,
         startTime: new Date('July 21, 2017').getTime(),
-        endTime: new Date('August 20, 2017 23:59:50').getTime(),
+        endTime: new Date('September 30, 2017 23:59:50').getTime(),
         // use a map to translate the path into the utm_campaign value
         url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + hmrcSurveyUtmCampaignValueMap() + '&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
         templateArgs: {
@@ -162,7 +162,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('July 18, 2017').getTime(),
-        endTime: new Date('August 18, 2017 23:59:50').getTime(),
+        endTime: new Date('September 30, 2017 23:59:50').getTime(),
         // use a map to translate the path into the utm_campaign value
         url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + dfeSurveyUtmCampaignValueMap() + '&utm_source=Education&utm_medium=gov.uk&t=DfE',
         templateArgs: {
