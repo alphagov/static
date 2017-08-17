@@ -16,12 +16,10 @@ describe("GOVUK.StaticAnalytics", function() {
     // The number of setup arguments which are set before the dimensions
     const numberOfDimensionsWithDefaultValues = 17;
 
-    var universalSetupArguments;
     var pageViewObject;
 
     beforeEach(function() {
-      universalSetupArguments = window.ga.calls.allArgs();
-      pageViewObject = universalSetupArguments[3][2];
+      pageViewObject = getPageViewObject();
     });
 
     it('configures a universal tracker', function() {
@@ -37,8 +35,7 @@ describe("GOVUK.StaticAnalytics", function() {
     });
 
     it('tracks a pageview in universal', function() {
-      expect(universalSetupArguments[3][0]).toEqual('send');
-      expect(universalSetupArguments[3][1]).toEqual('pageview');
+      expect(window.ga).toHaveBeenCalledWith('send', 'pageview', pageViewObject);
     });
 
     it('begins print tracking', function() {
@@ -71,9 +68,8 @@ describe("GOVUK.StaticAnalytics", function() {
           </div>\
         ')
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-
-        expect(universalSetupArguments[3][0]).toEqual("send");
-        expect(universalSetupArguments[3][1]).toEqual("pageview");
+        pageViewObject = getPageViewObject();
+        expect(window.ga).toHaveBeenCalledWith('send', 'pageview', pageViewObject);
       });
     });
 
@@ -1018,6 +1014,32 @@ describe("GOVUK.StaticAnalytics", function() {
   });
 
   function getPageViewObject() {
-    return window.ga.calls.allArgs()[3][2];
+
+    // The execution of trackPageView happens by invoking the bound function
+    // in static-analytics.js. The bound function is passed to ga:
+    //
+    // ga(function (tracker) {
+    //   this.gaClientId = tracker.get('clientId')
+    //
+    //   // Track initial pageview
+    //   this.trackPageview(null, null, trackingOptions);
+    //
+    //   ...
+    // }.bind(this));
+    //
+    // Normally this is triggered automatically by GA, but in Jasmine this function
+    // needs to be called manually. We do this below and reload the arguments sent
+    // to window.ga in order to obtain the trackPageView args as well.
+
+    universalSetupArguments = window.ga.calls.allArgs()
+
+    bound = universalSetupArguments[3][0];
+    bound({get: function () { return '12345.67890' }});
+
+    universalSetupArguments = window.ga.calls.allArgs();
+    lastArgumentSet = universalSetupArguments.pop();
+    pageViewObject = lastArgumentSet[2];
+
+    return pageViewObject;
   }
 });

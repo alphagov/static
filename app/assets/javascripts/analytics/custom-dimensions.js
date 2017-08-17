@@ -25,7 +25,8 @@
   function customDimensionsFromBrowser() {
     var customDimensions = {
       dimension15: window.httpStatusCode || 200,
-      dimension16: GOVUK.cookie('TLSversion') || 'unknown'
+      dimension16: GOVUK.cookie('TLSversion') || 'unknown',
+      dimension95: GOVUK.analytics.gaClientId
     };
 
     if (window.devicePixelRatio) {
