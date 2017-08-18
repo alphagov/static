@@ -16,8 +16,9 @@ class PreviousAndNextNavigationTestCase < ComponentTestCase
       label: "1 of 3"
     })
 
-    assert_select ".pagination-part-title", text: "Previous page"
-    assert_select ".pagination-label", text: "1 of 3"
+    assert_select ".pub-c-pagination[role='navigation']"
+    assert_select ".pub-c-pagination__link-title", text: "Previous page"
+    assert_select ".pub-c-pagination__link-label", text: "1 of 3"
     assert_link("previous-page")
   end
 
@@ -28,8 +29,8 @@ class PreviousAndNextNavigationTestCase < ComponentTestCase
       label: "2 of 3"
     })
 
-    assert_select ".pagination-part-title", text: "Next page"
-    assert_select ".pagination-label", text: "2 of 3"
+    assert_select ".pub-c-pagination__link-title", text: "Next page"
+    assert_select ".pub-c-pagination__link-label", text: "2 of 3"
     assert_link("next-page")
   end
 end
