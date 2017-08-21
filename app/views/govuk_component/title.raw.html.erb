@@ -1,10 +1,12 @@
 <%
-  average_title_length ||= :average
+  average_title_length ||= false
   context ||= false
 %>
-<div class="govuk-title length-<%= average_title_length %>">
+<div class="pub-c-title">
   <% if context %>
-    <p class="context"><%= context %></p>
+    <p class="pub-c-title__context"><%= context %></p>
   <% end %>
-  <h1><%= title %></h1>
+  <h1 class="pub-c-title__text <% if average_title_length %>pub-c-title__text--<%= average_title_length %><% end %>">
+    <%= title %>
+  </h1>
 </div>

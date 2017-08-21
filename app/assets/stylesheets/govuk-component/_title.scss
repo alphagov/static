@@ -1,16 +1,18 @@
-.govuk-title {
+// scss-lint:disable SelectorFormat
+.pub-c-title {
   @include responsive-vertical-margins;
-
-  .context {
-    @include core-24;
-    color: $secondary-text-colour;
-  }
-
-  h1 {
-    @include bold-48;
-  }
-
-  &.length-long h1 {
-    @include bold-36;
-  }
 }
+
+.pub-c-title__context {
+  @include core-24;
+  color: $secondary-text-colour;
+}
+
+.pub-c-title__text {
+  @include bold-48;
+}
+
+.pub-c-title__text--long {
+  @include bold-36;
+}
+// scss-lint:enable SelectorFormat
