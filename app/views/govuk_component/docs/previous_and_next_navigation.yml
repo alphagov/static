@@ -11,6 +11,25 @@ body: |
   - a label that can add extra info (ie page number) that will be displayed under the title
 
   If one of the 2 parameters is nil, no link will appear.
+accessibility-criteria: |
+  The component must:
+
+  - identify itself as pagination navigation
+
+  Links in the component must:
+
+  - identify whether they will take the user to the next or previous page
+  - accept focus
+  - be focusable with a keyboard
+  - be usable with a keyboard
+  - indicate when it has focus
+  - Change in appearance when touched (in the touch-down state)
+  - Change in appearance when hovered
+  - Usable with touch
+  - Usable with speech
+  - Have visible text
+
+  Icons in the component must not be announced by screen readers.
 fixtures:
   only_previous:
     previous_page:
