@@ -15,6 +15,7 @@
             <%= previous_page[:title] %>
           </span>
           <% if previous_page[:label].present? %>
+            <span class="visually-hidden">:</span>
             <span class="pub-c-pagination__link-label"><%= previous_page[:label] %></span>
           <% end %>
         </a>
@@ -30,6 +31,7 @@
             </svg>
           </span>
           <% if next_page[:label].present? %>
+            <span class="visually-hidden">:</span>
             <span class="pub-c-pagination__link-label"><%= next_page[:label] %></span>
           <% end %>
         </a>
