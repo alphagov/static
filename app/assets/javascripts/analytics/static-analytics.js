@@ -10,17 +10,23 @@
 
     var trackingOptions = getOptionsFromCookie();
 
-    // Track initial pageview
-    this.trackPageview(null, null, trackingOptions);
+    // We're setting the client ID inside a callback function because
+    // we don't have access to the client ID until GA returns a tracker object.
+    ga(function (tracker) {
+      this.gaClientId = tracker.get('clientId');
 
-    // Begin error and print tracking
-    GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
-    GOVUK.analyticsPlugins.printIntent();
-    GOVUK.analyticsPlugins.mailtoLinkTracker();
-    GOVUK.analyticsPlugins.externalLinkTracker();
-    GOVUK.analyticsPlugins.downloadLinkTracker({
-      selector: 'a[href*="/government/uploads"], a[href*="assets.publishing.service.gov.uk"]'
-    });
+      // Track initial pageview
+      this.trackPageview(null, null, trackingOptions);
+
+      // Begin error and print tracking
+      GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
+      GOVUK.analyticsPlugins.printIntent();
+      GOVUK.analyticsPlugins.mailtoLinkTracker();
+      GOVUK.analyticsPlugins.externalLinkTracker();
+      GOVUK.analyticsPlugins.downloadLinkTracker({
+        selector: 'a[href*="/government/uploads"], a[href*="assets.publishing.service.gov.uk"]'
+      });
+    }.bind(this));
   };
 
   StaticAnalytics.load = function () {
