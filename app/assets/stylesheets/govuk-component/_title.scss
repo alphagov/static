@@ -16,3 +16,21 @@
   @include bold-36;
 }
 // scss-lint:enable SelectorFormat
+
+// To Be Deleted: Old Styling
+.govuk-title {
+  @include responsive-vertical-margins;
+
+  .context {
+    @include core-24;
+    color: $secondary-text-colour;
+  }
+
+  h1 {
+    @include bold-48;
+  }
+
+  &.length-long h1 {
+    @include bold-36;
+  }
+}
