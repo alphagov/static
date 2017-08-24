@@ -1,3 +1,23 @@
+// scss-lint:disable SelectorFormat
+.pub-c-title {
+  @include responsive-vertical-margins;
+}
+
+.pub-c-title__context {
+  @include core-24;
+  color: $secondary-text-colour;
+}
+
+.pub-c-title__text {
+  @include bold-48;
+}
+
+.pub-c-title__text--long {
+  @include bold-36;
+}
+// scss-lint:enable SelectorFormat
+
+// To Be Deleted: Old Styling
 .govuk-title {
   @include responsive-vertical-margins;
 

@@ -13,11 +13,16 @@ class TitleComponentTestCase < ComponentTestCase
 
   test "title text appears" do
     render_component(title: "Hello World")
-    assert_select ".govuk-title", text: "Hello World"
+    assert_select ".pub-c-title__text", text: "Hello World"
   end
 
   test "title context appears" do
     render_component(title: "Hello World", context: "Format")
-    assert_select ".govuk-title .context", text: "Format"
+    assert_select ".pub-c-title__context", text: "Format"
+  end
+
+  test "applies title length if supplied" do
+    render_component(title: "Hello World", context: "format", average_title_length: 'long')
+    assert_select ".pub-c-title .pub-c-title__text--long", text: "Hello World"
   end
 end
