@@ -203,6 +203,18 @@
           breadcrumb: ['Driving and transport']
         }
       },
+      {
+        identifier: 'govuk_2Q',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('August 31, 2017').getTime(),
+        endTime: new Date('September 11, 2017 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/gov_uk_2q/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Tell us about your visit to GOV.UK',
+          surveyCta: 'Answer 2 quick questions to help us make GOV.UK better',
+        }
+      }
     ],
 
     init: function () {
