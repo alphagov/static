@@ -105,28 +105,6 @@
     },
     smallSurveys: [
       {
-        identifier: 'publisher_guidance_survey',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('July 17, 2017').getTime(),
-        endTime: new Date('August 16, 2017 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
-        templateArgs: {
-          title: 'Are you a government publisher?',
-          surveyCta: 'Answer a couple of questions about the publishing guidance.',
-          surveyCtaPostscript: 'This will open in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/guidance/content-design(?:/|$)',
-            '^/guidance/how-to-publish-on-gov-uk(?:/|$)',
-            '^/guidance/style-guide(?:/|$)',
-            '^/guidance/contact-the-government-digital-service(?:/|$)',
-            '^/topic/government-digital-guidance/content-publishing(?:/|$)'
-          ]
-        }
-      },
-      {
         identifier: 'hmrc_jul2017',
         surveyType: 'url',
         frequency: 20,
@@ -203,6 +181,18 @@
           breadcrumb: ['Driving and transport']
         }
       },
+      {
+        identifier: 'govuk_2Q',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('September 1, 2017').getTime(),
+        endTime: new Date('September 12, 2017 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/gov_uk_2q/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Tell us about your visit to GOV.UK',
+          surveyCta: 'Answer 2 quick questions to help us make GOV.UK better',
+        }
+      }
     ],
 
     init: function () {
