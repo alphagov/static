@@ -6,5 +6,6 @@ body: |
 
   It should try and describe the intent of the component, and document
   any parameters passed to the component.
-fixtures:
-  default: {}
+examples:
+  default:
+    data: {}

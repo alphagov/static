@@ -31,39 +31,44 @@ accessibility-criteria: |
   - have visible text
 
   Icons in the component must not be announced by screen readers.
-fixtures:
+examples:
   only_previous:
-    previous_page:
-      url: previous-page
-      title: Previous page
-      label: 1 of 3
+    data:
+      previous_page:
+        url: previous-page
+        title: Previous page
+        label: 1 of 3
   only_next:
-    next_page:
-      url: next-page
-      title: Next page
-      label: Tax disc
+    data:
+      next_page:
+        url: next-page
+        title: Next page
+        label: Tax disc
   both_previous_and_next:
-    previous_page:
-      url: previous-page
-      title: Previous page
-      label: 1 of 3
-    next_page:
-      url: next-page
-      title: Next page
-      label: 3 of 3
+    data:
+      previous_page:
+        url: previous-page
+        title: Previous page
+        label: 1 of 3
+      next_page:
+        url: next-page
+        title: Next page
+        label: 3 of 3
   both_previous_and_next_no_labels:
-    previous_page:
-      url: previous-page
-      title: Previous page
-    next_page:
-      url: next-page
-      title: Next page
+    data:
+      previous_page:
+        url: previous-page
+        title: Previous page
+      next_page:
+        url: next-page
+        title: Next page
   become_a_lorry_bus_driver_example:
-    previous_page:
-      url: previous-page
-      title: Previous
-      label: Applying for a provisional lorry or bus licence
-    next_page:
-      url: next-page
-      title: Next
-      label: 'Driver CPC part 1 test: theory'
+    data:
+      previous_page:
+        url: previous-page
+        title: Previous
+        label: Applying for a provisional lorry or bus licence
+      next_page:
+        url: next-page
+        title: Next
+        label: 'Driver CPC part 1 test: theory'
