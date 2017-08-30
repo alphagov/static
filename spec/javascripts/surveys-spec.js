@@ -57,7 +57,7 @@ describe('Surveys', function () {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
       surveys.init()
 
-      expect($('#take-survey').attr('href')).toContain(surveys.addCurrentPathToURL(surveys.defaultSurvey.url))
+      expect($('#take-survey').attr('href')).toContain(surveys.addParamsToURL(surveys.defaultSurvey.url))
       expect($('#user-satisfaction-survey').length).toBe(1)
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true)
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')
@@ -114,7 +114,9 @@ describe('Surveys', function () {
       it("does not inject the current path if the survey url does not contain the {{currentPath}} template parameter", function () {
         surveys.displaySurvey(urlSurvey)
 
-        expect($('#take-survey').attr('href')).toEqual(urlSurvey.url)
+        var expectedUrl = urlSurvey.url + "?gcl=" + GOVUK.analytics.gaClientId
+
+        expect($('#take-survey').attr('href')).toEqual(expectedUrl)
       })
 
       describe('without overrides for the template defaults', function () {
@@ -212,10 +214,27 @@ describe('Surveys', function () {
         expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname)
       })
 
-      it("does not inject the current path if the survey url does not contain the {{currentPath}} template parameter", function () {
+      it("does not inject the current path if the {{currentPath}} template parameter is missing", function () {
         surveys.displaySurvey(emailSurvey)
 
-        expect($('#take-survey').attr('href')).toEqual(emailSurvey.url)
+        expect($('#take-survey').attr('href')).not.toContain("?c=" + window.location.pathname)
+      })
+
+      it("adds the GA client ID to the survey url if the {{currentPath}} template parameter is present", function () {
+        var emailSurveyWithCurrentPath = {
+          surveyType: 'email',
+          url: 'smartsurvey.com/default?c={{currentPath}}',
+          identifier: 'email-survey',
+        }
+        surveys.displaySurvey(emailSurveyWithCurrentPath)
+
+        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname + "&gcl=" + GOVUK.analytics.gaClientId)
+      })
+
+      it("adds the GA client ID to the survey url if the {{currentPath}} template parameter is missing", function () {
+        surveys.displaySurvey(emailSurvey)
+
+        expect($('#take-survey').attr('href')).toEqual(emailSurvey.url + "?gcl=" + GOVUK.analytics.gaClientId)
       })
 
       describe("without overrides for the template defaults", function() {

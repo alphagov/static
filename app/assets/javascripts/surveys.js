@@ -238,7 +238,7 @@
             title: 'Tell us what you think of GOV.UK',
             surveyCta: 'Take the 3 minute survey',
             surveyCtaPostscript: 'This will open a short survey on another website',
-            surveyUrl: userSurveys.addCurrentPathToURL(survey.url),
+            surveyUrl: userSurveys.addParamsToURL(survey.url),
           }
           var mergedArgs = $.extend(defaultUrlArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, URL_SURVEY_TEMPLATE)
@@ -260,7 +260,7 @@
             surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.',
             surveyId: survey.identifier,
             surveySource: userSurveys.currentPath(),
-            surveyUrl: userSurveys.addCurrentPathToURL(survey.url),
+            surveyUrl: userSurveys.addParamsToURL(survey.url),
           }
           var mergedArgs = $.extend(defaultEmailArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, EMAIL_SURVEY_TEMPLATE)
@@ -323,8 +323,14 @@
       userSurveys.setEmailSurveyEventHandlers(survey)
     },
 
-    addCurrentPathToURL: function (surveyUrl) {
-      return surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
+    addParamsToURL: function (surveyUrl) {
+      var newSurveyUrl = surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
+      if (surveyUrl.indexOf("?c=") !== -1) {
+        return newSurveyUrl + "&gcl=" + GOVUK.analytics.gaClientId;
+      }
+      else {
+        return newSurveyUrl + "?gcl=" + GOVUK.analytics.gaClientId;
+      }
     },
 
     setEmailSurveyEventHandlers: function (survey) {
