@@ -79,5 +79,16 @@
   display: inline-block;
   margin-top: 0.1em;
   text-decoration: underline;
+
+  // this pseudo element makes screen readers pause, preventing navigation and label text confusion
+  &:before {
+    content: ".";
+    position: absolute;
+    left: -9999em;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 }
 // scss-lint:enable SelectorFormat
