@@ -33,6 +33,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'govuk_publishing_components', '~> 1.1.0'
   gem 'jasmine-rails', '~> 0.14.1'
   gem 'govuk-lint', '~> 0.6.0'
   gem 'pry'
