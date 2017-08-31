@@ -480,7 +480,7 @@ examples:
         </section>
         <section class="attachment hosted-externally" id="attachment_1425055">
           <div class="attachment-thumb">
-            <a aria-hidden="true" class="thumbnail" href="http://example.com"><img alt="" src="//whitehall-admin.integration.publishing.service.gov.uk/government/assets/pub-cover-a380604bb953dc22ac9dcfbf3cc65598327f493c37b09ac497c45148cbaa21b1.png"></a>
+            <a aria-hidden="true" class="thumbnail" href="http://example.com"><img alt="" src="//www.gov.uk/government/assets/pub-cover-a380604bb953dc22ac9dcfbf3cc65598327f493c37b09ac497c45148cbaa21b1.png"></a>
           </div>
           <div class="attachment-details">
             <h2 class="title"><a rel="external" href="http://example.com">An external link</a></h2>
@@ -491,7 +491,7 @@ examples:
         </section>
         <section class="attachment hosted-externally" id="attachment_1425056">
           <div class="attachment-thumb">
-            <a aria-hidden="true" class="thumbnail" href="http://example.com"><img alt="" src="//whitehall-admin.integration.publishing.service.gov.uk/government/assets/pub-cover-a380604bb953dc22ac9dcfbf3cc65598327f493c37b09ac497c45148cbaa21b1.png"></a>
+            <a aria-hidden="true" class="thumbnail" href="http://example.com"><img alt="" src="//www.gov.uk/government/assets/pub-cover-a380604bb953dc22ac9dcfbf3cc65598327f493c37b09ac497c45148cbaa21b1.png"></a>
           </div>
           <div class="attachment-details">
             <h2 class="title"><a rel="external" href="http://example.com">An external link (with all possible metadata)</a></h2>
