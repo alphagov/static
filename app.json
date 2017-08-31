@@ -1,0 +1,34 @@
+{
+  "name": "Static",
+  "repository": "https://github.com/alphagov/static",
+  "env": {
+    "GOVUK_APP_DOMAIN": {
+      "value": "www.gov.uk"
+    },
+    "GOVUK_ASSET_ROOT": {
+      "value": "https://govuk-static.herokuapp.com"
+    },
+    "GOVUK_WEBSITE_ROOT": {
+      "value": "https://www.gov.uk"
+    },
+    "RAILS_SERVE_STATIC_ASSETS": {
+      "value": "yes"
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "value": "enabled"
+    },
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    }
+  },
+  "image": "heroku/ruby",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    }
+  ],
+  "addons": []
+}
