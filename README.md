@@ -6,17 +6,14 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 
 ![screenshot](/doc/screenshot.png?raw=true)
 
-
 ## Nomenclature
 
 * [slimmer](https://github.com/alphagov/slimmer) - Rack middleware for wrapping Rack applications in shared templated layouts
 
 ## Technical documentation
 
-There are docs for:
-
+- [Components](doc/static-components.md)
 - [Image optimisation](doc/image-optimisation.md)
-- [GOV.UK components](doc/govuk-components.md)
 - [Slimmer templates](doc/slimmer_templates.md)
 - [Emergency Banner](doc/emergency-banner.md)
 
