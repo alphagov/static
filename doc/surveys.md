@@ -106,6 +106,7 @@ The template for a url survey is as follows:
         </label>
         <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">
         <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">
+        <input name="email_survey_signup[ga_client_id]" type="hidden" value="{{gaClientId}}">
         <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">
         <button class="survey-form-button" type="submit">{{surveyFormCta}}</button>
         <a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">{{surveyFormNoEmailInvite}}</a>

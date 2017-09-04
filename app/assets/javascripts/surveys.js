@@ -44,6 +44,7 @@
     '    </label>' +
     '    <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">' +
     '    <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">' +
+    '    <input name="email_survey_signup[ga_client_id]" type="hidden" value="{{gaClientId}}">' +
     '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">' +
     '    <button class="survey-form-button" type="submit">{{surveyFormCta}}</button>' +
          takeSurveyLink('{{surveyFormNoEmailInvite}}') +
@@ -243,6 +244,7 @@
             surveyId: survey.identifier,
             surveySource: userSurveys.currentPath(),
             surveyUrl: userSurveys.addParamsToURL(survey.url),
+            gaClientId: GOVUK.analytics.gaClientId,
           }
           var mergedArgs = $.extend(defaultEmailArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, EMAIL_SURVEY_TEMPLATE)
@@ -294,14 +296,14 @@
     },
 
     displayURLSurvey: function (survey, surveyContainer) {
-      var emailSurveyTemplate = userSurveys.getUrlSurveyTemplate()
-      surveyContainer.append(emailSurveyTemplate.render(survey))
+      var urlSurveyTemplate = userSurveys.getUrlSurveyTemplate()
+      surveyContainer.append(urlSurveyTemplate.render(survey))
       userSurveys.setURLSurveyEventHandlers(survey)
     },
 
     displayEmailSurvey: function (survey, surveyContainer) {
-      var urlSurveyTemplate = userSurveys.getEmailSurveyTemplate()
-      surveyContainer.append(urlSurveyTemplate.render(survey))
+      var emailSurveyTemplate = userSurveys.getEmailSurveyTemplate()
+      surveyContainer.append(emailSurveyTemplate.render(survey))
       userSurveys.setEmailSurveyEventHandlers(survey)
     },
 

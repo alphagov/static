@@ -40,6 +40,11 @@ describe('Surveys', function () {
     $('#take-survey').on('click', function (e) {
       e.preventDefault()
     })
+
+    GOVUK.analytics = {
+      trackEvent: function() {},
+      gaClientId: '12345.67890'
+    }
   })
 
   afterEach(function () {
@@ -189,6 +194,12 @@ describe('Surveys', function () {
         surveys.displaySurvey(emailSurvey)
 
         expect($('#email-survey-form input[name="email_survey_signup[survey_source]"]').val()).toEqual(window.location.pathname)
+      })
+
+      it('adds the GA client ID to the form', function () {
+        surveys.displaySurvey(emailSurvey)
+
+        expect($('#email-survey-form input[name="email_survey_signup[ga_client_id]"]').val()).toEqual(GOVUK.analytics.gaClientId)
       })
 
       it('sets event handlers on the survey', function () {
