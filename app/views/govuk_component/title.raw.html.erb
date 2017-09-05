@@ -1,8 +1,9 @@
 <%
   average_title_length ||= false
   context ||= false
+  inverse ||= false
 %>
-<div class="pub-c-title">
+<div class="pub-c-title <% if inverse %>pub-c-title--inverse<% end %>">
   <% if context %>
     <p class="pub-c-title__context"><%= context %></p>
   <% end %>
