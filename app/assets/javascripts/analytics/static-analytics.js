@@ -15,6 +15,8 @@
     ga(function (tracker) {
       this.gaClientId = tracker.get('clientId');
 
+      $(window).trigger('gaClientSet');
+
       // Track initial pageview
       this.trackPageview(null, null, trackingOptions);
 

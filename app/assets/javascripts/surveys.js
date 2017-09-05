@@ -614,8 +614,15 @@
   window.GOVUK.userSurveys = userSurveys
 
   $(document).ready(function () {
-    if (window.GOVUK.userSurveys) {
-      window.GOVUK.userSurveys.init()
+    if (GOVUK.userSurveys) {
+      if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
+        window.GOVUK.userSurveys.init()
+      }
+      else {
+        $(window).on('gaClientSet', function() {
+          window.GOVUK.userSurveys.init()
+        })
+      }
     }
   })
 })(window.jQuery)
