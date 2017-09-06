@@ -162,6 +162,7 @@ describe('Ecommerce reporter for results pages', function() {
       dimension57: 'other',
       dimension58: 'other',
       dimension59: 'other',
+      dimension30: 'none'
     })
   });
 

@@ -14,7 +14,7 @@ describe("GOVUK.StaticAnalytics", function() {
 
   describe('when created', function() {
     // The number of setup arguments which are set before the dimensions
-    const numberOfDimensionsWithDefaultValues = 17;
+    const numberOfDimensionsWithDefaultValues = 18;
 
     var pageViewObject;
 
@@ -98,6 +98,7 @@ describe("GOVUK.StaticAnalytics", function() {
           <meta name="govuk:analytics:world-locations" content="<W1>">\
           <meta name="govuk:withdrawn" content="withdrawn">\
           <meta name="govuk:schema-name" content="schema-name">\
+          <meta name="govuk:navigation-legacy" content="education">\
         ');
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         pageViewObject = getPageViewObject();
@@ -112,6 +113,7 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension12).toEqual('withdrawn');
         expect(pageViewObject.dimension17).toEqual('schema-name');
         expect(pageViewObject.dimension23).toEqual('fr');
+        expect(pageViewObject.dimension30).toEqual('education')
       });
 
       it('ignores meta tags not set', function() {
@@ -195,6 +197,11 @@ describe("GOVUK.StaticAnalytics", function() {
           name: 'taxon-ids',
           number: 59,
           defaultValue: 'other'
+        },
+        {
+          name: 'navigation-legacy',
+          number: 30,
+          defaultValue: 'none'
         }
       ].forEach(function (dimension) {
         it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {
