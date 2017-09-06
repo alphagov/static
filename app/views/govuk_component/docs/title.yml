@@ -27,3 +27,11 @@ examples:
       context: Publication
       title: My page title which is often really long and verbose and has lots of extra words it doesn't need
       average_title_length: long
+  title_on_dark_background:
+    description: Page titles with dark backgrounds are used in HTML Publications ([see example](https://www.gov.uk/government/publications/fees-for-civil-and-family-courts/court-fees-for-the-high-court-county-court-and-family-court))
+    data:
+      context: Publication
+      title: My inverse page title
+      inverse: true
+    context:
+      dark_background: true
