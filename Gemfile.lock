@@ -73,7 +73,7 @@ GEM
     commander (4.4.3)
       highline (~> 1.7.2)
     concurrent-ruby (1.0.5)
-    crack (0.4.2)
+    crack (0.4.3)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
     domain_name (0.5.20170404)
@@ -118,6 +118,7 @@ GEM
       slimmer
     govuk_template (0.22.2)
       rails (>= 3.1)
+    hashdiff (0.3.6)
     highline (1.7.8)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
@@ -282,9 +283,10 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    webmock (1.21.0)
+    webmock (3.0.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
