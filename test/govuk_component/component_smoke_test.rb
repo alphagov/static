@@ -8,8 +8,8 @@ class ComponentsTest < ActionView::TestCase
     end
 
     components.each do |component|
-      component[:fixtures].each do |_, fixture|
-        render file: "govuk_component/#{component[:id]}.raw", locals: fixture
+      component[:examples].each do |_, example|
+        render file: "govuk_component/#{component[:id]}.raw", locals: example[:data]
       end
     end
   end

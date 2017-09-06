@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount GovukPublishingComponents::Engine, at: "/component-guide" if defined?(GovukPublishingComponents)
+
   scope format: false do
     get "/templates/:template.raw.html.erb", to: "root#raw_root_template"
     get "/templates/govuk_component/:template.raw.html.erb", to: "root#raw_govuk_component_template"

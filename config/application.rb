@@ -47,5 +47,13 @@ module Static
     config.action_dispatch.rack_cache = nil
 
     config.paths["log"] = ENV["LOG_PATH"] if ENV["LOG_PATH"]
+
+    # Slimmer is used by the govuk_publishing_components gem, however it inserts itself
+    # automatically as middleware in the host Rails application
+    # Disable Slimmer middleware for Static and enable for use in gem only
+    if defined?(GovukPublishingComponents)
+      config.middleware.delete Slimmer::App
+      GovukPublishingComponents::Engine.config.middleware.use Slimmer::App
+    end
   end
 end

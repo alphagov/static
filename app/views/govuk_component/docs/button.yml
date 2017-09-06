@@ -28,25 +28,31 @@ accessibility_criteria: |
   - activate when focused and enter is pressed
   - have a role of button
   - have an accessible label
-fixtures:
+examples:
   default:
-    text: "Submit"
+    data:
+      text: "Submit"
   link_button:
-    text: "I'm really a link sssh"
-    href: "#"
+    data:
+      text: "I'm really a link sssh"
+      href: "#"
   start_now_button:
-    text: "Start now"
-    href: "#"
-    start: true
+    data:
+      text: "Start now"
+      href: "#"
+      start: true
   start_now_button_with_info_text:
-    text: "Start now"
-    href: "#"
-    start: true
-    info_text: "Sometimes you want to explain where a user is going to."
+    data:
+      text: "Start now"
+      href: "#"
+      start: true
+      info_text: "Sometimes you want to explain where a user is going to."
   extreme_text:
-    text: "I'm a button with lots of text to test how the component scales at extremes."
-    href: "#"
+    data:
+      text: "I'm a button with lots of text to test how the component scales at extremes."
+      href: "#"
   extreme_text_start_now_button:
-    text: "I'm a start now button with lots of text to test how the component scales at extremes."
-    start: true
-    href: "#"
+    data:
+      text: "I'm a start now button with lots of text to test how the component scales at extremes."
+      start: true
+      href: "#"

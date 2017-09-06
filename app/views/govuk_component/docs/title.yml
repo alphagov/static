@@ -8,20 +8,22 @@ body: |
 
   On average the titles on government bits of content are 50 characters. The
   average for bits of general guidance are nearer 27 characters long.
-accessibility_criteria:
+accessibility_criteria: |
   The page title must:
 
-    - be part of a correct heading structure for a page
-    - be semantically represented as a heading
-    - convey the heading level
-fixtures:
+  - be part of a correct heading structure for a page
+  - be semantically represented as a heading
+  - convey the heading level
+examples:
   default:
-    title: My page title
+    data:
+      title: My page title
   with_context:
-    context: Publication
-    title: My page title
+    data:
+      context: Publication
+      title: My page title
   long_title_with_context:
-    context: Publication
-    title: My page title which is often really long and verbose and has lots of extra
-      words it doesn't need
-    average_title_length: long
+    data:
+      context: Publication
+      title: My page title which is often really long and verbose and has lots of extra words it doesn't need
+      average_title_length: long

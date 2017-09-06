@@ -1,19 +1,16 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1'
-
 gem 'unicorn', '4.9.0'
-
 gem 'logstasher', '0.4.8'
 gem 'rack_strip_client_ip', '0.0.2'
 gem 'actionpack-page_caching', '1.1.0'
-
 gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.6"
 gem 'airbrake', github: 'alphagov/airbrake', branch: 'silence-dep-warnings-for-rails-5'
-
 gem 'nokogiri', "~> 1.7"
 gem 'redis', "~> 3.3.3"
+gem 'govuk_publishing_components', '~> 1.1.0', require: ENV['RAILS_ENV'] != "production" || ENV['HEROKU_APP_NAME'].to_s.length.positive?
 
 group :development do
   gem 'image_optim', '0.17.1'
