@@ -3,6 +3,14 @@
   @include responsive-vertical-margins;
 }
 
+.pub-c-title--inverse {
+  color: $white;
+
+  .pub-c-title__context {
+    color: inherit;
+  }
+}
+
 .pub-c-title__context {
   @include core-24;
   color: $secondary-text-colour;
