@@ -19,6 +19,14 @@ The [govuk_publishing_components gem](https://github.com/alphagov/govuk_publishi
 bundle exec rails generate govuk_publishing_components:component [component_name]
 ```
 
+## Component Namespaces
+
+There are currently two namespaces being used by static components: `govuk-` and `pub-c-`. This is due to a gradual move to following the component conventions outlined by the [govuk_publishing_components_gem](https://github.com/alphagov/govuk_publishing_components/blob/master/docs/component_conventions.md).
+
+**The old `govuk-` namespace is deprecated and no longer recommended.**
+
+When building new components in static, it is strongly recommended that you follow the `pub-c-` namespace. This indicates to other developers that the component lives within static and is used among multiple apps. For an example component, see the [title component](/app/views/govuk_component/title.raw.html.erb)
+
 ## Distribute via the network
 
 Static components differ from application components. The component files are centrally hosted on static and exposed to applications via [alphagov/slimmer](https://github.com/alphagov/slimmer). The partial is exposed over the network, and the CSS/JS are included by the shared templated layout.
