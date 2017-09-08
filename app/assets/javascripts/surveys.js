@@ -175,6 +175,104 @@
           title: 'Tell us about your visit to GOV.UK',
           surveyCta: 'Answer 2 quick questions to help us make GOV.UK better',
         }
+      },
+      {
+        identifier: 'scrutinise_government',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('August 25, 2017').getTime(),
+        endTime: new Date('October 1, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Scrutinise_government&utm_source=Hold_gov_to_account&utm_medium=gov.uk&t=GDS&id=15',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/announcements/?$',
+            '^/government/publications/?$',
+            '^/government/statistics/?$',
+            '^/government/organisations/hm-revenue-customs/?$',
+            '^/government/organisations/companies-house/?$',
+            '^/government/organisations/driver-and-vehicle-licensing-agency/?$',
+            '^/government/organisations/uk-visas-and-immigration/?$',
+            '^/government/organisations/land-registry/?$'
+          ]
+        }
+      },
+      {
+        identifier: 'content_history',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('August 25, 2017').getTime(),
+        endTime: new Date('October 1, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Content_History&utm_source=Hold_gov_to_account&utm_medium=gov.uk&t=GDS&id=16',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/publications/applying-for-a-passport(?:/|$)',
+            '^/government/publications/application-to-naturalise-as-a-british-citizen-form-an(?:/|$)',
+            '^/government/publications/working-together-to-safeguard-children--2(?:/|$)',
+            '^/government/publications/apply-for-a-document-certifying-permanent-residence-or-permanent-residence-card-form-eea-pr(?:/|$)',
+            '^/government/publications/fees-for-citizenship-applications(?:/|$)',
+            '^/guidance/step-up-to-social-work-information-for-applicants(?:/|$)',
+            '^/government/publications/register-of-licensed-sponsors-workers(?:/|$)',
+            '^/guidance/scaled-scores-at-key-stage-1(?:/|$)',
+            '^/government/publications/financial-sanctions-consolidated-list-of-targets(?:/|$)',
+            '^/government/publications/list-of-qualifying-recognised-overseas-pension-schemes-qrops(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'coming_to_the_UK_content_Transformation',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('August 25, 2017').getTime(),
+        endTime: new Date('October 1, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Coming_to_the_UK_content_Transformation&utm_source=Group_and_Transform_Content&utm_medium=gov.uk&t=GDS&id=17',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/publications/chapter-18-naturalisation-at-discretion-nationality-instructions(?:/|$)',
+            '^/government/publications/chapter-8-appendix-fm-family-members(?:/|$)',
+            '^/government/publications/visit-guidance(?:/|$)',
+            '^/government/publications/sponsorship-codes-of-practice-for-skilled-workers(?:/|$)',
+            '^/government/publications/direct-family-members-of-european-economic-area-eea-nationals(?:/|$)',
+            '^/government/publications/general-grounds-for-refusal-about-this-guidance(?:/|$)',
+            '^/government/publications/chapter-6-information-about-applications-for-british-citizenship-nationality-instructions(?:/|$)',
+            '^/government/publications/eea-family-permits-eun02/eea-family-permit-eun02(?:/|$)',
+            '^/government/collections/nationality-instructions-volume-1(?:/|$)',
+            '^/government/collections/entry-clearance-basics-entry-clearance-guidance(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'becoming_a_childminder',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('August 25, 2017').getTime(),
+        endTime: new Date('October 1, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Becoming_a_childminder&utm_source=Group_and_Transform_Content&utm_medium=gov.uk&t=GDS&id=18',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/register-childminder-childcare-provider(?:/|$)',
+            '^/register-as-childminder-northern-ireland(?:/|$)'
+          ]
+        }
       }
     ],
 
