@@ -172,4 +172,15 @@ The survey will only be considered "active" between these dates and times. Where
 We record how many times a given survey is shown to a user and won't show it again if they've seen it too many times. The default for that limit is 2 (e.g. we show it 2 times, but not 3 or more) but you can change that by adding a custom value here. The custom value should be a positive integer or the string `unlimited` (this means the survey should always show regardless of how many times it's been shown). Any other value is ignored and treated as the default of 2.
 
 ## Testing Surveys
+You can test if the surveys work locally by starting up the various rendering apps needed for the GOVUK page that you want the survey to be appear on. e.g.
+A link for "government/policies" requires the `finder-frontend` app, so you would need to call `bowl finder-frontend` in the development VM. You can check which rendering app is needed by going to `www.gov.uk/api/content/<path here>`, e.g. `www.gov.uk/api/content/government/policies`
+
+Usually it would be enough to call `bowl government-frontend finder-frontend whitehall router`
+
+The `router` at the end allows you to access the link by `www.dev.gov.uk` in your browser. Following on from the previous example you could go to `www.dev.org.uk/government/policies` to check if the survey will appear.
+
+You can check if the `activeWhen paths` for your survey are correct by typing `GOVUK.userSurveys.pathMatch(<insert path here>)` into the browser console on the page. A return of `true` indicates that path matches.
+
+You can check if the survey is still active by typing `GOVUK.userSurveys.getActiveSurveys(GOVUK.userSurveys.smallSurveys)`. This returns an array of active small surveys.
+
 If you need to force a particular survey to display – for example for testing – you can call  e.g. `GOVUK.userSurveys.displaySurvey(GOVUK.userSurveys.defaultSurvey)` or `GOVUK.userSurveys.displaySurvey(GOVUK.userSurveys.smallSurveys[0])` from your browser console.
