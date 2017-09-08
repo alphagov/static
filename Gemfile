@@ -10,7 +10,7 @@ gem 'sass-rails', "5.0.6"
 gem 'airbrake', github: 'alphagov/airbrake', branch: 'silence-dep-warnings-for-rails-5'
 gem 'nokogiri', "~> 1.7"
 gem 'redis', "~> 3.3.3"
-gem 'govuk_publishing_components', '~> 1.4.0', require: false
+gem 'govuk_publishing_components', '~> 1.5.0', require: false
 
 group :development do
   gem 'image_optim', '0.17.1'
