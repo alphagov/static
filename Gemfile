@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby File.read('.ruby-version').chomp
+
 gem 'rails', '~> 5.1'
 gem 'unicorn', '4.9.0'
 gem 'logstasher', '0.4.8'
