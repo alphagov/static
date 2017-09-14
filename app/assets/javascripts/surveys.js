@@ -137,6 +137,60 @@
         }
       },
       {
+        identifier: 'hmrc_child_benefits',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('September 13, 2017').getTime(),
+        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=ChildBenefitGOV&utm_source=Other&utm_medium=other&t=HMRC&id=26',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/child-benefit/?$'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_tax_payments',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('September 13, 2017').getTime(),
+        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=OverpayUnderpayGOV&utm_source=Other&utm_medium=other&t=HMRC&id=27',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/tax-overpayments-and-underpayments/?$'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_payments_card',
+        surveyType: 'url',
+        frequency: 10,
+        startTime: new Date('September 13, 2017').getTime(),
+        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=onlinepaymentsGOV&utm_source=Other&utm_medium=other&t=HMRC&id=32',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/pay-tax-debit-credit-card/?$'
+          ]
+        }
+      },
+      {
         identifier: 'dfe_jul2017',
         surveyType: 'url',
         frequency: 6,
@@ -369,7 +423,7 @@
       var allSurveys = [defaultSurvey].concat(activeSurveys)
       var displayableSurveys = userSurveys.getDisplayableSurveys(allSurveys)
 
-      if (displayableSurveys.length < 1) {
+      if (displayableSurveys.length < 2) {
         return displayableSurveys[0]
       } else {
         // At this point, if there are multiple surveys that could be shown
