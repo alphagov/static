@@ -2,8 +2,12 @@
   average_title_length ||= false
   context ||= false
   inverse ||= false
+  margin_bottom ||= 1
+  margin_bottom_class = "pub-c-title--bottom-margin" if margin_bottom == 1
 %>
-<div class="pub-c-title <% if inverse %>pub-c-title--inverse<% end %>">
+<div class="pub-c-title
+  <% if inverse %>pub-c-title--inverse<% end %>
+  <%= margin_bottom_class %>">
   <% if context %>
     <p class="pub-c-title__context"><%= context %></p>
   <% end %>

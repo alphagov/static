@@ -1,6 +1,13 @@
 // scss-lint:disable SelectorFormat
 .pub-c-title {
-  @include responsive-vertical-margins;
+  @include responsive-top-margin;
+}
+
+// this will be moved and extended into a model for general component spacing
+// once this has been decided upon and other work completed, see:
+// https://trello.com/c/KEkNsxG3/142-3-implement-customisable-spacing-for-components
+.pub-c-title--bottom-margin {
+  @include responsive-bottom-margin;
 }
 
 .pub-c-title--inverse {
