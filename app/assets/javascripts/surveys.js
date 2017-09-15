@@ -219,18 +219,6 @@
         }
       },
       {
-        identifier: 'govuk_2Q',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('September 1, 2017').getTime(),
-        endTime: new Date('September 5, 2017 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/gov_uk_2q/?c={{currentPath}}',
-        templateArgs: {
-          title: 'Tell us about your visit to GOV.UK',
-          surveyCta: 'Answer 2 quick questions to help us make GOV.UK better',
-        }
-      },
-      {
         identifier: 'scrutinise_government',
         surveyType: 'url',
         frequency: 6,
@@ -325,6 +313,27 @@
           path: [
             '^/register-childminder-childcare-provider(?:/|$)',
             '^/register-as-childminder-northern-ireland(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'edu_tt',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('September 15, 2017').getTime(),
+        endTime: new Date('September 25, 2017 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/ZZRCN/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Take the 2 minute survey.',
+          surveyCtaPostscript: 'This will open in another window.'
+        },
+        activeWhen: {
+          section: [
+            'education', 'childcare'
+          ],
+          organisation: [
+            '<D6>', '<D106>', '<D109>', '<EA243>', '<EA86>', '<EA242>', '<EA541>'
           ]
         }
       }
