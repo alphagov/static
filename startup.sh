@@ -4,7 +4,7 @@ bundle install
 
 if [[ $1 == "--test-govuk-frontend-toolkit" ]] ; then
   # Find out where it the gem is installed
-  installed_location="$(bundle show govuk_frontend_toolkit)"
+  installed_location="$(bundle show govuk_frontend_toolkit | sed -1p)"
   temporary_location="./tmp/govuk_frontend_toolkit_gem_dev"
 
   # Remove any existing tmp file
