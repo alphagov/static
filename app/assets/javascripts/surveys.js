@@ -219,18 +219,6 @@
         }
       },
       {
-        identifier: 'govuk_2Q',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('September 1, 2017').getTime(),
-        endTime: new Date('September 5, 2017 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/gov_uk_2q/?c={{currentPath}}',
-        templateArgs: {
-          title: 'Tell us about your visit to GOV.UK',
-          surveyCta: 'Answer 2 quick questions to help us make GOV.UK better',
-        }
-      },
-      {
         identifier: 'scrutinise_government',
         surveyType: 'url',
         frequency: 6,
