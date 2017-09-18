@@ -43,6 +43,9 @@
       if (this.$optionSelect.data('closed-on-load') == true) {
         this.close();
       }
+      else {
+        this.setupHeight();
+      }
     }
   }
 
@@ -60,7 +63,7 @@
     $button.addClass('js-container-head');
     //Add type button to override default type submit when this component is used within a form
     $button.attr('type', 'button');
-    $button.attr('aria-expanded', this.isClosed());
+    $button.attr('aria-expanded', true);
     $button.attr('aria-controls', this.$optionSelect.find('.options-container').attr('id'));
     $button.html(jsContainerHeadHTML);
     $containerHead.replaceWith($button);
