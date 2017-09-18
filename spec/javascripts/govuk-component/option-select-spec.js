@@ -66,24 +66,54 @@ describe('GOVUK.OptionSelect', function() {
 
 
   it('instantiates a closed option-select if data-closed-on-load is true', function(){
-    $closedOnLoadFixture = $('<div class="govuk-option-select" data-closed-on-load=true></div>');
+    closedOnLoadFixture = '<div class="govuk-option-select" data-closed-on-load=true>' +
+                            '<div class="container-head js-container-head"></div>' +
+                          '</div>';
+    $closedOnLoadFixture = $(closedOnLoadFixture);
+
     $('body').append($closedOnLoadFixture);
     optionSelect = new GOVUK.OptionSelect({$el:$closedOnLoadFixture});
     expect(optionSelect.isClosed()).toBe(true);
+    expect($closedOnLoadFixture.find('button').attr('aria-expanded')).toBe('false');
   });
 
   it('instantiates an open option-select if data-closed-on-load is false', function(){
-    $openOnLoadFixture = $('<div class="govuk-option-select" data-closed-on-load="false"></div>');
+    openOnLoadFixture = '<div class="govuk-option-select" data-closed-on-load=false>' +
+                            '<div class="container-head js-container-head"></div>' +
+                          '</div>';
+    $openOnLoadFixture = $(openOnLoadFixture);
+
     $('body').append($openOnLoadFixture);
     optionSelect = new GOVUK.OptionSelect({$el:$openOnLoadFixture});
     expect(optionSelect.isClosed()).toBe(false);
+    expect($openOnLoadFixture.find('button').attr('aria-expanded')).toBe('true');
   });
 
   it('instantiates an open option-select if data-closed-on-load is not present', function(){
-    $openOnLoadFixture = $('<div class="govuk-option-select"></div>');
+    openOnLoadFixture = '<div class="govuk-option-select">' +
+                          '<div class="container-head js-container-head"></div>' +
+                        '</div>';
+    $openOnLoadFixture = $(openOnLoadFixture);
+
     $('body').append($openOnLoadFixture);
     optionSelect = new GOVUK.OptionSelect({$el:$openOnLoadFixture});
     expect(optionSelect.isClosed()).toBe(false);
+    expect($openOnLoadFixture.find('button').attr('aria-expanded')).toBe('true');
+  });
+
+  it ('sets the height of the options container as part of initialisation', function(){
+    expect($optionSelectHTML.find('.options-container').attr('style')).toContain('height');
+  });
+
+  it ('doesn\'t set the height of the options container as part of initialisation if closed-on-load is true', function(){
+    closedOnLoadFixture = '<div class="govuk-option-select" data-closed-on-load=true>' +
+                            '<div class="options-container"></div>' +
+                          '</div>';
+    $closedOnLoadFixture = $(closedOnLoadFixture);
+
+    $('body').append($closedOnLoadFixture);
+    optionSelect = new GOVUK.OptionSelect({$el:$closedOnLoadFixture});
+    expect($closedOnLoadFixture.find('.options-container').attr('style')).not.toContain('height');
   });
 
   describe('replaceHeadWithButton', function(){
@@ -124,7 +154,8 @@ describe('GOVUK.OptionSelect', function() {
       expect($optionSelectHTML.hasClass('js-closed')).toBe(false);
     });
 
-    it ('calls setupHeight()', function(){
+    it ('calls setupHeight() if a height has not been set', function(){
+      $optionSelectHTML.find('.options-container').attr('style', '');
       spyOn(optionSelect, "setupHeight");
       optionSelect.open();
       expect(optionSelect.setupHeight.calls.count()).toBe(1);
