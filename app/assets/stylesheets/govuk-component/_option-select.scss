@@ -38,7 +38,7 @@
   .options-container {
     position: relative;
     background-color: $page-colour;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 
     @include media(desktop) {
@@ -46,14 +46,13 @@
     }
 
     label {
-      @include inline-block;
-      padding: 7px 0 7px 35px;
+      display: block;
+      padding: 7px 7px 7px 35px;
       border-bottom: 1px solid $border-colour;
-      width: 100%;
       cursor: pointer;
 
       @include media(desktop) {
-        // leave room for the scroll bars on desktop
+        // leave space to interact with the scroll bars on desktop
         width: 90%;
       }
 
