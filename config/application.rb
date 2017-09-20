@@ -55,9 +55,22 @@ module Static
     # Slimmer is used by the govuk_publishing_components gem, however it inserts itself
     # automatically as middleware in the host Rails application
     # Disable Slimmer middleware for Static and enable for use in gem only
+    # Replace Slimmer I18n Backend with a null backend that contains no
+    # translations. We can't remove it from the i18n backend chain because
+    # it's added on every request if it's missing.
     if defined?(GovukPublishingComponents)
       config.middleware.delete Slimmer::App
       GovukPublishingComponents::Engine.config.middleware.use Slimmer::App
+
+      class AvoidSlimmerNullBackend
+        include I18n::Backend::Base
+
+        def available_locales; []; end
+
+        def lookup(locale, key, scope = [], options = {}); nil; end
+      end
+
+      Slimmer::I18nBackend = AvoidSlimmerNullBackend
     end
   end
 end
