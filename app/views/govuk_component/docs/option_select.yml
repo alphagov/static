@@ -1,6 +1,8 @@
 name: Option select
 description: A scrollable list of checkboxes to be displayed on a form where one might
   otherwise use a multi-select
+accessibility_criteria: |
+  Options on desktop should not be full width to let users interact with the scrollbar without accidentally clicking an option
 examples:
   default:
     data:
