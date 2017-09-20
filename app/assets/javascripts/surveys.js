@@ -362,6 +362,31 @@
             '<D6>', '<D106>', '<D109>', '<EA243>', '<EA86>', '<EA242>', '<EA541>'
           ]
         }
+      },
+      {
+        identifier: 'learning_to_drive',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('September 21, 2017').getTime(),
+        endTime: new Date('October 21, 2017 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/learntodrive/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK’s information on driving',
+          surveyCta: 'Answer 4 questions about your visit.',
+          surveyCtaPostscript: 'This link opens in a new tab'
+        },
+        activeWhen: {
+          path: [
+            '^/topic/driving-tests-and-learning-to-drive/car/?$',
+            '^/find-driving-schools-and-lessons/?$',
+            '^/government/publications/car-show-me-tell-me-vehicle-safety-questions/?$',
+            '^/legal-obligations-drivers-riders/?$',
+            '^/vehicles-can-drive/?$',
+            '^/driving-lessons-learning-to-drive(?:/|$)',
+            '^/guidance/the-highway-code(?:/|$)'
+          ]
+        },
+        surveySeenTooManyTimesLimit: 4
       }
     ],
 
