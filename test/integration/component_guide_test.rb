@@ -27,7 +27,7 @@ class ComponentGuideTest < ActionDispatch::IntegrationTest
     should "render an index" do
       visit "/component-guide"
       assert page.has_selector? "title", text: 'Static Component Guide', visible: false
-      assert page.has_selector? shared_component_selector('title')
+      assert page.has_selector? '.pub-c-title', text: 'Static Component Guide'
     end
 
     should "render all component previews without erroring" do
