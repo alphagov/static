@@ -199,6 +199,24 @@
         }
       },
       {
+        identifier: 'hmrc_jul2017',
+        surveyType: 'url',
+        frequency: 20,
+        startTime: new Date('September 21, 2017').getTime(),
+        endTime: new Date('December 21, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=simpleassessmentGOV&utm_source=Other&utm_medium=other&t=HMRC&id=55',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/simple-assessment/?$'
+          ]
+        }
+      },
+      {
         identifier: 'dfe_jul2017',
         surveyType: 'url',
         frequency: 6,
