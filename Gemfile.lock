@@ -83,7 +83,7 @@ GEM
     execjs (2.6.0)
     exifr (1.2.3.1)
     fspath (2.1.1)
-    gds-api-adapters (41.2.0)
+    gds-api-adapters (48.0.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -187,7 +187,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (2.0.3)
-    rack-cache (1.7.0)
+    rack-cache (1.7.1)
       rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -304,7 +304,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.5.0)
-  gds-api-adapters (= 41.2.0)
+  gds-api-adapters (~> 48.0)
   govuk-content-schema-test-helpers (~> 1.4)
   govuk-lint (~> 0.6.0)
   govuk_frontend_toolkit (~> 7.0.1)
