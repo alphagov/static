@@ -14,6 +14,7 @@
     this.$optionsContainer = this.$optionSelect.find('.options-container');
     this.$optionList = this.$optionsContainer.children('.js-auto-height-inner');
 
+    this.setCheckboxAriaControlsAttributes();
     this.attachCheckedCounter();
 
     // Performance in ie 6/7 is not good enough to support animating the opening/closing
@@ -68,6 +69,15 @@
     $button.html(jsContainerHeadHTML);
     $containerHead.replaceWith($button);
 
+  };
+
+  OptionSelect.prototype.setCheckboxAriaControlsAttributes = function setCheckboxAriaControlsAttributes(){
+    var controls = this.$optionSelect.data('input-aria-controls');
+    if (typeof controls === "string" && $('#' + controls).length > 0) {
+      this.$optionSelect.find('input[type="checkbox"]').each(function() {
+        $(this).attr('aria-controls', controls);
+      });
+    }
   };
 
   OptionSelect.prototype.attachCheckedCounter = function attachCheckedCounter(){

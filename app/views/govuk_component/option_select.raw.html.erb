@@ -1,4 +1,7 @@
-<div class="govuk-option-select" <% if local_assigns.include?(:closed_on_load) && closed_on_load %>data-closed-on-load="true"<% end %>>
+<div class="govuk-option-select"
+  <% if local_assigns.include?(:closed_on_load) && closed_on_load %>data-closed-on-load="true"<% end %>
+  <% if local_assigns.include?(:aria_controls_id) %>data-input-aria-controls="<%= aria_controls_id %>"<% end %>
+>
   <div class="container-head js-container-head">
     <div class='option-select-label'><%= title %></div>
   </div>
@@ -11,15 +14,7 @@
         value="<%= option[:value]%>"
         id="<%= key %>-<%= option[:id]%>"
         type="checkbox"
-
-        <% if local_assigns.include?(:aria_controls_id) %>
-          aria-controls="<%= aria_controls_id %>"
-        <% end %>
-
-        <% if option[:checked].present? %>
-          checked="checked"
-        <% end %>
-
+        <% if option[:checked].present? %>checked="checked"<% end %>
         >
         <%= option[:label] %>
         </label>

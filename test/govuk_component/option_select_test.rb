@@ -61,7 +61,7 @@ class OptionSelectTestCase < ComponentTestCase
     arguments[:aria_controls_id] = "aria-controls-id"
     render_component(arguments)
 
-    assert_select 'input[aria-controls="aria-controls-id"]', count: 2
+    assert_select '[data-input-aria-controls="aria-controls-id"]', count: 1
   end
 
   test "can begin with the options box closed on load" do
