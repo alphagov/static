@@ -59,26 +59,33 @@
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
-  var hmrcSurveyUtmCampaignValueMap = function () {
+  // Expectation here is that the return value is a string to be added to a url
+  // so that the start of the string is the value for a utm_campaign query
+  // string, and the return value may also contain other query string params.
+  // We don't expect to add extra values to the string
+  var hmrcSurveyJul2017QueryStringValueMap = function () {
     var path = window.location.pathname
     switch (true) {
-      case /^\/working-tax-credit(?:\/|$)/.test(path): return 'Working%20Tax%20Credit'
-      case /^\/guidance\/money-laundering-regulations-register-with-hmrc(?:\/|$)/.test(path): return 'Money%20Laundering%20Regulations'
-      case /^\/child-tax-credit(?:\/|$)/.test(path): return 'Child%20Tax%20Credit'
-      case /^\/check-state-pension(?:\/|$)/.test(path): return 'Check%20State%20Pension'
-      case /^\/apply-marriage-allowance(?:\/|$)/.test(path): return 'Marriage%20Allowance'
-      case /^\/stamp-duty-land-tax(?:\/|$)/.test(path): return 'Stamp%20Duty'
-      case /^\/guidance\/pay-apprenticeship-levy(?:\/|$)/.test(path): return 'Apprenticeship%20Levy'
-      case /^\/update-company-car-details(?:\/|$)/.test(path): return 'Company%20Car%20Details'
-      case /^\/guidance\/paying-your-employees-expenses-and-benefits-through-your-payroll(?:\/|$)/.test(path): return 'Employee%20Expenses%20and%20Benefits%20Through%20Payroll'
-      case /^\/guidance\/pension-schemes-protect-your-lifetime-allowance(?:\/|$)/.test(path): return 'Pension%20Lifetime%20Allowance'
-      case /^\/send-employment-intermediary-report(?:\/|$)/.test(path): return 'Employment%20Intermediary%20Report'
-      case /^\/guidance\/tell-hmrc-about-your-employment-related-securities(?:\/|$)/.test(path): return 'Employment%20Related%20Securities'
-      case /^\/guidance\/pension-administrators-check-a-members-gmp(?:\/|$)/.test(path): return 'Pension%20Administration%20Members%20GMP'
+      case /^\/working-tax-credit(?:\/|$)/.test(path): return 'workingtaxcreditGOV&utm_source=Other&utm_medium=other&t=HMRC&id=12'
+      case /^\/guidance\/money-laundering-regulations-register-with-hmrc(?:\/|$)/.test(path): return 'MoneyLaundering RegulationsGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=45'
+      case /^\/child-tax-credit(?:\/|$)/.test(path): return 'ChildTaxCreditGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=10'
+      case /^\/check-state-pension(?:\/|$)/.test(path): return 'checkstatepensionGOV&utm_source=Other&utm_medium=other&t=HMRC&id=46'
+      case /^\/apply-marriage-allowance(?:\/|$)/.test(path): return 'marriageallowanceGOV&utm_source=Other&utm_medium=other&t=HMRC&id=47'
+      case /^\/stamp-duty-land-tax(?:\/|$)/.test(path): return 'StampDutyLandTaxGOV&utm_source=Other&utm_medium=other&t=HMRC&id=48'
+      case /^\/guidance\/pay-apprenticeship-levy(?:\/|$)/.test(path): return 'Apprenticeship Levy&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC&id=7'
+      case /^\/update-company-car-details(?:\/|$)/.test(path): return 'CompanyCarGOV&utm_source=Other&utm_medium=other&t=HMRC&id=49'
+      case /^\/guidance\/paying-your-employees-expenses-and-benefits-through-your-payroll(?:\/|$)/.test(path): return 'PayrollExpensesBenefitsGOV&utm_source=Other&utm_medium=other&t=HMRC&id=50'
+      case /^\/guidance\/pension-schemes-protect-your-lifetime-allowance(?:\/|$)/.test(path): return 'PensionSchemeLifetimeAllowanceGOV&utm_source=Other&utm_medium=other&t=HMRC&id=51'
+      case /^\/send-employment-intermediary-report(?:\/|$)/.test(path): return 'EmploymentIntermediaryReportGOV&utm_source=Other&utm_medium=other&t=HMRC&id=52'
+      case /^\/guidance\/tell-hmrc-about-your-employment-related-securities(?:\/|$)/.test(path): return 'EmploymentRelatedSecuritiesGOV&utm_source=Other&utm_medium=other&t=HMRC&id=53'
+      case /^\/guidance\/pension-administrators-check-a-members-gmp(?:\/|$)/.test(path): return 'PensionAdministratorsGMPGOV&utm_source=Other&utm_medium=other&t=HMRC&id=54'
       default: return ''
     }
   }
 
+  // Expectation here is that the return value is a string to be used in a url
+  // as the value of a utm_campaign query string param.  Other query string
+  // params may be to the url added after this.
   var dfeSurveyUtmCampaignValueMap = function () {
     var path = window.location.pathname
     switch (true) {
@@ -110,9 +117,10 @@
         surveyType: 'url',
         frequency: 20,
         startTime: new Date('July 21, 2017').getTime(),
-        endTime: new Date('September 30, 2017 23:59:50').getTime(),
-        // use a map to translate the path into the utm_campaign value
-        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + hmrcSurveyUtmCampaignValueMap() + '&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC',
+        endTime: new Date('November 20, 2017 23:59:50').getTime(),
+        // use a map to translate the path into the utm_campaign value and
+        // the rest of the query string params
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + hmrcSurveyJul2017QueryStringValueMap(),
         templateArgs: {
           title: 'Help improve GOV.UK',
           surveyCta: 'Answer some questions about yourself to join the research community.',
@@ -187,6 +195,24 @@
         activeWhen: {
           path: [
             '^/pay-tax-debit-credit-card/?$'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_jul2017',
+        surveyType: 'url',
+        frequency: 20,
+        startTime: new Date('September 21, 2017').getTime(),
+        endTime: new Date('December 21, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=simpleassessmentGOV&utm_source=Other&utm_medium=other&t=HMRC&id=55',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/simple-assessment/?$'
           ]
         }
       },
@@ -336,6 +362,31 @@
             '<D6>', '<D106>', '<D109>', '<EA243>', '<EA86>', '<EA242>', '<EA541>'
           ]
         }
+      },
+      {
+        identifier: 'learning_to_drive',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('September 21, 2017').getTime(),
+        endTime: new Date('October 21, 2017 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/learntodrive/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK’s information on driving',
+          surveyCta: 'Answer 4 questions about your visit.',
+          surveyCtaPostscript: 'This link opens in a new tab'
+        },
+        activeWhen: {
+          path: [
+            '^/topic/driving-tests-and-learning-to-drive/car/?$',
+            '^/find-driving-schools-and-lessons/?$',
+            '^/government/publications/car-show-me-tell-me-vehicle-safety-questions/?$',
+            '^/legal-obligations-drivers-riders/?$',
+            '^/vehicles-can-drive/?$',
+            '^/driving-lessons-learning-to-drive(?:/|$)',
+            '^/guidance/the-highway-code(?:/|$)'
+          ]
+        },
+        surveySeenTooManyTimesLimit: 4
       }
     ],
 
