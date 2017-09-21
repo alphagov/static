@@ -6,6 +6,7 @@ accessibility_criteria: |
 
   * have a space to the right when the box is scrollable so that users can interact with a scrollbar without accidentally clicking an option
   * only include an `aria-controls` attribute if an element with the ID specified exists on the page
+  * be [grouped with a label](https://www.w3.org/WAI/GL/wiki/Using_grouping_roles_to_identify_related_form_controls)
 examples:
   default:
     data:
