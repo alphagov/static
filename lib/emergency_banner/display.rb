@@ -45,7 +45,7 @@ module EmergencyBanner
       @content = begin
         client.hgetall("emergency_banner").try(:symbolize_keys)
       rescue => e
-        Airbrake.notify_or_ignore(e) if defined?(Airbrake)
+        GovukError.notify(e)
         nil
       end
     end
