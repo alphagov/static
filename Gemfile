@@ -9,10 +9,10 @@ gem 'rack_strip_client_ip', '0.0.2'
 gem 'actionpack-page_caching', '1.1.0'
 gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.6"
-gem 'airbrake', github: 'alphagov/airbrake', branch: 'silence-dep-warnings-for-rails-5'
 gem 'nokogiri', "~> 1.7"
 gem 'redis', "~> 3.3.3"
 gem 'govuk_publishing_components', '~> 1.10.0', require: false
+gem 'govuk_app_config', '~> 0.3.0'
 
 group :development do
   gem 'image_optim', '0.17.1'
