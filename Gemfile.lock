@@ -95,7 +95,7 @@ GEM
       money (~> 6.7)
       nokogiri (~> 1.5)
       sanitize (~> 2.1.0)
-    govuk-content-schema-test-helpers (1.4.0)
+    govuk-content-schema-test-helpers (1.5.0)
       json-schema (~> 2.5.1)
     govuk-lint (0.6.1)
       rubocop (~> 0.35.0)
@@ -307,7 +307,7 @@ DEPENDENCIES
   binding_of_caller
   capybara (~> 2.5.0)
   gds-api-adapters (~> 48.0)
-  govuk-content-schema-test-helpers (~> 1.4)
+  govuk-content-schema-test-helpers (~> 1.5)
   govuk-lint (~> 0.6.0)
   govuk_app_config (~> 0.3.0)
   govuk_frontend_toolkit (~> 7.0.1)
