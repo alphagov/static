@@ -608,10 +608,23 @@ examples:
           </li>
         </ol>
   highlight_answer:
+    description: |
+      Used on:
+
+      * [https://gov.uk/vat-rates](https://gov.uk/vat-rates)
+      * [https://gov.uk/junior-individual-savings-accounts](https://gov.uk/junior-individual-savings-accounts)
+      * [https://gov.uk/individual-savings-accounts](https://gov.uk/individual-savings-accounts)
+      * [https://gov.uk/corporation-tax-rates](https://gov.uk/corporation-tax-rates)
     data:
       content: |
         <div class="highlight-answer">
           <p>The VAT rate is <em>20%</em></p>
+        </div>
+        <div class="highlight-answer">
+          <p>In the 2017 to 2018 tax year, the savings limit for Junior <abbr title="Individual Savings Accounts">ISAs</abbr> is <em>£4,128</em></p>
+        </div>
+        <div class="highlight-answer">
+          <p>In the 2017 to 2018 tax year, the maximum you can save in <abbr title="Individual Savings Accounts">ISAs</abbr> is <em>£20,000</em></p>
         </div>
   place:
     data:

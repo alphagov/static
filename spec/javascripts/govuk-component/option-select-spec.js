@@ -77,6 +77,35 @@ describe('GOVUK.OptionSelect', function() {
     expect($closedOnLoadFixture.find('button').attr('aria-expanded')).toBe('false');
   });
 
+  it('ignores aria-controls if the referenced element isn’t present', function(){
+    $fixture = $('<div class="govuk-option-select" data-input-aria-controls="element-missing">' +
+                    '<input type="checkbox">' +
+                    '<input type="checkbox">' +
+                  '</div>');
+
+    $('body').append($fixture);
+    optionSelect = new GOVUK.OptionSelect({$el:$fixture});
+    expect($fixture.find('input[aria-controls]').length).toBe(0);
+
+    $fixture.remove();
+  });
+
+  it('adds aria-controls attributes to all checkboxes if the referenced element is on the page', function(){
+    $controls = $('<div id="element-present"></div>');
+    $fixture = $('<div class="govuk-option-select" data-input-aria-controls="element-present">' +
+                    '<input type="checkbox">' +
+                    '<input type="checkbox">' +
+                  '</div>');
+
+    $('body').append($controls).append($fixture);
+    optionSelect = new GOVUK.OptionSelect({$el:$fixture});
+    expect($fixture.find('input[aria-controls]').length).toBe(2);
+    expect($fixture.find('input[aria-controls]').attr('aria-controls')).toBe('element-present');
+
+    $fixture.remove();
+    $controls.remove();
+  });
+
   it('instantiates an open option-select if data-closed-on-load is false', function(){
     openOnLoadFixture = '<div class="govuk-option-select" data-closed-on-load=false>' +
                             '<div class="container-head js-container-head"></div>' +
