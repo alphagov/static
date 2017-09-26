@@ -345,12 +345,12 @@
       {
         identifier: 'edu_tt',
         surveyType: 'url',
-        frequency: 6,
+        frequency: 5,
         startTime: new Date('September 15, 2017').getTime(),
         endTime: new Date('September 25, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/ZZRCN/?c={{currentPath}}',
         templateArgs: {
-          title: 'Help improve GOV.UK',
+          title: 'What matters most to you on GOV.UK?',
           surveyCta: 'Take the 2 minute survey.',
           surveyCtaPostscript: 'This will open in another window.'
         },
