@@ -1320,7 +1320,7 @@ describe('Surveys', function () {
         })
       })
 
-      it('treat combines multiple definitions in an OR; if any of them match activeWhen will return true', function () {
+      it('combines multiple definitions in an OR; if any of them match activeWhen will return true', function () {
         var survey = {
           identifier: 'a_survey',
           activeWhen: {
@@ -1470,7 +1470,7 @@ describe('Surveys', function () {
           expect(surveys.activeWhen(survey)).toBe(false)
         })
 
-        it('returns true if none of the breadcrumb definitions matches a complete path segment in the currentPath', function () {
+        it('returns true if none of the breadcrumb definitions matches the breadcrumb text', function () {
           var survey = {
             identifier: 'a_survey',
             activeWhen: {
