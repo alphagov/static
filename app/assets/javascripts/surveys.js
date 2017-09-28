@@ -760,7 +760,7 @@
         return false
       } else {
         var sectionMatchingExpr = new RegExp($.makeArray(sections).join('|'), 'i')
-        return sectionMatchingExpr.test(userSurveys.currentSection())
+        return sectionMatchingExpr.test(userSurveys.currentSection()) || sectionMatchingExpr.test(userSurveys.currentThemes())
       }
     },
 
@@ -803,6 +803,7 @@
     currentPath: function () { return window.location.pathname },
     currentBreadcrumb: function () { return $('.govuk-breadcrumbs').text() || '' },
     currentSection: function () { return $('meta[name="govuk:section"]').attr('content') || '' },
+    currentThemes: function () { return $('meta[name="govuk:themes"]').attr('content') || '' },
     currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' }
   }
 
