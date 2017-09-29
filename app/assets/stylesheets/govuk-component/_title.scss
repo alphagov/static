@@ -23,6 +23,24 @@
   color: $secondary-text-colour;
 }
 
+.pub-c-title__context-link {
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: inherit;
+
+    &:focus {
+      color: $black;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
 .pub-c-title__text {
   @include bold-48;
 }
