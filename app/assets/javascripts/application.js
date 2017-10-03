@@ -5,4 +5,3 @@
 //= require jquery.history
 //= require jquery.tabs
 //= require browser-check
-//= require webchat
