@@ -26,10 +26,5 @@ $(document).ready(function() {
     if (GOVUK.shimLinksWithButtonRole) {
       GOVUK.shimLinksWithButtonRole.init();
     }
-
-    // HMRC webchat
-    if (GOVUK.webchat) {
-      GOVUK.webchat.init();
-    }
   }
 });
