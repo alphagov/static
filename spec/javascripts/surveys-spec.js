@@ -1206,10 +1206,23 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValue('Education')
+          spyOn(surveys, 'currentThemes').and.returnValue('childcare')
           expect(surveys.activeWhen(survey)).toBe(true)
         })
 
-        it('returns false if the section definition does not match the section meta tag at all', function () {
+        it('returns true if the section definition matches something in the themes meta tag', function () {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Childcare')
+          spyOn(surveys, 'currentThemes').and.returnValue('education')
+          expect(surveys.activeWhen(survey)).toBe(true)
+        })
+
+        it('returns false if the section definition does not match the section or themes meta tags at all', function () {
           var survey = {
             identifier: 'a_survey',
             activeWhen: {
@@ -1217,6 +1230,7 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValue('Education')
+          spyOn(surveys, 'currentThemes').and.returnValue('higher-learning')
           expect(surveys.activeWhen(survey)).toBe(false)
         })
 
@@ -1228,11 +1242,25 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValues('Education', 'Childcare')
+          spyOn(surveys, 'currentThemes').and.returnValues('higher-learning', 'higher-learning')
           expect(surveys.activeWhen(survey)).toBe(true)
           expect(surveys.activeWhen(survey)).toBe(true)
         })
 
-        it('returns false if none of the section definitions matches the section meta tag', function () {
+        it('returns true if any of the section definitions matches the themes meta tag', function () {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare']
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValues('Higher Learning', 'Higher Learning')
+          spyOn(surveys, 'currentThemes').and.returnValues('education', 'childcare')
+          expect(surveys.activeWhen(survey)).toBe(true)
+          expect(surveys.activeWhen(survey)).toBe(true)
+        })
+
+        it('returns false if none of the section definitions matches the section or themes meta tags', function () {
           var survey = {
             identifier: 'a_survey',
             activeWhen: {
@@ -1240,6 +1268,7 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValue('Schools')
+          spyOn(surveys, 'currentThemes').and.returnValue('Parenting')
           expect(surveys.activeWhen(survey)).toBe(false)
         })
       })
@@ -1291,7 +1320,7 @@ describe('Surveys', function () {
         })
       })
 
-      it('treat combines multiple definitions in an OR; if any of them match activeWhen will return true', function () {
+      it('combines multiple definitions in an OR; if any of them match activeWhen will return true', function () {
         var survey = {
           identifier: 'a_survey',
           activeWhen: {
@@ -1441,7 +1470,7 @@ describe('Surveys', function () {
           expect(surveys.activeWhen(survey)).toBe(false)
         })
 
-        it('returns true if none of the breadcrumb definitions matches a complete path segment in the currentPath', function () {
+        it('returns true if none of the breadcrumb definitions matches the breadcrumb text', function () {
           var survey = {
             identifier: 'a_survey',
             activeWhen: {
@@ -1464,10 +1493,24 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValue('Education')
+          spyOn(surveys, 'currentThemes').and.returnValue('childcare')
           expect(surveys.activeWhen(survey)).toBe(false)
         })
 
-        it('returns true if the section definition does not match the section meta tag at all', function () {
+        it('returns false if the section definition matches something in the themes meta tag', function () {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValue('Childcare')
+          spyOn(surveys, 'currentThemes').and.returnValue('education')
+          expect(surveys.activeWhen(survey)).toBe(false)
+        })
+
+        it('returns true if the section definition does not match the section or themes meta tags at all', function () {
           var survey = {
             identifier: 'a_survey',
             activeWhen: {
@@ -1476,6 +1519,7 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValue('Education')
+          spyOn(surveys, 'currentThemes').and.returnValue('higher-learning')
           expect(surveys.activeWhen(survey)).toBe(true)
         })
 
@@ -1488,11 +1532,26 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValues('Education', 'Childcare')
+          spyOn(surveys, 'currentThemes').and.returnValues('higher-learning', 'higher-learning')
           expect(surveys.activeWhen(survey)).toBe(false)
           expect(surveys.activeWhen(survey)).toBe(false)
         })
 
-        it('returns true if none of the section definitions matches the section meta tag', function () {
+        it('returns false if any of the section definitions matches the themes meta tag', function () {
+          var survey = {
+            identifier: 'a_survey',
+            activeWhen: {
+              section: ['education', 'childcare'],
+              matchType: 'exclude'
+            }
+          }
+          spyOn(surveys, 'currentSection').and.returnValues('Higher Learning', 'Higher Learning')
+          spyOn(surveys, 'currentThemes').and.returnValues('education', 'childcare')
+          expect(surveys.activeWhen(survey)).toBe(false)
+          expect(surveys.activeWhen(survey)).toBe(false)
+        })
+
+        it('returns true if none of the section definitions matches the section or themes meta tags', function () {
           var survey = {
             identifier: 'a_survey',
             activeWhen: {
@@ -1501,6 +1560,7 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentSection').and.returnValue('Schools')
+          spyOn(surveys, 'currentThemes').and.returnValue('Parenting')
           expect(surveys.activeWhen(survey)).toBe(true)
         })
       })
