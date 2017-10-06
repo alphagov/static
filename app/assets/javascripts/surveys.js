@@ -221,7 +221,7 @@
         surveyType: 'url',
         frequency: 5,
         startTime: new Date('September 15, 2017').getTime(),
-        endTime: new Date('October 3, 2017 23:59:50').getTime(),
+        endTime: new Date('October 20, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/ZZRCN/?c={{currentPath}}',
         templateArgs: {
           title: 'What matters most to you on GOV.UK?',
