@@ -19,5 +19,6 @@ node {
         govuk.runTests("spec:javascript")
       }
     },
+    publishingE2ETests: true,
   )
 }
