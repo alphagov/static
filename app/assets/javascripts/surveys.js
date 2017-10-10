@@ -149,7 +149,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        endTime: new Date('November 14, 2017 23:59:50').getTime(),
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=ChildBenefitGOV&utm_source=Other&utm_medium=other&t=HMRC&id=26',
         templateArgs: {
           title: 'Help improve GOV.UK',
@@ -167,7 +167,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        endTime: new Date('November 14, 2017 23:59:50').getTime(),
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=OverpayUnderpayGOV&utm_source=Other&utm_medium=other&t=HMRC&id=27',
         templateArgs: {
           title: 'Help improve GOV.UK',
