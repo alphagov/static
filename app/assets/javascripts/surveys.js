@@ -149,7 +149,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        endTime: new Date('November 14, 2017 23:59:50').getTime(),
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=ChildBenefitGOV&utm_source=Other&utm_medium=other&t=HMRC&id=26',
         templateArgs: {
           title: 'Help improve GOV.UK',
@@ -167,7 +167,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('October 14, 2017 23:59:50').getTime(),
+        endTime: new Date('November 14, 2017 23:59:50').getTime(),
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=OverpayUnderpayGOV&utm_source=Other&utm_medium=other&t=HMRC&id=27',
         templateArgs: {
           title: 'Help improve GOV.UK',
@@ -261,6 +261,24 @@
           ]
         },
         surveySeenTooManyTimesLimit: 4
+      },
+      {
+        identifier: 'finders_survey',
+        surveyType: 'url',
+        frequency: 20,
+        startTime: new Date('October 11, 2017').getTime(),
+        endTime: new Date('November 12, 2017 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Search_specialist&utm_source=Hold_gov_to_account&utm_medium=gov.uk&t=GDS&id=59',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/(publications|policies|statistics|announcements|topics|people|groups|case-studies)(?:/|$)'
+          ]
+        }
       }
     ],
 
