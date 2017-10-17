@@ -53,3 +53,24 @@ examples:
       - title: 'Passports, travel and living abroad'
         url: '/browse/abroad'
       - title: 'Travel abroad'
+  highlight_current_page:
+    description: This is currently used within the Education navigation A/B tests, such as [on this page](https://www.gov.uk/education/education-of-disadvantaged-children).
+    data:
+      breadcrumbs:
+      - title: 'Home'
+        url: '/'
+      - title: 'Education, training and skills'
+        url: '/education'
+      - title: 'Education of disadvantaged children'
+        is_current_page: true
+  collapse_on_mobile:
+    description: This is currently used within the Education navigation A/B tests, such as [on this page](https://www.gov.uk/education/education-of-disadvantaged-children).
+    data:
+      collapse_on_mobile: true
+      breadcrumbs:
+      - title: 'Home'
+        url: '/'
+      - title: 'Education, training and skills'
+        url: '/education'
+        is_page_parent: true
+      - title: 'Education of disadvantaged children'
