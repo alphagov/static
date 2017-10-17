@@ -1,0 +1,10 @@
+<%
+  text ||= ""
+  escaped_text = html_escape_once(text.strip)
+  text = escaped_text.sub(/\s([\w\.\?\!\:]+)$/, '&nbsp;\1').html_safe
+%>
+<% if text.present? %>
+  <p class="pub-c-lead-paragraph">
+    <%= text %>
+  </p>
+<% end %>
