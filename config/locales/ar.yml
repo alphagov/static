@@ -2,18 +2,18 @@
 ar:
   govuk_component:
     document_footer:
-      published:
-      updated:
+      published: "نُشِر"
+      updated: "حُدِّث"
       full_page_history:
-      from:
+      from: "من"
       part_of:
     metadata:
-      from:
+      from: "من"
       part_of:
       location:
       applies_to_nations: "ينطبق على"
       field_of_operation: "مجال العمل"
       history:
-      published: 
-      last_updated:
+      published: "نُشِر"
+      last_updated: "آخر تحديث"
       see_all_updates:
