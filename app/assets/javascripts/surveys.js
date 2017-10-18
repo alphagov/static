@@ -83,6 +83,18 @@
     }
   }
 
+  // This returns the whole url for the hmrc_import survey it's different
+  // based on the path
+  var hmrcImportSurveyOct2017Url = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/(?:eori|starting-to-import|starting-to-export)(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=EORIgov&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=61'
+      case /^\/(?:duty-deferment-statements|government\/publications\/(?:notice-101-deferring-duty-vat-and-other-charges\/notice-101-deferring-duty-vat-and-other-charges|notice-100-customs-flexible-accounting-system\/notice-100-customs-flexible-accounting-system))(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=DDESgov&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=60'
+      case /^\/guidance\/(?:vat-what-to-do-if-youre-an-overseas-business-selling-goods-in-the-uk|importing-goods-from-outside-the-eu|vat-imports-acquisitions-and-purchases-from-abroad)(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=importexportadviceGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=62'
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -239,6 +251,32 @@
         activeWhen: {
           path: [
             '^/government/(publications|policies|statistics|announcements|topics|people|groups|case-studies)(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_import',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('October 18, 2017').getTime(),
+        endTime: new Date('January 20, 2017 23:59:50').getTime(),
+        url: hmrcImportSurveyOct2017Url(),
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/eori(?:/|$)',
+            '^/starting-to-import(?:/|$)',
+            '^/starting-to-export(?:/|$)',
+            '^/duty-deferment-statements(?:/|$)',
+            '^/government/publications/notice-101-deferring-duty-vat-and-other-charges/notice-101-deferring-duty-vat-and-other-charges(?:/|$)',
+            '^/government/publications/notice-100-customs-flexible-accounting-system/notice-100-customs-flexible-accounting-system(?:/|$)',
+            '^/guidance/vat-what-to-do-if-youre-an-overseas-business-selling-goods-in-the-uk(?:/|$)',
+            '^/guidance/importing-goods-from-outside-the-eu(?:/|$)',
+            '^/guidance/vat-imports-acquisitions-and-purchases-from-abroad(?:/|$)'
           ]
         }
       }
