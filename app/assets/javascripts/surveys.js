@@ -181,24 +181,6 @@
         }
       },
       {
-        identifier: 'hmrc_payments_card',
-        surveyType: 'url',
-        frequency: 10,
-        startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('October 14, 2017 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=onlinepaymentsGOV&utm_source=Other&utm_medium=other&t=HMRC&id=32',
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/pay-tax-debit-credit-card/?$'
-          ]
-        }
-      },
-      {
         identifier: 'hmrc_jul2017',
         surveyType: 'url',
         frequency: 20,
