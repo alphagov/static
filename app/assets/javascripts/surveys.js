@@ -83,26 +83,6 @@
     }
   }
 
-  // Expectation here is that the return value is a string to be used in a url
-  // as the value of a utm_campaign query string param.  Other query string
-  // params may be to the url added after this.
-  var dfeSurveyUtmCampaignValueMap = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/complain-about-school(?:\/|$)/.test(path): return 'Complain%20about%20a%20school%20or%20childminder'
-      case /^\/children-with-special-educational-needs(?:\/|$)/.test(path): return 'Special%20educational%20needs%20SEN'
-      case /^\/school-term-holiday-dates(?:\/|$)/.test(path): return 'School%20term%20and%20holiday%20dates'
-      case /^\/school-attendance-absence(?:\/|$)/.test(path): return 'School%20attendance%20and%20absence'
-      case /^\/school-uniform(?:\/|$)/.test(path): return 'School%20uniform'
-      case /^\/bullying-at-school(?:\/|$)/.test(path): return 'Bullying%20at%20school'
-      case /^\/health-safety-school-children(?:\/|$)/.test(path): return 'Health%20and%20safety%20for%20school%20children'
-      case /^\/school-discipline-exclusions(?:\/|$)/.test(path): return 'School%20discipline%20and%20exclusions'
-      case /^\/childcare-out-of-school-hours(?:\/|$)/.test(path): return 'Childcare%20out%20of%20school%20hours'
-      case /^\/after-school-holiday-club(?:\/|$)/.test(path): return 'Find%20before%20and%20after%20school%20and%20holiday%20clubs'
-      default: return ''
-    }
-  }
-
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
