@@ -64,7 +64,7 @@
   </div>
   <div class="related-information">
     <% if from.any? %>
-      <p>From: <span class="from">
+      <p><%= t("govuk_component.document_footer.from", default: "From") %>: <span class="from">
         <% from.each do |definition| %>
           <span class="definition">
             <%= definition.html_safe %>
