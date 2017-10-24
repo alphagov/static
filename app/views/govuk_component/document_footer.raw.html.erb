@@ -15,7 +15,7 @@
   direction_class = ""
   direction_class = " direction-#{direction}" if local_assigns.include?(:direction)
 %>
-<div class="govuk-document-footer<%= direction_class %>">
+<div class="govuk-document-footer<%= direction_class %>" data-module="track-click">
   <h2 class="visuallyhidden">
     <%= t("govuk_component.document_footer.document_information", default: "Document information") %>
   </h2>
@@ -42,7 +42,6 @@
         <p>
           <a href="#full-history" data-controls="full-history"
                                   data-expanded="false"
-                                  data-module="track-click"
                                   data-track-category="content-history"
                                   data-track-action="full-page-history-toggled"
                                   data-track-label="full-history">
