@@ -1,0 +1,351 @@
+name: Task list
+description: Numbered steps containing expanding/collapsing sections
+body: |
+  Task lists are designed to show a sequence of steps towards a specific goal, such as 'learning to drive'. Each step of a task list can contain one or more sections. Each section can contain one or more links to pages. User research suggested that each section should be collapsed by default so that users are not overwhelmed with information.
+
+  If JavaScript is disabled the task list expands fully. All of the task list functionality (including the icons and aria attributes) are added using JavaScript.
+
+  The task list is based on the accordion component in collections, but has been altered. This is for two reasons.
+
+  - task lists are needed throughout GOV.UK and extending the accordion to be the task list would require promoting it to static, which would break integration testing
+  - creating a new component allows further iteration without impacting the accordion
+
+  Changes in the task list code that are different from the accordion:
+
+  - functionality to 'remember' the last opened section in the URL is disabled by default
+  - a section can be open by default
+  - visual changes (see below) including plus/minus control being on the left, not the right
+accessibility_criteria: |
+  The task list must:
+
+  - indicate to users that each section can be expanded and collapsed
+  - inform the user when a section has been expanded or collapsed
+  - be usable with a keyboard
+  - allow users to open or close all sections at once
+  - inform the user which step a link belongs to
+  - inform the user which step the current page is in, particularly where there are multiple sections in one step
+
+  Section headings must use a button element:
+
+  - so that sections can be toggled with the space and enter keys
+  - so that sections can't be opened in a new tab or window
+
+  When JavaScript is unavailable the task list must:
+
+  - be fully expanded
+  - not be marked as expandable
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      steps: [
+        [
+          {
+            title: 'First header',
+            panel: 'First panel'
+          }
+        ],
+        [
+          {
+            title: 'Second header',
+            panel: 'Second panel'
+          }
+        ],
+        [
+          {
+            title: 'Third header lets see how long we can make this and what that does to the layout of this component',
+            panel: 'Third panel also containing some deliberately long content to show what happens if long content is included and the response the component has to it.'
+          }
+        ]
+      ]
+  with_custom_section_ids:
+    description: IDs for sections are automatically generated based on the section title, but can also be passed manually. Passed IDs are converted to lowercase and have spaces replaced with hyphens.
+    data:
+      steps: [
+        [
+          {
+            title: 'First header',
+            id: 'something1',
+            panel: 'First panel'
+          }
+        ],
+        [
+          {
+            title: 'Second header',
+            id: 'something2',
+            panel: 'Second panel'
+          }
+        ]
+      ]
+  with_different_heading_level:
+    description: Sections have a H2 by default, but this can be changed. The heading level does not change any styling.
+    data:
+      heading_level: 3
+      steps: [
+        [
+          {
+            title: 'This is a heading 3',
+            panel: '<p>Some content</p>'
+          }
+        ],
+        [
+          {
+            title: 'This is also a heading 3',
+            panel: 'Some more content'
+          }
+        ]
+      ]
+  open_a_section_by_default:
+    description: Pass the index of the accordion to open by default. This is the nth accordion section, regardless of step number.
+    data:
+      open_section: 3
+      steps: [
+        [
+          {
+            title: 'Closed by default',
+            panel: 'Well, open now, obviously.'
+          }
+        ],
+        [
+          {
+            title: 'Also closed by default',
+            panel: 'Hello.'
+          },
+          {
+            title: 'Open by default',
+            panel: 'Hello!'
+          }
+        ]
+      ]
+  remember_last_opened_section:
+    description: If a section is opened its ID is appended to the end of the URL, so that if the URL is shared or the 'back' button is used, that section will be opened on page load. This was historically part of the behaviour of the accordion. By default this is turned off and cannot be used together with the option to open a section by default.
+    data:
+      remember_last_section: true
+      steps: [
+        [
+          {
+            title: 'Remember this',
+            panel: 'Panel content'
+          }
+        ],
+        [
+          {
+            title: 'Or this',
+            panel: 'More panel content'
+          }
+        ]
+      ]
+  with_multiple_sections_in_one_step:
+    description: Some task lists contain non-sequential steps that can be combined into a single step, but kept as separate accordion sections.
+    data:
+      steps: [
+        [
+          {
+            title: 'First step first section header',
+            panel: 'First step first section panel'
+          }
+        ],
+        [
+          {
+            title: 'Second step first section header',
+            panel: 'Second step first section panel'
+          },
+          {
+            title: 'Second step second section header',
+            panel: 'Second step second section panel'
+          }
+        ],
+        [
+          {
+            title: 'Third step first section header',
+            panel: 'Third step first section panel'
+          },
+          {
+            title: 'Third step second section header',
+            panel: 'Third step second section panel'
+          },
+          {
+            title: 'Third step third section header',
+            panel: 'Third step third section panel'
+          }
+        ]
+      ]
+  with_panel_descriptions:
+    description: Panels can have paragraphs added into them that are styled by the component.
+    data:
+      steps: [
+        [
+          {
+            title: 'Panel descriptions 1',
+            panel_descriptions: [
+              'This is a panel description.',
+              'This is also a panel description. It has been filled with words such as CONTENT and ACCORDION in order to fill the horizontal space and wrap onto a second line.'
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Panel descriptions 2',
+            panel: 'You can also insert non-component specific content as before.',
+            panel_descriptions: [
+              'This is the panel description.'
+            ]
+          }
+        ]
+      ]
+  with_styled_lists:
+    description: Panels can contain lists of links that are styled by the component. A link can be marked as 'active', which will visually highlight the step and the link itself. Appropriate aria attributes are added and the active link will be rendered as a link to the top of the page content (this may not work in the component guide).
+    data:
+      steps: [
+        [
+          {
+            title: 'Panel links',
+            panel_links: [
+              {
+                href: '/notalink',
+                text: 'First item'
+              },
+              {
+                href: '/notalink',
+                text: 'Second item',
+                active: true
+              },
+              {
+                href: '/notalink',
+                text: 'Third item'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'More panel links',
+            panel_links: [
+              {
+                href: '/notalink',
+                text: 'First item'
+              },
+              {
+                href: '/notalink',
+                text: 'Second item',
+              },
+              {
+                href: '/notalink',
+                text: 'Third item'
+              }
+            ]
+          }
+        ]
+      ]
+  with_styled_lists_in_steps_with_multiple_sections:
+    description: If a link in a section is marked as active, the entire step is highlighted.
+    data:
+      steps: [
+        [
+          {
+            title: 'Panel links 1',
+            panel: 'You can also insert non-component specific content as before.',
+            panel_descriptions: [
+              'You can also insert panel descriptions as before.'
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Panel links 2',
+            panel_links: [
+              {
+                href: '/notalink',
+                text: 'First item'
+              },
+              {
+                href: '/notalink',
+                text: 'Second item'
+              },
+              {
+                href: '/notalink',
+                text: 'Third item',
+                active: true
+              },
+              {
+                href: '/notalink',
+                text: 'Fourth item'
+              }
+            ]
+          },
+          {
+            title: 'Panel links 3',
+            panel: 'content'
+          }
+        ]
+      ]
+  small:
+    description: Designed to fit in a smaller space, specifically the sidebar of a page.
+    data:
+      small: true
+      steps: [
+        [
+          {
+            title: 'Small header 1',
+            panel: 'First panel'
+          }
+        ],
+        [
+          {
+            title: 'Small header 2',
+            panel: 'Second panel'
+          },
+          {
+            title: 'Small header 3',
+            panel: 'Third panel'
+          }
+        ],
+        [
+          {
+            title: 'Small header 4',
+            panel: 'Fourth panel'
+          }
+        ]
+      ]
+  small_with_styled_lists:
+    description: The intended use of 'active' task list items is in small task lists.
+    data:
+      small: true
+      steps: [
+        [
+          {
+            title: 'Small panel links 1',
+            panel: 'You can also insert non-component specific content as before.',
+            panel_descriptions: [
+              'You can also insert panel descriptions as before.'
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Small panel links 2',
+            panel_descriptions: [
+              'This is a panel description.',
+              'This is also a panel description. It has been filled with words such as CONTENT and ACCORDION in order to fill the horizontal space and wrap onto a second line.'
+            ],
+            panel_links: [
+              {
+                href: '/notalink',
+                text: 'First item',
+                active: true
+              },
+              {
+                href: '/notalink',
+                text: 'Second item'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Small panel links 3',
+            panel: 'content'
+          }
+        ]
+      ]
