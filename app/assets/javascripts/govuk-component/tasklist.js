@@ -30,6 +30,7 @@
       $element.removeClass('js-hidden');
 
       rememberOpenSection = !!$element.filter('[data-remember]').length;
+      var $steps = $element.find('.pub-c-tasklist__step');
       var $sections = $element.find('.js-section');
       var $sectionHeaders = $element.find('.js-toggle-panel');
       var totalSections = $element.find('.js-panel').length;
@@ -77,11 +78,7 @@
       }
 
       function addAriaControlsAttrForOpenCloseAllButton() {
-        var ariaControlsValue = "";
-        var $sectionPanels = $element.find('.js-panel')
-        for (var i = 0; i < totalSections; i++) {
-          ariaControlsValue += $sectionPanels[i].id + " "
-        }
+        var ariaControlsValue = $element.find('.js-panel').first().attr('id');
 
         $openOrCloseAllButton = $element.find('.js-section-controls-button');
         $openOrCloseAllButton.attr('aria-controls', ariaControlsValue);
@@ -147,7 +144,7 @@
           var sectionView = new SectionView($(this).closest('.js-section'));
           sectionView.toggle();
 
-          var toggleClick = new SectionToggleClick(sectionView, $sections, tasklistTracker);
+          var toggleClick = new SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps);
           toggleClick.track();
 
           setOpenCloseAllText();
@@ -265,7 +262,7 @@
       }
 
       function numberOfContentItems() {
-        return $sectionContent.find('li').length;
+        return $sectionContent.find('.pub-c-tasklist__panel-link').length;
       }
     }
 
@@ -284,9 +281,51 @@
       var newLocation = hash || GOVUK.getCurrentLocation().pathname;
       history.replaceState({}, '', newLocation);
     }
+/*
+    // FIXME FROM SERVICE MANUAL FOR REFERENCE DELETE
+    // A contructor for an object that represents a click event on a subsection which
+    // handles the complexity of sending different tracking labels to Google Analytics
+    // depending on which part of the subsection the user clicked.
+    function SubsectionToggleClick (subsectionView, event) {
+      var that = this;
+      this.$target = $(event.target);
 
-    function SectionToggleClick(sectionView, $sections, tasklistTracker) {
+      this.track = function () {
+        track('pageElementInteraction', that._trackingAction(), { label: that._trackingLabel() });
+      }
+
+      this._trackingAction = function () {
+        return (subsectionView.isClosed() ? 'accordionClosed' : 'accordionOpened');
+      }
+
+      this._trackingLabel = function () {
+        if (that._clickedOnIcon()) {
+          return subsectionView.title + ' - ' + that._iconType() + ' Click';
+        } else if (that._clickedOnHeading()) {
+          return subsectionView.title + ' - Heading Click';
+        } else {
+          return subsectionView.title + ' - Click Elsewhere';
+        }
+      }
+
+      this._clickedOnIcon = function () {
+        return that.$target.hasClass('subsection__icon');
+      }
+
+      this._clickedOnHeading = function () {
+        return that.$target.hasClass('js-subsection-button');
+      }
+
+      this._iconType = function () {
+        return (subsectionView.isClosed() ? 'Minus' : 'Plus');
+      }
+    }
+*/
+    function SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps) {
       this.track = trackClick;
+      var $target = $(event.target);
+      var $thisStep = sectionView.element.closest('.pub-c-tasklist__step');
+      var $thisStepSections = $thisStep.find('.pub-c-tasklist__section');
 
       function trackClick() {
         var tracking_options = {label: trackingLabel(), dimension28: sectionView.numberOfContentItems().toString()}
@@ -294,7 +333,7 @@
 
         if (!sectionView.isClosed()) {
           tasklistTracker.track(
-            'navtasklistLinkClicked',
+            'tasklistLinkClicked',
             String(sectionIndex()),
             {
               label: sectionView.href,
@@ -306,15 +345,51 @@
       }
 
       function trackingLabel() {
-        return sectionIndex() + '. ' + sectionView.title;
+        return stepIndex() + '.' + accordionIndex() + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + getSize();
       }
 
+      // needs to return which step we're in
+      function stepIndex() {
+        return $steps.index($thisStep) + 1;
+      }
+
+      function accordionIndex() {
+        return $thisStepSections.index(sectionView.element) + 1;
+      }
+
+      // returns index of the clicked section in the overall number of accordion sections, regardless of how many per step
       function sectionIndex() {
         return $sections.index(sectionView.element) + 1;
       }
 
       function trackingAction() {
         return (sectionView.isClosed() ? 'tasklistClosed' : 'tasklistOpened');
+      }
+
+      function locateClickElement() {
+        if (clickedOnIcon()) {
+          return iconType() + ' click';
+        } else if (clickedOnHeading()) {
+          return 'Heading click';
+        } else {
+          return 'Elsewhere click';
+        }
+      }
+
+      function clickedOnIcon() {
+        return $target.hasClass('pub-c-tasklist__icon');
+      }
+
+      function clickedOnHeading() {
+        return $target.hasClass('js-section-title-button');
+      }
+
+      function iconType() {
+        return (sectionView.isClosed() ? 'Minus' : 'Plus');
+      }
+
+      function getSize() {
+        return sectionView.element.closest('.pub-c-tasklist').hasClass('pub-c-tasklist--large') ? 'Big' : 'Small';
       }
     }
 
