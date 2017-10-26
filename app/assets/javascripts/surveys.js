@@ -233,6 +233,24 @@
             '^/guidance/vat-imports-acquisitions-and-purchases-from-abroad(?:/|$)'
           ]
         }
+      },
+      {
+        identifier: 'hmrc_manuals',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('October 26, 2017').getTime(),
+        endTime: new Date('January 28, 2018 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/hmrcmanuals/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Tell us what you think of GOV.UK',
+          surveyCta: 'Answer 5 quick questions to help us make GOV.UK better.',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/hmrc-internal-manuals/(?:/|$)'
+          ]
+        }
       }
     ],
 
