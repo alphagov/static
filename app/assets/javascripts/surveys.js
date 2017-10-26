@@ -213,7 +213,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('October 18, 2017').getTime(),
-        endTime: new Date('January 20, 2017 23:59:50').getTime(),
+        endTime: new Date('January 28, 2018 23:59:50').getTime(),
         url: hmrcImportSurveyOct2017Url(),
         templateArgs: {
           title: 'Help improve GOV.UK',
