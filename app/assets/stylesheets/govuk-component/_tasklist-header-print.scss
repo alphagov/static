@@ -1,0 +1,15 @@
+// scss-lint:disable SelectorFormat
+
+.pub-c-tasklist-header__part-of {
+  display: block;
+}
+
+.pub-c-tasklist-header__title {
+  @include bold-24;
+}
+
+.pub-c-tasklist-header__skip-link {
+  display: none;
+}
+
+// scss-lint:enable SelectorFormat
