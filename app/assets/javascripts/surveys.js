@@ -191,52 +191,6 @@
         }
       },
       {
-        identifier: 'edu_tt',
-        surveyType: 'url',
-        frequency: 5,
-        startTime: new Date('September 15, 2017').getTime(),
-        endTime: new Date('October 20, 2017 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/ZZRCN/?c={{currentPath}}',
-        templateArgs: {
-          title: 'What matters most to you on GOV.UK?',
-          surveyCta: 'Take the 2 minute survey.',
-          surveyCtaPostscript: 'This will open in another window.'
-        },
-        activeWhen: {
-          section: [
-            'education', 'childcare'
-          ],
-          organisation: [
-            '<D6>', '<D106>', '<D109>', '<EA243>', '<EA86>', '<EA242>', '<EA541>'
-          ]
-        }
-      },
-      {
-        identifier: 'learning_to_drive',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('September 21, 2017').getTime(),
-        endTime: new Date('October 21, 2017 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/learntodrive/?c={{currentPath}}',
-        templateArgs: {
-          title: 'Help improve GOV.UK’s information on driving',
-          surveyCta: 'Answer 4 questions about your visit.',
-          surveyCtaPostscript: 'This link opens in a new tab'
-        },
-        activeWhen: {
-          path: [
-            '^/topic/driving-tests-and-learning-to-drive/car/?$',
-            '^/find-driving-schools-and-lessons/?$',
-            '^/government/publications/car-show-me-tell-me-vehicle-safety-questions/?$',
-            '^/legal-obligations-drivers-riders/?$',
-            '^/vehicles-can-drive/?$',
-            '^/driving-lessons-learning-to-drive(?:/|$)',
-            '^/guidance/the-highway-code(?:/|$)'
-          ]
-        },
-        surveySeenTooManyTimesLimit: 4
-      },
-      {
         identifier: 'finders_survey',
         surveyType: 'url',
         frequency: 20,
@@ -259,7 +213,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('October 18, 2017').getTime(),
-        endTime: new Date('January 20, 2017 23:59:50').getTime(),
+        endTime: new Date('January 28, 2018 23:59:50').getTime(),
         url: hmrcImportSurveyOct2017Url(),
         templateArgs: {
           title: 'Help improve GOV.UK',
@@ -277,6 +231,24 @@
             '^/guidance/vat-what-to-do-if-youre-an-overseas-business-selling-goods-in-the-uk(?:/|$)',
             '^/guidance/importing-goods-from-outside-the-eu(?:/|$)',
             '^/guidance/vat-imports-acquisitions-and-purchases-from-abroad(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_manuals',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('October 26, 2017').getTime(),
+        endTime: new Date('January 28, 2018 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/hmrcmanuals/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Tell us what you think of GOV.UK',
+          surveyCta: 'Answer 5 quick questions to help us make GOV.UK better.',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/hmrc-internal-manuals/(?:/|$)'
           ]
         }
       }
