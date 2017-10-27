@@ -248,7 +248,7 @@
         },
         activeWhen: {
           path: [
-            '^/hmrc-internal-manuals/(?:/|$)'
+            '^/hmrc-internal-manuals(?:/|$)'
           ]
         }
       }
