@@ -11,94 +11,30 @@ class TaxonomySidebarTestCase < ComponentTestCase
     end
   end
 
-  test "renders a taxonomy sidebar" do
+  test "renders a taxonomy sidebar with no children as an 'Elsewhere on' related links block" do
     render_component(
       items: [
         {
           title: "Item 1 title",
           url: "/item-1",
-          description: "item 1",
         },
         {
           title: "Item 2 title",
           url: "/item-2",
-          description: "item 2",
         },
       ]
     )
 
-    taxon_titles = css_select(".sidebar-taxon h2").map { |taxon_title| taxon_title.text.strip }
-    assert_equal ["Item 1 title", "Item 2 title"], taxon_titles
+    assert_select "h2", "Elsewhere on GOV.UK"
+    taxon_links = css_select("a").map { |taxon_title| taxon_title.text.strip }
+    assert_equal ["Item 1 title", "Item 2 title"], taxon_links
   end
 
-  test "renders all data attributes for tracking" do
+  test "renders without More link for taxons without URLs" do
     render_component(
       items: [
         {
-          title: "Item title",
-          url: "/item",
-          description: "An item",
-          related_content: [
-            {
-              title: "Related link 1a",
-              link: "/related-link-1a",
-            },
-            {
-              title: "Related link 1b",
-              link: "/related-link-1b",
-            },
-            {
-              title: "Related link 1c",
-              link: "/related-link-1c",
-            },
-          ],
-        },
-        {
-          title: "Second item title",
-          url: "/item-2",
-          description: "Another item",
-          related_content: [
-            {
-              title: "Related link 2a",
-              link: "/related-link-2a",
-            },
-          ],
-        },
-      ]
-    )
-
-    total_sections = 2
-    total_links_in_section_1 = 3
-
-    assert_select 'h2 a', "Item title"
-    assert_select '.govuk-taxonomy-sidebar[data-module="track-click"]', 1
-    assert_tracking_link("category", "relatedLinkClicked", 6)
-
-    assert_tracking_link(
-      "options",
-      { dimension28: total_sections.to_s, dimension29: "Item title" }.to_json)
-    assert_tracking_link("action", "1")
-    assert_tracking_link("label", "/item")
-
-    assert_tracking_link(
-      "options",
-      { dimension28: total_links_in_section_1.to_s, dimension29: "Related link 1a" }.to_json)
-    assert_tracking_link("action", "1.1")
-    assert_tracking_link("label", "/related-link-1a")
-
-    assert_tracking_link(
-      "options",
-      { dimension28: total_links_in_section_1.to_s, dimension29: "Related link 1a" }.to_json)
-    assert_tracking_link("action", "1.2")
-    assert_tracking_link("label", "/related-link-1b")
-  end
-
-
-  test "renders without url on the h2 heading" do
-    render_component(
-      items: [
-        {
-          title: "Without an url",
+          title: "Without a url",
           description: "An item",
           related_content: [
             {
@@ -114,7 +50,7 @@ class TaxonomySidebarTestCase < ComponentTestCase
       ]
     )
 
-    assert_select 'h2', "Without an url"
-    assert_select 'h2 a', false
+    assert_select 'h2', "Without a url"
+    assert_select '.related-items-more', false
   end
 end

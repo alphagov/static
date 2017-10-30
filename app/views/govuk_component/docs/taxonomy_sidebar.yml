@@ -1,11 +1,16 @@
-name: "Taxonomy sidebar"
+name: "Taxonomy sidebar (deprecated)"
 description: "Sidebar navigation for displaying on pages tagged to the GOV.UK taxonomy."
 body: |
-  Accepts an array of items. These items are typically the list of taxons the current
-  content page is tagged to.
+  Component originally showed taxons with descriptions and links to children.
 
-  Each item is a hash with a title, url, description, and list of related content
-  associated with that item.
+  Links are now coerced into a related items component, creating a single consistent
+  navigation pattern across pages.
+
+  Taxons with descriptions but no children are shown in a single "Elsewhere on GOV.UK"
+  section.
+
+  Taxons with children are shown in their own section, with a "More" link pointing to
+  the taxon page if a URL is provided.
 examples:
   default:
     data:
