@@ -28,3 +28,18 @@ examples:
               link: /government/collections/key-stage-1-teacher-assessment
             - title: "Primary assessments: information and resources for 2017"
               link: /government/publications/primary-assessments-information-and-resources-for-2017
+  no_children:
+    description: |
+      The child links are usually pulled from rummager. If rummager doesn’t respond we fallback to a sidebar with a taxon link but without any child content links.
+    data:
+      items:
+        - title: "School curriculum"
+          url: /education/school-curriculum
+          description: |
+            Early years, key stages 1 to 5, GCSE and AS and A level reforms, tests,
+            exams and assessments, PSHE and SMSC.
+        - title: "Tests (key stage 1)"
+          url: /key-stage-1-tests
+          description: |
+            Key dates, sample and test materials, administration, moderation,
+            assessing and reporting, statistics, frameworks.
