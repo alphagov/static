@@ -1,14 +1,14 @@
 // scss-lint:disable SelectorFormat
 
-.pub-c-tasklist-header__part-of {
+.pub-c-task-list-header__part-of {
   display: block;
 }
 
-.pub-c-tasklist-header__title {
+.pub-c-task-list-header__title {
   @include bold-24;
 }
 
-.pub-c-tasklist-header__skip-link {
+.pub-c-task-list-header__skip-link {
   display: none;
 }
 

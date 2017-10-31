@@ -1,4 +1,4 @@
-.pub-c-tasklist-header {
+.pub-c-task-list-header {
   position: relative;
   padding: 10px;
   background: $grey-4;
@@ -12,18 +12,18 @@
 
 // scss-lint:disable SelectorFormat
 
-.pub-c-tasklist-header__part-of {
+.pub-c-task-list-header__part-of {
   @include bold-16;
 
   display: block;
   padding-bottom: 0.2em;
 }
 
-.pub-c-tasklist-header__title {
+.pub-c-task-list-header__title {
   @include bold-24;
 }
 
-.pub-c-tasklist-header__skip-link {
+.pub-c-task-list-header__skip-link {
   position: absolute;
   top: 0;
   right: 9999em;
