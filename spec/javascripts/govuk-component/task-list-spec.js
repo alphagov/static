@@ -18,7 +18,7 @@ describe('A tasklist module', function () {
             <div class="pub-c-task-list__panel js-panel" id="section-panel-10-0">\
               <ol class="pub-c-task-list__panel-links">\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="">Link 1</a>\
+                  <a href="#" class="pub-c-task-list__panel-link-item">Link 1</a>\
                 </li>\
               </ol>\
             </div>\
@@ -31,10 +31,10 @@ describe('A tasklist module', function () {
             <div class="pub-c-task-list__panel js-panel" id="section-panel-11-1">\
               <ol class="pub-c-task-list__panel-links">\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="">Link 2</a>\
+                  <a href="#" class="pub-c-task-list__panel-link-item">Link 2</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="">Link 3</a>\
+                  <a href="#" class="pub-c-task-list__panel-link-item">Link 3</a>\
                 </li>\
               </ol>\
             </div>\
@@ -52,13 +52,13 @@ describe('A tasklist module', function () {
             <div class="pub-c-task-list__panel js-panel" id="section-panel-12-0">\
               <ol class="pub-c-task-list__panel-links">\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="">Link 4</a>\
+                  <a href="#" class="pub-c-task-list__panel-link-item">Link 4</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="">Link 5</a>\
+                  <a href="#" class="pub-c-task-list__panel-link-item">Link 5</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="">Link 6</a>\
+                  <a href="#" class="pub-c-task-list__panel-link-item">Link 6</a>\
                 </li>\
               </ol>\
             </div>\
@@ -69,6 +69,7 @@ describe('A tasklist module', function () {
 
   var expectedTasklistSectionCount = 0;
   var expectedTasklistContentCount = 0;
+  var expectedTasklistLinkCount = 0;
 
   beforeEach(function () {
     tasklist = new GOVUK.Modules.Tasklist();
@@ -76,6 +77,7 @@ describe('A tasklist module', function () {
     tasklist.start($element);
     expectedTasklistSectionCount = $element.find('.pub-c-task-list__section').length;
     expectedTasklistContentCount = $element.find('.pub-c-task-list__section').first().find('.pub-c-task-list__panel-link').length;
+    expectedTasklistLinkCount = $element.find('.pub-c-task-list__panel-link-item').length;
   });
 
   afterEach(function () {
@@ -154,7 +156,8 @@ describe('A tasklist module', function () {
     it("triggers a google analytics custom event", function () {
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllOpened', {
         label: 'Open All',
-        dimension28: expectedTasklistSectionCount.toString()
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString()
       });
     });
   });
@@ -172,7 +175,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllClosed', {
         label: 'Close All',
-        dimension28: expectedTasklistSectionCount.toString()
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString()
       });
     });
   });
@@ -206,6 +210,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
         label: '1.1 - Topic Section One - Heading click: Small',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -224,6 +230,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
         label: '1.1 - Topic Section One - Heading click: Big',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -240,6 +248,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
         label: '1.1 - Topic Section One - Plus click: Small',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -258,6 +268,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
         label: '1.1 - Topic Section One - Plus click: Big',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -274,6 +286,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
         label: '1.1 - Topic Section One - Elsewhere click: Small',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -292,6 +306,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
         label: '1.1 - Topic Section One - Elsewhere click: Big',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -331,6 +347,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
         label: '1.1 - Topic Section One - Heading click: Small',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -350,6 +368,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
         label: '1.1 - Topic Section One - Heading click: Big',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -367,6 +387,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
         label: '1.1 - Topic Section One - Minus click: Small',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -386,6 +408,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
         label: '1.1 - Topic Section One - Minus click: Big',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -404,6 +428,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
         label: '1.1 - Topic Section One - Elsewhere click: Small',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });
@@ -424,6 +450,8 @@ describe('A tasklist module', function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
         label: '1.1 - Topic Section One - Elsewhere click: Big',
+        dimension26: expectedTasklistSectionCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
     });

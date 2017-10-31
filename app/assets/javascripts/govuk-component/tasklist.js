@@ -34,10 +34,11 @@
       var $sections = $element.find('.js-section');
       var $sectionHeaders = $element.find('.js-toggle-panel');
       var totalSections = $element.find('.js-panel').length;
+      var totalLinks = $element.find('.pub-c-tasklist__panel-link-item').length;
 
       var $openOrCloseAllButton;
 
-      var tasklistTracker = new TasklistTracker(totalSections);
+      var tasklistTracker = new TasklistTracker(totalSections,totalLinks);
 
       addButtonstoSections();
       addOpenCloseAllButton();
@@ -281,46 +282,7 @@
       var newLocation = hash || GOVUK.getCurrentLocation().pathname;
       history.replaceState({}, '', newLocation);
     }
-/*
-    // FIXME FROM SERVICE MANUAL FOR REFERENCE DELETE
-    // A contructor for an object that represents a click event on a subsection which
-    // handles the complexity of sending different tracking labels to Google Analytics
-    // depending on which part of the subsection the user clicked.
-    function SubsectionToggleClick (subsectionView, event) {
-      var that = this;
-      this.$target = $(event.target);
 
-      this.track = function () {
-        track('pageElementInteraction', that._trackingAction(), { label: that._trackingLabel() });
-      }
-
-      this._trackingAction = function () {
-        return (subsectionView.isClosed() ? 'accordionClosed' : 'accordionOpened');
-      }
-
-      this._trackingLabel = function () {
-        if (that._clickedOnIcon()) {
-          return subsectionView.title + ' - ' + that._iconType() + ' Click';
-        } else if (that._clickedOnHeading()) {
-          return subsectionView.title + ' - Heading Click';
-        } else {
-          return subsectionView.title + ' - Click Elsewhere';
-        }
-      }
-
-      this._clickedOnIcon = function () {
-        return that.$target.hasClass('subsection__icon');
-      }
-
-      this._clickedOnHeading = function () {
-        return that.$target.hasClass('js-subsection-button');
-      }
-
-      this._iconType = function () {
-        return (subsectionView.isClosed() ? 'Minus' : 'Plus');
-      }
-    }
-*/
     function SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps) {
       this.track = trackClick;
       var $target = $(event.target);
@@ -395,11 +357,15 @@
 
     // A helper that sends a custom event request to Google Analytics if
     // the GOVUK module is setup
-    function TasklistTracker(totalSections) {
+    function TasklistTracker(totalSections, totalLinks) {
       this.track = function(category, action, options) {
+        // dimension26 records the total number of expand/collapse sections in this tasklist
+        // dimension27 records the total number of component links in this tasklist
+        // dimension28 records the number of component links in the section that was opened/closed (handled in click event)
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
           options = options || {};
-          options["dimension28"] = options["dimension28"] || totalSections.toString();
+          options["dimension26"] = options["dimension26"] || totalSections.toString();
+          options["dimension27"] = options["dimension27"] || totalLinks.toString();
           GOVUK.analytics.trackEvent(category, action, options);
         }
       }
