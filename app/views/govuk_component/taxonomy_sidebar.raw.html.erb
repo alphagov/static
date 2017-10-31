@@ -1,61 +1,35 @@
+<%# Deprecated - taxonomy links are now coerced into the related links component %>
 <% if local_assigns[:items] && !items.blank? %>
+  <%
+    elsewhere_on_govuk = {
+      title: 'Elsewhere on GOV.UK',
+      items: []
+    }
 
-  <aside class='govuk-taxonomy-sidebar' data-module='track-click' role='complementary'>
-    <% items.each_with_index do |item, item_index| %>
-      <div class='sidebar-taxon' data-track-count="sidebarTaxonSection">
-        <h2>
-          <%=
-            link_to_if(
-              item[:url],
-              item[:title],
-              item[:url],
-              class: 'taxon-link',
-              data: {
-                track_category: 'relatedLinkClicked',
-                track_action: "#{item_index + 1}",
-                track_label: item[:url],
-                track_options: {
-                  dimension28: items.length.to_s,
-                  dimension29: item[:title],
-                },
-              },
-            )
-          %>
-        </h2>
+    sections = []
+    items.each do |i|
+      if i[:related_content] && i[:related_content].any?
+        related_content_items = i[:related_content].map do |related_content_link|
+                                  related_content_link[:url] = related_content_link.delete :link
+                                  related_content_link
+                                end
 
-        <p class='taxon-description'>
-          <%= item[:description] %>
-        </p>
+        sections << {
+          title: i[:title],
+          url: i[:url],
+          items: i[:related_content]
+        }
+      else
+        elsewhere_on_govuk[:items] << {
+          title: i[:title],
+          url: i[:url]
+        }
+      end
+    end
 
-        <% item[:related_content] ||= [] %>
-        <% if item[:related_content].any? %>
-          <nav role='navigation'>
-            <ul class='related-content'>
-              <% item[:related_content].each_with_index do |related_item, related_content_index| %>
-                <li>
-                  <%=
-                    link_to(
-                      related_item[:title],
-                      related_item[:link],
-                      data: {
-                          track_category: 'relatedLinkClicked',
-                          track_action: "#{item_index + 1}.#{related_content_index + 1}",
-                          track_label: related_item[:link],
-                          track_options: {
-                            dimension28: item[:related_content].length.to_s,
-                            dimension29: related_item[:title],
-                          }
-                      },
-                      class: 'related-link',
-                    )
-                  %>
-                </li>
-              <% end %>
-            </ul>
-          </nav>
-        <% end %>
-      </div>
-    <% end %>
-  </aside>
-
+    if elsewhere_on_govuk[:items].any?
+      sections << elsewhere_on_govuk
+    end
+  %>
+  <%= render file: 'govuk_component/related_items.raw', locals: { sections: sections } %>
 <% end %>
