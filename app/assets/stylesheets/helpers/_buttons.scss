@@ -41,7 +41,8 @@
 .transaction .get-started .button,
 .local_transaction .get-started .button,
 .licence .get-started .button,
-.next-steps-promo .get-started .button {
+.next-steps-promo .get-started .button,
+.simple_smart_answer .get-started .button {
   padding: 0.60em 1.7em 0.45em 0.67em;
   background-image: image-url("icon-pointer.png");
   background-position: 100% 50%;
@@ -69,7 +70,8 @@
 @include ie(6) {
   .transaction .get-started input.button,
   .local_transaction .get-started input.button,
-  .licence .get-started input.button {
+  .licence .get-started input.button,
+  .simple_smart_answer .get-started input.button {
     padding: 0.45em 0.5em 0.62em 0em;
   }
 }
