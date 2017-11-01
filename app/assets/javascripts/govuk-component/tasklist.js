@@ -18,6 +18,7 @@
     };
 
     var rememberOpenSection = false;
+    var taskListSize;
 
     this.start = function ($element) {
 
@@ -30,15 +31,16 @@
       $element.removeClass('js-hidden');
 
       rememberOpenSection = !!$element.filter('[data-remember]').length;
-      var $steps = $element.find('.pub-c-tasklist__step');
+      taskListSize = $element.hasClass('pub-c-task-list--large') ? 'Big' : 'Small';
+      var $steps = $element.find('.pub-c-task-list__step');
       var $sections = $element.find('.js-section');
       var $sectionHeaders = $element.find('.js-toggle-panel');
       var totalSections = $element.find('.js-panel').length;
-      var totalLinks = $element.find('.pub-c-tasklist__panel-link-item').length;
+      var totalLinks = $element.find('.pub-c-task-list__panel-link-item').length;
 
       var $openOrCloseAllButton;
 
-      var tasklistTracker = new TasklistTracker(totalSections,totalLinks);
+      var tasklistTracker = new TasklistTracker(totalSections, totalLinks);
 
       addButtonstoSections();
       addOpenCloseAllButton();
@@ -263,7 +265,7 @@
       }
 
       function numberOfContentItems() {
-        return $sectionContent.find('.pub-c-tasklist__panel-link').length;
+        return $sectionContent.find('.pub-c-task-list__panel-link').length;
       }
     }
 
@@ -286,8 +288,8 @@
     function SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps) {
       this.track = trackClick;
       var $target = $(event.target);
-      var $thisStep = sectionView.element.closest('.pub-c-tasklist__step');
-      var $thisStepSections = $thisStep.find('.pub-c-tasklist__section');
+      var $thisStep = sectionView.element.closest('.pub-c-task-list__step');
+      var $thisStepSections = $thisStep.find('.pub-c-task-list__section');
 
       function trackClick() {
         var tracking_options = {label: trackingLabel(), dimension28: sectionView.numberOfContentItems().toString()}
@@ -307,7 +309,7 @@
       }
 
       function trackingLabel() {
-        return stepIndex() + '.' + accordionIndex() + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + getSize();
+        return stepIndex() + '.' + accordionIndex() + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + taskListSize;
       }
 
       // needs to return which step we're in
@@ -339,7 +341,7 @@
       }
 
       function clickedOnIcon() {
-        return $target.hasClass('pub-c-tasklist__icon');
+        return $target.hasClass('pub-c-task-list__icon');
       }
 
       function clickedOnHeading() {
@@ -348,10 +350,6 @@
 
       function iconType() {
         return (sectionView.isClosed() ? 'Minus' : 'Plus');
-      }
-
-      function getSize() {
-        return sectionView.element.closest('.pub-c-tasklist').hasClass('pub-c-tasklist--large') ? 'Big' : 'Small';
       }
     }
 
