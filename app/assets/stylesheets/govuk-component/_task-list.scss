@@ -12,6 +12,10 @@
   margin-top: 0;
 }
 
+.pub-c-task-list__list {
+  padding: 0;
+}
+
 $number-circle-size: 1.5em;
 $line-width: 3px;
 
@@ -264,7 +268,17 @@ $icon-size-large: 12px;
 }
 
 .pub-c-task-list__panel {
+  @include core-19;
+
   padding-bottom: $gutter-half;
+
+  @include media(tablet) {
+    @include core-16;
+  }
+
+  .pub-c-task-list--large & {
+    @include core-19;
+  }
 
   .section-is-open & {
     @include media(tablet) {
@@ -315,13 +329,19 @@ $icon-size-large: 12px;
 }
 
 .pub-c-task-list__panel-description {
-  margin-bottom: 0.5em;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: inherit; //task list is used in a lot of apps and sometimes the default p size breaks it
+}
+
+.pub-c-task-list__panel-links {
+  padding: 0;
 }
 
 .pub-c-task-list__panel-link {
   position: relative;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding: 0 0 0.5em;
 }
 
 .pub-c-task-list__panel-link-item {

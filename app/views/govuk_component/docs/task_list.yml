@@ -254,6 +254,9 @@ examples:
         [
           {
             title: 'Panel links 2',
+            panel_descriptions: [
+              'This is a panel description'
+            ],
             panel_links: [
               {
                 href: '/notalink',

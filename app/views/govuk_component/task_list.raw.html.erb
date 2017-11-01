@@ -13,7 +13,7 @@
     class="pub-c-task-list js-hidden <% unless small %>pub-c-task-list--large<% end %>"
     <% if remember_last_section %>data-remember<% end %>
     >
-    <ol>
+    <ol class="pub-c-task-list__list">
       <% steps.each_with_index do |step, index| %>
         <%
           step_is_active = step.any? do |this_step|
