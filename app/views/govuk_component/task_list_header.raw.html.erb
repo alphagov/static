@@ -1,0 +1,26 @@
+<%
+  title ||= false
+  path ||= false
+  skip_link ||= false
+  skip_link_text ||= "Skip content"
+%>
+<% if title %>
+  <div class="pub-c-task-list-header">
+    <span class="pub-c-task-list-header__part-of">Part of</span>
+    <% if path %>
+      <a href="<%= path %>" class="pub-c-task-list-header__title">
+        <%= title %>
+      </a>
+    <% else %>
+      <span class="pub-c-task-list-header__title">
+        <%= title %>
+      </span>
+    <% end %>
+
+    <% if skip_link %>
+      <a href="<%= skip_link %>" class="pub-c-task-list-header__skip-link">
+        <%= skip_link_text %>
+      </a>
+    <% end %>
+  </div>
+<% end %>
