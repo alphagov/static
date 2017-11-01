@@ -25,6 +25,8 @@ accessibility_criteria: |
   - inform the user which step a link belongs to
   - inform the user which step the current page is in, particularly where there are multiple sections in one step
 
+  The open/close all button only needs to list the first panel id in the aria-controls attribute, rather than all of them.
+
   Section headings must use a button element:
 
   - so that sections can be toggled with the space and enter keys
@@ -203,17 +205,17 @@ examples:
             title: 'Panel links',
             panel_links: [
               {
-                href: '/notalink',
-                text: 'First item'
+                href: '/link1',
+                text: 'Link 1'
               },
               {
-                href: '/notalink',
-                text: 'Second item',
+                href: '/link2',
+                text: 'Link 2',
                 active: true
               },
               {
-                href: '/notalink',
-                text: 'Third item'
+                href: '/link3',
+                text: 'Link 3'
               }
             ]
           }
@@ -223,16 +225,16 @@ examples:
             title: 'More panel links',
             panel_links: [
               {
-                href: '/notalink',
-                text: 'First item'
+                href: '/link4',
+                text: 'Link 4'
               },
               {
-                href: '/notalink',
-                text: 'Second item',
+                href: '/link5',
+                text: 'Link 5',
               },
               {
-                href: '/notalink',
-                text: 'Third item'
+                href: '/link6',
+                text: 'Link 6'
               }
             ]
           }
@@ -259,21 +261,21 @@ examples:
             ],
             panel_links: [
               {
-                href: '/notalink',
-                text: 'First item'
+                href: '/link1',
+                text: 'Link 1'
               },
               {
-                href: '/notalink',
-                text: 'Second item'
+                href: '/link2',
+                text: 'Link 2'
               },
               {
-                href: '/notalink',
-                text: 'Third item',
+                href: '/link3',
+                text: 'Link 3',
                 active: true
               },
               {
-                href: '/notalink',
-                text: 'Fourth item'
+                href: '/link4',
+                text: 'Link 4'
               }
             ]
           },
@@ -334,13 +336,13 @@ examples:
             ],
             panel_links: [
               {
-                href: '/notalink',
-                text: 'First item',
+                href: '/link1',
+                text: 'Link 1',
                 active: true
               },
               {
-                href: '/notalink',
-                text: 'Second item'
+                href: '/link2',
+                text: 'Link 2'
               }
             ]
           }
@@ -348,7 +350,21 @@ examples:
         [
           {
             title: 'Small panel links 3',
-            panel: 'content'
+            panel: 'content',
+            panel_links: [
+              {
+                href: '/link3',
+                text: 'Link 3'
+              },
+              {
+                href: '/link4',
+                text: 'Link 4'
+              },
+              {
+                href: '/link5',
+                text: 'Link 5'
+              }
+            ]
           }
         ]
       ]

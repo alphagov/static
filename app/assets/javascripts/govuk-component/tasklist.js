@@ -18,6 +18,7 @@
     };
 
     var rememberOpenSection = false;
+    var taskListSize;
 
     this.start = function ($element) {
 
@@ -30,13 +31,16 @@
       $element.removeClass('js-hidden');
 
       rememberOpenSection = !!$element.filter('[data-remember]').length;
+      taskListSize = $element.hasClass('pub-c-task-list--large') ? 'Big' : 'Small';
+      var $steps = $element.find('.pub-c-task-list__step');
       var $sections = $element.find('.js-section');
       var $sectionHeaders = $element.find('.js-toggle-panel');
       var totalSections = $element.find('.js-panel').length;
+      var totalLinks = $element.find('.pub-c-task-list__panel-link-item').length;
 
       var $openOrCloseAllButton;
 
-      var tasklistTracker = new TasklistTracker(totalSections);
+      var tasklistTracker = new TasklistTracker(totalSections, totalLinks);
 
       addButtonstoSections();
       addOpenCloseAllButton();
@@ -77,11 +81,7 @@
       }
 
       function addAriaControlsAttrForOpenCloseAllButton() {
-        var ariaControlsValue = "";
-        var $sectionPanels = $element.find('.js-panel')
-        for (var i = 0; i < totalSections; i++) {
-          ariaControlsValue += $sectionPanels[i].id + " "
-        }
+        var ariaControlsValue = $element.find('.js-panel').first().attr('id');
 
         $openOrCloseAllButton = $element.find('.js-section-controls-button');
         $openOrCloseAllButton.attr('aria-controls', ariaControlsValue);
@@ -147,7 +147,7 @@
           var sectionView = new SectionView($(this).closest('.js-section'));
           sectionView.toggle();
 
-          var toggleClick = new SectionToggleClick(sectionView, $sections, tasklistTracker);
+          var toggleClick = new SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps);
           toggleClick.track();
 
           setOpenCloseAllText();
@@ -265,7 +265,7 @@
       }
 
       function numberOfContentItems() {
-        return $sectionContent.find('li').length;
+        return $sectionContent.find('.pub-c-task-list__panel-link').length;
       }
     }
 
@@ -285,8 +285,11 @@
       history.replaceState({}, '', newLocation);
     }
 
-    function SectionToggleClick(sectionView, $sections, tasklistTracker) {
+    function SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps) {
       this.track = trackClick;
+      var $target = $(event.target);
+      var $thisStep = sectionView.element.closest('.pub-c-task-list__step');
+      var $thisStepSections = $thisStep.find('.pub-c-task-list__section');
 
       function trackClick() {
         var tracking_options = {label: trackingLabel(), dimension28: sectionView.numberOfContentItems().toString()}
@@ -294,7 +297,7 @@
 
         if (!sectionView.isClosed()) {
           tasklistTracker.track(
-            'navtasklistLinkClicked',
+            'tasklistLinkClicked',
             String(sectionIndex()),
             {
               label: sectionView.href,
@@ -306,9 +309,19 @@
       }
 
       function trackingLabel() {
-        return sectionIndex() + '. ' + sectionView.title;
+        return stepIndex() + '.' + accordionIndex() + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + taskListSize;
       }
 
+      // needs to return which step we're in
+      function stepIndex() {
+        return $steps.index($thisStep) + 1;
+      }
+
+      function accordionIndex() {
+        return $thisStepSections.index(sectionView.element) + 1;
+      }
+
+      // returns index of the clicked section in the overall number of accordion sections, regardless of how many per step
       function sectionIndex() {
         return $sections.index(sectionView.element) + 1;
       }
@@ -316,15 +329,41 @@
       function trackingAction() {
         return (sectionView.isClosed() ? 'tasklistClosed' : 'tasklistOpened');
       }
+
+      function locateClickElement() {
+        if (clickedOnIcon()) {
+          return iconType() + ' click';
+        } else if (clickedOnHeading()) {
+          return 'Heading click';
+        } else {
+          return 'Elsewhere click';
+        }
+      }
+
+      function clickedOnIcon() {
+        return $target.hasClass('pub-c-task-list__icon');
+      }
+
+      function clickedOnHeading() {
+        return $target.hasClass('js-section-title-button');
+      }
+
+      function iconType() {
+        return (sectionView.isClosed() ? 'Minus' : 'Plus');
+      }
     }
 
     // A helper that sends a custom event request to Google Analytics if
     // the GOVUK module is setup
-    function TasklistTracker(totalSections) {
+    function TasklistTracker(totalSections, totalLinks) {
       this.track = function(category, action, options) {
+        // dimension26 records the total number of expand/collapse sections in this tasklist
+        // dimension27 records the total number of component links in this tasklist
+        // dimension28 records the number of component links in the section that was opened/closed (handled in click event)
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
           options = options || {};
-          options["dimension28"] = options["dimension28"] || totalSections.toString();
+          options["dimension26"] = options["dimension26"] || totalSections.toString();
+          options["dimension27"] = options["dimension27"] || totalLinks.toString();
           GOVUK.analytics.trackEvent(category, action, options);
         }
       }

@@ -216,7 +216,7 @@ $icon-size-large: 12px;
       height: $icon-size-large;
       width: $icon-size-large;
       margin-top: -($icon-size-large / 2) - 2;
-      // use a different PNG for IE8, which doesn't support background size
+      // repeating these two lines for the benefit of IE8, which doesn't support background size
       background-image: image-url('icon-plus-minus.png'); // PNG fallback for SVG
       background: image-url("icon-plus-minus.svg"), linear-gradient(transparent, transparent); // http://pauginer.com/post/36614680636/invisible-gradient-technique
     }
