@@ -46,33 +46,6 @@ describe("GOVUK.StaticAnalytics", function() {
       expect(GOVUK.analyticsPlugins.error).toHaveBeenCalled();
     });
 
-    describe('when ecommerce results are present', function() {
-      beforeEach(function() {
-        window.ga.calls.reset();
-      });
-
-      afterEach(function() {
-        $('.test-fixture').remove();
-      });
-
-      it('sends the ecommerce fields', function() {
-        $('body').append('\
-          <div class="test-fixture">\
-            <div data-analytics-ecommerce data-ecommerce-start-index="1" data-search-query="search query">\
-             <div \
-               data-ecommerce-row\
-               data-ecommerce-path="/path/to/page"\
-               data-ecommerce-content-id="static-analytics-test"\
-             </div>\
-           </div>\
-          </div>\
-        ')
-        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
-        expect(window.ga).toHaveBeenCalledWith('send', 'pageview', pageViewObject);
-      });
-    });
-
     describe('when there are govuk: meta tags', function() {
       beforeEach(function() {
         window.ga.calls.reset();
