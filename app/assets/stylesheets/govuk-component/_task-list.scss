@@ -16,7 +16,7 @@
   padding: 0;
 }
 
-$number-circle-size: 1.5em;
+$number-circle-size: 1.55em;
 $line-width: 3px;
 
 $first-indent: 28px;
@@ -74,7 +74,7 @@ $second-indent-small: 18px;
 }
 
 .pub-c-task-list__number {
-  @include bold-19;
+  @include bold-19(22px, 22px);
   @include box-sizing(border-box);
 
   position: absolute;
@@ -93,7 +93,7 @@ $second-indent-small: 18px;
 
   .pub-c-task-list--large & {
     @include media(tablet) {
-      @include bold-24($number-circle-size * 0.9);
+      @include bold-24(34px, 34px);
     }
   }
 }
@@ -269,8 +269,7 @@ $icon-size-large: 12px;
 
 .pub-c-task-list__panel {
   @include core-19;
-
-  padding-bottom: $gutter-half;
+  padding-bottom: $gutter-two-thirds;
 
   @include media(tablet) {
     @include core-16;
@@ -281,8 +280,9 @@ $icon-size-large: 12px;
   }
 
   .section-is-open & {
+    padding-top: 5px;
+
     @include media(tablet) {
-      padding-top: 5px;
       padding-bottom: $gutter;
     }
   }
