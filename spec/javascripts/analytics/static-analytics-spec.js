@@ -71,13 +71,23 @@ describe("GOVUK.StaticAnalytics", function() {
       it('ignores A/B meta tags with invalid dimensions', function () {
         $('head').append('\
           <meta name="govuk:ab-test" content="name-of-test:some-bucket">\
-          <meta name="govuk:ab-test" content="name-of-test:some-bucket" data-analytics-dimension="not a number">\
+          <meta name="govuk:ab-test" content="name-of-test:some-other-bucket" data-analytics-dimension="not a number">\
         ');
 
         analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
         pageViewObject = getPageViewObject();
 
-        expect(Object.keys(pageViewObject).length).toEqual(numberOfDimensionsWithDefaultValues);
+        // 1. check the dimensions haven't been created by using the "value" of data-analytics-dimension
+        expect(pageViewObject.hasOwnProperty('dimensionnot a number')).toEqual(false);
+        expect(pageViewObject.hasOwnProperty('dimensionundefined')).toEqual(false);
+
+        // 2. check the values haven't been used at all
+        var values = [];
+        for (key in pageViewObject) {
+          values.push(pageViewObject[key]);
+        }
+        expect(values).not.toContain('name-of-test:some-bucket');
+        expect(values).not.toContain('name-of-test:some-other-bucket');
       });
 
       [
