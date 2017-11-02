@@ -87,6 +87,20 @@
   end
 
   meta_tags["govuk:content-has-history"] = "true" if has_content_history(content_item_hash)
+
+  def should_strip_postcode_pii?(content_item, local_assigns)
+    # allow override if we explicitly want to strip pii (or not) regardless of
+    # document_type
+    return local_assigns[:strip_postcode_pii] if local_assigns.key?(:strip_postcode_pii)
+
+    formats_that_might_include_postcodes = [
+      'smart_answer',
+      'search'
+    ]
+    formats_that_might_include_postcodes.include?(content_item[:document_type])
+  end
+
+  meta_tags["govuk:static-analytics:strip-postcodes"] = "true" if should_strip_postcode_pii?(content_item_hash, local_assigns)
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">
