@@ -12,7 +12,7 @@
   margin-top: 0;
 }
 
-.pub-c-task-list__list {
+.pub-c-task-list__groups {
   padding: 0;
 }
 
@@ -98,7 +98,7 @@ $second-indent-small: 18px;
   }
 }
 
-.pub-c-task-list__step {
+.pub-c-task-list__group {
   position: relative;
   list-style: none;
   border-top: 1px solid $grey-2;
@@ -150,7 +150,7 @@ $second-indent-small: 18px;
   }
 }
 
-.pub-c-task-list__step--active {
+.pub-c-task-list__group--active {
   .pub-c-task-list__number {
     border-color: $black;
   }
@@ -161,7 +161,7 @@ $second-indent-small: 18px;
   }
 }
 
-.pub-c-task-list__section {
+.pub-c-task-list__step {
   &:after {
     content: "";
     display: block;
@@ -227,7 +227,7 @@ $icon-size-large: 12px;
   background-position: 0 -#{$icon-size};
   background-size: $icon-size;
 
-  .section-is-open & {
+  .step-is-open & {
     display: none;
   }
 
@@ -245,7 +245,7 @@ $icon-size-large: 12px;
   background-size: $icon-size;
   height: $icon-size - 1; // -1 is to avoid an irregular bug in Chrome where the plus part of the graphic is visible at the bottom of the element
 
-  .section-is-open & {
+  .step-is-open & {
     display: block;
   }
 
@@ -279,7 +279,7 @@ $icon-size-large: 12px;
     @include core-19;
   }
 
-  .section-is-open & {
+  .step-is-open & {
     padding-top: 5px;
 
     @include media(tablet) {
@@ -366,7 +366,7 @@ $active-dot-size: 16px;
     width: $active-dot-size;
     height: $active-dot-size;
     margin-left: -($active-dot-size / 2);
-    margin-top: -($active-dot-size / 2);
+    margin-top: -($active-dot-size / 2) - 2;
     background: $black;
     border-radius: 100px;
     border: solid 2px $white;
