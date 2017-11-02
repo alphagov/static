@@ -55,44 +55,6 @@ describe("GOVUK.StaticAnalytics", function() {
         $('head').find('meta[name^="govuk:"]').remove();
       });
 
-      it('sets them as dimensions', function() {
-        $('head').append('\
-          <meta name="govuk:section" content="section">\
-          <meta name="govuk:format" content="format">\
-          <meta name="govuk:search-result-count" content="1000">\
-          <meta name="govuk:publishing-government" content="2005-to-2010-labour-government">\
-          <meta name="govuk:political-status" content="historic">\
-          <meta name="govuk:analytics:organisations" content="<D10>">\
-          <meta name="govuk:analytics:world-locations" content="<W1>">\
-          <meta name="govuk:withdrawn" content="withdrawn">\
-          <meta name="govuk:schema-name" content="schema-name">\
-          <meta name="govuk:navigation-legacy" content="education">\
-        ');
-        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
-
-        expect(pageViewObject.dimension1).toEqual('section');
-        expect(pageViewObject.dimension2).toEqual('format');
-        expect(pageViewObject.dimension5).toEqual('1000');
-        expect(pageViewObject.dimension6).toEqual('2005-to-2010-labour-government');
-        expect(pageViewObject.dimension7).toEqual('historic');
-        expect(pageViewObject.dimension9).toEqual('<D10>');
-        expect(pageViewObject.dimension10).toEqual('<W1>');
-        expect(pageViewObject.dimension12).toEqual('withdrawn');
-        expect(pageViewObject.dimension17).toEqual('schema-name');
-        expect(pageViewObject.dimension30).toEqual('education')
-      });
-
-      it('ignores meta tags not set', function() {
-        $('head').append('<meta name="govuk:section" content="section">');
-
-        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-        pageViewObject = getPageViewObject();
-
-        expect(Object.keys(pageViewObject).length).toEqual(1 + numberOfDimensionsWithDefaultValues);
-        expect(pageViewObject.dimension1).toEqual('section');
-      });
-
       it('sets A/B meta tags as dimensions', function() {
         $('head').append('\
           <meta name="govuk:ab-test" content="name-of-test:name-of-ab-bucket" data-analytics-dimension="42">\
@@ -105,7 +67,6 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension42).toEqual('name-of-test:name-of-ab-bucket');
         expect(pageViewObject.dimension48).toEqual('name-of-other-test:name-of-other-ab-bucket');
       });
-
 
       it('ignores A/B meta tags with invalid dimensions', function () {
         $('head').append('\
@@ -169,12 +130,22 @@ describe("GOVUK.StaticAnalytics", function() {
           name: 'navigation-legacy',
           number: 30,
           defaultValue: 'none'
+        },
+        {
+          name: 'withdrawn',
+          number: 12,
+          defaultValue: 'not withdrawn'
+        },
+        {
+          name: 'content-has-history',
+          number: 39,
+          defaultValue: 'false'
         }
       ].forEach(function (dimension) {
         it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {
           $('head').append('\
-          <meta name="govuk:' + dimension.name + '" content="some-' + dimension.name + '-value">\
-        ');
+            <meta name="govuk:' + dimension.name + '" content="some-' + dimension.name + '-value">\
+          ');
 
           analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
           pageViewObject = getPageViewObject();
@@ -187,6 +158,63 @@ describe("GOVUK.StaticAnalytics", function() {
           pageViewObject = getPageViewObject();
 
           expect(pageViewObject['dimension' + dimension.number]).toEqual(dimension.defaultValue);
+        });
+      });
+
+      [
+        {
+          name: 'section',
+          number: 1
+        },
+        {
+          name: 'format',
+          number: 2
+        },
+        {
+          name: 'search-result-count',
+          number: 5
+        },
+        {
+          name: 'publishing-government',
+          number: 6
+        },
+        {
+          name: 'political-status',
+          number: 7
+        },
+        {
+          name: 'analytics:organisations',
+          number: 9
+        },
+        {
+          name: 'analytics:world-locations',
+          number: 10
+        },
+        {
+          name: 'schema-name',
+          number: 17
+        },
+        {
+          name: 'rendering-application',
+          number: 20
+        }
+      ].forEach(function (dimension) {
+        it('sets the ' + dimension.name + ' dimension from a meta tag if present', function () {
+          $('head').append('\
+            <meta name="govuk:' + dimension.name + '" content="some-' + dimension.name + '-value">\
+          ');
+
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+
+          expect(pageViewObject['dimension' + dimension.number]).toEqual('some-' + dimension.name + '-value');
+        });
+
+        it('does not send the dimension if no ' + dimension.name + ' meta tag is present', function () {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+
+          expect(pageViewObject.hasOwnProperty('dimension' + dimension.number)).toEqual(false);
         });
       });
     });
