@@ -56,11 +56,6 @@ describe("GOVUK.StaticAnalytics", function() {
       });
 
       it('sets them as dimensions', function() {
-        $('body').append('\
-          <div class="test-fixture">\
-            <main role="main" id="content" class="document-collection" lang="fr"></main>\
-          </div>\
-        ');
         $('head').append('\
           <meta name="govuk:section" content="section">\
           <meta name="govuk:format" content="format">\
@@ -85,7 +80,6 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension10).toEqual('<W1>');
         expect(pageViewObject.dimension12).toEqual('withdrawn');
         expect(pageViewObject.dimension17).toEqual('schema-name');
-        expect(pageViewObject.dimension23).toEqual('fr');
         expect(pageViewObject.dimension30).toEqual('education')
       });
 
@@ -888,6 +882,30 @@ describe("GOVUK.StaticAnalytics", function() {
           pageViewObject = getPageViewObject();
           expect(pageViewObject.dimension27).toEqual('3');
         });
+      });
+
+      it('sets the page language from the main element as a custom dimension', function () {
+        $('.test-fixture').remove();
+        $('body').append('\
+          <div class="test-fixture">\
+            <main role="main" id="content" class="document-collection" lang="fr"></main>\
+          </div>\
+        ');
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+        pageViewObject = getPageViewObject();
+        expect(pageViewObject.dimension23).toEqual('fr');
+      });
+
+      it('sets the page language as "unknown" if the main element has no lang attribute as a custom dimension', function () {
+        $('.test-fixture').remove();
+        $('body').append('\
+          <div class="test-fixture">\
+            <main role="main" id="content" class="document-collection"></main>\
+          </div>\
+        ');
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+        pageViewObject = getPageViewObject();
+        expect(pageViewObject.dimension23).toEqual('unknown');
       });
     });
   });
