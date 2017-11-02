@@ -16,9 +16,9 @@ describe('A tasklist module', function () {
               <p class="pub-c-task-list__description">Section 1 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="section-panel-10-0">\
-              <ol class="pub-c-task-list__panel-links">\
+              <ol class="pub-c-task-list__panel-links" data-length="1">\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="#" class="pub-c-task-list__panel-link-item">Link 1</a>\
+                  <a href="/link1" class="pub-c-task-list__panel-link-item js-panel-link" data-position="1.1.1">Link 1</a>\
                 </li>\
               </ol>\
             </div>\
@@ -29,12 +29,12 @@ describe('A tasklist module', function () {
               <p class="pub-c-task-list__description">Section 2 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="section-panel-11-1">\
-              <ol class="pub-c-task-list__panel-links">\
+              <ol class="pub-c-task-list__panel-links" data-length="2">\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="#" class="pub-c-task-list__panel-link-item">Link 2</a>\
+                  <a href="/link2" class="pub-c-task-list__panel-link-item js-panel-link" data-position="1.2.1">Link 2</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="#" class="pub-c-task-list__panel-link-item">Link 3</a>\
+                  <a href="/link3" class="pub-c-task-list__panel-link-item js-panel-link" data-position="1.2.2">Link 3</a>\
                 </li>\
               </ol>\
             </div>\
@@ -50,15 +50,15 @@ describe('A tasklist module', function () {
               <p class="pub-c-task-list__description">Section 3 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="section-panel-12-0">\
-              <ol class="pub-c-task-list__panel-links">\
+              <ol class="pub-c-task-list__panel-links" data-length="3">\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="#" class="pub-c-task-list__panel-link-item">Link 4</a>\
+                  <a href="/link4" class="pub-c-task-list__panel-link-item js-panel-link" data-position="2.1.1">Link 4</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="#" class="pub-c-task-list__panel-link-item">Link 5</a>\
+                  <a href="/link5" class="pub-c-task-list__panel-link-item js-panel-link" data-position="2.1.2">Link 5</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="#" class="pub-c-task-list__panel-link-item">Link 6</a>\
+                  <a href="/link6" class="pub-c-task-list__panel-link-item js-panel-link" data-position="2.1.3">Link 6</a>\
                 </li>\
               </ol>\
             </div>\
@@ -474,6 +474,24 @@ describe('A tasklist module', function () {
         dimension27: expectedTasklistLinkCount.toString(),
         dimension28: expectedTasklistContentCount.toString()
       });
+    });
+  });
+
+  it("triggers a google analytics event when clicking a panel link", function () {
+    GOVUK.analytics = {
+      trackEvent: function () {
+      }
+    };
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    var $panelLink = $element.find('.js-panel-link').first();
+    $panelLink.click();
+
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', '1.1.1', {
+      label: '/link1',
+      dimension26: expectedTasklistSectionCount.toString(),
+      dimension27: expectedTasklistLinkCount.toString(),
+      dimension28: expectedTasklistContentCount.toString()
     });
   });
 

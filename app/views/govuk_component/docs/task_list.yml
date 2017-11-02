@@ -281,7 +281,16 @@ examples:
           },
           {
             title: 'Panel links 3',
-            panel: 'content'
+            panel_links: [
+              {
+                href: '/link5',
+                text: 'Link 5'
+              },
+              {
+                href: '/link6',
+                text: 'Link 6'
+              }
+            ]
           }
         ]
       ]

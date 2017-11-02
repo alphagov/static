@@ -341,7 +341,7 @@ $icon-size-large: 12px;
 
 .pub-c-task-list__panel-link {
   position: relative;
-  padding: 0 0 0.5em;
+  padding: 0.25em 0;
 }
 
 .pub-c-task-list__panel-link-item {
@@ -372,7 +372,7 @@ $active-dot-size: 16px;
     border: solid 2px $white;
   }
 
-  .pub-c-task-list__panel-link-item--active {
+  .pub-c-task-list__panel-link-item {
     color: $black;
   }
 }

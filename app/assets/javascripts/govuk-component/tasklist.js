@@ -52,6 +52,7 @@
 
       bindToggleForSections(tasklistTracker);
       bindToggleOpenCloseAllButton(tasklistTracker);
+      bindComponentLinkClicks(tasklistTracker);
 
       // When navigating back in browser history to the tasklist, the browser will try to be "clever" and return
       // the user to their previous scroll position. However, since we collapse all but the currently-anchored
@@ -151,6 +152,14 @@
           toggleClick.track();
 
           setOpenCloseAllText();
+        });
+      }
+
+      // tracking click events on panel links
+      function bindComponentLinkClicks(tasklistTracker) {
+        $element.find('.js-panel-link').click(function (event) {
+          var linkClick = new componentLinkClick(event, tasklistTracker, $(this).attr('data-position'));
+          linkClick.track();
         });
       }
 
@@ -350,6 +359,15 @@
 
       function iconType() {
         return (sectionView.isClosed() ? 'Minus' : 'Plus');
+      }
+    }
+
+    function componentLinkClick(event, tasklistTracker, linkPosition) {
+      this.track = trackClick;
+
+      function trackClick() {
+        var tracking_options = {label: $(event.target).attr('href'), dimension28: $(event.target).closest('.pub-c-task-list__panel-links').attr('data-length')};
+        tasklistTracker.track('taskAccordionLinkClicked', linkPosition, tracking_options);
       }
     }
 
