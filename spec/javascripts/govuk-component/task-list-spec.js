@@ -11,7 +11,7 @@ describe('A tasklist module', function () {
             <span class="visuallyhidden">Step </span>1\
           </span>\
           <div class="pub-c-task-list__section js-section" id="topic-section-one" data-track-count="tasklistSection">\
-            <div class="pub-c-task-list__header js-toggle-panel">\
+            <div class="pub-c-task-list__header js-toggle-panel" data-position="1.1">\
               <h2 class="pub-c-task-list__title js-section-title">Topic Section One</h2>\
               <p class="pub-c-task-list__description">Section 1 description in here</p>\
             </div>\
@@ -24,7 +24,7 @@ describe('A tasklist module', function () {
             </div>\
           </div>\
           <div class="pub-c-task-list__section js-section" id="topic-section-two" data-track-count="tasklistSection">\
-            <div class="pub-c-task-list__header js-toggle-panel">\
+            <div class="pub-c-task-list__header js-toggle-panel" data-position="1.2">\
               <h2 class="pub-c-task-list__title js-section-title">Topic Section Two</h2>\
               <p class="pub-c-task-list__description">Section 2 description in here</p>\
             </div>\
@@ -45,7 +45,7 @@ describe('A tasklist module', function () {
             <span class="visuallyhidden">Step </span>2\
           </span>\
           <div class="pub-c-task-list__section js-section" id="topic-section-one" data-track-count="tasklistSection">\
-            <div class="pub-c-task-list__header js-toggle-panel">\
+            <div class="pub-c-task-list__header js-toggle-panel" data-position="2.1">\
               <h2 class="pub-c-task-list__title js-section-title">Topic Section Three</h2>\
               <p class="pub-c-task-list__description">Section 3 description in here</p>\
             </div>\

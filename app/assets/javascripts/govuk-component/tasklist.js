@@ -318,16 +318,7 @@
       }
 
       function trackingLabel() {
-        return stepIndex() + '.' + accordionIndex() + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + taskListSize;
-      }
-
-      // needs to return which step we're in
-      function stepIndex() {
-        return $steps.index($thisStep) + 1;
-      }
-
-      function accordionIndex() {
-        return $thisStepSections.index(sectionView.element) + 1;
+        return $target.closest('.js-toggle-panel').attr('data-position') + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + taskListSize;
       }
 
       // returns index of the clicked section in the overall number of accordion sections, regardless of how many per step

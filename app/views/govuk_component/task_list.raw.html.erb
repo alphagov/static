@@ -35,7 +35,7 @@
               data-track-count="tasklistSection"
               <% if section_count == open_section %>data-open<% end %>
               >
-              <div class="pub-c-task-list__header js-toggle-panel">
+              <div class="pub-c-task-list__header js-toggle-panel" data-position="<%= "#{steps_index + 1}.#{step_index + 1}" %>">
                 <h<%= heading_level %> class="pub-c-task-list__title js-section-title">
                   <%= section[:title] %>
                 </h<%= heading_level %>>
