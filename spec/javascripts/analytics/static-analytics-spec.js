@@ -1067,13 +1067,34 @@ describe("GOVUK.StaticAnalytics", function() {
     // needs to be called manually. We do this below and reload the arguments sent
     // to window.ga in order to obtain the trackPageView args as well.
 
+    // 1. get all arguments to all calls to the ga() function
     universalSetupArguments = window.ga.calls.allArgs()
 
+    // 2. get the ga(function(tracker) { ...}) call - it's the 4th one:
+    //    1st is the call to create "universal-id"
+    //    2nd is the call to set "anonymizeIp"
+    //    3rd is the call to set "displayFeaturesTask"
+    //    4th is the call that sets the tracker function callback
     bound = universalSetupArguments[3][0];
+
+    // 3. trigger the callback with a canned tracker object that has a stubbed
+    //    get method that always retuns the same client id.  This is the only
+    //    method we expect to call on the tracker object - calling anything
+    //    else should cause these specs to fail.
     bound({get: function () { return '12345.67890' }});
 
+    // 4. get all the calls to ga() again as executing the callback will add a
+    //    5th call.  This time it's the one to to send "pageview" which is the
+    //    initial page view tracking we're interested in.
     universalSetupArguments = window.ga.calls.allArgs();
     lastArgumentSet = universalSetupArguments.pop();
+
+    // 5. make sure this final set of arguments is the one we're looking for
+    //    and fail the test otherwise.
+    expect(lastArgumentSet[0]).toEqual('send');
+    expect(lastArgumentSet[1]).toEqual('pageview');
+
+    // 6. extract the arguments to that last call and return them
     pageViewObject = lastArgumentSet[2];
 
     return pageViewObject;
