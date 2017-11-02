@@ -47,4 +47,12 @@ class ButtonTestCase < ComponentTestCase
     assert_select ".pub-c-button", text: "Start now"
     assert_select ".pub-c-button__info-text", text: "Information text"
   end
+
+  test "renders rel attribute correctly" do
+    render_component(text: "Start now", rel: "nofollow")
+    assert_select ".pub-c-button[rel='nofollow']", text: "Start now"
+
+    render_component(text: "Start now", rel: "nofollow preload")
+    assert_select ".pub-c-button[rel='nofollow preload']", text: "Start now"
+  end
 end
