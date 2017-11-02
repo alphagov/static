@@ -189,271 +189,271 @@ describe("GOVUK.StaticAnalytics", function() {
           expect(pageViewObject['dimension' + dimension.number]).toEqual(dimension.defaultValue);
         });
       });
+    });
 
-      describe('when tracking the number of sections and links on a page', function() {
-        describe('on a page with a normal sidebar', function() {
-          beforeEach(function() {
-            $('head').append('\
-              <div class="test-meta-tags">\
-                <meta name="govuk:rendering-application" content="government-frontend">\
-                <meta name="govuk:format" content="transaction">\
-              </div>\
-            ')
-            $('body').append('\
-              <div class="test-fixture">\
-                <aside class="govuk-related-items">\
-                  <h2 data-track-count="sidebarRelatedItemSection">Section 1</h2>\
+    describe('setting custom dimensions based on elements of the page', function () {
+      describe('on a page with a normal sidebar', function() {
+        beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="government-frontend">\
+              <meta name="govuk:format" content="transaction">\
+            </div>\
+          ')
+          $('body').append('\
+            <div class="test-fixture">\
+              <aside class="govuk-related-items">\
+                <h2 data-track-count="sidebarRelatedItemSection">Section 1</h2>\
+                <nav role="navigation">\
+                  <ul>\
+                    <li>\
+                      <a data-track-category="relatedLinkClicked">\
+                        Link 1.1\
+                      </a>\
+                    </li>\
+                    <li>\
+                      <a data-track-category="relatedLinkClicked">\
+                        Link 1.2\
+                      </a>\
+                    </li>\
+                  </ul>\
+                </nav>\
+                <h2 data-track-count="sidebarRelatedItemSection">Section 2</h2>\
+                <nav role="navigation">\
+                  <ul>\
+                    <li>\
+                      <a data-track-category="relatedLinkClicked">\
+                        Link 2.1\
+                      </a>\
+                    </li>\
+                  </ul>\
+                </nav>\
+              </aside>\
+            </div>\
+          ');
+        });
+
+        afterEach(function() {
+          $('.test-meta-tags').remove();
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sidebar sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
+
+        it('tracks the total number of related links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('3');
+        });
+      });
+
+      describe('on a page with a taxon sidebar', function() {
+        beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="government-frontend">\
+              <meta name="govuk:format" content="transaction">\
+            </div>\
+          ')
+          $('body').append('\
+            <div class="test-fixture">\
+              <aside class="govuk-taxonomy-sidebar">\
+                <div class="sidebar-taxon" data-track-count="sidebarTaxonSection">\
+                  <h2><a href data-track-category="relatedLinkClicked">Section 1</a></h2>\
                   <nav role="navigation">\
                     <ul>\
                       <li>\
-                        <a data-track-category="relatedLinkClicked">\
+                        <a href data-track-category="relatedLinkClicked">\
                           Link 1.1\
                         </a>\
                       </li>\
                       <li>\
-                        <a data-track-category="relatedLinkClicked">\
+                        <a href data-track-category="relatedLinkClicked">\
                           Link 1.2\
                         </a>\
                       </li>\
                     </ul>\
                   </nav>\
-                  <h2 data-track-count="sidebarRelatedItemSection">Section 2</h2>\
+                </div>\
+                <div class="sidebar-taxon" data-track-count="sidebarTaxonSection">\
+                  <h2><a href data-track-category="relatedLinkClicked">Section 2</a></h2>\
                   <nav role="navigation">\
                     <ul>\
                       <li>\
-                        <a data-track-category="relatedLinkClicked">\
+                        <a href data-track-category="relatedLinkClicked">\
                           Link 2.1\
                         </a>\
                       </li>\
                     </ul>\
                   </nav>\
-                </aside>\
-              </div>\
-            ');
-          });
-
-          afterEach(function() {
-            $('.test-meta-tags').remove();
-            $('.test-fixture').remove();
-          });
-
-          it('tracks the number of sidebar sections', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
-          });
-
-          it('tracks the total number of related links', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('3');
-          });
+                </div>\
+              </aside>\
+            </div>\
+          ');
         });
 
-        describe('on a page with a taxon sidebar', function() {
-          beforeEach(function() {
-            $('head').append('\
-              <div class="test-meta-tags">\
-                <meta name="govuk:rendering-application" content="government-frontend">\
-                <meta name="govuk:format" content="transaction">\
-              </div>\
-            ')
-            $('body').append('\
-              <div class="test-fixture">\
-                <aside class="govuk-taxonomy-sidebar">\
-                  <div class="sidebar-taxon" data-track-count="sidebarTaxonSection">\
-                    <h2><a href data-track-category="relatedLinkClicked">Section 1</a></h2>\
-                    <nav role="navigation">\
-                      <ul>\
+        afterEach(function() {
+          $('.test-meta-tags').remove();
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of sidebar sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
+
+        it('tracks the total number of related links, including headers', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('5');
+        });
+      });
+
+      describe('on a page with an accordion', function() {
+        beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="collections">\
+              <meta name="govuk:navigation-page-type" content="accordion">\
+              <meta name="govuk:format" content="taxon">\
+            </div>\
+          ')
+          $('body').append('\
+            <div class="test-fixture">\
+              <div class="accordion-with-descriptions">\
+                <div class="subsection-wrapper">\
+                  <div class="subsection" data-track-count="accordionSection">\
+                    <div class="subsection-header">\
+                      <a href><h2>Section 1</h2></a>\
+                    </div>\
+                    <div class="subsection-content">\
+                      <ol>\
                         <li>\
-                          <a href data-track-category="relatedLinkClicked">\
+                          <a href data-track-category="navAccordionLinkClicked">\
                             Link 1.1\
                           </a>\
                         </li>\
                         <li>\
-                          <a href data-track-category="relatedLinkClicked">\
+                          <a href data-track-category="navAccordionLinkClicked">\
                             Link 1.2\
                           </a>\
                         </li>\
-                      </ul>\
-                    </nav>\
+                      </ol>\
+                    </div>\
                   </div>\
-                  <div class="sidebar-taxon" data-track-count="sidebarTaxonSection">\
-                    <h2><a href data-track-category="relatedLinkClicked">Section 2</a></h2>\
-                    <nav role="navigation">\
-                      <ul>\
+                  <div class="subsection" data-track-count="accordionSection">\
+                    <div class="subsection-header">\
+                      <a href><h2>Section 2</h2></a>\
+                    </div>\
+                    <div class="subsection-content">\
+                      <ol>\
                         <li>\
-                          <a href data-track-category="relatedLinkClicked">\
+                          <a href data-track-category="navAccordionLinkClicked">\
                             Link 2.1\
                           </a>\
                         </li>\
-                      </ul>\
-                    </nav>\
-                  </div>\
-                </aside>\
-              </div>\
-            ');
-          });
-
-          afterEach(function() {
-            $('.test-meta-tags').remove();
-            $('.test-fixture').remove();
-          });
-
-          it('tracks the number of sidebar sections', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
-          });
-
-          it('tracks the total number of related links, including headers', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('5');
-          });
-        });
-
-        describe('on a page with an accordion', function() {
-          beforeEach(function() {
-            $('head').append('\
-              <div class="test-meta-tags">\
-                <meta name="govuk:rendering-application" content="collections">\
-                <meta name="govuk:navigation-page-type" content="accordion">\
-                <meta name="govuk:format" content="taxon">\
-              </div>\
-            ')
-            $('body').append('\
-              <div class="test-fixture">\
-                <div class="accordion-with-descriptions">\
-                  <div class="subsection-wrapper">\
-                    <div class="subsection" data-track-count="accordionSection">\
-                      <div class="subsection-header">\
-                        <a href><h2>Section 1</h2></a>\
-                      </div>\
-                      <div class="subsection-content">\
-                        <ol>\
-                          <li>\
-                            <a href data-track-category="navAccordionLinkClicked">\
-                              Link 1.1\
-                            </a>\
-                          </li>\
-                          <li>\
-                            <a href data-track-category="navAccordionLinkClicked">\
-                              Link 1.2\
-                            </a>\
-                          </li>\
-                        </ol>\
-                      </div>\
-                    </div>\
-                    <div class="subsection" data-track-count="accordionSection">\
-                      <div class="subsection-header">\
-                        <a href><h2>Section 2</h2></a>\
-                      </div>\
-                      <div class="subsection-content">\
-                        <ol>\
-                          <li>\
-                            <a href data-track-category="navAccordionLinkClicked">\
-                              Link 2.1\
-                            </a>\
-                          </li>\
-                        </ol>\
-                      </div>\
+                      </ol>\
                     </div>\
                   </div>\
                 </div>\
               </div>\
-            ');
-          });
-
-          afterEach(function() {
-            $('.test-meta-tags').remove();
-            $('.test-fixture').remove();
-          });
-
-          it('tracks the number of accordion sections', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
-          });
-
-          it('tracks the total number of accordion section links', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('3');
-          });
+            </div>\
+          ');
         });
 
-        describe('on a page with a grid', function() {
-          beforeEach(function() {
-            $('head').append('\
-              <div class="test-meta-tags">\
-                <meta name="govuk:rendering-application" content="collections">\
-                <meta name="govuk:navigation-page-type" content="grid">\
-                <meta name="govuk:format" content="taxon">\
-              </div>\
-            ')
-            $('body').append('\
-              <div class="test-fixture">\
-                <main class="taxon-page">\
-                  <nav role="navigation">\
-                    <ol>\
-                      <li>\
-                        <h2>\
-                          <a href data-track-category="navGridLinkClicked">Link 1</a>\
-                        </h2>\
-                      </li>\
-                      <li>\
-                        <h2>\
-                          <a href data-track-category="navGridLinkClicked">Link 2</a>\
-                        </h2>\
-                      </li>\
-                      <li>\
-                        <h2>\
-                          <a href data-track-category="navGridLinkClicked">Link 3</a>\
-                        </h2>\
-                      </li>\
-                    </ol>\
-                  </nav>\
-                  <div class="grid-row">\
-                    <div class="parent-topic-contents">\
-                      <div class="topic-content">\
-                        <h2>Grid leaves</h2>\
-                        <ol>\
-                          <li><h2>\
-                            <a href data-track-category="navGridLeafLinkClicked">\
-                              Leaf 1\
-                            </a>\
-                          </h2></li>\
-                          \<li><h2>\
-                            <a href data-track-category="navGridLeafLinkClicked">\
-                              Leaf 2\
-                            </a>\
-                          </h2></li>\
-                        </ol>\
-                      </div>\
+        afterEach(function() {
+          $('.test-meta-tags').remove();
+          $('.test-fixture').remove();
+        });
+
+        it('tracks the number of accordion sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
+
+        it('tracks the total number of accordion section links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('3');
+        });
+      });
+
+      describe('on a page with a grid', function() {
+        beforeEach(function() {
+          $('head').append('\
+            <div class="test-meta-tags">\
+              <meta name="govuk:rendering-application" content="collections">\
+              <meta name="govuk:navigation-page-type" content="grid">\
+              <meta name="govuk:format" content="taxon">\
+            </div>\
+          ')
+          $('body').append('\
+            <div class="test-fixture">\
+              <main class="taxon-page">\
+                <nav role="navigation">\
+                  <ol>\
+                    <li>\
+                      <h2>\
+                        <a href data-track-category="navGridLinkClicked">Link 1</a>\
+                      </h2>\
+                    </li>\
+                    <li>\
+                      <h2>\
+                        <a href data-track-category="navGridLinkClicked">Link 2</a>\
+                      </h2>\
+                    </li>\
+                    <li>\
+                      <h2>\
+                        <a href data-track-category="navGridLinkClicked">Link 3</a>\
+                      </h2>\
+                    </li>\
+                  </ol>\
+                </nav>\
+                <div class="grid-row">\
+                  <div class="parent-topic-contents">\
+                    <div class="topic-content">\
+                      <h2>Grid leaves</h2>\
+                      <ol>\
+                        <li><h2>\
+                          <a href data-track-category="navGridLeafLinkClicked">\
+                            Leaf 1\
+                          </a>\
+                        </h2></li>\
+                        \<li><h2>\
+                          <a href data-track-category="navGridLeafLinkClicked">\
+                            Leaf 2\
+                          </a>\
+                        </h2></li>\
+                      </ol>\
                     </div>\
                   </div>\
-                </main>\
-              </div>\
-            ');
-          });
+                </div>\
+              </main>\
+            </div>\
+          ');
+        });
 
-          afterEach(function() {
-            $('.test-meta-tags').remove();
-            $('.test-fixture').remove();
-          });
+        afterEach(function() {
+          $('.test-meta-tags').remove();
+          $('.test-fixture').remove();
+        });
 
-          it('tracks the number of sections', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension26).toEqual('2');
-          });
+        it('tracks the number of sections', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension26).toEqual('2');
+        });
 
-          it('tracks the total number of grid links and leaf links', function() {
-            analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
-            pageViewObject = getPageViewObject();
-            expect(pageViewObject.dimension27).toEqual('5');
-          });
+        it('tracks the total number of grid links and leaf links', function() {
+          analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+          pageViewObject = getPageViewObject();
+          expect(pageViewObject.dimension27).toEqual('5');
         });
       });
 
