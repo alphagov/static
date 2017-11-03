@@ -2,6 +2,7 @@
   start ||= false
   href ||= false
   info_text ||= false
+  rel ||= false
   text ||= ""
   tag_name = href ? "a" : "button"
 %>
@@ -15,6 +16,10 @@
   <% if href %>
     href="<%= href.try(:html_safe) %>"
     role="button"
+  <% end %>
+
+  <% if rel %>
+    rel="<%= rel %>"
   <% end %>
 >
   <%= text %>
