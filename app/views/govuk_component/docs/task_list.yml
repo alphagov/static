@@ -81,7 +81,7 @@ examples:
         ]
       ]
   with_different_heading_level:
-    description: Sections have a H2 by default, but this can be changed. The heading level does not change any styling.
+    description: Steps have a H2 by default, but this can be changed. The heading level does not change any styling.
     data:
       heading_level: 3
       groups: [
