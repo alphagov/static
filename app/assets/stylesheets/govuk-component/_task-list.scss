@@ -12,13 +12,11 @@
   margin-top: 0;
 }
 
-.pub-c-task-list__list {
+.pub-c-task-list__groups {
   padding: 0;
 }
 
-$number-circle-size: 1.5em;
 $line-width: 3px;
-
 $first-indent: 28px;
 $second-indent: 26px;
 $first-indent-small: 15px;
@@ -73,8 +71,11 @@ $second-indent-small: 18px;
   }
 }
 
+$number-circle-size: 26px;
+$number-circle-size-large: 34px;
+
 .pub-c-task-list__number {
-  @include bold-19;
+  @include bold-19(23px, 23px);
   @include box-sizing(border-box);
 
   position: absolute;
@@ -93,12 +94,17 @@ $second-indent-small: 18px;
 
   .pub-c-task-list--large & {
     @include media(tablet) {
-      @include bold-24($number-circle-size * 0.9);
+      @include bold-24(30px, 30px);
+
+      width: $number-circle-size-large;
+      height: $number-circle-size-large;
+      margin-top: -($number-circle-size-large / 2);
+      margin-left: -($number-circle-size-large / 2);
     }
   }
 }
 
-.pub-c-task-list__step {
+.pub-c-task-list__group {
   position: relative;
   list-style: none;
   border-top: 1px solid $grey-2;
@@ -150,7 +156,7 @@ $second-indent-small: 18px;
   }
 }
 
-.pub-c-task-list__step--active {
+.pub-c-task-list__group--active {
   .pub-c-task-list__number {
     border-color: $black;
   }
@@ -161,7 +167,7 @@ $second-indent-small: 18px;
   }
 }
 
-.pub-c-task-list__section {
+.pub-c-task-list__step {
   &:after {
     content: "";
     display: block;
@@ -227,7 +233,7 @@ $icon-size-large: 12px;
   background-position: 0 -#{$icon-size};
   background-size: $icon-size;
 
-  .section-is-open & {
+  .step-is-open & {
     display: none;
   }
 
@@ -245,7 +251,7 @@ $icon-size-large: 12px;
   background-size: $icon-size;
   height: $icon-size - 1; // -1 is to avoid an irregular bug in Chrome where the plus part of the graphic is visible at the bottom of the element
 
-  .section-is-open & {
+  .step-is-open & {
     display: block;
   }
 
@@ -269,8 +275,7 @@ $icon-size-large: 12px;
 
 .pub-c-task-list__panel {
   @include core-19;
-
-  padding-bottom: $gutter-half;
+  padding-bottom: $gutter-two-thirds;
 
   @include media(tablet) {
     @include core-16;
@@ -280,9 +285,10 @@ $icon-size-large: 12px;
     @include core-19;
   }
 
-  .section-is-open & {
+  .step-is-open & {
+    padding-top: 5px;
+
     @include media(tablet) {
-      padding-top: 5px;
       padding-bottom: $gutter;
     }
   }
@@ -332,7 +338,7 @@ $icon-size-large: 12px;
   padding: 0;
   margin: 0;
   margin-bottom: 1em;
-  font-size: inherit; //task list is used in a lot of apps and sometimes the default p size breaks it
+  font-size: inherit; // task list is used in a lot of apps and sometimes the default p size breaks it
 }
 
 .pub-c-task-list__panel-links {
@@ -341,7 +347,7 @@ $icon-size-large: 12px;
 
 .pub-c-task-list__panel-link {
   position: relative;
-  padding: 0 0 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .pub-c-task-list__panel-link-item {
@@ -366,13 +372,13 @@ $active-dot-size: 16px;
     width: $active-dot-size;
     height: $active-dot-size;
     margin-left: -($active-dot-size / 2);
-    margin-top: -($active-dot-size / 2);
+    margin-top: -($active-dot-size / 2) - 3;
     background: $black;
     border-radius: 100px;
     border: solid 2px $white;
   }
 
-  .pub-c-task-list__panel-link-item--active {
+  .pub-c-task-list__panel-link-item {
     color: $black;
   }
 }

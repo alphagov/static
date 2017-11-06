@@ -17,7 +17,7 @@
       }
     };
 
-    var rememberOpenSection = false;
+    var rememberOpenStep = false;
     var taskListSize;
 
     this.start = function ($element) {
@@ -30,91 +30,92 @@
       // Prevent FOUC, remove class hiding content
       $element.removeClass('js-hidden');
 
-      rememberOpenSection = !!$element.filter('[data-remember]').length;
+      rememberOpenStep = !!$element.filter('[data-remember]').length;
       taskListSize = $element.hasClass('pub-c-task-list--large') ? 'Big' : 'Small';
-      var $steps = $element.find('.pub-c-task-list__step');
-      var $sections = $element.find('.js-section');
-      var $sectionHeaders = $element.find('.js-toggle-panel');
-      var totalSections = $element.find('.js-panel').length;
+      var $groups = $element.find('.pub-c-task-list__group');
+      var $steps = $element.find('.js-step');
+      var $stepHeaders = $element.find('.js-toggle-panel');
+      var totalSteps = $element.find('.js-panel').length;
       var totalLinks = $element.find('.pub-c-task-list__panel-link-item').length;
 
       var $openOrCloseAllButton;
 
-      var tasklistTracker = new TasklistTracker(totalSections, totalLinks);
+      var tasklistTracker = new TasklistTracker(totalSteps, totalLinks);
 
-      addButtonstoSections();
+      addButtonstoSteps();
       addOpenCloseAllButton();
-      addIconsToSections();
+      addIconsToSteps();
       addAriaControlsAttrForOpenCloseAllButton();
 
-      closeAllSections();
-      openLinkedSection();
+      closeAllSteps();
+      openLinkedStep();
 
-      bindToggleForSections(tasklistTracker);
+      bindToggleForSteps(tasklistTracker);
       bindToggleOpenCloseAllButton(tasklistTracker);
+      bindComponentLinkClicks(tasklistTracker);
 
       // When navigating back in browser history to the tasklist, the browser will try to be "clever" and return
       // the user to their previous scroll position. However, since we collapse all but the currently-anchored
-      // section, the content length changes and the user is returned to the wrong position (often the footer).
+      // step, the content length changes and the user is returned to the wrong position (often the footer).
       // In order to correct this behaviour, as the user leaves the page, we anticipate the correct height we wish the
       // user to return to by forcibly scrolling them to that height, which becomes the height the browser will return
       // them to.
       // If we can't find an element to return them to, then reset the scroll to the top of the page. This handles
-      // the case where the user has expanded all sections, so they are not returned to a particular section, but
+      // the case where the user has expanded all steps, so they are not returned to a particular step, but
       // still could have scrolled a long way down the page.
       function storeScrollPosition() {
-        closeAllSections();
-        var $section = getSectionForAnchor();
+        closeAllSteps();
+        var $step = getStepForAnchor();
 
-        document.body.scrollTop = $section && $section.length
-          ? $section.offset().top
+        document.body.scrollTop = $step && $step.length
+          ? $step.offset().top
           : 0;
       }
 
       function addOpenCloseAllButton() {
-        $element.prepend('<div class="pub-c-task-list__controls"><button aria-expanded="false" class="pub-c-task-list__button pub-c-task-list__button--controls js-section-controls-button">' + bulkActions.openAll.buttonText + '</button></div>');
+        $element.prepend('<div class="pub-c-task-list__controls"><button aria-expanded="false" class="pub-c-task-list__button pub-c-task-list__button--controls js-step-controls-button">' + bulkActions.openAll.buttonText + '</button></div>');
       }
 
-      function addIconsToSections() {
-        $sectionHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--plus"></span>');
-        $sectionHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--minus"></span>');
+      function addIconsToSteps() {
+        $stepHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--plus"></span>');
+        $stepHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--minus"></span>');
       }
 
       function addAriaControlsAttrForOpenCloseAllButton() {
         var ariaControlsValue = $element.find('.js-panel').first().attr('id');
 
-        $openOrCloseAllButton = $element.find('.js-section-controls-button');
+        $openOrCloseAllButton = $element.find('.js-step-controls-button');
         $openOrCloseAllButton.attr('aria-controls', ariaControlsValue);
       }
 
-      function closeAllSections() {
-        setAllSectionsOpenState(false);
+      function closeAllSteps() {
+        setAllStepsOpenState(false);
       }
 
-      function setAllSectionsOpenState(isOpen) {
-        $.each($sections, function () {
-          var sectionView = new SectionView($(this));
-          sectionView.preventHashUpdate();
-          sectionView.setIsOpen(isOpen);
+      function setAllStepsOpenState(isOpen) {
+        $.each($steps, function () {
+          var stepView = new StepView($(this));
+          stepView.preventHashUpdate();
+          stepView.setIsOpen(isOpen);
         });
       }
 
-      function openLinkedSection() {
-        var $section;
-        if (rememberOpenSection) {
-          $section = getSectionForAnchor();
+      function openLinkedStep() {
+        var $step;
+        if (rememberOpenStep) {
+          $step = getStepForAnchor();
         }
         else {
-          $section = $sections.filter('[data-open]');
+          $step = $steps.filter('[data-open]');
         }
 
-        if ($section && $section.length) {
-          var sectionView = new SectionView($section);
-          sectionView.open();
+        if ($step && $step.length) {
+          var stepView = new StepView($step);
+          stepView.open();
         }
       }
 
-      function getSectionForAnchor() {
+      function getStepForAnchor() {
         var anchor = getActiveAnchor();
 
         return anchor.length
@@ -126,31 +127,39 @@
         return GOVUK.getCurrentLocation().hash;
       }
 
-      function addButtonstoSections() {
-        $.each($sections, function () {
-          var $section = $(this);
-          var $title = $section.find('.js-section-title');
-          var contentId = $section.find('.js-panel').first().attr('id');
+      function addButtonstoSteps() {
+        $.each($steps, function () {
+          var $step = $(this);
+          var $title = $step.find('.js-step-title');
+          var contentId = $step.find('.js-panel').first().attr('id');
 
           $title.wrapInner(
             '<button ' +
-            'class="pub-c-task-list__button pub-c-task-list__button--title js-section-title-button" ' +
+            'class="pub-c-task-list__button pub-c-task-list__button--title js-step-title-button" ' +
             'aria-expanded="false" aria-controls="' + contentId + '">' +
             '</button>' );
         });
       }
 
-      function bindToggleForSections(tasklistTracker) {
+      function bindToggleForSteps(tasklistTracker) {
         $element.find('.js-toggle-panel').click(function (event) {
           preventLinkFollowingForCurrentTab(event);
 
-          var sectionView = new SectionView($(this).closest('.js-section'));
-          sectionView.toggle();
+          var stepView = new StepView($(this).closest('.js-step'));
+          stepView.toggle();
 
-          var toggleClick = new SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps);
+          var toggleClick = new StepToggleClick(event, stepView, $steps, tasklistTracker, $groups);
           toggleClick.track();
 
           setOpenCloseAllText();
+        });
+      }
+
+      // tracking click events on panel links
+      function bindComponentLinkClicks(tasklistTracker) {
+        $element.find('.js-panel-link').click(function (event) {
+          var linkClick = new componentLinkClick(event, tasklistTracker, $(this).attr('data-position'));
+          linkClick.track();
         });
       }
 
@@ -165,7 +174,7 @@
       }
 
       function bindToggleOpenCloseAllButton(tasklistTracker) {
-        $openOrCloseAllButton = $element.find('.js-section-controls-button');
+        $openOrCloseAllButton = $element.find('.js-step-controls-button');
         $openOrCloseAllButton.on('click', function () {
           var shouldOpenAll;
 
@@ -185,7 +194,7 @@
             });
           }
 
-          setAllSectionsOpenState(shouldOpenAll);
+          setAllStepsOpenState(shouldOpenAll);
           $openOrCloseAllButton.attr('aria-expanded', shouldOpenAll);
           setOpenCloseAllText();
           setHash(null);
@@ -195,9 +204,9 @@
       }
 
       function setOpenCloseAllText() {
-        var openSections = $element.find('.section-is-open').length;
-        // Find out if the number of is-opens == total number of sections
-        if (openSections === totalSections) {
+        var openSteps = $element.find('.step-is-open').length;
+        // Find out if the number of is-opens == total number of steps
+        if (openSteps === totalSteps) {
           $openOrCloseAllButton.text(bulkActions.closeAll.buttonText);
         } else {
           $openOrCloseAllButton.text(bulkActions.openAll.buttonText);
@@ -212,14 +221,14 @@
       }
     };
 
-    function SectionView($sectionElement) {
-      var $titleLink = $sectionElement.find('.js-section-title-button');
-      var $sectionContent = $sectionElement.find('.js-panel');
-      var shouldUpdateHash = rememberOpenSection;
+    function StepView($stepElement) {
+      var $titleLink = $stepElement.find('.js-step-title-button');
+      var $stepContent = $stepElement.find('.js-panel');
+      var shouldUpdateHash = rememberOpenStep;
 
-      this.title = $sectionElement.find('.js-section-title').text();
+      this.title = $stepElement.find('.js-step-title').text();
       this.href = $titleLink.attr('href');
-      this.element = $sectionElement;
+      this.element = $stepElement;
 
       this.open = open;
       this.close = close;
@@ -243,17 +252,17 @@
       }
 
       function setIsOpen(isOpen) {
-        $sectionElement.toggleClass('section-is-open', isOpen);
-        $sectionContent.toggleClass('js-hidden', !isOpen);
+        $stepElement.toggleClass('step-is-open', isOpen);
+        $stepContent.toggleClass('js-hidden', !isOpen);
         $titleLink.attr("aria-expanded", isOpen);
 
         if (shouldUpdateHash) {
-          updateHash($sectionElement);
+          updateHash($stepElement);
         }
       }
 
       function isOpen() {
-        return $sectionElement.hasClass('section-is-open');
+        return $stepElement.hasClass('step-is-open');
       }
 
       function isClosed() {
@@ -265,13 +274,13 @@
       }
 
       function numberOfContentItems() {
-        return $sectionContent.find('.pub-c-task-list__panel-link').length;
+        return $stepContent.find('.pub-c-task-list__panel-link').length;
       }
     }
 
-    function updateHash($sectionElement) {
-      var sectionView = new SectionView($sectionElement);
-      var hash = sectionView.isOpen() && '#' + $sectionElement.attr('id');
+    function updateHash($stepElement) {
+      var stepView = new StepView($stepElement);
+      var hash = stepView.isOpen() && '#' + $stepElement.attr('id');
       setHash(hash)
     }
 
@@ -285,49 +294,40 @@
       history.replaceState({}, '', newLocation);
     }
 
-    function SectionToggleClick(event, sectionView, $sections, tasklistTracker, $steps) {
+    function StepToggleClick(event, stepView, $steps, tasklistTracker, $groups) {
       this.track = trackClick;
       var $target = $(event.target);
-      var $thisStep = sectionView.element.closest('.pub-c-task-list__step');
-      var $thisStepSections = $thisStep.find('.pub-c-task-list__section');
+      var $thisGroup = stepView.element.closest('.pub-c-task-list__group');
+      var $thisGroupSteps = $thisGroup.find('.pub-c-task-list__step');
 
       function trackClick() {
-        var tracking_options = {label: trackingLabel(), dimension28: sectionView.numberOfContentItems().toString()}
+        var tracking_options = {label: trackingLabel(), dimension28: stepView.numberOfContentItems().toString()}
         tasklistTracker.track('pageElementInteraction', trackingAction(), tracking_options);
 
-        if (!sectionView.isClosed()) {
+        if (!stepView.isClosed()) {
           tasklistTracker.track(
             'tasklistLinkClicked',
-            String(sectionIndex()),
+            String(stepIndex()),
             {
-              label: sectionView.href,
-              dimension28: String(sectionView.numberOfContentItems()),
-              dimension29: sectionView.title
+              label: stepView.href,
+              dimension28: String(stepView.numberOfContentItems()),
+              dimension29: stepView.title
             }
           )
         }
       }
 
       function trackingLabel() {
-        return stepIndex() + '.' + accordionIndex() + ' - ' + sectionView.title + ' - ' + locateClickElement() + ": " + taskListSize;
+        return $target.closest('.js-toggle-panel').attr('data-position') + ' - ' + stepView.title + ' - ' + locateClickElement() + ": " + taskListSize;
       }
 
-      // needs to return which step we're in
+      // returns index of the clicked step in the overall number of accordion steps, regardless of how many per group
       function stepIndex() {
-        return $steps.index($thisStep) + 1;
-      }
-
-      function accordionIndex() {
-        return $thisStepSections.index(sectionView.element) + 1;
-      }
-
-      // returns index of the clicked section in the overall number of accordion sections, regardless of how many per step
-      function sectionIndex() {
-        return $sections.index(sectionView.element) + 1;
+        return $steps.index(stepView.element) + 1;
       }
 
       function trackingAction() {
-        return (sectionView.isClosed() ? 'tasklistClosed' : 'tasklistOpened');
+        return (stepView.isClosed() ? 'tasklistClosed' : 'tasklistOpened');
       }
 
       function locateClickElement() {
@@ -345,24 +345,33 @@
       }
 
       function clickedOnHeading() {
-        return $target.hasClass('js-section-title-button');
+        return $target.hasClass('js-step-title-button');
       }
 
       function iconType() {
-        return (sectionView.isClosed() ? 'Minus' : 'Plus');
+        return (stepView.isClosed() ? 'Minus' : 'Plus');
+      }
+    }
+
+    function componentLinkClick(event, tasklistTracker, linkPosition) {
+      this.track = trackClick;
+
+      function trackClick() {
+        var tracking_options = {label: $(event.target).attr('href'), dimension28: $(event.target).closest('.pub-c-task-list__panel-links').attr('data-length')};
+        tasklistTracker.track('taskAccordionLinkClicked', linkPosition, tracking_options);
       }
     }
 
     // A helper that sends a custom event request to Google Analytics if
     // the GOVUK module is setup
-    function TasklistTracker(totalSections, totalLinks) {
+    function TasklistTracker(totalSteps, totalLinks) {
       this.track = function(category, action, options) {
-        // dimension26 records the total number of expand/collapse sections in this tasklist
+        // dimension26 records the total number of expand/collapse steps in this tasklist
         // dimension27 records the total number of component links in this tasklist
-        // dimension28 records the number of component links in the section that was opened/closed (handled in click event)
+        // dimension28 records the number of component links in the step that was opened/closed (handled in click event)
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
           options = options || {};
-          options["dimension26"] = options["dimension26"] || totalSections.toString();
+          options["dimension26"] = options["dimension26"] || totalSteps.toString();
           options["dimension27"] = options["dimension27"] || totalLinks.toString();
           GOVUK.analytics.trackEvent(category, action, options);
         }

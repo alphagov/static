@@ -1,73 +1,75 @@
 <%
   steps ||= false
+  groups ||= steps #changing the name of this attribute, temporarily accepting both to avoid deployment problems
   small ||= false
   heading_level ||= 2
-  open_section ||= false
-  remember_last_section ||= false
+  open_step ||= false
+  remember_last_step ||= false
 
-  section_count = 0
+  step_count = 0
 %>
-<% if steps %>
+<% if groups %>
   <div
     data-module="tasklist"
     class="pub-c-task-list js-hidden <% unless small %>pub-c-task-list--large<% end %>"
-    <% if remember_last_section %>data-remember<% end %>
+    <% if remember_last_step %>data-remember<% end %>
     >
-    <ol class="pub-c-task-list__list">
-      <% steps.each_with_index do |step, index| %>
+    <ol class="pub-c-task-list__groups">
+      <% groups.each_with_index do |group, group_index| %>
         <%
-          step_is_active = step.any? do |this_step|
-            this_step[:panel_links].to_a.any? { |s| s[:active] }
+          group_is_active = group.any? do |this_group|
+            this_group[:panel_links].to_a.any? { |g| g[:active] }
           end
         %>
-        <li class="pub-c-task-list__step <%= 'pub-c-task-list__step--active' if step_is_active %>" <% if step_is_active %>aria-current="step"<% end %>>
+        <li class="pub-c-task-list__group <%= 'pub-c-task-list__group--active' if group_is_active %>" <% if group_is_active %>aria-current="step"<% end %>>
           <span class="pub-c-task-list__number">
-            <span class="visuallyhidden">Step</span> <%= index + 1 %>
+            <span class="visuallyhidden">Step</span> <%= group_index + 1 %>
           </span>
-          <% step.each_with_index do |section, index| %>
+          <% group.each_with_index do |step, step_index| %>
             <%
-              section_count += 1
-              id = section[:id] || section[:title].downcase.tr(" ","-")
+              step_count += 1
+              id = step[:id] || step[:title].downcase.tr(" ","-")
             %>
             <div
-              class="pub-c-task-list__section js-section"
+              class="pub-c-task-list__step js-step"
               id="<%= id %>"
               data-track-count="tasklistSection"
-              <% if section_count == open_section %>data-open<% end %>
+              <% if step_count == open_step %>data-open<% end %>
               >
-              <div class="pub-c-task-list__header js-toggle-panel">
-                <h<%= heading_level %> class="pub-c-task-list__title js-section-title">
-                  <%= section[:title] %>
+              <div class="pub-c-task-list__header js-toggle-panel" data-position="<%= "#{group_index + 1}.#{step_index + 1}" %>">
+                <h<%= heading_level %> class="pub-c-task-list__title js-step-title">
+                  <%= step[:title] %>
                 </h<%= heading_level %>>
               </div>
 
-              <div class="pub-c-task-list__panel js-panel" id="section-panel-<%= id %>-<%= index + 1 %>">
+              <div class="pub-c-task-list__panel js-panel" id="step-panel-<%= id %>-<%= step_index + 1 %>">
                 <div class="pub-c-task-list__panel-content">
-                  <%= section[:panel].html_safe if section[:panel] %>
+                  <%= step[:panel].html_safe if step[:panel] %>
 
-                  <% section[:panel_descriptions].to_a.each do |panel_description| %>
+                  <% step[:panel_descriptions].to_a.each do |panel_description| %>
                     <p class="pub-c-task-list__panel-description">
                       <%= panel_description %>
                     </p>
                   <% end %>
                 </div>
 
-                <% if section[:panel_links] %>
-                  <ol class="pub-c-task-list__panel-links">
-                    <% section[:panel_links].each do |panel_link| %>
-                        <% if panel_link[:active] %>
-                          <li class="pub-c-task-list__panel-link pub-c-task-list__panel-link--active">
-                            <a href="#content" class="pub-c-task-list__panel-link-item pub-c-task-list__panel-link-item--active">
-                              <span class="visuallyhidden">You are currently viewing:</span> <%= panel_link[:text] %>
-                            </a>
-                          </li>
-                        <% else %>
-                          <li class="pub-c-task-list__panel-link">
-                            <a href="<%= panel_link[:href]%>" class="pub-c-task-list__panel-link-item">
-                              <%= panel_link[:text] %>
-                            </a>
-                        </li>
-                      <% end %>
+                <% if step[:panel_links] %>
+                  <ol class="pub-c-task-list__panel-links" data-length="<%= step[:panel_links].length %>">
+                    <% step[:panel_links].each_with_index do |panel_link, panel_index| %>
+                      <%
+                        panel_link_href = panel_link[:href]
+                        panel_link_text = ""
+
+                        if panel_link[:active]
+                          panel_link_href = "#content"
+                          panel_link_text = '<span class="visuallyhidden">You are currently viewing:</span>'.html_safe
+                        end
+                      %>
+                      <li class="pub-c-task-list__panel-link <% if panel_link[:active] %>pub-c-task-list__panel-link--active<% end %>">
+                        <a href="<%= panel_link_href %>" class="pub-c-task-list__panel-link-item js-panel-link" data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{panel_index + 1}" %>">
+                          <%= panel_link_text %> <%= panel_link[:text] %>
+                        </a>
+                      </li>
                     <% end %>
                   </ol>
                 <% end %>
