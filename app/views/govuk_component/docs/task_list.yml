@@ -1,7 +1,7 @@
 name: Task list
-description: Numbered groups containing expanding/collapsing steps
+description: Numbered steps containing expanding/collapsing sections
 body: |
-  Task lists are designed to show a sequence of steps towards a specific goal, such as 'learning to drive'. Each group of a task list can contain one or more steps. Each step can contain one or more links to pages. User research suggested that each step should be collapsed by default so that users are not overwhelmed with information.
+  Task lists are designed to show a sequence of steps towards a specific goal, such as 'learning to drive'. Each step of a task list can contain one or more sections. Each section can contain one or more links to pages. User research suggested that each section should be collapsed by default so that users are not overwhelmed with information.
 
   If JavaScript is disabled the task list expands fully. All of the task list functionality (including the icons and aria attributes) are added using JavaScript.
 
@@ -12,25 +12,25 @@ body: |
 
   Changes in the task list code that are different from the accordion:
 
-  - functionality to 'remember' the last opened step in the URL is disabled by default
-  - a step can be open by default
+  - functionality to 'remember' the last opened section in the URL is disabled by default
+  - a section can be open by default
   - visual changes (see below) including plus/minus control being on the left, not the right
 accessibility_criteria: |
   The task list must:
 
-  - indicate to users that each step can be expanded and collapsed
-  - inform the user when a step has been expanded or collapsed
+  - indicate to users that each section can be expanded and collapsed
+  - inform the user when a section has been expanded or collapsed
   - be usable with a keyboard
-  - allow users to open or close all steps at once
+  - allow users to open or close all sections at once
   - inform the user which step a link belongs to
-  - inform the user which step the current page is in, particularly where there are multiple steps in one group
+  - inform the user which step the current page is in, particularly where there are multiple sections in one step
 
   The open/close all button only needs to list the first panel id in the aria-controls attribute, rather than all of them.
 
-  Step headings must use a button element:
+  Section headings must use a button element:
 
-  - so that steps can be toggled with the space and enter keys
-  - so that steps can't be opened in a new tab or window
+  - so that sections can be toggled with the space and enter keys
+  - so that sections can't be opened in a new tab or window
 
   When JavaScript is unavailable the task list must:
 
@@ -41,7 +41,7 @@ shared_accessibility_criteria:
 examples:
   default:
     data:
-      groups: [
+      steps: [
         [
           {
             title: 'First header',
@@ -61,10 +61,10 @@ examples:
           }
         ]
       ]
-  with_custom_step_ids:
-    description: IDs for steps are automatically generated based on the step title, but can also be passed manually. Passed IDs are converted to lowercase and have spaces replaced with hyphens.
+  with_custom_section_ids:
+    description: IDs for sections are automatically generated based on the section title, but can also be passed manually. Passed IDs are converted to lowercase and have spaces replaced with hyphens.
     data:
-      groups: [
+      steps: [
         [
           {
             title: 'First header',
@@ -81,10 +81,10 @@ examples:
         ]
       ]
   with_different_heading_level:
-    description: Steps have a H2 by default, but this can be changed. The heading level does not change any styling.
+    description: Sections have a H2 by default, but this can be changed. The heading level does not change any styling.
     data:
       heading_level: 3
-      groups: [
+      steps: [
         [
           {
             title: 'This is a heading 3',
@@ -98,11 +98,11 @@ examples:
           }
         ]
       ]
-  open_a_step_by_default:
-    description: Pass the index of the step to open by default. This is the nth step, regardless of group number.
+  open_a_section_by_default:
+    description: Pass the index of the accordion to open by default. This is the nth accordion section, regardless of step number.
     data:
-      open_step: 3
-      groups: [
+      open_section: 3
+      steps: [
         [
           {
             title: 'Closed by default',
@@ -120,11 +120,11 @@ examples:
           }
         ]
       ]
-  remember_last_opened_step:
-    description: If a step is opened its ID is appended to the end of the URL, so that if the URL is shared or the 'back' button is used, that step will be opened on page load. This was historically part of the behaviour of the accordion. By default this is turned off and cannot be used together with the option to open a step by default.
+  remember_last_opened_section:
+    description: If a section is opened its ID is appended to the end of the URL, so that if the URL is shared or the 'back' button is used, that section will be opened on page load. This was historically part of the behaviour of the accordion. By default this is turned off and cannot be used together with the option to open a section by default.
     data:
-      remember_last_step: true
-      groups: [
+      remember_last_section: true
+      steps: [
         [
           {
             title: 'Remember this',
@@ -138,45 +138,45 @@ examples:
           }
         ]
       ]
-  with_multiple_steps_in_one_group:
-    description: Some task lists contain non-sequential steps that can be combined into a single group, but kept as separate steps.
+  with_multiple_sections_in_one_step:
+    description: Some task lists contain non-sequential steps that can be combined into a single step, but kept as separate accordion sections.
     data:
-      groups: [
+      steps: [
         [
           {
-            title: 'First group first step header',
-            panel: 'First group first step panel'
+            title: 'First step first section header',
+            panel: 'First step first section panel'
           }
         ],
         [
           {
-            title: 'Second group first step header',
-            panel: 'Second group first step panel'
+            title: 'Second step first section header',
+            panel: 'Second step first section panel'
           },
           {
-            title: 'Second group second step header',
-            panel: 'Second group second step panel'
+            title: 'Second step second section header',
+            panel: 'Second step second section panel'
           }
         ],
         [
           {
-            title: 'Third group first step header',
-            panel: 'Third group first step panel'
+            title: 'Third step first section header',
+            panel: 'Third step first section panel'
           },
           {
-            title: 'Third group second step header',
-            panel: 'Third group second step panel'
+            title: 'Third step second section header',
+            panel: 'Third step second section panel'
           },
           {
-            title: 'Third group third step header',
-            panel: 'Third group third step panel'
+            title: 'Third step third section header',
+            panel: 'Third step third section panel'
           }
         ]
       ]
   with_panel_descriptions:
     description: Panels can have paragraphs added into them that are styled by the component.
     data:
-      groups: [
+      steps: [
         [
           {
             title: 'Panel descriptions 1',
@@ -197,9 +197,9 @@ examples:
         ]
       ]
   with_styled_lists:
-    description: Panels can contain lists of links that are styled by the component. A link can be marked as 'active', which will visually highlight the step and the link itself. Appropriate aria attributes are added and the active link will be rendered as a link to the top of the page content (this link may not work in the component guide).
+    description: Panels can contain lists of links that are styled by the component. A link can be marked as 'active', which will visually highlight the step and the link itself. Appropriate aria attributes are added and the active link will be rendered as a link to the top of the page content (this may not work in the component guide).
     data:
-      groups: [
+      steps: [
         [
           {
             title: 'Panel links',
@@ -240,10 +240,10 @@ examples:
           }
         ]
       ]
-  with_styled_lists_in_steps_with_multiple_groups:
-    description: If a link in a step is marked as active, the entire group is highlighted.
+  with_styled_lists_in_steps_with_multiple_sections:
+    description: If a link in a section is marked as active, the entire step is highlighted.
     data:
-      groups: [
+      steps: [
         [
           {
             title: 'Panel links 1',
@@ -281,16 +281,7 @@ examples:
           },
           {
             title: 'Panel links 3',
-            panel_links: [
-              {
-                href: '/link5',
-                text: 'Link 5'
-              },
-              {
-                href: '/link6',
-                text: 'Link 6'
-              }
-            ]
+            panel: 'content'
           }
         ]
       ]
@@ -298,7 +289,7 @@ examples:
     description: Designed to fit in a smaller space, specifically the sidebar of a page.
     data:
       small: true
-      groups: [
+      steps: [
         [
           {
             title: 'Small header 1',
@@ -326,7 +317,7 @@ examples:
     description: The intended use of 'active' task list items is in small task lists.
     data:
       small: true
-      groups: [
+      steps: [
         [
           {
             title: 'Small panel links 1',
