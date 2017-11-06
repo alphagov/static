@@ -1,4 +1,4 @@
-// used by the task list component
+// used by the tasklist component
 
 (function(root) {
   "use strict";
