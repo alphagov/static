@@ -251,6 +251,24 @@
             '^/hmrc-internal-manuals(?:/|$)'
           ]
         }
+      },
+      {
+        identifier: 'cttuk_tt',
+        surveyType: 'url',
+        frequency: 20,
+        startTime: new Date('November 10, 2017').getTime(),
+        endTime: new Date('December 22, 2018 23:59:50').getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/CTTUKsurvey/?c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer 4 quick questions to help us make GOV.UK better.',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          breadcrumb: [
+            'Visas and immigration'
+          ]
+        }
       }
     ],
 
