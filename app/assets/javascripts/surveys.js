@@ -144,8 +144,8 @@
         endTime: new Date('December 14, 2017 23:59:50').getTime(),
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=ChildBenefitGOV&utm_source=Other&utm_medium=other&t=HMRC&id=26',
         templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
+          title: 'Help us improve our services',
+          surveyCta: 'Join our User Research Panel.',
           surveyCtaPostscript: 'This link opens in a new tab.'
         },
         activeWhen: {
@@ -162,8 +162,8 @@
         endTime: new Date('December 14, 2017 23:59:50').getTime(),
         url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=OverpayUnderpayGOV&utm_source=Other&utm_medium=other&t=HMRC&id=27',
         templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
+          title: 'Help us improve our services',
+          surveyCta: 'Join our User Research Panel.',
           surveyCtaPostscript: 'This link opens in a new tab.'
         },
         activeWhen: {
