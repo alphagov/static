@@ -23,7 +23,7 @@ Once a user takes the survey (clicks the link or fills in their email address an
   activeWhen: {
     section: ['education and learning'],
     path: ['guidance/social-care-common-inspection-framework-sccif-boarding-schools'],
-    breadcrumbs: ['Schools'],
+    breadcrumb: ['Schools'],
     organisation: ['<D106>'],
     matchType: 'include'
   },
