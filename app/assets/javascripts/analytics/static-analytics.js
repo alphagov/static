@@ -24,7 +24,9 @@
       GOVUK.analyticsPlugins.error({filenameMustMatch: /gov\.uk/});
       GOVUK.analyticsPlugins.printIntent();
       GOVUK.analyticsPlugins.mailtoLinkTracker();
-      GOVUK.analyticsPlugins.externalLinkTracker();
+      GOVUK.analyticsPlugins.externalLinkTracker({
+        externalLinkUploadCustomDimension: 36
+      });
       GOVUK.analyticsPlugins.downloadLinkTracker({
         selector: 'a[href*="/government/uploads"], a[href*="assets.publishing.service.gov.uk"]'
       });
