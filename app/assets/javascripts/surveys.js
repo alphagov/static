@@ -95,6 +95,33 @@
     }
   }
 
+  var landregistrySurveyNov2017Url = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/government\/collections\/hm-land-registry-forms(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=hm-land-registry-forms&utm_source=&utm_medium=gov.uk&t=LR&id=85'
+      case /^\/government\/collections\/fees-hm-land-registry-guides(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=fees-hm-land-registry-guides&utm_source=&utm_medium=gov.uk&t=LR&id=86'
+      case /^\/government\/collections\/commercial-services(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=commercial-services&utm_source=&utm_medium=gov.uk&t=LR&id=87'
+      case /^\/search-property-information-land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/search-property-information-land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=88'
+      case /^\/government\/collections\/how-to-use-the-land-registry-portal(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/how-to-use-the-land-registry-portal&utm_source=&utm_medium=gov.uk&t=LR&id=89'
+      case /^\/topic\/land-registration\/searches-fees-forms(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=land-registration/searches-fees-forms&utm_source=&utm_medium=gov.uk&t=LR&id=90'
+      case /^\/government\/organisations\/land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/organisations/land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=91'
+      case /^\/guidance\/contact-hm-land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/guidance/contact-hm-land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=92'
+      case /^\/your-property-boundaries(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/your-property-boundaries&utm_source=&utm_medium=gov.uk&t=LR&id=94'
+      case /^\/search-house-prices(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/search-house-prices&utm_source=&utm_medium=gov.uk&t=LR&id=95'
+      default: return ''
+    }
+  }
+
+  var hmrcGuidanceSurveyNov2017Url = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/guidance\/fulfilment-house-due-diligence-scheme(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=FHDDSgov&utm_source=Other&utm_medium=other&t=HMRC&id=99'
+      case /^\/guidance\/soft-drinks-industry-levy(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=SoftDrinksGOV&utm_source=Other&utm_medium=other&t=HMRC&id=100'
+      case /^\/guidance\/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=MinWageSocialCareGOV&utm_source=Other&utm_medium=other&t=HMRC&id=101'
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -191,24 +218,6 @@
         }
       },
       {
-        identifier: 'finders_survey',
-        surveyType: 'url',
-        frequency: 20,
-        startTime: new Date('October 11, 2017').getTime(),
-        endTime: new Date('November 12, 2017 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Search_specialist&utm_source=Hold_gov_to_account&utm_medium=gov.uk&t=GDS&id=59',
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/government/(publications|policies|statistics|announcements|topics|people|groups|case-studies)(?:/|$)'
-          ]
-        }
-      },
-      {
         identifier: 'hmrc_import',
         surveyType: 'url',
         frequency: 6,
@@ -244,7 +253,7 @@
         templateArgs: {
           title: 'Tell us what you think of GOV.UK',
           surveyCta: 'Answer 5 quick questions to help us make GOV.UK better.',
-          surveyCtaPostscript: 'This will open a short survey on another website'
+          surveyCtaPostscript: 'This will open a short survey on another website.'
         },
         activeWhen: {
           path: [
@@ -255,18 +264,81 @@
       {
         identifier: 'cttuk_tt',
         surveyType: 'url',
-        frequency: 20,
+        frequency: 6,
         startTime: new Date('November 10, 2017').getTime(),
-        endTime: new Date('December 22, 2018 23:59:50').getTime(),
+        endTime: new Date('December 22, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/CTTUKsurvey/?c={{currentPath}}',
         templateArgs: {
           title: 'Help improve GOV.UK',
           surveyCta: 'Answer 4 quick questions to help us make GOV.UK better.',
-          surveyCtaPostscript: 'This will open a short survey on another website'
+          surveyCtaPostscript: 'This will open a short survey on another website.'
         },
         activeWhen: {
           breadcrumb: [
             'Visas and immigration'
+          ]
+        }
+      },
+      {
+        identifier: 'landregistry',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('November 15, 2017').getTime(),
+        endTime: new Date('December 14, 2017 23:59:50').getTime(),
+        url: landregistrySurveyNov2017Url(),
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/collections/hm-land-registry-forms(?:/|$)',
+            '^/government/collections/fees-hm-land-registry-guides(?:/|$)',
+            '^/government/collections/commercial-services(?:/|$)',
+            '^/search-property-information-land-registry(?:/|$)',
+            '^/government/collections/how-to-use-the-land-registry-portal(?:/|$)',
+            '^/topic/land-registration/searches-fees-forms(?:/|$)',
+            '^/government/organisations/land-registry(?:/|$)',
+            '^/guidance/contact-hm-land-registry(?:/|$)',
+            '^/your-property-boundaries(?:/|$)',
+            '^/search-house-prices(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_money_laundering',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('November 15, 2017').getTime(),
+        endTime: new Date('February 16, 2018 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=AMLSgov&utm_source=Other&utm_medium=other&t=HMRC&id=84',
+        templateArgs: {
+          title: 'Help us improve our services',
+          surveyCta: 'Join our User Research Panel.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: ['^/guidance/money-laundering-regulations-supervised-business-register(?:/|$)']
+        }
+      },
+      {
+        identifier: 'hmrc_guidance',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('November 15, 2017').getTime(),
+        endTime: new Date('February 16, 2018 23:59:50').getTime(),
+        url: hmrcGuidanceSurveyNov2017Url(),
+        templateArgs: {
+          title: 'Help us improve our services',
+          surveyCta: 'Join our User Research Panel.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/guidance/fulfilment-house-due-diligence-scheme(?:/|$)',
+            '^/guidance/soft-drinks-industry-levy(?:/|$)',
+            '^/guidance/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:/|$)'
           ]
         }
       }
