@@ -295,6 +295,22 @@
             '^/search-house-prices(?:/|$)'
           ]
         }
+      },
+      {
+        identifier: 'hmrc_money_laundering',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('November 15, 2017').getTime(),
+        endTime: new Date('February 16, 2018 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=AMLSgov&utm_source=Other&utm_medium=other&t=HMRC&id=84',
+        templateArgs: {
+          title: 'Help us improve our services',
+          surveyCta: 'Join our User Research Panel.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: ['^/guidance/money-laundering-regulations-supervised-business-register(?:/|$)']
+        }
       }
     ],
 
