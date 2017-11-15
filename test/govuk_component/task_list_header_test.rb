@@ -18,13 +18,27 @@ class TaskListHeaderTestCase < ComponentTestCase
   test "renders with a link" do
     render_component(title: "This is my title", path: "/notalink")
 
-    assert_select ".pub-c-task-list-header a.pub-c-task-list-header__title[href='/notalink']", text: "This is my title"
+    link = ".pub-c-task-list-header a.pub-c-task-list-header__title"
+
+    assert_select link + "[href='/notalink']", text: "This is my title"
+    assert_select link + "[data-track-category='tasklistHeaderClicked']"
+    assert_select link + "[data-track-action='top']"
+    assert_select link + "[data-track-label='/notalink']"
+    assert_select link + "[data-track-dimension='This is my title']"
+    assert_select link + "[data-track-dimension-index='29']"
   end
 
   test "renders with a skip link" do
     render_component(title: "This is my title", skip_link: "#skiplink")
 
-    assert_select ".pub-c-task-list-header .pub-c-task-list-header__skip-link[href='#skiplink']", text: "Skip content"
+    link = ".pub-c-task-list-header .pub-c-task-list-header__skip-link"
+
+    assert_select link + "[href='#skiplink']", text: "Skip content"
+    assert_select link + "[data-track-category='tasklistHeaderClicked']"
+    assert_select link + "[data-track-action='top']"
+    assert_select link + "[data-track-label='#skiplink']"
+    assert_select link + "[data-track-dimension='Skip content']"
+    assert_select link + "[data-track-dimension-index='29']"
   end
 
   test "renders with a skip link with custom text" do
