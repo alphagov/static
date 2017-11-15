@@ -95,6 +95,23 @@
     }
   }
 
+  var landregistrySurveyNov2017Url = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/government\/collections\/hm-land-registry-forms(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=hm-land-registry-forms&utm_source=&utm_medium=gov.uk&t=LR&id=85'
+      case /^\/government\/collections\/fees-hm-land-registry-guides(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=fees-hm-land-registry-guides&utm_source=&utm_medium=gov.uk&t=LR&id=86'
+      case /^\/government\/collections\/commercial-services(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=commercial-services&utm_source=&utm_medium=gov.uk&t=LR&id=87'
+      case /^\/search-property-information-land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/search-property-information-land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=88'
+      case /^\/government\/collections\/how-to-use-the-land-registry-portal(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/how-to-use-the-land-registry-portal&utm_source=&utm_medium=gov.uk&t=LR&id=89'
+      case /^\/topic\/land-registration\/searches-fees-forms(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=land-registration/searches-fees-forms&utm_source=&utm_medium=gov.uk&t=LR&id=90'
+      case /^\/government\/organisations\/land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/organisations/land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=91'
+      case /^\/guidance\/contact-hm-land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/guidance/contact-hm-land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=92'
+      case /^\/your-property-boundaries(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/your-property-boundaries&utm_source=&utm_medium=gov.uk&t=LR&id=94'
+      case /^\/search-house-prices(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/search-house-prices&utm_source=&utm_medium=gov.uk&t=LR&id=95'
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -249,6 +266,33 @@
         activeWhen: {
           breadcrumb: [
             'Visas and immigration'
+          ]
+        }
+      },
+      {
+        identifier: 'landregistry',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('November 15, 2017').getTime(),
+        endTime: new Date('December 14, 2017 23:59:50').getTime(),
+        url: landregistrySurveyNov2017Url(),
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/collections/hm-land-registry-forms(?:/|$)',
+            '^/government/collections/fees-hm-land-registry-guides(?:/|$)',
+            '^/government/collections/commercial-services(?:/|$)',
+            '^/search-property-information-land-registry(?:/|$)',
+            '^/government/collections/how-to-use-the-land-registry-portal(?:/|$)',
+            '^/topic/land-registration/searches-fees-forms(?:/|$)',
+            '^/government/organisations/land-registry(?:/|$)',
+            '^/guidance/contact-hm-land-registry(?:/|$)',
+            '^/your-property-boundaries(?:/|$)',
+            '^/search-house-prices(?:/|$)'
           ]
         }
       }
