@@ -183,14 +183,14 @@
             shouldOpenAll = true;
 
             tasklistTracker.track('pageElementInteraction', 'tasklistAllOpened', {
-              label: bulkActions.openAll.eventLabel
+              label: bulkActions.openAll.eventLabel + ": " + taskListSize
             });
           } else {
             $openOrCloseAllButton.text(bulkActions.openAll.buttonText);
             shouldOpenAll = false;
 
             tasklistTracker.track('pageElementInteraction', 'tasklistAllClosed', {
-              label: bulkActions.closeAll.eventLabel
+              label: bulkActions.closeAll.eventLabel + ": " + taskListSize
             });
           }
 
@@ -357,7 +357,7 @@
       this.track = trackClick;
 
       function trackClick() {
-        var tracking_options = {label: $(event.target).attr('href'), dimension28: $(event.target).closest('.pub-c-task-list__panel-links').attr('data-length')};
+        var tracking_options = {label: $(event.target).attr('href') + " : " + taskListSize, dimension28: $(event.target).closest('.pub-c-task-list__panel-links').attr('data-length')};
         tasklistTracker.track('taskAccordionLinkClicked', linkPosition, tracking_options);
       }
     }

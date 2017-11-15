@@ -155,7 +155,7 @@ describe('A tasklist module', function () {
 
     it("triggers a google analytics custom event", function () {
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllOpened', {
-        label: 'Open All',
+        label: 'Open All: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString()
       });
@@ -174,7 +174,7 @@ describe('A tasklist module', function () {
       clickOpenCloseAll();
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllClosed', {
-        label: 'Close All',
+        label: 'Close All: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString()
       });
@@ -436,7 +436,6 @@ describe('A tasklist module', function () {
       });
     });
 
-
     it("triggers a google analytics custom event when closing by clicking on the icon on a big tasklist", function () {
       GOVUK.analytics = {
         trackEvent: function () {
@@ -475,6 +474,53 @@ describe('A tasklist module', function () {
         dimension28: expectedTasklistContentCount.toString()
       });
     });
+
+    it("triggers a google analytics custom event when clicking the 'Open all' button on a big tasklist", function () {
+      GOVUK.analytics = {
+        trackEvent: function () {
+        }
+      };
+      spyOn(GOVUK.analytics, 'trackEvent');
+      clickOpenCloseAll();
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllOpened', {
+        label: 'Open All: Big',
+        dimension26: expectedTasklistStepCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString()
+      });
+    });
+
+    it("triggers a google analytics custom event when clicking the 'Close all' button on a big tasklist", function () {
+      GOVUK.analytics = {
+        trackEvent: function () {
+        }
+      };
+      spyOn(GOVUK.analytics, 'trackEvent');
+      clickOpenCloseAll();
+      clickOpenCloseAll();
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllClosed', {
+        label: 'Close All: Big',
+        dimension26: expectedTasklistStepCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString()
+      });
+    });
+
+    it("triggers a google analytics custom event when clicking a panel link on a big tasklist", function () {
+      GOVUK.analytics = {
+        trackEvent: function () {
+        }
+      };
+      spyOn(GOVUK.analytics, 'trackEvent');
+      $element.find('.js-panel-link').first().click();
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', '1.1.1', {
+        label: '/link1 : Big',
+        dimension26: expectedTasklistStepCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString(),
+        dimension28: expectedTasklistContentCount.toString()
+      });
+    });
   });
 
   it("triggers a google analytics event when clicking a panel link", function () {
@@ -488,7 +534,7 @@ describe('A tasklist module', function () {
     $panelLink.click();
 
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', '1.1.1', {
-      label: '/link1',
+      label: '/link1 : Small',
       dimension26: expectedTasklistStepCount.toString(),
       dimension27: expectedTasklistLinkCount.toString(),
       dimension28: expectedTasklistContentCount.toString()
