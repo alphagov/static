@@ -264,7 +264,7 @@
       {
         identifier: 'cttuk_tt',
         surveyType: 'url',
-        frequency: 20,
+        frequency: 6,
         startTime: new Date('November 10, 2017').getTime(),
         endTime: new Date('December 22, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/CTTUKsurvey/?c={{currentPath}}',
