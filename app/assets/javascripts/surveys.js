@@ -112,6 +112,16 @@
     }
   }
 
+  var hmrcGuidanceSurveyNov2017Url = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/guidance\/fulfilment-house-due-diligence-scheme(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=FHDDSgov&utm_source=Other&utm_medium=other&t=HMRC&id=99'
+      case /^\/guidance\/soft-drinks-industry-levy(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=SoftDrinksGOV&utm_source=Other&utm_medium=other&t=HMRC&id=100'
+      case /^\/guidance\/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=MinWageSocialCareGOV&utm_source=Other&utm_medium=other&t=HMRC&id=101'
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -310,6 +320,26 @@
         },
         activeWhen: {
           path: ['^/guidance/money-laundering-regulations-supervised-business-register(?:/|$)']
+        }
+      },
+      {
+        identifier: 'hmrc_guidance',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('November 15, 2017').getTime(),
+        endTime: new Date('February 16, 2018 23:59:50').getTime(),
+        url: hmrcGuidanceSurveyNov2017Url(),
+        templateArgs: {
+          title: 'Help us improve our services',
+          surveyCta: 'Join our User Research Panel.',
+          surveyCtaPostscript: 'This link opens in a new tab.'
+        },
+        activeWhen: {
+          path: [
+            '^/guidance/fulfilment-house-due-diligence-scheme(?:/|$)',
+            '^/guidance/soft-drinks-industry-levy(?:/|$)',
+            '^/guidance/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:/|$)'
+          ]
         }
       }
     ],
