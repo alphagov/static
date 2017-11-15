@@ -226,7 +226,7 @@
         templateArgs: {
           title: 'Tell us what you think of GOV.UK',
           surveyCta: 'Answer 5 quick questions to help us make GOV.UK better.',
-          surveyCtaPostscript: 'This will open a short survey on another website'
+          surveyCtaPostscript: 'This will open a short survey on another website.'
         },
         activeWhen: {
           path: [
@@ -239,12 +239,12 @@
         surveyType: 'url',
         frequency: 20,
         startTime: new Date('November 10, 2017').getTime(),
-        endTime: new Date('December 22, 2018 23:59:50').getTime(),
+        endTime: new Date('December 22, 2017 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/CTTUKsurvey/?c={{currentPath}}',
         templateArgs: {
           title: 'Help improve GOV.UK',
           surveyCta: 'Answer 4 quick questions to help us make GOV.UK better.',
-          surveyCtaPostscript: 'This will open a short survey on another website'
+          surveyCtaPostscript: 'This will open a short survey on another website.'
         },
         activeWhen: {
           breadcrumb: [
