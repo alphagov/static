@@ -2,6 +2,8 @@ name: "Breadcrumbs"
 description: "Navigational breadcrumbs, showing page hierarchy"
 body: |
   Accepts an array of breadcrumb objects. Each crumb must have a title and a URL.
+shared_accessibility_criteria:
+  - link
 examples:
   default:
     data:
@@ -54,7 +56,7 @@ examples:
         url: '/browse/abroad'
       - title: 'Travel abroad'
   highlight_current_page:
-    description: This is currently used within the Education navigation A/B tests, such as [on this page](https://www.gov.uk/education/education-of-disadvantaged-children).
+    description: This is currently used on pages tagged to the taxonomy, such as [on this page](https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings).
     data:
       breadcrumbs:
       - title: 'Home'
@@ -64,7 +66,7 @@ examples:
       - title: 'Education of disadvantaged children'
         is_current_page: true
   collapse_on_mobile:
-    description: This is currently used within the Education navigation A/B tests, such as [on this page](https://www.gov.uk/education/education-of-disadvantaged-children).
+    description: This is currently used within on pages tagged to the taxonomy, such as [on this page](https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings).
     data:
       collapse_on_mobile: true
       breadcrumbs:

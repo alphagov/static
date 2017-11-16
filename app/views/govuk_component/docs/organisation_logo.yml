@@ -5,6 +5,11 @@ body: |
   These cannot be inferred from the name alone.
 
   Alternatively a custom organisation logo can be provided as an image.
+accessibility_criteria: |
+  The crest image itself must be presentational and ignored by screen readers.
+
+shared_accessibility_criteria:
+  - link
 examples:
   default:
     data:

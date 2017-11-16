@@ -1,5 +1,14 @@
 name: Document footer metadata
 description: A metadata block to be displayed below the document
+accessibility_criteria: |
+  The document footer metadata component must:
+
+  - indicate that any expandable content can be expanded or collapsed
+  - indicate the initial state of expandable content
+  - indicate where the state of expandable content has changed
+
+shared_accessibility_criteria:
+  - link
 examples:
   from_only:
     data:

@@ -1,5 +1,5 @@
-name: "Button"
-description: "Use buttons to move though a transaction, aim to use only one button per page."
+name: Button
+description: Use buttons to move though a transaction, aim to use only one button per page.
 body: |
   Button text should be short and describe the action the button performs.
 
