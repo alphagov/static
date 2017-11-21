@@ -2,11 +2,17 @@ name: Option select
 description: A scrollable list of checkboxes to be displayed on a form where one might
   otherwise use a multi-select
 accessibility_criteria: |
+  The option select must:
+
+  - indicate that the option select is expandable/collapsible
+  - indicate the initial state of expandable content
+  - indicate where the state of expandable content has changed
+
   The option select inputs must:
 
-  * have a space to the right when the box is scrollable so that users can interact with a scrollbar without accidentally clicking an option
-  * only include an `aria-controls` attribute if an element with the ID specified exists on the page
-  * be [grouped with a label](https://www.w3.org/WAI/GL/wiki/Using_grouping_roles_to_identify_related_form_controls)
+  - have a margin to the right when the box is scrollable so that users can interact with a scrollbar without accidentally clicking an option
+  - only include an `aria-controls` attribute if an element with the ID specified exists on the page
+  - be [grouped with a label](https://www.w3.org/WAI/GL/wiki/Using_grouping_roles_to_identify_related_form_controls)
 examples:
   default:
     data:

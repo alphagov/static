@@ -1,5 +1,5 @@
 name: Previous and next navigation
-description: Navigational links that allow users navigate within a series of pages
+description: Navigational links that allow users to navigate within a series of pages
   or elements.
 body: |
   This component accepts 2 optional parameters, previous and next.
@@ -11,26 +11,16 @@ body: |
   - a label that can add extra info (ie page number) that will be displayed under the title
 
   If one of the 2 parameters is nil, no link will appear.
-accessibility-criteria: |
+accessibility_criteria: |
+  Icons in the component must not be announced by screen readers.
+
   The component must:
 
   - identify itself as pagination navigation
   - provide a distinction between the navigation text and label text of the links both visually and for screenreaders
 
-  Links in the component must:
-
-  - identify whether they will take the user to the next or previous page
-  - accept focus
-  - be focusable with a keyboard
-  - be usable with a keyboard
-  - indicate when it has focus
-  - change in appearance when touched (in the touch-down state)
-  - change in appearance when hovered
-  - be usable with touch
-  - be usable with [voice commands](https://www.w3.org/WAI/perspectives/voice.html)
-  - have visible text
-
-  Icons in the component must not be announced by screen readers.
+shared_accessibility_criteria:
+  - link
 examples:
   only_previous:
     data:

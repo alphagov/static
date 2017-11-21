@@ -11,6 +11,11 @@ body: |
 
   - Progressively enhanced, accessible charts (using [Magna Charta](https://github.com/alphagov/magna-charta), derived from tabular data (see example below)
   - Progressively enhanced, accessible embedded YouTube player (using [AccessibleMediaPlayer](https://github.com/alphagov/Accessible-Media-Player))
+accessibility_criteria: |
+  - headings must be part of a correct heading structure for the page
+  - text should have a text contrast ratio higher than 4.5:1 against the background colour to meet WCAG AA
+shared_accessibility_criteria:
+  - link
 examples:
   basic_content:
     data:

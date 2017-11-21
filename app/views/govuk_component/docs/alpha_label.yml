@@ -1,6 +1,12 @@
 name: Alpha Banner
-description: A banner that indicates content is in an alpha phase with an optional
+description: A banner that indicates content is in an alpha phase, with an optional
   explanation
+accessibility_criteria: |
+  The alpha label must:
+
+  - have a text contrast ratio higher than 4.5:1 against the background colour to meet WCAG AA
+shared_accessibility_criteria:
+  - link
 examples:
   default:
     data: {}
