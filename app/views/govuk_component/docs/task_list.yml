@@ -44,7 +44,7 @@ examples:
       groups: [
         [
           {
-            title: "Step 1",
+            title: "First",
             contents: [
               {
                 type: 'paragraph',
@@ -57,14 +57,85 @@ examples:
             ]
           },
           {
-            title: "Step 2",
+            title: "Second",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'You can group steps together like this.'
+              },
+            ]
+          }
+        ],
+        [
+          {
+            title: "Third",
             contents: [
               {
                 type: 'paragraph',
                 text: 'This is yet another paragraph.'
-              },
+              }
             ]
           }
         ]
       ]
-
+  with_links:
+    description: Links can be included with an optional parameter for if the link should be styled as active, and if a value for 'cost' should be shown after the link.
+    data:
+      groups: [
+          [
+            {
+              title: "Example step containing links",
+              contents: [
+                {
+                  type: 'list',
+                  links: [
+                    {
+                      path: '/test1',
+                      text: 'Link 1',
+                    },
+                    {
+                      path: '/test2',
+                      text: 'Link 2',
+                      active: false,
+                      cost: '&pound;50 to &pound;100'
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              title: "Example step containing links and paragraphs",
+              contents: [
+                {
+                  type: 'paragraph',
+                  text: 'You can include paragraphs and links together in any order as required.'
+                },
+                {
+                  type: 'list',
+                  style: '',
+                  links: [
+                    {
+                      path: '/test3',
+                      text: 'Link 3',
+                    },
+                    {
+                      path: '/test4',
+                      text: 'Link 4',
+                      cost: '&pound;0 to &pound;300'
+                    },
+                    {
+                      path: '/test5',
+                      text: 'Link 5',
+                    }
+                  ]
+                },
+                {
+                  type: 'paragraph',
+                  text: 'Like this.'
+                }
+              ]
+            }
+          ]
+        ]

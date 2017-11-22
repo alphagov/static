@@ -49,8 +49,33 @@
                 %>
                 <% step[:contents].each do |element| %>
                   <% if element[:type] == 'paragraph' %>
-                    <p><%= element[:text] %></p>
+                    <p class="pub-c-task-list__paragraph"><%= element[:text] %></p>
+
+                  <% elsif element[:type] == 'list' %>
+                    <ol class="pub-c-task-list__links" data-length="<%= element[:links].length %>">
+                      <% element[:links].each do |link| %>
+                        <%
+                          link_path = link[:path]
+                          link_text = ""
+                          link_index += 1
+
+                          if link[:active]
+                            link_path = "#content"
+                            link_text = '<span class="visuallyhidden">You are currently viewing:</span>'.html_safe
+                          end
+                        %>
+                        <li class="pub-c-task-list__link <% if link[:active] %>pub-c-task-list__link--active<% end %>">
+                          <a href="<%= link_path %>" class="pub-c-task-list__link-item js-panel-link" data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
+                            <%= link_text %> <%= link[:text] %>
+                          </a>
+                          <% if link[:cost] %>
+                            <span class="pub-c-task-list__cost"><%= link[:cost] %></span>
+                          <% end %>
+                        </li>
+                      <% end %>
+                    </ol>
                   <% end %>
+
                 <% end %>
               </div>
 
