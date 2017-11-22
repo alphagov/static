@@ -32,3 +32,5 @@ en:
     related_items:
       more: "More"
       in: "in"
+    taxonomy_sidebar:
+      related_content: "Related content"
