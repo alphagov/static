@@ -1,6 +1,5 @@
 <%
-  steps ||= false
-  groups ||= steps #changing the name of this attribute, temporarily accepting both to avoid deployment problems
+  groups ||= false
   small ||= false
   heading_level ||= 2
   open_step ||= false
@@ -25,6 +24,7 @@
           <span class="pub-c-task-list__number">
             <span class="visuallyhidden">Step</span> <%= group_index + 1 %>
           </span>
+
           <% group.each_with_index do |step, step_index| %>
             <%
               step_count += 1
@@ -43,44 +43,21 @@
               </div>
 
               <div class="pub-c-task-list__panel js-panel" id="step-panel-<%= id %>-<%= step_index + 1 %>">
-                <div class="pub-c-task-list__panel-content">
-                  <%= step[:panel].html_safe if step[:panel] %>
-
-                  <% step[:panel_descriptions].to_a.each do |panel_description| %>
-                    <p class="pub-c-task-list__panel-description">
-                      <%= panel_description %>
-                    </p>
+                <%
+                  in_substep = false
+                  link_index = 0
+                %>
+                <% step[:contents].each do |element| %>
+                  <% if element[:type] == 'paragraph' %>
+                    <p><%= element[:text] %></p>
                   <% end %>
-                </div>
-
-                <% if step[:panel_links] %>
-                  <ol class="pub-c-task-list__panel-links" data-length="<%= step[:panel_links].length %>">
-                    <% step[:panel_links].each_with_index do |panel_link, panel_index| %>
-                      <%
-                        panel_link_href = panel_link[:href]
-                        panel_link_text = ""
-
-                        if panel_link[:active]
-                          panel_link_href = "#content"
-                          panel_link_text = '<span class="visuallyhidden">You are currently viewing:</span>'.html_safe
-                        end
-                      %>
-                      <li class="pub-c-task-list__panel-link <% if panel_link[:active] %>pub-c-task-list__panel-link--active<% end %>">
-                        <a href="<%= panel_link_href %>" class="pub-c-task-list__panel-link-item js-panel-link" data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{panel_index + 1}" %>">
-                          <%= panel_link_text %> <%= panel_link[:text] %>
-                        </a>
-                      </li>
-                    <% end %>
-                  </ol>
                 <% end %>
-
               </div>
+
             </div>
           <% end %>
-
         </li>
       <% end %>
-
     </ol>
   </div>
 <% end %>

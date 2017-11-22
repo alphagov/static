@@ -200,67 +200,8 @@ $number-circle-size-large: 34px;
   }
 }
 
-// having two icons makes overriding the styles for the small tasklist simpler
-
-$icon-size: 10px;
-$icon-size-large: 12px;
-
-.pub-c-task-list__icon {
-  position: absolute;
-  top: 50%;
-  left: $first-indent-small;
-  height: $icon-size;
-  width: $icon-size;
-  margin-top: -($icon-size / 2) - 2;
-  background-image: image-url('icon-plus-minus-small.png'); // PNG fallback for SVG
-  background: image-url("icon-plus-minus.svg"), linear-gradient(transparent, transparent); // http://pauginer.com/post/36614680636/invisible-gradient-technique
-  background-repeat: no-repeat;
-
-  .pub-c-task-list--large & {
-    @include media(tablet) {
-      left: $first-indent;
-      height: $icon-size-large;
-      width: $icon-size-large;
-      margin-top: -($icon-size-large / 2) - 2;
-      // repeating these two lines for the benefit of IE8, which doesn't support background size
-      background-image: image-url('icon-plus-minus.png'); // PNG fallback for SVG
-      background: image-url("icon-plus-minus.svg"), linear-gradient(transparent, transparent); // http://pauginer.com/post/36614680636/invisible-gradient-technique
-    }
-  }
-}
-
-.pub-c-task-list__icon--plus {
-  background-position: 0 -#{$icon-size};
-  background-size: $icon-size;
-
-  .step-is-open & {
-    display: none;
-  }
-
-  .pub-c-task-list--large & {
-    @include media(tablet) {
-      background-position: 0 -#{$icon-size-large};
-      background-size: $icon-size-large;
-    }
-  }
-}
-
-.pub-c-task-list__icon--minus {
-  display: none;
-  background-position: 0 0;
-  background-size: $icon-size;
-  height: $icon-size - 1; // -1 is to avoid an irregular bug in Chrome where the plus part of the graphic is visible at the bottom of the element
-
-  .step-is-open & {
-    display: block;
-  }
-
-  .pub-c-task-list--large & {
-    @include media(tablet) {
-      background-size: $icon-size-large;
-      height: $icon-size-large - 1;
-    }
-  }
+.pub-c-task-list__toggle-link {
+  @include core-16;
 }
 
 .pub-c-task-list__title {

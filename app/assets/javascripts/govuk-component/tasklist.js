@@ -8,12 +8,14 @@
 
     var bulkActions = {
       openAll: {
-        buttonText: "Open all",
-        eventLabel: "Open All"
+        buttonText: "Show all",
+        eventLabel: "Show All",
+        linkText: "Show"
       },
       closeAll: {
-        buttonText: "Close all",
-        eventLabel: "Close All"
+        buttonText: "Hide all",
+        eventLabel: "Hide All",
+        linkText: "Hide"
       }
     };
 
@@ -44,7 +46,7 @@
 
       addButtonstoSteps();
       addOpenCloseAllButton();
-      addIconsToSteps();
+      addLinksToSteps();
       addAriaControlsAttrForOpenCloseAllButton();
 
       closeAllSteps();
@@ -76,9 +78,8 @@
         $element.prepend('<div class="pub-c-task-list__controls"><button aria-expanded="false" class="pub-c-task-list__button pub-c-task-list__button--controls js-step-controls-button">' + bulkActions.openAll.buttonText + '</button></div>');
       }
 
-      function addIconsToSteps() {
-        $stepHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--plus"></span>');
-        $stepHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--minus"></span>');
+      function addLinksToSteps() {
+        $stepHeaders.append('<span class="pub-c-task-list__toggle-link js-toggle-link">Show</span>');
       }
 
       function addAriaControlsAttrForOpenCloseAllButton() {
@@ -151,6 +152,9 @@
           var toggleClick = new StepToggleClick(event, stepView, $steps, tasklistTracker, $groups);
           toggleClick.track();
 
+          var toggleLink = $(this).find('.js-toggle-link');
+          toggleLink.text(toggleLink.text() == bulkActions.openAll.linkText ? bulkActions.closeAll.linkText : bulkActions.openAll.linkText);
+
           setOpenCloseAllText();
         });
       }
@@ -180,6 +184,7 @@
 
           if ($openOrCloseAllButton.text() == bulkActions.openAll.buttonText) {
             $openOrCloseAllButton.text(bulkActions.closeAll.buttonText);
+            $element.find('.js-toggle-link').text(bulkActions.closeAll.linkText)
             shouldOpenAll = true;
 
             tasklistTracker.track('pageElementInteraction', 'tasklistAllOpened', {
@@ -187,6 +192,7 @@
             });
           } else {
             $openOrCloseAllButton.text(bulkActions.openAll.buttonText);
+            $element.find('.js-toggle-link').text(bulkActions.openAll.linkText)
             shouldOpenAll = false;
 
             tasklistTracker.track('pageElementInteraction', 'tasklistAllClosed', {
