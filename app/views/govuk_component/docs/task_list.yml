@@ -82,60 +82,122 @@ examples:
     description: Links can be included with an optional parameter for if the link should be styled as active, and if a value for 'cost' should be shown after the link.
     data:
       groups: [
-          [
-            {
-              title: "Example step containing links",
-              contents: [
-                {
-                  type: 'list',
-                  links: [
-                    {
-                      path: '/test1',
-                      text: 'Link 1',
-                    },
-                    {
-                      path: '/test2',
-                      text: 'Link 2',
-                      active: false,
-                      cost: '&pound;50 to &pound;100'
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          [
-            {
-              title: "Example step containing links and paragraphs",
-              contents: [
-                {
-                  type: 'paragraph',
-                  text: 'You can include paragraphs and links together in any order as required.'
-                },
-                {
-                  type: 'list',
-                  style: '',
-                  links: [
-                    {
-                      path: '/test3',
-                      text: 'Link 3',
-                    },
-                    {
-                      path: '/test4',
-                      text: 'Link 4',
-                      cost: '&pound;0 to &pound;300'
-                    },
-                    {
-                      path: '/test5',
-                      text: 'Link 5',
-                    }
-                  ]
-                },
-                {
-                  type: 'paragraph',
-                  text: 'Like this.'
-                }
-              ]
-            }
-          ]
+        [
+          {
+            title: "Example step containing links",
+            contents: [
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: '/test1',
+                    text: 'Link 1',
+                  },
+                  {
+                    path: '/test2',
+                    text: 'Link 2',
+                    active: false,
+                    cost: '&pound;50 to &pound;100'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: "Example step containing links and paragraphs",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'You can include paragraphs and links together in any order as required.'
+              },
+              {
+                type: 'list',
+                style: '',
+                links: [
+                  {
+                    path: '/test3',
+                    text: 'Link 3',
+                  },
+                  {
+                    path: '/test4',
+                    text: 'Link 4',
+                    cost: '&pound;0 to &pound;300'
+                  },
+                  {
+                    path: '/test5',
+                    text: 'Link 5',
+                  }
+                ]
+              },
+              {
+                type: 'paragraph',
+                text: 'Like this.'
+              }
+            ]
+          }
         ]
+      ]
+  with_optional_steps_and_sub_steps:
+    description: Steps can be optional. Steps can also contain sub steps, which act either as a way to break up content or to indicate that some tasks are optional. Whenever a step or sub step is optional this should be made clear in the written content. Optional steps are styled differently but this should support the meaning, not convey it.
+    data:
+      groups: [
+        [
+          {
+            title: "Example optional step",
+            optional: true,
+            contents: [
+              {
+                type: paragraph,
+                text: 'This step is optional.'
+              }
+            ]
+          },
+          {
+            title: "Example link with sub step",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'This step ends with a sub step.'
+              },
+              {
+                type: 'substep',
+                optional: false
+              },
+              {
+                type: 'paragraph',
+                text: 'This paragraph is inside the sub step.'
+              },
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: '/test6',
+                    text: 'This link is also inside the sub step'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: "Another example with a sub step",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'This example contains a sub step that contains optional tasks.'
+              },
+              {
+                type: 'substep',
+                optional: true
+              },
+              {
+                type: 'paragraph',
+                text: 'This paragraph is inside the sub step.'
+              }
+            ]
+          }
+        ]
+      ]

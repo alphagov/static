@@ -31,7 +31,7 @@
               id = step[:id] || step[:title].downcase.tr(" ","-")
             %>
             <div
-              class="pub-c-task-list__step js-step"
+              class="pub-c-task-list__step js-step <% if step[:optional] %>pub-c-task-list__step--optional<% end %>"
               id="<%= id %>"
               data-track-count="tasklistSection"
               <% if step_count == show_step %>data-show<% end %>
@@ -74,8 +74,19 @@
                         </li>
                       <% end %>
                     </ol>
-                  <% end %>
 
+                  <% elsif element[:type] == 'substep' %>
+                    <% if in_substep %>
+                      </div>
+                      <% in_substep = false %>
+                    <% end %>
+                    <div class="pub-c-task-list__substep <% if element[:optional] %>pub-c-task-list__substep--optional<% end %>">
+                    <% in_substep = true %>
+                  <% end %>
+                <% end %>
+
+                <% if in_substep %>
+                  </div>
                 <% end %>
               </div>
 
