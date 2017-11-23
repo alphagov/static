@@ -108,4 +108,11 @@ class TaskListTest < ComponentTestCase
     assert_select group1 + " .pub-c-task-list__substep .pub-c-task-list__paragraph", text: "This paragraph is inside a substep"
     assert_select group2 + " .pub-c-task-list__substep.pub-c-task-list__substep--optional .pub-c-task-list__paragraph", text: "This paragraph is inside another substep"
   end
+
+  test "renders links back to the main task list" do
+    render_component(groups: simple_tasklist, task_list_url: "/learn-to-drive")
+
+    assert_select group1 + " .pub-c-task-list__help-link[href='/learn-to-drive#first-header']"
+    assert_select group2 + " .pub-c-task-list__help-link[href='/learn-to-drive#second-header']"
+  end
 end

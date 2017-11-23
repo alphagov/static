@@ -201,3 +201,49 @@ examples:
           }
         ]
       ]
+  with_links_to_more_information:
+    description: A task list in the side nav of a page can be overwhelmingly long. In these situations some content can be substituted with a link back to the main task list page. This link will include the value of the chosen step, so that the main task list page will open with that step shown. Note that this option does not remove any content - it is left to developers to simply pass less content to the component in this situation.
+    data:
+      task_list_url: "/learn-to-do-something"
+      groups: [
+        [
+          {
+            title: "A link back to the main task list",
+            contents: [
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: '/test7',
+                    text: 'This is a link'
+                  },
+                  {
+                    path: '/test7',
+                    text: 'This is another link'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: "Another link back to the main task list",
+            contents: [
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: '/test7',
+                    text: 'This is yet another link'
+                  },
+                  {
+                    path: '/test7',
+                    text: 'This is a further link'
+                  },
+                ]
+              }
+            ]
+          }
+        ]
+      ]
