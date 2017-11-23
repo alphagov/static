@@ -16,9 +16,9 @@ describe('A tasklist module', function () {
               <p class="pub-c-task-list__description">Step 1 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="step-panel-10-0">\
-              <ol class="pub-c-task-list__panel-links" data-length="1">\
-                <li class="pub-c-task-list__panel-link">\
-                  <a href="/link1" class="pub-c-task-list__panel-link-item js-panel-link" data-position="1.1.1">Link 1</a>\
+              <ol class="pub-c-task-list__links" data-length="1">\
+                <li class="pub-c-task-list__link">\
+                  <a href="/link1" class="pub-c-task-list__panel-link-item js-link" data-position="1.1.1">Link 1</a>\
                 </li>\
               </ol>\
             </div>\
@@ -29,12 +29,12 @@ describe('A tasklist module', function () {
               <p class="pub-c-task-list__description">Step 2 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="step-panel-11-1">\
-              <ol class="pub-c-task-list__panel-links" data-length="2">\
-                <li class="pub-c-task-list__panel-link">\
-                  <a href="/link2" class="pub-c-task-list__panel-link-item js-panel-link" data-position="1.2.1">Link 2</a>\
+              <ol class="pub-c-task-list__links" data-length="2">\
+                <li class="pub-c-task-list__link">\
+                  <a href="/link2" class="pub-c-task-list__link-item js-link" data-position="1.2.1">Link 2</a>\
                 </li>\
-                <li class="pub-c-task-list__panel-link">\
-                  <a href="/link3" class="pub-c-task-list__panel-link-item js-panel-link" data-position="1.2.2">Link 3</a>\
+                <li class="pub-c-task-list__link">\
+                  <a href="/link3" class="pub-c-task-list__link-item js-link" data-position="1.2.2">Link 3</a>\
                 </li>\
               </ol>\
             </div>\
@@ -50,15 +50,15 @@ describe('A tasklist module', function () {
               <p class="pub-c-task-list__description">Step 3 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="step-panel-12-0">\
-              <ol class="pub-c-task-list__panel-links" data-length="3">\
-                <li class="pub-c-task-list__panel-link">\
-                  <a href="/link4" class="pub-c-task-list__panel-link-item js-panel-link" data-position="2.1.1">Link 4</a>\
+              <ol class="pub-c-task-list__links" data-length="3">\
+                <li class="pub-c-task-list__link">\
+                  <a href="/link4" class="pub-c-task-list__link-item js-link" data-position="2.1.1">Link 4</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="/link5" class="pub-c-task-list__panel-link-item js-panel-link" data-position="2.1.2">Link 5</a>\
+                  <a href="/link5" class="pub-c-task-list__link-item js-link" data-position="2.1.2">Link 5</a>\
                 </li>\
                 <li class="pub-c-task-list__panel-link">\
-                  <a href="/link6" class="pub-c-task-list__panel-link-item js-panel-link" data-position="2.1.3">Link 6</a>\
+                  <a href="/link6" class="pub-c-task-list__link-item js-link" data-position="2.1.3">Link 6</a>\
                 </li>\
               </ol>\
             </div>\
@@ -76,8 +76,8 @@ describe('A tasklist module', function () {
     $element = $(html);
     tasklist.start($element);
     expectedTasklistStepCount = $element.find('.pub-c-task-list__step').length;
-    expectedTasklistContentCount = $element.find('.pub-c-task-list__step').first().find('.pub-c-task-list__panel-link').length;
-    expectedTasklistLinkCount = $element.find('.pub-c-task-list__panel-link-item').length;
+    expectedTasklistContentCount = $element.find('.pub-c-task-list__step').first().find('.js-link').length;
+    expectedTasklistLinkCount = $element.find('.pub-c-task-list__link-item').length;
   });
 
   afterEach(function () {
@@ -93,20 +93,20 @@ describe('A tasklist module', function () {
     expect($element).not.toHaveClass("js-hidden");
   });
 
-  it("has an open/close all button", function () {
-    var $openCloseAllButton = $element.find('.js-step-controls-button');
+  it("has an show/hide all button", function () {
+    var $showHideAllButton = $element.find('.js-step-controls-button');
 
-    expect($openCloseAllButton).toExist();
-    expect($openCloseAllButton).toHaveText("Open all");
-    // It has an aria-expanded false attribute as all steps are closed
-    expect($openCloseAllButton).toHaveAttr("aria-expanded", "false");
+    expect($showHideAllButton).toExist();
+    expect($showHideAllButton).toHaveText("Show all");
+    // It has an aria-expanded false attribute as all steps are hidden
+    expect($showHideAllButton).toHaveAttr("aria-expanded", "false");
     // It has an aria-controls attribute that includes all the step_content IDs
-    expect($openCloseAllButton).toHaveAttr('aria-controls', 'step-panel-10-0');
+    expect($showHideAllButton).toHaveAttr('aria-controls', 'step-panel-10-0');
   });
 
-  it("has no steps which have an open state", function () {
-    var openSteps = $element.find('.step-is-open').length;
-    expect(openSteps).toEqual(0);
+  it("has no steps which have an shown state", function () {
+    var shownSteps = $element.find('.step-is-shown').length;
+    expect(shownSteps).toEqual(0);
   });
 
   it("inserts a button into each step to show/hide content", function () {
@@ -120,28 +120,28 @@ describe('A tasklist module', function () {
 
   it("ensures all step content is hidden", function () {
     $element.find('.pub-c-task-list__step').each(function (index, $step) {
-      expect($step).not.toHaveClass('step-is-open');
+      expect($step).not.toHaveClass('step-is-shown');
     });
   });
 
-  it("adds an open/close icon to each step", function () {
+  it("adds an show/hide to each step", function () {
     var $stepHeader = $element.find('.pub-c-task-list__header');
-    expect($stepHeader).toContainElement('.pub-c-task-list__icon');
+    expect($stepHeader).toContainElement('.pub-c-task-list__toggle-link');
   });
 
-  describe('Clicking the "Open all" button', function () {
+  describe('Clicking the "Show all" button', function () {
     beforeEach(function () {
       GOVUK.analytics = {
         trackEvent: function () {
         }
       };
       spyOn(GOVUK.analytics, 'trackEvent');
-      clickOpenCloseAll();
+      clickShowHideAll();
     });
 
-    it('adds a .step-is-open class to each step to hide the icon', function () {
+    it('adds a .step-is-shown class to each step to hide the icon', function () {
       var stepCount = $element.find('.pub-c-task-list__step').length;
-      expect($element.find('.step-is-open').length).toEqual(stepCount);
+      expect($element.find('.step-is-shown').length).toEqual(stepCount);
     });
 
     it('adds an aria-expanded attribute to each step link', function () {
@@ -149,20 +149,20 @@ describe('A tasklist module', function () {
       expect($element.find('.js-step-title-button[aria-expanded="true"]').length).toEqual(stepCount);
     });
 
-    it('changes the Open/Close all button text to "Close all"', function () {
-      expect($element.find('.js-step-controls-button')).toContainText("Close all");
+    it('changes the Show/Hide all button text to "Hide all"', function () {
+      expect($element.find('.js-step-controls-button')).toContainText("Hide all");
     });
 
     it("triggers a google analytics custom event", function () {
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllOpened', {
-        label: 'Open All: Small',
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllShown', {
+        label: 'Show All: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString()
       });
     });
   });
 
-  describe('Clicking the "Close all" button', function () {
+  describe('Clicking the "Hide all" button', function () {
     it("triggers a google analytics custom event", function () {
       GOVUK.analytics = {
         trackEvent: function () {
@@ -170,11 +170,11 @@ describe('A tasklist module', function () {
       };
       spyOn(GOVUK.analytics, 'trackEvent');
 
-      clickOpenCloseAll();
-      clickOpenCloseAll();
+      clickShowHideAll();
+      clickShowHideAll();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllClosed', {
-        label: 'Close All: Small',
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllHidden', {
+        label: 'Hide All: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString()
       });
@@ -184,11 +184,11 @@ describe('A tasklist module', function () {
   describe('Opening a step', function () {
 
     // When a step is open (testing: toggleStep, openStep)
-    it("has a class of step-is-open", function () {
+    it("has a class of step-is-shown", function () {
       var $stepLink = $element.find('.pub-c-task-list__header .pub-c-task-list__button--title');
       var $step = $element.find('.pub-c-task-list__step');
       $stepLink.click();
-      expect($step).toHaveClass("step-is-open");
+      expect($step).toHaveClass("step-is-shown");
     });
 
     // When a step is open (testing: toggleState, setExpandedState)
@@ -208,7 +208,7 @@ describe('A tasklist module', function () {
       var $stepLink = $element.find('.pub-c-task-list__header .pub-c-task-list__button--title');
       $stepLink.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistShown', {
         label: '1.1 - Topic Step One - Heading click: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -223,10 +223,10 @@ describe('A tasklist module', function () {
       };
       spyOn(GOVUK.analytics, 'trackEvent');
 
-      var $stepIcon = $element.find('.pub-c-task-list__icon');
+      var $stepIcon = $element.find('.js-toggle-link');
       $stepIcon.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistShown', {
         label: '1.1 - Topic Step One - Plus click: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -244,7 +244,7 @@ describe('A tasklist module', function () {
       var $stepHeader = $element.find('.pub-c-task-list__header');
       $stepHeader.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistShown', {
         label: '1.1 - Topic Step One - Elsewhere click: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -253,19 +253,19 @@ describe('A tasklist module', function () {
     });
   });
 
-  describe('Closing a step', function () {
+  describe('Hiding a step', function () {
 
-    // When a step is closed (testing: toggleStep, closeStep)
-    it("removes the step-is-open class", function () {
+    // When a step is hidden (testing: toggleStep, hideStep)
+    it("removes the step-is-shown class", function () {
       var $stepLink = $element.find('.pub-c-task-list__header .pub-c-task-list__button--title');
       var $step = $element.find('.pub-c-task-list__step');
       $stepLink.click();
-      expect($step).toHaveClass("step-is-open");
+      expect($step).toHaveClass("step-is-shown");
       $stepLink.click();
-      expect($step).not.toHaveClass("step-is-open");
+      expect($step).not.toHaveClass("step-is-shown");
     });
 
-    // When a step is closed (testing: toggleState, setExpandedState)
+    // When a step is hidden (testing: toggleState, setExpandedState)
     it("has a an aria-expanded attribute and the value is false", function () {
       var $stepLink = $element.find('.pub-c-task-list__header .pub-c-task-list__button--title');
       $stepLink.click();
@@ -285,7 +285,7 @@ describe('A tasklist module', function () {
       $stepLink.click();
       $stepLink.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistHidden', {
         label: '1.1 - Topic Step One - Heading click: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -300,11 +300,11 @@ describe('A tasklist module', function () {
       };
       spyOn(GOVUK.analytics, 'trackEvent');
 
-      var $stepIcon = $element.find('.pub-c-task-list__icon');
+      var $stepIcon = $element.find('.js-toggle-link');
       $stepIcon.click();
       $stepIcon.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistHidden', {
         label: '1.1 - Topic Step One - Minus click: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -324,7 +324,7 @@ describe('A tasklist module', function () {
       $stepHeader.click();
       $stepHeader.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistHidden', {
         label: '1.1 - Topic Step One - Elsewhere click: Small',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -346,12 +346,12 @@ describe('A tasklist module', function () {
 
     it("opens the linked to topic step", function () {
       var $step = $element.find('#topic-step-one');
-      expect($step).toHaveClass('step-is-open');
+      expect($step).toHaveClass('step-is-shown');
     });
 
-    it("leaves other steps closed", function () {
+    it("leaves other steps hidden", function () {
       var $step = $element.find('#topic-step-two');
-      expect($step).not.toHaveClass('step-is-open');
+      expect($step).not.toHaveClass('step-is-shown');
     });
   });
 
@@ -373,7 +373,7 @@ describe('A tasklist module', function () {
       var $stepLink = $element.find('.pub-c-task-list__header .pub-c-task-list__button--title');
       $stepLink.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistShown', {
         label: '1.1 - Topic Step One - Heading click: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -388,10 +388,10 @@ describe('A tasklist module', function () {
       };
       spyOn(GOVUK.analytics, 'trackEvent');
 
-      var $stepIcon = $element.find('.pub-c-task-list__icon');
+      var $stepIcon = $element.find('.js-toggle-link');
       $stepIcon.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistShown', {
         label: '1.1 - Topic Step One - Plus click: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -409,7 +409,7 @@ describe('A tasklist module', function () {
       var $stepHeader = $element.find('.pub-c-task-list__header');
       $stepHeader.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistOpened', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistShown', {
         label: '1.1 - Topic Step One - Elsewhere click: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -417,7 +417,7 @@ describe('A tasklist module', function () {
       });
     });
 
-    it("triggers a google analytics custom event when closing by clicking on the title on a big tasklist", function () {
+    it("triggers a google analytics custom event when hiding by clicking on the title on a big tasklist", function () {
       GOVUK.analytics = {
         trackEvent: function () {
         }
@@ -428,7 +428,7 @@ describe('A tasklist module', function () {
       $stepLink.click();
       $stepLink.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistHidden', {
         label: '1.1 - Topic Step One - Heading click: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -436,18 +436,18 @@ describe('A tasklist module', function () {
       });
     });
 
-    it("triggers a google analytics custom event when closing by clicking on the icon on a big tasklist", function () {
+    it("triggers a google analytics custom event when hiding by clicking on the icon on a big tasklist", function () {
       GOVUK.analytics = {
         trackEvent: function () {
         }
       };
       spyOn(GOVUK.analytics, 'trackEvent');
 
-      var $stepIcon = $element.find('.pub-c-task-list__icon');
+      var $stepIcon = $element.find('.js-toggle-link');
       $stepIcon.click();
       $stepIcon.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistHidden', {
         label: '1.1 - Topic Step One - Minus click: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -455,7 +455,7 @@ describe('A tasklist module', function () {
       });
     });
 
-    it("triggers a google analytics custom event when closing by clicking in space in the header on a big tasklist", function () {
+    it("triggers a google analytics custom event when hiding by clicking in space in the header on a big tasklist", function () {
       GOVUK.analytics = {
         trackEvent: function () {
         }
@@ -467,7 +467,7 @@ describe('A tasklist module', function () {
       $stepHeader.click();
       $stepHeader.click();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistClosed', {
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistHidden', {
         label: '1.1 - Topic Step One - Elsewhere click: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString(),
@@ -475,32 +475,32 @@ describe('A tasklist module', function () {
       });
     });
 
-    it("triggers a google analytics custom event when clicking the 'Open all' button on a big tasklist", function () {
+    it("triggers a google analytics custom event when clicking the 'Show all' button on a big tasklist", function () {
       GOVUK.analytics = {
         trackEvent: function () {
         }
       };
       spyOn(GOVUK.analytics, 'trackEvent');
-      clickOpenCloseAll();
+      clickShowHideAll();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllOpened', {
-        label: 'Open All: Big',
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllShown', {
+        label: 'Show All: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString()
       });
     });
 
-    it("triggers a google analytics custom event when clicking the 'Close all' button on a big tasklist", function () {
+    it("triggers a google analytics custom event when clicking the 'Hide all' button on a big tasklist", function () {
       GOVUK.analytics = {
         trackEvent: function () {
         }
       };
       spyOn(GOVUK.analytics, 'trackEvent');
-      clickOpenCloseAll();
-      clickOpenCloseAll();
+      clickShowHideAll();
+      clickShowHideAll();
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllClosed', {
-        label: 'Close All: Big',
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('pageElementInteraction', 'tasklistAllHidden', {
+        label: 'Hide All: Big',
         dimension26: expectedTasklistStepCount.toString(),
         dimension27: expectedTasklistLinkCount.toString()
       });
@@ -512,7 +512,7 @@ describe('A tasklist module', function () {
         }
       };
       spyOn(GOVUK.analytics, 'trackEvent');
-      $element.find('.js-panel-link').first().click();
+      $element.find('.js-link').first().click();
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', '1.1.1', {
         label: '/link1 : Big',
@@ -530,7 +530,7 @@ describe('A tasklist module', function () {
     };
     spyOn(GOVUK.analytics, 'trackEvent');
 
-    var $panelLink = $element.find('.js-panel-link').first();
+    var $panelLink = $element.find('.js-link').first();
     $panelLink.click();
 
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', '1.1.1', {
@@ -541,7 +541,7 @@ describe('A tasklist module', function () {
     });
   });
 
-  function clickOpenCloseAll() {
+  function clickShowHideAll() {
     $element.find('.js-step-controls-button').click();
   }
 });

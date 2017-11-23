@@ -226,7 +226,7 @@ $number-circle-size-large: 34px;
     @include core-19;
   }
 
-  .step-is-open & {
+  .step-is-shown & {
     padding-top: 5px;
 
     @include media(tablet) {

@@ -2,7 +2,7 @@
   groups ||= false
   small ||= false
   heading_level ||= 2
-  open_step ||= false
+  show_step ||= false
   remember_last_step ||= false
 
   step_count = 0
@@ -34,7 +34,7 @@
               class="pub-c-task-list__step js-step"
               id="<%= id %>"
               data-track-count="tasklistSection"
-              <% if step_count == open_step %>data-open<% end %>
+              <% if step_count == show_step %>data-show<% end %>
               >
               <div class="pub-c-task-list__header js-toggle-panel" data-position="<%= "#{group_index + 1}.#{step_index + 1}" %>">
                 <h<%= heading_level %> class="pub-c-task-list__title js-step-title">
@@ -65,7 +65,7 @@
                           end
                         %>
                         <li class="pub-c-task-list__link <% if link[:active] %>pub-c-task-list__link--active<% end %>">
-                          <a href="<%= link_path %>" class="pub-c-task-list__link-item js-panel-link" data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
+                          <a href="<%= link_path %>" class="pub-c-task-list__link-item js-link" data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
                             <%= link_text %> <%= link[:text] %>
                           </a>
                           <% if link[:cost] %>
