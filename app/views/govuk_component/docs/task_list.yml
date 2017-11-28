@@ -79,61 +79,76 @@ examples:
         ]
       ]
   with_links:
-    description: Links can be included with an optional parameter for if the link should be styled as active, and if a value for 'cost' should be shown after the link.
+    description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can also have a cost associated with them.
     data:
       groups: [
         [
           {
-            title: "Example step containing links",
-            contents: [
-              {
-                type: 'list',
-                links: [
-                  {
-                    path: '/test1',
-                    text: 'Link 1',
-                  },
-                  {
-                    path: '/test2',
-                    text: 'Link 2',
-                    active: false,
-                    cost: '&pound;50 to &pound;100'
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        [
-          {
-            title: "Example step containing links and paragraphs",
+            title: 'Links and paragraphs',
             contents: [
               {
                 type: 'paragraph',
-                text: 'You can include paragraphs and links together in any order as required.'
+                text: 'These links represent tasks that are required.'
+              },
+              {
+                type: 'paragraph',
+                text: 'Spacing between a paragraph and a list of links should be smaller than the spacing between two paragraphs, in order to visually connect the two.'
               },
               {
                 type: 'list',
-                style: '',
+                style: 'required',
+                links: [
+                  {
+                    path: '/test1',
+                    text: 'Obtain a driving licence prior to driving a car',
+                  },
+                  {
+                    path: '/test2',
+                    text: 'Acquire food before attempting to cook',
+                    cost: '1p to &pound;20'
+                  }
+                ]
+              },
+              {
+                type: 'paragraph',
+                text: 'These links represent tasks that are optional.'
+              },
+              {
+                type: 'list',
                 links: [
                   {
                     path: '/test3',
-                    text: 'Link 3',
+                    text: 'Learn to play the saxophone',
                   },
                   {
                     path: '/test4',
-                    text: 'Link 4',
+                    text: 'Develop a new method of extracting juice from oranges',
                     cost: '&pound;0 to &pound;300'
                   },
                   {
                     path: '/test5',
-                    text: 'Link 5',
+                    text: 'Buy a race car',
                   }
                 ]
               },
               {
                 type: 'paragraph',
-                text: 'Like this.'
+                text: 'These links represent a choice:'
+              },
+              {
+                type: 'list',
+                style: 'choice',
+                links: [
+                  {
+                    path: '/test3',
+                    text: 'Leave school at sixteen',
+                  },
+                  {
+                    path: '/test4',
+                    text: 'Continue into higher education',
+                    cost: '&pound;9,500'
+                  }
+                ]
               }
             ]
           }
@@ -236,7 +251,7 @@ examples:
             contents: [
               {
                 type: 'paragraph',
-                text: 'This optional step contains a sub step that is required.'
+                text: 'This optional step contains multiple sub steps.'
               },
               {
                 type: 'substep',
@@ -244,7 +259,23 @@ examples:
               },
               {
                 type: 'paragraph',
-                text: 'This paragraph is inside the sub step.'
+                text: 'This paragraph is inside a required sub step.'
+              },
+              {
+                type: 'substep',
+                optional: true
+              },
+              {
+                type: 'paragraph',
+                text: 'This paragraph is inside an optional sub step.'
+              },
+              {
+                type: 'substep',
+                optional: false
+              },
+              {
+                type: 'paragraph',
+                text: 'This paragraph is inside a required sub step.'
               }
             ]
           }
@@ -314,7 +345,7 @@ examples:
       groups: [
         [
           {
-            title: 'Get started',
+            title: 'Get the TV ready',
             contents: [
               {
                 type: 'paragraph',
@@ -322,6 +353,7 @@ examples:
               },
               {
                 type: 'list',
+                style: 'required',
                 links: [
                   {
                     path: 'https://en.wikipedia.org/wiki/HDMI',
@@ -340,6 +372,7 @@ examples:
               },
               {
                 type: 'list',
+                style: 'required',
                 links: [
                   {
                     path: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
@@ -364,6 +397,7 @@ examples:
               },
               {
                 type: 'list',
+                style: 'required',
                 links: [
                   {
                     path: '',
@@ -401,10 +435,15 @@ examples:
               },
               {
                 type: 'list',
+                style: 'choice',
                 links: [
                   {
                     path: '',
                     text: "Get annoyed when it doesn't work"
+                  },
+                  {
+                    path: '',
+                    text: 'Try to find someone else who knows how to do it'
                   }
                 ]
               }

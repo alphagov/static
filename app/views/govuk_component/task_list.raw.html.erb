@@ -62,7 +62,21 @@
                     <p class="pub-c-task-list__paragraph"><%= element[:text] %></p>
 
                   <% elsif element[:type] == 'list' %>
-                    <ol class="pub-c-task-list__links" data-length="<%= element[:links].length %>">
+                    <%
+                      list_style = ''
+                      list_element = 'ol'
+
+                      if element[:style] == 'required'
+                        list_style = 'pub-c-task-list__links--required'
+                      elsif element[:style] == 'choice'
+                        list_style = 'pub-c-task-list__links--choice'
+                        list_element = 'ul'
+                      end
+                    %>
+                    <<%= list_element %>
+                      class="pub-c-task-list__links <%= list_style %>"
+                      data-length="<%= element[:links].length %>"
+                      >
                       <% element[:links].each do |link| %>
                         <%
                           link_path = link[:path]
@@ -83,7 +97,7 @@
                           <% end %>
                         </li>
                       <% end %>
-                    </ol>
+                    </<%= list_element %>>
 
                   <% elsif element[:type] == 'substep' %>
                     <% if in_substep %>

@@ -18,6 +18,7 @@ class TaskListTest < ComponentTestCase
             },
             {
               type: 'list',
+              style: 'required',
               links: [
                 {
                   path: '/link1',
@@ -61,6 +62,7 @@ class TaskListTest < ComponentTestCase
             },
             {
               type: 'list',
+              style: 'choice',
               links: [
                 {
                   path: '/link3',
@@ -149,5 +151,12 @@ class TaskListTest < ComponentTestCase
     assert_select group1step2 + " .pub-c-task-list__logic", text: "and"
     assert_select group2 + " .pub-c-task-list__number", text: "Step 2"
     assert_select group2step2 + " .pub-c-task-list__logic", text: "or"
+  end
+
+  test "lists have the correct styles" do
+    render_component(groups: tasklist)
+
+    assert_select group1step1 + " .pub-c-task-list__links.pub-c-task-list__links--required"
+    assert_select group2step1 + " .pub-c-task-list__links.pub-c-task-list__links--choice"
   end
 end

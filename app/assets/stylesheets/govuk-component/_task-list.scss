@@ -271,24 +271,74 @@ $number-circle-size-large: 35px;
   }
 }
 
-.pub-c-task-list__paragraph {
-  padding-bottom: $gutter-half;
+.pub-c-task-list__panel {
+  @include core-19;
+
+  @include media(tablet) {
+    @include core-19;
+  }
 
   .pub-c-task-list--large & {
     @include media(tablet) {
-      padding-bottom: $gutter;
+      @include core-19;
     }
   }
 }
 
 // contents of the task list, such as paragraphs and links
 
+.pub-c-task-list__paragraph {
+  padding-bottom: $gutter-half;
+
+  & + .pub-c-task-list__links {
+    margin-top: -5px;
+
+    .pub-c-task-list--large & {
+      @include media(tablet) {
+        margin-top: -$gutter-half;
+      }
+    }
+  }
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      padding-bottom: $gutter;
+
+      & + .pub-c-task-list__links {
+      }
+    }
+  }
+}
+
 .pub-c-task-list__links {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.pub-c-task-list__links--required {
+  font-weight: bold;
+}
+
+.pub-c-task-list__links--choice {
+  margin-left: 20px;
+  list-style: disc;
 }
 
 .pub-c-task-list__link {
   margin-bottom: 10px;
+}
+
+.pub-c-task-list__link-item {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .pub-c-task-list__cost {
@@ -310,7 +360,7 @@ $number-circle-size-large: 35px;
     @include task-list-line-position;
     z-index: 3;
     top: 0;
-    height: calc(100% + #{$gutter-half});
+    height: calc(100% + #{$gutter});
   }
 
   .pub-c-task-list__step--optional & {
@@ -323,9 +373,17 @@ $number-circle-size-large: 35px;
     @include media(tablet) {
       &:after {
         @include task-list-line-position-large;
-        height: calc(100% + #{$gutter});
+        height: calc(100% + #{$gutter} + #{$gutter-half});
       }
     }
+  }
+}
+
+.pub-c-task-list__help-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
