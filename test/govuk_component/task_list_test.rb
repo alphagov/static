@@ -119,6 +119,13 @@ class TaskListTest < ComponentTestCase
     assert_select group2step1 + " .pub-c-task-list__paragraph", text: "Group 2 step 1 paragraph"
   end
 
+  test "renders a tasklist with different heading levels" do
+    render_component(groups: tasklist, heading_level: 4)
+
+    assert_select group1step1 + " h4.pub-c-task-list__title", text: "Group 1 step 1"
+    assert_select group2step1 + " h4.pub-c-task-list__title", text: "Group 2 step 1"
+  end
+
   test "renders links" do
     render_component(groups: tasklist)
 

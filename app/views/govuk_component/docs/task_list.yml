@@ -78,6 +78,34 @@ examples:
           }
         ]
       ]
+  with_a_different_heading_level:
+    description: Steps have a H2 by default, but this can be changed. The heading level does not change any styling.
+    data:
+      heading_level: 3
+      groups: [
+        [
+          {
+            title: 'This is a heading 3',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'This is yet another paragraph.'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'This is also a heading 3',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'This is yet another paragraph.'
+              }
+            ]
+          }
+        ]
+      ]
   with_links:
     description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can also have a cost associated with them.
     data:
