@@ -30,6 +30,9 @@
             <%
               step_count += 1
               id = step[:id] || step[:title].downcase.tr(" ","-")
+
+              logic = "and"
+              logic = step[:logic] if ["and", "or"].include? step[:logic]
             %>
             <div
               class="pub-c-task-list__step js-step <% if step[:optional] %>pub-c-task-list__step--optional<% end %>"
@@ -37,6 +40,12 @@
               data-track-count="tasklistSection"
               <% if step_count == show_step %>data-show<% end %>
               >
+              <% if step_index > 0 and logic.length %>
+                <div class="pub-c-task-list__logic">
+                  <%= logic %>
+                </div>
+              <% end %>
+
               <div class="pub-c-task-list__header js-toggle-panel" data-position="<%= "#{group_index + 1}.#{step_index + 1}" %>">
                 <h<%= heading_level %> class="pub-c-task-list__title js-step-title">
                   <%= step[:title] %>
@@ -91,7 +100,9 @@
                 <% end %>
 
                 <% if task_list_url %>
-                  <a href="<%= task_list_url %>#<%= id %>" class="pub-c-task-list__help-link">Get help completing this step</a>
+                  <div class="pub-c-task-list__help">
+                    <a href="<%= task_list_url %>#<%= id %>" class="pub-c-task-list__help-link">Get help completing this step</a>
+                  </div>
                 <% end %>
               </div>
 

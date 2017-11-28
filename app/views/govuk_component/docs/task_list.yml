@@ -44,7 +44,7 @@ examples:
       groups: [
         [
           {
-            title: "First",
+            title: "Do a thing",
             contents: [
               {
                 type: 'paragraph',
@@ -57,18 +57,18 @@ examples:
             ]
           },
           {
-            title: "Second",
+            title: "Do another thing",
             contents: [
               {
                 type: 'paragraph',
-                text: 'You can group steps together like this.'
+                text: 'Groups can contain multiple steps, like this.'
               },
             ]
           }
         ],
         [
           {
-            title: "Third",
+            title: "Do something else",
             contents: [
               {
                 type: 'paragraph',
@@ -139,31 +139,79 @@ examples:
           }
         ]
       ]
-  with_optional_steps_and_sub_steps:
-    description: Steps can be optional. Steps can also contain sub steps, which act either as a way to break up content or to indicate that some tasks are optional. Whenever a step or sub step is optional this should be made clear in the written content. Optional steps are styled differently but this should support the meaning, not convey it.
+  with_optional_steps:
+    description: Steps can be optional. This is controlled by two parameters for maximum flexibility, 'optional' (which causes the step to have a dotted line down the side) and 'logic', which defaults to showing the word 'and' alongside the step title, but also accepts 'or'.
     data:
       groups: [
         [
           {
-            title: "Example optional step",
-            optional: true,
+            title: "Drive to work",
             contents: [
               {
                 type: paragraph,
-                text: 'This step is optional.'
+                text: 'If you do not have a car, you will need to choose an alternative.'
               }
             ]
           },
           {
-            title: "Example link with sub step",
+            title: "Walk to work",
+            optional: true,
+            logic: 'or',
             contents: [
               {
                 type: 'paragraph',
-                text: 'This step ends with a sub step.'
+                text: 'Walking is healthy but may not be practical where large distances are concerned.'
+              }
+            ]
+          },
+          {
+            title: "Get public transport to work",
+            optional: true,
+            logic: 'or',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Public transport includes buses, trains and boats.'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: "Do work",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Once you have reached your destination you should be able to start work.'
+              }
+            ]
+          },
+          {
+            title: "Get paid",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Your employer should pay you for hours worked.'
+              }
+            ]
+          }
+        ]
+      ]
+  with_sub_steps:
+    description: Steps can also contain sub steps, which act either as a way to break up content or to indicate that some tasks are optional. Whenever a step or sub step is optional this should be made clear in the written content. Optional steps are styled differently but this should support the meaning, not convey it.
+    data:
+      groups: [
+        [
+          {
+            title: "A required step",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'This step ends with an optional sub step.'
               },
               {
                 type: 'substep',
-                optional: false
+                optional: true
               },
               {
                 type: 'paragraph',
@@ -183,19 +231,31 @@ examples:
         ],
         [
           {
-            title: "Another example with a sub step",
+            title: "An optional step",
+            optional: true,
             contents: [
               {
                 type: 'paragraph',
-                text: 'This example contains a sub step that contains optional tasks.'
+                text: 'This optional step contains a sub step that is required.'
               },
               {
                 type: 'substep',
-                optional: true
+                optional: false
               },
               {
                 type: 'paragraph',
                 text: 'This paragraph is inside the sub step.'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: "Another required step",
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Um. Hello.'
               }
             ]
           }
@@ -242,6 +302,160 @@ examples:
                     text: 'This is a further link'
                   },
                 ]
+              }
+            ]
+          }
+        ]
+      ]
+  test_all_the_things:
+    description: This component is very complicated so here is an example containing as many of the options available as possible.
+    data:
+      task_list_url: "/learn-to-setup-standup"
+      groups: [
+        [
+          {
+            title: 'Get started',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Configure the television so it is ready for the standup. You will also need a laptop.'
+              },
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: 'https://en.wikipedia.org/wiki/HDMI',
+                    text: 'Remove the Chromebit from HDMI 1 on the TV'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            title: 'Plug everything in',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Connect the relevant cables between the various devices.'
+              },
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
+                    text: 'Run the HDMI - MINI DVI cable from the TV to the facilitators laptop'
+                  },
+                  {
+                    path: 'https://www.jabra.co.uk/',
+                    text: 'Plug the Jabra into the facilitators laptop'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Configure the catchbox',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'These steps are required.'
+              },
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: '',
+                    text: 'Ensure the catchbox transmitter is plugged in at the mains wall'
+                  },
+                  {
+                    path: '',
+                    text: 'Turn on the transmitter and wait for the switch to blink green'
+                  },
+                  {
+                    path: '',
+                    text: 'Plug the transmitter USB cable into the facilitators laptop'
+                  },
+                  {
+                    path: '',
+                    text: 'Twist and pull the black piece of foam out of the catchbox'
+                  },
+                  {
+                    path: '',
+                    text: 'Turn on the catchbox and wait for the LED to turn green'
+                  },
+                  {
+                    path: '',
+                    text: 'Wait for the transmitter light to turn solid green'
+                  }
+                ]
+              },
+              {
+                type: 'substep',
+                optional: true
+              },
+              {
+                type: 'paragraph',
+                text: 'These steps are not required.'
+              },
+              {
+                type: 'list',
+                links: [
+                  {
+                    path: '',
+                    text: "Get annoyed when it doesn't work"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Join and configure the standup',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Connect to standup hangout via the calendar invite'
+              },
+              {
+                type: 'paragraph',
+                text: 'Click the three dots in the bottom hand corner to open settings'
+              },
+              {
+                type: 'paragraph',
+                text: 'Set speaker to "Jabra"'
+              },
+              {
+                type: 'paragraph',
+                text: 'Set microphone to "C Media USB"'
+              },
+              {
+                type: 'paragraph',
+                text: 'Click "present to meeting"'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Clear up',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Undo all the things'
+              }
+            ]
+          },
+          {
+            title: 'Get someone else to clear up',
+            logic: 'or',
+            optional: true,
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Schedule another meeting for right after the standup and force someone else to sort everything out.'
               }
             ]
           }

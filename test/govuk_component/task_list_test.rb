@@ -5,16 +5,16 @@ class TaskListTest < ComponentTestCase
     "task_list"
   end
 
-  def simple_tasklist
+  def tasklist
     [
       [
         {
-          title: 'First header',
+          title: 'Group 1 step 1',
           optional: true,
           contents: [
             {
               type: 'paragraph',
-              text: 'This is the first paragraph'
+              text: 'Group 1 step 1 paragraph'
             },
             {
               type: 'list',
@@ -32,21 +32,32 @@ class TaskListTest < ComponentTestCase
             },
             {
               type: 'substep',
+              optional: false
             },
             {
               type: 'paragraph',
-              text: 'This paragraph is inside a substep'
+              text: 'This paragraph is inside a required substep'
             },
+          ]
+        },
+        {
+          title: 'Group 1 step 2',
+          optional: false,
+          contents: [
+            {
+              type: 'paragraph',
+              text: 'test'
+            }
           ]
         }
       ],
       [
         {
-          title: 'Second header',
+          title: 'Group 2 step 1',
           contents: [
             {
               type: 'paragraph',
-              text: 'This is the second paragraph'
+              text: 'Group 2 step 1 paragraph'
             },
             {
               type: 'list',
@@ -63,8 +74,18 @@ class TaskListTest < ComponentTestCase
             },
             {
               type: 'paragraph',
-              text: 'This paragraph is inside another substep'
+              text: 'This paragraph is inside an optional substep'
             },
+          ]
+        },
+        {
+          title: 'Group 2 step 2',
+          logic: 'or',
+          contents: [
+            {
+              type: 'paragraph',
+              text: 'test'
+            }
           ]
         }
       ]
@@ -72,47 +93,61 @@ class TaskListTest < ComponentTestCase
   end
 
   group1 = ".pub-c-task-list__group:nth-child(1)"
+  group1step1 = group1 + " .pub-c-task-list__step:nth-of-type(1)"
+  group1step2 = group1 + " .pub-c-task-list__step:nth-of-type(2)"
+
   group2 = ".pub-c-task-list__group:nth-child(2)"
+  group2step1 = group2 + " .pub-c-task-list__step:nth-of-type(1)"
+  group2step2 = group2 + " .pub-c-task-list__step:nth-of-type(2)"
 
   test "renders nothing without passed content" do
     assert_empty render_component({})
   end
 
   test "renders paragraphs" do
-    render_component(groups: simple_tasklist)
+    render_component(groups: tasklist)
     assert_select ".pub-c-task-list"
 
-    assert_select group1 + " .pub-c-task-list__step#first-header"
-    assert_select group1 + " .pub-c-task-list__title", text: "First header"
-    assert_select group1 + " .pub-c-task-list__paragraph", text: "This is the first paragraph"
+    assert_select group1 + " .pub-c-task-list__step#group-1-step-1:nth-of-type(1)"
+    assert_select group1step1 + " .pub-c-task-list__title", text: "Group 1 step 1"
+    assert_select group1step1 + " .pub-c-task-list__paragraph", text: "Group 1 step 1 paragraph"
 
-    assert_select group2 + " .pub-c-task-list__step#second-header"
-    assert_select group2 + " .pub-c-task-list__title", text: "Second header"
-    assert_select group2 + " .pub-c-task-list__paragraph", text: "This is the second paragraph"
+    assert_select group2 + " .pub-c-task-list__step#group-2-step-2:nth-of-type(1)"
+    assert_select group2step1 + " .pub-c-task-list__title", text: "Group 2 step 1"
+    assert_select group2step1 + " .pub-c-task-list__paragraph", text: "Group 2 step 1 paragraph"
   end
 
   test "renders links" do
-    render_component(groups: simple_tasklist)
+    render_component(groups: tasklist)
 
-    assert_select group1 + " .pub-c-task-list__link-item[href='/link1']", text: "Link 1"
-    assert_select group1 + " .pub-c-task-list__link-item[href='/link2']", text: "Link 2"
-    assert_select group1 + " .pub-c-task-list__cost", text: "&pound;0 to &pound;300"
+    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1']", text: "Link 1"
+    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link2']", text: "Link 2"
+    assert_select group1step1 + " .pub-c-task-list__cost", text: "&pound;0 to &pound;300"
 
-    assert_select group2 + " .pub-c-task-list__link-item[href='/link3']", text: "Link 3"
+    assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3']", text: "Link 3"
   end
 
   test "renders optional steps, sub steps and optional sub steps" do
-    render_component(groups: simple_tasklist)
+    render_component(groups: tasklist)
 
-    assert_select group1 + " .pub-c-task-list__step.pub-c-task-list__step--optional"
-    assert_select group1 + " .pub-c-task-list__substep .pub-c-task-list__paragraph", text: "This paragraph is inside a substep"
-    assert_select group2 + " .pub-c-task-list__substep.pub-c-task-list__substep--optional .pub-c-task-list__paragraph", text: "This paragraph is inside another substep"
+    assert_select group1 + " .pub-c-task-list__step.pub-c-task-list__step--optional:nth-of-type(1)"
+    assert_select group1step1 + " .pub-c-task-list__substep .pub-c-task-list__paragraph", text: "This paragraph is inside a required substep"
+    assert_select group2step1 + " .pub-c-task-list__substep.pub-c-task-list__substep--optional .pub-c-task-list__paragraph", text: "This paragraph is inside an optional substep"
   end
 
-  test "renders links back to the main task list" do
-    render_component(groups: simple_tasklist, task_list_url: "/learn-to-drive")
+  test "renders get help links back to the main task list" do
+    render_component(groups: tasklist, task_list_url: "/learn-to-drive")
 
-    assert_select group1 + " .pub-c-task-list__help-link[href='/learn-to-drive#first-header']"
-    assert_select group2 + " .pub-c-task-list__help-link[href='/learn-to-drive#second-header']"
+    assert_select group1step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-1-step-1']", text: "Get help completing this step"
+    assert_select group2step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-2-step-1']", text: "Get help completing this step"
+  end
+
+  test "group numbering and step logic is displayed correctly" do
+    render_component(groups: tasklist)
+
+    assert_select group1 + " .pub-c-task-list__number", text: "Step 1"
+    assert_select group1step2 + " .pub-c-task-list__logic", text: "and"
+    assert_select group2 + " .pub-c-task-list__number", text: "Step 2"
+    assert_select group2step2 + " .pub-c-task-list__logic", text: "or"
   end
 end
