@@ -143,6 +143,34 @@ examples:
           }
         ]
       ]
+  remember_last_opened_step:
+    description: If a step is opened its ID is appended to the end of the URL, so that if the URL is shared or the 'back' button is used, that step will be opened on page load. This was historically part of the behaviour of the accordion. By default this is turned off and cannot be used together with the option to open a step by default.
+    data:
+      remember_last_step: true
+      groups: [
+        [
+          {
+            title: 'Remember this',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Hello!'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Or this',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Hello!'
+              }
+            ]
+          }
+        ]
+      ]
   with_links:
     description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can also have a cost associated with them.
     data:

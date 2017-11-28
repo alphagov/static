@@ -134,9 +134,13 @@ class TaskListTest < ComponentTestCase
   test "opens a step by default" do
     render_component(groups: tasklist, show_step: 2)
 
-    #puts(assert_select group1step2)
-
     assert_select group1 + " .pub-c-task-list__step#group-1-step-2[data-show]"
+  end
+
+  test "remembers last opened step" do
+    render_component(groups: tasklist, remember_last_step: true)
+
+    assert_select ".pub-c-task-list[data-remember]"
   end
 
   test "renders links" do
