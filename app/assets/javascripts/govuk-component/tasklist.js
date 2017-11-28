@@ -79,7 +79,15 @@
       }
 
       function addLinksToSteps() {
-        $stepHeaders.append('<span class="pub-c-task-list__toggle-link js-toggle-link">Show</span>');
+        $stepHeaders.each(function() {
+          var linkText = bulkActions.showAll.linkText;
+
+          if (typeof $(this).closest('.js-step').data('show') !== 'undefined') {
+            linkText = bulkActions.hideAll.linkText;
+          }
+
+          $(this).append('<span class="pub-c-task-list__toggle-link js-toggle-link">' + linkText + '</span>');
+        });
       }
 
       function addAriaControlsAttrForShowHideAllButton() {

@@ -68,6 +68,11 @@ class TaskListTest < ComponentTestCase
                   path: '/link3',
                   text: 'Link 3',
                 },
+                {
+                  path: '/link4',
+                  active: true,
+                  text: 'Link 4',
+                },
               ]
             },
             {
@@ -126,6 +131,14 @@ class TaskListTest < ComponentTestCase
     assert_select group2step1 + " h4.pub-c-task-list__title", text: "Group 2 step 1"
   end
 
+  test "opens a step by default" do
+    render_component(groups: tasklist, show_step: 2)
+
+    #puts(assert_select group1step2)
+
+    assert_select group1 + " .pub-c-task-list__step#group-1-step-2[data-show]"
+  end
+
   test "renders links" do
     render_component(groups: tasklist)
 
@@ -165,5 +178,11 @@ class TaskListTest < ComponentTestCase
 
     assert_select group1step1 + " .pub-c-task-list__links.pub-c-task-list__links--required"
     assert_select group2step1 + " .pub-c-task-list__links.pub-c-task-list__links--choice"
+  end
+
+  test "open a step by default functionality" do
+    render_component(groups: tasklist, show_step: 3)
+
+    assert_select group2 + " .pub-c-task-list__step[data-show]:nth-of-type(1)"
   end
 end

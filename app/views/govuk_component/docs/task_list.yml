@@ -106,6 +106,43 @@ examples:
           }
         ]
       ]
+  open_a_step_by_default:
+    description: Pass the index of the step to open by default. This is the nth step, regardless of group number.
+    data:
+      show_step: 3
+      groups: [
+        [
+          {
+            title: 'Closed by default',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Well, open now, obviously.'
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Also closed by default',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Hello.'
+              }
+            ]
+          },
+          {
+            title: 'Open by default',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Hello!'
+              }
+            ]
+          }
+        ]
+      ]
   with_links:
     description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can also have a cost associated with them.
     data:

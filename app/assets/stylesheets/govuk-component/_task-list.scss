@@ -3,7 +3,6 @@ $stroke-width-large: 3px;
 $number-circle-size: 26px;
 $number-circle-size-large: 35px;
 
-
 @mixin task-list-vertical-line ($line-style: solid) {
   content: "";
   position: absolute;
