@@ -21,11 +21,11 @@ class TaskListTest < ComponentTestCase
               style: 'required',
               links: [
                 {
-                  path: '/link1',
+                  href: '/link1',
                   text: 'Link 1',
                 },
                 {
-                  path: '/link2',
+                  href: '/link2',
                   text: 'Link 2',
                   cost: '&pound;0 to &pound;300'
                 },
@@ -65,11 +65,11 @@ class TaskListTest < ComponentTestCase
               style: 'choice',
               links: [
                 {
-                  path: '/link3',
+                  href: '/link3',
                   text: 'Link 3',
                 },
                 {
-                  path: '/link4',
+                  href: '/link4',
                   active: true,
                   text: 'Link 4',
                 },

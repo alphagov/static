@@ -193,16 +193,16 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    path: '/test1',
+                    href: '/test1',
                     text: 'Obtain a driving licence prior to driving a car',
                   },
                   {
-                    path: '/test2',
+                    href: '/test2',
                     text: 'Acquire food before attempting to cook',
                     cost: '1p to &pound;20'
                   },
                   {
-                    path: '/test3',
+                    href: '/test3',
                     text: 'Maintain contact with the ground at all times',
                   }
                 ]
@@ -215,16 +215,16 @@ examples:
                 type: 'list',
                 links: [
                   {
-                    path: '/test4',
+                    href: '/test4',
                     text: 'Learn to play the saxophone',
                   },
                   {
-                    path: '/test5',
+                    href: '/test5',
                     text: 'Develop a new method of extracting juice from oranges',
                     cost: '&pound;0 to &pound;300'
                   },
                   {
-                    path: '/test6',
+                    href: '/test6',
                     text: 'Buy a race car',
                   }
                 ]
@@ -238,11 +238,11 @@ examples:
                 style: 'choice',
                 links: [
                   {
-                    path: '/test3',
+                    href: '/test3',
                     text: 'Leave school at sixteen',
                   },
                   {
-                    path: '/test4',
+                    href: '/test4',
                     text: 'Continue into higher education',
                     cost: '&pound;9,500'
                   }
@@ -260,18 +260,18 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    path: '/test1',
+                    href: '/test1',
                     active: true,
                     text: 'Check the reasons',
                   },
                   {
-                    path: '/test2',
+                    href: '/test2',
                     text: 'Make the decisions based on available data and the reasonable assumptions that are possible at the time',
                     active: true,
                     cost: '1p to &pound;20'
                   },
                   {
-                    path: '/test3',
+                    href: '/test3',
                     text: 'Do the things',
                   }
                 ]
@@ -341,6 +341,7 @@ examples:
   with_sub_steps:
     description: Steps can also contain sub steps, which act either as a way to break up content or to indicate that some tasks are optional. Whenever a step or sub step is optional this should be made clear in the written content. Optional steps are styled differently but this should support the meaning, not convey it.
     data:
+      highlight_group: 2
       groups: [
         [
           {
@@ -362,7 +363,7 @@ examples:
                 type: 'list',
                 links: [
                   {
-                    path: '/test6',
+                    href: '/test6',
                     text: 'This link is also inside the sub step'
                   }
                 ]
@@ -394,6 +395,16 @@ examples:
               {
                 type: 'paragraph',
                 text: 'This paragraph is inside an optional sub step.'
+              },
+              {
+                type: 'list',
+                links: [
+                  {
+                    href: '/test7',
+                    text: 'This link is inside an optional sub step as well',
+                    active: true
+                  }
+                ]
               },
               {
                 type: 'substep',
@@ -431,11 +442,11 @@ examples:
                 type: 'list',
                 links: [
                   {
-                    path: '/test7',
+                    href: '/test7',
                     text: 'This is a link'
                   },
                   {
-                    path: '/test7',
+                    href: '/test7',
                     text: 'This is another link'
                   }
                 ]
@@ -451,11 +462,11 @@ examples:
                 type: 'list',
                 links: [
                   {
-                    path: '/test7',
+                    href: '/test7',
                     text: 'This is yet another link'
                   },
                   {
-                    path: '/test7',
+                    href: '/test7',
                     text: 'This is a further link'
                   },
                 ]
@@ -468,6 +479,7 @@ examples:
     description: This component is very complicated so here is an example containing as many of the options available as possible.
     data:
       task_list_url: "/learn-to-setup-standup"
+      highlight_group: 2
       groups: [
         [
           {
@@ -482,7 +494,7 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    path: 'https://en.wikipedia.org/wiki/HDMI',
+                    href: 'https://en.wikipedia.org/wiki/HDMI',
                     text: 'Remove the Chromebit from HDMI 1 on the TV'
                   }
                 ]
@@ -501,11 +513,11 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    path: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
+                    href: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
                     text: 'Run the HDMI - MINI DVI cable from the TV to the facilitators laptop'
                   },
                   {
-                    path: 'https://www.jabra.co.uk/',
+                    href: 'https://www.jabra.co.uk/',
                     text: 'Plug the Jabra into the facilitators laptop'
                   }
                 ]
@@ -526,27 +538,27 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    path: '',
+                    href: '',
                     text: 'Ensure the catchbox transmitter is plugged in at the mains wall'
                   },
                   {
-                    path: '',
+                    href: '',
                     text: 'Turn on the transmitter and wait for the switch to blink green'
                   },
                   {
-                    path: '',
+                    href: '',
                     text: 'Plug the transmitter USB cable into the facilitators laptop'
                   },
                   {
-                    path: '',
+                    href: '',
                     text: 'Twist and pull the black piece of foam out of the catchbox'
                   },
                   {
-                    path: '',
+                    href: '',
                     text: 'Turn on the catchbox and wait for the LED to turn green'
                   },
                   {
-                    path: '',
+                    href: '',
                     text: 'Wait for the transmitter light to turn solid green'
                   }
                 ]
@@ -564,12 +576,13 @@ examples:
                 style: 'choice',
                 links: [
                   {
-                    path: '',
+                    href: 'https://www.google.co.uk/search?q=annoyed&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi_xcX36-PXAhUoAsAKHQlsD90Q_AUICigB&biw=1745&bih=894&dpr=1.1',
                     text: "Get annoyed when it doesn't work"
                   },
                   {
-                    path: '',
-                    text: 'Try to find someone else who knows how to do it'
+                    href: '',
+                    text: 'Try to find someone else who knows how to do it',
+                    cost: '1 to 10 minutes'
                   }
                 ]
               }
@@ -582,23 +595,33 @@ examples:
             contents: [
               {
                 type: 'paragraph',
-                text: 'Connect to standup hangout via the calendar invite'
+                text: 'Join the hangout and present to those on it.'
               },
               {
-                type: 'paragraph',
-                text: 'Click the three dots in the bottom hand corner to open settings'
-              },
-              {
-                type: 'paragraph',
-                text: 'Set speaker to "Jabra"'
-              },
-              {
-                type: 'paragraph',
-                text: 'Set microphone to "C Media USB"'
-              },
-              {
-                type: 'paragraph',
-                text: 'Click "present to meeting"'
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: '',
+                    text: 'Connect to standup hangout via the calendar invite'
+                  },
+                  {
+                    href: '',
+                    text: 'Click the three dots in the bottom hand corner to open settings'
+                  },
+                  {
+                    href: '',
+                    text: 'Set speaker to "Jabra"'
+                  },
+                  {
+                    href: '',
+                    text: 'Set microphone to "C Media USB"'
+                  },
+                  {
+                    href: '',
+                    text: 'Click "present to meeting"'
+                  },
+                ]
               }
             ]
           }
@@ -609,7 +632,11 @@ examples:
             contents: [
               {
                 type: 'paragraph',
-                text: 'Undo all the things'
+                text: 'Disconnect from the hangout and disconnect any cables.'
+              },
+              {
+                type: 'paragraph',
+                text: 'Most importantly, remember to switch off the catchbox to save the battery.'
               }
             ]
           },
