@@ -653,3 +653,182 @@ examples:
           }
         ]
       ]
+  small:
+    description: Designed to fit in the sidebar of a page. Note that the small version of the task list should not become smaller on mobile, and the large version on mobile should be the same size as the small version. This example is a copy of the one above for comparison.
+    data:
+      small: true
+      task_list_url: "/learn-to-setup-standup"
+      highlight_group: 2
+      groups: [
+        [
+          {
+            title: 'Get the TV ready',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Configure the television so it is ready for the standup. You will also need a laptop.'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: 'https://en.wikipedia.org/wiki/HDMI',
+                    text: 'Remove the Chromebit from HDMI 1 on the TV'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            title: 'Plug everything in',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Connect the relevant cables between the various devices.'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
+                    text: 'Run the HDMI - MINI DVI cable from the TV to the facilitators laptop'
+                  },
+                  {
+                    href: 'https://www.jabra.co.uk/',
+                    text: 'Plug the Jabra into the facilitators laptop'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Configure the catchbox',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'These steps are required.'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: '',
+                    text: 'Ensure the catchbox transmitter is plugged in at the mains wall'
+                  },
+                  {
+                    href: '',
+                    text: 'Turn on the transmitter and wait for the switch to blink green'
+                  },
+                  {
+                    href: '',
+                    text: 'Plug the transmitter USB cable into the facilitators laptop'
+                  },
+                  {
+                    href: '',
+                    text: 'Twist and pull the black piece of foam out of the catchbox'
+                  },
+                  {
+                    href: '',
+                    text: 'Turn on the catchbox and wait for the LED to turn green'
+                  },
+                  {
+                    href: '',
+                    text: 'Wait for the transmitter light to turn solid green'
+                  }
+                ]
+              },
+              {
+                type: 'substep',
+                optional: true
+              },
+              {
+                type: 'paragraph',
+                text: 'These steps are not required.'
+              },
+              {
+                type: 'list',
+                style: 'choice',
+                links: [
+                  {
+                    href: 'https://www.google.co.uk/search?q=annoyed&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi_xcX36-PXAhUoAsAKHQlsD90Q_AUICigB&biw=1745&bih=894&dpr=1.1',
+                    text: "Get annoyed when it doesn't work"
+                  },
+                  {
+                    href: '',
+                    text: 'Try to find someone else who knows how to do it',
+                    cost: '1 to 10 minutes'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Join and configure the standup',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Join the hangout and present to those on it.'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: '',
+                    text: 'Connect to standup hangout via the calendar invite'
+                  },
+                  {
+                    href: '',
+                    text: 'Click the three dots in the bottom hand corner to open settings'
+                  },
+                  {
+                    href: '',
+                    text: 'Set speaker to "Jabra"'
+                  },
+                  {
+                    href: '',
+                    text: 'Set microphone to "C Media USB"'
+                  },
+                  {
+                    href: '',
+                    text: 'Click "present to meeting"'
+                  },
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Clear up',
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Disconnect from the hangout and disconnect any cables.'
+              },
+              {
+                type: 'paragraph',
+                text: 'Most importantly, remember to switch off the catchbox to save the battery.'
+              }
+            ]
+          },
+          {
+            title: 'Get someone else to clear up',
+            logic: 'or',
+            optional: true,
+            contents: [
+              {
+                type: 'paragraph',
+                text: 'Schedule another meeting for right after the standup and force someone else to sort everything out.'
+              }
+            ]
+          }
+        ]
+      ]

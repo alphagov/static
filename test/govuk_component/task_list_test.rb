@@ -184,7 +184,7 @@ class TaskListTest < ComponentTestCase
     assert_select group2step1 + " .pub-c-task-list__links.pub-c-task-list__links--choice"
   end
 
-  test "open a step by default functionality" do
+  test "a step can be set to open on page load" do
     render_component(groups: tasklist, show_step: 3)
 
     assert_select group2 + " .pub-c-task-list__step[data-show]:nth-of-type(1)"
@@ -195,5 +195,12 @@ class TaskListTest < ComponentTestCase
 
     assert_select group1 + ".pub-c-task-list__group--active"
     assert_select group2step1 + " .pub-c-task-list__link.pub-c-task-list__link--active .pub-c-task-list__link-item[href='#content']", text: "You are currently viewing: Link 4"
+  end
+
+  test "renders a small tasklist" do
+    render_component(groups: tasklist, small: true)
+
+    assert_select ".pub-c-task-list"
+    assert_select ".pub-c-task-list.pub-c-task-list--large", false
   end
 end

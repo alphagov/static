@@ -50,24 +50,26 @@ $dot-size: 16px;
   }
 
   &--title {
-    @include bold-24;
+    @include _core-font-generator(19px, 19px, 19px, 1.4, 1.4, false, bold);
     display: inline-block;
     padding: 0;
     text-align: left;
     color: $black;
 
     .pub-c-task-list--large & {
-      @include media(tablet) {
-        @include bold-24;
-      }
+      @include _core-font-generator(24px, 19px, 24px, 1.4, 1.4, false, bold);
     }
   }
 
   &--controls {
-    @include core-16;
+    @include _core-font-generator(14px, 14px, 14px, 1, 1, false);
     position: relative;
     z-index: 1; // this and relative position stops focus outline underlap with border of accordion
     padding: 0.5em 0;
+
+    .pub-c-task-list--large & {
+      @include _core-font-generator(16px, 14px, 16px, 1, 1, false);
+    }
   }
 }
 
@@ -174,7 +176,7 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__number {
-  @include bold-19(23px, 23px);
+  @include _core-font-generator(16px, 16px, 16px, 23px, 23px, false, bold);
   @include box-sizing(border-box);
   position: absolute;
   z-index: 5;
@@ -188,13 +190,10 @@ $dot-size: 16px;
   border-radius: 100px;
   text-align: center;
 
-  @include media(tablet) {
-    @include bold-16(23px, 23px);
-  }
-
   .pub-c-task-list--large & {
+    @include _core-font-generator(19px, 16px, 19px, 30px, 23px, false, bold);
+
     @include media(tablet) {
-      @include bold-19(30px, 30px);
       top: $gutter;
       width: $number-circle-size-large;
       height: $number-circle-size-large;
@@ -204,7 +203,7 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__logic {
-  @include bold-19(23px, 23px);
+  @include _core-font-generator(16px, 16px, 16px, 23px, 23px, false, bold);
   position: absolute;
   z-index: 4;
   top: $gutter-half;
@@ -215,13 +214,10 @@ $dot-size: 16px;
   border-radius: 100px;
   text-align: center;
 
-  @include media(tablet) {
-    @include bold-16(23px, 23px);
-  }
-
   .pub-c-task-list--large & {
+    @include _core-font-generator(19px, 16px, 19px, 30px, 23px, false, bold);
+
     @include media(tablet) {
-      @include bold-19(30px, 30px);
       top: $gutter;
       left: -$gutter * 2;
       width: $number-circle-size-large;
@@ -256,42 +252,28 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__title {
-  @include bold-24;
+  @include _core-font-generator(19px, 19px, 19px, 1.4, 1.4, false, bold);
 
   .pub-c-task-list--large & {
-    @include media(tablet) {
-      @include bold-24;
-    }
+    @include _core-font-generator(24px, 19px, 24px, 1.4, 1.4, false, bold);
   }
 }
 
 .pub-c-task-list__toggle-link {
-  @include core-16;
+  @include _core-font-generator(14px, 14px, 14px, 1.2, 1.2, false);
   display: block;
   color: $link-colour;
 
-  @include media(tablet) {
-    @include core-14;
-  }
-
   .pub-c-task-list--large & {
-    @include media(tablet) {
-      @include core-16;
-    }
+    @include _core-font-generator(16px, 14px, 16px, 1.2, 1.2, false);
   }
 }
 
 .pub-c-task-list__panel {
-  @include core-19;
-
-  @include media(tablet) {
-    @include core-19;
-  }
+  @include _core-font-generator(16px, 16px, 16px);
 
   .pub-c-task-list--large & {
-    @include media(tablet) {
-      @include core-19;
-    }
+    @include _core-font-generator(19px, 16px, 19px);
   }
 }
 
