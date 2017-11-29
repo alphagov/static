@@ -122,6 +122,24 @@
     }
   }
 
+  var hmrcSurveysNov2017Url = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/tax-on-your-private-pension(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=PrivatePensionContributionsGOV&utm_source=govukother&utm_medium=gov.uk&t=HMRC&id=105'
+      case /^\/update-company-car-details(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=CompanyCarGOV&utm_source=Other&utm_medium=other&t=HMRC&id=49'
+      default: return ''
+    }
+  }
+
+  var hmrcSurveysNov2017EndTime = function () {
+    var path = window.location.pathname
+    switch (true) {
+      case /^\/tax-on-your-private-pension(?:\/|$)/.test(path) : return new Date('February 28, 2017')
+      case /^\/update-company-car-details(?:\/|$)/.test(path) : return new Date('January 11, 2017')
+      default: return ''
+    }
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -339,6 +357,25 @@
             '^/guidance/fulfilment-house-due-diligence-scheme(?:/|$)',
             '^/guidance/soft-drinks-industry-levy(?:/|$)',
             '^/guidance/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:/|$)'
+          ]
+        }
+      },
+      {
+        identifier: 'hmrc_november',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('November 30, 2017').getTime(),
+        endTime: hmrcSurveysNov2017EndTime(),
+        url: hmrcSurveysNov2017Url(),
+        templateArgs: {
+          title: 'Help us improve our services, join our User Research Panel',
+          surveyCta: 'Join our User Research Panel.',
+          surveyCtaPostscript: 'Sign up form will open on another website.'
+        },
+        activeWhen: {
+          path: [
+            '^/tax-on-your-private-pension(?:/|$)',
+            '^/update-company-car-details(?:/|$)'
           ]
         }
       }
