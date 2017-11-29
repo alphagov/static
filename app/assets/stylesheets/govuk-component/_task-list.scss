@@ -2,6 +2,7 @@ $stroke-width: 2px;
 $stroke-width-large: 3px;
 $number-circle-size: 26px;
 $number-circle-size-large: 35px;
+$dot-size: 16px;
 
 @mixin task-list-vertical-line ($line-style: solid) {
   content: "";
@@ -124,6 +125,16 @@ $number-circle-size-large: 35px;
         }
       }
     }
+  }
+}
+
+.pub-c-task-list__group--active {
+  &:last-child:before,
+  .pub-c-task-list__number,
+  .pub-c-task-list__step:after,
+  .pub-c-task-list__substep:after,
+  .pub-c-task-list__help:after {
+    border-color: $black;
   }
 }
 
@@ -289,7 +300,7 @@ $number-circle-size-large: 35px;
 .pub-c-task-list__paragraph {
   padding-bottom: $gutter-half;
 
-  & + .pub-c-task-list__links {
+  + .pub-c-task-list__links {
     margin-top: -5px;
 
     .pub-c-task-list--large & {
@@ -302,9 +313,6 @@ $number-circle-size-large: 35px;
   .pub-c-task-list--large & {
     @include media(tablet) {
       padding-bottom: $gutter;
-
-      & + .pub-c-task-list__links {
-      }
     }
   }
 }
@@ -337,6 +345,39 @@ $number-circle-size-large: 35px;
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.pub-c-task-list__link--active {
+  position: relative;
+
+  &:before {
+    @include box-sizing(border-box);
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 0.6em; // position the dot to align with the first row of text in the link
+    left: -($gutter + $gutter-half);
+    margin-left: ($number-circle-size / 2) - ($dot-size / 2);
+    width: $dot-size;
+    height: $dot-size;
+    margin-top: -($dot-size / 2);
+    background: $black;
+    border: solid 2px $white;
+    border-radius: 100px;
+  }
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      &:before {
+        left: -($gutter * 2);
+        margin-left: ($number-circle-size-large / 2) - ($dot-size / 2);
+      }
+    }
+  }
+
+  .pub-c-task-list__link-item {
+    color: $black;
   }
 }
 

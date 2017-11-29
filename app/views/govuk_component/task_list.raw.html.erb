@@ -5,6 +5,7 @@
   show_step ||= false
   remember_last_step ||= false
   task_list_url ||= false
+  highlight_group ||= false
 
   step_count = 0
 %>
@@ -17,9 +18,7 @@
     <ol class="pub-c-task-list__groups">
       <% groups.each_with_index do |group, group_index| %>
         <%
-          group_is_active = group.any? do |this_group|
-            this_group[:panel_links].to_a.any? { |g| g[:active] }
-          end
+          group_is_active = group_index + 1 == highlight_group
         %>
         <li class="pub-c-task-list__group <%= 'pub-c-task-list__group--active' if group_is_active %>" <% if group_is_active %>aria-current="step"<% end %>>
           <span class="pub-c-task-list__number">

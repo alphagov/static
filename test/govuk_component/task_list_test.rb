@@ -189,4 +189,11 @@ class TaskListTest < ComponentTestCase
 
     assert_select group2 + " .pub-c-task-list__step[data-show]:nth-of-type(1)"
   end
+
+  test "groups and links can have active states" do
+    render_component(groups: tasklist, highlight_group: 1)
+
+    assert_select group1 + ".pub-c-task-list__group--active"
+    assert_select group2step1 + " .pub-c-task-list__link.pub-c-task-list__link--active .pub-c-task-list__link-item[href='#content']", text: "You are currently viewing: Link 4"
+  end
 end

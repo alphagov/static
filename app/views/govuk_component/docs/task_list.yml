@@ -172,8 +172,9 @@ examples:
         ]
       ]
   with_links:
-    description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can also have a cost associated with them.
+    description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can have an optional cost associated with them. Links can also have an active attribute, which highlights them. A separate option is used to indicate which group should be highlighted, although these two options would usually be used together.
     data:
+      highlight_group: 2
       groups: [
         [
           {
@@ -199,6 +200,10 @@ examples:
                     path: '/test2',
                     text: 'Acquire food before attempting to cook',
                     cost: '1p to &pound;20'
+                  },
+                  {
+                    path: '/test3',
+                    text: 'Maintain contact with the ground at all times',
                   }
                 ]
               },
@@ -210,16 +215,16 @@ examples:
                 type: 'list',
                 links: [
                   {
-                    path: '/test3',
+                    path: '/test4',
                     text: 'Learn to play the saxophone',
                   },
                   {
-                    path: '/test4',
+                    path: '/test5',
                     text: 'Develop a new method of extracting juice from oranges',
                     cost: '&pound;0 to &pound;300'
                   },
                   {
-                    path: '/test5',
+                    path: '/test6',
                     text: 'Buy a race car',
                   }
                 ]
@@ -243,6 +248,34 @@ examples:
                   }
                 ]
               }
+            ]
+          }
+        ],
+        [
+          {
+            title: 'Active group and links',
+            contents: [
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    path: '/test1',
+                    active: true,
+                    text: 'Check the reasons',
+                  },
+                  {
+                    path: '/test2',
+                    text: 'Make the decisions based on available data and the reasonable assumptions that are possible at the time',
+                    active: true,
+                    cost: '1p to &pound;20'
+                  },
+                  {
+                    path: '/test3',
+                    text: 'Do the things',
+                  }
+                ]
+              },
             ]
           }
         ]
