@@ -1,37 +1,29 @@
 .govuk-taxonomy-sidebar {
-  border-top: 2px solid $govuk-blue;
-  padding-top: $gutter-half;
+  border-top: 10px solid $mainstream-brand;
+  padding-top: 5px;
   @include core-16;
 
-  .govuk-taxonomy-sidebar__heading {
-    margin-top: 0;
-    margin-bottom: $gutter-one-third;
-    @include bold-19;
+  h2 {
+    @include bold-24;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
   }
 
   .taxon-description {
-    margin-top: 0;
-    margin-bottom: $gutter-one-third;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  nav {
-    margin-bottom: $gutter;
-  }
-
-  li {
-    padding: 0;
-    list-style-type: none;
-    margin-bottom: $gutter-one-third;
+    margin-bottom: 0.75em;
   }
 
   ul {
     // reset the default browser styles
     padding: 0;
     margin: 0;
+    list-style: none;
     margin-bottom: 1.25em;
- }
+
+    li {
+      // reset the default browser styles
+      padding: 0;
+      margin-bottom: 0.75em;
+    }
+  }
 }

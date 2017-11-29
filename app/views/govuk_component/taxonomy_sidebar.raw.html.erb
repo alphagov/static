@@ -1,10 +1,9 @@
 <% if local_assigns[:items] && !items.blank? %>
 
   <aside class='govuk-taxonomy-sidebar' data-module='track-click' role='complementary'>
-    <h2 class='govuk-taxonomy-sidebar__heading'><%= t("govuk_component.taxonomy_sidebar.related_content") %></h2>
     <% items.each_with_index do |item, item_index| %>
       <div class='sidebar-taxon' data-track-count="sidebarTaxonSection">
-        <h3 class='govuk-taxonomy-sidebar__heading'>
+        <h2>
           <%=
             link_to_if(
               item[:url],
@@ -22,7 +21,7 @@
               },
             )
           %>
-        </h3>
+        </h2>
 
         <p class='taxon-description'>
           <%= item[:description] %>
