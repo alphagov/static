@@ -21,7 +21,7 @@
           group_is_active = group_index + 1 == highlight_group
         %>
         <li class="pub-c-task-list__group <%= 'pub-c-task-list__group--active' if group_is_active %>" <% if group_is_active %>aria-current="step"<% end %>>
-          <span class="pub-c-task-list__number">
+          <span class="pub-c-task-list__circle pub-c-task-list__circle--number">
             <span class="visuallyhidden">Step</span> <%= group_index + 1 %>
           </span>
 
@@ -40,7 +40,7 @@
               <% if step_count == show_step %>data-show<% end %>
               >
               <% if step_index > 0 and logic.length %>
-                <div class="pub-c-task-list__logic">
+                <div class="pub-c-task-list__circle pub-c-task-list__circle--logic">
                   <%= logic %>
                 </div>
               <% end %>

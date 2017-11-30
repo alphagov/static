@@ -94,6 +94,7 @@ $dot-size: 16px;
     &:before {
       content: "";
       position: absolute;
+      z-index: 6;
       bottom: 0;
       left: 0;
       margin-left: $number-circle-size / 4;
@@ -132,7 +133,7 @@ $dot-size: 16px;
 
 .pub-c-task-list__group--active {
   &:last-child:before,
-  .pub-c-task-list__number,
+  .pub-c-task-list__circle--number,
   .pub-c-task-list__step:after,
   .pub-c-task-list__substep:after,
   .pub-c-task-list__help:after {
@@ -175,53 +176,50 @@ $dot-size: 16px;
   }
 }
 
-.pub-c-task-list__number {
-  @include _core-font-generator(16px, 16px, 16px, 23px, 23px, false, bold);
+.pub-c-task-list__circle {
   @include box-sizing(border-box);
   position: absolute;
   z-index: 5;
   top: $gutter-half;
-  left: 0;
   width: $number-circle-size;
   height: $number-circle-size;
   color: $black;
   background: $white;
-  border: solid $stroke-width $grey-2;
   border-radius: 100px;
   text-align: center;
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      top: $gutter;
+      width: $number-circle-size-large;
+      height: $number-circle-size-large;
+    }
+  }
+}
+
+.pub-c-task-list__circle--number {
+  @include _core-font-generator(16px, 16px, 16px, 23px, 23px, false, bold);
+  left: 0;
+  border: solid $stroke-width $grey-2;
 
   .pub-c-task-list--large & {
     @include _core-font-generator(19px, 16px, 19px, 30px, 23px, false, bold);
 
     @include media(tablet) {
-      top: $gutter;
-      width: $number-circle-size-large;
-      height: $number-circle-size-large;
       border-width: $stroke-width-large;
     }
   }
 }
 
-.pub-c-task-list__logic {
-  @include _core-font-generator(16px, 16px, 16px, 23px, 23px, false, bold);
-  position: absolute;
-  z-index: 4;
-  top: $gutter-half;
+.pub-c-task-list__circle--logic {
+  @include _core-font-generator(16px, 16px, 16px, 28px, 28px, false, bold);
   left: -($gutter + $gutter-half);
-  background: $white;
-  width: $number-circle-size;
-  height: $number-circle-size;
-  border-radius: 100px;
-  text-align: center;
 
   .pub-c-task-list--large & {
-    @include _core-font-generator(19px, 16px, 19px, 30px, 23px, false, bold);
+    @include _core-font-generator(19px, 16px, 19px, 34px, 28px, false, bold);
 
     @include media(tablet) {
-      top: $gutter;
       left: -$gutter * 2;
-      width: $number-circle-size-large;
-      height: $number-circle-size-large;
     }
   }
 }

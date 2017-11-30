@@ -171,10 +171,10 @@ class TaskListTest < ComponentTestCase
   test "group numbering and step logic is displayed correctly" do
     render_component(groups: tasklist)
 
-    assert_select group1 + " .pub-c-task-list__number", text: "Step 1"
-    assert_select group1step2 + " .pub-c-task-list__logic", text: "and"
-    assert_select group2 + " .pub-c-task-list__number", text: "Step 2"
-    assert_select group2step2 + " .pub-c-task-list__logic", text: "or"
+    assert_select group1 + " .pub-c-task-list__circle--number", text: "Step 1"
+    assert_select group1step2 + " .pub-c-task-list__circle--logic", text: "and"
+    assert_select group2 + " .pub-c-task-list__circle--number", text: "Step 2"
+    assert_select group2step2 + " .pub-c-task-list__circle--logic", text: "or"
   end
 
   test "lists have the correct styles" do
