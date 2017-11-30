@@ -430,9 +430,10 @@ examples:
         ]
       ]
   with_links_to_more_information:
-    description: A task list in the side nav of a page can be overwhelmingly long. In these situations some content can be substituted with a link back to the main task list page. This link will include the value of the chosen step, so that the main task list page will open with that step shown. Note that this option does not remove any content - it is left to developers to simply pass less content to the component in this situation.
+    description: Where task lists are long content can be substituted with a link back to the main task list page. This link will open the main task list page with that step shown. The link text defaults to "Get help completing this step" but can be overridden. Note that this option does not remove any content - it is left to developers to simply pass less content to the component in this situation.
     data:
       task_list_url: "/learn-to-do-something"
+      task_list_url_link_text: "Get more information"
       groups: [
         [
           {

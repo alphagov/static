@@ -5,6 +5,7 @@
   show_step ||= false
   remember_last_step ||= false
   task_list_url ||= false
+  task_list_url_link_text ||= "Get help completing this step"
   highlight_group ||= false
 
   step_count = 0
@@ -114,7 +115,7 @@
 
                 <% if task_list_url %>
                   <div class="pub-c-task-list__help">
-                    <a href="<%= task_list_url %>#<%= id %>" class="pub-c-task-list__help-link">Get help completing this step</a>
+                    <a href="<%= task_list_url %>#<%= id %>" class="pub-c-task-list__help-link"><%= task_list_url_link_text %></a>
                   </div>
                 <% end %>
               </div>

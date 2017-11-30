@@ -162,10 +162,10 @@ class TaskListTest < ComponentTestCase
   end
 
   test "renders get help links back to the main task list" do
-    render_component(groups: tasklist, task_list_url: "/learn-to-drive")
+    render_component(groups: tasklist, task_list_url: "/learn-to-drive", task_list_url_link_text: "Get help")
 
-    assert_select group1step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-1-step-1']", text: "Get help completing this step"
-    assert_select group2step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-2-step-1']", text: "Get help completing this step"
+    assert_select group1step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-1-step-1']", text: "Get help"
+    assert_select group2step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-2-step-1']", text: "Get help"
   end
 
   test "group numbering and step logic is displayed correctly" do
