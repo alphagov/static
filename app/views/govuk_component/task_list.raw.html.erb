@@ -23,7 +23,11 @@
         %>
         <li class="pub-c-task-list__group <%= 'pub-c-task-list__group--active' if group_is_active %>" <% if group_is_active %>aria-current="step"<% end %>>
           <span class="pub-c-task-list__circle pub-c-task-list__circle--number">
-            <span class="visuallyhidden">Step</span> <%= group_index + 1 %>
+            <span class="pub-c-task-list__circle-inner">
+              <span class="pub-c-task-list__circle-background">
+                <span class="visuallyhidden">Step</span> <%= group_index + 1 %>
+              </span>
+            </span>
           </span>
 
           <% group.each_with_index do |step, step_index| %>
@@ -42,7 +46,11 @@
               >
               <% if step_index > 0 and logic.length %>
                 <div class="pub-c-task-list__circle pub-c-task-list__circle--logic">
-                  <%= logic %>
+                  <span class="pub-c-task-list__circle-inner">
+                    <span class="pub-c-task-list__circle-background">
+                      <%= logic %>
+                    </span>
+                  </span>
                 </div>
               <% end %>
 

@@ -224,6 +224,17 @@ $dot-size: 16px;
   }
 }
 
+// to make the numbers readable for users zooming the text only in Firefox
+.pub-c-task-list__circle-inner {
+  float: right;
+  min-width: 100%;
+}
+
+.pub-c-task-list__circle-background {
+  background: $white;
+  border-radius: 100px;
+}
+
 .pub-c-task-list__header {
   @include task-list-top-border;
   padding: $gutter-half 0;
