@@ -88,8 +88,10 @@
                             link_text = '<span class="visuallyhidden">You are currently viewing:</span>'.html_safe
                           end
                         %>
-                        <li class="pub-c-task-list__link <% if link[:active] %>pub-c-task-list__link--active<% end %>">
-                          <a href="<%= link_href %>" class="pub-c-task-list__link-item js-link" data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
+                        <li class="pub-c-task-list__link">
+                          <a href="<%= link_href %>"
+                            class="pub-c-task-list__link-item js-link <% if link[:active] %>pub-c-task-list__link-item--active<% end %>"
+                            data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
                             <%= link_text %> <%= link[:text] %>
                           </a>
                           <% if link[:cost] %>

@@ -194,7 +194,7 @@ class TaskListTest < ComponentTestCase
     render_component(groups: tasklist, highlight_group: 1)
 
     assert_select group1 + ".pub-c-task-list__group--active"
-    assert_select group2step1 + " .pub-c-task-list__link.pub-c-task-list__link--active .pub-c-task-list__link-item[href='#content']", text: "You are currently viewing: Link 4"
+    assert_select group2step1 + " .pub-c-task-list__link-item.pub-c-task-list__link-item--active[href='#content']", text: "You are currently viewing: Link 4"
   end
 
   test "renders a small tasklist" do

@@ -13,12 +13,11 @@ describe('A tasklist module', function () {
           <div class="pub-c-task-list__step js-step" id="topic-step-one" data-track-count="tasklistStep">\
             <div class="pub-c-task-list__header js-toggle-panel" data-position="1.1">\
               <h2 class="pub-c-task-list__title js-step-title">Topic Step One</h2>\
-              <p class="pub-c-task-list__description">Step 1 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="step-panel-10-0">\
               <ol class="pub-c-task-list__links" data-length="1">\
                 <li class="pub-c-task-list__link">\
-                  <a href="/link1" class="pub-c-task-list__panel-link-item js-link" data-position="1.1.1">Link 1</a>\
+                  <a href="/link1" class="pub-c-task-list__link-item js-link" data-position="1.1.1">Link 1</a>\
                 </li>\
               </ol>\
             </div>\
@@ -26,12 +25,11 @@ describe('A tasklist module', function () {
           <div class="pub-c-task-list__step js-step" id="topic-step-two" data-track-count="tasklistStep">\
             <div class="pub-c-task-list__header js-toggle-panel" data-position="1.2">\
               <h2 class="pub-c-task-list__title js-step-title">Topic Step Two</h2>\
-              <p class="pub-c-task-list__description">Step 2 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="step-panel-11-1">\
               <ol class="pub-c-task-list__links" data-length="2">\
                 <li class="pub-c-task-list__link">\
-                  <a href="/link2" class="pub-c-task-list__link-item js-link" data-position="1.2.1">Link 2</a>\
+                  <a href="/link2" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="1.2.1">Link 2</a>\
                 </li>\
                 <li class="pub-c-task-list__link">\
                   <a href="/link3" class="pub-c-task-list__link-item js-link" data-position="1.2.2">Link 3</a>\
@@ -40,25 +38,30 @@ describe('A tasklist module', function () {
             </div>\
           </div>\
         </li>\
-        <li class="pub-c-task-list__group">\
+        <li class="pub-c-task-list__group pub-c-task-list__group--active">\
           <span class="pub-c-task-list__number">\
             <span class="visuallyhidden">Step </span>2\
           </span>\
           <div class="pub-c-task-list__step js-step" id="topic-step-one" data-track-count="tasklistStep">\
             <div class="pub-c-task-list__header js-toggle-panel" data-position="2.1">\
               <h2 class="pub-c-task-list__title js-step-title">Topic Step Three</h2>\
-              <p class="pub-c-task-list__description">Step 3 description in here</p>\
             </div>\
             <div class="pub-c-task-list__panel js-panel" id="step-panel-12-0">\
               <ol class="pub-c-task-list__links" data-length="3">\
                 <li class="pub-c-task-list__link">\
-                  <a href="/link4" class="pub-c-task-list__link-item js-link" data-position="2.1.1">Link 4</a>\
+                  <a href="/link4" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="2.1.1">Link 4</a>\
                 </li>\
-                <li class="pub-c-task-list__panel-link">\
-                  <a href="/link5" class="pub-c-task-list__link-item js-link" data-position="2.1.2">Link 5</a>\
+                <li class="pub-c-task-list__link">\
+                  <a href="/link5" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="2.1.2">Link 5</a>\
                 </li>\
-                <li class="pub-c-task-list__panel-link">\
-                  <a href="/link6" class="pub-c-task-list__link-item js-link" data-position="2.1.3">Link 6</a>\
+                <li class="pub-c-task-list__link">\
+                  <a href="http://www.gov.uk" class="pub-c-task-list__link-item js-link" data-position="2.1.3">Link 6</a>\
+                </li>\
+                <li class="pub-c-task-list__link">\
+                  <a href="#content" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="2.1.4">Link 7</a>\
+                </li>\
+                <li class="pub-c-task-list__link">\
+                  <a href="#content" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="2.1.5">Link 8</a>\
                 </li>\
               </ol>\
             </div>\
@@ -538,6 +541,61 @@ describe('A tasklist module', function () {
       dimension26: expectedTasklistStepCount.toString(),
       dimension27: expectedTasklistLinkCount.toString(),
       dimension28: expectedTasklistContentCount.toString()
+    });
+  });
+
+  describe('In a double dot situation', function () {
+    beforeEach(function () {
+      tasklist = new GOVUK.Modules.Tasklist();
+      $element = $(html);
+      tasklist.start($element);
+    });
+
+    it("puts the clicked link in session storage if it is not an external link", function () {
+      $element.find('.js-link[data-position="2.1.2"]').click();
+      expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe('2.1.2');
+    });
+
+    it("does not put the clicked link in session storage if an external link", function () {
+      $element.find('.js-link[data-position="2.1.3"]').click();
+      expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe(null);
+    });
+
+    it("highlights the first active link in the first active group if no sessionStorage value is set", function () {
+      expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe(null);
+      expect($element.find('.js-link[data-position="2.1.1"]')).toHaveClass('pub-c-task-list__link-item--active');
+      expect($element.find(('.pub-c-task-list__link-item--active')).length).toBe(1);
+    });
+
+    it("highlights a clicked #content link and removes other highlights", function () {
+      expect($element.find(('.pub-c-task-list__link-item--active')).length).toBe(1);
+
+      var $firstLink = $element.find('.js-link[data-position="2.1.4"]');
+      $firstLink.click();
+      expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe('2.1.4');
+      expect($firstLink).toHaveClass('pub-c-task-list__link-item--active');
+      expect($element.find(('.pub-c-task-list__link-item--active')).length).toBe(1);
+
+      var $secondLink = $element.find('.js-link[data-position="2.1.5"]');
+      $secondLink.click();
+      expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe('2.1.5');
+      expect($secondLink).toHaveClass('pub-c-task-list__link-item--active');
+      expect($element.find(('.pub-c-task-list__link-item--active')).length).toBe(1);
+    });
+  });
+
+  describe('In a double dot situation where there is no active group', function () {
+    beforeEach(function () {
+      $element = $(html);
+      $element.find('.pub-c-task-list__group').removeClass('pub-c-task-list__group--active');
+      tasklist = new GOVUK.Modules.Tasklist();
+      tasklist.start($element);
+    });
+
+    it("highlights the first active link if no sessionStorage value is set", function () {
+      expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe(null);
+      expect($element.find('.js-link[data-position="1.2.1"]')).toHaveClass('pub-c-task-list__link-item--active');
+      expect($element.find(('.pub-c-task-list__link-item--active')).length).toBe(1);
     });
   });
 

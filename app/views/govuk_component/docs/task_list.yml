@@ -172,7 +172,7 @@ examples:
         ]
       ]
   with_links:
-    description: Links can be included with an optional parameter to style the parent list according to the type of link being shown. Links can have an optional cost associated with them. Links can also have an active attribute, which highlights them. A separate option is used to indicate which group should be highlighted, although these two options would usually be used together.
+    description: Lists of links can be styled according to the type of link (required, optional or choice). Links can have a cost. Links can also have an active attribute, which highlights them. A separate option is used to indicate which group should be highlighted, although these two options would usually be used together.
     data:
       highlight_group: 2
       groups: [
@@ -193,17 +193,20 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    href: '/test1',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Obtain a driving licence prior to driving a car',
+                    active: true
                   },
                   {
-                    href: '/test2',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Acquire food before attempting to cook',
-                    cost: '1p to &pound;20'
+                    cost: '1p to &pound;20',
+                    active: true
                   },
                   {
-                    href: '/test3',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Maintain contact with the ground at all times',
+                    active: true
                   }
                 ]
               },
@@ -215,17 +218,20 @@ examples:
                 type: 'list',
                 links: [
                   {
-                    href: '/test4',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Learn to play the saxophone',
+                    active: true
                   },
                   {
-                    href: '/test5',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Develop a new method of extracting juice from oranges',
-                    cost: '&pound;0 to &pound;300'
+                    cost: '&pound;0 to &pound;300',
+                    active: true
                   },
                   {
-                    href: '/test6',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Buy a race car',
+                    active: true
                   }
                 ]
               },
@@ -238,11 +244,11 @@ examples:
                 style: 'choice',
                 links: [
                   {
-                    href: '/test3',
-                    text: 'Leave school at sixteen',
+                    href: '/component-guide/task_list/',
+                    text: 'Leave school at sixteen'
                   },
                   {
-                    href: '/test4',
+                    href: '/component-guide/task_list/',
                     text: 'Continue into higher education',
                     cost: '&pound;9,500'
                   }
@@ -260,22 +266,96 @@ examples:
                 style: 'required',
                 links: [
                   {
-                    href: '/test1',
-                    active: true,
-                    text: 'Check the reasons',
+                    href: '/component-guide/task_list/',
+                    text: 'Check the reasons'
                   },
                   {
-                    href: '/test2',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Make the decisions based on available data and the reasonable assumptions that are possible at the time',
-                    active: true,
-                    cost: '1p to &pound;20'
+                    cost: '1p to &pound;20',
+                    active: true
                   },
                   {
-                    href: '/test3',
+                    href: '/component-guide/task_list/with_links/preview',
                     text: 'Do the things',
+                    active: true
                   }
                 ]
               },
+            ]
+          }
+        ]
+      ]
+  solve_the_double_dot_problem:
+    description: |
+      If a page is in a task list more than once and a user is viewing that URL, both links to it will be highlighted as the site has no way to know which entry in the task list the user is currently viewing (highlighted links should only occur when the task list is in the sidebar).
+
+      JavaScript is included in the component to solve this. It uses sessionStorage to capture the data-position attribute of non-external links in the task list when clicked, and then uses this value to decide which link to highlight when the new page loads. This session storage data is immediately deleted after it is read on page load, mainly to prevent problems with highlighting if the user were to move between different task lists.
+
+      If a user has not clicked a link (i.e. has visited the page without first clicking on a task list) the first active link in the first active group will be highlighted. If there is no active group, the first active link will be highlighted (but there should always be an active group).
+
+      The current page in the task list is an anchor link to the top of the page. If there are more than one of these and the user clicks one that is not currently highlighted, that one will be highlighted.
+
+      The example below will show all links highlighted if JS is disabled, in the real world no more than two or three links are likely to be highlighted at once.
+    data:
+      highlight_group: 2
+      show_step: 2
+      groups: [
+        [
+          {
+            title: "Not the active step",
+            contents: [
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: 'http://google.com',
+                    text: 'External link not set to active'
+                  },
+                  {
+                    href: '/component-guide/task_list/with_links/preview',
+                    text: 'Internal link set to active',
+                    active: true
+                  },
+                  {
+                    href: '/component-guide/task_list/with_links/preview',
+                    text: 'Internal link set to active',
+                    active: true
+                  },
+                  {
+                    href: 'http://google.com',
+                    text: 'External link not set to active'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            title: "The active step",
+            contents: [
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: '/component-guide/task_list/with_links/preview',
+                    text: 'Internal link set to active - in the active group, should be set by default until another link is clicked',
+                    active: true
+                  },
+                  {
+                    href: '/component-guide/task_list/with_links/preview',
+                    text: 'Internal link set to active',
+                    active: true
+                  },
+                  {
+                    href: 'http://google.com',
+                    text: 'External link not set to active'
+                  }
+                ]
+              }
             ]
           }
         ]
@@ -496,7 +576,8 @@ examples:
                 links: [
                   {
                     href: 'https://en.wikipedia.org/wiki/HDMI',
-                    text: 'Remove the Chromebit from HDMI 1 on the TV'
+                    text: 'Remove the Chromebit from HDMI 1 on the TV',
+                    active: true
                   }
                 ]
               }
@@ -540,7 +621,8 @@ examples:
                 links: [
                   {
                     href: '',
-                    text: 'Ensure the catchbox transmitter is plugged in at the mains wall'
+                    text: 'Ensure the catchbox transmitter is plugged in at the mains wall',
+                    active: true
                   },
                   {
                     href: '',
@@ -604,7 +686,8 @@ examples:
                 links: [
                   {
                     href: '',
-                    text: 'Connect to standup hangout via the calendar invite'
+                    text: 'Connect to standup hangout via the calendar invite',
+                    active: true
                   },
                   {
                     href: '',
@@ -675,7 +758,8 @@ examples:
                 links: [
                   {
                     href: 'https://en.wikipedia.org/wiki/HDMI',
-                    text: 'Remove the Chromebit from HDMI 1 on the TV'
+                    text: 'Remove the Chromebit from HDMI 1 on the TV',
+                    active: true
                   }
                 ]
               }
@@ -719,7 +803,8 @@ examples:
                 links: [
                   {
                     href: '',
-                    text: 'Ensure the catchbox transmitter is plugged in at the mains wall'
+                    text: 'Ensure the catchbox transmitter is plugged in at the mains wall',
+                    active: true
                   },
                   {
                     href: '',
@@ -783,7 +868,8 @@ examples:
                 links: [
                   {
                     href: '',
-                    text: 'Connect to standup hangout via the calendar invite'
+                    text: 'Connect to standup hangout via the calendar invite',
+                    active: true
                   },
                   {
                     href: '',

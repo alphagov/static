@@ -328,8 +328,14 @@ $dot-size: 16px;
   }
 }
 
-.pub-c-task-list__link--active {
+.pub-c-task-list__link-item--active {
   position: relative;
+  color: $black;
+
+  &:visited,
+  &:active {
+    color: $black;
+  }
 
   &:before {
     @include box-sizing(border-box);
@@ -354,10 +360,6 @@ $dot-size: 16px;
         margin-left: ($number-circle-size-large / 2) - ($dot-size / 2);
       }
     }
-  }
-
-  .pub-c-task-list__link-item {
-    color: $black;
   }
 }
 

@@ -21,6 +21,9 @@
 
     var rememberShownStep = false;
     var taskListSize;
+    var sessionStoreLink = 'govuk-task-list-active-link';
+    var activeLinkClass = 'pub-c-task-list__link-item--active';
+    var activeLinkHref = '#content';
 
     this.start = function ($element) {
 
@@ -51,6 +54,7 @@
 
       hideAllSteps();
       showLinkedStep();
+      checkForDoubleDots();
 
       bindToggleForSteps(tasklistTracker);
       bindToggleShowHideAllButton(tasklistTracker);
@@ -172,7 +176,61 @@
         $element.find('.js-link').click(function (event) {
           var linkClick = new componentLinkClick(event, tasklistTracker, $(this).attr('data-position'));
           linkClick.track();
+          var thisLinkHref = $(this).attr('href');
+
+          if (thisLinkHref.substring(0, 4) !== "http") {
+            saveToSessionStorage(sessionStoreLink, $(this).data('position'));
+          }
+
+          if (thisLinkHref == activeLinkHref) {
+            setOnlyThisLinkActive($(this));
+          }
         });
+      }
+
+      function saveToSessionStorage(key, value) {
+        sessionStorage.setItem(key, value);
+      }
+
+      function loadFromSessionStorage(key) {
+        return sessionStorage.getItem(key) || null;
+      }
+
+      function removeFromSessionStorage(key) {
+        sessionStorage.removeItem(key);
+      }
+
+      function setOnlyThisLinkActive(clicked) {
+        $element.find('.' + activeLinkClass).removeClass(activeLinkClass);
+        clicked.addClass(activeLinkClass);
+      }
+
+      function checkForDoubleDots() {
+        var $activeLinks = $element.find('.js-link.' + activeLinkClass);
+
+        if ($activeLinks.length > 1) {
+          var lastClicked = loadFromSessionStorage(sessionStoreLink);
+
+          if (lastClicked !== null) {
+            $activeLinks.each(function() {
+              if ($(this).data('position') !== lastClicked) {
+                $(this).removeClass(activeLinkClass);
+              }
+            });
+            removeFromSessionStorage(sessionStoreLink);
+          }
+          else {
+            var activeLinkInActiveGroup = $element.find('.pub-c-task-list__group--active').find('.' + activeLinkClass).first();
+
+            if (activeLinkInActiveGroup.length) {
+              $activeLinks.removeClass(activeLinkClass);
+              activeLinkInActiveGroup.addClass(activeLinkClass);
+            }
+            else {
+              $activeLinks.slice(1).removeClass(activeLinkClass);
+            }
+          }
+        }
       }
 
       function preventLinkFollowingForCurrentTab(event) {
