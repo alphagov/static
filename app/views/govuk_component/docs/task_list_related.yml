@@ -1,0 +1,13 @@
+name: Task list related
+description: Links to task lists that a page is part of
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      links: [
+        {
+          href: '/learn-to-drive-a-car',
+          text: 'Learn to drive a car: step by step'
+        }
+      ]

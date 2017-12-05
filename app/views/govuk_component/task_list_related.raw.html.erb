@@ -1,0 +1,13 @@
+<%
+  links ||= false
+%>
+<% if links %>
+  <div class="pub-c-task-list-related">
+    <h2>Part of</h2>
+    <% links.each do |link| %>
+      <a href="<%= link[:href] %>">
+        <%= link[:text] %>
+      </a>
+    <% end %>
+  </div>
+<% end %>
