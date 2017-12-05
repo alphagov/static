@@ -9,23 +9,17 @@ body: |
 
   - task lists are needed throughout GOV.UK and extending the accordion to be the task list would require promoting it to static, which would break integration testing
   - creating a new component allows further iteration without impacting the accordion
-
-  Changes in the task list code that are different from the accordion:
-
-  - functionality to 'remember' the last opened step in the URL is disabled by default
-  - a step can be open by default
-  - visual changes (see below)
 accessibility_criteria: |
   The task list must:
 
   - indicate to users that each step can be expanded and collapsed
   - inform the user when a step has been expanded or collapsed
   - be usable with a keyboard
-  - allow users to open or close all steps at once
+  - allow users to show or hide all steps at once
   - inform the user which step a link belongs to
   - inform the user which step the current page is in, particularly where there are multiple steps in one group
 
-  The open/close all button only needs to list the first panel id in the aria-controls attribute, rather than all of them.
+  The show/hide all button only needs to list the first panel id in the aria-controls attribute, rather than all of them.
 
   Step headings must use a button element:
 
@@ -144,7 +138,10 @@ examples:
         ]
       ]
   remember_last_opened_step:
-    description: If a step is opened its ID is appended to the end of the URL, so that if the URL is shared or the 'back' button is used, that step will be opened on page load. This was historically part of the behaviour of the accordion. By default this is turned off and cannot be used together with the option to open a step by default.
+    description: |
+      If a step is opened its ID is appended to the end of the URL, so that if the URL is shared or the 'back' button is used, that step will be opened on page load. This was historically part of the behaviour of the accordion. By default this is turned off and cannot be used together with the option to open a step by default.
+
+      This behaviour is used with the 'links to more information' option.
     data:
       remember_last_step: true
       groups: [
@@ -172,9 +169,16 @@ examples:
         ]
       ]
   with_links:
-    description: Lists of links can be styled according to the type of link (required, optional or choice). Links can have a cost. Links can also have an active attribute, which highlights them. A separate option is used to indicate which group should be highlighted, although these two options would usually be used together.
+    description: |
+      Links can have the following attributes:
+
+      - style, an attribute on the parent list that controls its appearance, either required (bold), optional (not bold) or choice (not bold, with bullets on the list). The default is optional.
+      - cost, an optional text field to show some extra information after the link, usually a monetary value
+      - active, whether to make the link highlighted (to indicate the current page)
+      - highlight_group, a general option to highlight a specific group of steps. Usually the active link would be in the active group, but in some circumstances there might be an active group but no highlighted link.
     data:
       highlight_group: 2
+      show_step: 2
       groups: [
         [
           {
@@ -361,7 +365,10 @@ examples:
         ]
       ]
   with_optional_steps:
-    description: Steps can be optional. This is controlled by two parameters for maximum flexibility, 'optional' (which causes the step to have a dotted line down the side) and 'logic', which defaults to showing the word 'and' alongside the step title, but also accepts 'or'.
+    description: |
+      Steps can be optional. This is controlled by two parameters for maximum flexibility, 'optional' (which causes the step to have a dotted line down the side) and 'logic', which defaults to showing the word 'and' alongside the step title, but also accepts 'or'.
+
+      If a step is optional this should be conveyed by the text within that step.
     data:
       groups: [
         [
@@ -422,6 +429,7 @@ examples:
     description: Steps can also contain sub steps, which act either as a way to break up content or to indicate that some tasks are optional. Whenever a step or sub step is optional this should be made clear in the written content. Optional steps are styled differently but this should support the meaning, not convey it.
     data:
       highlight_group: 2
+      show_step: 2
       groups: [
         [
           {
@@ -510,10 +518,14 @@ examples:
         ]
       ]
   with_links_to_more_information:
-    description: Where task lists are long content can be substituted with a link back to the main task list page. This link will open the main task list page with that step shown. The link text defaults to "Get help completing this step" but can be overridden. Note that this option does not remove any content - it is left to developers to simply pass less content to the component in this situation.
+    description: |
+      Where task lists are long, content can be substituted with a link back to the main task list page. This link will open the main task list page with that step shown. The link text defaults to "Get help completing this step" but can be overridden.
+
+      Note that this option does not remove any content - it is left to developers to simply pass less content to the component in this situation.
     data:
       task_list_url: "/learn-to-do-something"
       task_list_url_link_text: "Get more information"
+      show_step: 1
       groups: [
         [
           {
