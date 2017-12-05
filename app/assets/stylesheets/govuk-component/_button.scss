@@ -13,6 +13,13 @@
   }
 }
 
+// this will be moved and extended into a model for general component spacing
+// once this has been decided upon and other work completed, see:
+// https://trello.com/c/KEkNsxG3/142-3-implement-customisable-spacing-for-components
+.pub-c-button--bottom-margin {
+  @include responsive-bottom-margin;
+}
+
 %pub-c-button--start,
 .pub-c-button--start {
   @include bold-24($line-height: (24 / 20));
