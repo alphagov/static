@@ -290,6 +290,68 @@ examples:
           }
         ]
       ]
+  or_then:
+    description: Some of the more complex things in a task list require an option for laying out links in a clear structure. If a link in a list is not given a href, only the text is displayed, allowing for structures like the one shown below.
+    data:
+      show_step: 1
+      groups: [
+        [
+          {
+            title: "Get a court to decide your child arrangements",
+            contents: [
+              {
+                type: 'paragraph',
+                text: "You can only apply for a court to make a decision if you've tried mediation or your family are at risk, for example domestic abuse."
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: 'http://solicitors.lawsociety.org.uk/',
+                    text: 'Hire a lawyer to represent you',
+                    cost: '&pound;110 to &pound;410 per hour'
+                  },
+                  {
+                    text: 'or',
+                  },
+                  {
+                    href: 'http://localhost:3000/represent-yourself-in-court',
+                    text: 'Represent yourself in court'
+                  }
+                ]
+              },
+              {
+                type: 'paragraph',
+                text: 'then'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
+                    href: '/looking-after-children-divorce/apply-for-court-order',
+                    text: 'Apply for a court order',
+                    cost: '&pound;215'
+                  },
+                  {
+                    href: 'https://courttribunalfinder.service.gov.uk/search/',
+                    text: 'Find the right court to send your application'
+                  },
+                  {
+                    href: '/get-help-with-court-fees',
+                    text: 'Get help with court fees'
+                  }
+                ]
+              },
+              {
+                type: 'paragraph',
+                text: "The court will send you a date for your first hearing 4 to 6 weeks after your application. You'll be told when and where your hearing will take place."
+              }
+            ]
+          }
+        ]
+      ]
   solve_the_double_dot_problem:
     description: |
       If a page is in a task list more than once and a user is viewing that URL, both links to it will be highlighted as the site has no way to know which entry in the task list the user is currently viewing (highlighted links should only occur when the task list is in the sidebar).
@@ -702,6 +764,24 @@ examples:
                     active: true
                   },
                   {
+                    text: 'or'
+                  },
+                  {
+                    href: '',
+                    text: 'Connect to standup hangout via the link in the team slack',
+                    active: true
+                  }
+                ]
+              },
+              {
+                type: 'paragraph',
+                text: 'then'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
+                  {
                     href: '',
                     text: 'Click the three dots in the bottom hand corner to open settings'
                   },
@@ -758,7 +838,7 @@ examples:
       groups: [
         [
           {
-            title: 'Get the TV ready',
+            title: 'Get the TV ready.',
             contents: [
               {
                 type: 'paragraph',
@@ -778,7 +858,7 @@ examples:
             ]
           },
           {
-            title: 'Plug everything in',
+            title: 'Plug everything in.',
             contents: [
               {
                 type: 'paragraph',
@@ -803,7 +883,7 @@ examples:
         ],
         [
           {
-            title: 'Configure the catchbox',
+            title: 'Configure the catchbox.',
             contents: [
               {
                 type: 'paragraph',
@@ -868,7 +948,7 @@ examples:
         ],
         [
           {
-            title: 'Join and configure the standup',
+            title: 'Join and configure the standup.',
             contents: [
               {
                 type: 'paragraph',
@@ -883,6 +963,24 @@ examples:
                     text: 'Connect to standup hangout via the calendar invite',
                     active: true
                   },
+                  {
+                    text: 'or'
+                  },
+                  {
+                    href: '',
+                    text: 'Connect to standup hangout via the link in the team slack',
+                    active: true
+                  }
+                ]
+              },
+              {
+                type: 'paragraph',
+                text: 'then'
+              },
+              {
+                type: 'list',
+                style: 'required',
+                links: [
                   {
                     href: '',
                     text: 'Click the three dots in the bottom hand corner to open settings'
@@ -906,7 +1004,7 @@ examples:
         ],
         [
           {
-            title: 'Clear up',
+            title: 'Clear up.',
             contents: [
               {
                 type: 'paragraph',
@@ -919,7 +1017,7 @@ examples:
             ]
           },
           {
-            title: 'Get someone else to clear up',
+            title: 'Get someone else to clear up.',
             logic: 'or',
             optional: true,
             contents: [

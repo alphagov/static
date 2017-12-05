@@ -92,6 +92,22 @@ class TaskListTest < ComponentTestCase
             {
               type: 'paragraph',
               text: 'test'
+            },
+            {
+              type: 'list',
+              links: [
+                {
+                  href: '/link5',
+                  text: 'Link 5'
+                },
+                {
+                  text: 'or'
+                },
+                {
+                  href: '/link6',
+                  text: 'Link 6'
+                }
+              ]
             }
           ]
         }
@@ -153,6 +169,14 @@ class TaskListTest < ComponentTestCase
     assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3']", text: "Link 3"
   end
 
+  test "renders links without hrefs" do
+    render_component(groups: tasklist)
+
+    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link5']", text: "Link 5"
+    assert_select group2step2 + " .pub-c-task-list__link", text: "or"
+    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link6']", text: "Link 6"
+  end
+
   test "renders optional steps, sub steps and optional sub steps" do
     render_component(groups: tasklist)
 
@@ -177,7 +201,7 @@ class TaskListTest < ComponentTestCase
     assert_select group2step2 + " .pub-c-task-list__circle--logic .pub-c-task-list__circle-inner .pub-c-task-list__circle-background", text: "or"
   end
 
-  test "lists have the correct styles" do
+  test "lists have the required and choice styles applied correctly" do
     render_component(groups: tasklist)
 
     assert_select group1step1 + " .pub-c-task-list__links.pub-c-task-list__links--required"

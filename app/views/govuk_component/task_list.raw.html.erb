@@ -87,21 +87,31 @@
                       >
                       <% element[:links].each do |link| %>
                         <%
-                          link_href = link[:href]
-                          link_text = ""
-                          link_index += 1
+                          link_text = link[:text]
+
+                          if link[:href]
+                            link_href = link[:href]
+                            link_index += 1
+                          end
 
                           if link[:active]
                             link_href = "#content"
-                            link_text = '<span class="visuallyhidden">You are currently viewing:</span>'.html_safe
+                            link_text = '<span class="visuallyhidden">You are currently viewing:</span> '.html_safe + link_text
                           end
                         %>
                         <li class="pub-c-task-list__link">
-                          <a href="<%= link_href %>"
-                            class="pub-c-task-list__link-item js-link <% if link[:active] %>pub-c-task-list__link-item--active<% end %>"
-                            data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
-                            <%= link_text %> <%= link[:text] %>
-                          </a>
+                          <% if link[:href] %>
+                            <a href="<%= link_href %>"
+                              class="pub-c-task-list__link-item js-link <% if link[:active] %>pub-c-task-list__link-item--active<% end %>"
+                              data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
+                          <% end %>
+
+                          <%= link_text %>
+
+                          <% if link[:href] %>
+                            </a>
+                          <% end %>
+
                           <% if link[:cost] %>
                             <span class="pub-c-task-list__cost"><%= link[:cost] %></span>
                           <% end %>

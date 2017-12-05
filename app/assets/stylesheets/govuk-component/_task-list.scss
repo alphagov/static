@@ -319,7 +319,9 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__links--required {
-  font-weight: bold;
+  .pub-c-task-list__link-item {
+    font-weight: bold;
+  }
 }
 
 .pub-c-task-list__links--choice {
