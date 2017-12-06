@@ -49,6 +49,7 @@ examples:
       start: true
       info_text: "Sometimes you want to explain where a user is going to."
   with_margin_bottom:
+    description: "Sometimes it's useful to break up a page, for example if a button is at the bottom of a page."
     data:
       text: "Submit"
       margin_bottom: true
