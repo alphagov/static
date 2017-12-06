@@ -3,6 +3,7 @@ $stroke-width-large: 3px;
 $number-circle-size: 26px;
 $number-circle-size-large: 35px;
 $dot-size: 16px;
+$top-border: solid 2px $grey-3;
 
 @mixin task-list-vertical-line ($line-style: solid) {
   content: "";
@@ -25,16 +26,13 @@ $dot-size: 16px;
   border-width: $stroke-width-large;
 }
 
-@mixin task-list-top-border {
-  border-top: solid 2px $grey-3;
-}
-
 .pub-c-task-list {
   margin-bottom: $gutter-half;
   overflow: hidden;
 }
 
 .pub-c-task-list__controls {
+  padding: 3px 3px 0 0;
   text-align: right;
 }
 
@@ -43,34 +41,34 @@ $dot-size: 16px;
   cursor: pointer;
   background: none;
   border: 0;
+}
 
-  // removes extra dotted outline from buttons in Firefox
-  // on focus (standard yellow outline unaffected)
-  &::-moz-focus-inner {
-    border: 0;
+// removes extra dotted outline from buttons in Firefox
+// on focus (standard yellow outline unaffected)
+.pub-c-task-list__button::-moz-focus-inner {
+  border: 0;
+}
+
+.pub-c-task-list__button--title {
+  @include _core-font-generator(19px, 19px, 19px, 1.4, 1.4, false, bold);
+  display: inline-block;
+  padding: 0;
+  text-align: left;
+  color: $black;
+
+  .pub-c-task-list--large & {
+    @include _core-font-generator(24px, 19px, 24px, 1.4, 1.4, false, bold);
   }
+}
 
-  &--title {
-    @include _core-font-generator(19px, 19px, 19px, 1.4, 1.4, false, bold);
-    display: inline-block;
-    padding: 0;
-    text-align: left;
-    color: $black;
+.pub-c-task-list__button--controls {
+  @include _core-font-generator(14px, 14px, 14px, 1, 1, false);
+  position: relative;
+  z-index: 1; // this and relative position stops focus outline underlap with border of accordion
+  padding: 0.5em 0;
 
-    .pub-c-task-list--large & {
-      @include _core-font-generator(24px, 19px, 24px, 1.4, 1.4, false, bold);
-    }
-  }
-
-  &--controls {
-    @include _core-font-generator(14px, 14px, 14px, 1, 1, false);
-    position: relative;
-    z-index: 1; // this and relative position stops focus outline underlap with border of accordion
-    padding: 0.5em 0;
-
-    .pub-c-task-list--large & {
-      @include _core-font-generator(16px, 14px, 16px, 1, 1, false);
-    }
+  .pub-c-task-list--large & {
+    @include _core-font-generator(16px, 14px, 16px, 1, 1, false);
   }
 }
 
@@ -89,43 +87,43 @@ $dot-size: 16px;
       padding-left: $gutter * 2;
     }
   }
+}
 
-  &:last-child {
-    // little dash at the bottom of the line
-    &:before {
-      content: "";
-      position: absolute;
-      z-index: 6;
-      bottom: 0;
-      left: 0;
-      margin-left: $number-circle-size / 4;
-      width: $number-circle-size / 2;
-      height: 0;
-      border-bottom: solid $stroke-width $grey-2;
+.pub-c-task-list__group:last-child {
+  // little dash at the bottom of the line
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 6;
+    bottom: 0;
+    left: 0;
+    margin-left: $number-circle-size / 4;
+    width: $number-circle-size / 2;
+    height: 0;
+    border-bottom: solid $stroke-width $grey-2;
+  }
+
+  .pub-c-task-list__step:last-child {
+    &:after {
+      height: calc(100% - #{$gutter-half});
     }
 
-    .pub-c-task-list__step:last-child {
-      &:after {
-        height: calc(100% - #{$gutter-half});
-      }
-
-      .pub-c-task-list__help:after {
-        height: 100%;
-      }
+    .pub-c-task-list__help:after {
+      height: 100%;
     }
+  }
 
-    .pub-c-task-list--large & {
-      @include media(tablet) {
-        &:before {
-          margin-left: $number-circle-size-large / 4;
-          width: $number-circle-size-large / 2;
-          border-width: $stroke-width-large;
-        }
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      &:before {
+        margin-left: $number-circle-size-large / 4;
+        width: $number-circle-size-large / 2;
+        border-width: $stroke-width-large;
+      }
 
-        .pub-c-task-list__step:last-child {
-          &:after {
-            height: calc(100% - #{$gutter});
-          }
+      .pub-c-task-list__step:last-child {
+        &:after {
+          height: calc(100% - #{$gutter});
         }
       }
     }
@@ -160,18 +158,18 @@ $dot-size: 16px;
       }
     }
   }
+}
 
-  &.pub-c-task-list__step--optional {
-    // broken line down the side of a step
-    &:after {
-      border-left-style: dotted;
-    }
+.pub-c-task-list__step--optional {
+  // broken line down the side of a step
+  &:after {
+    border-left-style: dotted;
+  }
 
-    .pub-c-task-list--large & {
-      @include media(tablet) {
-        &:after {
-          border-width: $stroke-width-large;
-        }
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      &:after {
+        border-width: $stroke-width-large;
       }
     }
   }
@@ -237,8 +235,8 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__header {
-  @include task-list-top-border;
   padding: $gutter-half 0;
+  border-top: $top-border;
 
   .pub-c-task-list--active & {
     cursor: pointer;
@@ -379,7 +377,7 @@ $dot-size: 16px;
 
 .pub-c-task-list__cost {
   font-weight: normal;
-  color: $grey-1; // passes colour contrast AA
+  color: $grey-1;
 
   &:before {
     content: " \2013  ";
@@ -387,9 +385,9 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__help {
-  @include task-list-top-border;
   position: relative;
   padding: $gutter-half 0;
+  border-top: $top-border;
 
   &:after {
     @include task-list-vertical-line(dotted);
@@ -424,9 +422,9 @@ $dot-size: 16px;
 }
 
 .pub-c-task-list__substep {
-  @include task-list-top-border;
   position: relative;
   padding-top: $gutter-half;
+  border-top: $top-border;
 
   &:after {
     @include task-list-vertical-line;
