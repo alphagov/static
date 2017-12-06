@@ -87,30 +87,21 @@
                       >
                       <% element[:links].each do |link| %>
                         <%
-                          link_text = link[:text]
-
                           if link[:href]
-                            link_href = link[:href]
+                            link_href = link[:active] ? "#content" : link[:href]
+                            link_text = link[:active] ? '<span class="visuallyhidden">You are currently viewing:</span> '.html_safe + link[:text] : link[:text]
+                            link_active = 'pub-c-task-list__link-item--active' if link[:active]
+                            link_rel = link_href.start_with?('http') ? 'rel=external' : ''
                             link_index += 1
-                          end
+                            link_position = "#{group_index + 1}.#{step_index + 1}.#{link_index}"
 
-                          if link[:active]
-                            link_href = "#content"
-                            link_text = '<span class="visuallyhidden">You are currently viewing:</span> '.html_safe + link_text
+                            link_tag = "<a href=\"#{link_href}\" class=\"pub-c-task-list__link-item js-link #{link_active}\" #{link_position} #{link_rel}>#{link_text}</a>".html_safe
+                          else
+                            link_tag = link[:text]
                           end
                         %>
                         <li class="pub-c-task-list__link">
-                          <% if link[:href] %>
-                            <a href="<%= link_href %>"
-                              class="pub-c-task-list__link-item js-link <% if link[:active] %>pub-c-task-list__link-item--active<% end %>"
-                              data-position="<%= "#{group_index + 1}.#{step_index + 1}.#{link_index}" %>">
-                          <% end %>
-
-                          <%= link_text %>
-
-                          <% if link[:href] %>
-                            </a>
-                          <% end %>
+                          <%= link_tag %>
 
                           <% if link[:cost] %>
                             <span class="pub-c-task-list__cost"><%= link[:cost] %></span>

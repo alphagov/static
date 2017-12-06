@@ -55,7 +55,7 @@ describe('A tasklist module', function () {
                   <a href="/link5" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="2.1.2">Link 5</a>\
                 </li>\
                 <li class="pub-c-task-list__link">\
-                  <a href="http://www.gov.uk" class="pub-c-task-list__link-item js-link" data-position="2.1.3">Link 6</a>\
+                  <a href="http://www.gov.uk" class="pub-c-task-list__link-item js-link" data-position="2.1.3" rel="external">Link 6</a>\
                 </li>\
                 <li class="pub-c-task-list__link">\
                   <a href="#content" class="pub-c-task-list__link-item js-link pub-c-task-list__link-item--active" data-position="2.1.4">Link 7</a>\
@@ -551,12 +551,12 @@ describe('A tasklist module', function () {
       tasklist.start($element);
     });
 
-    it("puts the clicked link in session storage if it is not an external link", function () {
+    it("puts a clicked link in session storage", function () {
       $element.find('.js-link[data-position="2.1.2"]').click();
       expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe('2.1.2');
     });
 
-    it("does not put the clicked link in session storage if an external link", function () {
+    it("does not put an external clicked link in session storage", function () {
       $element.find('.js-link[data-position="2.1.3"]').click();
       expect(sessionStorage.getItem('govuk-task-list-active-link')).toBe(null);
     });

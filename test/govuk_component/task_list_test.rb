@@ -25,7 +25,7 @@ class TaskListTest < ComponentTestCase
                   text: 'Link 1',
                 },
                 {
-                  href: '/link2',
+                  href: 'http://www.gov.uk',
                   text: 'Link 2',
                   cost: '&pound;0 to &pound;300'
                 },
@@ -163,7 +163,8 @@ class TaskListTest < ComponentTestCase
     render_component(groups: tasklist)
 
     assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1']", text: "Link 1"
-    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link2']", text: "Link 2"
+    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1'][rel='external']", false
+    assert_select group1step1 + " .pub-c-task-list__link-item[href='http://www.gov.uk'][rel='external']", text: "Link 2"
     assert_select group1step1 + " .pub-c-task-list__cost", text: "&pound;0 to &pound;300"
 
     assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3']", text: "Link 3"

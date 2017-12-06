@@ -171,14 +171,14 @@
         });
       }
 
-      // tracking click events on panel links
+      // tracking click events on links in step content
       function bindComponentLinkClicks(tasklistTracker) {
         $element.find('.js-link').click(function (event) {
           var linkClick = new componentLinkClick(event, tasklistTracker, $(this).attr('data-position'));
           linkClick.track();
           var thisLinkHref = $(this).attr('href');
 
-          if (thisLinkHref.substring(0, 4) !== "http") {
+          if ($(this).attr('rel') !== 'external') {
             saveToSessionStorage(sessionStoreLink, $(this).data('position'));
           }
 
