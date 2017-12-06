@@ -9,6 +9,8 @@ accessibility_criteria: |
 
 shared_accessibility_criteria:
   - link
+accessibility_excluded_rules:
+  - 'duplicate-id' # ids used in this component are for anchoring from another component
 examples:
   from_only:
     data:
