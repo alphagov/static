@@ -48,6 +48,11 @@ examples:
       href: "#"
       start: true
       info_text: "Sometimes you want to explain where a user is going to."
+  with_margin_bottom:
+    description: "Sometimes it's useful to break up a page, for example if a button is at the bottom of a page."
+    data:
+      text: "Submit"
+      margin_bottom: true
   extreme_text:
     data:
       text: "I'm a button with lots of text to test how the component scales at extremes."

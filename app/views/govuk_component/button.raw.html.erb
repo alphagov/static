@@ -5,6 +5,7 @@
   rel ||= false
   text ||= ""
   tag_name = href ? "a" : "button"
+  margin_bottom ||= false
 %>
 <<%= tag_name %>
   class="
@@ -12,6 +13,7 @@
     <% if start == true %>
       pub-c-button--start
     <% end %>
+    <%= " pub-c-button--bottom-margin" if margin_bottom %>
   "
   <% if href %>
     href="<%= href.try(:html_safe) %>"

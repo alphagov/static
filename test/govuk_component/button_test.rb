@@ -55,4 +55,13 @@ class ButtonTestCase < ComponentTestCase
     render_component(text: "Start now", rel: "nofollow preload")
     assert_select ".pub-c-button[rel='nofollow preload']", text: "Start now"
   end
+
+  test "renders margin bottom class correctly" do
+    render_component(text: "Submit")
+    assert_select ".pub-c-button", text: "Submit"
+    assert_select ".pub-c-button--bottom-margin", count: 0
+
+    render_component(text: "Submit", margin_bottom: true)
+    assert_select ".pub-c-button.pub-c-button--bottom-margin", text: "Submit"
+  end
 end

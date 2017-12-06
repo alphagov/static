@@ -85,7 +85,7 @@ examples:
       The aria_controls_id must be set to the ID of an element that’s on the page or it won’t be included.
     data:
       key: with_aria-control_set
-      title: List of options
+      title: List of options (with aria controls)
       aria_controls_id: js-update-region-id
       options_container_id: list_of_countries
       options:
