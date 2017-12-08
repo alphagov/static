@@ -18,6 +18,7 @@ accessibility_criteria: |
   - allow users to show or hide all steps at once
   - inform the user which step a link belongs to
   - inform the user which step the current page is in, particularly where there are multiple steps in one group
+  - be readable when only the text of the page is zoomed - achieved for the numbers and logic elements by their text being wrapped in several elements that give them a white background and ensure the text when zoomed expands to the left, not to the right, where it would obscure the step titles
 
   The show/hide all button only needs to list the first panel id in the aria-controls attribute, rather than all of them.
 
@@ -173,7 +174,7 @@ examples:
       Links can have the following attributes:
 
       - style, an attribute on the parent list that controls its appearance, either required (bold), optional (not bold) or choice (not bold, with bullets on the list). The default is optional.
-      - cost, an optional text field to show some extra information after the link, usually a monetary value
+      - context, an optional text field to show some extra information after the link, usually a monetary value
       - active, whether to make the link highlighted (to indicate the current page)
       - highlight_group, a general option to highlight a specific group of steps. Usually the active link would be in the active group, but in some circumstances there might be an active group but no highlighted link.
     data:
@@ -195,7 +196,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '/component-guide/task_list/with_links/preview',
                     text: 'Obtain a driving licence prior to driving a car',
@@ -204,7 +205,7 @@ examples:
                   {
                     href: '/component-guide/task_list/with_links/preview',
                     text: 'Acquire food before attempting to cook',
-                    cost: '1p to &pound;20',
+                    context: '1p to &pound;20',
                     active: true
                   },
                   {
@@ -220,7 +221,7 @@ examples:
               },
               {
                 type: 'list',
-                links: [
+                contents: [
                   {
                     href: '/component-guide/task_list/with_links/preview',
                     text: 'Learn to play the saxophone',
@@ -229,7 +230,7 @@ examples:
                   {
                     href: '/component-guide/task_list/with_links/preview',
                     text: 'Develop a new method of extracting juice from oranges',
-                    cost: '&pound;0 to &pound;300',
+                    context: '&pound;0 to &pound;300',
                     active: true
                   },
                   {
@@ -246,7 +247,7 @@ examples:
               {
                 type: 'list',
                 style: 'choice',
-                links: [
+                contents: [
                   {
                     href: '/component-guide/task_list/',
                     text: 'Leave school at sixteen'
@@ -254,7 +255,7 @@ examples:
                   {
                     href: '/component-guide/task_list/',
                     text: 'Continue into higher education',
-                    cost: '&pound;9,500'
+                    context: '&pound;9,500'
                   }
                 ]
               }
@@ -268,7 +269,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '/component-guide/task_list/',
                     text: 'Check the reasons'
@@ -276,7 +277,7 @@ examples:
                   {
                     href: '/component-guide/task_list/with_links/preview',
                     text: 'Make the decisions based on available data and the reasonable assumptions that are possible at the time',
-                    cost: '1p to &pound;20',
+                    context: '1p to &pound;20',
                     active: true
                   },
                   {
@@ -306,11 +307,11 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: 'http://solicitors.lawsociety.org.uk/',
                     text: 'Hire a lawyer to represent you',
-                    cost: '&pound;110 to &pound;410 per hour'
+                    context: '&pound;110 to &pound;410 per hour'
                   },
                   {
                     text: 'or',
@@ -328,11 +329,11 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '/looking-after-children-divorce/apply-for-court-order',
                     text: 'Apply for a court order',
-                    cost: '&pound;215'
+                    context: '&pound;215'
                   },
                   {
                     href: 'https://courttribunalfinder.service.gov.uk/search/',
@@ -374,7 +375,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: 'http://google.com',
                     text: 'External link not set to active'
@@ -405,7 +406,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '/component-guide/task_list/with_links/preview',
                     text: 'Internal link set to active - in the active group, should be set by default until another link is clicked',
@@ -511,7 +512,7 @@ examples:
               },
               {
                 type: 'list',
-                links: [
+                contents: [
                   {
                     href: '/test6',
                     text: 'This link is also inside the sub step'
@@ -548,7 +549,7 @@ examples:
               },
               {
                 type: 'list',
-                links: [
+                contents: [
                   {
                     href: '/test7',
                     text: 'This link is inside an optional sub step as well',
@@ -595,7 +596,7 @@ examples:
             contents: [
               {
                 type: 'list',
-                links: [
+                contents: [
                   {
                     href: '/test7',
                     text: 'This is a link'
@@ -615,7 +616,7 @@ examples:
             contents: [
               {
                 type: 'list',
-                links: [
+                contents: [
                   {
                     href: '/test7',
                     text: 'This is yet another link'
@@ -647,7 +648,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: 'https://en.wikipedia.org/wiki/HDMI',
                     text: 'Remove the Chromebit from HDMI 1 on the TV',
@@ -667,7 +668,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
                     text: 'Run the HDMI - MINI DVI cable from the TV to the facilitators laptop'
@@ -692,7 +693,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '',
                     text: 'Ensure the catchbox transmitter is plugged in at the mains wall',
@@ -731,7 +732,7 @@ examples:
               {
                 type: 'list',
                 style: 'choice',
-                links: [
+                contents: [
                   {
                     href: 'https://www.google.co.uk/search?q=annoyed&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi_xcX36-PXAhUoAsAKHQlsD90Q_AUICigB&biw=1745&bih=894&dpr=1.1',
                     text: "Get annoyed when it doesn't work"
@@ -739,7 +740,7 @@ examples:
                   {
                     href: '',
                     text: 'Try to find someone else who knows how to do it',
-                    cost: '1 to 10 minutes'
+                    context: '1 to 10 minutes'
                   }
                 ]
               }
@@ -757,7 +758,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '',
                     text: 'Connect to standup hangout via the calendar invite',
@@ -780,7 +781,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '',
                     text: 'Click the three dots in the bottom hand corner to open settings'
@@ -847,7 +848,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: 'https://en.wikipedia.org/wiki/HDMI',
                     text: 'Remove the Chromebit from HDMI 1 on the TV',
@@ -867,7 +868,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: 'https://www.google.co.uk/search?q=mini+dvi&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_8Pt9N7XAhUpLcAKHY-uBJQQ_AUICigB&biw=1745&bih=894',
                     text: 'Run the HDMI - MINI DVI cable from the TV to the facilitators laptop'
@@ -892,7 +893,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '',
                     text: 'Ensure the catchbox transmitter is plugged in at the mains wall',
@@ -931,7 +932,7 @@ examples:
               {
                 type: 'list',
                 style: 'choice',
-                links: [
+                contents: [
                   {
                     href: 'https://www.google.co.uk/search?q=annoyed&rlz=1C5CHFA_enGB754GB756&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi_xcX36-PXAhUoAsAKHQlsD90Q_AUICigB&biw=1745&bih=894&dpr=1.1',
                     text: "Get annoyed when it doesn't work"
@@ -939,7 +940,7 @@ examples:
                   {
                     href: '',
                     text: 'Try to find someone else who knows how to do it',
-                    cost: '1 to 10 minutes'
+                    context: '1 to 10 minutes'
                   }
                 ]
               }
@@ -957,7 +958,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '',
                     text: 'Connect to standup hangout via the calendar invite',
@@ -980,7 +981,7 @@ examples:
               {
                 type: 'list',
                 style: 'required',
-                links: [
+                contents: [
                   {
                     href: '',
                     text: 'Click the three dots in the bottom hand corner to open settings'

@@ -19,7 +19,7 @@ class TaskListTest < ComponentTestCase
             {
               type: 'list',
               style: 'required',
-              links: [
+              contents: [
                 {
                   href: '/link1',
                   text: 'Link 1',
@@ -27,7 +27,7 @@ class TaskListTest < ComponentTestCase
                 {
                   href: 'http://www.gov.uk',
                   text: 'Link 2',
-                  cost: '&pound;0 to &pound;300'
+                  context: '&pound;0 to &pound;300'
                 },
               ]
             },
@@ -63,7 +63,7 @@ class TaskListTest < ComponentTestCase
             {
               type: 'list',
               style: 'choice',
-              links: [
+              contents: [
                 {
                   href: '/link3',
                   text: 'Link 3',
@@ -95,7 +95,7 @@ class TaskListTest < ComponentTestCase
             },
             {
               type: 'list',
-              links: [
+              contents: [
                 {
                   href: '/link5',
                   text: 'Link 5'
@@ -165,7 +165,7 @@ class TaskListTest < ComponentTestCase
     assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1']", text: "Link 1"
     assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1'][rel='external']", false
     assert_select group1step1 + " .pub-c-task-list__link-item[href='http://www.gov.uk'][rel='external']", text: "Link 2"
-    assert_select group1step1 + " .pub-c-task-list__cost", text: "&pound;0 to &pound;300"
+    assert_select group1step1 + " .pub-c-task-list__context", text: "&pound;0 to &pound;300"
 
     assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3']", text: "Link 3"
   end

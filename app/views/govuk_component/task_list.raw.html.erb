@@ -83,9 +83,9 @@
                     %>
                     <<%= list_element %>
                       class="pub-c-task-list__links <%= list_style %>"
-                      data-length="<%= element[:links].length %>"
+                      data-length="<%= element[:contents].length %>"
                       >
-                      <% element[:links].each do |link| %>
+                      <% element[:contents].each do |link| %>
                         <%
                           if link[:href]
                             link_href = link[:active] ? "#content" : link[:href]
@@ -103,8 +103,8 @@
                         <li class="pub-c-task-list__link">
                           <%= link_tag %>
 
-                          <% if link[:cost] %>
-                            <span class="pub-c-task-list__cost"><%= link[:cost] %></span>
+                          <% if link[:context] %>
+                            <span class="pub-c-task-list__context"><%= link[:context] %></span>
                           <% end %>
                         </li>
                       <% end %>
