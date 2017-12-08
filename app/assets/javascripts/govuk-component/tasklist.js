@@ -6,6 +6,11 @@
 
   Modules.Tasklist = function () {
 
+    var actions = {
+      showLinkText: "Show",
+      hideLinkText: "Hide"
+    };
+
     var bulkActions = {
       showAll: {
         buttonText: "Show all",
@@ -49,12 +54,12 @@
 
       addButtonstoSteps();
       addShowHideAllButton();
-      addLinksToSteps();
+      addShowHideToggle();
       addAriaControlsAttrForShowHideAllButton();
 
       hideAllSteps();
       showLinkedStep();
-      checkForDoubleDots();
+      ensureOnlyOneActiveLink();
 
       bindToggleForSteps(tasklistTracker);
       bindToggleShowHideAllButton(tasklistTracker);
@@ -82,16 +87,20 @@
         $element.prepend('<div class="pub-c-task-list__controls"><button aria-expanded="false" class="pub-c-task-list__button pub-c-task-list__button--controls js-step-controls-button">' + bulkActions.showAll.buttonText + '</button></div>');
       }
 
-      function addLinksToSteps() {
+      function addShowHideToggle() {
         $stepHeaders.each(function() {
-          var linkText = bulkActions.showAll.linkText;
+          var linkText = actions.showLinkText;
 
-          if (typeof $(this).closest('.js-step').data('show') !== 'undefined') {
-            linkText = bulkActions.hideAll.linkText;
+          if (headerIsOpen($(this))) {
+            linkText = actions.hideLinkText;
           }
 
           $(this).append('<span class="pub-c-task-list__toggle-link js-toggle-link">' + linkText + '</span>');
         });
+      }
+
+      function headerIsOpen($stepHeader) {
+        return (typeof $stepHeader.closest('.js-step').data('show') !== 'undefined');
       }
 
       function addAriaControlsAttrForShowHideAllButton() {
@@ -117,8 +126,7 @@
         var $step;
         if (rememberShownStep) {
           $step = getStepForAnchor();
-        }
-        else {
+        } else {
           $step = $steps.filter('[data-show]');
         }
 
@@ -165,7 +173,7 @@
           toggleClick.track();
 
           var toggleLink = $(this).find('.js-toggle-link');
-          toggleLink.text(toggleLink.text() == bulkActions.showAll.linkText ? bulkActions.hideAll.linkText : bulkActions.showAll.linkText);
+          toggleLink.text(toggleLink.text() == actions.showLinkText ? actions.hideLinkText : actions.showLinkText);
 
           setShowHideAllText();
         });
@@ -193,7 +201,7 @@
       }
 
       function loadFromSessionStorage(key) {
-        return sessionStorage.getItem(key) || null;
+        return sessionStorage.getItem(key);
       }
 
       function removeFromSessionStorage(key) {
@@ -205,32 +213,36 @@
         clicked.addClass(activeLinkClass);
       }
 
-      function checkForDoubleDots() {
+      function ensureOnlyOneActiveLink() {
         var $activeLinks = $element.find('.js-link.' + activeLinkClass);
 
-        if ($activeLinks.length > 1) {
-          var lastClicked = loadFromSessionStorage(sessionStoreLink);
+        if ($activeLinks.length <= 1) {
+          return;
+        }
 
-          if (lastClicked !== null) {
-            $activeLinks.each(function() {
-              if ($(this).data('position') !== lastClicked) {
-                $(this).removeClass(activeLinkClass);
-              }
-            });
-            removeFromSessionStorage(sessionStoreLink);
-          }
-          else {
-            var activeLinkInActiveGroup = $element.find('.pub-c-task-list__group--active').find('.' + activeLinkClass).first();
+        var lastClicked = loadFromSessionStorage(sessionStoreLink);
 
-            if (activeLinkInActiveGroup.length) {
-              $activeLinks.removeClass(activeLinkClass);
-              activeLinkInActiveGroup.addClass(activeLinkClass);
-            }
-            else {
-              $activeLinks.slice(1).removeClass(activeLinkClass);
-            }
+        if (lastClicked) {
+          removeActiveStateFromAllButCurrent($activeLinks, lastClicked);
+          removeFromSessionStorage(sessionStoreLink);
+        } else {
+          var activeLinkInActiveGroup = $element.find('.pub-c-task-list__group--active').find('.' + activeLinkClass).first();
+
+          if (activeLinkInActiveGroup.length) {
+            $activeLinks.removeClass(activeLinkClass);
+            activeLinkInActiveGroup.addClass(activeLinkClass);
+          } else {
+            $activeLinks.slice(1).removeClass(activeLinkClass);
           }
         }
+      }
+
+      function removeActiveStateFromAllButCurrent($links, current) {
+        $links.each(function() {
+          if ($(this).data('position') !== current) {
+            $(this).removeClass(activeLinkClass);
+          }
+        });
       }
 
       function preventLinkFollowingForCurrentTab(event) {
@@ -250,7 +262,7 @@
 
           if ($showOrHideAllButton.text() == bulkActions.showAll.buttonText) {
             $showOrHideAllButton.text(bulkActions.hideAll.buttonText);
-            $element.find('.js-toggle-link').text(bulkActions.hideAll.linkText)
+            $element.find('.js-toggle-link').text(actions.hideLinkText)
             shouldshowAll = true;
 
             tasklistTracker.track('pageElementInteraction', 'tasklistAllShown', {
@@ -258,7 +270,7 @@
             });
           } else {
             $showOrHideAllButton.text(bulkActions.showAll.buttonText);
-            $element.find('.js-toggle-link').text(bulkActions.showAll.linkText)
+            $element.find('.js-toggle-link').text(actions.showLinkText);
             shouldshowAll = false;
 
             tasklistTracker.track('pageElementInteraction', 'tasklistAllHidden', {

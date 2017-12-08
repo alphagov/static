@@ -162,20 +162,20 @@ class TaskListTest < ComponentTestCase
   test "renders links" do
     render_component(groups: tasklist)
 
-    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1']", text: "Link 1"
+    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1'][data-position='1.1.1']", text: "Link 1"
     assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1'][rel='external']", false
-    assert_select group1step1 + " .pub-c-task-list__link-item[href='http://www.gov.uk'][rel='external']", text: "Link 2"
+    assert_select group1step1 + " .pub-c-task-list__link-item[href='http://www.gov.uk'][rel='external'][data-position='1.1.2']", text: "Link 2"
     assert_select group1step1 + " .pub-c-task-list__context", text: "&pound;0 to &pound;300"
 
-    assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3']", text: "Link 3"
+    assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3'][data-position='2.1.1']", text: "Link 3"
   end
 
   test "renders links without hrefs" do
     render_component(groups: tasklist)
 
-    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link5']", text: "Link 5"
+    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link5'][data-position='2.2.1']", text: "Link 5"
     assert_select group2step2 + " .pub-c-task-list__link", text: "or"
-    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link6']", text: "Link 6"
+    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link6'][data-position='2.2.2']", text: "Link 6"
   end
 
   test "renders optional steps, sub steps and optional sub steps" do

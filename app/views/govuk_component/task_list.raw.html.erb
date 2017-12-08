@@ -39,12 +39,12 @@
               logic = step[:logic] if ["and", "or"].include? step[:logic]
             %>
             <div
-              class="pub-c-task-list__step js-step <% if step[:optional] %>pub-c-task-list__step--optional<% end %>"
+              class="pub-c-task-list__step js-step <%= "pub-c-task-list__step--optional" if step[:optional] %>"
               id="<%= id %>"
               data-track-count="tasklistSection"
-              <% if step_count == show_step %>data-show<% end %>
+              <%= "data-show" if step_count == show_step %>
               >
-              <% if step_index > 0 and logic.length %>
+              <% if step_index > 0 %>
                 <div class="pub-c-task-list__circle pub-c-task-list__circle--logic">
                   <span class="pub-c-task-list__circle-inner">
                     <span class="pub-c-task-list__circle-background">
@@ -81,10 +81,13 @@
                         list_element = 'ul'
                       end
                     %>
-                    <<%= list_element %>
-                      class="pub-c-task-list__links <%= list_style %>"
-                      data-length="<%= element[:contents].length %>"
-                      >
+
+                    <%= content_tag(
+                      list_element,
+                      class: "pub-c-task-list__links #{list_style}",
+                      data: {
+                        length: element[:contents].length
+                      }) do %>
                       <% element[:contents].each do |link| %>
                         <%
                           if link[:href]
@@ -93,7 +96,7 @@
                             link_active = 'pub-c-task-list__link-item--active' if link[:active]
                             link_rel = link_href.start_with?('http') ? 'rel=external' : ''
                             link_index += 1
-                            link_position = "#{group_index + 1}.#{step_index + 1}.#{link_index}"
+                            link_position = "data-position=\"#{group_index + 1}.#{step_index + 1}.#{link_index}\""
 
                             link_tag = "<a href=\"#{link_href}\" class=\"pub-c-task-list__link-item js-link #{link_active}\" #{link_position} #{link_rel}>#{link_text}</a>".html_safe
                           else
@@ -108,7 +111,7 @@
                           <% end %>
                         </li>
                       <% end %>
-                    </<%= list_element %>>
+                    <% end %>
 
                   <% elsif element[:type] == 'substep' %>
                     <% if in_substep %>
