@@ -35,6 +35,9 @@ describe('A tasklist module', function () {
                   <a href="/link3" class="pub-c-task-list__link-item js-link" data-position="1.2.2">Link 3</a>\
                 </li>\
               </ol>\
+              <div class="pub-c-task-list__help">\
+                <a href="/learn#step-one" class="pub-c-task-list__help-link js-link" data-position="get-help">Get help</a>\
+              </div>\
             </div>\
           </div>\
         </li>\
@@ -524,6 +527,23 @@ describe('A tasklist module', function () {
         dimension28: expectedTasklistContentCount.toString()
       });
     });
+
+    it("triggers a google analytics event when clicking a get more help with this step link", function () {
+      GOVUK.analytics = {
+        trackEvent: function () {
+        }
+      };
+      spyOn(GOVUK.analytics, 'trackEvent');
+
+      var $link = $element.find('.pub-c-task-list__help-link.js-link');
+      $link.click();
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', 'get-help', {
+        label: '/learn#step-one : Big',
+        dimension26: expectedTasklistStepCount.toString(),
+        dimension27: expectedTasklistLinkCount.toString()
+      });
+    });
   });
 
   it("triggers a google analytics event when clicking a panel link", function () {
@@ -541,6 +561,23 @@ describe('A tasklist module', function () {
       dimension26: expectedTasklistStepCount.toString(),
       dimension27: expectedTasklistLinkCount.toString(),
       dimension28: expectedTasklistContentCount.toString()
+    });
+  });
+
+  it("triggers a google analytics event when clicking a get more help with this step link", function () {
+    GOVUK.analytics = {
+      trackEvent: function () {
+      }
+    };
+    spyOn(GOVUK.analytics, 'trackEvent');
+
+    var $link = $element.find('.pub-c-task-list__help-link.js-link');
+    $link.click();
+
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('taskAccordionLinkClicked', 'get-help', {
+      label: '/learn#step-one : Small',
+      dimension26: expectedTasklistStepCount.toString(),
+      dimension27: expectedTasklistLinkCount.toString()
     });
   });
 

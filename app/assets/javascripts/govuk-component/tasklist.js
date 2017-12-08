@@ -441,7 +441,13 @@
       this.track = trackClick;
 
       function trackClick() {
-        var tracking_options = {label: $(event.target).attr('href') + " : " + taskListSize, dimension28: $(event.target).closest('.pub-c-task-list__links').attr('data-length')};
+        var tracking_options = {label: $(event.target).attr('href') + " : " + taskListSize};
+        var dimension28 = $(event.target).closest('.pub-c-task-list__links').attr('data-length');
+
+        if (dimension28) {
+          tracking_options['dimension28'] = dimension28;
+        }
+
         tasklistTracker.track('taskAccordionLinkClicked', linkPosition, tracking_options);
       }
     }
