@@ -5,109 +5,80 @@ class TaskListTest < ComponentTestCase
     "task_list"
   end
 
-  def tasklist
+  def simple_tasklist
     [
       [
         {
-          title: 'Group 1 step 1',
-          optional: true,
-          contents: [
+          title: 'First header',
+          panel: 'First panel'
+        }
+      ],
+      [
+        {
+          title: 'Second header',
+          panel: 'Second panel'
+        }
+      ]
+    ]
+  end
+
+  def complex_tasklist
+    [
+      [
+        {
+          title: 'First group first step',
+          panel: '<p class="firstpanel">First panel</p>',
+          panel_descriptions: [
+            'First group first step first panel description',
+            'First group first step second panel description'
+          ],
+          panel_links: [
             {
-              type: 'paragraph',
-              text: 'Group 1 step 1 paragraph'
+              href: '/notalink1',
+              text: 'First group first step first panel link'
             },
             {
-              type: 'list',
-              style: 'required',
-              contents: [
-                {
-                  href: '/link1',
-                  text: 'Link 1',
-                },
-                {
-                  href: 'http://www.gov.uk',
-                  text: 'Link 2',
-                  context: '&pound;0 to &pound;300'
-                },
-              ]
-            },
-            {
-              type: 'substep',
-              optional: false
-            },
-            {
-              type: 'paragraph',
-              text: 'This paragraph is inside a required substep'
-            },
+              href: '/notalink2',
+              text: 'First group first step second panel link'
+            }
           ]
         },
         {
-          title: 'Group 1 step 2',
-          optional: false,
-          contents: [
+          title: 'First group second step',
+          panel: '<p class="secondpanel">Second panel</p>',
+          panel_descriptions: [
+            'First group second step first panel description',
+            'First group second step second panel description'
+          ],
+          panel_links: [
             {
-              type: 'paragraph',
-              text: 'test'
+              href: '/notalink3',
+              text: 'First group second step first panel link'
+            },
+            {
+              href: '/notalink4',
+              text: 'First group second step second panel link',
+              active: true
             }
           ]
         }
       ],
       [
         {
-          title: 'Group 2 step 1',
-          contents: [
+          title: 'Second group first step',
+          panel: '<p class="thirdpanel">Third panel</p>',
+          panel_descriptions: [
+            'Second group first step first panel description',
+            'Second group first step second panel description'
+          ],
+          panel_links: [
             {
-              type: 'paragraph',
-              text: 'Group 2 step 1 paragraph'
+              href: '/notalink5',
+              text: 'Second group first step first panel link'
             },
             {
-              type: 'list',
-              style: 'choice',
-              contents: [
-                {
-                  href: '/link3',
-                  text: 'Link 3',
-                },
-                {
-                  href: '/link4',
-                  active: true,
-                  text: 'Link 4',
-                },
-              ]
-            },
-            {
-              type: 'substep',
-              optional: true
-            },
-            {
-              type: 'paragraph',
-              text: 'This paragraph is inside an optional substep'
-            },
-          ]
-        },
-        {
-          title: 'Group 2 step 2',
-          logic: 'or',
-          contents: [
-            {
-              type: 'paragraph',
-              text: 'test'
-            },
-            {
-              type: 'list',
-              contents: [
-                {
-                  href: '/link5',
-                  text: 'Link 5'
-                },
-                {
-                  text: 'or'
-                },
-                {
-                  href: '/link6',
-                  text: 'Link 6'
-                }
-              ]
+              href: '/notalink6',
+              text: 'Second group first step second panel link'
             }
           ]
         }
@@ -116,114 +87,79 @@ class TaskListTest < ComponentTestCase
   end
 
   group1 = ".pub-c-task-list__group:nth-child(1)"
-  group1step1 = group1 + " .pub-c-task-list__step:nth-of-type(1)"
-  group1step2 = group1 + " .pub-c-task-list__step:nth-of-type(2)"
-
   group2 = ".pub-c-task-list__group:nth-child(2)"
-  group2step1 = group2 + " .pub-c-task-list__step:nth-of-type(1)"
-  group2step2 = group2 + " .pub-c-task-list__step:nth-of-type(2)"
 
   test "renders nothing without passed content" do
     assert_empty render_component({})
   end
 
-  test "renders paragraphs" do
-    render_component(groups: tasklist)
+  test "renders a simple tasklist correctly" do
+    render_component(groups: simple_tasklist)
     assert_select ".pub-c-task-list"
 
-    assert_select group1 + " .pub-c-task-list__step#group-1-step-1:nth-of-type(1)"
-    assert_select group1step1 + " .pub-c-task-list__title", text: "Group 1 step 1"
-    assert_select group1step1 + " .pub-c-task-list__paragraph", text: "Group 1 step 1 paragraph"
+    assert_select group1 + " .pub-c-task-list__step#first-header"
+    assert_select group1 + " .pub-c-task-list__title", text: "First header"
+    assert_select group1 + " .pub-c-task-list__panel", text: "First panel"
 
-    assert_select group2 + " .pub-c-task-list__step#group-2-step-2:nth-of-type(1)"
-    assert_select group2step1 + " .pub-c-task-list__title", text: "Group 2 step 1"
-    assert_select group2step1 + " .pub-c-task-list__paragraph", text: "Group 2 step 1 paragraph"
+    assert_select group2 + " .pub-c-task-list__step#second-header"
+    assert_select group2 + " .pub-c-task-list__title", text: "Second header"
+    assert_select group2 + " .pub-c-task-list__panel", text: "Second panel"
+  end
+
+  test "renders a simple tasklist with custom step ids" do
+    ids_accordion = simple_tasklist
+    ids_accordion[0][0][:id] = "first-step-id"
+
+    render_component(groups: ids_accordion)
+
+    assert_select group1, id: "first-step-id"
+    assert_select group2, id: "2nd-header"
   end
 
   test "renders a tasklist with different heading levels" do
-    render_component(groups: tasklist, heading_level: 4)
+    render_component(groups: simple_tasklist, heading_level: 4)
 
-    assert_select group1step1 + " h4.pub-c-task-list__title", text: "Group 1 step 1"
-    assert_select group2step1 + " h4.pub-c-task-list__title", text: "Group 2 step 1"
+    assert_select group1 + " .pub-c-task-list__step#first-header h4.pub-c-task-list__title", text: "First header"
+    assert_select group2 + " .pub-c-task-list__step#second-header h4.pub-c-task-list__title", text: "Second header"
   end
 
   test "opens a step by default" do
-    render_component(groups: tasklist, show_step: 2)
+    render_component(groups: simple_tasklist, open_step: 2)
 
-    assert_select group1 + " .pub-c-task-list__step#group-1-step-2[data-show]"
+    assert_select group2 + " .pub-c-task-list__step[data-open]"
   end
 
   test "remembers last opened step" do
-    render_component(groups: tasklist, remember_last_step: true)
+    render_component(groups: simple_tasklist, remember_last_step: true)
 
     assert_select ".pub-c-task-list[data-remember]"
   end
 
-  test "renders links" do
-    render_component(groups: tasklist)
+  test "renders a complex tasklist" do
+    render_component(groups: complex_tasklist)
 
-    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1'][data-position='1.1.1']", text: "Link 1"
-    assert_select group1step1 + " .pub-c-task-list__link-item[href='/link1'][rel='external']", false
-    assert_select group1step1 + " .pub-c-task-list__link-item[href='http://www.gov.uk'][rel='external'][data-position='1.1.2']", text: "Link 2"
-    assert_select group1step1 + " .pub-c-task-list__context", text: "&pound;0 to &pound;300"
+    group1_step1 = group1 + " .pub-c-task-list__step#first-group-first-step"
+    group1_step2 = group1 + " .pub-c-task-list__step#first-group-second-step"
 
-    assert_select group2step1 + " .pub-c-task-list__link-item[href='/link3'][data-position='2.1.1']", text: "Link 3"
-  end
+    assert_select group1 + ".pub-c-task-list__group--active[aria-current='step']"
+    assert_select group2 + ".pub-c-task-list__group--active", false
 
-  test "renders links without hrefs" do
-    render_component(groups: tasklist)
+    assert_select group1_step1 + " .firstpanel", text: 'First panel'
+    assert_select group1_step1 + " .pub-c-task-list__panel-description:nth-child(2)", text: 'First group first step first panel description'
+    assert_select group1_step1 + " .pub-c-task-list__panel-description:nth-child(3)", text: 'First group first step second panel description'
+    assert_select group1_step1 + " .pub-c-task-list__panel-links .pub-c-task-list__panel-link:nth-child(1) a[href=?]", '/notalink1', text: 'First group first step first panel link'
+    assert_select group1_step1 + " .pub-c-task-list__panel-links .pub-c-task-list__panel-link:nth-child(2) a[href=?]", '/notalink2', text: 'First group first step second panel link'
 
-    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link5'][data-position='2.2.1']", text: "Link 5"
-    assert_select group2step2 + " .pub-c-task-list__link", text: "or"
-    assert_select group2step2 + " .pub-c-task-list__link .pub-c-task-list__link-item[href='/link6'][data-position='2.2.2']", text: "Link 6"
-  end
-
-  test "renders optional steps, sub steps and optional sub steps" do
-    render_component(groups: tasklist)
-
-    assert_select group1 + " .pub-c-task-list__step.pub-c-task-list__step--optional:nth-of-type(1)"
-    assert_select group1step1 + " .pub-c-task-list__substep .pub-c-task-list__paragraph", text: "This paragraph is inside a required substep"
-    assert_select group2step1 + " .pub-c-task-list__substep.pub-c-task-list__substep--optional .pub-c-task-list__paragraph", text: "This paragraph is inside an optional substep"
-  end
-
-  test "renders get help links back to the main task list" do
-    render_component(groups: tasklist, task_list_url: "/learn-to-drive", task_list_url_link_text: "Get help")
-
-    assert_select group1step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-1-step-1']", text: "Get help"
-    assert_select group2step1 + " .pub-c-task-list__help-link[href='/learn-to-drive#group-2-step-1']", text: "Get help"
-  end
-
-  test "group numbering and step logic is displayed correctly" do
-    render_component(groups: tasklist)
-
-    assert_select group1 + " .pub-c-task-list__circle--number .pub-c-task-list__circle-inner .pub-c-task-list__circle-background", text: "Step 1"
-    assert_select group1step2 + " .pub-c-task-list__circle--logic .pub-c-task-list__circle-inner .pub-c-task-list__circle-background", text: "and"
-    assert_select group2 + " .pub-c-task-list__circle--number .pub-c-task-list__circle-inner .pub-c-task-list__circle-background", text: "Step 2"
-    assert_select group2step2 + " .pub-c-task-list__circle--logic .pub-c-task-list__circle-inner .pub-c-task-list__circle-background", text: "or"
-  end
-
-  test "lists have the required and choice styles applied correctly" do
-    render_component(groups: tasklist)
-
-    assert_select group1step1 + " .pub-c-task-list__links.pub-c-task-list__links--required"
-    assert_select group2step1 + " .pub-c-task-list__links.pub-c-task-list__links--choice"
-  end
-
-  test "a step can be set to open on page load" do
-    render_component(groups: tasklist, show_step: 3)
-
-    assert_select group2 + " .pub-c-task-list__step[data-show]:nth-of-type(1)"
-  end
-
-  test "groups and links can have active states" do
-    render_component(groups: tasklist, highlight_group: 1)
-
-    assert_select group1 + ".pub-c-task-list__group--active"
-    assert_select group2step1 + " .pub-c-task-list__link-item.pub-c-task-list__link-item--active[href='#content']", text: "You are currently viewing: Link 4"
+    assert_select group1_step2 + " .secondpanel", text: 'Second panel'
+    assert_select group1_step2 + " .pub-c-task-list__panel-description:nth-child(2)", text: 'First group second step first panel description'
+    assert_select group1_step2 + " .pub-c-task-list__panel-description:nth-child(3)", text: 'First group second step second panel description'
+    assert_select group1_step2 + " .pub-c-task-list__panel-links .pub-c-task-list__panel-link:nth-child(1) a[href=?]", '/notalink3', text: 'First group second step first panel link'
+    assert_select group1_step2 + " .pub-c-task-list__panel-links .pub-c-task-list__panel-link--active:nth-child(2) .visuallyhidden", text: 'You are currently viewing:'
+    assert_select group1_step2 + " .pub-c-task-list__panel-links .pub-c-task-list__panel-link--active:nth-child(2)", text: 'You are currently viewing: First group second step second panel link'
   end
 
   test "renders a small tasklist" do
-    render_component(groups: tasklist, small: true)
+    render_component(groups: simple_tasklist, small: true)
 
     assert_select ".pub-c-task-list"
     assert_select ".pub-c-task-list.pub-c-task-list--large", false
