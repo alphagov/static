@@ -6,29 +6,19 @@
 
   Modules.Tasklist = function () {
 
-    var actions = {
-      showLinkText: "Show",
-      hideLinkText: "Hide"
-    };
-
     var bulkActions = {
-      showAll: {
-        buttonText: "Show all",
-        eventLabel: "Show All",
-        linkText: "Show"
+      openAll: {
+        buttonText: "Open all",
+        eventLabel: "Open All"
       },
-      hideAll: {
-        buttonText: "Hide all",
-        eventLabel: "Hide All",
-        linkText: "Hide"
+      closeAll: {
+        buttonText: "Close all",
+        eventLabel: "Close All"
       }
     };
 
-    var rememberShownStep = false;
+    var rememberOpenStep = false;
     var taskListSize;
-    var sessionStoreLink = 'govuk-task-list-active-link';
-    var activeLinkClass = 'pub-c-task-list__link-item--active';
-    var activeLinkHref = '#content';
 
     this.start = function ($element) {
 
@@ -40,29 +30,28 @@
       // Prevent FOUC, remove class hiding content
       $element.removeClass('js-hidden');
 
-      rememberShownStep = !!$element.filter('[data-remember]').length;
+      rememberOpenStep = !!$element.filter('[data-remember]').length;
       taskListSize = $element.hasClass('pub-c-task-list--large') ? 'Big' : 'Small';
       var $groups = $element.find('.pub-c-task-list__group');
       var $steps = $element.find('.js-step');
       var $stepHeaders = $element.find('.js-toggle-panel');
       var totalSteps = $element.find('.js-panel').length;
-      var totalLinks = $element.find('.pub-c-task-list__link-item').length;
+      var totalLinks = $element.find('.pub-c-task-list__panel-link-item').length;
 
-      var $showOrHideAllButton;
+      var $openOrCloseAllButton;
 
       var tasklistTracker = new TasklistTracker(totalSteps, totalLinks);
 
       addButtonstoSteps();
-      addShowHideAllButton();
-      addShowHideToggle();
-      addAriaControlsAttrForShowHideAllButton();
+      addOpenCloseAllButton();
+      addIconsToSteps();
+      addAriaControlsAttrForOpenCloseAllButton();
 
-      hideAllSteps();
-      showLinkedStep();
-      ensureOnlyOneActiveLink();
+      closeAllSteps();
+      openLinkedStep();
 
       bindToggleForSteps(tasklistTracker);
-      bindToggleShowHideAllButton(tasklistTracker);
+      bindToggleOpenCloseAllButton(tasklistTracker);
       bindComponentLinkClicks(tasklistTracker);
 
       // When navigating back in browser history to the tasklist, the browser will try to be "clever" and return
@@ -75,7 +64,7 @@
       // the case where the user has expanded all steps, so they are not returned to a particular step, but
       // still could have scrolled a long way down the page.
       function storeScrollPosition() {
-        hideAllSteps();
+        closeAllSteps();
         var $step = getStepForAnchor();
 
         document.body.scrollTop = $step && $step.length
@@ -83,56 +72,46 @@
           : 0;
       }
 
-      function addShowHideAllButton() {
-        $element.prepend('<div class="pub-c-task-list__controls"><button aria-expanded="false" class="pub-c-task-list__button pub-c-task-list__button--controls js-step-controls-button">' + bulkActions.showAll.buttonText + '</button></div>');
+      function addOpenCloseAllButton() {
+        $element.prepend('<div class="pub-c-task-list__controls"><button aria-expanded="false" class="pub-c-task-list__button pub-c-task-list__button--controls js-step-controls-button">' + bulkActions.openAll.buttonText + '</button></div>');
       }
 
-      function addShowHideToggle() {
-        $stepHeaders.each(function() {
-          var linkText = actions.showLinkText;
-
-          if (headerIsOpen($(this))) {
-            linkText = actions.hideLinkText;
-          }
-
-          $(this).append('<span class="pub-c-task-list__toggle-link js-toggle-link">' + linkText + '</span>');
-        });
+      function addIconsToSteps() {
+        $stepHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--plus"></span>');
+        $stepHeaders.append('<span class="pub-c-task-list__icon pub-c-task-list__icon--minus"></span>');
       }
 
-      function headerIsOpen($stepHeader) {
-        return (typeof $stepHeader.closest('.js-step').data('show') !== 'undefined');
-      }
-
-      function addAriaControlsAttrForShowHideAllButton() {
+      function addAriaControlsAttrForOpenCloseAllButton() {
         var ariaControlsValue = $element.find('.js-panel').first().attr('id');
 
-        $showOrHideAllButton = $element.find('.js-step-controls-button');
-        $showOrHideAllButton.attr('aria-controls', ariaControlsValue);
+        $openOrCloseAllButton = $element.find('.js-step-controls-button');
+        $openOrCloseAllButton.attr('aria-controls', ariaControlsValue);
       }
 
-      function hideAllSteps() {
-        setAllStepsShownState(false);
+      function closeAllSteps() {
+        setAllStepsOpenState(false);
       }
 
-      function setAllStepsShownState(isShown) {
+      function setAllStepsOpenState(isOpen) {
         $.each($steps, function () {
           var stepView = new StepView($(this));
           stepView.preventHashUpdate();
-          stepView.setIsShown(isShown);
+          stepView.setIsOpen(isOpen);
         });
       }
 
-      function showLinkedStep() {
+      function openLinkedStep() {
         var $step;
-        if (rememberShownStep) {
+        if (rememberOpenStep) {
           $step = getStepForAnchor();
-        } else {
-          $step = $steps.filter('[data-show]');
+        }
+        else {
+          $step = $steps.filter('[data-open]');
         }
 
         if ($step && $step.length) {
           var stepView = new StepView($step);
-          stepView.show();
+          stepView.open();
         }
       }
 
@@ -172,76 +151,15 @@
           var toggleClick = new StepToggleClick(event, stepView, $steps, tasklistTracker, $groups);
           toggleClick.track();
 
-          var toggleLink = $(this).find('.js-toggle-link');
-          toggleLink.text(toggleLink.text() == actions.showLinkText ? actions.hideLinkText : actions.showLinkText);
-
-          setShowHideAllText();
+          setOpenCloseAllText();
         });
       }
 
-      // tracking click events on links in step content
+      // tracking click events on panel links
       function bindComponentLinkClicks(tasklistTracker) {
-        $element.find('.js-link').click(function (event) {
+        $element.find('.js-panel-link').click(function (event) {
           var linkClick = new componentLinkClick(event, tasklistTracker, $(this).attr('data-position'));
           linkClick.track();
-          var thisLinkHref = $(this).attr('href');
-
-          if ($(this).attr('rel') !== 'external') {
-            saveToSessionStorage(sessionStoreLink, $(this).data('position'));
-          }
-
-          if (thisLinkHref == activeLinkHref) {
-            setOnlyThisLinkActive($(this));
-          }
-        });
-      }
-
-      function saveToSessionStorage(key, value) {
-        sessionStorage.setItem(key, value);
-      }
-
-      function loadFromSessionStorage(key) {
-        return sessionStorage.getItem(key);
-      }
-
-      function removeFromSessionStorage(key) {
-        sessionStorage.removeItem(key);
-      }
-
-      function setOnlyThisLinkActive(clicked) {
-        $element.find('.' + activeLinkClass).removeClass(activeLinkClass);
-        clicked.addClass(activeLinkClass);
-      }
-
-      function ensureOnlyOneActiveLink() {
-        var $activeLinks = $element.find('.js-link.' + activeLinkClass);
-
-        if ($activeLinks.length <= 1) {
-          return;
-        }
-
-        var lastClicked = loadFromSessionStorage(sessionStoreLink);
-
-        if (lastClicked) {
-          removeActiveStateFromAllButCurrent($activeLinks, lastClicked);
-          removeFromSessionStorage(sessionStoreLink);
-        } else {
-          var activeLinkInActiveGroup = $element.find('.pub-c-task-list__group--active').find('.' + activeLinkClass).first();
-
-          if (activeLinkInActiveGroup.length) {
-            $activeLinks.removeClass(activeLinkClass);
-            activeLinkInActiveGroup.addClass(activeLinkClass);
-          } else {
-            $activeLinks.slice(1).removeClass(activeLinkClass);
-          }
-        }
-      }
-
-      function removeActiveStateFromAllButCurrent($links, current) {
-        $links.each(function() {
-          if ($(this).data('position') !== current) {
-            $(this).removeClass(activeLinkClass);
-          }
         });
       }
 
@@ -255,45 +173,43 @@
         event.preventDefault();
       }
 
-      function bindToggleShowHideAllButton(tasklistTracker) {
-        $showOrHideAllButton = $element.find('.js-step-controls-button');
-        $showOrHideAllButton.on('click', function () {
-          var shouldshowAll;
+      function bindToggleOpenCloseAllButton(tasklistTracker) {
+        $openOrCloseAllButton = $element.find('.js-step-controls-button');
+        $openOrCloseAllButton.on('click', function () {
+          var shouldOpenAll;
 
-          if ($showOrHideAllButton.text() == bulkActions.showAll.buttonText) {
-            $showOrHideAllButton.text(bulkActions.hideAll.buttonText);
-            $element.find('.js-toggle-link').text(actions.hideLinkText)
-            shouldshowAll = true;
+          if ($openOrCloseAllButton.text() == bulkActions.openAll.buttonText) {
+            $openOrCloseAllButton.text(bulkActions.closeAll.buttonText);
+            shouldOpenAll = true;
 
-            tasklistTracker.track('pageElementInteraction', 'tasklistAllShown', {
-              label: bulkActions.showAll.eventLabel + ": " + taskListSize
+            tasklistTracker.track('pageElementInteraction', 'tasklistAllOpened', {
+              label: bulkActions.openAll.eventLabel + ": " + taskListSize
             });
           } else {
-            $showOrHideAllButton.text(bulkActions.showAll.buttonText);
-            $element.find('.js-toggle-link').text(actions.showLinkText);
-            shouldshowAll = false;
+            $openOrCloseAllButton.text(bulkActions.openAll.buttonText);
+            shouldOpenAll = false;
 
-            tasklistTracker.track('pageElementInteraction', 'tasklistAllHidden', {
-              label: bulkActions.hideAll.eventLabel + ": " + taskListSize
+            tasklistTracker.track('pageElementInteraction', 'tasklistAllClosed', {
+              label: bulkActions.closeAll.eventLabel + ": " + taskListSize
             });
           }
 
-          setAllStepsShownState(shouldshowAll);
-          $showOrHideAllButton.attr('aria-expanded', shouldshowAll);
-          setShowHideAllText();
+          setAllStepsOpenState(shouldOpenAll);
+          $openOrCloseAllButton.attr('aria-expanded', shouldOpenAll);
+          setOpenCloseAllText();
           setHash(null);
 
           return false;
         });
       }
 
-      function setShowHideAllText() {
-        var shownSteps = $element.find('.step-is-shown').length;
+      function setOpenCloseAllText() {
+        var openSteps = $element.find('.step-is-open').length;
         // Find out if the number of is-opens == total number of steps
-        if (shownSteps === totalSteps) {
-          $showOrHideAllButton.text(bulkActions.hideAll.buttonText);
+        if (openSteps === totalSteps) {
+          $openOrCloseAllButton.text(bulkActions.closeAll.buttonText);
         } else {
-          $showOrHideAllButton.text(bulkActions.showAll.buttonText);
+          $openOrCloseAllButton.text(bulkActions.openAll.buttonText);
         }
       }
 
@@ -308,49 +224,49 @@
     function StepView($stepElement) {
       var $titleLink = $stepElement.find('.js-step-title-button');
       var $stepContent = $stepElement.find('.js-panel');
-      var shouldUpdateHash = rememberShownStep;
+      var shouldUpdateHash = rememberOpenStep;
 
       this.title = $stepElement.find('.js-step-title').text();
       this.href = $titleLink.attr('href');
       this.element = $stepElement;
 
-      this.show = show;
-      this.hide = hide;
+      this.open = open;
+      this.close = close;
       this.toggle = toggle;
-      this.setIsShown = setIsShown;
-      this.isShown = isShown;
-      this.isHidden = isHidden;
+      this.setIsOpen = setIsOpen;
+      this.isOpen = isOpen;
+      this.isClosed = isClosed;
       this.preventHashUpdate = preventHashUpdate;
       this.numberOfContentItems = numberOfContentItems;
 
-      function show() {
-        setIsShown(true);
+      function open() {
+        setIsOpen(true);
       }
 
-      function hide() {
-        setIsShown(false);
+      function close() {
+        setIsOpen(false);
       }
 
       function toggle() {
-        setIsShown(isHidden());
+        setIsOpen(isClosed());
       }
 
-      function setIsShown(isShown) {
-        $stepElement.toggleClass('step-is-shown', isShown);
-        $stepContent.toggleClass('js-hidden', !isShown);
-        $titleLink.attr("aria-expanded", isShown);
+      function setIsOpen(isOpen) {
+        $stepElement.toggleClass('step-is-open', isOpen);
+        $stepContent.toggleClass('js-hidden', !isOpen);
+        $titleLink.attr("aria-expanded", isOpen);
 
         if (shouldUpdateHash) {
           updateHash($stepElement);
         }
       }
 
-      function isShown() {
-        return $stepElement.hasClass('step-is-shown');
+      function isOpen() {
+        return $stepElement.hasClass('step-is-open');
       }
 
-      function isHidden() {
-        return !isShown();
+      function isClosed() {
+        return !isOpen();
       }
 
       function preventHashUpdate() {
@@ -358,13 +274,13 @@
       }
 
       function numberOfContentItems() {
-        return $stepContent.find('.js-link').length;
+        return $stepContent.find('.pub-c-task-list__panel-link').length;
       }
     }
 
     function updateHash($stepElement) {
       var stepView = new StepView($stepElement);
-      var hash = stepView.isShown() && '#' + $stepElement.attr('id');
+      var hash = stepView.isOpen() && '#' + $stepElement.attr('id');
       setHash(hash)
     }
 
@@ -388,7 +304,7 @@
         var tracking_options = {label: trackingLabel(), dimension28: stepView.numberOfContentItems().toString()}
         tasklistTracker.track('pageElementInteraction', trackingAction(), tracking_options);
 
-        if (!stepView.isHidden()) {
+        if (!stepView.isClosed()) {
           tasklistTracker.track(
             'tasklistLinkClicked',
             String(stepIndex()),
@@ -411,7 +327,7 @@
       }
 
       function trackingAction() {
-        return (stepView.isHidden() ? 'tasklistHidden' : 'tasklistShown');
+        return (stepView.isClosed() ? 'tasklistClosed' : 'tasklistOpened');
       }
 
       function locateClickElement() {
@@ -425,7 +341,7 @@
       }
 
       function clickedOnIcon() {
-        return $target.hasClass('js-toggle-link');
+        return $target.hasClass('pub-c-task-list__icon');
       }
 
       function clickedOnHeading() {
@@ -433,7 +349,7 @@
       }
 
       function iconType() {
-        return (stepView.isHidden() ? 'Minus' : 'Plus');
+        return (stepView.isClosed() ? 'Minus' : 'Plus');
       }
     }
 
@@ -441,13 +357,7 @@
       this.track = trackClick;
 
       function trackClick() {
-        var tracking_options = {label: $(event.target).attr('href') + " : " + taskListSize};
-        var dimension28 = $(event.target).closest('.pub-c-task-list__links').attr('data-length');
-
-        if (dimension28) {
-          tracking_options['dimension28'] = dimension28;
-        }
-
+        var tracking_options = {label: $(event.target).attr('href') + " : " + taskListSize, dimension28: $(event.target).closest('.pub-c-task-list__panel-links').attr('data-length')};
         tasklistTracker.track('taskAccordionLinkClicked', linkPosition, tracking_options);
       }
     }
@@ -457,8 +367,8 @@
     function TasklistTracker(totalSteps, totalLinks) {
       this.track = function(category, action, options) {
         // dimension26 records the total number of expand/collapse steps in this tasklist
-        // dimension27 records the total number of links in this tasklist
-        // dimension28 records the number of links in the step that was shown/hidden (handled in click event)
+        // dimension27 records the total number of component links in this tasklist
+        // dimension28 records the number of component links in the step that was opened/closed (handled in click event)
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
           options = options || {};
           options["dimension26"] = options["dimension26"] || totalSteps.toString();
