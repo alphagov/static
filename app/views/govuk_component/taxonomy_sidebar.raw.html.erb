@@ -57,6 +57,23 @@
         <% end %>
       </div>
     <% end %>
+
+    <% if local_assigns[:collections] && !collections.blank? %>
+      <div>
+        <h3 class="govuk-taxonomy-sidebar__collections-heading">Collections</h3>
+        <nav role='navigation'>
+          <ul>
+            <% collections.each do |item| %>
+              <% if item[:text] && item[:path] %>
+                <li><%= link_to(item[:text],
+                                item[:path],
+                                class: "govuk-taxonomy-sidebar__collections-link") %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    <% end %>
   </aside>
 
 <% end %>

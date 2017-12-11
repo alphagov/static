@@ -117,4 +117,30 @@ class TaxonomySidebarTestCase < ComponentTestCase
     assert_select 'h3', "Without an url"
     assert_select 'h3 a', false
   end
+
+  test "renders collections links" do
+    render_component(
+      items: [
+        {
+          title: "Without an url",
+          description: "An item",
+          related_content: [
+            {
+              title: "Related link 1",
+              link: "/related-link-1",
+            }
+          ],
+        },
+      ],
+      collections: [
+        {
+          text: "Collection 1",
+          path: "/some-collection"
+        }
+      ]
+    )
+
+    assert_select "h3.govuk-taxonomy-sidebar__collections-heading", "Collections"
+    assert_select "a.govuk-taxonomy-sidebar__collections-link", "Collection 1"
+  end
 end
