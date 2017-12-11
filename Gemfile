@@ -25,7 +25,7 @@ group :test do
   gem 'poltergeist', require: false
   gem 'capybara', '~> 2.5.0'
   gem 'govuk-content-schema-test-helpers', '~> 1.5'
-  gem 'mocha', '~> 1.1.0', require: false
+  gem 'mocha', '~> 1.3.0', require: false
   gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
