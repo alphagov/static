@@ -8,7 +8,7 @@ gem 'logstasher', '1.2.2'
 gem 'rack_strip_client_ip', '0.0.2'
 gem 'actionpack-page_caching', '1.1.0'
 gem 'uglifier', ">= 1.3.0"
-gem 'sass-rails', "5.0.6"
+gem 'sass-rails', "5.0.7"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.7"
 gem 'redis', "~> 4.0.1"
