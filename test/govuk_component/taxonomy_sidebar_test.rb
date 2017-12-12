@@ -27,8 +27,8 @@ class TaxonomySidebarTestCase < ComponentTestCase
       ]
     )
 
-    taxon_titles = css_select(".sidebar-taxon h3").map { |taxon_title| taxon_title.text.strip }
-    assert_equal ["Item 1 title", "Item 2 title"], taxon_titles
+    taxon_titles = css_select(".govuk-taxonomy-sidebar__heading").map { |taxon_title| taxon_title.text.strip }
+    assert_equal ["Related content", "Item 1 title", "Item 2 title"], taxon_titles
   end
 
   test "renders all data attributes for tracking" do

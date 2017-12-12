@@ -1,48 +1,50 @@
 .govuk-taxonomy-sidebar {
+  @include core-16;
   border-top: 2px solid $govuk-blue;
   padding-top: $gutter-half;
-  @include core-16;
+}
 
-  .govuk-taxonomy-sidebar__heading {
-    margin-top: 0;
-    margin-bottom: $gutter-one-third;
-    @include bold-19;
-  }
+.govuk-taxonomy-sidebar__heading {
+  @include bold-19;
+  margin-bottom: $gutter-one-third;
+  margin-top: 0;
+}
 
-  .taxon-description {
-    margin-top: 0;
-    margin-bottom: $gutter-one-third;
-  }
+.govuk-taxonomy-sidebar__taxon-description {
+  margin-bottom: $gutter-one-third;
+  margin-top: 0;
+}
 
-  a {
-    text-decoration: none;
-  }
+.govuk-taxonomy-sidebar__navigation {
+  margin-bottom: $gutter;
+}
 
-  nav {
-    margin-bottom: $gutter;
-  }
+.govuk-taxonomy-sidebar__list {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 1.25em;
+  padding: 0;
+}
 
-  li {
-    padding: 0;
-    list-style-type: none;
-    margin-bottom: $gutter-one-third;
-  }
+.govuk-taxonomy-sidebar__item {
+  list-style-type: none;
+  margin-bottom: $gutter-one-third;
+  padding: 0;
+}
 
-  ul {
-    // reset the default browser styles
-    padding: 0;
-    margin: 0;
-    margin-bottom: 1.25em;
-  }
+.govuk-taxonomy-sidebar__link {
+  text-decoration: none;
+}
 
-  .govuk-taxonomy-sidebar__collections-heading {
-    border-top: 1px solid $border-colour;
-    margin-bottom: $gutter-half;
-    margin-top: $gutter;
-    padding-top: $gutter-half;
-  }
 
-  .govuk-taxonomy-sidebar__collections-link {
-    @include bold-19;
-  }
+.govuk-taxonomy-sidebar__collections-heading {
+  border-top: 1px solid $border-colour;
+  margin-bottom: $gutter-half;
+  margin-top: $gutter;
+  padding-top: $gutter-half;
+}
+
+.govuk-taxonomy-sidebar__collections-link {
+  @include bold-19;
+  text-decoration: none;
 }
