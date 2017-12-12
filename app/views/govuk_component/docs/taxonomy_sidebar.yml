@@ -64,6 +64,9 @@ examples:
               link: /government/collections/key-stage-1-teacher-assessment
             - title: "Primary assessments: information and resources for 2017"
               link: /government/publications/primary-assessments-information-and-resources-for-2017
+      collections:
+        - text: "Statistics: outcome based success measures"
+        - path: "/government/collections/statistics-outcome-based-success-measures"
   no_children:
     description: |
       The child links are usually pulled from rummager. If rummager doesn’t respond we fallback to a sidebar with a taxon link but without any child content links.
