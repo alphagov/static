@@ -34,3 +34,5 @@ en:
       in: "in"
     task_list_related:
       part_of: "Part of"
+    taxonomy_sidebar:
+      related_content: "Related content"

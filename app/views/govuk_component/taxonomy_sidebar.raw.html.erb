@@ -1,15 +1,16 @@
 <% if local_assigns[:items] && !items.blank? %>
 
   <aside class='govuk-taxonomy-sidebar' data-module='track-click' role='complementary'>
+    <h2 class='govuk-taxonomy-sidebar__heading'><%= t("govuk_component.taxonomy_sidebar.related_content") %></h2>
     <% items.each_with_index do |item, item_index| %>
-      <div class='sidebar-taxon' data-track-count="sidebarTaxonSection">
-        <h2>
+      <div data-track-count="sidebarTaxonSection">
+        <h3 class='govuk-taxonomy-sidebar__heading'>
           <%=
             link_to_if(
               item[:url],
               item[:title],
               item[:url],
-              class: 'taxon-link',
+              class: 'govuk-taxonomy-sidebar__link',
               data: {
                 track_category: 'relatedLinkClicked',
                 track_action: "#{item_index + 1}",
@@ -21,18 +22,18 @@
               },
             )
           %>
-        </h2>
+        </h3>
 
-        <p class='taxon-description'>
+        <p class='govuk-taxonomy-sidebar__taxon-description'>
           <%= item[:description] %>
         </p>
 
         <% item[:related_content] ||= [] %>
         <% if item[:related_content].any? %>
-          <nav role='navigation'>
-            <ul class='related-content'>
+          <nav class='govuk-taxonomy-sidebar__navigation' role='navigation'>
+            <ul class='govuk-taxonomy-sidebar__list'>
               <% item[:related_content].each_with_index do |related_item, related_content_index| %>
-                <li>
+                <li class='govuk-taxonomy-sidebar__item'>
                   <%=
                     link_to(
                       related_item[:title],
@@ -46,7 +47,7 @@
                             dimension29: related_item[:title],
                           }
                       },
-                      class: 'related-link',
+                      class: 'related-link govuk-taxonomy-sidebar__link',
                     )
                   %>
                 </li>
@@ -54,6 +55,25 @@
             </ul>
           </nav>
         <% end %>
+      </div>
+    <% end %>
+
+    <% if local_assigns[:collections] && !collections.blank? %>
+      <div>
+        <h3 class='govuk-taxonomy-sidebar__collections-heading'>Collections</h3>
+        <nav class='govuk-taxonomy-sidebar__navigation' role='navigation'>
+          <ul class='govuk-taxonomy-sidebar__list'>
+            <% collections.each do |item| %>
+              <% if item[:text] && item[:path] %>
+                <li>
+                  <%= link_to(item[:text],
+                              item[:path],
+                              class: 'govuk-taxonomy-sidebar__collections-link') %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </nav>
       </div>
     <% end %>
   </aside>

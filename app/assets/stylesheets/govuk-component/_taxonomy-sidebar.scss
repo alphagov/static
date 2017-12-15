@@ -1,29 +1,50 @@
 .govuk-taxonomy-sidebar {
-  border-top: 10px solid $mainstream-brand;
-  padding-top: 5px;
   @include core-16;
+  border-top: 2px solid $govuk-blue;
+  padding-top: $gutter-half;
+}
 
-  h2 {
-    @include bold-24;
-    margin-top: 0.3em;
-    margin-bottom: 0.5em;
-  }
+.govuk-taxonomy-sidebar__heading {
+  @include bold-19;
+  margin-bottom: $gutter-one-third;
+  margin-top: 0;
+}
 
-  .taxon-description {
-    margin-bottom: 0.75em;
-  }
+.govuk-taxonomy-sidebar__taxon-description {
+  margin-bottom: $gutter-one-third;
+  margin-top: 0;
+}
 
-  ul {
-    // reset the default browser styles
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    margin-bottom: 1.25em;
+.govuk-taxonomy-sidebar__navigation {
+  margin-bottom: $gutter;
+}
 
-    li {
-      // reset the default browser styles
-      padding: 0;
-      margin-bottom: 0.75em;
-    }
-  }
+.govuk-taxonomy-sidebar__list {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 1.25em;
+  padding: 0;
+}
+
+.govuk-taxonomy-sidebar__item {
+  list-style-type: none;
+  margin-bottom: $gutter-one-third;
+  padding: 0;
+}
+
+.govuk-taxonomy-sidebar__link {
+  text-decoration: none;
+}
+
+
+.govuk-taxonomy-sidebar__collections-heading {
+  border-top: 1px solid $border-colour;
+  margin-bottom: $gutter-half;
+  margin-top: $gutter;
+  padding-top: $gutter-half;
+}
+
+.govuk-taxonomy-sidebar__collections-link {
+  @include bold-19;
+  text-decoration: none;
 }

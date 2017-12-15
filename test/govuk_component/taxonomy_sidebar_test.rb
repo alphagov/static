@@ -27,8 +27,8 @@ class TaxonomySidebarTestCase < ComponentTestCase
       ]
     )
 
-    taxon_titles = css_select(".sidebar-taxon h2").map { |taxon_title| taxon_title.text.strip }
-    assert_equal ["Item 1 title", "Item 2 title"], taxon_titles
+    taxon_titles = css_select(".govuk-taxonomy-sidebar__heading").map { |taxon_title| taxon_title.text.strip }
+    assert_equal ["Related content", "Item 1 title", "Item 2 title"], taxon_titles
   end
 
   test "renders all data attributes for tracking" do
@@ -70,7 +70,7 @@ class TaxonomySidebarTestCase < ComponentTestCase
     total_sections = 2
     total_links_in_section_1 = 3
 
-    assert_select 'h2 a', "Item title"
+    assert_select 'h3 a', "Item title"
     assert_select '.govuk-taxonomy-sidebar[data-module="track-click"]', 1
     assert_tracking_link("category", "relatedLinkClicked", 6)
 
@@ -94,7 +94,7 @@ class TaxonomySidebarTestCase < ComponentTestCase
   end
 
 
-  test "renders without url on the h2 heading" do
+  test "renders without url on the h3 heading" do
     render_component(
       items: [
         {
@@ -114,7 +114,33 @@ class TaxonomySidebarTestCase < ComponentTestCase
       ]
     )
 
-    assert_select 'h2', "Without an url"
-    assert_select 'h2 a', false
+    assert_select 'h3', "Without an url"
+    assert_select 'h3 a', false
+  end
+
+  test "renders collections links" do
+    render_component(
+      items: [
+        {
+          title: "Without an url",
+          description: "An item",
+          related_content: [
+            {
+              title: "Related link 1",
+              link: "/related-link-1",
+            }
+          ],
+        },
+      ],
+      collections: [
+        {
+          text: "Collection 1",
+          path: "/some-collection"
+        }
+      ]
+    )
+
+    assert_select "h3.govuk-taxonomy-sidebar__collections-heading", "Collections"
+    assert_select "a.govuk-taxonomy-sidebar__collections-link", "Collection 1"
   end
 end
