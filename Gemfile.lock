@@ -291,7 +291,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     statsd-ruby (1.4.0)
-    test-unit (3.2.6)
+    test-unit (3.2.7)
       power_assert
     thor (0.20.0)
     thread_safe (0.3.6)
