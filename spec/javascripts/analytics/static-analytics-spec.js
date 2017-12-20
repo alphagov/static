@@ -923,14 +923,14 @@ describe("GOVUK.StaticAnalytics", function() {
     var pageViewObject;
 
     beforeEach(function() {
-      GOVUK.cookie('TLSversion', '2');
+      GOVUK.cookie('TLSversion', 'TLSv2');
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
       pageViewObject = getPageViewObject();
     });
 
     it("sets the cookie value as the value of the tls version custom dimension", function() {
-      expect(pageViewObject.dimension16).toEqual('2');
+      expect(pageViewObject.dimension16).toEqual('TLSv2');
     });
   });
 
