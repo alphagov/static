@@ -128,7 +128,7 @@ GEM
       domain_name (~> 0.5)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
-    image_optim (0.26.0)
+    image_optim (0.26.1)
       exifr (~> 1.2, >= 1.2.2)
       fspath (~> 3.0)
       image_size (~> 1.5)
@@ -333,7 +333,7 @@ DEPENDENCIES
   govuk_frontend_toolkit (~> 7.2.0)
   govuk_publishing_components (~> 2.0.0)
   govuk_template (= 0.23.0)
-  image_optim (= 0.26.0)
+  image_optim (= 0.26.1)
   jasmine-rails (~> 0.14.1)
   logstasher (= 1.2.2)
   minitest
