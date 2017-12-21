@@ -245,8 +245,19 @@
   @include core-16;
 
   &.visible {
-    @include media(desktop) {
-      display: block;
+    display: block;
+
+    @include media-down(mobile) {
+      .survey-close-button {
+        font-size: 20px;
+      }
+      .survey-title {
+        font-size: 18px;
+        margin-top: 2em;
+      }
+      .survey-primary-link, .postscript-cta {
+        font-size: 18px;
+      }
     }
   }
 
