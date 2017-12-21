@@ -66,7 +66,7 @@
       that.updateAriaAttributes(formIsVisible)
 
       if (formIsVisible) {
-        $('.form-control', that.$feedbackFormContainer).first().focus();
+        $('.pub-c-feedback__form-field', that.$feedbackFormContainer).first().focus();
       }
     }
 
@@ -125,7 +125,7 @@
 
       if (genericErrors.length) {
         that.addGenericError(
-          '<h1 class="heading-medium error-summary-heading" id="generic-error-message">' +
+          '<h1 class="pub-c-feedback__error-heading" id="generic-error-message">' +
             'There is a problem' +
           '</h1>' +
           $('<p>').text(genericErrors.join(' ')).html()
@@ -137,10 +137,10 @@
 
     this.clearErrors = function () {
       // Reset form groups
-      $('.form-group', that.$feedbackFormContainer).removeClass('error');
+      $('.js-form-group', that.$feedbackFormContainer).removeClass('error');
 
       // Remove error messages and summaries
-      $('.error-message, .error-summary', that.$feedbackFormContainer).remove();
+      $('.js-error-message, .js-error-summary', that.$feedbackFormContainer).remove();
 
       // Reset aria-describedby associations
       $('[name]', that.$feedbackFormContainer).attr({
@@ -150,14 +150,14 @@
     }
 
     this.focusFirstError = function() {
-      $('.error-summary, .form-group.error .form-control', that.$feedbackFormContainer)
+      $('.js-error-summary, .js-form-group.error .pub-c-feedback__form-field', that.$feedbackFormContainer)
         .first()
         .focus();
     }
 
     this.addErrorToField = function (field, error) {
       var $field = that.$feedbackFormContainer.find('[name="'+ field + '"]');
-      var $group = $field.parents('.form-group');
+      var $group = $field.parents('.js-form-group');
 
       if (!$field.length || !$group.length) {
         return false;
@@ -168,7 +168,7 @@
       $group.addClass('error');
       $('label', $group).append(
         $('<span />', {
-          'class': 'error-message',
+          'class': 'pub-c-feedback__error-message js-error-message',
           'text': error,
           'id': id
         })
@@ -183,7 +183,7 @@
 
     this.addGenericError = function (errorMessage) {
       var $errorNode = $('<div/>', {
-        'class': 'error-summary',
+        'class': 'pub-c-feedback__error-summary js-error-summary',
         'role': 'group',
         'aria-labelledby': 'generic-error-message',
         'html': errorMessage,
@@ -290,10 +290,10 @@
           view.clearErrors();
           view.addGenericError(
             [
-              '<h1 class="heading-medium error-summary-heading" id="generic-error-message">',
+              '<h1 class="pub-c-feedback__error-heading" id="generic-error-message">',
               '  Sorry, we’re unable to receive your message right now. ',
               '</h1>',
-              '<p>If the problem persists, we have other ways for you to provide',
+              '<p class="pub-c-feedback__error-text">If the problem persists, we have other ways for you to provide',
               ' feedback on the <a href="/contact/govuk">contact page</a>.</p>'
             ].join('')
           );

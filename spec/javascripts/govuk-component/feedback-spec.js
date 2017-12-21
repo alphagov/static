@@ -15,22 +15,22 @@ describe("Improve this page", function () {
         '<form>' +
           '<input type="hidden" name="url" value="http://example.com/path/to/page"></input>' +
           '<input type="hidden" name="user_agent" value="Safari"></input>' +
-          '<div class="form-group">' +
-            '<label class="form-label-bold" for="description-field">' +
+          '<div class="pub-c-feedback__form-group js-form-group">' +
+            '<label class="pub-c-feedback__form-label pub-c-feedback__form-label--bold" for="description-field">' +
               'How should we improve this page?' +
             '</label>' +
-            '<textarea id="description-field" class="form-control" name="description" rows="5" aria-required="true"></textarea>' +
+            '<textarea id="description-field" class="pub-c-feedback__form-field" name="description" rows="5" aria-required="true"></textarea>' +
           '</div>' +
-          '<div class="form-group">' +
-            '<label class="form-label" for="name-field">' +
+          '<div class="pub-c-feedback__form-group js-form-group">' +
+            '<label class="pub-c-feedback__form-label" for="name-field">' +
               'Name (optional)' +
-              '<span class="form-hint">Include your name and email address if you\'d like us to get back to you.</span>' +
+              '<span class="pub-c-feedback__form-hint">Include your name and email address if you\'d like us to get back to you.</span>' +
             '</label>' +
-            '<input id="name-field" class="form-control" type="text" name="name">' +
+            '<input id="name-field" class="pub-c-feedback__form-field" type="text" name="name">' +
           '</div>' +
-          '<div class="form-group">' +
-            '<label class="form-label" for="email-field">Email (optional)</label>' +
-            '<input id="email-field" class="form-control" type="text" name="email">' +
+          '<div class="pub-c-feedback__form-group js-form-group">' +
+            '<label class="pub-c-feedback__form-label" for="email-field">Email (optional)</label>' +
+            '<input id="email-field" class="pub-c-feedback__form-field" type="text" name="email">' +
           '</div>' +
           '<div>' +
             '<input class="button" type="submit" value="Send message">' +
@@ -131,7 +131,7 @@ describe("Improve this page", function () {
       loadImproveThisPage();
       $('a.js-page-is-not-useful').click();
 
-      expect(document.activeElement).toBe($('.form-control').get(0));
+      expect(document.activeElement).toBe($('.pub-c-feedback__form-field').get(0));
     });
 
     it("triggers a Google Analytics event", function () {
@@ -186,7 +186,7 @@ describe("Improve this page", function () {
       loadImproveThisPage();
       $('a.js-page-is-not-useful').click();
 
-      expect(document.activeElement).toBe($('.form-control').get(0));
+      expect(document.activeElement).toBe($('.pub-c-feedback__form-field').get(0));
     });
 
     it("triggers a Google Analytics event", function () {
@@ -430,7 +430,7 @@ describe("Improve this page", function () {
         responseText: '{"errors": {"path": ["can\'t be blank"], "another": ["weird error"]}}'
       });
 
-      expect($('.pub-c-feedback .error-summary')).toContainText("Path can't be blank. Another weird error.");
+      expect($('.pub-c-feedback .js-error-summary')).toContainText("Path can't be blank. Another weird error.");
     });
 
     it("focusses the generic error if there is one", function () {
@@ -443,7 +443,7 @@ describe("Improve this page", function () {
         responseText: '{"errors": {"path": ["can\'t be blank"], "description": ["can\'t be blank"]}}'
       });
 
-      expect(document.activeElement).toBe($('.error-summary').get(0));
+      expect(document.activeElement).toBe($('.js-error-summary').get(0));
     });
 
     it("associates the error summary with its message so screen readers will read it when the div is focussed", function () {
@@ -458,7 +458,7 @@ describe("Improve this page", function () {
 
       var $genericErrorMessage = $('#generic-error-message');
 
-      expect($('.error-summary').attr('aria-labelledby')).toEqual(
+      expect($('.js-error-summary').attr('aria-labelledby')).toEqual(
         $genericErrorMessage.attr('id')
       );
     });
