@@ -59,30 +59,6 @@
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
 
-  // Expectation here is that the return value is a string to be added to a url
-  // so that the start of the string is the value for a utm_campaign query
-  // string, and the return value may also contain other query string params.
-  // We don't expect to add extra values to the string
-  var hmrcSurveyJul2017QueryStringValueMap = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/working-tax-credit(?:\/|$)/.test(path): return 'workingtaxcreditGOV&utm_source=Other&utm_medium=other&t=HMRC&id=12'
-      case /^\/guidance\/money-laundering-regulations-register-with-hmrc(?:\/|$)/.test(path): return 'MoneyLaundering RegulationsGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=45'
-      case /^\/child-tax-credit(?:\/|$)/.test(path): return 'ChildTaxCreditGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=10'
-      case /^\/check-state-pension(?:\/|$)/.test(path): return 'checkstatepensionGOV&utm_source=Other&utm_medium=other&t=HMRC&id=46'
-      case /^\/apply-marriage-allowance(?:\/|$)/.test(path): return 'marriageallowanceGOV&utm_source=Other&utm_medium=other&t=HMRC&id=47'
-      case /^\/stamp-duty-land-tax(?:\/|$)/.test(path): return 'StampDutyLandTaxGOV&utm_source=Other&utm_medium=other&t=HMRC&id=48'
-      case /^\/guidance\/pay-apprenticeship-levy(?:\/|$)/.test(path): return 'Apprenticeship Levy&utm_source=Money_and_tax&utm_medium=gov.uk&t=HMRC&id=7'
-      case /^\/update-company-car-details(?:\/|$)/.test(path): return 'CompanyCarGOV&utm_source=Other&utm_medium=other&t=HMRC&id=49'
-      case /^\/guidance\/paying-your-employees-expenses-and-benefits-through-your-payroll(?:\/|$)/.test(path): return 'PayrollExpensesBenefitsGOV&utm_source=Other&utm_medium=other&t=HMRC&id=50'
-      case /^\/guidance\/pension-schemes-protect-your-lifetime-allowance(?:\/|$)/.test(path): return 'PensionSchemeLifetimeAllowanceGOV&utm_source=Other&utm_medium=other&t=HMRC&id=51'
-      case /^\/send-employment-intermediary-report(?:\/|$)/.test(path): return 'EmploymentIntermediaryReportGOV&utm_source=Other&utm_medium=other&t=HMRC&id=52'
-      case /^\/guidance\/tell-hmrc-about-your-employment-related-securities(?:\/|$)/.test(path): return 'EmploymentRelatedSecuritiesGOV&utm_source=Other&utm_medium=other&t=HMRC&id=53'
-      case /^\/guidance\/pension-administrators-check-a-members-gmp(?:\/|$)/.test(path): return 'PensionAdministratorsGMPGOV&utm_source=Other&utm_medium=other&t=HMRC&id=54'
-      default: return ''
-    }
-  }
-
   // This returns the whole url for the hmrc_import survey it's different
   // based on the path
   var hmrcImportSurveyOct2017Url = function () {
@@ -91,23 +67,6 @@
       case /^\/(?:eori|starting-to-import|starting-to-export)(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=EORIgov&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=61'
       case /^\/(?:duty-deferment-statements|government\/publications\/(?:notice-101-deferring-duty-vat-and-other-charges\/notice-101-deferring-duty-vat-and-other-charges|notice-100-customs-flexible-accounting-system\/notice-100-customs-flexible-accounting-system))(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=DDESgov&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=60'
       case /^\/guidance\/(?:vat-what-to-do-if-youre-an-overseas-business-selling-goods-in-the-uk|importing-goods-from-outside-the-eu|vat-imports-acquisitions-and-purchases-from-abroad)(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=importexportadviceGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=62'
-      default: return ''
-    }
-  }
-
-  var landregistrySurveyNov2017Url = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/government\/collections\/hm-land-registry-forms(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=hm-land-registry-forms&utm_source=&utm_medium=gov.uk&t=LR&id=85'
-      case /^\/government\/collections\/fees-hm-land-registry-guides(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=fees-hm-land-registry-guides&utm_source=&utm_medium=gov.uk&t=LR&id=86'
-      case /^\/government\/collections\/commercial-services(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=commercial-services&utm_source=&utm_medium=gov.uk&t=LR&id=87'
-      case /^\/search-property-information-land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/search-property-information-land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=88'
-      case /^\/government\/collections\/how-to-use-the-land-registry-portal(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/how-to-use-the-land-registry-portal&utm_source=&utm_medium=gov.uk&t=LR&id=89'
-      case /^\/topic\/land-registration\/searches-fees-forms(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=land-registration/searches-fees-forms&utm_source=&utm_medium=gov.uk&t=LR&id=90'
-      case /^\/government\/organisations\/land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/organisations/land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=91'
-      case /^\/guidance\/contact-hm-land-registry(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/guidance/contact-hm-land-registry&utm_source=&utm_medium=gov.uk&t=LR&id=92'
-      case /^\/your-property-boundaries(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/your-property-boundaries&utm_source=&utm_medium=gov.uk&t=LR&id=94'
-      case /^\/search-house-prices(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=/search-house-prices&utm_source=&utm_medium=gov.uk&t=LR&id=95'
       default: return ''
     }
   }
@@ -150,92 +109,6 @@
     },
     smallSurveys: [
       {
-        identifier: 'hmrc_jul2017',
-        surveyType: 'url',
-        frequency: 20,
-        startTime: new Date('July 21, 2017').getTime(),
-        endTime: new Date('November 20, 2017 23:59:50').getTime(),
-        // use a map to translate the path into the utm_campaign value and
-        // the rest of the query string params
-        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=' + hmrcSurveyJul2017QueryStringValueMap(),
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/working-tax-credit(?:/|$)',
-            '^/guidance/money-laundering-regulations-register-with-hmrc(?:/|$)',
-            '^/child-tax-credit(?:/|$)',
-            '^/check-state-pension(?:/|$)',
-            '^/apply-marriage-allowance(?:/|$)',
-            '^/stamp-duty-land-tax(?:/|$)',
-            '^/guidance/pay-apprenticeship-levy(?:/|$)',
-            '^/update-company-car-details(?:/|$)',
-            '^/guidance/paying-your-employees-expenses-and-benefits-through-your-payroll(?:/|$)',
-            '^/guidance/pension-schemes-protect-your-lifetime-allowance(?:/|$)',
-            '^/send-employment-intermediary-report(?:/|$)',
-            '^/guidance/tell-hmrc-about-your-employment-related-securities(?:/|$)',
-            '^/guidance/pension-administrators-check-a-members-gmp(?:/|$)'
-          ]
-        }
-      },
-      {
-        identifier: 'hmrc_child_benefits',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('December 14, 2017 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=ChildBenefitGOV&utm_source=Other&utm_medium=other&t=HMRC&id=26',
-        templateArgs: {
-          title: 'Help us improve our services',
-          surveyCta: 'Join our User Research Panel.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/child-benefit/?$'
-          ]
-        }
-      },
-      {
-        identifier: 'hmrc_tax_payments',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('September 13, 2017').getTime(),
-        endTime: new Date('December 14, 2017 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=OverpayUnderpayGOV&utm_source=Other&utm_medium=other&t=HMRC&id=27',
-        templateArgs: {
-          title: 'Help us improve our services',
-          surveyCta: 'Join our User Research Panel.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/tax-overpayments-and-underpayments/?$'
-          ]
-        }
-      },
-      {
-        identifier: 'hmrc_jul2017',
-        surveyType: 'url',
-        frequency: 20,
-        startTime: new Date('September 21, 2017').getTime(),
-        endTime: new Date('December 21, 2017 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=simpleassessmentGOV&utm_source=Other&utm_medium=other&t=HMRC&id=55',
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/simple-assessment/?$'
-          ]
-        }
-      },
-      {
         identifier: 'hmrc_import',
         surveyType: 'url',
         frequency: 6,
@@ -264,7 +137,7 @@
       {
         identifier: 'hmrc_manuals',
         surveyType: 'url',
-        frequency: 6,
+        frequency: 3,
         startTime: new Date('October 26, 2017').getTime(),
         endTime: new Date('January 28, 2018 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/hmrcmanuals/?c={{currentPath}}',
@@ -294,33 +167,6 @@
         activeWhen: {
           breadcrumb: [
             'Visas and immigration'
-          ]
-        }
-      },
-      {
-        identifier: 'landregistry',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('November 15, 2017').getTime(),
-        endTime: new Date('December 14, 2017 23:59:50').getTime(),
-        url: landregistrySurveyNov2017Url(),
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/government/collections/hm-land-registry-forms(?:/|$)',
-            '^/government/collections/fees-hm-land-registry-guides(?:/|$)',
-            '^/government/collections/commercial-services(?:/|$)',
-            '^/search-property-information-land-registry(?:/|$)',
-            '^/government/collections/how-to-use-the-land-registry-portal(?:/|$)',
-            '^/topic/land-registration/searches-fees-forms(?:/|$)',
-            '^/government/organisations/land-registry(?:/|$)',
-            '^/guidance/contact-hm-land-registry(?:/|$)',
-            '^/your-property-boundaries(?:/|$)',
-            '^/search-house-prices(?:/|$)'
           ]
         }
       },
@@ -377,6 +223,19 @@
             '^/tax-on-your-private-pension(?:/|$)',
             '^/update-company-car-details(?:/|$)'
           ]
+        }
+      },
+      {
+        identifier: 'treetest_01',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('December 20, 2017').getTime(),
+        endTime: new Date('January 15, 2018 23:59:50').getTime(),
+        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions.',
+          surveyCtaPostscript: 'This link will open in a new tab.'
         }
       }
     ],
