@@ -224,6 +224,19 @@
             '^/update-company-car-details(?:/|$)'
           ]
         }
+      },
+      {
+        identifier: 'treetest_01',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('December 20, 2017').getTime(),
+        endTime: new Date('January 15, 2018 23:59:50').getTime(),
+        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions.',
+          surveyCtaPostscript: 'This link will open in a new tab.'
+        }
       }
     ],
 
