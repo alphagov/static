@@ -500,24 +500,97 @@ describe('Surveys', function () {
   })
 
   describe('isSurveyToBeDisplayed', function () {
-    it("returns false if the 'survey taken' cookie is set", function () {
-      GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true')
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+    describe('when the page is viewed on desktop', function() {
+      beforeEach(function () {
+        spyOn(surveys, 'isBeingViewedOnMobile').and.returnValue(false)
+      })
+
+      it("returns false if the 'survey taken' cookie is set", function () {
+        GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true')
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+
+      it('returns false when the random number does not match', function () {
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(false)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+
+      it('returns false if the survey has been seen too many times', function () {
+        spyOn(surveys, 'surveyHasBeenSeenTooManyTimes').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+
+      it('returns true when the random number matches', function () {
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
+      })
+
+      it('returns true even if the survey is not allowed on mobile', function () {
+        spyOn(surveys, 'surveyIsAllowedOnMobile').and.returnValue(false)
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
+      })
+
+      it("returns true even if the survey is allowed on mobile", function () {
+        spyOn(surveys, 'surveyIsAllowedOnMobile').and.returnValue(true)
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
+      })
     })
 
-    it('returns false when the random number does not match', function () {
-      spyOn(surveys, 'randomNumberMatches').and.returnValue(false)
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+    describe('when the page is viewed on mobile', function () {
+      beforeEach(function () {
+        spyOn(surveys, 'isBeingViewedOnMobile').and.returnValue(true)
+      })
+
+      it("returns false if the 'survey taken' cookie is set", function () {
+        GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey), 'true')
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+
+      it('returns false when the random number does not match', function () {
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(false)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+
+      it('returns false if the survey has been seen too many times', function () {
+        spyOn(surveys, 'surveyHasBeenSeenTooManyTimes').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+
+      it('returns true when the random number matches and is allowed on mobile', function () {
+        spyOn(surveys, 'surveyIsAllowedOnMobile').and.returnValue(true)
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
+      })
+
+      it("returns false when the random number matches and is not allowed on mobile", function () {
+        spyOn(surveys, 'surveyIsAllowedOnMobile').and.returnValue(false)
+        spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
+        expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+      })
+    })
+  })
+
+  describe('currentTlsVersion', function() {
+    it('returns an empty string when the cookie returns null', function () {
+      spyOn(GOVUK, 'getCookie').and.returnValue(null)
+      expect(surveys.currentTlsVersion()).toBe('')
     })
 
-    it('returns false if the survey has been seen too many times', function () {
-      spyOn(surveys, 'surveyHasBeenSeenTooManyTimes').and.returnValue(true)
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
+    it('returns an empty string when the cookie returns "unknown"', function () {
+      spyOn(GOVUK, 'getCookie').and.returnValue("unknown")
+      expect(surveys.currentTlsVersion()).toBe('')
     })
 
-    it('returns true when the random number matches', function () {
-      spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
-      expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
+    it('returns the correct version when the cookie returns a valid value"', function () {
+      spyOn(GOVUK, 'getCookie').and.returnValue("TLSv1.1")
+      expect(surveys.currentTlsVersion()).toBe(1.1)
+    })
+
+    it('returns an empty string when the TLS version is malformed"', function () {
+      spyOn(GOVUK, 'getCookie').and.returnValue("TLSvabcd11123")
+      expect(surveys.currentTlsVersion()).toBe('')
     })
   })
 
@@ -1316,6 +1389,41 @@ describe('Surveys', function () {
             }
           }
           spyOn(surveys, 'currentOrganisation').and.returnValue('<D10><E1345>')
+          expect(surveys.activeWhen(survey)).toBe(false)
+        })
+      })
+
+      describe('TLS version matches', function () {
+        it('returns true if the TLS version is lower than the version limit set in the survey', function () {
+          var survey = {
+            identifier: 'tls_survey',
+            activeWhen: {
+              tlsCookieVersionLimit: [1.2]
+            }
+          }
+          spyOn(surveys, 'currentTlsVersion').and.returnValue(1.1)
+          expect(surveys.activeWhen(survey)).toBe(true)
+        })
+
+        it('returns false if the TLS version is greater or equal to the version limit set in the survey', function () {
+          var survey = {
+            identifier: 'tls_survey',
+            activeWhen: {
+              tlsCookieVersionLimit: [1.2]
+            }
+          }
+          spyOn(surveys, 'currentTlsVersion').and.returnValue(1.2)
+          expect(surveys.activeWhen(survey)).toBe(false)
+        })
+
+        it('returns false if the TLS version cannot be found in the cookie', function () {
+          var survey = {
+            identifier: 'tls_survey',
+            activeWhen: {
+              tlsCookieVersionLimit: [1.2]
+            }
+          }
+          spyOn(surveys, 'currentTlsVersion').and.returnValue('')
           expect(surveys.activeWhen(survey)).toBe(false)
         })
       })
