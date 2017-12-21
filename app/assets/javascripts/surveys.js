@@ -137,7 +137,7 @@
       {
         identifier: 'hmrc_manuals',
         surveyType: 'url',
-        frequency: 6,
+        frequency: 3,
         startTime: new Date('October 26, 2017').getTime(),
         endTime: new Date('January 28, 2018 23:59:50').getTime(),
         url: 'https://www.smartsurvey.co.uk/s/hmrcmanuals/?c={{currentPath}}',
