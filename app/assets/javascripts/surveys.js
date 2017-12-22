@@ -58,6 +58,7 @@
     '</div>'
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
+  var MAX_MOBILE_WIDTH = "(max-width: 800px)"
 
   // This returns the whole url for the hmrc_import survey it's different
   // based on the path
@@ -96,6 +97,15 @@
       case /^\/tax-on-your-private-pension(?:\/|$)/.test(path) : return new Date('February 28, 2017')
       case /^\/update-company-car-details(?:\/|$)/.test(path) : return new Date('January 11, 2017')
       default: return ''
+    }
+  }
+
+  var tlsSurveyUrl = function () {
+    if (window.matchMedia(MAX_MOBILE_WIDTH).matches) {
+      return 'https://www.smartsurvey.co.uk/s/VF0WH/'
+    }
+    else {
+      return 'http://www.smartsurvey.co.uk/s/Y5FQT/'
     }
   }
 
@@ -237,6 +247,25 @@
           surveyCta: 'Answer 2 quick questions.',
           surveyCtaPostscript: 'This link will open in a new tab.'
         }
+      },
+      {
+        identifier: 'tls_survey',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('December 19, 2017').getTime(),
+        endTime: new Date('January 31, 2018').getTime(),
+        url: tlsSurveyUrl(),
+        templateArgs: {
+          title: 'The web browser you\'re using only supports old web standards. Please answer 3 questions to help us understand how you access GOV.UK.',
+          surveyCta: 'Please answer 3 questions.',
+          surveyCtaPostscript: 'This will open a short survey on another website.'
+        },
+        activeWhen: {
+          tlsCookieVersionLimit: [
+            1.2
+          ]
+        },
+        allowedOnMobile: true
       }
     ],
 
@@ -472,7 +501,9 @@
     },
 
     isSurveyToBeDisplayed: function (survey) {
-      if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
+      if (userSurveys.isBeingViewedOnMobile() && !userSurveys.surveyIsAllowedOnMobile(survey)) {
+        return false
+      } else if (GOVUK.cookie(userSurveys.surveyTakenCookieName(survey)) === 'true') {
         return false
       } else if (userSurveys.surveyHasBeenSeenTooManyTimes(survey)) {
         return false
@@ -579,6 +610,14 @@
       return generateCookieName('survey_seen_' + survey.identifier)
     },
 
+    isBeingViewedOnMobile: function () {
+      return window.matchMedia(MAX_MOBILE_WIDTH).matches
+    },
+
+    surveyIsAllowedOnMobile: function (survey) {
+      return survey.hasOwnProperty('allowedOnMobile') && survey.allowedOnMobile === true
+    },
+
     pathMatch: function (paths) {
       if (paths === undefined) {
         return false
@@ -623,18 +662,29 @@
       }
     },
 
+    tlsCookieMatch: function (tlsCookieVersionLimit) {
+      var currentTlsVersion = userSurveys.currentTlsVersion()
+      if (tlsCookieVersionLimit === undefined || currentTlsVersion == '') {
+        return false
+      } else {
+        return currentTlsVersion < tlsCookieVersionLimit[0]
+      }
+    },
+
     activeWhen: function (survey) {
       if (survey.hasOwnProperty('activeWhen')) {
         if (survey.activeWhen.hasOwnProperty('path') ||
           survey.activeWhen.hasOwnProperty('breadcrumb') ||
           survey.activeWhen.hasOwnProperty('section') ||
-          survey.activeWhen.hasOwnProperty('organisation')) {
+          survey.activeWhen.hasOwnProperty('organisation') ||
+          survey.activeWhen.hasOwnProperty('tlsCookieVersionLimit')) {
           var matchType = (survey.activeWhen.matchType || 'include')
+          var matchByTlsCookie = userSurveys.tlsCookieMatch(survey.activeWhen.tlsCookieVersionLimit)
           var matchByPath = userSurveys.pathMatch(survey.activeWhen.path)
           var matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb)
           var matchBySection = userSurveys.sectionMatch(survey.activeWhen.section)
           var matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation)
-          var pageMatches = (matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation)
+          var pageMatches = (matchByTlsCookie || matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation)
 
           if (matchType !== 'exclude') {
             return pageMatches
@@ -654,7 +704,16 @@
     currentBreadcrumb: function () { return $('.govuk-breadcrumbs').text() || '' },
     currentSection: function () { return $('meta[name="govuk:section"]').attr('content') || '' },
     currentThemes: function () { return $('meta[name="govuk:themes"]').attr('content') || '' },
-    currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' }
+    currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' },
+    currentTlsVersion: function () {
+      var tlsCookie = GOVUK.getCookie('TLSversion')
+      if (tlsCookie == null || tlsCookie == "unknown") {
+        return ''
+      } else {
+        var cookieVersion = parseFloat(tlsCookie.replace('TLSv', ''))
+        return cookieVersion || ''
+      }
+    }
   }
 
   var generateCookieName = function (cookieName) {

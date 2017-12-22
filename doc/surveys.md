@@ -153,6 +153,7 @@ By default a survey will run on all pages on GOV.UK. If you specify parameters i
 * `breadcrumb` - (optional). If present this is used to match against the text in the `.govuk-breadcrumb` element on the page. The text match is case-insensitive and does not attempt to match complete words so `hats` would match `Hats` and `Chats`.
 * `section` - (optional). If present this is used to match against the value of the content attribute of the `govuk:section` (old style mainstream navigation hierarchy) and `govuk:themes` (new style taxonomy-based navigation hierarchy) meta tags on the page. The text match is case-insensitive and does not attempt to match complete words so `hats` would match `Hats` and `Chats`.  Note that `govuk:section` usually contains `Human Readable` values, whereas `govuk:themes` usually contains `machine-readable` values, but the matcher does not try to normalise these values, so bear that in mind while using this to target a survey.
 * `organisation` - (optional). If present this is used to match against the value of the content attribute of the `govuk:analytics:organisations` meta tag on the page. The text match is case-sensitive and does not attempt to match complete words so `hats` would match `hats` and `Chats`, but not `Hats`.
+* `tlsCookieVersionLimit` - (optional). If present this is used to compare the TLS version stored in the `TLSVersion` cookie. 
 
 Other than `matchType`, all params are specified as arrays, allowing multiple possible values. All values are OR'd together so that only one of them has to match, not all of them.
 
@@ -164,6 +165,21 @@ In the example above, the survey will only be considered "active" on pages with 
 4. the word `Schools` appearing in the text of the `.govuk-breadcrumb` element on the page
 
 Not providing any `activeWhen` parameters, or providing an empty `activeWhen` parameter will apply the survey to all pages on GOV.UK between `startTime` and `endTime`, so take care when doing this.
+
+### TLS Version detection ###
+
+There is a special survey we can add which will check whether a user has an out of date version of TLS running (under 1.2 is considered insecure). In this case, we set the survey to be active by adding the `tlsCookieVersionLimit` parameter in `activeWhen`:
+activeWhen: {
+  tlsCookieVersionLimit: [
+    1.2
+  ]
+}
+
+### `allowedOnMobile` ###
+
+This parameter is optional. If it is:
+- set to `true` the survey will be displayed on both mobile and desktop
+- set to `false` OR omitted entirely will result in the survey being hidden on mobile, but shown on desktop. 
 
 ### `startTime` and `endTime`
 The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
