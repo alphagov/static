@@ -4,6 +4,7 @@
 // = require modules/toggle-input-class-on-focus
 // = require modules/track-click
 // = require modules/cross-domain-tracking
+// = require govuk-component/tasklist
 
 $(document).ready(function () {
   GOVUK.modules.start()
