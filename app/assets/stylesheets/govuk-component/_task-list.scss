@@ -1,0 +1,386 @@
+.pub-c-task-list {
+  position: relative;
+  margin-top: $gutter-half;
+  margin-left: $gutter-half;
+  margin-bottom: $gutter;
+}
+
+// scss-lint:disable SelectorFormat
+
+// when js is enabled
+.pub-c-task-list--active {
+  margin-top: 0;
+}
+
+.pub-c-task-list__groups {
+  padding: 0;
+}
+
+$line-width: 3px;
+$first-indent: 28px;
+$second-indent: 26px;
+$first-indent-small: 15px;
+$second-indent-small: 18px;
+
+// put all the indentation stuff here so it's easier to manage
+// desktop version on mobile should be same size as small version
+// large class only applies to tablet and above
+// component defaults to having the large class
+// active state requires more indent to make space for the plus/minus
+
+.pub-c-task-list__header {
+  padding-left: $first-indent-small;
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      padding-left: $first-indent;
+    }
+  }
+}
+
+.pub-c-task-list__title {
+  .pub-c-task-list--active & {
+    padding-left: $second-indent-small;
+  }
+
+  .pub-c-task-list--active.pub-c-task-list--large & {
+    @include media(tablet) {
+      padding-left: $second-indent;
+    }
+  }
+}
+
+.pub-c-task-list__panel-content,
+.pub-c-task-list__panel-link {
+  padding-left: $first-indent-small;
+
+  .pub-c-task-list--active & {
+    padding-left: $first-indent-small + $second-indent-small;
+  }
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      padding-left: $first-indent;
+    }
+  }
+
+  .pub-c-task-list--active.pub-c-task-list--large & {
+    @include media(tablet) {
+      padding-left: $first-indent + $second-indent;
+    }
+  }
+}
+
+$number-circle-size: 26px;
+$number-circle-size-large: 34px;
+
+.pub-c-task-list__number {
+  @include bold-19(23px, 23px);
+  @include box-sizing(border-box);
+
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: $number-circle-size;
+  height: $number-circle-size;
+  margin-top: -($number-circle-size / 2);
+  margin-left: -($number-circle-size / 2);
+  color: $black;
+  background: $white;
+  border: solid 3px $grey-2;
+  border-radius: 100px;
+  text-align: center;
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      @include bold-24(30px, 30px);
+
+      width: $number-circle-size-large;
+      height: $number-circle-size-large;
+      margin-top: -($number-circle-size-large / 2);
+      margin-left: -($number-circle-size-large / 2);
+    }
+  }
+}
+
+.pub-c-task-list__group {
+  position: relative;
+  list-style: none;
+  border-top: 1px solid $grey-2;
+
+  // tasklist vertical line
+  &:before {
+    @include core-19;
+
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: $line-width;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-left: -($line-width / 2);
+    background: $grey-2;
+  }
+
+  // 'dash' at end of tasklist vertical line
+  &:last-child {
+    &:after {
+      @include core-19;
+
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: $number-circle-size / 2;
+      height: $line-width;
+      margin-left: -($number-circle-size / 4);
+      background: $grey-2;
+    }
+  }
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      &:before {
+        @include core-24;
+      }
+
+      &:last-child:after {
+        @include core-24;
+
+        width: $number-circle-size / 2.5;
+        margin-left: -($number-circle-size / 5);
+      }
+    }
+  }
+}
+
+.pub-c-task-list__group--active {
+  .pub-c-task-list__number {
+    border-color: $black;
+  }
+
+  &:before,
+  &:last-child:after {
+    background: $black;
+  }
+}
+
+.pub-c-task-list__step {
+  &:after {
+    content: "";
+    display: block;
+    margin-left: $first-indent-small;
+    border-bottom: 1px solid $border-colour;
+  }
+
+  &:last-child:after {
+    border-bottom: 0;
+  }
+
+  .pub-c-task-list--large & {
+    &:after {
+      margin-left: $first-indent;
+    }
+  }
+}
+
+.pub-c-task-list__header {
+  position: relative;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
+
+  .pub-c-task-list--active & {
+    cursor: pointer;
+
+    &:hover {
+      background: $grey-3;
+    }
+  }
+}
+
+// having two icons makes overriding the styles for the small tasklist simpler
+
+$icon-size: 10px;
+$icon-size-large: 12px;
+
+.pub-c-task-list__icon {
+  position: absolute;
+  top: 50%;
+  left: $first-indent-small;
+  height: $icon-size;
+  width: $icon-size;
+  margin-top: -($icon-size / 2) - 2;
+  background-image: image-url('icon-plus-minus-small.png'); // PNG fallback for SVG
+  background: image-url("icon-plus-minus.svg"), linear-gradient(transparent, transparent); // http://pauginer.com/post/36614680636/invisible-gradient-technique
+  background-repeat: no-repeat;
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      left: $first-indent;
+      height: $icon-size-large;
+      width: $icon-size-large;
+      margin-top: -($icon-size-large / 2) - 2;
+      // repeating these two lines for the benefit of IE8, which doesn't support background size
+      background-image: image-url('icon-plus-minus.png'); // PNG fallback for SVG
+      background: image-url("icon-plus-minus.svg"), linear-gradient(transparent, transparent); // http://pauginer.com/post/36614680636/invisible-gradient-technique
+    }
+  }
+}
+
+.pub-c-task-list__icon--plus {
+  background-position: 0 -#{$icon-size};
+  background-size: $icon-size;
+
+  .step-is-open & {
+    display: none;
+  }
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      background-position: 0 -#{$icon-size-large};
+      background-size: $icon-size-large;
+    }
+  }
+}
+
+.pub-c-task-list__icon--minus {
+  display: none;
+  background-position: 0 0;
+  background-size: $icon-size;
+  height: $icon-size - 1; // -1 is to avoid an irregular bug in Chrome where the plus part of the graphic is visible at the bottom of the element
+
+  .step-is-open & {
+    display: block;
+  }
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      background-size: $icon-size-large;
+      height: $icon-size-large - 1;
+    }
+  }
+}
+
+.pub-c-task-list__title {
+  @include bold-19;
+
+  .pub-c-task-list--large & {
+    @include media(tablet) {
+      @include bold-24;
+    }
+  }
+}
+
+.pub-c-task-list__panel {
+  @include core-19;
+  padding-bottom: $gutter-two-thirds;
+
+  @include media(tablet) {
+    @include core-16;
+  }
+
+  .pub-c-task-list--large & {
+    @include core-19;
+  }
+
+  .step-is-open & {
+    padding-top: 5px;
+
+    @include media(tablet) {
+      padding-bottom: $gutter;
+    }
+  }
+}
+
+.pub-c-task-list__button {
+  color: $link-colour;
+  cursor: pointer;
+  background: none;
+  border: 0;
+
+  // removes extra dotted outline from buttons in Firefox
+  // on focus (standard yellow outline unaffected)
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &--title {
+    @include bold-19;
+
+    display: inline-block;
+    padding: 0;
+    text-align: left;
+
+    .pub-c-task-list--large & {
+      @include media(tablet) {
+        @include bold-24;
+      }
+    }
+  }
+
+  &--controls {
+    @include core-16;
+
+    float: right;
+    position: relative;
+    z-index: 1; // this and relative position stops focus outline underlap with border of accordion
+    padding: 0.5em 0;
+  }
+}
+
+.pub-c-task-list__controls {
+  @extend %contain-floats;
+}
+
+.pub-c-task-list__panel-description {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: inherit; // task list is used in a lot of apps and sometimes the default p size breaks it
+}
+
+.pub-c-task-list__panel-links {
+  padding: 0;
+}
+
+.pub-c-task-list__panel-link {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.pub-c-task-list__panel-link-item {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+$active-dot-size: 16px;
+
+.pub-c-task-list__panel-link--active {
+  &:before {
+    @include box-sizing(border-box);
+
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 0;
+    width: $active-dot-size;
+    height: $active-dot-size;
+    margin-left: -($active-dot-size / 2);
+    margin-top: -($active-dot-size / 2) - 3;
+    background: $black;
+    border-radius: 100px;
+    border: solid 2px $white;
+  }
+
+  .pub-c-task-list__panel-link-item {
+    color: $black;
+  }
+}
+
+// scss-lint:enable SelectorFormat
