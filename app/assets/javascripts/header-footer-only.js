@@ -11,5 +11,3 @@
 //= require govuk-component/govspeak-convert-html-pub-charts
 //= require govuk-component/option-select
 //= require govuk/shim-links-with-button-role
-//= require history-support
-//= require current-location
