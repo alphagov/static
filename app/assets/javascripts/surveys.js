@@ -244,7 +244,7 @@
         url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0',
         templateArgs: {
           title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions.',
+          surveyCta: 'Answer 3 quick questions.',
           surveyCtaPostscript: 'This link will open in a new tab.'
         }
       },
