@@ -253,6 +253,39 @@
           ]
         },
         allowedOnMobile: true
+      },
+      {
+        identifier: 'treetest_post_test_signup',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('January 18, 2018').getTime(),
+        endTime: new Date('January 19, 2018 23:59:50').getTime(),
+        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0-0-0-0',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions',
+          surveyCtaPostscript: 'This activity will open into a separate window.'
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'treetest_pre_test_signup',
+        surveyType: 'email',
+        frequency: 6,
+        startTime: new Date('January 22, 2018').getTime(),
+        endTime: new Date('January 23, 2018 23:59:50').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/contact?utm_campaign=crowd-banner&utm_source=Other&utm_medium=gov.uk&t=GDS&id=119',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community.',
+          surveyFormDescription: 'We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.',
+          surveyFormCta: 'Send me the survey',
+          surveyFormCtaPostscript: 'Don’t worry: we won’t send you spam or share your email address with anyone.',
+          surveyFormNoEmailInvite: 'Don’t have an email address?',
+          surveySuccess: 'Thanks, we’ve sent you an email with a link to the survey.',
+          surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.'
+        },
+        allowedOnMobile: true
       }
     ],
 
