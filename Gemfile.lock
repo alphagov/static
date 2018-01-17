@@ -79,7 +79,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     fspath (3.1.0)
-    gds-api-adapters (50.8.0)
+    gds-api-adapters (51.0.0)
+      addressable
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -326,7 +327,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.17.0)
-  gds-api-adapters (~> 50.8)
+  gds-api-adapters (~> 51.0)
   govuk-content-schema-test-helpers (~> 1.5)
   govuk-lint (~> 3.6.0)
   govuk_app_config (~> 1.1.0)
