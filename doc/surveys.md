@@ -70,7 +70,26 @@ The template for a url survey is as follows:
 </section>
 ```
 
-The behaviour of this template is that clicking the `#take-survey` link hides the survey banner. Clicking the link, or dismissing the UI via `#user-survey-cancel` will set cookies to avoid re-showing the UI for this survey to the user again.
+This HTML template would be matched by a JS template in `surveys.js`, e.g. 
+
+```javascript
+{
+   identifier: 'your-identifier-goes-here',
+   surveyType: 'url',
+   frequency: 6,
+   startTime: new Date('January 17, 2018').getTime(),
+   endTime: new Date('January 19, 2018 23:59:50').getTime(),
+   url: 'url-for-survey-goes-here',
+   templateArgs: {
+     title: 'Help us make things easier to find on GOV.UK',
+     surveyCta: 'Answer 2 quick questions',
+     surveyCtaPostscript: 'This activity will open into a separate window.'
+   },
+   allowedOnMobile: true
+ }
+```
+
+The behaviour of the HTML template is that clicking the `#take-survey` link hides the survey banner. Clicking the link, or dismissing the UI via `#user-survey-cancel` will set cookies to avoid re-showing the UI for this survey to the user again.
 
 The parts of the template wrapped in braces are dynamic and are replaced at runtime.  The following are customisable via `templateArgs`:
 
@@ -122,14 +141,36 @@ The template for a url survey is as follows:
 </section>
 ```
 
-The behaviour of this template is that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX. Successfully submitting the form or dismissing the UI via `#survey-no-thanks` or `#email-survey-cancel` will set cookies to avoid re-showing the UI for this survey to the user again.
+This would be matched by a snippet in `surveys.js`, e.g.
+
+```javascript
+{
+    identifier: 'your-identifier-goes-here',
+    surveyType: 'email',
+    frequency: 6,
+    startTime: new Date('January 22, 2018').getTime(),
+    endTime: new Date('January 23, 2018 23:59:50').getTime(),
+    url: 'https://signup.take-part-in-research.service.gov.uk/contact?utm_campaign=crowd-banner&utm_source=Other&utm_medium=gov.uk&t=GDS&id=119',
+    templateArgs: {
+      title: 'Tell us what you think of GOV.UK',
+      surveyCta: 'Take a short survey to give us your feedback',
+      surveyFormDescription: 'We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.',
+      surveyFormCta: 'Send me the survey',
+      surveyFormCtaPostscript: 'Don’t worry: we won’t send you spam or share your email address with anyone.',
+      surveyFormNoEmailInvite: 'Don’t have an email address?',
+      surveySuccess: 'Thanks, we’ve sent you an email with a link to the survey.',
+      surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.'
+    },
+    allowedOnMobile: true
+}
+```
+
+The behaviour of the HTML template is that clicking the `#email-survey-open` element hides the `#email-survey-pre` container and opens the `#email-survey-form` container.  Submitting the form will hide the `#email-survey-form` container and show the `#email-survey-post-success` or `#email-survey-post-failure` container depending on what happens when submitting the form via AJAX. Successfully submitting the form or dismissing the UI via `#survey-no-thanks` or `#email-survey-cancel` will set cookies to avoid re-showing the UI for this survey to the user again.
 
 The parts of the template wrapped in braces are dynamic and are replaced at runtime.  The following are customisable via `templateArgs`:
 
 * title - (optional) the default is "Tell us what you think of GOV.UK"
 * surveyCta - (optional) the default is "Your feedback will help us improve this website" - clicking this will open the form to ask for the email address
-* surveyFormTitle - (optional) the default is "We’d like to hear from you"
-* surveyFormEmailLabel - (optional) the default is "Tell us your email address and we’ll send you a link to a quick feedback form."
 * surveyFormCta - (optional) the default is "Send" - clicking this will submit the form to the [feedback](https://github.com/alphagov/feedback) application and if successful send the user an email to the survey
 * surveyFormCtaPostscript - (optional) the default is "We won’t store your email address or share it with anyone"
 * surveyFormNoEmailInvite - (optional) the default is "Don’t have an email address?"
