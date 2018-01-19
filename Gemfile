@@ -42,4 +42,4 @@ end
 gem 'plek', '2.0.0'
 gem 'govuk_frontend_toolkit', '~> 7.2.0'
 gem 'govuk_template', '0.23.0'
-gem 'gds-api-adapters', '~> 51.0'
+gem 'gds-api-adapters', '~> 51.1'
