@@ -16,4 +16,6 @@ RUN bundle install
 
 ADD . $APP_HOME
 
+RUN RAILS_ENV=production bundle exec rails assets:precompile
+
 CMD bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p $PORT -b '0.0.0.0'"
