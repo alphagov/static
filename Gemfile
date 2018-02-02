@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').chomp
 
 gem 'rails', '~> 5.1'
-gem 'unicorn', '5.4.0'
-gem 'logstasher', '1.2.2'
 gem 'rack_strip_client_ip', '0.0.2'
 gem 'actionpack-page_caching', '1.1.0'
 gem 'uglifier', ">= 1.3.0"

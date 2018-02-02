@@ -58,10 +58,5 @@ Rails.application.configure do
 
   config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
 
-  # Enable JSON-style logging
-  config.logstasher.enabled = true
-  config.logstasher.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.json.log")
-  config.logstasher.supress_app_log = true
-
   config.eager_load = true
 end
