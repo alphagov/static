@@ -60,18 +60,6 @@
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
   var MAX_MOBILE_WIDTH = "(max-width: 800px)"
 
-  // This returns the whole url for the hmrc_import survey it's different
-  // based on the path
-  var hmrcImportSurveyOct2017Url = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/(?:eori|starting-to-import|starting-to-export)(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=EORIgov&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=61'
-      case /^\/(?:duty-deferment-statements|government\/publications\/(?:notice-101-deferring-duty-vat-and-other-charges\/notice-101-deferring-duty-vat-and-other-charges|notice-100-customs-flexible-accounting-system\/notice-100-customs-flexible-accounting-system))(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=DDESgov&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=60'
-      case /^\/guidance\/(?:vat-what-to-do-if-youre-an-overseas-business-selling-goods-in-the-uk|importing-goods-from-outside-the-eu|vat-imports-acquisitions-and-purchases-from-abroad)(?:\/|$)/.test(path): return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=importexportadviceGOV&utm_source=Other&utm_medium=gov.uk%20survey&t=HMRC&id=62'
-      default: return ''
-    }
-  }
-
   var hmrcGuidanceSurveyNov2017Url = function () {
     var path = window.location.pathname
     switch (true) {
@@ -100,15 +88,6 @@
     }
   }
 
-  var tlsSurveyUrl = function () {
-    if (window.matchMedia(MAX_MOBILE_WIDTH).matches) {
-      return 'https://www.smartsurvey.co.uk/s/VF0WH/'
-    }
-    else {
-      return 'http://www.smartsurvey.co.uk/s/Y5FQT/'
-    }
-  }
-
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -118,68 +97,6 @@
       surveyType: 'email'
     },
     smallSurveys: [
-      {
-        identifier: 'hmrc_import',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('October 18, 2017').getTime(),
-        endTime: new Date('January 28, 2018 23:59:50').getTime(),
-        url: hmrcImportSurveyOct2017Url(),
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/eori(?:/|$)',
-            '^/starting-to-import(?:/|$)',
-            '^/starting-to-export(?:/|$)',
-            '^/duty-deferment-statements(?:/|$)',
-            '^/government/publications/notice-101-deferring-duty-vat-and-other-charges/notice-101-deferring-duty-vat-and-other-charges(?:/|$)',
-            '^/government/publications/notice-100-customs-flexible-accounting-system/notice-100-customs-flexible-accounting-system(?:/|$)',
-            '^/guidance/vat-what-to-do-if-youre-an-overseas-business-selling-goods-in-the-uk(?:/|$)',
-            '^/guidance/importing-goods-from-outside-the-eu(?:/|$)',
-            '^/guidance/vat-imports-acquisitions-and-purchases-from-abroad(?:/|$)'
-          ]
-        }
-      },
-      {
-        identifier: 'hmrc_manuals',
-        surveyType: 'url',
-        frequency: 3,
-        startTime: new Date('October 26, 2017').getTime(),
-        endTime: new Date('January 28, 2018 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/hmrcmanuals/?c={{currentPath}}',
-        templateArgs: {
-          title: 'Tell us what you think of GOV.UK',
-          surveyCta: 'Answer 5 quick questions to help us make GOV.UK better.',
-          surveyCtaPostscript: 'This will open a short survey on another website.'
-        },
-        activeWhen: {
-          path: [
-            '^/hmrc-internal-manuals(?:/|$)'
-          ]
-        }
-      },
-      {
-        identifier: 'cttuk_tt',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('November 10, 2017').getTime(),
-        endTime: new Date('December 22, 2017 23:59:50').getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/CTTUKsurvey/?c={{currentPath}}',
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Answer 4 quick questions to help us make GOV.UK better.',
-          surveyCtaPostscript: 'This will open a short survey on another website.'
-        },
-        activeWhen: {
-          breadcrumb: [
-            'Visas and immigration'
-          ]
-        }
-      },
       {
         identifier: 'hmrc_money_laundering',
         surveyType: 'url',
@@ -234,58 +151,6 @@
             '^/update-company-car-details(?:/|$)'
           ]
         }
-      },
-      {
-        identifier: 'tls_survey',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('December 19, 2017').getTime(),
-        endTime: new Date('January 31, 2018').getTime(),
-        url: tlsSurveyUrl(),
-        templateArgs: {
-          title: 'The web browser you\'re using only supports old web standards. Please answer 3 questions to help us understand how you access GOV.UK.',
-          surveyCta: 'Please answer 3 questions.',
-          surveyCtaPostscript: 'This will open a short survey on another website.'
-        },
-        activeWhen: {
-          tlsCookieVersionLimit: [
-            1.2
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'treetest_post_test_signup',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('January 18, 2018').getTime(),
-        endTime: new Date('January 19, 2018 23:59:50').getTime(),
-        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0-0-0-0',
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions',
-          surveyCtaPostscript: 'This activity will open into a separate window.'
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'treetest_pre_test_signup',
-        surveyType: 'email',
-        frequency: 6,
-        startTime: new Date('January 22, 2018').getTime(),
-        endTime: new Date('January 23, 2018 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/contact?utm_campaign=crowd-banner&utm_source=Other&utm_medium=gov.uk&t=GDS&id=119',
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer some questions about yourself to join the research community.',
-          surveyFormDescription: 'We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.',
-          surveyFormCta: 'Send me the survey',
-          surveyFormCtaPostscript: 'Don’t worry: we won’t send you spam or share your email address with anyone.',
-          surveyFormNoEmailInvite: 'Don’t have an email address?',
-          surveySuccess: 'Thanks, we’ve sent you an email with a link to the survey.',
-          surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.'
-        },
-        allowedOnMobile: true
       },
       {
         identifier: 'CTTUK_Professionals_Personal',
