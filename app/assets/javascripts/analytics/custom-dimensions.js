@@ -82,15 +82,14 @@
       }
     });
 
-    customDimensions['dimension23'] = $('main[id="content"]').attr('lang') || 'unknown';
-
     return customDimensions;
   }
 
   function customDimensionsFromDom() {
     return {
       dimension26: GOVUK.PageContent.getNumberOfSections(),
-      dimension27: GOVUK.PageContent.getNumberOfLinks()
+      dimension27: GOVUK.PageContent.getNumberOfLinks(),
+      dimension23: $('main[id="content"]').attr('lang') || 'unknown'
     };
   }
 
