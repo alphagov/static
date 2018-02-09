@@ -3,6 +3,11 @@
   window.GOVUK = window.GOVUK || {};
   var StaticAnalytics = function (config) {
 
+    if (typeof config.stripPostcodePII === 'undefined') {
+      // Look for a meta tag with name govuk:static-analytics:strip-postcodes and if it's there we'll strip postcodes from GA
+      config.stripPostcodePII = ($('meta[name="govuk:static-analytics:strip-postcodes"]').length > 0)
+    }
+
     // Create universal tracker
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/analytics.md
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js

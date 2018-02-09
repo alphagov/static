@@ -46,6 +46,47 @@ describe("GOVUK.StaticAnalytics", function() {
       expect(GOVUK.analyticsPlugins.error).toHaveBeenCalled();
     });
 
+    describe('stripping postcode PII', function () {
+      it('is off by default', function() {
+        expect(analytics.analytics.stripPostcodePII).toEqual(false);
+      });
+
+      it('can be configured directly', function() {
+        analytics = new GOVUK.StaticAnalytics({
+          universalId: 'universal-id',
+          cookieDomain: '.www.gov.uk',
+          stripPostcodePII: true
+        });
+        expect(analytics.analytics.stripPostcodePII).toEqual(true);
+      });
+
+      describe('when there is a a govuk:static-analytics:strip-postcodes meta tag present', function() {
+        beforeEach(function() {
+          $('head').append('<meta name="govuk:static-analytics:strip-postcodes" value="does not matter" />');
+        });
+        afterEach(function() {
+          $('head').find('meta[name="govuk:static-analytics:strip-postcodes"]').remove();
+        });
+
+        it('is on by default', function() {
+          analytics = new GOVUK.StaticAnalytics({
+            universalId: 'universal-id',
+            cookieDomain: '.www.gov.uk'
+          });
+          expect(analytics.analytics.stripPostcodePII).toEqual(true);
+        });
+
+        it('can be configured directly to overrule the meta tag', function() {
+          analytics = new GOVUK.StaticAnalytics({
+            universalId: 'universal-id',
+            cookieDomain: '.www.gov.uk',
+            stripPostcodePII: false
+          });
+          expect(analytics.analytics.stripPostcodePII).toEqual(false);
+        });
+      });
+    });
+
     describe('when there are govuk: meta tags', function() {
       beforeEach(function() {
         window.ga.calls.reset();

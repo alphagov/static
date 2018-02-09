@@ -369,6 +369,31 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_meta_tag("govuk:content-has-history", "true")
   end
 
+  test "renders the static-analytics:strip-postcodes tag if the content item is a 'smart-answer'" do
+    render_component(content_item: { document_type: 'smart_answer' })
+    assert_meta_tag("govuk:static-analytics:strip-postcodes", "true")
+  end
+
+  test "renders the static-analytics:strip-postcodes tag if the content item is a 'search'" do
+    render_component(content_item: { document_type: 'search' })
+    assert_meta_tag("govuk:static-analytics:strip-postcodes", "true")
+  end
+
+  test "doesn't render the static-analytics:strip-postcodes tag if the document_type isn't relevant" do
+    render_component(content_item: { document_type: 'guidance' })
+    assert_no_meta_tag("govuk:static-analytics:strip-postcodes")
+  end
+
+  test "renders the static-analytics:strip-postcodes tag if explicitly told to even if it wouldn't otherwise" do
+    render_component(content_item: { document_type: 'guidance' }, strip_postcode_pii: true)
+    assert_meta_tag("govuk:static-analytics:strip-postcodes", "true")
+  end
+
+  test "doesn't render the static-analytics:strip-postcodes tag if explicitly told not to even if it would otherwise" do
+    render_component(content_item: { document_type: 'smart_answer' }, strip_postcode_pii: false)
+    assert_no_meta_tag("govuk:static-analytics:strip-postcodes")
+  end
+
   def assert_political_status_for(political, current, expected_political_status)
     render_component(content_item: { details: { political: political, government: { current: current, slug: 'government' } } })
     assert_meta_tag('govuk:political-status', expected_political_status)
@@ -376,5 +401,9 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
 
   def assert_meta_tag(name, content)
     assert_select "meta[name='#{name}'][content='#{content}']"
+  end
+
+  def assert_no_meta_tag(name)
+    assert_select "meta[name='#{name}']", count: 0
   end
 end
