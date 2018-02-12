@@ -64,4 +64,35 @@ class ButtonTestCase < ComponentTestCase
     render_component(text: "Submit", margin_bottom: true)
     assert_select ".pub-c-button.pub-c-button--bottom-margin", text: "Submit"
   end
+
+  test "renders data attributes correctly for buttons" do
+    render_component(
+      text: "Submit",
+      data_attributes: {
+        "module": "cross-domain-tracking",
+        "tracking-code": "GA-123ABC",
+        "tracking-name": "transactionTracker"
+      }
+    )
+
+    assert_select "button.pub-c-button[data-module='cross-domain-tracking']"
+    assert_select "button.pub-c-button[data-tracking-code='GA-123ABC']"
+    assert_select "button.pub-c-button[data-tracking-name='transactionTracker']"
+  end
+
+  test "renders data attributes correctly for links" do
+    render_component(
+      text: "Submit",
+      href: "/foo",
+      data_attributes: {
+        "module": "cross-domain-tracking",
+        "tracking-code": "GA-123ABC",
+        "tracking-name": "transactionTracker"
+      }
+    )
+
+    assert_select "a.pub-c-button[data-module='cross-domain-tracking']"
+    assert_select "a.pub-c-button[data-tracking-code='GA-123ABC']"
+    assert_select "a.pub-c-button[data-tracking-name='transactionTracker']"
+  end
 end
