@@ -155,9 +155,9 @@
       {
         identifier: 'CTTUK_Professionals_Personal',
         surveyType: 'url',
-        frequency: 2,
+        frequency: 1,
         startTime: new Date('February 7, 2018').getTime(),
-        endTime: new Date('February 13, 2018').getTime(),
+        endTime: new Date('February 14, 2018').getTime(),
         url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0-0-1-0-0?c={{currentPath}}',
         templateArgs: {
           title: 'Help us make things easier to find on GOV.UK',
