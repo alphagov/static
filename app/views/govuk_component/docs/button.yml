@@ -62,3 +62,12 @@ examples:
       text: "I'm a start now button with lots of text to test how the component scales at extremes."
       start: true
       href: "#"
+  with_data_attributes:
+    data:
+      text: "Track this!"
+      margin_bottom: true
+      data_attributes: {
+        "module": "cross-domain-tracking",
+        "tracking-code": "GA-123ABC",
+        "tracking-name": "transactionTracker"
+      }
