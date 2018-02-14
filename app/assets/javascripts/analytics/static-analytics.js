@@ -57,7 +57,6 @@
     if (typeof value === "undefined") {
       return;
     }
-
     this.analytics.setDimension(index, value, name, scope);
   };
 
