@@ -1,0 +1,155 @@
+// govuk_frontend_toolkit
+@import 'grid_layout';
+
+.pub-c-feedback {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+// hide without js
+// show with js, unless also has the js-hidden class
+.pub-c-feedback__js-show {
+  display: none;
+
+  .js-enabled & {
+    display: block;
+
+    &.js-hidden {
+      display: none;
+    }
+  }
+}
+
+.pub-c-feedback__grid-row {
+  @extend %grid-row;
+}
+
+.pub-c-feedback__column-two-thirds {
+  @include grid-column( 2 / 3 );
+}
+
+.pub-c-feedback__prompt {
+  @extend %contain-floats;
+  background-color: $govuk-blue;
+  color: $white;
+  padding: 10px $gutter-half 0;
+  outline: 0;
+}
+
+.pub-c-feedback__prompt-question,
+.pub-c-feedback__prompt-success {
+  @include bold-16;
+  display: inline;
+
+  &:focus {
+    outline: solid $yellow 3px;
+  }
+}
+
+.pub-c-feedback__prompt-link:link,
+.pub-c-feedback__prompt-link:visited {
+  color: $white;
+  display: inline-block;
+}
+
+.pub-c-feedback__prompt-link--useful {
+  margin-right: 0.2em;
+}
+
+.pub-c-feedback__prompt-link--wrong {
+  float: right;
+}
+
+.pub-c-feedback__error-summary {
+  margin-bottom: $gutter-half;
+  padding: $gutter-half;
+  border: solid 4px $red;
+
+  &:focus {
+    outline: solid 3px $yellow;
+  }
+
+  @include media(tablet) {
+    border-width: 5px;
+  }
+
+  // this comes from the backend so we can't put a class on it
+  h2,
+  .pub-c-feedback__heading {
+    @include bold-19;
+    margin: 0;
+  }
+
+  p {
+    @include core-16;
+    margin: 10px 0;
+  }
+}
+
+.pub-c-feedback__error-message {
+  @include bold-19;
+  display: block;
+  padding: 4px 0 0;
+  color: $red;
+}
+
+.pub-c-feedback__form {
+  margin-top: $gutter-half;
+  padding: $gutter-half 0;
+  border-top: 10px solid $govuk-blue;
+
+  @include media(tablet) {
+    padding: $gutter 0;
+  }
+}
+
+.pub-c-feedback__form-heading {
+  @include bold-19;
+  margin-bottom: $gutter-half;
+}
+
+.pub-c-feedback__form-paragraph {
+  @include core-16;
+  margin-bottom: $gutter;
+}
+
+.pub-c-feedback__form-group {
+  padding-bottom: $gutter-half;
+
+  @include media(tablet) {
+    padding-bottom: $gutter;
+  }
+}
+
+.pub-c-feedback__form-label {
+  @include core-16;
+  display: block;
+  padding-bottom: $gutter-half;
+}
+
+// nesting this in order to override other page styles for form fields
+.pub-c-feedback {
+  .pub-c-feedback__form-field {
+    @include core-19;
+    @include box-sizing(border-box);
+    padding: 5px;
+    margin: 0;
+    width: 100%;
+    border: solid 2px $black;
+  }
+}
+
+.pub-c-feedback__close {
+  @include core-16;
+  text-align: right;
+  margin-bottom: 10px;
+
+  @include media(tablet) {
+    float: right;
+    padding-top: 0;
+  }
+}
+
+.pub-c-feedback__submit {
+  @extend %pub-c-button;
+}
