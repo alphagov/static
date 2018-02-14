@@ -7,7 +7,7 @@
     this.init = function (element) {
       // Limiting to 100 characters to avoid noise from extra longs search queries
       // and to stop the size of the payload going over 8k limit.
-      var searchQuery   = element.attr('data-search-query').substring(0, 100).toLowerCase();
+      var searchQuery   = GOVUK.analytics.stripPII(element.attr('data-search-query')).substring(0, 100).toLowerCase();
       var ecommerceRows = element.find('[data-ecommerce-row]');
       var startPosition = parseInt(element.data('ecommerce-start-index'), 10);
 
@@ -42,8 +42,8 @@
         });
 
         ga('ec:setAction', 'click', {list: 'Site search results'});
-        ga('send', 'event', 'UX', 'click', 'Results',
-          GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions({})
+        GOVUK.analytics.trackEvent('UX', 'click',
+          GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions({label: 'Results'})
         );
       });
     }

@@ -106,6 +106,10 @@
     }
   };
 
+  StaticAnalytics.prototype.stripPII = function (value) {
+    return this.analytics.stripPII(value)
+  }
+
   function getOptionsFromCookie() {
     try {
       var cookie = StaticAnalytics.prototype.getCookie('analytics_next_page_call');
