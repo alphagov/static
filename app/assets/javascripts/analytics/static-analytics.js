@@ -57,7 +57,6 @@
     if (typeof value === "undefined") {
       return;
     }
-
     this.analytics.setDimension(index, value, name, scope);
   };
 
@@ -106,6 +105,10 @@
       return null;
     }
   };
+
+  StaticAnalytics.prototype.stripPII = function (value) {
+    return this.analytics.stripPII(value)
+  }
 
   function getOptionsFromCookie() {
     try {

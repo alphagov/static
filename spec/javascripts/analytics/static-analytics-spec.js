@@ -987,6 +987,14 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension23).toEqual('unknown');
       });
     });
+
+    it('marks all custom dimensions as PIISafe to avoid breaking data we control by stripping bits out of it', function () {
+      var customDimensions = GOVUK.CustomDimensions.customDimensions();
+
+      for (var dimension in customDimensions) {
+        expect(customDimensions[dimension] instanceof GOVUK.Analytics.PIISafe).toBeTruthy();
+      }
+    })
   });
 
   describe('when there is a TLSversion cookie', function() {

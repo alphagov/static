@@ -18,7 +18,7 @@
     );
 
     return $.each(dimensions, function (key, value) {
-      dimensions[key] = String(value);
+      dimensions[key] = new GOVUK.Analytics.PIISafe(String(value));
     });
   };
 

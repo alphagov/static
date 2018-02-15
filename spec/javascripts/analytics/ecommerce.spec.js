@@ -124,6 +124,75 @@ describe('Ecommerce reporter for results pages', function() {
     });
   });
 
+  it('removes emails from the search query', function() {
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query with an email@address.example.com in it">\
+        <div \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-content-id="AAAA-1111"\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      position: 1,
+      list: 'Site search results',
+      dimension71: 'search query with an [email] in it'
+    });
+  });
+
+  it('removes postcodes from the search query if configured to do so', function() {
+    GOVUK.analytics.analytics.stripPostcodePII = true;
+
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query with a SW1A 1AA in it">\
+        <div \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-content-id="AAAA-1111"\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      position: 1,
+      list: 'Site search results',
+      dimension71: 'search query with a [postcode] in it'
+    });
+
+    GOVUK.analytics.analytics.stripPostcodePII = false;
+  });
+
+  it('leaves postcodes in the search query if not configured to remove them', function() {
+    GOVUK.analytics.analytics.stripPostcodePII = false;
+
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query with a SW1A 1AA in it">\
+        <div \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-content-id="AAAA-1111"\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      position: 1,
+      list: 'Site search results',
+      dimension71: 'search query with a sw1a 1aa in it'
+    });
+  });
+
   it('tracks clicks on search results', function() {
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query">\
@@ -144,7 +213,11 @@ describe('Ecommerce reporter for results pages', function() {
       dimension71: 'search query'
     });
     expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Site search results'})
-    expect(ga).toHaveBeenCalledWith('send', 'event', 'UX', 'click', 'Results', {
+    expect(ga).toHaveBeenCalledWith('send', {
+      hitType: 'event',
+      eventCategory: 'UX',
+      eventAction: 'click',
+      eventLabel: 'Results',
       dimension15: '200',
       dimension16: 'unknown',
       dimension11: '1',
