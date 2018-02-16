@@ -1,5 +1,6 @@
 FROM ruby:2.4.2
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y build-essential nodejs && apt-get clean
+RUN gem install foreman
 
 ENV GOVUK_APP_NAME static
 ENV RAILS_ENV development
@@ -18,4 +19,4 @@ ADD . $APP_HOME
 
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 
-CMD bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p $PORT -b '0.0.0.0'"
+CMD foreman run web
