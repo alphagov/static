@@ -4,28 +4,22 @@
   info_text ||= false
   rel ||= false
   text ||= ""
-  tag_name = href ? "a" : "button"
   margin_bottom ||= false
+  data_attributes ||= false
+  css_classes = %w(pub-c-button)
+  css_classes << "pub-c-button--start" if start
+  css_classes << "pub-c-button--bottom-margin" if margin_bottom
+  css_classes = css_classes.join(" ")
+  html_options = { class: css_classes }
+  html_options[:role] = "button" if href
+  html_options[:rel] = rel if rel
+  html_options[:data] = data_attributes if data_attributes
 %>
-<<%= tag_name %>
-  class="
-    pub-c-button
-    <% if start == true %>
-      pub-c-button--start
-    <% end %>
-    <%= " pub-c-button--bottom-margin" if margin_bottom %>
-  "
-  <% if href %>
-    href="<%= href.try(:html_safe) %>"
-    role="button"
-  <% end %>
-
-  <% if rel %>
-    rel="<%= rel %>"
-  <% end %>
->
-  <%= text %>
-</<%= tag_name %>>
+<% if href %>
+  <%= link_to(text, href.try(:html_safe), html_options) %>
+<% else %>
+  <%= button_tag(text, html_options) %>
+<% end %>
 <% if info_text %>
   <span class="pub-c-button__info-text">
     <%= info_text.try(:html_safe) %>
