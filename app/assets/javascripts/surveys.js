@@ -123,6 +123,11 @@
     }
   }
 
+  var specialistUserGroupSurveysFeb2018Url = function() {
+    var path = window.location.pathname;
+    return 'https://gdsuserresearch.optimalworkshop.com/treejack/dpo18281?tag=' + encodeURI(path);
+  }
+
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -276,6 +281,28 @@
           title: 'Help us make things easier to find on GOV.UK',
           surveyCta: 'Answer 2 quick questions',
           surveyCtaPostscript: 'This activity will open in a separate window.',
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'specialist_user_groups',
+        surveyType: 'url',
+        frequency: 3,
+        startTime: new Date('February 20, 2018').getTime(),
+        endTime: new Date('February 23, 2018 23:59:50').getTime(),
+        url: specialistUserGroupSurveysFeb2018Url(),
+        templateArgs: {
+          title: 'Help us make this page easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions',
+          surveyCtaPostscript: 'This activity will open in a separate window.'
+        },
+        activeWhen: {
+          path: [
+            '^/drug-safety-update(?:/|$)',
+            '^/drug-device-alerts(?:/|$)',
+            '^/dfid-research-outputs(?:/|$)',
+            '^/cma-cases(?:\/|$)'
+          ]
         },
         allowedOnMobile: true
       }
