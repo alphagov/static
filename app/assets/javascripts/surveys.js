@@ -266,6 +266,19 @@
         },
         allowedOnMobile: true
       },
+      {
+        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/dpo18280',
+        identifier: 'supergroup_subgroup_study',
+        frequency: 6,
+        startTime: new Date('February 20, 2018').getTime(),
+        endTime: new Date('February 23, 2018 23:59:50').getTime(),
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions',
+          surveyCtaPostscript: 'This activity will open in a separate window.',
+        },
+        allowedOnMobile: true
+      }
     ],
 
     init: function () {
