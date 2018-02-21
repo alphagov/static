@@ -71,3 +71,8 @@ examples:
         "tracking-code": "GA-123ABC",
         "tracking-name": "transactionTracker"
       }
+  with_title_attribute:
+    data:
+      text: "Click me"
+      margin_bottom: true
+      title: "A button to click"
