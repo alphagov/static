@@ -95,4 +95,10 @@ class ButtonTestCase < ComponentTestCase
     assert_select "a.pub-c-button[data-tracking-code='GA-123ABC']"
     assert_select "a.pub-c-button[data-tracking-name='transactionTracker']"
   end
+
+  test "renders a title attribute" do
+    render_component(text: "Submit", title: "Do it!")
+
+    assert_select ".pub-c-button[title='Do it!']"
+  end
 end
