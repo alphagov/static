@@ -6,6 +6,7 @@
   text ||= ""
   margin_bottom ||= false
   data_attributes ||= false
+  title ||= false
   css_classes = %w(pub-c-button)
   css_classes << "pub-c-button--start" if start
   css_classes << "pub-c-button--bottom-margin" if margin_bottom
@@ -14,6 +15,7 @@
   html_options[:role] = "button" if href
   html_options[:rel] = rel if rel
   html_options[:data] = data_attributes if data_attributes
+  html_options[:title] = title if title
 %>
 <% if href %>
   <%= link_to(text, href.try(:html_safe), html_options) %>
