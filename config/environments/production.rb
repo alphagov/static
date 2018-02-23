@@ -1,6 +1,14 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Set GOVUK_ASSET_ROOT & PLEK_SERVICE_STATIC_URI for heroku - for review
+  # apps we have the hostname set at the time of the app being built so can't
+  # be set up in the app.json
+  if ENV["HEROKU_APP_NAME"]
+    ENV["GOVUK_ASSET_ROOT"] = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("GOVUK_ASSET_ROOT")
+    ENV["PLEK_SERVICE_STATIC_URI"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("PLEK_SERVICE_STATIC_URI")
+  end
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
