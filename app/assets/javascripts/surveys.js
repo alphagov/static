@@ -230,7 +230,7 @@
         surveyType: 'url',
         frequency: 5,
         startTime: new Date('February 14, 2018').getTime(),
-        endTime: new Date('March 16, 2018').getTime(),
+        endTime: new Date('May 14, 2018').getTime(),
         url: hmrcSurveysFeb2018Url(),
         templateArgs: {
           title: 'Get involved in making government services better',
