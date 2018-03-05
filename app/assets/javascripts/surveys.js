@@ -151,7 +151,7 @@
         allowedOnMobile: true
       },
       {
-        identifier: 'CTTUK_iteration 8',
+        identifier: 'CTTUK_iteration_8',
         surveyType: 'url',
         frequency: 3,
         startTime: new Date('March 2, 2018').getTime(),
