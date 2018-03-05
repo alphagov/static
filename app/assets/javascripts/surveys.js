@@ -60,34 +60,6 @@
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
   var MAX_MOBILE_WIDTH = "(max-width: 800px)"
 
-  var hmrcGuidanceSurveyNov2017Url = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/guidance\/fulfilment-house-due-diligence-scheme(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=FHDDSgov&utm_source=Other&utm_medium=other&t=HMRC&id=99'
-      case /^\/guidance\/soft-drinks-industry-levy(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=SoftDrinksGOV&utm_source=Other&utm_medium=other&t=HMRC&id=100'
-      case /^\/guidance\/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=MinWageSocialCareGOV&utm_source=Other&utm_medium=other&t=HMRC&id=101'
-      default: return ''
-    }
-  }
-
-  var hmrcSurveysNov2017Url = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/tax-on-your-private-pension(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=PrivatePensionContributionsGOV&utm_source=govukother&utm_medium=gov.uk&t=HMRC&id=105'
-      case /^\/update-company-car-details(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=CompanyCarGOV&utm_source=Other&utm_medium=other&t=HMRC&id=49'
-      default: return ''
-    }
-  }
-
-  var hmrcSurveysNov2017EndTime = function () {
-    var path = window.location.pathname
-    switch (true) {
-      case /^\/tax-on-your-private-pension(?:\/|$)/.test(path) : return new Date('February 28, 2017')
-      case /^\/update-company-car-details(?:\/|$)/.test(path) : return new Date('January 11, 2017')
-      default: return ''
-    }
-  }
-
   var hmrcSurveysFeb2018Url = function () {
     var path = window.location.pathname
     switch (true) {
@@ -123,11 +95,6 @@
     }
   }
 
-  var specialistUserGroupSurveysFeb2018Url = function() {
-    var path = window.location.pathname;
-    return 'https://gdsuserresearch.optimalworkshop.com/treejack/dpo18281?tag=' + encodeURI(path);
-  }
-
   /* This data structure is explained in `doc/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
@@ -137,94 +104,6 @@
       surveyType: 'email'
     },
     smallSurveys: [
-      {
-        identifier: 'hmrc_money_laundering',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('November 15, 2017').getTime(),
-        endTime: new Date('February 16, 2018 23:59:50').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=AMLSgov&utm_source=Other&utm_medium=other&t=HMRC&id=84',
-        templateArgs: {
-          title: 'Help us improve our services',
-          surveyCta: 'Join our User Research Panel.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: ['^/guidance/money-laundering-regulations-supervised-business-register(?:/|$)']
-        }
-      },
-      {
-        identifier: 'hmrc_guidance',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('November 15, 2017').getTime(),
-        endTime: new Date('February 16, 2018 23:59:50').getTime(),
-        url: hmrcGuidanceSurveyNov2017Url(),
-        templateArgs: {
-          title: 'Help us improve our services',
-          surveyCta: 'Join our User Research Panel.',
-          surveyCtaPostscript: 'This link opens in a new tab.'
-        },
-        activeWhen: {
-          path: [
-            '^/guidance/fulfilment-house-due-diligence-scheme(?:/|$)',
-            '^/guidance/soft-drinks-industry-levy(?:/|$)',
-            '^/guidance/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:/|$)'
-          ]
-        }
-      },
-      {
-        identifier: 'hmrc_november',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('November 30, 2017').getTime(),
-        endTime: hmrcSurveysNov2017EndTime(),
-        url: hmrcSurveysNov2017Url(),
-        templateArgs: {
-          title: 'Help us improve our services, join our User Research Panel',
-          surveyCta: 'Join our User Research Panel.',
-          surveyCtaPostscript: 'Sign up form will open on another website.'
-        },
-        activeWhen: {
-          path: [
-            '^/tax-on-your-private-pension(?:/|$)',
-            '^/update-company-car-details(?:/|$)'
-          ]
-        }
-      },
-      {
-        identifier: 'CTTUK_Professionals_Personal',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('February 7, 2018').getTime(),
-        endTime: new Date('February 14, 2018').getTime(),
-        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0-0-1-0-0?c={{currentPath}}',
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 3 quick questions.',
-          surveyCtaPostscript: 'This activity will open in a separate window.'
-        },
-        activeWhen: {
-          path: [
-            '^/browse/visas-immigration(?:/|$)',
-            '^/call-charges$',
-            '^/when-do-the-clocks-change$',
-            '^/guidance/immigration-rules$'
-          ],
-          organisation: [
-            '<OT554>', // UK Visas and Immigration
-            '<PB263>', // Office of the Immigration Services Commissioner
-            '<PB275>', // Migration Advisory Committee
-            '<OT535>', // Border Force
-            '<OT1069>', // Immigration Enforcement
-            '<EA67>', // UK Border Agency
-            '<OT885>', // Identity and Passport Service
-            '<EA66>', // HM Passport Office
-            '<OT284>' // Independent Chief Inspector of Borders and Immigration
-          ]
-        },
-        allowedOnMobile: true
-      },
       {
         identifier: 'hmrc_february',
         surveyType: 'url',
@@ -267,41 +146,6 @@
             '^/guidance/pension-administrators-check-a-members-gmp(?:/|$)',
             '^/simple-assessment(?:/|$)',
             '^/tax-on-your-private-pension/lifetime-allowance(?:/|$)'
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
-        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/dpo18280',
-        identifier: 'supergroup_subgroup_study',
-        frequency: 6,
-        startTime: new Date('February 20, 2018').getTime(),
-        endTime: new Date('February 23, 2018 23:59:50').getTime(),
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions',
-          surveyCtaPostscript: 'This activity will open in a separate window.',
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'specialist_user_groups',
-        surveyType: 'url',
-        frequency: 3,
-        startTime: new Date('February 20, 2018').getTime(),
-        endTime: new Date('February 23, 2018 23:59:50').getTime(),
-        url: specialistUserGroupSurveysFeb2018Url(),
-        templateArgs: {
-          title: 'Help us make this page easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions',
-          surveyCtaPostscript: 'This activity will open in a separate window.'
-        },
-        activeWhen: {
-          path: [
-            '^/drug-safety-update(?:/|$)',
-            '^/drug-device-alerts(?:/|$)',
-            '^/dfid-research-outputs(?:/|$)',
-            '^/cma-cases(?:\/|$)'
           ]
         },
         allowedOnMobile: true
