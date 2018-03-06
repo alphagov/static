@@ -182,6 +182,23 @@
           ]
         },
         allowedOnMobile: true
+      },
+      {
+        identifier: 'GOVUK_navigation_links_groups_and_labels',
+        surveyType: 'url',
+        frequency: 3,
+        startTime: new Date('March 7, 2018').getTime(),
+        endTime: new Date('March 9, 2018, 23:59:59').getTime(),
+        url: 'https://s.userzoom.com/m/MSBDNjI1UzY5',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Complete a quick activity',
+          surveyCtaPostscript: 'This activity will open in a separate window.'
+        },
+        activeWhen: {
+          section: ['childcare-parenting', 'education']
+        },
+        allowedOnMobile: true
       }
     ],
 
