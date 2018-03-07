@@ -4,6 +4,9 @@ body: |
   Accepts an array of breadcrumb objects. Each crumb must have a title and a URL.
 shared_accessibility_criteria:
   - link
+accessibility_criteria:
+  The breadcrumb links must have a text contrast ratio higher than 4.5:1 against the background colour to meet WCAG AA
+  (this especially applies when [using the inverse flag](/component-guide/breadcrumbs/inverse)).
 examples:
   default:
     data:
@@ -12,6 +15,19 @@ examples:
         url: '/section'
       - title: 'Sub-section'
         url: '/section/sub-section'
+  inverse:
+    description: On a dark background, such as the header of topic pages
+    data:
+      breadcrumbs:
+      - title: 'Section'
+        url: '/section'
+      - title: 'Sub-section'
+        url: '/section/sub-section'
+        title: 'Education of disadvantaged children'
+        is_current_page: true
+      inverse: true
+    context:
+      dark_background: true
   no_breadcrumbs:
     data:
       breadcrumbs: []
