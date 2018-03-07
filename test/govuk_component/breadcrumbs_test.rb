@@ -64,6 +64,16 @@ class BreadcrumbsTestCase < ComponentTestCase
     assert_link_with_text_in('ol li:last-child', '/sub-section', 'Sub-section')
   end
 
+  test "renders inverted breadcrumbs when passed a flag" do
+    render_component(breadcrumbs: [
+        { title: 'Home', url: '/' },
+        { title: 'Section', url: '/section' },
+        inverse: true
+      ])
+
+    assert_select "div.govuk-breadcrumbs--inverse"
+  end
+
   test "allows the last breadcrumb to be text only" do
     render_component(
       breadcrumbs: [
