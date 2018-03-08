@@ -34,3 +34,8 @@
     }
   }
 }
+
+.breadcrumb-for-current-page.govuk-breadcrumbs--inverse,
+.govuk-breadcrumbs .govuk-breadcrumbs--inverse {
+  color: $white;
+}
