@@ -70,7 +70,7 @@ The template for a url survey is as follows:
 </section>
 ```
 
-This HTML template would be matched by a JS template in `surveys.js`, e.g. 
+This HTML template would be matched by a JS template in `surveys.js`, e.g.
 
 ```javascript
 {
@@ -207,6 +207,10 @@ In the example above, the survey will only be considered "active" on pages with 
 
 Not providing any `activeWhen` parameters, or providing an empty `activeWhen` parameter will apply the survey to all pages on GOV.UK between `startTime` and `endTime`, so take care when doing this.
 
+#### Performance considerations
+
+Remember that the decision to show a survey or not is done on the client browser and happens on every request.  We first throw away any surveys that haven't started yet, or have ended already and then we check the `activeWhen` parameters.  So if you have a survey with lots of parameters and values in `activeWhen` this could cause performance issues for the browser so you should be careful when describing which pages the survey should appear on.  If you have 100s of pages to run the survey on, can you target them all by a single breadcrumb or organisation instead of doing 100s of path comparisons?  If none of the parameters can be combined to cover all the pages without requiring lots of comparisons you may need to add new parameter types to the surveys code, or come up with a different set of pages to target.
+
 ### TLS Version detection ###
 
 There is a special survey we can add which will check whether a user has an out of date version of TLS running (under 1.2 is considered insecure). In this case, we set the survey to be active by adding the `tlsCookieVersionLimit` parameter in `activeWhen`:
@@ -220,7 +224,7 @@ activeWhen: {
 
 This parameter is optional. If it is:
 - set to `true` the survey will be displayed on both mobile and desktop
-- set to `false` OR omitted entirely will result in the survey being hidden on mobile, but shown on desktop. 
+- set to `false` OR omitted entirely will result in the survey being hidden on mobile, but shown on desktop.
 
 ### `startTime` and `endTime`
 The survey will only be considered "active" between these dates and times. Where an explicit time is not provided (e.g. startTime) note that JavaScript will assume 00:00:00.000 i.e. just after midnight.
