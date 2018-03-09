@@ -184,19 +184,30 @@
         allowedOnMobile: true
       },
       {
-        identifier: 'GOVUK_navigation_links_groups_and_labels',
+        identifier: 'GOVUK_content_pages_design_survey_1',
         surveyType: 'url',
         frequency: 3,
-        startTime: new Date('March 7, 2018').getTime(),
-        endTime: new Date('March 9, 2018, 23:59:59').getTime(),
-        url: 'https://s.userzoom.com/m/MSBDNjI1UzY5',
+        startTime: new Date('March 9, 2018').getTime(),
+        endTime: new Date('March 28, 2018, 23:59:59').getTime(),
+        url: 'https://gdsuserresearch.optimalworkshop.com/chalkmark/jz75j0uv',
         templateArgs: {
           title: 'Help us make things easier to find on GOV.UK',
           surveyCta: 'Complete a quick activity',
           surveyCtaPostscript: 'This activity will open in a separate window.'
         },
-        activeWhen: {
-          section: ['childcare-parenting', 'education']
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'GOVUK_content_pages_design_survey_2',
+        surveyType: 'url',
+        frequency: 3,
+        startTime: new Date('March 9, 2018').getTime(),
+        endTime: new Date('March 28, 2018, 23:59:59').getTime(),
+        url: 'https://gdsuserresearch.optimalworkshop.com/chalkmark/twn1i3yt',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Complete a quick activity',
+          surveyCtaPostscript: 'This activity will open in a separate window.'
         },
         allowedOnMobile: true
       }
