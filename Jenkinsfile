@@ -1,10 +1,11 @@
 #!/usr/bin/env groovy
 
+library("govuk")
+
 REPOSITORY = 'static'
 
 node {
   // Deployed by Puppet's Govuk_jenkins::Pipeline manifest
-  def govuk = load '/var/lib/jenkins/groovy_scripts/govuk_jenkinslib.groovy'
 
   govuk.buildProject(
     sassLint: false,
