@@ -3,8 +3,6 @@
 //= require analytics
 //= require start-modules
 //= require core
-//= require report-a-problem-form
-//= require report-a-problem
 //= require govuk/selection-buttons
 //= require govuk-component/govspeak-enhance-youtube-video-links
 //= require libs/govuk-component/govspeak-magna-charta.min

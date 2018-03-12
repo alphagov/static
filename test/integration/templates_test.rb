@@ -30,13 +30,6 @@ class TemplatesTest < ActionDispatch::IntegrationTest
   end
 
   context "fetching raw templates" do
-    should "be 200 for templates that exist" do
-      %w(report_a_problem).each do |template|
-        get "/templates/#{template}.raw.html.erb"
-        assert_equal 200, last_response.status
-      end
-    end
-
     should "404 for non-existent templates" do
       get "/templates/foo.raw.html.erb"
       assert_equal 404, last_response.status
