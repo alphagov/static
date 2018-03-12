@@ -1,15 +1,11 @@
 class RootController < ApplicationController
   layout false
 
-  before_action :validate_template_param, only: [:template, :raw_govuk_component_template, :raw_root_template]
+  before_action :validate_template_param, only: %i[template raw_govuk_component_template]
 
   rescue_from ActionView::MissingTemplate, with: :error_404
 
-  caches_page :template, :raw_root_template, :raw_govuk_component_template, :govuk_available_locales, :govuk_locales
-
-  def raw_root_template
-    render_raw_template("root", params[:template])
-  end
+  caches_page :template, :raw_govuk_component_template, :govuk_available_locales, :govuk_locales
 
   def raw_govuk_component_template
     render_raw_template("govuk_component", params[:template])

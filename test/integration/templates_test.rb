@@ -30,14 +30,6 @@ class TemplatesTest < ActionDispatch::IntegrationTest
   end
 
   context "fetching raw templates" do
-    should "404 for non-existent templates" do
-      get "/templates/foo.raw.html.erb"
-      assert_equal 404, last_response.status
-
-      get "/templates/wrapper.raw.html.erb"
-      assert_equal 404, last_response.status
-    end
-
     should "return the raw component files" do
       get "/templates/govuk_component/beta_label.raw.html.erb"
       expected = File.read(Rails.root.join("app", "views", "govuk_component", "beta_label.raw.html.erb"))
@@ -59,7 +51,7 @@ class TemplatesTest < ActionDispatch::IntegrationTest
         "foo&bar",
         "foo+bar",
       ].each do |template|
-        get "/templates/#{template}.raw.html.erb"
+        get "/templates/govuk_component/#{template}.raw.html.erb"
         assert_equal 404, last_response.status
       end
     end
