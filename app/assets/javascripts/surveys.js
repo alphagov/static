@@ -186,7 +186,7 @@
       {
         identifier: 'GOVUK_content_pages_design_survey_1',
         surveyType: 'url',
-        frequency: 3,
+        frequency: 6,
         startTime: new Date('March 9, 2018').getTime(),
         endTime: new Date('March 28, 2018, 23:59:59').getTime(),
         url: 'https://gdsuserresearch.optimalworkshop.com/chalkmark/jz75j0uv',
@@ -200,7 +200,7 @@
       {
         identifier: 'GOVUK_content_pages_design_survey_2',
         surveyType: 'url',
-        frequency: 3,
+        frequency: 6,
         startTime: new Date('March 9, 2018').getTime(),
         endTime: new Date('March 28, 2018, 23:59:59').getTime(),
         url: 'https://gdsuserresearch.optimalworkshop.com/chalkmark/twn1i3yt',
