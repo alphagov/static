@@ -8,8 +8,6 @@ class NonLayoutTemplatesTest < ActionDispatch::IntegrationTest
   %w(
     campaign
     proposition_menu
-    related.raw
-    report_a_problem.raw
   ).each do |template|
     should "not add a layout to the #{template} snippet" do
       get "/templates/#{template}.html.erb"

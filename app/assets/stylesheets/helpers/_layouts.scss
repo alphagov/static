@@ -1,10 +1,7 @@
 #wrapper {
   @extend %site-width-container;
-
-  .report-a-problem-toggle, .report-a-problem-inner {
-    padding: 0;
-  }
 }
+
 .grid-row {
   @extend %grid-row;
 
