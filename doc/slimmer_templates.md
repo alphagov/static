@@ -1,6 +1,6 @@
 # Slimmer Templates
 
-## `core_layout`
+## `core_layout` (default)
 
 This template contains styles for the black header bar, the footer and core
 layout classes. By default it will center your content to the same width as the
@@ -20,7 +20,6 @@ including centering all the content.
 
 ## `wrapper` (deprecated)
 
-This is the standard template that all applications that install slimmer will
-get. It historically contained all the styles for GOV.UK.
+This template historically contained all the styles for GOV.UK.
 
 **You should not use this template**
