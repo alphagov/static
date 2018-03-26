@@ -104,7 +104,7 @@
 
   stepnavs = links_hash[:part_of_step_navs] || []
   stepnavs_content = stepnavs.map { |stepnav| stepnav[:content_id] }.join(",")
-  meta_tags["govuk:stepnavs"] = stepnavs_content if stepnavs_content
+  meta_tags["govuk:stepnavs"] = stepnavs_content if stepnavs_content.present?
 %>
 <% meta_tags.each do |name, content| %>
   <meta name="<%= name %>" content="<%= content %>">
