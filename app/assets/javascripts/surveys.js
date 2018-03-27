@@ -64,7 +64,6 @@
     var path = window.location.pathname
     switch (true) {
       case /^\/correct-your-business-rates(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=VOAgov&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=125'
-      case /^\/guidance\/fulfilment-house-due-diligence-scheme(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=FHDDSgov&utm_source=Other&utm_medium=other&t=HMRC&id=99'
       case /^\/guidance\/soft-drinks-industry-levy(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=SoftDrinksGOV&utm_source=Other&utm_medium=other&t=HMRC&id=100'
       case /^\/guidance\/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=MinWageSocialCareGOV&utm_source=Other&utm_medium=other&t=HMRC&id=101'
       case /^\/child-benefit(?:\/|$)/.test(path) : return 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=ChildBenefitGOV&utm_source=Other&utm_medium=other&t=HMRC&id=26'
@@ -119,7 +118,6 @@
         activeWhen: {
           path: [
             '^/correct-your-business-rates(?:/|$)',
-            '^/guidance/fulfilment-house-due-diligence-scheme(?:/|$)',
             '^/guidance/soft-drinks-industry-levy(?:/|$)',
             '^/guidance/tell-hmrc-if-youve-underpaid-national-minimum-wage-in-the-social-care-sector(?:/|$)',
             '^/child-benefit(?:/|$)',
@@ -146,6 +144,25 @@
             '^/guidance/pension-administrators-check-a-members-gmp(?:/|$)',
             '^/simple-assessment(?:/|$)',
             '^/tax-on-your-private-pension/lifetime-allowance(?:/|$)'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc_february_due_dilligence',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('February 14, 2018').getTime(),
+        endTime: new Date('May 14, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=FHDDSgov&utm_source=Other&utm_medium=other&t=HMRC&id=99',
+        templateArgs: {
+          title: 'Get involved in making government services better',
+          surveyCta: 'Take the 3 minute survey.',
+          surveyCtaPostscript: 'This will open a short survey on another website.'
+        },
+        activeWhen: {
+          path: [
+            '^/guidance/fulfilment-house-due-diligence-scheme(?:/|$)'
           ]
         },
         allowedOnMobile: true
@@ -197,6 +214,64 @@
         },
         activeWhen: {
           section: ['transport/all']
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc_march_duty_free',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('March 28, 2018').getTime(),
+        endTime: new Date('June 1, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Passengers&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=139',
+        templateArgs: {
+          title: 'Get involved in making government services better',
+          surveyCta: 'Take the 3 minute survey.',
+          surveyCtaPostscript: 'This will open a short survey on another website.'
+        },
+        activeWhen: {
+          path: [
+            '^/duty-free-goods/arrivals-from-outside-the-eu$',
+            '^/duty-free-goods/arrivals-from-eu-countries$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc_march_international_post',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('March 28, 2018').getTime(),
+        endTime: new Date('June 1, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Parcels&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=140',
+        templateArgs: {
+          title: 'Get involved in making government services better',
+          surveyCta: 'Take the 3 minute survey.',
+          surveyCtaPostscript: 'This will open a short survey on another website.'
+        },
+        activeWhen: {
+          path: [
+            '^/government/publications/notice-143-a-guide-for-international-post-users$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc_march_vat_overseas',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('March 28, 2018').getTime(),
+        endTime: new Date('June 1, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Parcels&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=140',
+        templateArgs: {
+          title: 'Get involved in making government services better',
+          surveyCta: 'Take the 3 minute survey.',
+          surveyCtaPostscript: 'This will open a short survey on another website.'
+        },
+        activeWhen: {
+          path: [
+            '^/guidance/vat-overseas-businesses-using-an-online-marketplace-to-sell-goods-in-the-uk$'
+          ]
         },
         allowedOnMobile: true
       }
