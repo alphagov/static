@@ -168,56 +168,6 @@
         allowedOnMobile: true
       },
       {
-        identifier: 'CTTUK_iteration_11',
-        surveyType: 'url',
-        frequency: 3,
-        startTime: new Date('March 24, 2018').getTime(),
-        endTime: new Date('March 28, 2018').getTime(),
-        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0-0-1-0-0-1-1-0?c={{currentPath}}',
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions.',
-          surveyCtaPostscript: 'This activity will open in a separate window.'
-        },
-        activeWhen: {
-          path: [
-            '^/browse/visas-immigration(?:/|$)',
-            '^/call-charges$',
-            '^/when-do-the-clocks-change$',
-            '^/guidance/immigration-rules$'
-          ],
-          organisation: [
-            '<OT554>', // UK Visas and Immigration
-            '<PB263>', // Office of the Immigration Services Commissioner
-            '<PB275>', // Migration Advisory Committee
-            '<OT535>', // Border Force
-            '<OT1069>', // Immigration Enforcement
-            '<EA67>', // UK Border Agency
-            '<OT885>', // Identity and Passport Service
-            '<EA66>', // HM Passport Office
-            '<OT284>' // Independent Chief Inspector of Borders and Immigration
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'Transport_iteration_5',
-        surveyType: 'url',
-        frequency: 3,
-        startTime: new Date('March 24, 2018').getTime(),
-        endTime: new Date('March 28, 2018').getTime(),
-        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/82p1e0a6-0-0-1-0-0-1-0-1?c={{currentPath}}',
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions.',
-          surveyCtaPostscript: 'This activity will open in a separate window.'
-        },
-        activeWhen: {
-          section: ['transport/all']
-        },
-        allowedOnMobile: true
-      },
-      {
         identifier: 'hmrc_march_duty_free',
         surveyType: 'url',
         frequency: 1,
