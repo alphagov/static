@@ -1,14 +1,14 @@
-.govuk-search {
+.pub-c-search {
   position: relative;
   margin-bottom: 30px;
 
   $input-size: 40px;
 
-  .search-label {
+  .pub-c-search__label {
     display: block;
   }
 
-  .search-input {
+  .pub-c-search__input {
     padding: 6px;
     margin: 0.5em 0;
     width: 100%;
@@ -21,7 +21,7 @@
     @include appearance(none);
   }
 
-  .search-submit {
+  .pub-c-search__submit {
     padding: 6px;
     border: 0;
     cursor: pointer;
@@ -31,7 +31,7 @@
   // IE6 + IE7 always get the simplest version, regardless of whether javascript is enabled
   @if ($is-ie == false) or ($ie-version >= 8) {
     .js-enabled & {
-      .search-label {
+      .pub-c-search__label {
         position: absolute;
         left: 15px;
         top: 1px;
@@ -41,20 +41,20 @@
       }
     }
 
-    .search-wrapper {
+    .pub-c-search__item-wrapper {
       display: table;
       width: 100%;
       background: $white;
     }
 
     //general class applied to search input and button wrapper
-    .search-element {
+    .pub-c-search__item {
       position: relative;
       display: table-cell;
       vertical-align: top;
     }
 
-    .search-input {
+    .pub-c-search__input {
       margin: 0;
 
       // the .focus class is added by JS and ensures that the input remains above the label once clicked/filled in
@@ -64,11 +64,11 @@
       }
     }
 
-    .search-submit-wrapper {
+    .pub-c-search__submit-wrapper {
       width: 1%;
     }
 
-    .search-submit {
+    .pub-c-search__submit {
       position: relative;
       padding: 0;
       width: $input-size;
@@ -94,12 +94,12 @@
     }
   }
 
-  &.on-govuk-blue {
-    .search-label {
+  &.pub-c-search--on-govuk-blue {
+    .pub-c-search__label {
       color: $white;
     }
 
-    .search-submit {
+    .pub-c-search__submit {
       background-color: $black;
       color: $white;
 
@@ -110,7 +110,7 @@
 
     @if ($is-ie == false) or ($ie-version >= 8) {
       .js-enabled & {
-        .search-label {
+        .pub-c-search__label {
           color: $secondary-text-colour;
         }
       }
@@ -118,16 +118,16 @@
   }
 
 
-  &.on-white {
-    .search-label {
+  &.pub-c-search--on-white {
+    .pub-c-search__label {
       color: $black;
     }
 
-    .search-input {
+    .pub-c-search__input {
       border: solid 1px $grey-2;
     }
 
-    .search-submit {
+    .pub-c-search__submit {
       background-color: $light-blue;
       color: $white;
 
@@ -137,30 +137,30 @@
     }
 
     @if ($is-ie == false) or ($ie-version >= 8) {
-      .search-input {
+      .pub-c-search__input {
         border-right: 0;
       }
 
       .js-enabled & {
-        .search-label {
+        .pub-c-search__label {
           color: $secondary-text-colour;
         }
       }
     }
   }
 
-  &.search-large {
+  &.pub-c-search--large {
     $input-size: 50px;
 
-    .search-label {
+    .pub-c-search__label {
       @include core-19($line-height: $input-size, $line-height-640: $input-size);
     }
 
-    .search-input {
+    .pub-c-search__input {
       height: $input-size;
     }
 
-    .search-submit {
+    .pub-c-search__submit {
       width: $input-size;
       height: $input-size;
       background-position: 8px 50%;
@@ -172,8 +172,8 @@
     }
   }
 
-  &.search-separate-label {
-    .search-label {
+  &.pub-c-search--separate-label {
+    .pub-c-search__label {
       position: relative;
       left: auto;
     }
