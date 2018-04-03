@@ -1,181 +1,182 @@
+$input-size: 40px;
+$large-input-size: 50px;
+
 .pub-c-search {
   position: relative;
   margin-bottom: 30px;
+}
 
-  $input-size: 40px;
+.pub-c-search__label {
+  display: block;
+}
 
-  .pub-c-search__label {
-    display: block;
+.pub-c-search__input[type="search"] { // overly specific to prevent some overrides from outside
+  @include box-sizing(border-box);
+  @include core-19($line-height: (28 / 19), $line-height-640: (28 / 16));
+  @include appearance(none);
+
+  padding: 6px;
+  margin: 0.5em 0;
+  width: 100%;
+  height: $input-size;
+  border: 0;
+  background: $white;
+  border-radius: 0; //otherwise iphones apply an automatic border radius
+}
+
+.pub-c-search__submit {
+  padding: 6px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+// IE6 + IE7 always get the simplest version, regardless of whether javascript is enabled
+@if ($is-ie == false) or ($ie-version >= 8) {
+  .js-enabled {
+    .pub-c-search__label {
+      @include core-19($line-height: $input-size, $line-height-640: $input-size);
+
+      position: absolute;
+      left: 15px;
+      top: 1px;
+      z-index: 1;
+      color: $secondary-text-colour;
+    }
   }
 
-  .pub-c-search__input {
-    padding: 6px;
-    margin: 0.5em 0;
+  .pub-c-search__item-wrapper {
+    display: table;
     width: 100%;
-    height: $input-size;
-    border: 0;
-    @include box-sizing(border-box);
-    @include core-19($line-height: (28 / 19), $line-height-640: (28 / 16));
     background: $white;
-    border-radius: 0; //otherwise iphones apply an automatic border radius
-    @include appearance(none);
+  }
+
+  //general class applied to search input and button wrapper
+  .pub-c-search__item {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .pub-c-search__input[type="search"] {
+    margin: 0;
+
+    // the .focus class is added by JS and ensures that the input remains above the label once clicked/filled in
+    &:focus,
+    &.focus {
+      z-index: 2;
+    }
+  }
+
+  .pub-c-search__submit-wrapper {
+    width: 1%;
   }
 
   .pub-c-search__submit {
-    padding: 6px;
-    border: 0;
-    cursor: pointer;
-    border-radius: 0;
+    position: relative;
+    padding: 0;
+    width: $input-size;
+    height: $input-size;
+    background-image: image-url("search-button.png");
+    background-repeat: no-repeat;
+    background-position: 2px 50%;
+    text-indent: -5000px;
+    overflow: hidden;
+
+    &:focus {
+      z-index: 2;
+    }
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    @include device-pixel-ratio() {
+      background-size: 52.5px auto;
+      background-position: 115% 50%;
+    }
+  }
+}
+
+.pub-c-search--on-govuk-blue {
+  .pub-c-search__label {
+    color: $white;
   }
 
-  // IE6 + IE7 always get the simplest version, regardless of whether javascript is enabled
+  .pub-c-search__submit {
+    background-color: $black;
+    color: $white;
+
+    &:hover {
+      background-color: lighten($black, 5%);
+    }
+  }
+
   @if ($is-ie == false) or ($ie-version >= 8) {
     .js-enabled & {
       .pub-c-search__label {
-        position: absolute;
-        left: 15px;
-        top: 1px;
-        z-index: 1;
-        @include core-19($line-height: $input-size, $line-height-640: $input-size);
         color: $secondary-text-colour;
       }
     }
+  }
+}
 
-    .pub-c-search__item-wrapper {
-      display: table;
-      width: 100%;
-      background: $white;
-    }
 
-    //general class applied to search input and button wrapper
-    .pub-c-search__item {
-      position: relative;
-      display: table-cell;
-      vertical-align: top;
-    }
+.pub-c-search--on-white {
+  .pub-c-search__label {
+    color: $black;
+  }
 
-    .pub-c-search__input {
-      margin: 0;
+  .pub-c-search__input[type="search"] {
+    border: solid 1px $grey-2;
+  }
 
-      // the .focus class is added by JS and ensures that the input remains above the label once clicked/filled in
-      &:focus,
-      &.focus {
-        z-index: 2;
-      }
-    }
+  .pub-c-search__submit {
+    background-color: $light-blue;
+    color: $white;
 
-    .pub-c-search__submit-wrapper {
-      width: 1%;
-    }
-
-    .pub-c-search__submit {
-      position: relative;
-      padding: 0;
-      width: $input-size;
-      height: $input-size;
-      background-image: image-url("search-button.png");
-      background-repeat: no-repeat;
-      background-position: 2px 50%;
-      text-indent: -5000px;
-      overflow: hidden;
-
-      &:focus {
-        z-index: 2;
-      }
-
-      &::-moz-focus-inner {
-        border: 0;
-      }
-
-      @include device-pixel-ratio() {
-        background-size: 52.5px auto;
-        background-position: 115% 50%;
-      }
+    &:hover {
+      background-color: lighten($light-blue, 5%);
     }
   }
 
-  &.pub-c-search--on-govuk-blue {
-    .pub-c-search__label {
-      color: $white;
+  @if ($is-ie == false) or ($ie-version >= 8) {
+    .pub-c-search__input[type="search"] {
+      border-right: 0;
     }
 
-    .pub-c-search__submit {
-      background-color: $black;
-      color: $white;
-
-      &:hover {
-        background-color: lighten($black, 5%);
-      }
-    }
-
-    @if ($is-ie == false) or ($ie-version >= 8) {
-      .js-enabled & {
-        .pub-c-search__label {
-          color: $secondary-text-colour;
-        }
+    .js-enabled & {
+      .pub-c-search__label {
+        color: $secondary-text-colour;
       }
     }
   }
+}
 
-
-  &.pub-c-search--on-white {
-    .pub-c-search__label {
-      color: $black;
-    }
-
-    .pub-c-search__input {
-      border: solid 1px $grey-2;
-    }
-
-    .pub-c-search__submit {
-      background-color: $light-blue;
-      color: $white;
-
-      &:hover {
-        background-color: lighten($light-blue, 5%);
-      }
-    }
-
-    @if ($is-ie == false) or ($ie-version >= 8) {
-      .pub-c-search__input {
-        border-right: 0;
-      }
-
-      .js-enabled & {
-        .pub-c-search__label {
-          color: $secondary-text-colour;
-        }
-      }
-    }
+.pub-c-search--large {
+  .pub-c-search__label {
+    @include core-19($line-height: $large-input-size, $line-height-640: $large-input-size);
   }
 
-  &.pub-c-search--large {
-    $input-size: 50px;
-
-    .pub-c-search__label {
-      @include core-19($line-height: $input-size, $line-height-640: $input-size);
-    }
-
-    .pub-c-search__input {
-      height: $input-size;
-    }
-
-    .pub-c-search__submit {
-      width: $input-size;
-      height: $input-size;
-      background-position: 8px 50%;
-
-      @include device-pixel-ratio() {
-        background-size: 60px auto;
-        background-position: 160% 50%;
-      }
-    }
+  .pub-c-search__input[type="search"] {
+    height: $large-input-size;
   }
 
-  &.pub-c-search--separate-label {
-    .pub-c-search__label {
-      position: relative;
-      left: auto;
+  .pub-c-search__submit {
+    width: $large-input-size;
+    height: $large-input-size;
+    background-position: 8px 50%;
+
+    @include device-pixel-ratio() {
+      background-size: 60px auto;
+      background-position: 160% 50%;
     }
+  }
+}
+
+.pub-c-search--separate-label {
+  .pub-c-search__label {
+    position: relative;
+    left: auto;
   }
 }
