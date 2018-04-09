@@ -176,7 +176,7 @@ GEM
       capybara (~> 2.2)
       minitest (~> 5.0)
       rake
-    mocha (1.4.0)
+    mocha (1.5.0)
       metaclass (~> 0.0.1)
     money (6.11.0)
       i18n (>= 0.6.4, < 1.1)
@@ -347,7 +347,7 @@ DEPENDENCIES
   jasmine-rails (~> 0.14.1)
   minitest
   minitest-capybara (~> 0.8.2)
-  mocha (~> 1.4.0)
+  mocha (~> 1.5.0)
   nokogiri (~> 1.7)
   plek (= 2.1.1)
   poltergeist
