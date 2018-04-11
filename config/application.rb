@@ -52,6 +52,9 @@ module Static
 
     config.paths["log"] = ENV["LOG_PATH"] if ENV["LOG_PATH"]
 
+    # Google Analytics ID
+    config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-UNSET")
+
     # Slimmer is used by the govuk_publishing_components gem, however it inserts itself
     # automatically as middleware in the host Rails application
     # Disable Slimmer middleware for Static and enable for use in gem only
