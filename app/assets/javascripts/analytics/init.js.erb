@@ -1,4 +1,4 @@
-(function(global) {
+(function() {
   "use strict";
 
   // Load Google Analytics libraries
@@ -21,10 +21,4 @@
 
   // Make interface public for virtual pageviews and events
   GOVUK.analytics = analytics;
-
-  if (global.ga) {
-    var ga = global.ga;
-    ga('require', 'linker');
-    ga('linker:autoLink', ['planforbritain.gov.uk']);
-  }
-})(window);
+})();
