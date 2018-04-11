@@ -8,4 +8,5 @@ Rails.application.config.assets.precompile += %w{
   header-footer-only*.css
   core-layout*.css
   static-print.css
+  error-page.css
 }

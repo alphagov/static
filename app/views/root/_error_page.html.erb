@@ -1,6 +1,14 @@
 <% title = "Sorry, we're experiencing technical difficulties (#{status_code} error)" unless local_assigns.include?(:title) %>
 <% content_for :title, "#{title} - GOV.UK" %>
 
+<% content_for :head do %>
+  <%= stylesheet_link_tag "error-page", media: "screen" %>
+<% end %>
+
+<% content_for :body_end do %>
+  <%= javascript_include_tag "error-page" %>
+<% end %>
+
 <% content_for :body_classes, "mainstream error" %>
 
 <% content_for :wrapper_content do %>
@@ -26,6 +34,10 @@
       </div>
     </article>
   </div>
+
+<% if status_code.in?(400..499) %>
+  <%= render "govuk_publishing_components/components/feedback" %>
+<% end %>
 
 <% if status_code %>
   <script type="text/javascript">
