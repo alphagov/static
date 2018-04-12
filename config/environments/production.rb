@@ -67,4 +67,6 @@ Rails.application.configure do
   config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
 
   config.eager_load = true
+
+  config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-26179049-1")
 end
