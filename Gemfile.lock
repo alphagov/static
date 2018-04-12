@@ -1,7 +1,6 @@
 GIT
   remote: git://github.com/alphagov/govuk_template.git
-  revision: b3e4fb8228baca96e4629cbee12b3addc3be954f
-  ref: b3e4fb8228baca96e4629cbee12b3addc3be954f
+  revision: 630dae63bb43db12c1d60838c016f0a25cc7f717
   specs:
     govuk_template (0.23.0)
       rails (>= 3.1)
