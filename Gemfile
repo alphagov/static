@@ -39,5 +39,5 @@ end
 
 gem 'plek', '2.1.1'
 gem 'govuk_frontend_toolkit', '~> 7.4.1'
-gem 'govuk_template', '0.23.0'
+gem 'govuk_template', github: 'alphagov/govuk_template', ref: 'b3e4fb8228baca96e4629cbee12b3addc3be954f'
 gem 'gds-api-adapters', '~> 52.5'
