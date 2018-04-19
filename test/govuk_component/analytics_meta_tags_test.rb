@@ -369,6 +369,26 @@ class AnalyticsMetaTagsTestCase < ComponentTestCase
     assert_meta_tag("govuk:content-has-history", "true")
   end
 
+  test "renders the static-analytics:strip-dates tag if the content item is a 'smart-answer'" do
+    render_component(content_item: { document_type: 'smart_answer' })
+    assert_meta_tag("govuk:static-analytics:strip-dates", "true")
+  end
+
+  test "doesn't render the static-analytics:strip-dates tag if the document_type isn't relevant" do
+    render_component(content_item: { document_type: 'guidance' })
+    assert_no_meta_tag("govuk:static-analytics:strip-dates")
+  end
+
+  test "renders the static-analytics:strip-dates tag if explicitly told to even if it wouldn't otherwise" do
+    render_component(content_item: { document_type: 'guidance' }, strip_date_pii: true)
+    assert_meta_tag("govuk:static-analytics:strip-dates", "true")
+  end
+
+  test "doesn't render the static-analytics:strip-dates tag if explicitly told not to even if it would otherwise" do
+    render_component(content_item: { document_type: 'smart_answer' }, strip_date_pii: false)
+    assert_no_meta_tag("govuk:static-analytics:strip-dates")
+  end
+
   test "renders the static-analytics:strip-postcodes tag if the content item is a 'smart-answer'" do
     render_component(content_item: { document_type: 'smart_answer' })
     assert_meta_tag("govuk:static-analytics:strip-postcodes", "true")
