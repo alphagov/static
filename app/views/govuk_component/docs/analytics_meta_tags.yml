@@ -1,10 +1,7 @@
-name: Analytics Meta Tags
+name: Analytics Meta Tags (deprecated)
 description: Meta tags to provide analytics information about the current page
 body: |
-  Currently this just takes a content-store links hash like object which it
-  can then turn into the correct analytics identifier metadata tags.
-
-  The code which reads the meta tags can be found <a href="https://github.com/alphagov/static/blob/master/app/assets/javascripts/analytics/static-analytics.js#L76-L96">in static-analytics.js</a>.
+  **Don't use this**. Use the [new component in the gem instead](https://govuk-publishing-components.herokuapp.com/component-guide/meta_tags)
 accessibility_criteria: |
   The analytics meta tags component should not be visible to any users.
 examples:
