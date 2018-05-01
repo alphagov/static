@@ -89,6 +89,20 @@
 
   meta_tags["govuk:content-has-history"] = "true" if has_content_history(content_item_hash)
 
+  def should_strip_date_pii?(content_item, local_assigns)
+    # allow override if we explicitly want to strip pii (or not) regardless of
+    # document_type
+    return local_assigns[:strip_date_pii] if local_assigns.key?(:strip_date_pii)
+
+    formats_that_might_include_dates = [
+      'smart_answer'
+    ]
+    formats_that_might_include_dates.include?(content_item[:document_type])
+  end
+
+  meta_tags["govuk:static-analytics:strip-dates"] = "true" if should_strip_date_pii?(content_item_hash, local_assigns)
+
+
   def should_strip_postcode_pii?(content_item, local_assigns)
     # allow override if we explicitly want to strip pii (or not) regardless of
     # document_type
