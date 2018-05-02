@@ -224,6 +224,70 @@
           ]
         },
         allowedOnMobile: true
+      },
+      {
+        identifier: 'home_office_research_survey_1',
+        surveyType: 'url',
+        frequency: 5,
+        startTime: new Date('May 01, 2018').getTime(),
+        endTime: new Date('November 01, 2018').getTime(),
+        url: 'https://www.homeofficesurveys.homeoffice.gov.uk/s/MLSJL/',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community',
+          surveyCtaPostscript: 'This link opens in a new tab'
+        },
+        activeWhen: {
+          path: [
+            '^/guidance/status-of-eu-nationals-in-the-uk-what-you-need-to-know$',
+            '^/government/news/blue-uk-passport-to-return-after-eu-exit$',
+            '^/government/publications/eu-citizens-arriving-in-the-uk-during-the-implementation-period/eu-citizens-arriving-in-the-uk-during-the-implementation-period$',
+            '^/government/organisations/home-office/about/complaints-procedure$',
+            '^/emergency-travel-document/how-to-apply$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'home_office_research_survey_2',
+        surveyType: 'url',
+        frequency: 5,
+        startTime: new Date('May 01, 2018').getTime(),
+        endTime: new Date('November 01, 2018').getTime(),
+        url: 'https://www.homeofficesurveys.homeoffice.gov.uk/s/WGPEU/',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community',
+          surveyCtaPostscript: 'This link opens in a new tab'
+        },
+        activeWhen: {
+          path: [
+            '^/emergency-travel-document/how-to-apply$',
+            '^/government/collections/uk-leaving-the-eu-what-you-need-to-know$',
+            '^/guidance/dbs-check-requests-guidance-for-employers$',
+            '^/government/case-studies/example-case-studies-eu-citizens-rights-in-the-uk$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'home_office_research_survey_3',
+        surveyType: 'url',
+        frequency: 5,
+        startTime: new Date('May 01, 2018').getTime(),
+        endTime: new Date('November 01, 2018').getTime(),
+        url: 'https://www.homeofficesurveys.homeoffice.gov.uk/s/B4F8A/',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Answer some questions about yourself to join the research community',
+          surveyCtaPostscript: 'This link opens in a new tab'
+        },
+        activeWhen: {
+          path: [
+            '^/choose-uk-visit-short-stay-visa$'
+          ]
+        },
+        allowedOnMobile: true
       }
     ],
 
