@@ -7,8 +7,16 @@ class RootController < ApplicationController
 
   caches_page :template, :raw_govuk_component_template, :govuk_available_locales, :govuk_locales
 
+  REMOVED_TEMPLATES = %w[
+    analytics_meta_tags
+  ].freeze
+
   def raw_govuk_component_template
-    render_raw_template("govuk_component", params[:template])
+    if params[:template].in?(REMOVED_TEMPLATES)
+      render inline: "The #{params[:template]} component has been removed", status: 410
+    else
+      render_raw_template("govuk_component", params[:template])
+    end
   end
 
   def govuk_component_docs

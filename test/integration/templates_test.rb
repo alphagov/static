@@ -27,6 +27,12 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       get "/templates/_base.html.erb"
       assert_equal 404, last_response.status
     end
+
+    should "be 410 for removed templates" do
+      get "/templates/govuk_component/analytics_meta_tags.raw.html.erb"
+
+      assert_equal 410, last_response.status
+    end
   end
 
   context "fetching raw templates" do
