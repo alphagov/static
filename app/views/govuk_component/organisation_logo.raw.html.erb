@@ -6,24 +6,13 @@
 %>
 <div class="govuk-organisation-logo <%= organisation[:brand] %>">
   <% if organisation[:url] %>
-    <a href="<%= organisation[:url] %>" class="<%= logo_container_class %>">
+    <%= link_to organisation[:url],
+        class: logo_container_class do %>
+      <%= render file: 'govuk_component/organisation_logo_section.raw', locals: { organisation: organisation } %>
+    <% end %>
   <% else %>
     <div class="<%= logo_container_class %>">
-  <% end %>
-
-  <% if organisation[:image] %>
-    <img
-      class="logo-image"
-      src="<%= organisation[:image][:url] %>"
-      <% if organisation[:image][:alt_text] %>alt="<%= organisation[:image][:alt_text] %>"<% end %>
-    />
-  <% else %>
-    <span><%= raw organisation[:name] %></span>
-  <% end %>
-
-  <% if organisation[:url] %>
-    </a>
-  <% else %>
+      <%= render file: 'govuk_component/organisation_logo_section.raw', locals: { organisation: organisation } %>
     </div>
   <% end %>
 </div>
