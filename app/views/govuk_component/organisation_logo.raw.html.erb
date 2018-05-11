@@ -4,10 +4,11 @@
   logo_container_class = "#{logo_container_class} logo-link" if organisation[:url]
   logo_container_class = "#{logo_container_class} logo-with-crest crest-#{organisation[:crest]}" if organisation[:crest]
 %>
-<div class="govuk-organisation-logo <%= organisation[:brand] %>">
+<div class="govuk-organisation-logo <%= organisation[:brand] %>" <%= "data-module=track-click" if organisation[:data_attributes] %>>
   <% if organisation[:url] %>
     <%= link_to organisation[:url],
-        class: logo_container_class do %>
+        class: logo_container_class,
+        data: organisation[:data_attributes] do %>
       <%= render file: 'govuk_component/organisation_logo_section.raw', locals: { organisation: organisation } %>
     <% end %>
   <% else %>
