@@ -7,7 +7,7 @@
 %>
 
 <div class="govuk-breadcrumbs <%= collapse_class %>" data-module="track-click">
-  <ol>
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
   <% breadcrumbs.each_with_index do |crumb, index| %>
     <%
       is_link = crumb[:url].present? || crumb[:is_current_page]
@@ -16,10 +16,9 @@
       css_class = invert_class.concat(crumb[:is_current_page] ? ' breadcrumb-for-current-page ' : '')
     %>
 
-    <li class='<%= "parent-breadcrumb" if crumb[:is_page_parent] %>'>
+    <li class='<%= "parent-breadcrumb" if crumb[:is_page_parent] %>' itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
       <% if is_link %>
         <%= link_to(
-          crumb[:title],
           path,
           data: {
             track_category: 'breadcrumbClicked',
@@ -33,11 +32,15 @@
           class: css_class,
           aria: {
             current: aria_current,
-          }
-        ) %>
+          },
+          itemprop: "item",
+        ) do %>
+          <span itemprop="name"><%= crumb[:title] %></span>
+        <% end %>
       <% else %>
-        <%= crumb[:title] %>
+        <span itemprop="name"><%= crumb[:title] %></span>
       <% end %>
+      <meta itemprop="position" content="<%= index + 1 %>" />
     </li>
   <% end %>
   </ol>
