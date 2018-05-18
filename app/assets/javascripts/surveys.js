@@ -657,15 +657,6 @@
       }
     },
 
-    breadcrumbMatch: function (breadcrumbs) {
-      if (breadcrumbs === undefined) {
-        return false
-      } else {
-        var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join('|'), 'i')
-        return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb())
-      }
-    },
-
     sectionMatch: function (sections) {
       if (sections === undefined) {
         return false
@@ -696,17 +687,15 @@
     activeWhen: function (survey) {
       if (survey.hasOwnProperty('activeWhen')) {
         if (survey.activeWhen.hasOwnProperty('path') ||
-          survey.activeWhen.hasOwnProperty('breadcrumb') ||
           survey.activeWhen.hasOwnProperty('section') ||
           survey.activeWhen.hasOwnProperty('organisation') ||
           survey.activeWhen.hasOwnProperty('tlsCookieVersionLimit')) {
           var matchType = (survey.activeWhen.matchType || 'include')
           var matchByTlsCookie = userSurveys.tlsCookieMatch(survey.activeWhen.tlsCookieVersionLimit)
           var matchByPath = userSurveys.pathMatch(survey.activeWhen.path)
-          var matchByBreadcrumb = userSurveys.breadcrumbMatch(survey.activeWhen.breadcrumb)
           var matchBySection = userSurveys.sectionMatch(survey.activeWhen.section)
           var matchByOrganisation = userSurveys.organisationMatch(survey.activeWhen.organisation)
-          var pageMatches = (matchByTlsCookie || matchByPath || matchByBreadcrumb || matchBySection || matchByOrganisation)
+          var pageMatches = (matchByTlsCookie || matchByPath || matchBySection || matchByOrganisation)
 
           if (matchType !== 'exclude') {
             return pageMatches
@@ -723,7 +712,6 @@
 
     currentTime: function () { return new Date().getTime() },
     currentPath: function () { return window.location.pathname },
-    currentBreadcrumb: function () { return $('.govuk-breadcrumbs').text() || '' },
     currentSection: function () { return $('meta[name="govuk:section"]').attr('content') || '' },
     currentThemes: function () { return $('meta[name="govuk:themes"]').attr('content') || '' },
     currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' },
