@@ -9,6 +9,7 @@ class RootController < ApplicationController
 
   REMOVED_TEMPLATES = %w[
     analytics_meta_tags
+    breadcrumbs
     button
   ].freeze
 
