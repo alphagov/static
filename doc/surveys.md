@@ -23,7 +23,6 @@ Once a user takes the survey (clicks the link or fills in their email address an
   activeWhen: {
     section: ['education and learning'],
     path: ['guidance/social-care-common-inspection-framework-sccif-boarding-schools'],
-    breadcrumb: ['Schools'],
     organisation: ['<D106>'],
     matchType: 'include'
   },
@@ -191,7 +190,6 @@ By default a survey will run on all pages on GOV.UK. If you specify parameters i
 
 * `matchType` - (optional) the default is "include". This tells us how to interpret the other params. For "include" we treat the params as limiting the survey to only display on those pages that match one or more of the params. For "exclude" we treat the params as limiting the survey to only display on those pages that do not match any of the params. If the value is other than "include" or "exclude" it is assumed to be "include".
 * `path` - (optional). If present this is used to match complete path segments in the path of the page. Each entry is turned into a regexp as follows: `statistcis` becomes `/\/statistics(\/|$)/` and this means that a value of "statistics" would match a path like "/government/statistics/a-very-large-report", but not a path like "/guidance/how-to-download-statistics-and-announcements". If you use regex special characters `^` or `$` then the string is not changed before being turned into a regexp to match paths.
-* `breadcrumb` - (optional). If present this is used to match against the text in the `.govuk-breadcrumb` element on the page. The text match is case-insensitive and does not attempt to match complete words so `hats` would match `Hats` and `Chats`.
 * `section` - (optional). If present this is used to match against the value of the content attribute of the `govuk:section` (old style mainstream navigation hierarchy) and `govuk:themes` (new style taxonomy-based navigation hierarchy) meta tags on the page. The text match is case-insensitive and does not attempt to match complete words so `hats` would match `Hats` and `Chats`.  Note that `govuk:section` usually contains `Human Readable` values, whereas `govuk:themes` usually contains `machine-readable` values, but the matcher does not try to normalise these values, so bear that in mind while using this to target a survey.
 * `organisation` - (optional). If present this is used to match against the value of the content attribute of the `govuk:analytics:organisations` meta tag on the page. The text match is case-sensitive and does not attempt to match complete words so `hats` would match `hats` and `Chats`, but not `Hats`. You can find the organisation's analytics identifier using the content store, e.g. for HM Revenue Customs ([api/content/government/organisations/hm-revenue-customs](https://www.gov.uk/api/content/government/organisations/hm-revenue-customs)), the identifier is `D25`. This would typically be represented as `<D25>` in the meta tag.
 * `tlsCookieVersionLimit` - (optional). If present this is used to compare the TLS version stored in the `TLSVersion` cookie.
@@ -203,13 +201,12 @@ In the example above, the survey will only be considered "active" on pages with 
 1. a govuk:section meta tag with "education and learning",
 2. a path that includes `guidance/social-care-common-inspection-framework-sccif-boarding-schools`
 3. a govuk:analytics:organisation that includes `<D106>`
-4. the word `Schools` appearing in the text of the `.govuk-breadcrumb` element on the page
 
 Not providing any `activeWhen` parameters, or providing an empty `activeWhen` parameter will apply the survey to all pages on GOV.UK between `startTime` and `endTime`, so take care when doing this.
 
 #### Performance considerations
 
-Remember that the decision to show a survey or not is done on the client browser and happens on every request.  We first throw away any surveys that haven't started yet, or have ended already and then we check the `activeWhen` parameters.  So if you have a survey with lots of parameters and values in `activeWhen` this could cause performance issues for the browser so you should be careful when describing which pages the survey should appear on.  If you have 100s of pages to run the survey on, can you target them all by a single breadcrumb or organisation instead of doing 100s of path comparisons?  If none of the parameters can be combined to cover all the pages without requiring lots of comparisons you may need to add new parameter types to the surveys code, or come up with a different set of pages to target.
+Remember that the decision to show a survey or not is done on the client browser and happens on every request.  We first throw away any surveys that haven't started yet, or have ended already and then we check the `activeWhen` parameters.  So if you have a survey with lots of parameters and values in `activeWhen` this could cause performance issues for the browser so you should be careful when describing which pages the survey should appear on.  If you have 100s of pages to run the survey on, can you target them all by a organisation instead of doing 100s of path comparisons?  If none of the parameters can be combined to cover all the pages without requiring lots of comparisons you may need to add new parameter types to the surveys code, or come up with a different set of pages to target.
 
 ### TLS Version detection ###
 

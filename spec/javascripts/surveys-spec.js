@@ -1223,53 +1223,6 @@ describe('Surveys', function () {
         })
       })
 
-      describe('breadcrumb matches', function () {
-        it('returns true if the breadcrumb definition matches something in the breadcrumb text', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['education']
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools')
-          expect(surveys.activeWhen(survey)).toBe(true)
-        })
-
-        it('returns false if the breadcrumb definition does not match the breadcrumb text at all', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['childcare']
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools')
-          expect(surveys.activeWhen(survey)).toBe(false)
-        })
-
-        it('returns true if any of the breadcrumb definitions matches the breadcrumb text', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['education', 'childcare']
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education and learning  Schools', 'Home  Childcare and parenting  Maternity leave')
-          expect(surveys.activeWhen(survey)).toBe(true)
-          expect(surveys.activeWhen(survey)).toBe(true)
-        })
-
-        it('returns false if none of the breadcrumb definitions matches the breadcrumb text', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['education', 'childcare']
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Benefits  Benfits for families')
-          expect(surveys.activeWhen(survey)).toBe(false)
-        })
-      })
-
       describe('section matches', function () {
         it('returns true if the section definition matches something in the section meta tag', function () {
           var survey = {
@@ -1433,18 +1386,15 @@ describe('Surveys', function () {
           identifier: 'a_survey',
           activeWhen: {
             path: ['^/government/statistics/?$'],
-            breadcrumb: ['education'],
             section: ['schools'],
             organisation: ['<D10>']
           }
         }
 
         spyOn(surveys, 'currentPath').and.returnValues('/government/statistics/a-long-detailed-report.xls', '/government/statistics', '/government/publications/', '/find-your-local-council', '/')
-        spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education', 'Home', 'Home  Schools  Applying for a place', 'Home  Benefits  Family benefits', 'Home')
         spyOn(surveys, 'currentSection').and.returnValues('education', '', 'schools', 'benefits', 'homepage')
         spyOn(surveys, 'currentOrganisation').and.returnValues('<E1555><F12>', '<D20>', '<E1234>', '<D20><F10>', '<D10><E134>')
 
-        expect(surveys.activeWhen(survey)).toBe(true) // because of the breadcrumb
         expect(surveys.activeWhen(survey)).toBe(true) // because of the path
         expect(surveys.activeWhen(survey)).toBe(true) // because of the section
         expect(surveys.activeWhen(survey)).toBe(false) // because nothing matches
@@ -1536,57 +1486,6 @@ describe('Surveys', function () {
           expect(surveys.activeWhen(survey)).toBe(true)
           expect(surveys.activeWhen(survey)).toBe(true)
           expect(surveys.activeWhen(survey)).toBe(true)
-          expect(surveys.activeWhen(survey)).toBe(true)
-        })
-      })
-
-      describe('breadcrumb matches', function () {
-        it('returns false if the breadcrumb definition matches something in the breadcrumb text', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['education'],
-              matchType: 'exclude'
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools')
-          expect(surveys.activeWhen(survey)).toBe(false)
-        })
-
-        it('returns true if the breadcrumb definition does not match the breadcrumb text at all', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['childcare'],
-              matchType: 'exclude'
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Education and learning  Schools')
-          expect(surveys.activeWhen(survey)).toBe(true)
-        })
-
-        it('returns false if any of the breadcrumb definitions matches the breadcrumb text', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['education', 'childcare'],
-              matchType: 'exclude'
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValues('Home  Education and learning  Schools', 'Home  Childcare and parenting  Maternity leave')
-          expect(surveys.activeWhen(survey)).toBe(false)
-          expect(surveys.activeWhen(survey)).toBe(false)
-        })
-
-        it('returns true if none of the breadcrumb definitions matches the breadcrumb text', function () {
-          var survey = {
-            identifier: 'a_survey',
-            activeWhen: {
-              breadcrumb: ['education', 'childcare'],
-              matchType: 'exclude'
-            }
-          }
-          spyOn(surveys, 'currentBreadcrumb').and.returnValue('Home  Benefits  Benfits for families')
           expect(surveys.activeWhen(survey)).toBe(true)
         })
       })
