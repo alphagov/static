@@ -190,6 +190,219 @@
           ]
         },
         allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc-additional-needs',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 24, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=additional_needs_hmrc&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=145&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/dealing-hmrc-additional-needs$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'additional-needs-hmrc-hearing',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 24, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=additional_needs_hearing&utm_source=Other&utm_medium=other&t=HMRC&id=146&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/dealing-hmrc-additional-needs/deaf-hearing-impaired$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'additional-needs-hmrc-sight',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 24, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=additional_needs_hmrc_sight&utm_source=Other&utm_medium=other&t=HMRC&id=147&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/dealing-hmrc-additional-needs/blind-partially-sighted$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'additional-needs-hmrc-language',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 24, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=additional_needs_hmrc_language&utm_source=Other&utm_medium=other&t=HMRC&id=148&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/dealing-hmrc-additional-needs/english-not-first-language$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'additional-needs-hmrc-general',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 24, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=additional_needs_hmrc&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=145&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/government/publications/tax-credits-disability-helpsheet-tc956$',
+            '^/government/collections/vat-reliefs-for-charities-disabled-and-older-people$',
+            '^/help-friends-family-tax$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'agent-hmrc',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 24, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=agent&utm_source=Other&utm_medium=other&t=HMRC&id=149&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/government/collections/hmrc-online-services-for-agents$',
+            '^/guidance/client-authorisation-an-overview$',
+            '^/guidance/client-authorisation-an-overview$',
+            '^/topic/dealing-with-hmrc/tax-agent-guidance$',
+            '^/government/collections/agent-update$',
+            '^/sdlt-online$',
+            '^/government/collections/online-security-information-for-agents$',
+            '^/government/collections/tax-agents-toolkits$',
+            '^/government/publications/agents-strategy-an-overview$',
+            '^/government/publications/agents-strategy-an-overview/agents-strategy-an-overview$',
+            '^/government/publications/hmrc-agent-toolkits-film-transcript$',
+            '^/government/publications/agent-and-client-statistics$',
+            '^/guidance/self-assessment-for-agents-online-service$',
+            '^/guidance/vat-online-services-for-agents$',
+            '^/guidance/get-an-hmrc-agent-services-account$',
+            '^/government/publications/agent-update-self-assessment-special$',
+            '^/guidance/hmrc-working-with-tax-agents-blog$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'cds-user-panel',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('July 02, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=CDSusersignup&utm_source=Other&utm_medium=other&t=HMRC&id=110&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/government/news/getting-ready-for-the-customs-declaration-service$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc-trusts-govuk',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('August 01, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=TrustsGOVuk&utm_source=govukother&utm_medium=gov.uk&t=HMRC&id=150&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/trusts-taxes$',
+            '^/guidance/register-your-clients-trust$',
+            '^/guidance/register-your-clients-estate$',
+            '^/guidance/register-your-clients-estate$',
+            '^/trusts-taxes/trustees-tax-responsibilities$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'hmrc-awrs',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('August 01, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=AWRSgov&utm_source=Other&utm_medium=other&t=HMRC&id=43&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/check-alcohol-wholesaler-registration$'
+          ]
+        },
+        allowedOnMobile: true
+      },
+      {
+        identifier: 'sdes-gov',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date('May 18, 2018').getTime(),
+        endTime: new Date('August 31, 2018').getTime(),
+        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=SDESGov&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=152&c={{currentPath}}',
+        templateArgs: {
+          title: 'Help improve GOV.UK',
+          surveyCta: 'Get involved in making government services better',
+          surveyCtaPostscript: 'This will open a short survey on another website'
+        },
+        activeWhen: {
+          path: [
+            '^/government/collections/secure-electronic-transfer$',
+            '^/guidance/hmrc-secure-data-exchange-service-sdes$'
+          ]
+        },
+        allowedOnMobile: true
       }
     ],
 
