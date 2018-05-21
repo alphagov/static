@@ -838,7 +838,7 @@
 
     currentTime: function () { return new Date().getTime() },
     currentPath: function () { return window.location.pathname },
-    currentBreadcrumb: function () { return $('.govuk-breadcrumbs').text() || '' },
+    currentBreadcrumb: function () { return $('.gem-c-breadcrumbs').text() || '' },
     currentSection: function () { return $('meta[name="govuk:section"]').attr('content') || '' },
     currentThemes: function () { return $('meta[name="govuk:themes"]').attr('content') || '' },
     currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' },
