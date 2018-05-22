@@ -1,19 +1,13 @@
 ---
 sr:
   govuk_component:
-    document_footer:
-      published: 
-      updated: 
-      full_page_history: 
-      from: 
-      part_of: 
     metadata:
-      from: 
-      part_of: 
-      location: 
+      from:
+      part_of:
+      location:
       applies_to_nations: Odnosi se na
       field_of_operation: polje delovanja
-      history: 
-      published: 
-      last_updated: 
-      see_all_updates: 
+      history:
+      published:
+      last_updated:
+      see_all_updates:

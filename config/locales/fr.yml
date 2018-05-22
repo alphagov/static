@@ -1,19 +1,13 @@
 ---
 fr:
   govuk_component:
-    document_footer:
-      published: 
-      updated: 
-      full_page_history: 
-      from: 
-      part_of: 
     metadata:
-      from: 
-      part_of: 
-      location: 
+      from:
+      part_of:
+      location:
       applies_to_nations: s'appliquant à
       field_of_operation: Domaine d'activité
       history: Historique de page
-      published: 
-      last_updated: 
-      see_all_updates: 
+      published:
+      last_updated:
+      see_all_updates:

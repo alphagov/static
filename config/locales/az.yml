@@ -1,19 +1,13 @@
 ---
 az:
   govuk_component:
-    document_footer:
-      published: 
-      updated: 
-      full_page_history: 
-      from: 
-      part_of: 
     metadata:
-      from: 
-      part_of: 
-      location: 
+      from:
+      part_of:
+      location:
       applies_to_nations: tətbiq olunur
       field_of_operation: "əməliyyat sahəsi"
-      history: 
-      published: 
-      last_updated: 
-      see_all_updates: 
+      history:
+      published:
+      last_updated:
+      see_all_updates:
