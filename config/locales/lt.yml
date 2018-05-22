@@ -1,19 +1,13 @@
 ---
 lt:
   govuk_component:
-    document_footer:
-      published: 
-      updated: 
-      full_page_history: 
-      from: 
-      part_of: 
     metadata:
-      from: 
-      part_of: 
-      location: 
+      from:
+      part_of:
+      location:
       applies_to_nations: Susiję su
       field_of_operation: Veiklos laukas
-      history: 
-      published: 
-      last_updated: 
-      see_all_updates: 
+      history:
+      published:
+      last_updated:
+      see_all_updates:

@@ -1,12 +1,6 @@
 ---
 ar:
   govuk_component:
-    document_footer:
-      published: "نُشِر"
-      updated: "حُدِّث"
-      full_page_history:
-      from: "من"
-      part_of:
     metadata:
       from: "من"
       part_of:
