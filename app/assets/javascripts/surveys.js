@@ -70,64 +70,6 @@
     },
     smallSurveys: [
       {
-        identifier: 'hmrc_march_duty_free',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('March 28, 2018').getTime(),
-        endTime: new Date('June 1, 2018').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Passengers&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=139',
-        templateArgs: {
-          title: 'Get involved in making government services better',
-          surveyCta: 'Take the 3 minute survey.',
-          surveyCtaPostscript: 'This will open a short survey on another website.'
-        },
-        activeWhen: {
-          path: [
-            '^/duty-free-goods/arrivals-from-outside-the-eu$',
-            '^/duty-free-goods/arrivals-from-eu-countries$'
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'hmrc_march_international_post',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('March 28, 2018').getTime(),
-        endTime: new Date('June 1, 2018').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=Parcels&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=140',
-        templateArgs: {
-          title: 'Get involved in making government services better',
-          surveyCta: 'Take the 3 minute survey.',
-          surveyCtaPostscript: 'This will open a short survey on another website.'
-        },
-        activeWhen: {
-          path: [
-            '^/government/publications/notice-143-a-guide-for-international-post-users$'
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'hmrc_march_vat_overseas',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('March 28, 2018').getTime(),
-        endTime: new Date('June 1, 2018').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Parcels&utm_source=Other&utm_medium=gov.uk&t=HMRC&id=140',
-        templateArgs: {
-          title: 'Get involved in making government services better',
-          surveyCta: 'Take the 3 minute survey.',
-          surveyCtaPostscript: 'This will open a short survey on another website.'
-        },
-        activeWhen: {
-          path: [
-            '^/guidance/vat-overseas-businesses-using-an-online-marketplace-to-sell-goods-in-the-uk$'
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
         identifier: 'home_office_research_survey_1',
         surveyType: 'url',
         frequency: 5,
