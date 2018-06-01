@@ -1,5 +1,5 @@
-name: Beta Banner
-description: A banner that indicates content is in a beta phase, with an optional explanation
+name: Beta Banner (DEPRECATED)
+description: "DEPRECATED: Use http://govuk-publishing-components.herokuapp.com/component-guide/phase_banner"
 accessibility_criteria: |
   The beta label must:
 

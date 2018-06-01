@@ -1,16 +1,5 @@
-name: Previous and next navigation
-description: Navigational links that allow users to navigate within a series of pages
-  or elements.
-body: |
-  This component accepts 2 optional parameters, previous and next.
-
-  Each optional parameter accepts:
-
-  - an URL for the link
-  - a title for the URL
-  - a label that can add extra info (ie page number) that will be displayed under the title
-
-  If one of the 2 parameters is nil, no link will appear.
+name: Previous and next navigation (DEPRECATED)
+description: "DEPRECATED: Use http://govuk-publishing-components.herokuapp.com/component-guide/previous_and_next_navigation"
 accessibility_criteria: |
   Icons in the component must not be announced by screen readers.
 

@@ -1,16 +1,5 @@
-name: Govspeak content
-description: To display long form text which has been converted from Govspeak
-body: |
-  [Govspeak](https://github.com/alphagov/govspeak) is GOV.UK's extension of Markdown.
-
-  This component has no control over markup, which is passed in to the component pre-generated. It only applies CSS/JS.
-
-  It applies styling to standard Markdown content, eg; paragraphs, headings and lists. It also applies styling to Govspeak specific markup, like [callouts](https://github.com/alphagov/govspeak#callouts), [contacts](https://github.com/alphagov/govspeak#points-of-contact) and [highlights](https://github.com/alphagov/govspeak#highlights).
-
-  In addition to styling, it also applies some Javascript behaviours.
-
-  - Progressively enhanced, accessible charts (using [Magna Charta](https://github.com/alphagov/magna-charta), derived from tabular data (see example below)
-  - Progressively enhanced, accessible embedded YouTube player (using [AccessibleMediaPlayer](https://github.com/alphagov/Accessible-Media-Player))
+name: Govspeak content (DEPRECATED)
+description: "DEPRECATED: Use http://govuk-publishing-components.herokuapp.com/component-guide/govspeak"
 accessibility_criteria: |
   - headings must be part of a correct heading structure for the page
   - text should have a text contrast ratio higher than 4.5:1 against the background colour to meet WCAG AA
