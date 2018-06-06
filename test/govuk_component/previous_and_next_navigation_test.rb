@@ -16,7 +16,6 @@ class PreviousAndNextNavigationTestCase < ComponentTestCase
       label: "1 of 3"
     })
 
-    assert_select "meta[name='robots'][content='noindex']"
     assert_select ".pub-c-pagination[role='navigation']"
     assert_select ".pub-c-pagination__link-title", text: "Previous page"
     assert_select ".pub-c-pagination__link-label", text: "1 of 3"
