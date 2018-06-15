@@ -11,6 +11,7 @@ class RootController < ApplicationController
     analytics_meta_tags
     breadcrumbs
     button
+    lead_paragraph
   ].freeze
 
   def raw_govuk_component_template
