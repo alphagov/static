@@ -1,9 +1,0 @@
- <% if organisation[:image] %>
-  <img
-    class="logo-image"
-    src="<%= organisation[:image][:url] %>"
-    <% if organisation[:image][:alt_text] %>alt="<%= organisation[:image][:alt_text] %>"<% end %>
-  />
-<% else %>
-  <span><%= raw organisation[:name] %></span>
-<% end %>
