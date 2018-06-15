@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount GovukPublishingComponents::Engine, at: "/component-guide" if defined?(GovukPublishingComponents)
+  get "/component-guide" => redirect("https://govuk-publishing-components.herokuapp.com/component-guide")
 
   scope format: false do
     get "/templates/govuk_component/:template.raw.html.erb", to: "root#raw_govuk_component_template"

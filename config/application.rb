@@ -60,7 +60,6 @@ module Static
     # Disable Slimmer middleware for Static and enable for use in gem only
     if defined?(GovukPublishingComponents)
       config.middleware.delete Slimmer::App
-      GovukPublishingComponents::Engine.config.middleware.use Slimmer::App
     end
   end
 end
