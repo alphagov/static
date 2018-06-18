@@ -11,6 +11,7 @@ class RootController < ApplicationController
     analytics_meta_tags
     breadcrumbs
     button
+    title
     lead_paragraph
   ].freeze
 
