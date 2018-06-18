@@ -13,6 +13,7 @@ class RootController < ApplicationController
     button
     title
     lead_paragraph
+    related_items
   ].freeze
 
   def raw_govuk_component_template
