@@ -8,7 +8,7 @@ gem 'actionpack-page_caching', '1.1.0'
 gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.7"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
-gem 'nokogiri', "~> 1.7"
+gem 'nokogiri', "~> 1.8"
 gem 'redis', "~> 4.0.1"
 gem 'govuk_publishing_components', '~> 8.1.0'
 gem 'govuk_app_config', '~> 1.5.0'
