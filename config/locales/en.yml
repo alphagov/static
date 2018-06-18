@@ -23,9 +23,6 @@ en:
       toggle_more: "+ %{number} more"
     previous_and_next_navigation:
       pagination: "Pagination"
-    related_items:
-      more: "More"
-      in: "in"
     task_list_related:
       part_of: "Part of"
     taxonomy_sidebar:
