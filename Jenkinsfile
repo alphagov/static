@@ -9,11 +9,6 @@ node {
 
   govuk.buildProject(
     sassLint: false,
-    beforeTest: {
-      stage("Lint component sass") {
-        govuk.sassLinter("app/assets/stylesheets/govuk-component")
-      }
-    },
     overrideTestTask: {
       stage("Test") {
         govuk.runTests("test")

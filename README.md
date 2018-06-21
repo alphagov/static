@@ -12,7 +12,6 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 
 ## Technical documentation
 
-- [Components](doc/static-components.md)
 - [Image optimisation](doc/image-optimisation.md)
 - [Slimmer templates](doc/slimmer_templates.md)
 - [Emergency Banner](doc/emergency-banner.md)
