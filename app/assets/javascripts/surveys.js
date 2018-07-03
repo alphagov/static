@@ -350,8 +350,8 @@
         identifier: 'Business_iteration 1',
         surveyType: 'url',
         frequency: 6,
-        startTime: new Date('June 29, 2018').getTime(),
-        endTime: new Date('July 4, 2018').getTime(),
+        startTime: new Date('July 2, 2018').getTime(),
+        endTime: new Date('July 7, 2018').getTime(),
         url: 'https://GDSUserResearch.optimalworkshop.com/treejack/wu86k8e2?c={{currentPath}}',
         templateArgs: {
           title: 'Help us make things easier to find on GOV.UK',
