@@ -266,25 +266,6 @@
         allowedOnMobile: true
       },
       {
-        identifier: 'cds-user-panel',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date('May 18, 2018').getTime(),
-        endTime: new Date('July 02, 2018').getTime(),
-        url: 'https://signup.take-part-in-research.service.gov.uk/?utm_campaign=CDSusersignup&utm_source=Other&utm_medium=other&t=HMRC&id=110&c={{currentPath}}',
-        templateArgs: {
-          title: 'Help improve GOV.UK',
-          surveyCta: 'Get involved in making government services better',
-          surveyCtaPostscript: 'This will open a short survey on another website'
-        },
-        activeWhen: {
-          path: [
-            '^/government/news/getting-ready-for-the-customs-declaration-service$'
-          ]
-        },
-        allowedOnMobile: true
-      },
-      {
         identifier: 'hmrc-trusts-govuk',
         surveyType: 'url',
         frequency: 1,
@@ -343,23 +324,6 @@
             '^/government/collections/secure-electronic-transfer$',
             '^/guidance/hmrc-secure-data-exchange-service-sdes$'
           ]
-        },
-        allowedOnMobile: true
-      },
-      {
-        identifier: 'Business_iteration 1',
-        surveyType: 'url',
-        frequency: 6,
-        startTime: new Date('July 2, 2018').getTime(),
-        endTime: new Date('July 7, 2018').getTime(),
-        url: 'https://GDSUserResearch.optimalworkshop.com/treejack/wu86k8e2?c={{currentPath}}',
-        templateArgs: {
-          title: 'Help us make things easier to find on GOV.UK',
-          surveyCta: 'Answer 2 quick questions',
-          surveyCtaPostscript: 'This activity will open in a separate window'
-        },
-        activeWhen: {
-          section: ['business/all']
         },
         allowedOnMobile: true
       }
