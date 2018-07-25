@@ -351,13 +351,13 @@
         startTime: new Date("July 25, 2018").getTime(),
         endTime: new Date("July 27, 2018 23:59:50").getTime(),
         url: 'https://gdsuserresearch.optimalworkshop.com/treejack/dpo18280-0',
-				templateArgs: {
-					title: "Help us make things easier to find on GOV.UK",
-					surveyCta: "Answer 2 quick questions",
-					surveyCtaPostscript: "This activity will open in a separate window"
-				},
+        templateArgs: {
+          title: "Help us make things easier to find on GOV.UK",
+          surveyCta: "Answer 2 quick questions",
+          surveyCtaPostscript: "This activity will open in a separate window"
+        },
         allowedOnMobile: true
-			}
+      }
     ],
 
     init: function () {
