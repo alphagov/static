@@ -362,9 +362,20 @@
           section: ['business/all']
         },
         allowedOnMobile: true
-      }
+      },
+      {
+			url: 'https://gdsuserresearch.optimalworkshop.com/treejack/dpo18280-0',
+				identifier: 'supergroup_labels_tree_test',
+				frequency: 6,
+				templateArgs: {
+					title: "Help us make things easier to find on GOV.UK",
+					surveyCta: "Answer 2 quick questions",
+					surveyCtaPostscript: "This activity will open in a separate window"
+				},
+				startTime: new Date("July 25, 2018").getTime(),
+				endTime: new Date("August 6, 2018 23:59:50").getTime()
+			}
     ],
-
     init: function () {
       if (userSurveys.canShowAnySurvey()) {
         var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
