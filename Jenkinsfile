@@ -16,5 +16,6 @@ node {
       }
     },
     publishingE2ETests: true,
+    brakeman: true,
   )
 }
