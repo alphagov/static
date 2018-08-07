@@ -50,6 +50,7 @@
       'withdrawn': {dimension: 12, defaultValue: 'not withdrawn'},
       'schema-name': {dimension: 17},
       'rendering-application': {dimension: 20},
+      'navigation-legacy': {dimension: 30, defaultValue: 'none'},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},
       'user-journey-stage': {dimension: 33, defaultValue: 'thing'},
       'navigation-document-type': {dimension: 34, defaultValue: 'other'},
@@ -58,7 +59,7 @@
       'taxon-slugs': {dimension: 58, defaultValue: 'other'},
       'taxon-ids': {dimension: 59, defaultValue: 'other'},
       'content-has-history': {dimension: 39, defaultValue: 'false'},
-      'navigation-legacy': {dimension: 30, defaultValue: 'none'},
+      'publishing-app': {dimension: 89},
       'stepnavs': {dimension: 96}
     };
 
