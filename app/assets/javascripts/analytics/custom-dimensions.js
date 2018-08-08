@@ -59,7 +59,7 @@
       'taxon-slugs': {dimension: 58, defaultValue: 'other'},
       'taxon-ids': {dimension: 59, defaultValue: 'other'},
       'content-has-history': {dimension: 39, defaultValue: 'false'},
-      'publishing-app': {dimension: 89},
+      'publishing-application': {dimension: 89},
       'stepnavs': {dimension: 96}
     };
 
