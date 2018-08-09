@@ -23,7 +23,7 @@ group :test do
   gem 'poltergeist', require: false
   gem 'capybara', '~> 2.18.0'
   gem 'govuk-content-schema-test-helpers', '~> 1.6'
-  gem 'mocha', '~> 1.6.0', require: false
+  gem 'mocha', '~> 1.7.0', require: false
   gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
