@@ -343,6 +343,23 @@
           section: ['business/all']
         },
         allowedOnMobile: true
+      },
+      {
+        identifier: 'environment_tree_test',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('August 14, 2018').getTime(),
+        endTime: new Date('August 18, 2018').getTime(),
+        url: 'https://gdsuserresearch.optimalworkshop.com/treejack/i177xfzs?c={{currentPath}}',
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions',
+          surveyCtaPostscript: 'This activity will open in a separate window'
+        },
+        activeWhen: {
+          section: ['environment']
+        },
+        allowedOnMobile: false
       }
     ],
 
