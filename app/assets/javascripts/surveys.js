@@ -347,7 +347,7 @@
       {
         identifier: 'environment_tree_test',
         surveyType: 'url',
-        frequency: 6,
+        frequency: 2,
         startTime: new Date('August 14, 2018').getTime(),
         endTime: new Date('August 18, 2018').getTime(),
         url: 'https://gdsuserresearch.optimalworkshop.com/treejack/i177xfzs?c={{currentPath}}',
