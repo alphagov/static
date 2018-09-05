@@ -122,7 +122,7 @@ GEM
     govuk_frontend_toolkit (7.6.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (9.16.1)
+    govuk_publishing_components (9.17)
       govspeak (>= 5.0.3)
       govuk_app_config
       govuk_frontend_toolkit
@@ -359,7 +359,7 @@ DEPENDENCIES
   govuk-lint (~> 3.9.0)
   govuk_app_config (~> 1.8.0)
   govuk_frontend_toolkit (~> 7.6.0)
-  govuk_publishing_components (~> 9.16.1)
+  govuk_publishing_components (~> 9.17)
   govuk_template (= 0.24.1)
   govuk_test
   image_optim (= 0.26.2)
