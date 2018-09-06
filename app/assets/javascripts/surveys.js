@@ -132,6 +132,25 @@
           ]
         },
         allowedOnMobile: true
+      },
+      {
+        identifier: 'EU Exit',
+        surveyType: 'url',
+        frequency: 6,
+        startTime: new Date('September 5, 2018').getTime(),
+        endTime: new Date('September 15, 2018').getTime(),
+        url: [
+          'https://gdsuserresearch.optimalworkshop.com/treejack/u7dz8d83?c={{currentPath}}',
+          'https://gdsuserresearch.optimalworkshop.com/treejack/u7dz8d83-0?c={{currentPath}}',
+          'https://gdsuserresearch.optimalworkshop.com/treejack/u7dz8d83-0-0?c={{currentPath}}',
+          'https://gdsuserresearch.optimalworkshop.com/treejack/u7dz8d83-0-0-0?c={{currentPath}}'
+        ],
+        templateArgs: {
+          title: 'Help us make things easier to find on GOV.UK',
+          surveyCta: 'Answer 2 quick questions',
+          surveyCtaPostscript: 'This activity will open in a separate window'
+        },
+        allowedOnMobile: true
       }
     ],
 
