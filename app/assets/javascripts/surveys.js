@@ -178,7 +178,7 @@
             title: 'Tell us what you think of GOV.UK',
             surveyCta: 'Take the 3 minute survey',
             surveyCtaPostscript: 'This will open a short survey on another website',
-            surveyUrl: userSurveys.addParamsToURL(survey.url),
+            surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey)),
           }
           var mergedArgs = $.extend(defaultUrlArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, URL_SURVEY_TEMPLATE)
@@ -200,7 +200,7 @@
             surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.',
             surveyId: survey.identifier,
             surveySource: userSurveys.currentPath(),
-            surveyUrl: userSurveys.addParamsToURL(survey.url),
+            surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey)),
             gaClientId: GOVUK.analytics.gaClientId,
           }
           var mergedArgs = $.extend(defaultEmailArgs, survey.templateArgs)
@@ -439,6 +439,14 @@
 
     randomNumberMatches: function (frequency) {
       return (Math.floor(Math.random() * frequency) === 0)
+    },
+
+    getSurveyUrl: function(survey) {
+      if (survey.url instanceof Array) {
+        return survey.url[Math.floor(Math.random() * survey.url.length)]
+      } else {
+        return survey.url
+      }
     },
 
     otherNotificationVisible: function () {
