@@ -62,7 +62,7 @@ describe('Surveys', function () {
       spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
       surveys.init()
 
-      expect($('#take-survey').attr('href')).toContain(surveys.addParamsToURL(surveys.defaultSurvey.url))
+      expect($('#take-survey').attr('href')).toContain(surveys.addParamsToURL(surveys.getSurveyUrl(surveys.defaultSurvey)))
       expect($('#user-satisfaction-survey').length).toBe(1)
       expect($('#user-satisfaction-survey').hasClass('visible')).toBe(true)
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')

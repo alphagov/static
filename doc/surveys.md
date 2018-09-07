@@ -54,6 +54,9 @@ Used in a link in the survey that the user is directed to click on. This should 
 Please be aware that the GA client ID will also be appended to the end of the url, so the final result will be: `https://www.smartsurvey.com/s/2AAAAAA?c=/government/publications/the-kingdom-of-the-crystal-skull&gcl=12345.67890`.
 If the `?c={{currentPath}}` template param is missing from the link, then the resulting url will be: `https://www.smartsurvey.com/s/2AAAAAA?gcl=12345.67890`.
 
+The value can be an array of URLs, in which case the URL to use will
+be chosen randomly from the array.
+
 #### `templateArgs` for `url` survey
 The template for a url survey is as follows:
 
