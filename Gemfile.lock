@@ -133,7 +133,7 @@ GEM
       slimmer (>= 11.1.0)
     govuk_template (0.24.1)
       rails (>= 3.1)
-    govuk_test (0.1.0)
+    govuk_test (0.2.0)
       capybara
       chromedriver-helper
       puma
@@ -342,7 +342,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    xpath (3.0.0)
+    xpath (3.1.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
