@@ -7,8 +7,7 @@ module EmergencyBanner
                   :heading, heading,
                   :short_description, short_description,
                   :link, link,
-                  :link_text, link_text,
-                 )
+                  :link_text, link_text,)
     end
   end
 end

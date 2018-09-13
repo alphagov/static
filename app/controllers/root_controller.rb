@@ -12,7 +12,7 @@ class RootController < ApplicationController
     print
     proposition_menu
     homepage
-  )
+  ).freeze
   def template
     if NON_LAYOUT_TEMPLATES.include?(params[:template])
       render action: params[:template]
@@ -26,7 +26,7 @@ private
   def validate_template_param
     # Allow alphanumeric and _ in template filenames.
     # Prevent any attempts to traverse directores etc...
-    unless params[:template] =~ /\A\w+\z/
+    unless params[:template].match?(/\A\w+\z/)
       error_404
     end
     # Prevent direct access to partials

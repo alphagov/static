@@ -9,8 +9,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "",
                                               :link, "",
-                                              :link_text, "",
-                                             )
+                                              :link_text, "",)
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title")
     end
@@ -21,8 +20,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "A short description of the event",
                                               :link, "",
-                                              :link_text, "",
-                                             )
+                                              :link_text, "",)
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "A short description of the event")
     end
@@ -33,8 +31,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "",
                                               :link, "https://www.gov.uk",
-                                              :link_text, ""
-                                             )
+                                              :link_text, "")
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "", "https://www.gov.uk")
     end
@@ -45,8 +42,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "A short description of the event",
                                               :link, "https://www.gov.uk",
-                                              :link_text, ""
-                                             )
+                                              :link_text, "")
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "A short description of the event", "https://www.gov.uk")
     end
@@ -57,8 +53,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "A short description of the event",
                                               :link, "https://www.gov.uk",
-                                              :link_text, "Text for hyperlink",
-                                             )
+                                              :link_text, "Text for hyperlink",)
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "A short description of the event", "https://www.gov.uk", "Text for hyperlink")
     end

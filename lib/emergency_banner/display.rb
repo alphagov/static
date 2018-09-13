@@ -38,13 +38,13 @@ module EmergencyBanner
 
   private
 
-    MORE_INFORMATION = "More information"
+    MORE_INFORMATION = "More information".freeze
 
     def content
       return @content if defined? @content
       @content = begin
         client.hgetall("emergency_banner").try(:symbolize_keys)
-      rescue => e
+      rescue StandardError => e
         GovukError.notify(e)
         nil
       end

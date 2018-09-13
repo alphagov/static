@@ -9,6 +9,7 @@ node {
 
   govuk.buildProject(
     sassLint: false,
+    rubyLintDiff: false,
     overrideTestTask: {
       stage("Test") {
         govuk.runTests("test")
