@@ -138,7 +138,7 @@
         surveyType: 'url',
         frequency: 6,
         startTime: new Date('September 5, 2018').getTime(),
-        endTime: new Date('September 15, 2018').getTime(),
+        endTime: new Date('September 18, 2018').getTime(),
         url: [
           'https://gdsuserresearch.optimalworkshop.com/treejack/u7dz8d83?c={{currentPath}}',
           'https://gdsuserresearch.optimalworkshop.com/treejack/u7dz8d83-0?c={{currentPath}}',
