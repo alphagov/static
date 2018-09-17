@@ -20,7 +20,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.18.0'
   gem 'govuk-content-schema-test-helpers', '~> 1.6'
   gem 'govuk_test'
   gem 'mocha', '~> 1.7.0', require: false
