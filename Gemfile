@@ -11,7 +11,7 @@ gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.8"
 gem 'redis', "~> 4.0.2"
 gem 'govuk_publishing_components', '~> 9.26.1'
-gem 'govuk_app_config', '~> 1.9.1'
+gem 'govuk_app_config', '~> 1.9.2'
 
 group :development do
   gem 'image_optim', '0.26.2'
