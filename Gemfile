@@ -27,7 +27,7 @@ group :test do
   gem 'webmock'
   gem 'test-unit'
   gem 'minitest'
-  gem 'minitest-capybara', '~> 0.8.2'
+  gem 'minitest-capybara', '~> 0.9.0'
 end
 
 group :development, :test do
