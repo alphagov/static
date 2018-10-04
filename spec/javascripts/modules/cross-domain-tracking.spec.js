@@ -25,7 +25,7 @@ describe('Cross Domain Tracking', function () {
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
-    ).toHaveBeenCalledWith('UA-23066786-5', 'transactionTracker', 'www.registertovote.service.gov.uk')
+    ).toHaveBeenCalledWith('UA-23066786-5', 'transactionTracker', 'www.registertovote.service.gov.uk', true)
   })
 
   it('tracks links with cross-domain-analytics data attributes', function () {
@@ -42,7 +42,7 @@ describe('Cross Domain Tracking', function () {
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
-    ).toHaveBeenCalledWith('UA-XXXXXXXXX-Y', 'govspeakButtonTracker', 'www.gov.uk')
+    ).toHaveBeenCalledWith('UA-XXXXXXXXX-Y', 'govspeakButtonTracker', 'www.gov.uk', true)
   })
 
   it('tracks multiple links', function () {
@@ -76,11 +76,11 @@ describe('Cross Domain Tracking', function () {
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
-    ).toHaveBeenCalledWith('UA-XXXXXXXXX-Y', 'govspeakButtonTracker', 'www.gov.uk')
+    ).toHaveBeenCalledWith('UA-XXXXXXXXX-Y', 'govspeakButtonTracker', 'www.gov.uk', true)
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
-    ).toHaveBeenCalledWith('UA-23066786-5', 'transactionTracker', 'www.registertovote.service.gov.uk')
+    ).toHaveBeenCalledWith('UA-23066786-5', 'transactionTracker', 'www.registertovote.service.gov.uk', true)
   })
 
   it('tracks doesnt track if data attributes are not there', function () {
@@ -93,5 +93,31 @@ describe('Cross Domain Tracking', function () {
     module.start($(wrapperDiv))
 
     expect(GOVUK.analytics.addLinkedTrackerDomain).not.toHaveBeenCalled()
+  })
+
+  it('can be configured not to track pageviews', function () {
+    spyOn(GOVUK.analytics, 'trackEvent')
+    var anchorToTest = document.createElement('a')
+    anchorToTest.href = 'https://www.gov.uk/browse/citizenship/voting'
+    anchorToTest.innerText = 'Do some voting'
+    anchorToTest.setAttribute('data-module', 'cross-domain-tracking')
+    anchorToTest.setAttribute('data-tracking-code', 'UA-XXXXXXXXX-Y')
+    anchorToTest.setAttribute('data-tracking-name', 'govspeakButtonTracker')
+    anchorToTest.setAttribute('data-tracking-track-page-view', 'false')
+
+    var wrapperDiv = document.createElement('div')
+    wrapperDiv.appendChild(anchorToTest)
+
+    module.start($(wrapperDiv))
+
+    expect(
+      GOVUK.analytics.addLinkedTrackerDomain
+    ).toHaveBeenCalledWith('UA-XXXXXXXXX-Y', 'govspeakButtonTracker', 'www.gov.uk', false)
+
+    $(anchorToTest).trigger('click')
+
+    expect(
+      GOVUK.analytics.trackEvent
+    ).toHaveBeenCalledWith('External Link Clicked', 'Do some voting', { trackerName: 'govspeakButtonTracker' })
   })
 })
