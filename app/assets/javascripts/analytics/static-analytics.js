@@ -70,8 +70,8 @@
     this.analytics.trackShare(network, trackingOptions);
   };
 
-  StaticAnalytics.prototype.addLinkedTrackerDomain = function (trackerId, name, domain) {
-    this.analytics.addLinkedTrackerDomain(trackerId, name, domain);
+  StaticAnalytics.prototype.addLinkedTrackerDomain = function (trackerId, name, domain, sendPageView) {
+    this.analytics.addLinkedTrackerDomain(trackerId, name, domain, sendPageView);
   };
 
   StaticAnalytics.prototype.setOptionsForNextPageview = function (options) {
