@@ -12,10 +12,16 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       if ($context.is(trackableLinkSelector)) {
         addLinkedTrackerDomain($context)
       } else {
+        var linkedTrackers = []
         $context
           .find(trackableLinkSelector)
           .each(function () {
-            addLinkedTrackerDomain($(this))
+            var $element = $(this)
+            var trackerName = $element.attr('data-tracking-name')
+            if (linkedTrackers.indexOf(trackerName) === -1) {
+              addLinkedTrackerDomain($element)
+              linkedTrackers.push(trackerName)
+            }
           })
       }
     }
@@ -23,15 +29,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     function addLinkedTrackerDomain ($element) {
       var code = $element.attr('data-tracking-code')
       var name = $element.attr('data-tracking-name')
-      // The legacy behaviour is to always track page views
-      // so make sure this is explicitly disabled.
-      var trackPageView = ($element.attr('data-tracking-track-page-view') !== 'false')
+      var trackEvent = ($element.attr('data-tracking-track-event') === 'true')
       var hostname = $element.prop('hostname')
 
       if (GOVUK.analytics !== 'undefined') {
-        GOVUK.analytics.addLinkedTrackerDomain(code, name, hostname, trackPageView)
+        GOVUK.analytics.addLinkedTrackerDomain(code, name, hostname)
 
-        if (!trackPageView) {
+        if (trackEvent) {
           $element.click({ text: $element.text(), name: name }, function (e) {
             GOVUK.analytics.trackEvent("External Link Clicked", e.data.text, { trackerName: e.data.name })
           })
