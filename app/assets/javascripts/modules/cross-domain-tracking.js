@@ -5,6 +5,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   var $ = global.$
 
+  Modules.crossDomainLinkedTrackers = []
+
   Modules.CrossDomainTracking = function () {
     this.start = function ($context) {
       var trackableLinkSelector = '[href][data-tracking-code][data-tracking-name]'
@@ -12,15 +14,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       if ($context.is(trackableLinkSelector)) {
         addLinkedTrackerDomain($context)
       } else {
-        var linkedTrackers = []
         $context
           .find(trackableLinkSelector)
           .each(function () {
             var $element = $(this)
             var trackerName = $element.attr('data-tracking-name')
-            if (linkedTrackers.indexOf(trackerName) === -1) {
+            if (Modules.crossDomainLinkedTrackers.indexOf(trackerName) === -1) {
               addLinkedTrackerDomain($element)
-              linkedTrackers.push(trackerName)
+              Modules.crossDomainLinkedTrackers.push(trackerName)
             }
           })
       }

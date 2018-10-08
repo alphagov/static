@@ -3,9 +3,9 @@ describe('Cross Domain Tracking', function () {
   var module
 
   beforeEach(function () {
+    GOVUK.Modules.crossDomainLinkedTrackers = []
     GOVUK.analytics = GOVUK.analytics || {}
-    GOVUK.analytics.addLinkedTrackerDomain = function () {
-    }
+    GOVUK.analytics.addLinkedTrackerDomain = function () {}
 
     spyOn(GOVUK.analytics, 'addLinkedTrackerDomain')
     module = new GOVUK.Modules.CrossDomainTracking()
@@ -139,6 +139,9 @@ describe('Cross Domain Tracking', function () {
     wrapperDiv.appendChild(anchor2)
 
     module.start($(wrapperDiv))
+
+    var moduleDup = new GOVUK.Modules.CrossDomainTracking()
+    moduleDup.start($(wrapperDiv))
 
     expect(GOVUK.analytics.addLinkedTrackerDomain.calls.count()).toBe(1)
   })
