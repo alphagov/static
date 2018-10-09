@@ -17,24 +17,24 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         $context
           .find(trackableLinkSelector)
           .each(function () {
-            var $element = $(this)
-            var trackerName = $element.attr('data-tracking-name')
-            if (Modules.crossDomainLinkedTrackers.indexOf(trackerName) === -1) {
-              addLinkedTrackerDomain($element)
-              Modules.crossDomainLinkedTrackers.push(trackerName)
-            }
+            addLinkedTrackerDomain($(this))
           })
       }
     }
 
     function addLinkedTrackerDomain ($element) {
-      var code = $element.attr('data-tracking-code')
       var name = $element.attr('data-tracking-name')
+      var code = $element.attr('data-tracking-code')
       var trackEvent = ($element.attr('data-tracking-track-event') === 'true')
-      var hostname = $element.prop('hostname')
 
       if (GOVUK.analytics !== 'undefined') {
-        GOVUK.analytics.addLinkedTrackerDomain(code, name, hostname)
+        if (Modules.crossDomainLinkedTrackers.indexOf(name) === -1) {
+          var hostname = $element.prop('hostname')
+
+          GOVUK.analytics.addLinkedTrackerDomain(code, name, hostname)
+
+          Modules.crossDomainLinkedTrackers.push(name)
+        }
 
         if (trackEvent) {
           $element.click({ text: $element.text(), name: name }, function (e) {
