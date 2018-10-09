@@ -121,18 +121,24 @@ describe('Cross Domain Tracking', function () {
     ).toHaveBeenCalledWith('External Link Clicked', 'Do some voting', { trackerName: 'govspeakButtonTracker' })
   })
 
-  it('adds the linked tracker domain once', function () {
+  it('adds the linked tracker domain once for multiple cross domain tracking elements', function () {
+    spyOn(GOVUK.analytics, 'trackEvent')
+
     var anchor1 = document.createElement('a')
-    anchor1.href = 'https://www.gov.uk/browse/citizenship/voting'
+    anchor1.href = 'https://www.gov.uk/browse/citizenship/surfing'
     anchor1.setAttribute('data-module', 'cross-domain-tracking')
     anchor1.setAttribute('data-tracking-code', 'UA-XXXXXXXXX-Y')
     anchor1.setAttribute('data-tracking-name', 'govspeakButtonTracker')
+    anchor1.setAttribute('data-tracking-track-event', 'true')
+    anchor1.innerText = 'Do some surfing'
 
     var anchor2 = document.createElement('a')
     anchor2.href = 'https://www.gov.uk/browse/citizenship/shopping'
     anchor2.setAttribute('data-module', 'cross-domain-tracking')
     anchor2.setAttribute('data-tracking-code', 'UA-XXXXXXXXX-Y')
     anchor2.setAttribute('data-tracking-name', 'govspeakButtonTracker')
+    anchor2.setAttribute('data-tracking-track-event', 'true')
+    anchor2.innerText = 'Do some shopping'
 
     var wrapperDiv = document.createElement('div')
     wrapperDiv.appendChild(anchor1)
@@ -141,8 +147,20 @@ describe('Cross Domain Tracking', function () {
     module.start($(wrapperDiv))
 
     var moduleDup = new GOVUK.Modules.CrossDomainTracking()
-    moduleDup.start($(wrapperDiv))
+    moduleDup.start($(anchor2))
 
     expect(GOVUK.analytics.addLinkedTrackerDomain.calls.count()).toBe(1)
+
+    $(anchor1).trigger('click')
+
+    expect(
+      GOVUK.analytics.trackEvent
+    ).toHaveBeenCalledWith('External Link Clicked', 'Do some surfing', { trackerName: 'govspeakButtonTracker' })
+
+    $(anchor2).trigger('click')
+
+    expect(
+      GOVUK.analytics.trackEvent
+    ).toHaveBeenCalledWith('External Link Clicked', 'Do some shopping', { trackerName: 'govspeakButtonTracker' })
   })
 })
