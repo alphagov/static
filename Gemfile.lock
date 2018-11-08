@@ -77,7 +77,7 @@ GEM
     coderay (1.1.2)
     commander (4.4.6)
       highline (~> 1.7.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.3)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -134,7 +134,7 @@ GEM
       rouge
       sass-rails (>= 5.0.4)
       slimmer (>= 11.1.0)
-    govuk_template (0.24.1)
+    govuk_template (0.25.0)
       rails (>= 3.1)
     govuk_test (0.2.1)
       capybara
@@ -178,7 +178,7 @@ GEM
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.7.0)
+    mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
@@ -363,7 +363,7 @@ DEPENDENCIES
   govuk_app_config (~> 1.10.0)
   govuk_frontend_toolkit (~> 8.1.0)
   govuk_publishing_components (~> 11.2.0)
-  govuk_template (= 0.24.1)
+  govuk_template (= 0.25.0)
   govuk_test
   image_optim (= 0.26.3)
   jasmine-rails (~> 0.14.8)
