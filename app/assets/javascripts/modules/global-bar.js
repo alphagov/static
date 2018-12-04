@@ -23,6 +23,7 @@
         $el.hide();
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, 999, {days: 84});
         track('Manually dismissed');
+        $('html').removeClass('show-global-bar');
         evt.preventDefault();
       }
 
