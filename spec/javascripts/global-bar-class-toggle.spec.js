@@ -1,10 +1,17 @@
 describe("toggling a global bar HTML class based on cookie", function () {
   var root = window;
 
+  /**
+   * The global bar needs to be activated early in page loading to prevent
+   * a flash of unstyled content, to do this we need to minify and inline
+   * the activation logic into the page head.
+   * This spec runs tests against both the full and minified sources of the
+   * activation JS because minification is not automated.
+   */
   function globalBarSource(fakeWindow) {
     var window = fakeWindow || root;
 
-    /* --------------------------------------- */
+    /* begin minify */
 
     (function (document) {
       "use strict"
@@ -27,15 +34,22 @@ describe("toggling a global bar HTML class based on cookie", function () {
       }
     })(document);
 
-    /* --------------------------------------- */
+    /* end minify */
   }
 
+
+  /**
+   * This is the minified version of the function above 'globalBarSource',
+   * when developing and testing updates and features,
+   * changes should be mirrored here manually.
+   * Only the code between the 'begin/end minify' comments should be copied.
+   */
   function globalBarMinified(fakeWindow) {
     var window = fakeWindow || root;
 
-    /* --------------------------------------- */
+    /* begin minify */
     !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
-    /* --------------------------------------- */
+    /* end minify */
   }
 
   afterEach(function() {
