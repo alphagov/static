@@ -347,11 +347,11 @@
   display: none;
 }
 
-#global-bar {
-  margin-bottom: 15px;
-  padding: 15px 0;
+.global-bar {
   background-color: $light-blue-25;
   display: none;
+  margin-bottom: 15px;
+  padding: 15px 0;
 
   .show-global-bar & {
     display: block;
@@ -372,14 +372,15 @@
   }
 
   .global-bar-message {
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
 
     @include media(tablet) {
       max-width: 66.67%;
     }
 
-    strong {
+    .global-bar-title {
+      display: block;
       font-weight: 700;
       margin-right: 10px;
     }
