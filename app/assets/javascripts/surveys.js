@@ -158,6 +158,7 @@
       if (userSurveys.canShowAnySurvey()) {
         var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
         if (activeSurvey !== undefined) {
+          $('#global-bar').hide(); // Hide global bar if one is showing
           userSurveys.displaySurvey(activeSurvey)
         }
       }

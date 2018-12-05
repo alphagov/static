@@ -1,0 +1,29 @@
+<%
+  show_global_bar ||= false # Toggles the appearance of the global bar
+  title = "The title"
+  information = "Some information about something"
+  link_href = "https://www.gov.uk/"
+  link_text = %Q(More information<span class="visually-hidden"> about this</span>).html_safe
+-%>
+<% if show_global_bar %>
+  <% content_for :head do %>
+    <!--[if gt IE 7]><!-->
+    <script>!function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);</script>
+    <!--<![endif]-->
+  <% end %>
+  <!--[if gt IE 7]><!-->
+  <div id="global-bar" class="global-bar" data-module="global-bar" class="dont-print">
+    <div class="global-bar-message-container">
+    <p class="global-bar-message">
+      <span class="global-bar-title"><%= title %></span>
+      <%= information %>
+      <%= link_to(link_text, link_href, rel: "external noreferrer") %>
+    </p>
+    <a href="#hide-message"
+       class="dismiss"
+       role="button"
+       aria-controls="global-bar">Hide&nbsp;message</a>
+    </div>
+  </div>
+  <!--<![endif]-->
+<% end %>

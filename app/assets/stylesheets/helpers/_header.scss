@@ -341,3 +341,48 @@
     margin-right: .5em;
   }
 }
+
+
+.show-global-bar #global-header-bar {
+  display: none;
+}
+
+.global-bar {
+  background-color: #BFE3E0;
+  display: none;
+  margin-bottom: 15px;
+  padding: 15px 0;
+
+  .show-global-bar & {
+    display: block;
+  }
+
+  .global-bar-message-container {
+    @include core-19;
+    @extend %site-width-container;
+    position: relative;
+
+    @include media(tablet) {
+      .dismiss {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .global-bar-message {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    @include media(tablet) {
+      max-width: 66.67%;
+    }
+
+    .global-bar-title {
+      display: block;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+  }
+}
