@@ -49,6 +49,10 @@ are wrapped around feedback pages, run `bowl feedback
 in a separate terminal. Following local edits to `static`, restarting just
 `feedback` should be sufficient.
 
+If you repeatedly see 504 Gateway Timeout errors when developing with static in your
+development VM it's possible to increase the `proxy_read_timeout` value in
+`/etc/nginx/sites-available/static.dev.gov.uk` and restart nginx on the VM.
+
 ### Running the test suite
 
 `bundle exec rake` runs the test suite.
