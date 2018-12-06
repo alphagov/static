@@ -13,10 +13,18 @@
           count = viewCount();
 
       $el.on('click', '.dismiss', hide);
+      $el.on('click', '.js-call-to-action', handleCallToActionClick);
+
 
       if ($el.is(':visible')) {
         incrementViewCount(count);
         track('Viewed');
+      }
+
+      function handleCallToActionClick () {
+        var $link = $(this);
+        var url = $link.attr('href')
+        track(url);
       }
 
       function hide(evt) {

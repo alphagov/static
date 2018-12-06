@@ -17,7 +17,12 @@
     <p class="global-bar-message">
       <span class="global-bar-title"><%= title %></span>
       <%= information %>
-      <%= link_to(link_text, link_href, rel: "external noreferrer") %>
+      <%= link_to(
+        link_text,
+        link_href,
+        rel: "external noreferrer",
+        class: "js-call-to-action"
+      ) %>
     </p>
     <a href="#hide-message"
        class="dismiss"
