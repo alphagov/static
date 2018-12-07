@@ -342,7 +342,6 @@
   }
 }
 
-
 .show-global-bar #global-header-bar {
   display: none;
 }
@@ -350,7 +349,6 @@
 .global-bar {
   background-color: #BFE3E0;
   display: none;
-  margin-bottom: 15px;
   padding: 15px 0;
 
   .show-global-bar & {
