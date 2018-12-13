@@ -258,7 +258,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (4.0.3)
+    redis (4.1.0)
     regexp_parser (1.2.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -377,7 +377,7 @@ DEPENDENCIES
   pry
   rack_strip_client_ip (= 0.0.2)
   rails (~> 5.2)
-  redis (~> 4.0.3)
+  redis (~> 4.1.0)
   sass-rails (= 5.0.7)
   shoulda
   test-unit

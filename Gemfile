@@ -9,7 +9,7 @@ gem 'uglifier', ">= 1.3.0"
 gem 'sass-rails', "5.0.7"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.8"
-gem 'redis', "~> 4.0.3"
+gem 'redis', "~> 4.1.0"
 gem 'govuk_publishing_components', '~> 11.2.0'
 gem 'govuk_app_config', '~> 1.10.0'
 
