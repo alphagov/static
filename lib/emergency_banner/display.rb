@@ -33,6 +33,7 @@ module EmergencyBanner
     def link_text
       return nil if link.blank?
       return content[:link_text] if content[:link_text].present?
+
       MORE_INFORMATION
     end
 
@@ -42,6 +43,7 @@ module EmergencyBanner
 
     def content
       return @content if defined? @content
+
       @content = begin
         client.hgetall("emergency_banner").try(:symbolize_keys)
       rescue StandardError => e
