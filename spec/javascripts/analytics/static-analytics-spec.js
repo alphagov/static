@@ -184,16 +184,6 @@ describe("GOVUK.StaticAnalytics", function() {
           defaultValue: 'none'
         },
         {
-          name: 'user-journey-stage',
-          number: 33,
-          defaultValue: 'thing'
-        },
-        {
-          name: 'navigation-document-type',
-          number: 34,
-          defaultValue: 'other'
-        },
-        {
           name: 'content-id',
           number: 4,
           defaultValue: '00000000-0000-0000-0000-000000000000'
