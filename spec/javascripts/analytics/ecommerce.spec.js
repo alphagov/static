@@ -228,8 +228,6 @@ describe('Ecommerce reporter for results pages', function() {
       dimension26: '0',
       dimension27: '0',
       dimension32: 'none',
-      dimension33: 'thing',
-      dimension34: 'other',
       dimension39: 'false',
       dimension56: 'other',
       dimension57: 'other',

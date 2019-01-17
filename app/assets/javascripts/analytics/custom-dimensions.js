@@ -52,8 +52,6 @@
       'rendering-application': {dimension: 20},
       'navigation-legacy': {dimension: 30, defaultValue: 'none'},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},
-      'user-journey-stage': {dimension: 33, defaultValue: 'thing'},
-      'navigation-document-type': {dimension: 34, defaultValue: 'other'},
       'taxon-slug': {dimension: 56, defaultValue: 'other'},
       'taxon-id': {dimension: 57, defaultValue: 'other'},
       'taxon-slugs': {dimension: 58, defaultValue: 'other'},
