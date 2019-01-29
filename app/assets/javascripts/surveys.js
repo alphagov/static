@@ -72,7 +72,7 @@
       {
         identifier: '#Userpanel',
         surveyType: 'url',
-        frequency: 10,
+        frequency: 5,
         startTime: new Date("February 01, 2019").getTime(),
         endTime: new Date("December 31, 2019").getTime(),
         url: 'https://response.questback.com/intellectualpropertyoffice/ipocustomerpanel?c={{currentPath}}',
