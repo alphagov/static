@@ -92,24 +92,6 @@
             '^/apply-register-design'
           ]
         }
-      },
-      {
-        identifier: 'service_standards_reports_survey',
-        surveyType: 'url',
-        frequency: 1,
-        startTime: new Date("February 07, 2019").getTime(),
-        endTime: new Date("April 07, 2019").getTime(),
-        url: 'https://www.smartsurvey.co.uk/s/service-standard-reports/',
-        templateArgs: {
-          title: "Help us improve Service Standards Reports on GOV.UK",
-          surveyCta: 'Take the 3 minute survey',
-          surveyCtaPostscript: '(This will open a short survey on another website)'
-        },
-        activeWhen: {
-          path: [
-            '^/service-standard-reports'
-          ]
-        }
       }
     ],
 
