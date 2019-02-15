@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components
+  revision: 2826c949f6336379ce9441221d86810fbcff52e4
+  branch: govspeak-js
+  specs:
+    govuk_publishing_components (15.2.0)
+      govspeak (>= 5.0.3)
+      govuk_app_config
+      govuk_frontend_toolkit
+      rails (>= 5.0.0.1)
+      rake
+      rouge
+      sass-rails (>= 5.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,8 +90,8 @@ GEM
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     coderay (1.1.2)
-    commander (4.4.6)
-      highline (~> 1.7.2)
+    commander (4.4.7)
+      highline (~> 2.0.0)
     concurrent-ruby (1.1.4)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -101,8 +115,8 @@ GEM
       rest-client (~> 2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    govspeak (5.6.0)
-      actionview (>= 4.1, < 6)
+    govspeak (5.9.0)
+      actionview (~> 5.0)
       addressable (>= 2.3.8, < 3)
       commander (~> 4.4)
       htmlentities (~> 4)
@@ -110,6 +124,7 @@ GEM
       kramdown (~> 1.15.0)
       money (~> 6.7)
       nokogiri (~> 1.5)
+      rinku (~> 2.0)
       sanitize (~> 4.6)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
@@ -126,15 +141,6 @@ GEM
     govuk_frontend_toolkit (8.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (11.2.0)
-      govspeak (>= 5.0.3)
-      govuk_app_config
-      govuk_frontend_toolkit
-      rails (>= 5.0.0.1)
-      rake
-      rouge
-      sass-rails (>= 5.0.4)
-      slimmer (>= 11.1.0)
     govuk_template (0.25.0)
       rails (>= 3.1)
     govuk_test (0.3.1)
@@ -143,7 +149,7 @@ GEM
       puma
       selenium-webdriver
     hashdiff (0.3.7)
-    highline (1.7.10)
+    highline (2.0.1)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -198,7 +204,7 @@ GEM
       rake
     mocha (1.8.0)
       metaclass (~> 0.0.1)
-    money (6.13.0)
+    money (6.13.2)
       i18n (>= 0.6.4, <= 2)
     multipart-post (2.0.0)
     netrc (0.11.0)
@@ -266,6 +272,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rinku (2.0.5)
     rouge (3.3.0)
     rubocop (0.61.1)
       jaro_winkler (~> 1.5.1)
@@ -309,7 +316,7 @@ GEM
     shoulda-context (1.2.2)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
-    slimmer (13.0.0)
+    slimmer (13.1.0)
       activesupport
       json
       nokogiri (~> 1.7)
@@ -364,7 +371,7 @@ DEPENDENCIES
   govuk-lint (~> 3.10.0)
   govuk_app_config (~> 1.11.3)
   govuk_frontend_toolkit (~> 8.1.0)
-  govuk_publishing_components (~> 11.2.0)
+  govuk_publishing_components!
   govuk_template (= 0.25.0)
   govuk_test
   image_optim (= 0.26.3)
@@ -380,6 +387,7 @@ DEPENDENCIES
   redis (~> 4.1.0)
   sass-rails (= 5.0.7)
   shoulda
+  slimmer (~> 13.1)
   test-unit
   uglifier (>= 1.3.0)
   webmock
@@ -388,4 +396,4 @@ RUBY VERSION
    ruby 2.6.1p33
 
 BUNDLED WITH
-   1.16.2
+   1.17.2

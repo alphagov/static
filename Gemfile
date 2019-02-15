@@ -10,8 +10,9 @@ gem 'sass-rails', "5.0.7"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.10"
 gem 'redis', "~> 4.1.0"
-gem 'govuk_publishing_components', '~> 11.2.0'
+gem 'govuk_publishing_components', git: 'https://github.com/alphagov/govuk_publishing_components', branch: "govspeak-js"
 gem 'govuk_app_config', '~> 1.11.3'
+gem 'slimmer', '~> 13.1'
 
 group :development do
   gem 'image_optim', '0.26.3'
