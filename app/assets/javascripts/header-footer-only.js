@@ -4,7 +4,4 @@
 //= require start-modules
 //= require core
 //= require govuk/selection-buttons
-//= require govuk-component/govspeak-enhance-youtube-video-links
-//= require libs/govuk-component/govspeak-magna-charta.min
-//= require govuk-component/govspeak-convert-html-pub-charts
 //= require govuk/shim-links-with-button-role
