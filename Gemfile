@@ -10,7 +10,7 @@ gem 'sass-rails', "5.0.7"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.10"
 gem 'redis', "~> 4.1.0"
-gem 'govuk_publishing_components', '~> 11.2.0'
+gem 'govuk_publishing_components', '~> 15.2'
 gem 'govuk_app_config', '~> 1.11.3'
 
 group :development do
@@ -32,7 +32,7 @@ end
 
 group :development, :test do
   gem 'jasmine-rails', '~> 0.14.8'
-  gem 'govuk-lint', '~> 3.10.0'
+  gem 'govuk-lint', '~> 3.10'
   gem 'pry'
 end
 
