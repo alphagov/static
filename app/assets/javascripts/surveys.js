@@ -400,7 +400,7 @@
       if (cooloff) {
         window.GOVUK.cookie(cookieName, seenCount, { days: cooloff })
       } else {
-        window.GOVUK.cookie(cookieName, seenCount)
+        window.GOVUK.cookie(cookieName, seenCount, { days: 365 * 2 })
       }
     },
 

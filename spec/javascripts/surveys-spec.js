@@ -1089,7 +1089,7 @@ describe('Surveys', function () {
         var cookieName = surveys.surveySeenCookieName(survey)
         spyOn(GOVUK, 'cookie')
         surveys.incrementSurveySeenCounter(survey)
-        expect(GOVUK.cookie).toHaveBeenCalledWith(cookieName, 1)
+        expect(GOVUK.cookie).toHaveBeenCalledWith(cookieName, 1, { days: 365 * 2 })
       })
     })
 
