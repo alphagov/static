@@ -17,6 +17,12 @@ namespace :asset_precompile do
         full_nondigested_path = File.join(Rails.root, relative_asset_path, logical_path)
 
         FileUtils.ln_s full_digested_path, full_nondigested_path, force: true
+
+        if logical_path == 'libs/jquery/jquery-1.12.4.js'
+          jquery_nondigested_path = File.join(Rails.root, relative_asset_path, 'libs/jquery/jquery-1.7.2.js')
+
+          FileUtils.ln_s full_digested_path, jquery_nondigested_path, force: true
+        end
       end
     end
   end
