@@ -47,13 +47,7 @@
       </div>
     </div>
 
-    <div id="global-cookie-message">
-      <% if content_for?(:cookie_message) %>
-        <%= yield :cookie_message %>
-      <% else %>
-        <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" data-module="track-click" data-track-category="cookieBanner" data-track-action="Cookie banner clicked">Find out more about cookies</a></p>
-      <% end %>
-    </div>
+    <%= render "govuk_publishing_components/components/cookie_banner" %>
 
     <% unless @omit_header %>
     <header role="banner" id="global-header" class="<%= yield(:header_class) %>">
@@ -104,8 +98,6 @@
     </footer>
 
     <div id="global-app-error" class="app-error hidden"></div>
-
-    <% javascript_include_tag "govuk-template.js", integrity: true, crossorigin: "anonymous" %>
 
     <%= yield :body_end %>
 
