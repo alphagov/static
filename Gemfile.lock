@@ -90,7 +90,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     fspath (3.1.0)
-    gds-api-adapters (57.4.2)
+    gds-api-adapters (57.5.0)
       addressable
       link_header
       null_logger
@@ -349,7 +349,7 @@ DEPENDENCIES
   asset_bom_removal-rails (~> 1.0.0)
   better_errors
   binding_of_caller
-  gds-api-adapters (~> 57.4)
+  gds-api-adapters (~> 57.5)
   govuk-content-schema-test-helpers (~> 1.6)
   govuk-lint (~> 3.10)
   govuk_app_config (~> 1.13.0)
