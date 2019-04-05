@@ -1,4 +1,5 @@
-// = require_self
+//= require govuk_publishing_components/lib/cookie-functions
+//= require_self
 
 (function ($) {
   'use strict'
