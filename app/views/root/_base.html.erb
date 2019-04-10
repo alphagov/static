@@ -13,10 +13,10 @@
 <% content_for :inside_header do %>
   <a href="#search" class="search-toggle js-header-toggle">Search</a>
 
-  <form id="search" class="site-search" action="/search/all" method="get" role="search">
+  <form id="search" class="site-search" action="/search" method="get" role="search">
     <div class="content">
       <label for="site-search-text">Search</label>
-      <input type="search" name="keywords" id="site-search-text" title="Search" class="js-search-focus">
+      <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus">
       <input class="submit" type="submit" value="Search" />
     </div>
   </form>
