@@ -249,11 +249,12 @@
 
     @include media-down(mobile) {
       .survey-close-button {
-        font-size: 20px;
+        font-size: 16px;
       }
       .survey-title {
+        display: inline-block;
         font-size: 18px;
-        margin-top: 2em;
+        width: 75%;
       }
       .survey-primary-link, .postscript-cta {
         font-size: 18px;
@@ -295,7 +296,7 @@
 
   .survey-close-button {
     float: right;
-    @include core-14;
+    @include core-19;
   }
 
   .survey-primary-link {
