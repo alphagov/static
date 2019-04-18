@@ -474,10 +474,10 @@ describe('Surveys', function () {
   })
 
   describe('otherNotificationVisible', function () {
-    it('returns false if the global cookie banner is visible', function () {
+    it('returns true if the global cookie banner is visible', function () {
       $('#global-cookie-message').css('display', 'block')
 
-      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
+      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeTruthy()
     })
 
     it('returns false if the emergency banner is visible', function () {
