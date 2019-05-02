@@ -93,6 +93,24 @@
             '^/apply-register-design'
           ]
         }
+      },
+      {
+        identifier: 'phe_survey',
+        surveyType: 'url',
+        frequency: 1,
+        startTime: new Date("May 6, 2019").getTime(),
+        endTime: new Date("May 20, 2019").getTime(),
+        url: 'https://www.smartsurvey.co.uk/s/OZ4X6/',
+        templateArgs: {
+          title: "Help us improve this page",
+          surveyCta: 'We want to know how you use evaluation information',
+          surveyCtaPostscript: '(This will open the sign-up form on another website)'
+        },
+        activeWhen: {
+          path: [
+            '^/government/collections/evaluation-in-health-and-wellbeing'
+          ]
+        }
       }
     ],
 
