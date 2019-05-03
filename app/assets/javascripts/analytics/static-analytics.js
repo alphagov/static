@@ -49,6 +49,12 @@
 
   StaticAnalytics.prototype.trackPageview = function (path, title, options) {
     GOVUK.Ecommerce.start();
+
+    // Add the cookie banner status as a custom dimension
+    var cookieBannerShown = !this.getCookie("seen_cookie_message");
+    var cookieBannerDimension = {"dimension100" : cookieBannerShown ? cookieBannerShown.toString() : "false"};
+    $.extend(options, cookieBannerDimension);
+
     var trackingOptions = GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions(options);
     this.analytics.trackPageview(path, title, trackingOptions);
   };
@@ -80,6 +86,8 @@
     }
 
     var cookieOptions = getOptionsFromCookie();
+    var cookieBannerOption = {"dimension100": this.getCookie("seen_cookie_message")};
+
     $.extend(cookieOptions, options);
 
     this.setCookie('analytics_next_page_call', cookieOptions);

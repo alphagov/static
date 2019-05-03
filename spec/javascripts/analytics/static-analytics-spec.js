@@ -1058,6 +1058,50 @@ describe("GOVUK.StaticAnalytics", function() {
     });
   });
 
+  describe('when the seen_cookie_message cookie does not exist', function() {
+    var pageViewObject;
+
+    beforeEach(function() {
+      window.ga.calls.reset();
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+      pageViewObject = getPageViewObject();
+    });
+
+    it("sets dimension100 to true", function() {
+      expect(pageViewObject.dimension100).toEqual('true');
+    });
+  });
+
+  describe('when the cookie banner is displayed on the page', function() {
+    var pageViewObject;
+
+    beforeEach(function() {
+      GOVUK.cookie('seen_cookie_message', 'false');
+      window.ga.calls.reset();
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+      pageViewObject = getPageViewObject();
+    });
+
+    it("sets dimension100 to true when the cookie banner is shown", function() {
+      expect(pageViewObject.dimension100).toEqual('true');
+    });
+  });
+
+  describe('when the cookie banner is not displayed on the page', function() {
+    var pageViewObject;
+
+    beforeEach(function() {
+      GOVUK.cookie('seen_cookie_message', 'true');
+      window.ga.calls.reset();
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+      pageViewObject = getPageViewObject();
+    });
+
+    it("sets dimension100 to false when the cookie banner has been dismissed", function() {
+      expect(pageViewObject.dimension100).toEqual('false');
+    });
+  });
+
   describe('when tracking pageviews and events', function() {
     it('tracks them in universal', function() {
 
