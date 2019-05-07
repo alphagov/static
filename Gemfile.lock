@@ -85,7 +85,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     fspath (3.1.0)
-    gds-api-adapters (59.1.0)
+    gds-api-adapters (59.2.0)
       addressable
       link_header
       null_logger
@@ -298,7 +298,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.5)
+    unf_ext (0.0.7.6)
     unicode-display_width (1.5.0)
     unicorn (5.4.1)
       kgio (~> 2.6)
@@ -325,7 +325,7 @@ DEPENDENCIES
   asset_bom_removal-rails (~> 1.0.0)
   better_errors
   binding_of_caller
-  gds-api-adapters (~> 59.1)
+  gds-api-adapters (~> 59.2)
   govuk-content-schema-test-helpers (~> 1.6)
   govuk-lint (~> 3.11)
   govuk_app_config (~> 1.16.0)
