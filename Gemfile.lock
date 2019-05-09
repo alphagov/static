@@ -85,7 +85,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     fspath (3.1.0)
-    gds-api-adapters (59.2.0)
+    gds-api-adapters (59.2.1)
       addressable
       link_header
       null_logger
