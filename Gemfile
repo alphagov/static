@@ -10,7 +10,7 @@ gem 'sass-rails', "5.0.7"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.10"
 gem 'redis', "~> 4.1.1"
-gem 'govuk_publishing_components', '~> 16.16'
+gem 'govuk_publishing_components', :git => 'https://github.com/alphagov/govuk_publishing_components.git', :branch => 'add-new-cookie-banner'
 gem 'govuk_app_config', '~> 1.16.0'
 
 group :development do

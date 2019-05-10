@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: eb55b6f6e2e1177741af2a1a90560ee3722efdc5
+  branch: add-new-cookie-banner
+  specs:
+    govuk_publishing_components (16.16.0)
+      gds-api-adapters
+      govuk_app_config
+      govuk_frontend_toolkit
+      kramdown
+      plek
+      rails (>= 5.0.0.1)
+      rake
+      rouge
+      sass-rails (>= 5.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,7 +76,7 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
-    capybara (3.18.0)
+    capybara (3.19.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -100,7 +116,7 @@ GEM
       rubocop (~> 0.64)
       rubocop-rspec (~> 1.28)
       scss_lint
-    govuk_app_config (1.16.0)
+    govuk_app_config (1.16.1)
       aws-xray-sdk (~> 0.10.0)
       logstasher (~> 1.2.2)
       sentry-raven (~> 2.7.1)
@@ -109,16 +125,6 @@ GEM
     govuk_frontend_toolkit (8.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (16.16.0)
-      gds-api-adapters
-      govuk_app_config
-      govuk_frontend_toolkit
-      kramdown
-      plek
-      rails (>= 5.0.0.1)
-      rake
-      rouge
-      sass-rails (>= 5.0.4)
     govuk_template (0.26.0)
       rails (>= 3.1)
     govuk_test (0.4.3)
@@ -126,7 +132,7 @@ GEM
       puma
       selenium-webdriver
       webdrivers
-    hashdiff (0.3.8)
+    hashdiff (0.3.9)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.6.0)
@@ -253,7 +259,7 @@ GEM
       rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     rubyzip (1.2.2)
-    safe_yaml (1.0.4)
+    safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -268,7 +274,7 @@ GEM
     scss_lint (0.58.0)
       rake (>= 0.9, < 13)
       sass (~> 3.5, >= 3.5.5)
-    selenium-webdriver (3.142.0)
+    selenium-webdriver (3.142.1)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.7.4)
@@ -287,7 +293,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     statsd-ruby (1.4.0)
-    test-unit (3.3.2)
+    test-unit (3.3.3)
       power_assert
     thor (0.20.3)
     thread_safe (0.3.6)
@@ -303,7 +309,7 @@ GEM
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    webdrivers (3.8.0)
+    webdrivers (3.9.1)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
@@ -330,7 +336,7 @@ DEPENDENCIES
   govuk-lint (~> 3.11)
   govuk_app_config (~> 1.16.0)
   govuk_frontend_toolkit (~> 8.1.0)
-  govuk_publishing_components (~> 16.16)
+  govuk_publishing_components!
   govuk_template (= 0.26.0)
   govuk_test
   image_optim (= 0.26.3)
