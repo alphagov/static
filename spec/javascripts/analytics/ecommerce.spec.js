@@ -6,6 +6,7 @@ describe('Ecommerce reporter for results pages', function() {
 
   beforeEach(function() {
     ecommerce = new GOVUK.Ecommerce();
+    GOVUK.analytics.gaClientId = '12345.67890'
     spyOn(window, 'ga')
   });
 
@@ -233,7 +234,8 @@ describe('Ecommerce reporter for results pages', function() {
       dimension57: 'other',
       dimension58: 'other',
       dimension59: 'other',
-      dimension30: 'none'
+      dimension30: 'none',
+      dimension95: '12345.67890'
     })
   });
 
