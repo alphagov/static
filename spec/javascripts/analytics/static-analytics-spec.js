@@ -1194,13 +1194,8 @@ describe("GOVUK.StaticAnalytics", function() {
     // 1. get all arguments to all calls to the ga() function
     universalSetupArguments = window.ga.calls.allArgs()
 
-    // 2. get the ga(function(tracker) { ...}) call - it's the 5th one:
-    //    1st is the call to create "universal-id"
-    //    2nd is the call to set "anonymizeIp"
-    //    3rd is the call to set "displayFeaturesTask"
-    //    4th is the call to set "location"
-    //    5th is the call that sets the tracker function callback
-    bound = universalSetupArguments[4][0];
+    // 2. get the ga(function(tracker) { ...}) call - it's the last one:
+    bound = universalSetupArguments[universalSetupArguments.length - 1][0];
 
     // 3. trigger the callback with a canned tracker object that has a stubbed
     //    get method that always retuns the same client id.  This is the only
