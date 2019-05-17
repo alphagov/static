@@ -28,7 +28,7 @@ group :test do
   gem 'test-unit'
   gem 'minitest'
   gem 'minitest-capybara', '~> 0.9.0'
-  gem 'jasmine-core', ['>= 2.99', '< 3']
+  gem 'jasmine-core', '>= 2.99', '< 4'
 end
 
 group :development, :test do
