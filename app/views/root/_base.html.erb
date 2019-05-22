@@ -12,9 +12,8 @@
 
 <% content_for :inside_header do %>
   <a href="#search" class="search-toggle js-header-toggle">Search</a>
-
-  # The /search page redirects to a finder if keywords are included. Be careful about
-  # changing this, as the redirect adds some parameters to the search query.
+  <% # The /search page redirects to a finder if keywords are included. Be careful about
+     # changing this, as the redirect adds some parameters to the search query. %>
   <form id="search" class="site-search" action="/search" method="get" role="search">
     <div class="content">
       <label for="site-search-text">Search</label>
