@@ -17,7 +17,6 @@ class CacheRoutesController < ApplicationController
       ActionController::Base.helpers.asset_path('apple-touch-icon-167x167.png'),
       ActionController::Base.helpers.asset_path('apple-touch-icon-152x152.png'),
       ActionController::Base.helpers.asset_path('apple-touch-icon-120x120.png'),
-      ActionController::Base.helpers.asset_path('apple-touch-icon-152x152.png'),
       ActionController::Base.helpers.asset_path('apple-touch-icon-76x76.png'),
       ActionController::Base.helpers.asset_path('apple-touch-icon-60x60.png'),
       ActionController::Base.helpers.asset_path('apple-touch-icon-precomposed.png'),
