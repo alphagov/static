@@ -21,6 +21,8 @@ class RootController < ApplicationController
     end
   end
 
+
+
 private
 
   def validate_template_param

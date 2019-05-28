@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
     get "/templates/:template.html.erb", to: "root#template"
   end
+  
+  get "/cachable_routes", to: "CacheRoutesController#cachable_routes"
 
   # Icon redirects
   get "/favicon.ico", to: "icon_redirects#show"
