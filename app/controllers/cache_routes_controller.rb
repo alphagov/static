@@ -5,11 +5,11 @@ class CacheRoutesController < ApplicationController
       ActionController::Base.helpers.asset_path('libs/jquery/jquery-1.12.4.js'),
       ActionController::Base.helpers.asset_path('surveys.js'),
       ActionController::Base.helpers.asset_path('application.js'),
-      
+
       # css
       ActionController::Base.helpers.asset_path('static.css'),
       ActionController::Base.helpers.asset_path('static-print.css'),
-      
+
       # image files
       ActionController::Base.helpers.asset_path('favicon.ico'),
       ActionController::Base.helpers.asset_path('apple-touch-icon.png'),
