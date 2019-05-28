@@ -1,6 +1,7 @@
 describe("GOVUK.ScrollTracker", function() {
   beforeEach(function() {
     jasmine.clock().install();
+    GOVUK.analytics = {trackEvent: function () {}}
     spyOn(GOVUK.analytics, "trackEvent").and.stub();
   });
 
