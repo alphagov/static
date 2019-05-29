@@ -37,7 +37,7 @@ group :development, :test do
   gem 'pry'
 end
 
-gem 'plek', '2.1.1'
+gem 'plek', '3.0.0'
 gem 'govuk_frontend_toolkit', '~> 8.2.0'
 gem 'govuk_template', '0.26.0'
 gem 'gds-api-adapters', '~> 59.4'
