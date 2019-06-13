@@ -2,6 +2,7 @@ describe("GOVUK.StaticAnalytics", function() {
   var analytics;
 
   beforeEach(function() {
+    window.GOVUK.setConsentCookie({'usage': true});
     window.ga = function() {};
     spyOn(window, 'ga');
     spyOn(GOVUK.analyticsPlugins, 'printIntent');
@@ -1055,6 +1056,28 @@ describe("GOVUK.StaticAnalytics", function() {
 
     it("sets unknown as the value of the tls version custom dimension", function() {
       expect(pageViewObject.dimension16).toEqual('unknown');
+    });
+  });
+
+  describe("when the consent cookie has been set", function() {
+    beforeEach(function() {
+      window.ga.calls.reset();
+    });
+
+    it('does not set analytics cookies as normal when usage cookies are allowed', function() {
+      window.GOVUK.setConsentCookie({'usage': false});
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+
+      expect(Object.keys(analytics).length).toBe(0)
+    });
+
+    it('does set analytics cookies as normal when usage cookies are allowed', function() {
+      window.GOVUK.setConsentCookie({'usage': true});
+      analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+
+      expect(Object.keys(analytics).length).toBe(1)
+      expect(analytics.analytics.stripDatePII).toBe(false)
+      expect(analytics.analytics.stripPostcodePII).toBe(false)
     });
   });
 
