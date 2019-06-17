@@ -16,7 +16,11 @@
     // Create universal tracker
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/analytics.md
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js
-    this.analytics = new GOVUK.Analytics(config);
+    var consentCookie = window.GOVUK.getConsentCookie();
+
+    if (!consentCookie || consentCookie['usage']) {
+      this.analytics = new GOVUK.Analytics(config);
+    }
 
     var trackingOptions = getOptionsFromCookie();
 

@@ -1,24 +1,34 @@
 (function() {
   "use strict";
 
-  // Load Google Analytics libraries
-  GOVUK.StaticAnalytics.load();
+  var consentCookie = window.GOVUK.getConsentCookie();
 
-  // Use document.domain in dev, preview and staging so that tracking works
-  // Otherwise explicitly set the domain as www.gov.uk (and not gov.uk).
-  var cookieDomain = (document.domain == 'www.gov.uk') ? '.www.gov.uk' : document.domain;
+  // Disable analytics by default
+  // This will be reversed below, if the consent cookie says usage cookies are allowed
+  window['ga-disable-UA-26179049-1'] = true;
 
-  var universalId = '<%= Rails.application.config.ga_universal_id %>';
+  if (!consentCookie || consentCookie["usage"]) {
+    window['ga-disable-UA-26179049-1'] = false;
 
-  // Configure profiles, setup custom vars, track initial pageview
-  var analytics = new GOVUK.StaticAnalytics({
-    universalId: universalId,
-    cookieDomain: cookieDomain,
-    allowLinker: true,
-    // This is served by Fastly in production, and returns an empty 200 response
-    govukTrackerUrl: '<%= asset_path "/static/a" %>'
-  });
+    // Load Google Analytics libraries
+    GOVUK.StaticAnalytics.load();
 
-  // Make interface public for virtual pageviews and events
-  GOVUK.analytics = analytics;
+    // Use document.domain in dev, preview and staging so that tracking works
+    // Otherwise explicitly set the domain as www.gov.uk (and not gov.uk).
+    var cookieDomain = (document.domain == 'www.gov.uk') ? '.www.gov.uk' : document.domain;
+
+    var universalId = '<%= Rails.application.config.ga_universal_id %>';
+
+    // Configure profiles, setup custom vars, track initial pageview
+    var analytics = new GOVUK.StaticAnalytics({
+      universalId: universalId,
+      cookieDomain: cookieDomain,
+      allowLinker: true,
+      // This is served by Fastly in production, and returns an empty 200 response
+      govukTrackerUrl: '<%= asset_path "/static/a" %>'
+    });
+
+    // Make interface public for virtual pageviews and events
+    GOVUK.analytics = analytics;
+  }
 })();
