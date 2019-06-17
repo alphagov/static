@@ -573,23 +573,27 @@ describe('Surveys', function () {
   })
 
   describe('currentTlsVersion', function() {
+    afterEach(function() {
+      window.GOVUK.setCookie('TLSversion', null)
+    })
+
     it('returns an empty string when the cookie returns null', function () {
-      spyOn(GOVUK, 'getCookie').and.returnValue(null)
+      window.GOVUK.setCookie('TLSversion', null)
       expect(surveys.currentTlsVersion()).toBe('')
     })
 
     it('returns an empty string when the cookie returns "unknown"', function () {
-      spyOn(GOVUK, 'getCookie').and.returnValue("unknown")
+      window.GOVUK.setCookie('TLSversion', "unknown")
       expect(surveys.currentTlsVersion()).toBe('')
     })
 
     it('returns the correct version when the cookie returns a valid value"', function () {
-      spyOn(GOVUK, 'getCookie').and.returnValue("TLSv1.1")
+      window.GOVUK.setCookie('TLSversion', "TLSv1.1")
       expect(surveys.currentTlsVersion()).toBe(1.1)
     })
 
     it('returns an empty string when the TLS version is malformed"', function () {
-      spyOn(GOVUK, 'getCookie').and.returnValue("TLSvabcd11123")
+      window.GOVUK.setCookie('TLSversion', "TLSvabcd11123")
       expect(surveys.currentTlsVersion()).toBe('')
     })
   })
