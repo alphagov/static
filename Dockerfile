@@ -17,6 +17,6 @@ RUN bundle install
 
 ADD . $APP_HOME
 
-RUN RAILS_ENV=production bundle exec rails assets:precompile
+RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk RAILS_ENV=production bundle exec rails assets:precompile
 
 CMD foreman run web
