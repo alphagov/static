@@ -334,7 +334,7 @@ DEPENDENCIES
   asset_bom_removal-rails (~> 1.0.0)
   better_errors
   binding_of_caller
-  gds-api-adapters (~> 59.4)
+  gds-api-adapters (~> 59.5)
   govuk-content-schema-test-helpers (~> 1.6)
   govuk-lint (~> 3.11)
   govuk_app_config (~> 1.18.1)
