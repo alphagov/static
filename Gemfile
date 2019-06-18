@@ -22,7 +22,7 @@ end
 group :test do
   gem 'govuk-content-schema-test-helpers', '~> 1.6'
   gem 'govuk_test'
-  gem 'mocha', '~> 1.8.0', require: false
+  gem 'mocha', '~> 1.9.0', require: false
   gem 'shoulda'
   gem 'webmock'
   gem 'test-unit'
