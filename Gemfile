@@ -14,7 +14,7 @@ gem 'govuk_publishing_components', '~> 17.5'
 gem 'govuk_app_config', '~> 1.19.0'
 
 group :development do
-  gem 'image_optim', '0.26.3'
+  gem 'image_optim', '0.26.4'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
