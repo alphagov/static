@@ -55,13 +55,28 @@ describe('GOVUK.analyticsPlugins.error', function () {
         nonInteraction: true })
   })
 
+  function CustomError (filename, lineno, message) {
+    this.filename = filename
+    this.lineno = lineno
+    this.message = message
+  }
+
   function triggerError (filename, lineno, message) {
     var event = document.createEvent('Event')
+    // var event = new Event('error')
     event.initEvent('error', true, true)
     event.filename = filename
     event.lineno = lineno
     event.message = message
-    //console.log(JSON.stringify(event))
+    console.log(JSON.stringify(event))
     window.dispatchEvent(event)
+    /*
+    // throw new CustomError(filename, lineno, message)
+    var err = new Error(message)
+    err.filename = filename
+    err.lineno = lineno
+    err.message = message
+    throw err
+    */
   }
 })
