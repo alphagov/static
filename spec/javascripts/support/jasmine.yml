@@ -10,6 +10,7 @@ src_files:
  - "../../../spec/javascripts/helpers/jasmine-jquery-2.0.5.js"
  - "../../../spec/javascripts/helpers/cookie-functions.js"
  - "application.js"
+ - "analytics.js"
 
 # path to parent directory of spec_files
 # relative path from Rails.root

@@ -7,7 +7,6 @@
   GOVUK.analyticsPlugins = GOVUK.analyticsPlugins || {}
 
   GOVUK.analyticsPlugins.error = function (options) {
-    console.log('analyticsPlugins.error')
     options = options || {}
     var filenameMustMatch = options.filenameMustMatch
 
