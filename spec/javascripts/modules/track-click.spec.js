@@ -1,6 +1,7 @@
 describe('A click tracker', function() {
   "use strict";
 
+  var GOVUK = window.GOVUK
   var tracker,
       element;
 
@@ -9,6 +10,7 @@ describe('A click tracker', function() {
   });
 
   it('tracks click events using "beacon" as transport', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -28,6 +30,7 @@ describe('A click tracker', function() {
   });
 
   it('tracks clicks with custom dimensions', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
@@ -51,6 +54,7 @@ describe('A click tracker', function() {
   });
 
   it('does not set dimension if dimension is not present', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -71,6 +75,7 @@ describe('A click tracker', function() {
   });
 
   it('does not set dimension if dimension index is not present', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -91,6 +96,7 @@ describe('A click tracker', function() {
   });
 
   it('tracks clicks with values', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
@@ -113,6 +119,7 @@ describe('A click tracker', function() {
   });
 
   it('tracks clicks with arbitrary JSON', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $(
@@ -135,6 +142,7 @@ describe('A click tracker', function() {
   });
 
   it('tracks all trackable links within a container', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
@@ -168,6 +176,7 @@ describe('A click tracker', function() {
   });
 
   it('tracks a click correctly when event target is a child element of trackable element', function() {
+    GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent');
 
     element = $('\
