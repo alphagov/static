@@ -8,7 +8,7 @@
 //= require analytics_toolkit/print-intent
 //= require analytics_toolkit/error-tracking
 //= require analytics_toolkit/mailto-link-tracker
-//= require govuk/analytics/external-link-tracker
+//= require analytics_toolkit/external-link-tracker
 //= require govuk/analytics/download-link-tracker
 
 //= require analytics/page-content
