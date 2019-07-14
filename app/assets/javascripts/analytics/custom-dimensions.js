@@ -59,6 +59,7 @@
       'content-has-history': {dimension: 39, defaultValue: 'false'},
       'publishing-application': {dimension: 89},
       'stepnavs': {dimension: 96},
+      'secondary-stepnav-shown': {dimension: 32},
       'relevant-result-shown': {dimension: 83}
     };
 
