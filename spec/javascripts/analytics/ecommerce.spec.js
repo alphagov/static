@@ -93,6 +93,29 @@ describe('Ecommerce reporter for results pages', function() {
     });
   });
 
+  it('will use the non-default list title if set', function() {
+    element = $('\
+      <div data-ecommerce-start-index="1" data-list-title="Non-default title" data-search-query="search query">\
+        <div \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-content-id="AAAA-1111"\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+    element.find('[data-ecommerce-row]').click();
+
+    expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Non-default title'})
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      position: 1,
+      list: 'Non-default title',
+      dimension71: 'search query'
+    });
+  });
+
   it('will send data for multiple rows', function(){
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query">\
