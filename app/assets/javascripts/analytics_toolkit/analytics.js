@@ -66,15 +66,17 @@
   }
 
   Analytics.prototype.stripPIIFromObject = function (object) {
-    if (object instanceof Analytics.PIISafe) {
-      return object.value
-    } else {
-      for (var property in object) {
-        var value = object[property]
+    if (object) {
+      if (object instanceof Analytics.PIISafe || Object.keys(object).length === 1) {
+        return object.value
+      } else {
+        for (var property in object) {
+          var value = object[property]
 
-        object[property] = this.stripPII(value)
+          object[property] = this.stripPII(value)
+        }
+        return object
       }
-      return object
     }
   }
 
