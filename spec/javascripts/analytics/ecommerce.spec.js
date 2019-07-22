@@ -214,8 +214,7 @@ describe('Ecommerce reporter for results pages', function() {
       dimension71: 'search query'
     });
     expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Site search results'})
-    /*
-    // FIXME - test currently failing, but passes when analytics.js is called from toolkit
+
     expect(ga).toHaveBeenCalledWith('send', {
       hitType: 'event',
       eventCategory: 'UX',
@@ -239,7 +238,6 @@ describe('Ecommerce reporter for results pages', function() {
       dimension30: 'none',
       dimension95: '12345.67890'
     })
-    */
   });
 
   it('will only require the ec library once', function() {
