@@ -52,12 +52,23 @@ describe('GOVUK.GOVUKTracker', function () {
     })
 
     it('adds performance data', function () {
+      if (!window.performance) {
+        window.performance = { 'navigation': {}, 'timing': {} }
+        window.performance.navigation.type = '0'
+        window.performance.navigation.redirectCount = '0'
+        window.performance.timing.domComplete = '123456'
+      }
+
       var params = tracker.payloadParams('foo')
 
       expect(params.navigationType).toEqual('0')
       expect(params.redirectCount).toEqual('0')
 
-      expect(params.timing_domComplete).toEqual(window.performance.timing.domComplete.toString())
+      if (!window.performance) {
+        expect(params.timing_domComplete).toEqual('123456')
+      } else {
+        expect(params.timing_domComplete).toEqual(window.performance.timing.domComplete.toString())
+      }
     })
 
     it('adds custom dimensions', function () {
