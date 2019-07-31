@@ -31,6 +31,9 @@
 
       $(window).trigger('gaClientSet');
 
+      // Start up ecommerce tracking
+      GOVUK.Ecommerce.start();
+
       // Track initial pageview
       this.trackPageview(null, null, trackingOptions);
 
@@ -52,8 +55,6 @@
   };
 
   StaticAnalytics.prototype.trackPageview = function (path, title, options) {
-    GOVUK.Ecommerce.start();
-
     // Add the cookie banner status as a custom dimension
     var cookieBannerShown = !this.getCookie("seen_cookie_message");
     var cookieBannerDimension = {"dimension100" : cookieBannerShown ? cookieBannerShown.toString() : "false"};
