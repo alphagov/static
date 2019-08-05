@@ -54,6 +54,7 @@
 
   Ecommerce.ecLoaded = false;
   Ecommerce.start = function (element) {
+    if (!window.ga) { return }
     element = element || $('[data-analytics-ecommerce]');
     if(element.length > 0) {
       if(!Ecommerce.ecLoaded) {
