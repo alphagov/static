@@ -1,6 +1,10 @@
 # Analytics
 
-The toolkit provides an abstraction around analytics to make tracking pageviews, events and dimensions across multiple analytics providers easier. Specifically it was created to ease the migration from Google’s Classic Analytics to Universal Analytics. It includes:
+Static now contains the analytics code that was originally in `govuk_frontend_toolkit`. This code is available to any application that uses static. The following documentation is included from the original for reference only.
+
+## Toolkit analytics
+
+The analytics code provides an abstraction around analytics to make tracking pageviews, events and dimensions across multiple analytics providers easier. Specifically it was created to ease the migration from Google’s Classic Analytics to Universal Analytics. It includes:
 
 * a Google Analytics universal tracker wrapper
 * code to asynchronously load universal analytics
@@ -13,7 +17,7 @@ The toolkit provides an abstraction around analytics to make tracking pageviews,
 
 The minimum you need to use the analytics function is:
 
-1. Include the following files from /javascripts/govuk/analytics in your project:
+1. Include the following files from /javascripts/analytics_toolkit in your project:
   * google-analytics-universal-tracker.js
   * analytics.js
 2. Copy the following `init` script into your own project and replace the dummy IDs with your own (they begin with `UA-`).
