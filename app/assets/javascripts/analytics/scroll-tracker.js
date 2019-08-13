@@ -4,6 +4,13 @@
   window.GOVUK = window.GOVUK || {};
 
   var CONFIG = {
+    '/brexit': [
+      ['Percent', 20],
+      ['Percent', 40],
+      ['Percent', 60],
+      ['Percent', 80],
+      ['Percent', 100]
+    ],
     '/guidance/saving-for-retirement-if-youre-aged-16-to-50': [
       ['Heading', 'Keep track of your State Pension'],
       ['Heading', 'Consider ways to improve your State Pension'],
@@ -121,6 +128,21 @@
         GOVUK.analytics.trackEvent('ScrollTo', action, {label: label, nonInteraction: true});
       }
     }
+  };
+
+  ScrollTracker.PercentNode = function (percentage) {
+    this.percentage = percentage;
+    this.eventData = {action: "Percent", label: String(percentage)};
+  };
+
+  ScrollTracker.PercentNode.prototype.isVisible = function () {
+    return this.currentScrollPercent() >= this.percentage;
+  };
+
+  ScrollTracker.PercentNode.prototype.currentScrollPercent = function () {
+    var $document = $(document);
+    var $window = $(window);
+    return( ($window.scrollTop() / ($document.height() - $window.height())) * 100.0 );
   };
 
   ScrollTracker.HeadingNode = function (headingText) {
