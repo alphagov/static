@@ -4,6 +4,13 @@
   window.GOVUK = window.GOVUK || {};
 
   var CONFIG = {
+    '/brexit': [
+      ['Percent', 20],
+      ['Percent', 40],
+      ['Percent', 60],
+      ['Percent', 80],
+      ['Percent', 100]
+    ],
     '/guidance/saving-for-retirement-if-youre-aged-16-to-50': [
       ['Heading', 'Keep track of your State Pension'],
       ['Heading', 'Consider ways to improve your State Pension'],
