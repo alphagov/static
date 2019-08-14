@@ -61,8 +61,10 @@
         ga('require', 'ec');
         Ecommerce.ecLoaded = true;
       }
-      var ecommerce = new Ecommerce();
-      ecommerce.init(element);
+      element.each(function(index){
+        var ecommerce = new Ecommerce();
+        ecommerce.init($(this));
+      })
     }
   }
 

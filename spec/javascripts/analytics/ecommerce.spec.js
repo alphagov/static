@@ -16,7 +16,7 @@ describe('Ecommerce reporter for results pages', function() {
         <div \
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
-          data-ecommerce-content-id="AAAA-1111"\
+          data-ecommerce-content-id="AAAA-1111">\
         </div>\
       </div>\
     ');
@@ -30,6 +30,42 @@ describe('Ecommerce reporter for results pages', function() {
       dimension71: 'search query'
     });
   });
+
+  it('tracks multiple lists individually', function() {
+    element = $('\
+      <div> \
+        <div data-analytics-ecommerce data-list-title="First list" data-ecommerce-start-index="1" data-search-query="search query">\
+          <div \
+            data-ecommerce-row=1\
+            data-ecommerce-path="/path/to/page"\
+            data-ecommerce-content-id="AAAA-1111">\
+          </div>\
+        </div>\
+        <div data-analytics-ecommerce data-list-title="Second list" data-ecommerce-start-index="1" data-search-query="blah">\
+          <div \
+            data-ecommerce-row=1\
+            data-ecommerce-path="/path/to/blah"\
+            data-ecommerce-content-id="AAAA-2222">\
+          </div>\
+        </div>\
+      </div>\
+    ');
+
+    GOVUK.Ecommerce.start(element.find('[data-analytics-ecommerce]'));
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      position: 1,
+      list: 'First list',
+      dimension71: 'search query'
+    });
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-2222',
+      position: 1,
+      list: 'Second list',
+      dimension71: 'blah'
+    });
+  })
 
   it('falls back to the path if the content id is not set', function() {
     element = $('\
