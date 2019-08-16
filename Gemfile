@@ -6,7 +6,7 @@ gem 'rails', '~> 5.2'
 gem 'rack_strip_client_ip', '0.0.2'
 gem 'actionpack-page_caching', '1.1.1'
 gem 'uglifier', ">= 1.3.0"
-gem 'sass-rails', "5.0.7"
+gem 'sass-rails', "6.0.0"
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 gem 'nokogiri', "~> 1.10"
 gem 'redis', "~> 4.1.2"
