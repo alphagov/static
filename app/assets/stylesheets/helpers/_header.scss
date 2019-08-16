@@ -348,9 +348,10 @@
 }
 
 .global-bar {
-  background-color: #BFE3E0;
+  background-color: #E5EAF1;
   display: none;
   padding: 15px 0;
+  border-top: 8px solid #E61E32;
 
   .show-global-bar & {
     display: block;
