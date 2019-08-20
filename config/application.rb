@@ -54,5 +54,6 @@ module Static
 
     # Google Analytics ID
     config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-UNSET")
+    config.ga_secondary_id = ENV.fetch("GA_SECONDARY_ID", "UA-UNSET")
   end
 end
