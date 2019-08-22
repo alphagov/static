@@ -27,6 +27,7 @@
     var cookieDomain = (document.domain == 'www.gov.uk') ? '.www.gov.uk' : document.domain;
 
     var universalId = '<%= Rails.application.config.ga_universal_id %>';
+    var secondaryId = '<%= Rails.application.config.ga_secondary_id %>';
 
     // Configure profiles, setup custom vars, track initial pageview
     var analytics = new GOVUK.StaticAnalytics({
@@ -39,6 +40,8 @@
 
     // Make interface public for virtual pageviews and events
     GOVUK.analytics = analytics;
+    GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'www.gov.uk', 'gov.uk');
+    GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'designsystem', 'design-system.service.gov.uk');
   } else {
     GOVUK.analytics = dummyAnalytics
   }
