@@ -40,7 +40,6 @@
 
     // Make interface public for virtual pageviews and events
     GOVUK.analytics = analytics;
-    GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'govuk', 'www.gov.uk');
     GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'designsystem', 'design-system.service.gov.uk');
   } else {
     GOVUK.analytics = dummyAnalytics
