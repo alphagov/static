@@ -21,7 +21,7 @@ describe("toggling a global bar HTML class based on cookie", function () {
       }
 
       function urlPermitsShow() {
-        return !/^\/register-to-vote|^\/done/.test(window.location.pathname);
+        return !/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname);
       }
 
       function viewCountPermitsShow() {
@@ -48,7 +48,7 @@ describe("toggling a global bar HTML class based on cookie", function () {
     var window = fakeWindow || root;
 
     /* begin minify */
-    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
+    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
     /* end minify */
   }
 
@@ -119,6 +119,16 @@ describe("toggling a global bar HTML class based on cookie", function () {
 
     it("does not show on done pages", function() {
       globalBarFn({location: {pathname: '/done'}});
+      expectGlobalBarToBeHidden();
+    });
+
+    it("does not show on brexit landing page", function() {
+      globalBarFn({location: {pathname: '/brexit'}});
+      expectGlobalBarToBeHidden();
+    });
+
+    it("does not show on brexit checker pages", function() {
+      globalBarFn({location: {pathname: '/get-ready-brexit-check'}});
       expectGlobalBarToBeHidden();
     });
   }
