@@ -369,6 +369,14 @@
         top: 0;
       }
     }
+
+    @include media(mobile) {
+      .dismiss {
+        position: absolute;
+        right: 0;
+        bottom: 1px;
+      }
+    }
   }
 
   .global-bar-message {
