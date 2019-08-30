@@ -399,19 +399,5 @@ describe('GOVUK.Analytics', function () {
       expect(allArgs).toContain(['test.set', 'displayFeaturesTask', null])
       expect(allArgs).toContain(['test.send', 'pageview'])
     })
-
-    it('adds multiple linked domains to universal analytics', function () {
-      analytics.addLinkedTrackerDomain('1234', 'test', 'www.example.com, www.something.com')
-
-      var allArgs = window.ga.calls.allArgs()
-      expect(allArgs).toContain(['create', '1234', 'auto', {'name': 'test'}])
-      expect(allArgs).toContain(['require', 'linker'])
-      expect(allArgs).toContain(['test.require', 'linker'])
-      expect(allArgs).toContain(['linker:autoLink', ['www.example.com, www.something.com']])
-      expect(allArgs).toContain(['test.linker:autoLink', ['www.example.com, www.something.com']])
-      expect(allArgs).toContain(['test.set', 'anonymizeIp', true])
-      expect(allArgs).toContain(['test.set', 'displayFeaturesTask', null])
-      expect(allArgs).toContain(['test.send', 'pageview'])
-    })
   })
 })
