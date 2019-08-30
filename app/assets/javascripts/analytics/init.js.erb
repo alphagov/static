@@ -41,6 +41,8 @@
     // Make interface public for virtual pageviews and events
     GOVUK.analytics = analytics;
     GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'designsystem', 'design-system.service.gov.uk');
+    GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'passportservice', 'passport.service.gov.uk');
+    GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'applysettledstatus', 'apply-for-eu-settled-status.homeoffice.gov.uk');
   } else {
     GOVUK.analytics = dummyAnalytics
   }
