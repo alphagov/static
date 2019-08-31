@@ -387,7 +387,7 @@ describe('GOVUK.Analytics', function () {
 
   describe('when adding a linked domain', function () {
     it('adds a linked domain to universal analytics', function () {
-      analytics.addLinkedTrackerDomain('1234', 'test', 'www.example.com')
+      analytics.addLinkedTrackerDomain('1234', 'test', ['www.example.com'])
 
       var allArgs = window.ga.calls.allArgs()
       expect(allArgs).toContain(['create', '1234', 'auto', {'name': 'test'}])
@@ -398,6 +398,34 @@ describe('GOVUK.Analytics', function () {
       expect(allArgs).toContain(['test.set', 'anonymizeIp', true])
       expect(allArgs).toContain(['test.set', 'displayFeaturesTask', null])
       expect(allArgs).toContain(['test.send', 'pageview'])
+    })
+
+    it('adds two linked domains to universal analytics', function () {
+      analytics.addLinkedTrackerDomain('5678', 'test2', ['www.example.com', 'www.something.com'])
+
+      var allArgs = window.ga.calls.allArgs()
+      expect(allArgs).toContain(['create', '5678', 'auto', {'name': 'test2'}])
+      expect(allArgs).toContain(['require', 'linker'])
+      expect(allArgs).toContain(['test2.require', 'linker'])
+      expect(allArgs).toContain(['linker:autoLink', ['www.example.com', 'www.something.com']])
+      expect(allArgs).toContain(['test2.linker:autoLink', ['www.example.com', 'www.something.com']])
+      expect(allArgs).toContain(['test2.set', 'anonymizeIp', true])
+      expect(allArgs).toContain(['test2.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test2.send', 'pageview'])
+    })
+
+    it('adds multiple linked domains to universal analytics', function () {
+      analytics.addLinkedTrackerDomain('5678', 'test3', ['www.example.com', 'www.something.com', 'www.else.com'])
+
+      var allArgs = window.ga.calls.allArgs()
+      expect(allArgs).toContain(['create', '5678', 'auto', {'name': 'test3'}])
+      expect(allArgs).toContain(['require', 'linker'])
+      expect(allArgs).toContain(['test3.require', 'linker'])
+      expect(allArgs).toContain(['linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
+      expect(allArgs).toContain(['test3.linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
+      expect(allArgs).toContain(['test3.set', 'anonymizeIp', true])
+      expect(allArgs).toContain(['test3.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test3.send', 'pageview'])
     })
   })
 })

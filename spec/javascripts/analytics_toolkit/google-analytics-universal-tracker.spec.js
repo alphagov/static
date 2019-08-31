@@ -201,7 +201,7 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
 
     beforeEach(function () {
       callIndex = window.ga.calls.count()
-      universal.addLinkedTrackerDomain('UA-123456', 'testTracker', 'some.service.gov.uk')
+      universal.addLinkedTrackerDomain('UA-123456', 'testTracker', ['some.service.gov.uk'])
     })
     it('creates a tracker for the ID', function () {
       expect(window.ga.calls.argsFor(callIndex)).toEqual(['create', 'UA-123456', 'auto', Object({ name: 'testTracker' })])
@@ -210,12 +210,62 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['require', 'linker'])
       expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['testTracker.require', 'linker'])
     })
+    it('configures the domain', function () {
+      expect(window.ga.calls.argsFor(callIndex + 3)).toEqual(['linker:autoLink', ['some.service.gov.uk']])
+      expect(window.ga.calls.argsFor(callIndex + 4)).toEqual(['testTracker.linker:autoLink', ['some.service.gov.uk']])
+    })
     it('sends a pageview', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['testTracker.send', 'pageview'])
     })
     it('can omit sending a pageview', function () {
       universal.addLinkedTrackerDomain('UA-123456', 'testTracker', 'some.service.gov.uk', false)
       expect(window.ga.calls.mostRecent().args).not.toEqual(['testTracker.send', 'pageview'])
+    })
+  })
+
+  describe('adding a linked tracker with two domains', function () {
+    var callIndex
+
+    beforeEach(function () {
+      callIndex = window.ga.calls.count()
+      universal.addLinkedTrackerDomain('UA-789', 'multiple', ['some.service.gov.uk', 'another.service.gov.uk'])
+    })
+    it('creates a tracker for the ID', function () {
+      expect(window.ga.calls.argsFor(callIndex)).toEqual(['create', 'UA-789', 'auto', Object({ name: 'multiple' })])
+    })
+    it('requires and configures the linker plugin', function () {
+      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['require', 'linker'])
+      expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['multiple.require', 'linker'])
+    })
+    it('configures the domains', function () {
+      expect(window.ga.calls.argsFor(callIndex + 3)).toEqual(['linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk']])
+      expect(window.ga.calls.argsFor(callIndex + 4)).toEqual(['multiple.linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk']])
+    })
+    it('sends a pageview', function () {
+      expect(window.ga.calls.mostRecent().args).toEqual(['multiple.send', 'pageview'])
+    })
+  })
+
+  describe('adding a linked tracker with multiple domains', function () {
+    var callIndex
+
+    beforeEach(function () {
+      callIndex = window.ga.calls.count()
+      universal.addLinkedTrackerDomain('UA-987', 'multiple', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk'])
+    })
+    it('creates a tracker for the ID', function () {
+      expect(window.ga.calls.argsFor(callIndex)).toEqual(['create', 'UA-987', 'auto', Object({ name: 'multiple' })])
+    })
+    it('requires and configures the linker plugin', function () {
+      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['require', 'linker'])
+      expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['multiple.require', 'linker'])
+    })
+    it('configures the domains', function () {
+      expect(window.ga.calls.argsFor(callIndex + 3)).toEqual(['linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk']])
+      expect(window.ga.calls.argsFor(callIndex + 4)).toEqual(['multiple.linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk']])
+    })
+    it('sends a pageview', function () {
+      expect(window.ga.calls.mostRecent().args).toEqual(['multiple.send', 'pageview'])
     })
   })
 })

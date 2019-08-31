@@ -147,7 +147,7 @@
    https://developers.google.com/analytics/devguides/collection/analyticsjs/cross-domain
    trackerId    - the UA account code to track the domain against
    name         - name for the tracker
-   domain       - the domain to track
+   domain       - the domain to track (must be an array of strings)
    sendPageView - optional argument which controls the legacy behaviour of sending a pageview
                   on creation of the linked domain.
   */
@@ -161,8 +161,8 @@
     sendToGa(name + '.require', 'linker')
 
     // Define which domains to autoLink.
-    sendToGa('linker:autoLink', [domain])
-    sendToGa(name + '.linker:autoLink', [domain])
+    sendToGa('linker:autoLink', domain)
+    sendToGa(name + '.linker:autoLink', domain)
 
     sendToGa(name + '.set', 'anonymizeIp', true)
     sendToGa(name + '.set', 'displayFeaturesTask', null)
