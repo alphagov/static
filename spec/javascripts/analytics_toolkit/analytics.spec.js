@@ -99,45 +99,37 @@ describe('GOVUK.Analytics', function () {
 
     it('injects a default path if no args are supplied', function () {
       analytics.trackPageview()
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/a/page?with=a&query=string')
     })
 
     it('injects a default path if args are supplied, but the path arg is blank', function () {
       analytics.trackPageview(null)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/a/page?with=a&query=string')
 
       analytics.trackPageview(undefined)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/a/page?with=a&query=string')
     })
 
     it('uses the supplied path', function () {
       analytics.trackPageview('/foo')
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/foo')
     })
 
     it('does not inject a default title if no args are supplied', function () {
       analytics.trackPageview()
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual(undefined)
     })
 
     it('does not inject a default title if args are supplied, but the title arg is blank', function () {
       analytics.trackPageview('/foo', null)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual(undefined)
 
       analytics.trackPageview('/foo', undefined)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual(undefined)
     })
 
     it('uses the supplied title', function () {
       analytics.trackPageview('/foo', 'A page')
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual('A page')
     })
   })
