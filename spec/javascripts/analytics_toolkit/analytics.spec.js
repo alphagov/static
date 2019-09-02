@@ -99,45 +99,37 @@ describe('GOVUK.Analytics', function () {
 
     it('injects a default path if no args are supplied', function () {
       analytics.trackPageview()
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/a/page?with=a&query=string')
     })
 
     it('injects a default path if args are supplied, but the path arg is blank', function () {
       analytics.trackPageview(null)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/a/page?with=a&query=string')
 
       analytics.trackPageview(undefined)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/a/page?with=a&query=string')
     })
 
     it('uses the supplied path', function () {
       analytics.trackPageview('/foo')
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].page).toEqual('/foo')
     })
 
     it('does not inject a default title if no args are supplied', function () {
       analytics.trackPageview()
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual(undefined)
     })
 
     it('does not inject a default title if args are supplied, but the title arg is blank', function () {
       analytics.trackPageview('/foo', null)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual(undefined)
 
       analytics.trackPageview('/foo', undefined)
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual(undefined)
     })
 
     it('uses the supplied title', function () {
       analytics.trackPageview('/foo', 'A page')
-      console.log(window.ga.calls.mostRecent().args)
       expect(window.ga.calls.mostRecent().args[2].title).toEqual('A page')
     })
   })
@@ -387,7 +379,7 @@ describe('GOVUK.Analytics', function () {
 
   describe('when adding a linked domain', function () {
     it('adds a linked domain to universal analytics', function () {
-      analytics.addLinkedTrackerDomain('1234', 'test', 'www.example.com')
+      analytics.addLinkedTrackerDomain('1234', 'test', ['www.example.com'])
 
       var allArgs = window.ga.calls.allArgs()
       expect(allArgs).toContain(['create', '1234', 'auto', {'name': 'test'}])
@@ -398,6 +390,34 @@ describe('GOVUK.Analytics', function () {
       expect(allArgs).toContain(['test.set', 'anonymizeIp', true])
       expect(allArgs).toContain(['test.set', 'displayFeaturesTask', null])
       expect(allArgs).toContain(['test.send', 'pageview'])
+    })
+
+    it('adds two linked domains to universal analytics', function () {
+      analytics.addLinkedTrackerDomain('5678', 'test2', ['www.example.com', 'www.something.com'])
+
+      var allArgs = window.ga.calls.allArgs()
+      expect(allArgs).toContain(['create', '5678', 'auto', {'name': 'test2'}])
+      expect(allArgs).toContain(['require', 'linker'])
+      expect(allArgs).toContain(['test2.require', 'linker'])
+      expect(allArgs).toContain(['linker:autoLink', ['www.example.com', 'www.something.com']])
+      expect(allArgs).toContain(['test2.linker:autoLink', ['www.example.com', 'www.something.com']])
+      expect(allArgs).toContain(['test2.set', 'anonymizeIp', true])
+      expect(allArgs).toContain(['test2.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test2.send', 'pageview'])
+    })
+
+    it('adds multiple linked domains to universal analytics', function () {
+      analytics.addLinkedTrackerDomain('5678', 'test3', ['www.example.com', 'www.something.com', 'www.else.com'])
+
+      var allArgs = window.ga.calls.allArgs()
+      expect(allArgs).toContain(['create', '5678', 'auto', {'name': 'test3'}])
+      expect(allArgs).toContain(['require', 'linker'])
+      expect(allArgs).toContain(['test3.require', 'linker'])
+      expect(allArgs).toContain(['linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
+      expect(allArgs).toContain(['test3.linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
+      expect(allArgs).toContain(['test3.set', 'anonymizeIp', true])
+      expect(allArgs).toContain(['test3.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test3.send', 'pageview'])
     })
   })
 })

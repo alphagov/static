@@ -159,6 +159,8 @@ for pages like:
 GOVUK.analytics.addLinkedTrackerDomain(trackerIdHere, nameForTracker, domainToLinkTo);
 ```
 
+Note that `domainToLinkTo` must be an array of strings.
+
 Once this is done hits to that page will be tracked in both your local and the
 named tracker, and sessions will persist to the other domain.
 
