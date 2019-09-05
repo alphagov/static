@@ -362,6 +362,12 @@
     @extend %site-width-container;
     position: relative;
 
+    @include media($max-width: 320px) {
+      .dismiss {
+        position: relative;
+      }
+    }
+
     @include media(tablet) {
       .dismiss {
         position: absolute;
@@ -370,7 +376,7 @@
       }
     }
 
-    @include media(mobile) {
+    @include media($min-width: 320px) {
       .dismiss {
         position: absolute;
         right: 0;
