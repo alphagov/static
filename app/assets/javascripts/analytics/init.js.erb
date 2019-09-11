@@ -34,6 +34,8 @@
       universalId: universalId,
       cookieDomain: cookieDomain,
       allowLinker: true,
+      stripDatePII: true,
+      stripPostcodePII: true,
       // This is served by Fastly in production, and returns an empty 200 response
       govukTrackerUrl: '<%= asset_path "/static/a" %>'
     });
