@@ -1,4 +1,5 @@
 //= require govuk_publishing_components/lib/cookie-functions
+//= require analytics/pii
 //= require analytics_toolkit/google-analytics-universal-tracker
 //= require analytics_toolkit/govuk-tracker
 //= require analytics_toolkit/analytics
