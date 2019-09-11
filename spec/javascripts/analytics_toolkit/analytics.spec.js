@@ -34,7 +34,7 @@ describe('GOVUK.Analytics', function () {
     })
 
     it('is configured not to strip date data from GA calls', function () {
-      expect(analytics.pii.stripDatePII).toEqual(false)
+      expect(analytics.stripDatePII).toEqual(false)
     })
 
     it('can be told to strip date data from GA calls', function () {
@@ -45,11 +45,11 @@ describe('GOVUK.Analytics', function () {
         stripDatePII: true
       })
 
-      expect(analytics.pii.stripDatePII).toEqual(true)
+      expect(analytics.stripDatePII).toEqual(true)
     })
 
     it('is configured not to strip postcode data from GA calls', function () {
-      expect(analytics.pii.stripPostcodePII).toEqual(false)
+      expect(analytics.stripPostcodePII).toEqual(false)
     })
 
     it('can be told to strip postcode data from GA calls', function () {
@@ -60,7 +60,7 @@ describe('GOVUK.Analytics', function () {
         stripPostcodePII: true
       })
 
-      expect(analytics.pii.stripPostcodePII).toEqual(true)
+      expect(analytics.stripPostcodePII).toEqual(true)
     })
   })
 

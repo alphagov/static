@@ -206,7 +206,7 @@ describe('Ecommerce reporter for results pages', function() {
   });
 
   it('removes postcodes from the search query if configured to do so', function() {
-    GOVUK.analytics.analytics.pii.stripPostcodePII = true;
+    GOVUK.analytics.analytics.stripPostcodePII = true;
 
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query with a SW1A 1AA in it">\
@@ -227,11 +227,11 @@ describe('Ecommerce reporter for results pages', function() {
       dimension71: 'search query with a [postcode] in it'
     });
 
-    GOVUK.analytics.analytics.pii.stripPostcodePII = false;
+    GOVUK.analytics.analytics.stripPostcodePII = false;
   });
 
   it('leaves postcodes in the search query if not configured to remove them', function() {
-    GOVUK.analytics.analytics.pii.stripPostcodePII = false;
+    GOVUK.analytics.analytics.stripPostcodePII = false;
 
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query with a SW1A 1AA in it">\
