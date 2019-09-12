@@ -1,5 +1,6 @@
 describe("GOVUK.StaticAnalytics", function() {
   var analytics;
+  var pii;
 
   beforeEach(function() {
     window.GOVUK.setConsentCookie({'usage': true});
@@ -21,10 +22,14 @@ describe("GOVUK.StaticAnalytics", function() {
 
     beforeEach(function() {
       pageViewObject = getPageViewObject();
+      pii = new GOVUK.pii()
+      pii.stripDatePII = true
+      pii.stripPostcodePII = true
     });
 
     it('configures a universal tracker', function() {
-      expect(window.ga).toHaveBeenCalledWith('create', 'universal-id', {'cookieDomain': '.www.gov.uk'});
+      expect(window.ga.calls.allArgs()).toContain(['set', 'location', pii.stripPII(window.location.href)]);
+      expect(window.ga.calls.allArgs()).toContain(['create', 'universal-id', {'cookieDomain': '.www.gov.uk'}]);
     });
 
     it('sets the device pixel ratio', function() {

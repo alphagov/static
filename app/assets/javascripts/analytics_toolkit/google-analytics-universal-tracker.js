@@ -181,6 +181,7 @@
   }
 
   function sendToGa () {
+    global.ga('set', 'location', pii.stripPII(window.location.href))
     if (typeof global.ga === 'function') {
       global.ga.apply(global, arguments)
     }
