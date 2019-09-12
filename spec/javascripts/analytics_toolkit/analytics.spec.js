@@ -28,9 +28,9 @@ describe('GOVUK.Analytics', function () {
     })
 
     it('configures a universal tracker', function () {
-      expect(universalSetupArguments[0]).toEqual(['create', 'universal-id', {cookieDomain: '.www.gov.uk', siteSpeedSampleRate: 100}])
-      expect(universalSetupArguments[1]).toEqual(['set', 'anonymizeIp', true])
-      expect(universalSetupArguments[2]).toEqual(['set', 'displayFeaturesTask', null])
+      expect(universalSetupArguments).toContain(['create', 'universal-id', {cookieDomain: '.www.gov.uk', siteSpeedSampleRate: 100}])
+      expect(universalSetupArguments).toContain(['set', 'anonymizeIp', true])
+      expect(universalSetupArguments).toContain(['set', 'displayFeaturesTask', null])
     })
 
     it('is configured not to strip date data from GA calls', function () {

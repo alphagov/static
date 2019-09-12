@@ -40,15 +40,15 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     })
 
     it('configures a Google tracker using the provided profile ID and config', function () {
-      expect(setupArguments[0]).toEqual(['create', 'id', {cookieDomain: 'cookie-domain.com', siteSpeedSampleRate: 100}])
+      expect(setupArguments[1]).toEqual(['create', 'id', {cookieDomain: 'cookie-domain.com', siteSpeedSampleRate: 100}])
     })
 
     it('anonymises the IP', function () {
-      expect(setupArguments[1]).toEqual(['set', 'anonymizeIp', true])
+      expect(setupArguments[3]).toEqual(['set', 'anonymizeIp', true])
     })
 
     it('disables Ad features', function () {
-      expect(setupArguments[3]).toEqual(['set', 'allowAdFeatures', false])
+      expect(setupArguments[7]).toEqual(['set', 'allowAdFeatures', false])
     })
   })
 
@@ -61,7 +61,7 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     })
 
     it('configures a Google tracker using the provided profile ID and cookie domain', function () {
-      expect(setupArguments[0]).toEqual(['create', 'id', {cookieDomain: 'cookie-domain.com'}])
+      expect(setupArguments[1]).toEqual(['create', 'id', {cookieDomain: 'cookie-domain.com'}])
     })
   })
 
@@ -207,15 +207,15 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       universal.addLinkedTrackerDomain('UA-123456', 'testTracker', ['some.service.gov.uk'])
     })
     it('creates a tracker for the ID', function () {
-      expect(window.ga.calls.argsFor(callIndex)).toEqual(['create', 'UA-123456', 'auto', Object({ name: 'testTracker' })])
+      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['create', 'UA-123456', 'auto', Object({ name: 'testTracker' })])
     })
     it('requires and configures the linker plugin', function () {
-      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['require', 'linker'])
-      expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['testTracker.require', 'linker'])
+      expect(window.ga.calls.allArgs()).toContain(['require', 'linker'])
+      expect(window.ga.calls.allArgs()).toContain(['testTracker.require', 'linker'])
     })
     it('configures the domain', function () {
-      expect(window.ga.calls.argsFor(callIndex + 3)).toEqual(['linker:autoLink', ['some.service.gov.uk']])
-      expect(window.ga.calls.argsFor(callIndex + 4)).toEqual(['testTracker.linker:autoLink', ['some.service.gov.uk']])
+      expect(window.ga.calls.allArgs()).toContain(['linker:autoLink', ['some.service.gov.uk']])
+      expect(window.ga.calls.allArgs()).toContain(['testTracker.linker:autoLink', ['some.service.gov.uk']])
     })
     it('sends a pageview', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['testTracker.send', 'pageview'])
@@ -234,15 +234,15 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       universal.addLinkedTrackerDomain('UA-789', 'multiple', ['some.service.gov.uk', 'another.service.gov.uk'])
     })
     it('creates a tracker for the ID', function () {
-      expect(window.ga.calls.argsFor(callIndex)).toEqual(['create', 'UA-789', 'auto', Object({ name: 'multiple' })])
+      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['create', 'UA-789', 'auto', Object({ name: 'multiple' })])
     })
     it('requires and configures the linker plugin', function () {
-      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['require', 'linker'])
-      expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['multiple.require', 'linker'])
+      expect(window.ga.calls.allArgs()).toContain(['require', 'linker'])
+      expect(window.ga.calls.allArgs()).toContain(['multiple.require', 'linker'])
     })
     it('configures the domains', function () {
-      expect(window.ga.calls.argsFor(callIndex + 3)).toEqual(['linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk']])
-      expect(window.ga.calls.argsFor(callIndex + 4)).toEqual(['multiple.linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk']])
+      expect(window.ga.calls.allArgs()).toContain(['linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk']])
+      expect(window.ga.calls.allArgs()).toContain(['multiple.linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk']])
     })
     it('sends a pageview', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['multiple.send', 'pageview'])
@@ -257,15 +257,15 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       universal.addLinkedTrackerDomain('UA-987', 'multiple', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk'])
     })
     it('creates a tracker for the ID', function () {
-      expect(window.ga.calls.argsFor(callIndex)).toEqual(['create', 'UA-987', 'auto', Object({ name: 'multiple' })])
+      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['create', 'UA-987', 'auto', Object({ name: 'multiple' })])
     })
     it('requires and configures the linker plugin', function () {
-      expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['require', 'linker'])
-      expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['multiple.require', 'linker'])
+      expect(window.ga.calls.allArgs()).toContain(['require', 'linker'])
+      expect(window.ga.calls.allArgs()).toContain(['multiple.require', 'linker'])
     })
     it('configures the domains', function () {
-      expect(window.ga.calls.argsFor(callIndex + 3)).toEqual(['linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk']])
-      expect(window.ga.calls.argsFor(callIndex + 4)).toEqual(['multiple.linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk']])
+      expect(window.ga.calls.allArgs()).toContain(['linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk']])
+      expect(window.ga.calls.allArgs()).toContain(['multiple.linker:autoLink', ['some.service.gov.uk', 'another.service.gov.uk', 'third.service.gov.uk', 'fourth.service.gov.uk']])
     })
     it('sends a pageview', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['multiple.send', 'pageview'])
