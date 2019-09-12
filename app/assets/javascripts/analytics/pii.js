@@ -36,7 +36,7 @@
 
   pii.prototype.stripPIIFromObject = function (object) {
     if (object) {
-      if (object instanceof GOVUK.Analytics.PIISafe || Object.keys(object).length === 1) {
+      if (object instanceof GOVUK.Analytics.PIISafe) {
         return object.value
       } else {
         for (var property in object) {
