@@ -3,6 +3,9 @@
 
   var $ = global.jQuery
   var GOVUK = global.GOVUK || {}
+  var pii = new GOVUK.pii()
+  pii.stripDatePII = true
+  pii.stripPostcodePII = true
 
   var GoogleAnalyticsUniversalTracker = function (trackingId, fieldsObject) {
     function configureProfile () {
@@ -26,7 +29,7 @@
     }
 
     function stripLocationPII () {
-      sendToGa('set', 'location', stripEmailAddressesFromString(window.location.href))
+      sendToGa('set', 'location', pii.stripPII(window.location.href))
     }
 
     // Support legacy cookieDomain param
@@ -181,11 +184,6 @@
     if (typeof global.ga === 'function') {
       global.ga.apply(global, arguments)
     }
-  }
-
-  function stripEmailAddressesFromString (string) {
-    var stripped = string.replace(/[^\s=/?&]+(?:@|%40)[^\s=/?&]+/g, '[email]')
-    return stripped
   }
 
   GOVUK.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker
