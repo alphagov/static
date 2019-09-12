@@ -190,9 +190,12 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
   })
 
   describe('when tracking all events', function () {
-    window.history.replaceState(null, null, '?address=an.email@digital.cabinet-office.gov.uk')
-    it('removes any email address from the location', function () {
+    window.history.replaceState(null, null, '?address=an.email@digital.cabinet-office.gov.uk&postcode=sw11wa&date=2019-01-01')
+
+    it('removes any pii from the location', function () {
       expect(window.ga.calls.mostRecent().args[2]).toContain('address=[email]')
+      expect(window.ga.calls.mostRecent().args[2]).toContain('postcode=[postcode]')
+      expect(window.ga.calls.mostRecent().args[2]).toContain('date=[date]')
     })
   })
 
