@@ -107,10 +107,9 @@ GEM
     govuk_frontend_toolkit (9.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (20.5.0)
+    govuk_publishing_components (20.5.1)
       gds-api-adapters
       govuk_app_config
-      govuk_frontend_toolkit
       kramdown
       plek
       rails (>= 5.0.0.1)
@@ -340,7 +339,7 @@ DEPENDENCIES
   govuk-lint (~> 3.11)
   govuk_app_config (~> 2.0.0)
   govuk_frontend_toolkit (~> 9.0.0)
-  govuk_publishing_components (~> 20.5.0)
+  govuk_publishing_components (~> 20.5.1)
   govuk_template (= 0.26.0)
   govuk_test
   image_optim (= 0.26.5)
