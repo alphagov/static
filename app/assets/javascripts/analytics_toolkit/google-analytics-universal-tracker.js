@@ -169,6 +169,7 @@
 
     sendToGa(name + '.set', 'anonymizeIp', true)
     sendToGa(name + '.set', 'displayFeaturesTask', null)
+    sendToGa(name + '.set', 'location', pii.stripPII(window.location.href))
 
     if (typeof sendPageView === 'undefined' || sendPageView === true) {
       sendToGa(name + '.send', 'pageview')
