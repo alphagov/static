@@ -6,9 +6,17 @@
   var POSTCODE_PATTERN = /[A-PR-UWYZ][A-HJ-Z]?[0-9][0-9A-HJKMNPR-Y]?(?:[\s+]|%20)*[0-9][ABD-HJLNPQ-Z]{2}/gi
   var DATE_PATTERN = /\d{4}(-?)\d{2}(-?)\d{2}/g
 
+  function shouldStripDates() {
+    return ($('meta[name="govuk:static-analytics:strip-dates"]').length > 0)
+  }
+
+  function shouldStripPostcodes() {
+    return ($('meta[name="govuk:static-analytics:strip-postcodes"]').length > 0)
+  }
+
   var pii = function () {
-    this.stripDatePII = false
-    this.stripPostcodePII = false
+    this.stripDatePII = shouldStripDates()
+    this.stripPostcodePII = shouldStripPostcodes()
   }
 
   pii.prototype.stripPII = function (value) {

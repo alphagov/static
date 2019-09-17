@@ -3,11 +3,11 @@
 
   var $ = global.jQuery
   var GOVUK = global.GOVUK || {}
-  var pii = new GOVUK.pii()
-  pii.stripDatePII = true
-  pii.stripPostcodePII = true
+  var pii
 
   var GoogleAnalyticsUniversalTracker = function (trackingId, fieldsObject) {
+    pii = new GOVUK.pii()
+
     function configureProfile () {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#create
       sendToGa('create', trackingId, fieldsObject)
