@@ -7,19 +7,6 @@
 
   var Analytics = function (config) {
     this.pii = new GOVUK.pii()
-
-    if (typeof config.stripDatePII !== 'undefined') {
-      this.pii.stripDatePII = (config.stripDatePII === true)
-      // remove the option so we don't pass it to other trackers - it's not
-      // their concern
-      delete config.stripDatePII
-    }
-    if (typeof config.stripPostcodePII !== 'undefined') {
-      this.pii.stripPostcodePII = (config.stripPostcodePII === true)
-      // remove the option so we don't pass it to other trackers - it's not
-      // their concern
-      delete config.stripPostcodePII
-    }
     this.trackers = []
     if (typeof config.universalId !== 'undefined') {
       var universalId = config.universalId

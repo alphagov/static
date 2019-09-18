@@ -16,6 +16,8 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
 
   beforeEach(function () {
     addGoogleAnalyticsSpy()
+    pageWantsDatesStripped()
+    pageWantsPostcodesStripped()
 
     universal = new GOVUK.GoogleAnalyticsUniversalTracker('id', {
       cookieDomain: 'cookie-domain.com',
@@ -271,4 +273,12 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['multiple.send', 'pageview'])
     })
   })
+
+  function pageWantsDatesStripped() {
+    $('head').append('<meta name="govuk:static-analytics:strip-dates" value="does not matter" />');
+  }
+
+  function pageWantsPostcodesStripped() {
+    $('head').append('<meta name="govuk:static-analytics:strip-postcodes" value="does not matter" />');
+  }
 })
