@@ -181,7 +181,7 @@ On that basis the simplest course of action would appear to be to simply add `go
 - any link from `www.gov.uk` to a matching domain would have a URL parameter automatically added to it e.g. `https://something.service.gov.uk/?_ga=23.32423234.213.1.2213`. This could interfere with that site's own analytics.
 - the client ID might be reset.
 
-Once the changes to the linker configuration have been deployed a PA will need to check that everything is working correctly. Since static PRs can take upwards of half an hour to pass CI tests, it's worth having a revert PR ready early on just in case.
+Once the changes to the linker configuration have been deployed a performance analyst will need to check that everything is working correctly. Since static PRs can take upwards of half an hour to pass CI tests, it's worth having a revert PR ready early on just in case.
 
 ## Plugins
 
