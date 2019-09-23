@@ -64,7 +64,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
+  config.action_controller.asset_host = ENV["GOVUK_ASSET_HOST"]
 
   config.eager_load = true
 

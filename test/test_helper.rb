@@ -1,11 +1,11 @@
 ENV["RAILS_ENV"] = "test"
 
-require File.expand_path('../config/environment', __dir__)
+require File.expand_path("../config/environment", __dir__)
 
-require 'minitest/autorun'
-require 'test/unit'
-require 'rails/test_help'
-require 'mocha/mini_test'
+require "minitest/autorun"
+require "test/unit"
+require "rails/test_help"
+require "mocha/mini_test"
 
 class ActiveSupport::TestCase
   def create_test_file(filename:, content:)

@@ -1,6 +1,6 @@
-require_relative 'test_helper'
-require 'rack/test'
-require 'capybara/rails'
+require_relative "test_helper"
+require "rack/test"
+require "capybara/rails"
 
 GovukTest.configure
 

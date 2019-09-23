@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "/component-guide" => redirect("https://govuk-publishing-components.herokuapp.com/component-guide")
 
   scope format: false do
-    with_options to: proc { [410, {}, ['The component system has moved to https://github.com/alphagov/govuk_publishing_components']] } do
+    with_options to: proc { [410, {}, ["The component system has moved to https://github.com/alphagov/govuk_publishing_components"]] } do
       get "/templates/govuk_component/:template.raw.html.erb"
       get "/templates/govuk_component/docs"
       get "/templates/locales"
@@ -28,5 +28,5 @@ Rails.application.routes.draw do
   get "/apple-touch-icon-60x60.png", to: "icon_redirects#apple_old_size_icon"
   get "/apple-touch-icon-precomposed.png", to: "icon_redirects#apple_old_size_icon"
 
-  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
 end

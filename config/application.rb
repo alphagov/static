@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "action_controller/railtie"
 require "rails/test_unit/railtie"
@@ -8,8 +8,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if !Rails.env.production? || ENV['HEROKU_APP_NAME'].present?
-  require 'govuk_publishing_components'
+if !Rails.env.production? || ENV["HEROKU_APP_NAME"].present?
+  require "govuk_publishing_components"
 end
 
 module Static
@@ -45,7 +45,7 @@ module Static
     config.assets.prefix = "/static"
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = "1.0"
 
     # Disable Rack::Cache
     config.action_dispatch.rack_cache = nil
