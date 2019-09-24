@@ -85,16 +85,16 @@ ROUTES = [
 namespace :publishing_api do
   desc "Publish special routes such as humans.txt"
   task :publish_special_routes do
-    require 'gds_api/publishing_api/special_route_publisher'
+    require "gds_api/publishing_api/special_route_publisher"
 
     publishing_api = GdsApi::PublishingApiV2.new(
-      Plek.new.find('publishing-api'),
-      bearer_token: ENV['PUBLISHING_API_BEARER_TOKEN'] || 'example'
+      Plek.new.find("publishing-api"),
+      bearer_token: ENV["PUBLISHING_API_BEARER_TOKEN"] || "example",
     )
 
     publisher = GdsApi::PublishingApi::SpecialRoutePublisher.new(
       logger: Logger.new(STDOUT),
-      publishing_api: publishing_api
+      publishing_api: publishing_api,
     )
 
     ROUTES.each do |route|
@@ -107,7 +107,7 @@ namespace :publishing_api do
           rendering_app: "static",
           public_updated_at: Time.now.iso8601,
           update_type: "major",
-        )
+        ),
       )
     end
   end

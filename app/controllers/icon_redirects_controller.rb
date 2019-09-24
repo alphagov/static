@@ -4,6 +4,6 @@ class IconRedirectsController < ApplicationController
   end
 
   def apple_old_size_icon
-    redirect_to view_context.asset_path('apple-touch-icon.png'), status: 301
+    redirect_to view_context.asset_path("apple-touch-icon.png"), status: 301
   end
 end

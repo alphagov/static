@@ -17,7 +17,7 @@ class RootController < ApplicationController
     if NON_LAYOUT_TEMPLATES.include?(params[:template])
       render action: params[:template]
     else
-      render action: params[:template], layout: 'govuk_template'
+      render action: params[:template], layout: "govuk_template"
     end
   end
 
@@ -30,7 +30,7 @@ private
       error_404
     end
     # Prevent direct access to partials
-    if params[:template].start_with?('_')
+    if params[:template].start_with?("_")
       error_404
     end
   end

@@ -1,5 +1,5 @@
-require 'test_helper'
-require_relative '../../../lib/emergency_banner/remove'
+require "test_helper"
+require_relative "../../../lib/emergency_banner/remove"
 
 describe "Emergency Banner::Deploy" do
   context "#run" do

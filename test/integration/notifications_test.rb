@@ -1,4 +1,4 @@
-require 'integration_test_helper'
+require "integration_test_helper"
 
 class NotificationsTest < ActionDispatch::IntegrationTest
   def stub_redis_response(hash)
@@ -30,7 +30,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
       visit "/templates/wrapper.html.erb"
 
       assert page.has_selector? ".govuk-emergency-banner.notable-death"
-      assert_match 'Alas poor Yorick', page.body
+      assert_match "Alas poor Yorick", page.body
     end
 
     should "render the more information link" do

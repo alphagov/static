@@ -1,5 +1,5 @@
-require 'test_helper'
-require_relative '../../../lib/emergency_banner/deploy'
+require "test_helper"
+require_relative "../../../lib/emergency_banner/deploy"
 
 describe "Emergency Banner::Deploy" do
   context "#run" do
@@ -9,7 +9,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "",
                                               :link, "",
-                                              :link_text, "",)
+                                              :link_text, "")
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title")
     end
@@ -20,7 +20,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "A short description of the event",
                                               :link, "",
-                                              :link_text, "",)
+                                              :link_text, "")
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "A short description of the event")
     end
@@ -53,7 +53,7 @@ describe "Emergency Banner::Deploy" do
                                               :heading, "A title",
                                               :short_description, "A short description of the event",
                                               :link, "https://www.gov.uk",
-                                              :link_text, "Text for hyperlink",)
+                                              :link_text, "Text for hyperlink")
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "A short description of the event", "https://www.gov.uk", "Text for hyperlink")
     end

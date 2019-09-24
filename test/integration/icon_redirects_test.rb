@@ -2,11 +2,11 @@ require_relative "../integration_test_helper"
 
 class IconRedirectsTest < ActionDispatch::IntegrationTest
   [
-    'favicon.ico',
-    'apple-touch-icon.png',
-    'apple-touch-icon-180x180.png',
-    'apple-touch-icon-167x167.png',
-    'apple-touch-icon-152x152.png',
+    "favicon.ico",
+    "apple-touch-icon.png",
+    "apple-touch-icon-180x180.png",
+    "apple-touch-icon-167x167.png",
+    "apple-touch-icon-152x152.png",
   ].each do |file|
     should "redirect #{file} to the asset path" do
       get "/#{file}"
@@ -29,10 +29,10 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
   end
 
   [
-    'apple-touch-icon-120x120.png',
-    'apple-touch-icon-76x76.png',
-    'apple-touch-icon-60x60.png',
-    'apple-touch-icon-precomposed.png',
+    "apple-touch-icon-120x120.png",
+    "apple-touch-icon-76x76.png",
+    "apple-touch-icon-60x60.png",
+    "apple-touch-icon-precomposed.png",
   ].each do |file|
     should "redirect old icon size #{file} to the default apple-touch-icon.png icon" do
       get "/#{file}"
