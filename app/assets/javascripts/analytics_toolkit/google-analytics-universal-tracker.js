@@ -28,6 +28,10 @@
       sendToGa('set', 'allowAdFeatures', false)
     }
 
+    function stripTitlePII () {
+      sendToGa('set', 'title', pii.stripPII(document.title))
+    }
+
     function stripLocationPII () {
       sendToGa('set', 'location', pii.stripPII(window.location.href))
     }
@@ -41,6 +45,7 @@
     anonymizeIp()
     disableAdTracking()
     disableAdFeatures()
+    stripTitlePII()
     stripLocationPII()
   }
 

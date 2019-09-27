@@ -102,6 +102,11 @@ describe('GOVUK.Analytics', function () {
       analytics.trackPageview('/foo', 'A page')
       expect(window.ga.calls.mostRecent().args[2].title).toEqual('A page')
     })
+
+    it('removes pii from the title', function (){
+      analytics.trackPageview('/foo', 'With email@email.com in it')
+      expect(window.ga.calls.mostRecent().args[2].title).toEqual('With [email] in it')
+    })
   })
 
   describe('when tracking pageviews, events and custom dimensions', function () {

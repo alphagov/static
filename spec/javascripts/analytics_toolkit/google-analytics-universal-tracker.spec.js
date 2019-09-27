@@ -199,6 +199,21 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       expect(window.ga.calls.mostRecent().args[2]).toContain('postcode=[postcode]')
       expect(window.ga.calls.mostRecent().args[2]).toContain('date=[date]')
     })
+
+    it('removes any pii from the title', function () {
+      document.title = "With email@email.com 2012-01-01 and wc2b 6nh in it"
+      // need to reinit all the GA setup because the page title has changed
+      addGoogleAnalyticsSpy()
+      pageWantsDatesStripped()
+      pageWantsPostcodesStripped()
+
+      universal = new GOVUK.GoogleAnalyticsUniversalTracker('id', {
+        cookieDomain: 'cookie-domain.com',
+        siteSpeedSampleRate: 100
+      })
+
+      expect(window.ga.calls.allArgs()).toContain([ 'set', 'title', 'With [email] [date] and [postcode] in it' ])
+    })
   })
 
   describe('adding a linked tracker', function () {
