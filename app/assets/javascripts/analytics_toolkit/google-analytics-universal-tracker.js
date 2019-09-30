@@ -28,6 +28,10 @@
       sendToGa('set', 'allowAdFeatures', false)
     }
 
+    function stripTitlePII () {
+      sendToGa('set', 'title', pii.stripPII(document.title))
+    }
+
     function stripLocationPII () {
       sendToGa('set', 'location', pii.stripPII(window.location.href))
     }
@@ -41,6 +45,7 @@
     anonymizeIp()
     disableAdTracking()
     disableAdFeatures()
+    stripTitlePII()
     stripLocationPII()
   }
 
@@ -169,6 +174,7 @@
 
     sendToGa(name + '.set', 'anonymizeIp', true)
     sendToGa(name + '.set', 'displayFeaturesTask', null)
+    sendToGa(name + '.set', 'title', pii.stripPII(document.title))
     sendToGa(name + '.set', 'location', pii.stripPII(window.location.href))
 
     if (typeof sendPageView === 'undefined' || sendPageView === true) {

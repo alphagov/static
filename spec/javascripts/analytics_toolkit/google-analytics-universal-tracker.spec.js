@@ -199,6 +199,21 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       expect(window.ga.calls.mostRecent().args[2]).toContain('postcode=[postcode]')
       expect(window.ga.calls.mostRecent().args[2]).toContain('date=[date]')
     })
+
+    it('removes any pii from the title', function () {
+      document.title = "With email@email.com 2012-01-01 and wc2b 6nh in it"
+      // need to reinit all the GA setup because the page title has changed
+      addGoogleAnalyticsSpy()
+      pageWantsDatesStripped()
+      pageWantsPostcodesStripped()
+
+      universal = new GOVUK.GoogleAnalyticsUniversalTracker('id', {
+        cookieDomain: 'cookie-domain.com',
+        siteSpeedSampleRate: 100
+      })
+
+      expect(window.ga.calls.allArgs()).toContain([ 'set', 'title', 'With [email] [date] and [postcode] in it' ])
+    })
   })
 
   describe('adding a linked tracker', function () {
@@ -221,6 +236,10 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     })
     it('sends a pageview', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['testTracker.send', 'pageview'])
+    })
+    it('removes pii from the pageview', function () {
+      expect(window.ga.calls.allArgs()).toContain(['set', 'title' , 'With [email] [date] and [postcode] in it'])
+      expect(window.ga.calls.argsFor(5)[2]).toContain('?address=[email]&postcode=[postcode]&date=[date]')
     })
     it('can omit sending a pageview', function () {
       universal.addLinkedTrackerDomain('UA-123456', 'testTracker', 'some.service.gov.uk', false)
