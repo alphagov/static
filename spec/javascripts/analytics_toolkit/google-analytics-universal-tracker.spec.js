@@ -237,6 +237,10 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     it('sends a pageview', function () {
       expect(window.ga.calls.mostRecent().args).toEqual(['testTracker.send', 'pageview'])
     })
+    it('removes pii from the pageview', function () {
+      expect(window.ga.calls.allArgs()).toContain(['set', 'title' , 'With [email] [date] and [postcode] in it'])
+      expect(window.ga.calls.argsFor(5)[2]).toContain('?address=[email]&postcode=[postcode]&date=[date]')
+    })
     it('can omit sending a pageview', function () {
       universal.addLinkedTrackerDomain('UA-123456', 'testTracker', 'some.service.gov.uk', false)
       expect(window.ga.calls.mostRecent().args).not.toEqual(['testTracker.send', 'pageview'])
