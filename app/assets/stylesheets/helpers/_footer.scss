@@ -7,10 +7,13 @@
   a:focus {
     outline: 3px solid transparent;
     color: #0b0c0c;
-    background-color: #fd0;
-    -webkit-box-shadow: 0 -2px #fd0,
+    // Instead of using #fd0 as per GOV.UK Frontend 3, until we are using
+    // govuk_publishing_components we'll stick to the legacy colours for now
+    // to keep things consistent.
+    background-color: #ffbf47;
+    -webkit-box-shadow: 0 -2px #ffbf47,
     0 4px #0b0c0c;
-    box-shadow: 0 -2px #fd0,
+    box-shadow: 0 -2px #ffbf47,
     0 4px #0b0c0c;
     text-decoration: none;
   }
