@@ -4,6 +4,20 @@
   // Replaces the 1px #a1acb2 border from govuk_template
   border-top: 10px solid $mainstream-brand;
 
+  a:focus {
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    // Instead of using #fd0 as per GOV.UK Frontend 3, until we are using
+    // govuk_publishing_components we'll stick to the legacy colours for now
+    // to keep things consistent.
+    background-color: #ffbf47;
+    -webkit-box-shadow: 0 -2px #ffbf47,
+    0 4px #0b0c0c;
+    box-shadow: 0 -2px #ffbf47,
+    0 4px #0b0c0c;
+    text-decoration: none;
+  }
+
   .footer-categories {
     @extend %contain-floats;
     @extend %grid-row;
@@ -11,6 +25,7 @@
     @include media(tablet) {
       padding-bottom: $gutter;
     }
+
 
     .footer-explore,
     .footer-inside-government {
