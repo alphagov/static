@@ -272,9 +272,7 @@ describe('GOVUK.Analytics', function () {
 
       var allArgs = window.ga.calls.allArgs()
       expect(allArgs).toContain(['create', '1234', 'auto', {'name': 'test'}])
-      expect(allArgs).toContain(['require', 'linker'])
       expect(allArgs).toContain(['test.require', 'linker'])
-      expect(allArgs).toContain(['linker:autoLink', ['www.example.com']])
       expect(allArgs).toContain(['test.linker:autoLink', ['www.example.com']])
       expect(allArgs).toContain(['test.set', 'anonymizeIp', true])
       expect(allArgs).toContain(['test.set', 'displayFeaturesTask', null])
@@ -286,9 +284,7 @@ describe('GOVUK.Analytics', function () {
 
       var allArgs = window.ga.calls.allArgs()
       expect(allArgs).toContain(['create', '5678', 'auto', {'name': 'test2'}])
-      expect(allArgs).toContain(['require', 'linker'])
       expect(allArgs).toContain(['test2.require', 'linker'])
-      expect(allArgs).toContain(['linker:autoLink', ['www.example.com', 'www.something.com']])
       expect(allArgs).toContain(['test2.linker:autoLink', ['www.example.com', 'www.something.com']])
       expect(allArgs).toContain(['test2.set', 'anonymizeIp', true])
       expect(allArgs).toContain(['test2.set', 'displayFeaturesTask', null])
@@ -300,9 +296,7 @@ describe('GOVUK.Analytics', function () {
 
       var allArgs = window.ga.calls.allArgs()
       expect(allArgs).toContain(['create', '5678', 'auto', {'name': 'test3'}])
-      expect(allArgs).toContain(['require', 'linker'])
       expect(allArgs).toContain(['test3.require', 'linker'])
-      expect(allArgs).toContain(['linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
       expect(allArgs).toContain(['test3.linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
       expect(allArgs).toContain(['test3.set', 'anonymizeIp', true])
       expect(allArgs).toContain(['test3.set', 'displayFeaturesTask', null])
