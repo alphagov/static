@@ -165,11 +165,9 @@
              'auto',
              {'name': name})
     // Load the plugin.
-    sendToGa('require', 'linker')
     sendToGa(name + '.require', 'linker')
 
     // Define which domains to autoLink.
-    sendToGa('linker:autoLink', domain)
     sendToGa(name + '.linker:autoLink', domain)
 
     sendToGa(name + '.set', 'anonymizeIp', true)
