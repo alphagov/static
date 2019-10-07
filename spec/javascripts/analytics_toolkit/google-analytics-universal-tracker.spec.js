@@ -50,7 +50,7 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     })
 
     it('disables Ad features', function () {
-      expect(setupArguments[3]).toEqual(['set', 'allowAdFeatures', false])
+      expect(setupArguments[2]).toEqual(['set', 'allowAdFeatures', false])
     })
   })
 
@@ -240,7 +240,7 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     })
     it('removes pii from the pageview', function () {
       expect(window.ga.calls.allArgs()).toContain(['set', 'title' , 'With [email] [date] and [postcode] in it'])
-      expect(window.ga.calls.argsFor(5)[2]).toContain('?address=[email]&postcode=[postcode]&date=[date]')
+      expect(window.ga.calls.argsFor(4)[2]).toContain('?address=[email]&postcode=[postcode]&date=[date]')
     })
     it('can omit sending a pageview', function () {
       universal.addLinkedTrackerDomain('UA-123456', 'testTracker', 'some.service.gov.uk', false)
