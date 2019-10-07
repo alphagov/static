@@ -172,6 +172,7 @@
 
     sendToGa(name + '.set', 'anonymizeIp', true)
     sendToGa(name + '.set', 'displayFeaturesTask', null)
+    sendToGa(name + '.set', 'allowAdFeatures', false)
     sendToGa(name + '.set', 'title', pii.stripPII(document.title))
     sendToGa(name + '.set', 'location', pii.stripPII(window.location.href))
 
