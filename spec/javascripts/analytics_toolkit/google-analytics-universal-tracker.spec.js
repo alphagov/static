@@ -229,6 +229,9 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
     it('requires and configures the linker plugin', function () {
       expect(window.ga.calls.argsFor(callIndex + 1)).toEqual(['testTracker.require', 'linker'])
     })
+    it('disables Ad features', function () {
+      expect(window.ga.calls.allArgs()).toContain(['set', 'allowAdFeatures', false])
+    })
     it('configures the domain', function () {
       expect(window.ga.calls.argsFor(callIndex + 2)).toEqual(['testTracker.linker:autoLink', ['some.service.gov.uk']])
     })
