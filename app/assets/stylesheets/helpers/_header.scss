@@ -388,15 +388,20 @@
   .global-bar-message {
     margin-bottom: 0;
     margin-top: 0;
+    max-width: 70%;
 
     @include media(tablet) {
-      max-width: 66.67%;
+      max-width: auto;
     }
 
     .global-bar-title {
       display: block;
       font-weight: 700;
       margin-right: 10px;
+    }
+
+    .global-bar-link {
+      @include bold-19;
     }
   }
 }
