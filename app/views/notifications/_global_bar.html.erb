@@ -1,8 +1,8 @@
 <%
   show_global_bar ||= true # Toggles the appearance of the global bar
-  title = "The United Kingdom is leaving the European Union on 31 October 2019."
+  title = false
   link_href = "/brexit"
-  link_text = "Get ready for Brexit"
+  link_text = "Get ready for Brexit on 31 October 2019"
 -%>
 <% if show_global_bar %>
   <% content_for :head do %>
@@ -14,13 +14,18 @@
   <div id="global-bar" class="global-bar dont-print" data-module="global-bar">
     <div class="global-bar-message-container">
     <p class="global-bar-message">
-      <span class="global-bar-title"><%= title %></span>
-      <%= link_to(
-        link_text,
-        link_href,
-        rel: "external noreferrer",
-        class: "js-call-to-action"
-      ) %>
+      <% if title %>
+        <span class="global-bar-title"><%= title %></span>
+      <% end %>
+
+      <% if link_href && link_text %>
+        <%= link_to(
+          link_text,
+          link_href,
+          rel: "external noreferrer",
+          class: "global-bar-link js-call-to-action"
+        ) %>
+      <% end %>
     </p>
     <a href="#hide-message"
        class="dismiss"
