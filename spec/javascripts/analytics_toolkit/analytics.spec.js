@@ -30,7 +30,7 @@ describe('GOVUK.Analytics', function () {
     it('configures a universal tracker', function () {
       expect(universalSetupArguments[0]).toEqual(['create', 'universal-id', {cookieDomain: '.www.gov.uk', siteSpeedSampleRate: 100}])
       expect(universalSetupArguments[1]).toEqual(['set', 'anonymizeIp', true])
-      expect(universalSetupArguments[2]).toEqual(['set', 'displayFeaturesTask', null])
+      expect(universalSetupArguments[2]).toEqual(['set', 'allowAdFeatures', false])
     })
   })
 
@@ -275,7 +275,7 @@ describe('GOVUK.Analytics', function () {
       expect(allArgs).toContain(['test.require', 'linker'])
       expect(allArgs).toContain(['test.linker:autoLink', ['www.example.com']])
       expect(allArgs).toContain(['test.set', 'anonymizeIp', true])
-      expect(allArgs).toContain(['test.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test.set', 'allowAdFeatures', false])
       expect(allArgs).toContain(['test.send', 'pageview'])
     })
 
@@ -287,7 +287,7 @@ describe('GOVUK.Analytics', function () {
       expect(allArgs).toContain(['test2.require', 'linker'])
       expect(allArgs).toContain(['test2.linker:autoLink', ['www.example.com', 'www.something.com']])
       expect(allArgs).toContain(['test2.set', 'anonymizeIp', true])
-      expect(allArgs).toContain(['test2.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test2.set', 'allowAdFeatures', false])
       expect(allArgs).toContain(['test2.send', 'pageview'])
     })
 
@@ -299,7 +299,7 @@ describe('GOVUK.Analytics', function () {
       expect(allArgs).toContain(['test3.require', 'linker'])
       expect(allArgs).toContain(['test3.linker:autoLink', ['www.example.com', 'www.something.com', 'www.else.com']])
       expect(allArgs).toContain(['test3.set', 'anonymizeIp', true])
-      expect(allArgs).toContain(['test3.set', 'displayFeaturesTask', null])
+      expect(allArgs).toContain(['test3.set', 'allowAdFeatures', false])
       expect(allArgs).toContain(['test3.send', 'pageview'])
     })
   })

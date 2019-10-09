@@ -18,11 +18,6 @@
       sendToGa('set', 'anonymizeIp', true)
     }
 
-    function disableAdTracking () {
-      // https://support.google.com/analytics/answer/2444872?hl=en
-      sendToGa('set', 'displayFeaturesTask', null)
-    }
-
     function disableAdFeatures () {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#allowAdFeatures
       sendToGa('set', 'allowAdFeatures', false)
@@ -43,7 +38,6 @@
 
     configureProfile()
     anonymizeIp()
-    disableAdTracking()
     disableAdFeatures()
     stripTitlePII()
     stripLocationPII()
@@ -171,7 +165,6 @@
     sendToGa(name + '.linker:autoLink', domain)
 
     sendToGa(name + '.set', 'anonymizeIp', true)
-    sendToGa(name + '.set', 'displayFeaturesTask', null)
     sendToGa(name + '.set', 'allowAdFeatures', false)
     sendToGa(name + '.set', 'title', pii.stripPII(document.title))
     sendToGa(name + '.set', 'location', pii.stripPII(window.location.href))
