@@ -7,7 +7,13 @@
 <% if show_global_bar %>
   <% content_for :head do %>
     <!--[if gt IE 7]><!-->
-    <script>!function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);</script>
+    <script>
+      // Bump this if you are releasing a major change to the banner
+      // This will reset the view count so all users will see the banner, even if previously seen
+      COOKIE_VERSION = 1;
+
+      !function(e,o=COOKIE_VERSION){function n(){var e=new Date(Date.now()+72576e5).toUTCString();document.cookie='global_bar_seen={"count":0,"version":'+o+"}; expires="+e+";"}var t,a,r,c=e.documentElement;!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)&&(a=document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))"),r=!1,null===a?(n(),r=!0):(t=a[1],void 0===JSON.parse(t).version||JSON.parse(a[1]).version!==o?(n(),r=!0):(a=JSON.parse(a[1]),r=parseInt(a.count,10)<3)),r)&&(c.className=c.className.concat(" show-global-bar"))}(document);
+    </script>
     <!--<![endif]-->
   <% end %>
   <!--[if gt IE 7]><!-->
