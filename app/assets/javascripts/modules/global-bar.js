@@ -12,7 +12,7 @@
       var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen";
 
       // If the cookie is not set, let's set a basic one
-      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)["count"] === undefined) {
+      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || JSON.parse(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["count"] === undefined) {
         GOVUK.setCookie("global_bar_seen", JSON.stringify({"count":0,"version":0}), {days: 84});
       }
 
