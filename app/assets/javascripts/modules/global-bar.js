@@ -9,9 +9,16 @@
 
   Modules.GlobalBar = function() {
     this.start = function($el) {
-      var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen",
-          current_cookie_version = JSON.parse(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["version"],
-          count = viewCount();
+      var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen";
+
+      // If the cookie is not set, let's set a basic one
+      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)["count"] === undefined) {
+        GOVUK.setCookie("global_bar_seen", JSON.stringify({"count":0,"version":0}), {days: 84});
+      }
+
+      var current_cookie = JSON.parse(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)),
+      current_cookie_version = current_cookie["version"],
+      count = viewCount();
 
       $el.on('click', '.dismiss', hide);
       $el.on('click', '.js-call-to-action', handleCallToActionClick);
