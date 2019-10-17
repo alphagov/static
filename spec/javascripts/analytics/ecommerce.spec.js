@@ -10,13 +10,28 @@ describe('Ecommerce reporter for results pages', function() {
     spyOn(window, 'ga')
   });
 
+  it('tracks sort order', function() {
+    element = $('\
+      <option value="updated-oldest"\
+         data-selected-sort-option="updated-oldest">\
+         Updated (oldest)\
+       </option>\
+    ');
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      variant: 'updated-oldest'
+    });
+  });
+
   it('tracks ecommerce rows', function() {
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query">\
         <div \
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
-          data-ecommerce-content-id="AAAA-1111">\
+          data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -27,7 +42,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
   });
 
@@ -38,14 +54,16 @@ describe('Ecommerce reporter for results pages', function() {
           <div \
             data-ecommerce-row=1\
             data-ecommerce-path="/path/to/page"\
-            data-ecommerce-content-id="AAAA-1111">\
+            data-ecommerce-content-id="AAAA-1111"\
+            data-selected-sort-option="updated-oldest">\
           </div>\
         </div>\
         <div data-analytics-ecommerce data-list-title="Second list" data-ecommerce-start-index="1" data-search-query="blah">\
           <div \
             data-ecommerce-row=1\
             data-ecommerce-path="/path/to/blah"\
-            data-ecommerce-content-id="AAAA-2222">\
+            data-ecommerce-content-id="AAAA-2222"\
+            data-selected-sort-option="updated-oldest">\
           </div>\
         </div>\
       </div>\
@@ -57,13 +75,15 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'First list',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-2222',
       position: 1,
       list: 'Second list',
-      dimension71: 'blah'
+      dimension71: 'blah',
+      variant: 'updated-oldest'
     });
   })
 
@@ -74,6 +94,7 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id=""\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -84,7 +105,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: '/path/to/page',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
   });
 
@@ -94,6 +116,7 @@ describe('Ecommerce reporter for results pages', function() {
         <div \
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -104,7 +127,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: '/path/to/page',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
   });
 
@@ -115,6 +139,7 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -125,7 +150,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 21,
       list: 'Site search results',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
   });
 
@@ -136,6 +162,7 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -148,7 +175,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'Non-default title',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
   });
 
@@ -159,11 +187,13 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
         <div \
           data-ecommerce-row\
           data-ecommerce-path="/a/different/page"\
           data-ecommerce-content-id="BBBB-2222"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -174,13 +204,15 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'BBBB-2222',
       position: 2,
       list: 'Site search results',
-      dimension71: 'search query'
+      dimension71: 'search query',
+      variant: 'updated-oldest'
     });
   });
 
@@ -191,6 +223,7 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -201,7 +234,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query with an [email] in it'
+      dimension71: 'search query with an [email] in it',
+      variant: 'updated-oldest'
     });
   });
 
@@ -214,6 +248,7 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -224,7 +259,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query with a [postcode] in it'
+      dimension71: 'search query with a [postcode] in it',
+      variant: 'updated-oldest'
     });
 
     GOVUK.analytics.analytics.pii.stripPostcodePII = false;
@@ -239,6 +275,7 @@ describe('Ecommerce reporter for results pages', function() {
           data-ecommerce-row\
           data-ecommerce-path="/path/to/page"\
           data-ecommerce-content-id="AAAA-1111"\
+          data-selected-sort-option="updated-oldest">\
         </div>\
       </div>\
     ');
@@ -249,7 +286,8 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       list: 'Site search results',
-      dimension71: 'search query with a sw1a 1aa in it'
+      dimension71: 'search query with a sw1a 1aa in it',
+      variant: 'updated-oldest'
     });
   });
 

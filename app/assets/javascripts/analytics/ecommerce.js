@@ -13,6 +13,7 @@
       var ecommerceRows = element.find('[data-ecommerce-row]');
       var startPosition = parseInt(element.data('ecommerce-start-index'), 10);
       var listTitle     = element.data('list-title') || DEFAULT_LIST_TITLE;
+      var sortOption    = element.data('selected-sort-option')
 
       ecommerceRows.each(function(index, ecommerceRow) {
         var $ecommerceRow = $(ecommerceRow);
@@ -20,19 +21,20 @@
         var contentId = $ecommerceRow.attr('data-ecommerce-content-id'),
           path = $ecommerceRow.attr('data-ecommerce-path');
 
-        addImpression(contentId, path, index + startPosition, searchQuery, listTitle);
+        addImpression(contentId, path, index + startPosition, searchQuery, listTitle, sortOption);
         trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle);
       });
     }
 
-    function addImpression (contentId, path, position, searchQuery, listTitle) {
+    function addImpression (contentId, path, position, searchQuery, listTitle, sortOption) {
       // We only add the id to GA as additional product data is linked when it is uploaded.
       // This approach is taken to avoid the GA data packet exceeding the 8k limit
       ga('ec:addImpression', {
         id: contentId || path,
         position: position,
         list: listTitle,
-        dimension71: searchQuery
+        dimension71: searchQuery,
+        variant: sortOption
       });
     }
 
