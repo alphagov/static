@@ -1,8 +1,8 @@
 <%
   show_global_bar ||= true # Toggles the appearance of the global bar
-  title = false
+  title = "A Brexit deal has been agreed but needs to be ratified"
   link_href = "/brexit"
-  link_text = "Get ready for Brexit on 31 October 2019"
+  link_text = "Find out what this means for you"
 -%>
 <% if show_global_bar %>
   <% content_for :head do %>
@@ -10,7 +10,7 @@
     <script>
       // Bump this if you are releasing a major change to the banner
       // This will reset the view count so all users will see the banner, even if previously seen
-      COOKIE_VERSION = 1;
+      COOKIE_VERSION = 2;
 
       !function(e,o=COOKIE_VERSION){function n(){var e=new Date(Date.now()+72576e5).toUTCString();document.cookie='global_bar_seen={"count":0,"version":'+o+"}; expires="+e+";"}var t,a,r,c=e.documentElement;!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)&&(a=document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))"),r=!1,null===a?(n(),r=!0):(t=a[1],void 0===JSON.parse(t).version||JSON.parse(a[1]).version!==o?(n(),r=!0):(a=JSON.parse(a[1]),r=parseInt(a.count,10)<3)),r)&&(c.className=c.className.concat(" show-global-bar"))}(document);
     </script>
