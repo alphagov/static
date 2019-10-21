@@ -366,6 +366,77 @@ describe('Ecommerce reporter for results pages', function() {
     })
   });
 
+  it('tracks clicks with different event labels', function() {
+    element = $('\
+      <div> \
+        <div data-analytics-ecommerce data-list-title="First list" data-ecommerce-start-index="1" data-search-query="search query">\
+          <div \
+            data-ecommerce-row=1\
+            data-ecommerce-path="/path/to/page"\
+            data-ecommerce-content-id="AAAA-1111">\
+          </div>\
+        </div>\
+        <div data-analytics-ecommerce data-list-title="Second list" data-track-click-label="Custom click label" data-ecommerce-start-index="1" data-search-query="blah">\
+          <div \
+            data-ecommerce-row=1\
+            data-ecommerce-path="/path/to/blah"\
+            data-ecommerce-content-id="AAAA-2222">\
+          </div>\
+        </div>\
+      </div>\
+    ');
+
+    GOVUK.Ecommerce.start(element.find('[data-analytics-ecommerce]'));
+    element.find('[data-ecommerce-row]').click();
+
+    expect(ga).toHaveBeenCalledWith('send', {
+      hitType: 'event',
+      eventCategory: 'UX',
+      eventAction: 'click',
+      eventLabel: 'Results',
+      dimension15: '200',
+      dimension16: 'unknown',
+      dimension11: '1',
+      dimension3: 'other',
+      dimension4: '00000000-0000-0000-0000-000000000000',
+      dimension12: 'not withdrawn',
+      dimension23: 'unknown',
+      dimension26: '0',
+      dimension27: '0',
+      dimension32: 'none',
+      dimension39: 'false',
+      dimension56: 'other',
+      dimension57: 'other',
+      dimension58: 'other',
+      dimension59: 'other',
+      dimension30: 'none',
+      dimension95: '12345.67890'
+    })
+    expect(ga).toHaveBeenCalledWith('send', {
+      hitType: 'event',
+      eventCategory: 'UX',
+      eventAction: 'click',
+      eventLabel: 'Custom click label',
+      dimension15: '200',
+      dimension16: 'unknown',
+      dimension11: '1',
+      dimension3: 'other',
+      dimension4: '00000000-0000-0000-0000-000000000000',
+      dimension12: 'not withdrawn',
+      dimension23: 'unknown',
+      dimension26: '0',
+      dimension27: '0',
+      dimension32: 'none',
+      dimension39: 'false',
+      dimension56: 'other',
+      dimension57: 'other',
+      dimension58: 'other',
+      dimension59: 'other',
+      dimension30: 'none',
+      dimension95: '12345.67890'
+    })
+  });
+
   it('will only require the ec library once', function() {
     GOVUK.Ecommerce.ecLoaded = false;
     GOVUK.Ecommerce.start($('<div data-search-query="search query"></div>'));
