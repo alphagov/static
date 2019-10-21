@@ -31,6 +31,28 @@ describe('Ecommerce reporter for results pages', function() {
     });
   });
 
+  it('tracks impressions with product variants', function() {
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query" data-ecommerce-variant="variant-x">\
+        <div \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-content-id="AAAA-1111">\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      position: 1,
+      list: 'Site search results',
+      dimension71: 'search query',
+      variant: 'variant-x'
+    });
+  });
+
   it('tracks multiple lists individually', function() {
     element = $('\
       <div> \
@@ -271,6 +293,52 @@ describe('Ecommerce reporter for results pages', function() {
       id: 'AAAA-1111',
       position: 1,
       dimension71: 'search query'
+    });
+    expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Site search results'})
+    expect(ga).toHaveBeenCalledWith('send', {
+      hitType: 'event',
+      eventCategory: 'UX',
+      eventAction: 'click',
+      eventLabel: 'Results',
+      dimension15: '200',
+      dimension16: 'unknown',
+      dimension11: '1',
+      dimension3: 'other',
+      dimension4: '00000000-0000-0000-0000-000000000000',
+      dimension12: 'not withdrawn',
+      dimension23: 'unknown',
+      dimension26: '0',
+      dimension27: '0',
+      dimension32: 'none',
+      dimension39: 'false',
+      dimension56: 'other',
+      dimension57: 'other',
+      dimension58: 'other',
+      dimension59: 'other',
+      dimension30: 'none',
+      dimension95: '12345.67890'
+    })
+  });
+
+  it('tracks clicks with product variants', function() {
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query" data-ecommerce-variant="variant-x">\
+        <a \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-content-id="AAAA-1111"\
+        </a>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+    element.find('[data-ecommerce-row]').click();
+
+    expect(ga).toHaveBeenCalledWith('ec:addProduct', {
+      id: 'AAAA-1111',
+      position: 1,
+      dimension71: 'search query',
+      variant: 'variant-x'
     });
     expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Site search results'})
     expect(ga).toHaveBeenCalledWith('send', {
