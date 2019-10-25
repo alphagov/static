@@ -107,7 +107,7 @@ GEM
     govuk_frontend_toolkit (9.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (21.5.0)
+    govuk_publishing_components (21.7.0)
       gds-api-adapters
       govuk_app_config
       kramdown
@@ -116,6 +116,7 @@ GEM
       rake
       rouge
       sassc-rails (>= 2.0.1)
+      sprockets (< 4)
     govuk_template (0.26.0)
       rails (>= 3.1)
     govuk_test (1.0.3)
@@ -241,7 +242,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rouge (3.11.1)
+    rouge (3.12.0)
     rubocop (0.75.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -341,7 +342,7 @@ DEPENDENCIES
   govuk-lint (~> 4.0)
   govuk_app_config (~> 2.0.1)
   govuk_frontend_toolkit (~> 9.0.0)
-  govuk_publishing_components (~> 21.5.0)
+  govuk_publishing_components (~> 21.7.0)
   govuk_template (= 0.26.0)
   govuk_test
   image_optim (= 0.26.5)
