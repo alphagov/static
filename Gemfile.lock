@@ -189,7 +189,7 @@ GEM
       ast (~> 2.4.0)
     phantomjs (2.1.1.0)
     plek (3.0.0)
-    power_assert (1.1.4)
+    power_assert (1.1.5)
     progress (3.5.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -298,7 +298,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     statsd-ruby (1.4.0)
-    test-unit (3.3.3)
+    test-unit (3.3.4)
       power_assert
     thor (0.20.3)
     thread_safe (0.3.6)
