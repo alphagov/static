@@ -68,6 +68,16 @@ describe("GOVUK.StaticAnalytics", function() {
         expect(pageViewObject.dimension42).toEqual('name-of-test:name-of-ab-bucket');
         expect(pageViewObject.dimension48).toEqual('name-of-other-test:name-of-other-ab-bucket');
       });
+      it('sets the spelling suggestion as dimension 81', function() {
+        $('head').append('\
+          <meta name="govuk:spelling-suggestion" content="driving">\
+        ');
+
+        analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
+        pageViewObject = getPageViewObject();
+
+        expect(pageViewObject.dimension81).toEqual('driving');
+      });
 
       it('ignores A/B meta tags with invalid dimensions', function () {
         $('head').append('\
