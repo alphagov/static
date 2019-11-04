@@ -59,7 +59,8 @@
       'content-has-history': {dimension: 39, defaultValue: 'false'},
       'publishing-application': {dimension: 89},
       'stepnavs': {dimension: 96},
-      'relevant-result-shown': {dimension: 83}
+      'relevant-result-shown': {dimension: 83},
+      'spelling-suggestion': {dimension: 81}
     };
 
     var $metas = $('meta[name^="govuk:"]');
