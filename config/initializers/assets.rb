@@ -1,6 +1,7 @@
 Rails.application.config.assets.precompile += %w{
   favicon.ico
   libs/jquery/jquery-1.12.4.js
+  modules/base-target.js
   application.js
   header-footer-only.js
   error-page.js

@@ -1,4 +1,5 @@
 /* eslint-env jasmine, jquery */
+// = require modules/base-target
 
 describe('A base target module', function () {
   'use strict'

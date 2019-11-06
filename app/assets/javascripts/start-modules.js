@@ -1,5 +1,4 @@
 // = require govuk/modules
-// = require modules/base-target
 // = require modules/global-bar
 // = require modules/sticky-element-container
 // = require modules/toggle
