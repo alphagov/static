@@ -1,3 +1,6 @@
 <%= javascript_include_tag 'libs/jquery/jquery-1.12.4.js', integrity: true, crossorigin: 'anonymous' %>
 <%= javascript_include_tag local_assigns[:js_file] || 'application', integrity: true, crossorigin: 'anonymous' %>
+<% if ENV["DRAFT_ENVIRONMENT"].present? %>
+  <%= javascript_include_tag 'modules/base-target', integrity: true, crossorigin: 'anonymous' %>
+<% end %>
 <%= javascript_include_tag 'surveys', integrity: true, crossorigin: 'anonymous' %>
