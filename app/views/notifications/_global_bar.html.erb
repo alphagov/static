@@ -3,8 +3,9 @@
 
   show_global_bar ||= true # Toggles the appearance of the global bar
   title = "Register to vote"
-  link_href = "/register-to-vote"
+  title_href = "/register-to-vote"
   link_text = "Register by 26 November to vote in the General Election on 12 December."
+  link_href = false
   close_date = DateTime.new(2019,11,26,23,59,00) # DateTime after which the bar will automatically disappear, or false to unset
 -%>
 
@@ -25,16 +26,24 @@
     <div class="global-bar-message-container">
     <p class="global-bar-message">
       <% if title %>
-        <span class="global-bar-title"><%= title %></span>
+        <% if title_href %>
+          <a class="global-bar-title govuk-link js-call-to-action" href="<%= title_href %>"><%= title %></a>
+        <% else %>
+          <span class="global-bar-title"><%= title %></span>
+        <% end %>
       <% end %>
 
-      <% if link_href && link_text %>
-        <%= link_to(
-          link_text,
-          link_href,
-          rel: "external noreferrer",
-          class: "govuk-link js-call-to-action"
-        ) %>
+      <% if link_text %>
+        <% if link_href %>
+          <%= link_to(
+            link_text,
+            link_href,
+            rel: "external noreferrer",
+            class: "govuk-link js-call-to-action"
+          ) %>
+        <% else %>
+          <span class="govuk-link"><%= link_text %></span>
+        <% end %>
       <% end %>
     </p>
     <a href="#hide-message"
