@@ -33,8 +33,8 @@ end
 
 group :development, :test do
   gem 'jasmine-rails', '~> 0.15.0'
-  gem 'govuk-lint', '~> 4.3'
   gem 'pry'
+  gem 'rubocop-govuk'
 end
 
 gem 'plek', '3.0.0'
