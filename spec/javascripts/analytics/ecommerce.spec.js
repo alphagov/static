@@ -10,6 +10,20 @@ describe('Ecommerce reporter for results pages', function() {
     spyOn(window, 'ga')
   });
 
+  it('requires content id or path', function() {
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query">\
+        <div \
+          data-ecommerce-row\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).not.toHaveBeenCalled()
+  })
+
   it('tracks ecommerce rows', function() {
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query">\
@@ -25,6 +39,7 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Site search results',
       dimension71: 'search query'
@@ -46,6 +61,7 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Site search results',
       dimension71: 'search query',
@@ -77,40 +93,21 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'First list',
       dimension71: 'search query'
     });
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-2222',
+      name: "/path/to/blah",
       position: 1,
       list: 'Second list',
       dimension71: 'blah'
     });
   })
 
-  it('falls back to the path if the content id is not set', function() {
-    element = $('\
-      <div data-ecommerce-start-index="1" data-search-query="search query">\
-        <div \
-          data-ecommerce-row\
-          data-ecommerce-path="/path/to/page"\
-          data-ecommerce-content-id=""\
-        </div>\
-      </div>\
-    ');
-
-    ecommerce.init(element);
-
-    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
-      id: '/path/to/page',
-      position: 1,
-      list: 'Site search results',
-      dimension71: 'search query'
-    });
-  });
-
-  it('falls back to the path if the content id is not present', function() {
+  it('does not send id if content id is not present', function() {
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query">\
         <div \
@@ -123,7 +120,7 @@ describe('Ecommerce reporter for results pages', function() {
     ecommerce.init(element);
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
-      id: '/path/to/page',
+      name: '/path/to/page',
       position: 1,
       list: 'Site search results',
       dimension71: 'search query'
@@ -145,6 +142,7 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 21,
       list: 'Site search results',
       dimension71: 'search query'
@@ -168,6 +166,7 @@ describe('Ecommerce reporter for results pages', function() {
     expect(ga).toHaveBeenCalledWith('ec:setAction', 'click', {list: 'Non-default title'})
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Non-default title',
       dimension71: 'search query'
@@ -194,12 +193,14 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Site search results',
       dimension71: 'search query'
     });
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'BBBB-2222',
+      name: "/a/different/page",
       position: 2,
       list: 'Site search results',
       dimension71: 'search query'
@@ -221,6 +222,7 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Site search results',
       dimension71: 'search query with an [email] in it'
@@ -244,6 +246,7 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Site search results',
       dimension71: 'search query with a [postcode] in it'
@@ -269,6 +272,7 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addImpression', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
       position: 1,
       list: 'Site search results',
       dimension71: 'search query with a sw1a 1aa in it'
@@ -291,6 +295,8 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addProduct', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
+      list: "Site search results",
       position: 1,
       dimension71: 'search query'
     });
@@ -336,6 +342,8 @@ describe('Ecommerce reporter for results pages', function() {
 
     expect(ga).toHaveBeenCalledWith('ec:addProduct', {
       id: 'AAAA-1111',
+      name: "/path/to/page",
+      list: "Site search results",
       position: 1,
       dimension71: 'search query',
       variant: 'variant-x'
