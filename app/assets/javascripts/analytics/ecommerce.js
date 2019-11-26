@@ -28,32 +28,41 @@
       });
     }
 
-    function addImpression (contentId, path, position, searchQuery, listTitle, variant) {
-      // We only add the id to GA as additional product data is linked when it is uploaded.
-      // This approach is taken to avoid the GA data packet exceeding the 8k limit
+    function constructData(contentId, path, position, listTitle, searchQuery, variant) {
       var data = {
-        id: contentId || path,
         position: position,
         list: listTitle,
         dimension71: searchQuery
-      };
-      if(variant !== undefined) {
-        data.variant = variant;
       }
-      ga('ec:addImpression', data);
+
+      if (contentId !== undefined) {
+        data.id = contentId
+      }
+
+      if (path !== undefined) {
+        data.name = path
+      }
+
+      if (variant !== undefined) {
+        data.variant = variant
+      }
+
+      return data
+    }
+
+    function addImpression (contentId, path, position, searchQuery, listTitle, variant) {
+      if (contentId || path) {
+        var impressionData = constructData(contentId, path, position, listTitle, searchQuery, variant)
+        ga('ec:addImpression', impressionData);
+      }
     }
 
     function trackProductOnClick (row, contentId, path, position, searchQuery, listTitle, variant, trackClickLabel) {
-      row.click(function(event) {
-        var data = {
-          id: contentId || path,
-          position: position,
-          dimension71: searchQuery
-        };
-        if(variant !== undefined) {
-          data.variant = variant;
+      row.click(function() {
+        if (contentId || path) {
+          var clickData = constructData(contentId, path, position, listTitle, searchQuery, variant)
+          ga('ec:addProduct', clickData);
         }
-        ga('ec:addProduct', data);
 
         ga('ec:setAction', 'click', {list: listTitle});
         GOVUK.analytics.trackEvent('UX', 'click',
