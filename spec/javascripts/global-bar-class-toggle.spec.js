@@ -7,49 +7,23 @@ describe("toggling a global bar HTML class based on cookie", function () {
    * the activation logic into the page head.
    * This spec runs tests against both the full and minified sources of the
    * activation JS because minification is not automated.
-   */
-  function globalBarSource(fakeWindow) {
-    var window = fakeWindow || root;
-
-    /* begin minify */
-
-    (function (document) {
-      "use strict"
-      var documentElement = document.documentElement;
-      if (urlPermitsShow() && viewCountPermitsShow()) {
-        documentElement.className = documentElement.className.concat(' show-global-bar');
-      }
-
-      function urlPermitsShow() {
-        return !/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname);
-      }
-
-      function viewCountPermitsShow() {
-        var c = document.cookie.match('(?:^|[ ;])global_bar_seen=([0-9]+)');
-        if (!c) {
-          return true;
-        }
-
-        return parseInt(c.pop(), 10) < 3;
-      }
-    })(document);
-
-    /* end minify */
-  }
-
-
-  /**
-   * This is the minified version of the function above 'globalBarSource',
+   *
+   * This is the code copied from global_bar.html.erb.
    * when developing and testing updates and features,
    * changes should be mirrored here manually.
-   * Only the code between the 'begin/end minify' comments should be copied.
+   * Code outside the 'begin/end minify' comments has been slightly tweaked to allow flexible testing structure.
    */
-  function globalBarMinified(fakeWindow) {
+  function globalBarMinified(fakeWindow, close_date) {
     var window = fakeWindow || root;
 
+    CLOSE_DATE = close_date || false;
+    var today = new Date();
+
+    if (!CLOSE_DATE || today < CLOSE_DATE) {
     /* begin minify */
-    !function(t){"use strict";function e(){return!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)}function n(){var e=t.cookie.match("(?:^|[ ;])global_bar_seen=([0-9]+)");return e?parseInt(e.pop(),10)<3:!0}var o=t.documentElement;e()&&n()&&(o.className=o.className.concat(" show-global-bar"))}(document);
+      !function(e){COOKIE_VERSION=3;function n(){var e=new Date(Date.now()+72576e5).toUTCString();document.cookie='global_bar_seen={"count":0,"version":'+COOKIE_VERSION+"}; expires="+e+";"}var t,a,r,c=e.documentElement;!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)&&(a=document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))"),r=!1,null===a?(n(),r=!0):(t=a[1],void 0===JSON.parse(t).version||JSON.parse(a[1]).version!==COOKIE_VERSION?(n(),r=!0):(a=JSON.parse(a[1]),r=parseInt(a.count,10)<3)),r)&&(c.className=c.className.concat(" show-global-bar"))}(document);
     /* end minify */
+    }
   }
 
   afterEach(function() {
@@ -68,70 +42,81 @@ describe("toggling a global bar HTML class based on cookie", function () {
     }
   });
 
-  describe('when running the full source', function() {
-    runTests(globalBarSource);
+  it("shows when no cookie is set", function() {
+    expectGlobalBarToBeHidden();
+    globalBarMinified();
+    expectGlobalBarToShow();
   });
 
-  describe('when running the minified source', function() {
-    runTests(globalBarMinified);
+  it("does not show when bar has been seen 3 times", function() {
+    document.cookie = "global_bar_seen="+JSON.stringify({"count": 3, "version": 3})
+
+    expectGlobalBarToBeHidden();
+    globalBarMinified();
+    expectGlobalBarToBeHidden();
   });
 
-  function runTests(globalBarFn) {
-    it("shows when no cookie is set", function() {
-      expectGlobalBarToBeHidden();
-      globalBarFn();
-      expectGlobalBarToShow();
-    });
+  it("shows when the bar has been seen 2 times", function() {
+    document.cookie = "global_bar_seen="+JSON.stringify({"count": 2, "version": 3})
 
-    it("does not show when bar has been seen 3 times", function() {
-      GOVUK.setCookie('global_bar_seen', 3);
-      expectGlobalBarToBeHidden();
-      globalBarFn();
-      expectGlobalBarToBeHidden();
-    });
+    globalBarMinified();
+    expectGlobalBarToShow();
+  });
 
-    it("shows when the bar has been seen 2 times", function() {
-      GOVUK.setCookie('global_bar_seen', '2');
-      globalBarFn();
-      expectGlobalBarToShow();
-    });
+  it("shows when the bar has been seen 2 times and there are lots of cookies", function() {
+    GOVUK.setCookie('global_bar_thing', '10');
+    GOVUK.setCookie('seen_cookie_message', 'true');
+    document.cookie = "global_bar_seen="+JSON.stringify({"count": 2, "version": 3})
+    GOVUK.setCookie('is_global_bar_seen', '8');
+    GOVUK.setCookie('_ua', '1234873487');
+    globalBarMinified();
+    expectGlobalBarToShow();
+  });
 
-    it("shows when the bar has been seen 2 times and there are lots of cookies", function() {
-      GOVUK.setCookie('global_bar_thing', '10');
-      GOVUK.setCookie('seen_cookie_message', 'true');
-      GOVUK.setCookie('global_bar_seen', '2');
-      GOVUK.setCookie('is_global_bar_seen', '8');
-      GOVUK.setCookie('_ua', '1234873487');
-      globalBarFn();
-      expectGlobalBarToShow();
-    });
+  it("shows when the close date is not set (false)", function() {
+    document.cookie = "global_bar_seen="+JSON.stringify({"count": 1, "version": 2})
 
-    it("shows when the cookie value is not a parseable number", function() {
-      GOVUK.setCookie('global_bar_seen', 'foo_bar2');
-      globalBarFn();
-      expectGlobalBarToShow();
-    });
+    globalBarMinified({location: {pathname: '/done'}});
+    expectGlobalBarToShow();
+  });
 
-    it("does not show on register to vote pages", function() {
-      globalBarFn({location: {pathname: '/register-to-vote'}});
-      expectGlobalBarToBeHidden();
-    });
+  it("does not show when the close date is in the past", function() {
+    document.cookie = "global_bar_seen="+JSON.stringify({"count": 1, "version": 2})
 
-    it("does not show on done pages", function() {
-      globalBarFn({location: {pathname: '/done'}});
-      expectGlobalBarToBeHidden();
-    });
+    past_date = new Date(1990, 10, 27, 17, 50, 00, 00);
 
-    it("does not show on brexit landing page", function() {
-      globalBarFn({location: {pathname: '/brexit'}});
-      expectGlobalBarToBeHidden();
-    });
+    globalBarMinified({location: {pathname: '/done'}}, past_date);
+    expectGlobalBarToBeHidden();
+  });
 
-    it("does not show on brexit checker pages", function() {
-      globalBarFn({location: {pathname: '/get-ready-brexit-check'}});
-      expectGlobalBarToBeHidden();
-    });
-  }
+  it("shows when the close date is in the future", function() {
+    document.cookie = "global_bar_seen="+JSON.stringify({"count": 1, "version": 2})
+
+    future_date = new Date() + 1
+
+    globalBarMinified({location: {pathname: '/done'}}, future_date);
+    expectGlobalBarToShow();
+  });
+
+  it("does not show on register to vote pages", function() {
+    globalBarMinified({location: {pathname: '/register-to-vote'}});
+    expectGlobalBarToBeHidden();
+  });
+
+  it("does not show on done pages", function() {
+    globalBarMinified({location: {pathname: '/done'}});
+    expectGlobalBarToBeHidden();
+  });
+
+  it("does not show on brexit landing page", function() {
+    globalBarMinified({location: {pathname: '/brexit'}});
+    expectGlobalBarToBeHidden();
+  });
+
+  it("does not show on brexit checker pages", function() {
+    globalBarMinified({location: {pathname: '/get-ready-brexit-check'}});
+    expectGlobalBarToBeHidden();
+  });
 
   function expectGlobalBarToShow() {
     expect($('html').is('.show-global-bar')).toBe(true);
