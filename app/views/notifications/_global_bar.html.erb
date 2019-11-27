@@ -1,12 +1,12 @@
 <%
   require 'date'
 
-  show_global_bar ||= true # Toggles the appearance of the global bar
+  show_global_bar ||= false # Toggles the appearance of the global bar
   title = "Register to vote"
   title_href = "/register-to-vote"
   link_text = "Register by 26 November to vote in the General Election on 12 December."
   link_href = false
-  close_date = DateTime.new(2019,11,26,23,59,00) # DateTime after which the bar will automatically disappear, or false to unset
+  close_date = false # DateTime after which the bar will automatically disappear, or false to unset
 -%>
 
 <% if show_global_bar && (!close_date || DateTime.now() < close_date) %>
