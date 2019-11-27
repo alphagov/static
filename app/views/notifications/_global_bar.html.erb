@@ -1,15 +1,12 @@
 <%
-  require 'date'
-
-  show_global_bar ||= false # Toggles the appearance of the global bar
+  show_global_bar ||= true # Toggles the appearance of the global bar
   title = "Register to vote"
   title_href = "/register-to-vote"
   link_text = "Register by 26 November to vote in the General Election on 12 December."
   link_href = false
-  close_date = false # DateTime after which the bar will automatically disappear, or false to unset
 -%>
 
-<% if show_global_bar && (!close_date || DateTime.now() < close_date) %>
+<% if show_global_bar %>
   <% content_for :head do %>
     <!--[if gt IE 7]><!-->
     <script>
@@ -17,7 +14,16 @@
       // This will reset the view count so all users will see the banner, even if previously seen
       COOKIE_VERSION = 3;
 
-      !function(e,o=COOKIE_VERSION){function n(){var e=new Date(Date.now()+72576e5).toUTCString();document.cookie='global_bar_seen={"count":0,"version":'+o+"}; expires="+e+";"}var t,a,r,c=e.documentElement;!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)&&(a=document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))"),r=!1,null===a?(n(),r=!0):(t=a[1],void 0===JSON.parse(t).version||JSON.parse(a[1]).version!==o?(n(),r=!0):(a=JSON.parse(a[1]),r=parseInt(a.count,10)<3)),r)&&(c.className=c.className.concat(" show-global-bar"))}(document);
+      // Set this if you wish the banner to automatically disappear after a certain DateTime, or false
+      // Remember JS months are 0 indexed!
+      CLOSE_DATE = new Date(2019, 10, 27, 11, 55, 00, 00);
+
+      var today = new Date();
+
+      if (!CLOSE_DATE || today < CLOSE_DATE) {
+        // If updating this code, update global-bar-class-toggle-spec.js
+        !function(e,o=COOKIE_VERSION){function n(){var e=new Date(Date.now()+72576e5).toUTCString();document.cookie='global_bar_seen={"count":0,"version":'+o+"}; expires="+e+";"}var t,a,r,c=e.documentElement;!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)&&(a=document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))"),r=!1,null===a?(n(),r=!0):(t=a[1],void 0===JSON.parse(t).version||JSON.parse(a[1]).version!==o?(n(),r=!0):(a=JSON.parse(a[1]),r=parseInt(a.count,10)<3)),r)&&(c.className=c.className.concat(" show-global-bar"))}(document);
+      }
     </script>
     <!--<![endif]-->
   <% end %>
