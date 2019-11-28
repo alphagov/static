@@ -55,6 +55,7 @@
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/pages
   GoogleAnalyticsUniversalTracker.prototype.trackPageview = function (path, title, options) {
     var pageviewObject
+    var trackerName = ''
 
     if (typeof path === 'string') {
       pageviewObject = { page: path }
@@ -69,12 +70,19 @@
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#transport
     if (typeof options === 'object') {
       pageviewObject = $.extend(pageviewObject || {}, options)
+
+      // trackerName is optional
+      if (typeof options.trackerName === 'string') {
+        trackerName = options.trackerName + '.'
+        delete options.trackerName
+      }
     }
 
+
     if (!$.isEmptyObject(pageviewObject)) {
-      sendToGa('send', 'pageview', pageviewObject)
+      sendToGa(trackerName + 'send', 'pageview', pageviewObject)
     } else {
-      sendToGa('send', 'pageview')
+      sendToGa(trackerName + 'send', 'pageview')
     }
   }
 
