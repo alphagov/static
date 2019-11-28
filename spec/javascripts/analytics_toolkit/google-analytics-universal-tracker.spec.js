@@ -92,6 +92,11 @@ describe('GOVUK.GoogleAnalyticsUniversalTracker', function () {
       universal.trackPageview('/t', 'T', {transport: 'beacon'})
       expect(window.ga.calls.mostRecent().args).toEqual(['send', 'pageview', {page: '/t', title: 'T', transport: 'beacon'}])
     })
+
+    it('can send a pageview to a named tracker', function () {
+      universal.trackPageview('/path', 'title', { 'trackerName' : 'another_tracker' })
+      expect(window.ga.calls.mostRecent().args).toEqual(['another_tracker.send', 'pageview', { 'page': '/path', 'title': 'title', 'trackerName': 'another_tracker'}])
+    })
   })
 
   describe('when events are tracked', function () {
