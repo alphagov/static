@@ -15,19 +15,19 @@ module EmergencyBanner
     end
 
     def campaign_class
-      content[:campaign_class] if content[:campaign_class].present?
+      content[:campaign_class].presence
     end
 
     def heading
-      content[:heading] if content[:heading].present?
+      content[:heading].presence
     end
 
     def short_description
-      content[:short_description] if content[:short_description].present?
+      content[:short_description].presence
     end
 
     def link
-      content[:link] if content[:link].present?
+      content[:link].presence
     end
 
     def link_text

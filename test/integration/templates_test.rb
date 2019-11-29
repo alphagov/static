@@ -11,7 +11,7 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
     should "return the rendered templates" do
       visit "/templates/wrapper.html.erb"
-      refute_match(/<%/, page.source) # Should be no ERB tags
+      assert_no_match(/<%/, page.source) # Should be no ERB tags
       assert page.has_selector?("#wrapper")
     end
 

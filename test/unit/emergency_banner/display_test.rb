@@ -1,6 +1,7 @@
 require "test_helper"
 require_relative "../../../lib/emergency_banner/display"
 
+# rubocop:disable Rails/RefuteMethods
 describe "Emergency Banner::Display" do
   before do
     @banner = EmergencyBanner::Display.new
@@ -172,3 +173,4 @@ describe "Emergency Banner::Display" do
     end
   end
 end
+# rubocop:enable Rails/RefuteMethods
