@@ -10,6 +10,7 @@
   Modules.GlobalBar = function() {
     this.start = function($el) {
       var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen";
+      var always_on = $el.data("global-bar-permanent");
 
       // If the cookie is not set, let's set a basic one
       if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || JSON.parse(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["count"] === undefined) {
@@ -25,7 +26,9 @@
 
 
       if ($el.is(':visible')) {
-        incrementViewCount(count);
+        if (!always_on) {
+          incrementViewCount(count);
+        }
         track('Viewed');
       }
 

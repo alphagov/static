@@ -4,6 +4,11 @@
   title_href = "/register-to-vote"
   link_text = "Register by 26 November to vote in the General Election on 12 December."
   link_href = false
+
+  # Toggles banner being permanently visible
+  # If true, banner is always_visible & does not disappear automatically after 3 pageviews
+  # Regardless of value, banner is always manually dismissable by users
+  always_visible = false
 -%>
 
 <% if show_global_bar %>
@@ -19,7 +24,7 @@
     <!--<![endif]-->
   <% end %>
   <!--[if gt IE 7]><!-->
-  <div id="global-bar" class="global-bar dont-print" data-module="global-bar">
+  <div id="global-bar" class="global-bar dont-print" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
     <div class="global-bar-message-container">
     <p class="global-bar-message">
       <% if title %>
