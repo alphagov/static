@@ -4,6 +4,7 @@
   Manages count of how many times a global bar has been seen
   using cookies.
 */
+//= require libs/GlobalBarHelper.js
 (function(Modules) {
   "use strict";
 
@@ -13,11 +14,11 @@
       var always_on = $el.data("global-bar-permanent");
 
       // If the cookie is not set, let's set a basic one
-      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || JSON.parse(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["count"] === undefined) {
-        GOVUK.setCookie("global_bar_seen", JSON.stringify({"count":0,"version":0}), {days: 84});
+      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["count"] === undefined) {
+        GOVUK.setCookie("global_bar_seen", JSON.stringify({count: 0, version: 0}), {days: 84});
       }
 
-      var current_cookie = JSON.parse(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)),
+      var current_cookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)),
       current_cookie_version = current_cookie["version"],
       count = viewCount();
 
@@ -40,7 +41,7 @@
 
       function hide(evt) {
         $el.hide();
-        var cookie_value = JSON.stringify({"count": 999, "version": current_cookie_version});
+        var cookie_value = JSON.stringify({count: 999, version: current_cookie_version});
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookie_value, {days: 84});
         track('Manually dismissed');
         $('html').removeClass('show-global-bar');
@@ -49,7 +50,7 @@
 
       function incrementViewCount(count) {
         count = count + 1;
-        var cookie_value = JSON.stringify({"count": count, "version": current_cookie_version});
+        var cookie_value = JSON.stringify({count: count, version: current_cookie_version});
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookie_value, {days: 84});
 
         if (count == 2) {
@@ -59,7 +60,7 @@
 
       function viewCount() {
         var viewCountCookie = GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE),
-            viewCount = parseInt(JSON.parse(viewCountCookie)["count"],10);
+            viewCount = parseInt(parseCookie(viewCountCookie)["count"],10);
 
         if (isNaN(viewCount)) {
           viewCount = 0;
