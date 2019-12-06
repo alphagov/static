@@ -7,14 +7,14 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   context "emergency banner file" do
     should "have an emergency banner file" do
-      assert File.exist? "#{Rails.root}/app/views/notifications/_emergency_banner.html.erb"
+      assert File.exist? Rails.root.join("app/views/notifications/_emergency_banner.html.erb")
     end
   end
 
   context "emergency banner notifications" do
     should "not render a banner if one does not exist" do
       visit "/templates/wrapper.html.erb"
-      refute page.has_selector? ".govuk-emergency-banner"
+      assert_not page.has_selector? ".govuk-emergency-banner"
     end
 
     should "render a banner if one does exist" do
@@ -61,8 +61,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/wrapper.html.erb"
 
-      refute page.has_selector? ".more-information"
-      refute_match(/yoricks\.gov/, page.body)
+      assert_not page.has_selector? ".more-information"
+      assert_no_match(/yoricks\.gov/, page.body)
     end
 
     should "render the extra information" do
@@ -81,7 +81,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/wrapper.html.erb"
 
-      refute_match "I knew him well", page.body
+      assert_no_match "I knew him well", page.body
     end
   end
 end

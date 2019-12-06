@@ -84,7 +84,7 @@ ROUTES = [
 
 namespace :publishing_api do
   desc "Publish special routes such as humans.txt"
-  task :publish_special_routes do
+  task publish_special_routes: :environment do
     require "gds_api/publishing_api/special_route_publisher"
 
     publishing_api = GdsApi::PublishingApiV2.new(

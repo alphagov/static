@@ -15,7 +15,7 @@ class ActiveSupport::TestCase
   end
 
   def location_of_test_files
-    Rails.root.join("tmp", "test")
+    Rails.root.join("tmp/test")
   end
 
   def clean_up_test_files

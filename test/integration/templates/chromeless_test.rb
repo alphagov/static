@@ -11,14 +11,14 @@ class ChromelessTest < ActionDispatch::IntegrationTest
     end
 
     within "body" do
-      refute page.has_selector?("#global-header")
+      assert_not page.has_selector?("#global-header")
 
       assert page.has_selector?("#global-cookie-message")
 
       assert page.has_selector?("#wrapper")
 
       within "footer" do
-        refute page.has_selector?(".footer-categories")
+        assert_not page.has_selector?(".footer-categories")
 
         assert page.has_selector?(".footer-meta")
       end

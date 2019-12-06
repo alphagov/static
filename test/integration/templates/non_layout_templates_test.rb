@@ -12,7 +12,7 @@ class NonLayoutTemplatesTest < ActionDispatch::IntegrationTest
     should "not add a layout to the #{template} snippet" do
       get "/templates/#{template}.html.erb"
 
-      refute_match "<html", last_response.body
+      assert_no_match "<html", last_response.body
     end
   end
 end
