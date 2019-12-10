@@ -1,13 +1,13 @@
 ## Global banner
 
 A site-wide banner can be activated to convey important information on GOV.UK which is not deemed emergency level information.
-The file `app/views/notifications/_global_bar.html.erb` contains the necessary minified JS and markup to activate and render the banner.
+The file `app/views/notifications/_global_bar.html.erb` contains the necessary code to activate and render the banner.
 
 ### Activating the global banner
 
 In `app/views/notifications/_global_bar.html.erb`
 
-1. Update the variables `title`, `information`, `link_href` and `link_text` with the relevant info.
+1. Update the variables `title`, `title_href`, `link_href` and `link_text` with the relevant info where applicable, otherwise set to `false`.
 2. Update the `show_global_bar` variable to `true`
 3. Deploy static
 
@@ -15,6 +15,11 @@ In `app/views/notifications/_global_bar.html.erb`
 
 If you are in the production environment, once the origin cache is purged the CDN cache will be purged automatically.
 This will clear cache for the top 10 most visited pages.
+
+### Versioning the global banner
+The number of times a user has viewed the banner is stored in a `global_bar_seen` cookie. Once the view count reaches 3, a user will not see the cookie again, even if the banner is re-deployed. The only way a user will see the banner again is if 1) the `global_bar_seen` cookie expires or 2) the global banner is versioned.
+
+To version the global banner, increase the `BANNER_VERSION` in `global-bar-init.js` by one.
 
 ### The banner is not showing / not clearing!
 Usually this is because the caching has not cleared properly. This can be at various points in our stack as well as locally in your browser. Things to try:
@@ -32,7 +37,7 @@ Usually this is because the caching has not cleared properly. This can be at var
   - [template](https://deploy.blue.staging.govuk.digital/job/clear-template-cache/)
   - [varnish](https://deploy.blue.staging.govuk.digital/job/clear-varnish-cache/)
 
-  #### ⚠️ Production ⚠️ 
+  #### ⚠️ Production ⚠️
   - [frontend memcache](https://deploy.blue.production.govuk.digital/job/clear-frontend-memcache/)
   - [template](https://deploy.blue.production.govuk.digital/job/clear-template-cache/)
   - [varnish](https://deploy.blue.production.govuk.digital/job/clear-varnish-cache/)
