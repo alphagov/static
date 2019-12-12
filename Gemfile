@@ -25,7 +25,7 @@ group :test do
   gem "jasmine-core", [">= 2.99", "< 3"]
   gem "minitest"
   gem "minitest-capybara", "~> 0.9.0"
-  gem "mocha", "~> 1.10.1", require: false
+  gem "mocha", "~> 1.10.2", require: false
   gem "shoulda"
   gem "test-unit"
   gem "webmock"
