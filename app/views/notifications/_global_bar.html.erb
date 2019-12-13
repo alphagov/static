@@ -13,15 +13,12 @@
 
 <% if show_global_bar %>
   <% content_for :head do %>
-    <!--[if gt IE 7]><!-->
+    <%= javascript_include_tag 'global-bar-init', integrity: true, crossorigin: 'anonymous' %>
     <script>
-      // Bump this if you are releasing a major change to the banner
-      // This will reset the view count so all users will see the banner, even if previously seen
-      COOKIE_VERSION = 3;
-
-      !function(e,o=COOKIE_VERSION){function n(){var e=new Date(Date.now()+72576e5).toUTCString();document.cookie='global_bar_seen={"count":0,"version":'+o+"}; expires="+e+";"}var t,a,r,c=e.documentElement;!/^\/register-to-vote|^\/done|^\/brexit|^\/get-ready-brexit-check/.test(window.location.pathname)&&(a=document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))"),r=!1,null===a?(n(),r=!0):(t=a[1],void 0===JSON.parse(t).version||JSON.parse(a[1]).version!==o?(n(),r=!0):(a=JSON.parse(a[1]),r=parseInt(a.count,10)<3)),r)&&(c.className=c.className.concat(" show-global-bar"))}(document);
+      if (GOVUK.globalBarInit) {
+        window.GOVUK.globalBarInit.init()
+      }
     </script>
-    <!--<![endif]-->
   <% end %>
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="global-bar dont-print" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>

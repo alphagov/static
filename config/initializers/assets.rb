@@ -4,6 +4,7 @@ Rails.application.config.assets.precompile += %w{
   modules/base-target.js
   application.js
   header-footer-only.js
+  global-bar-init.js
   error-page.js
   surveys.js
   static.css
