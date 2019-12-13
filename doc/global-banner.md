@@ -16,7 +16,7 @@ In `app/views/notifications/_global_bar.html.erb`
 If you are in the production environment, once the origin cache is purged the CDN cache will be purged automatically.
 This will clear cache for the top 10 most visited pages.
 
-### Versioning the global banner
+### Versioning the global banner
 The number of times a user has viewed the banner is stored in a `global_bar_seen` cookie. Once the view count reaches 3, a user will not see the cookie again, even if the banner is re-deployed. The only way a user will see the banner again is if 1) the `global_bar_seen` cookie expires or 2) the global banner is versioned.
 
 To version the global banner, increase the `BANNER_VERSION` in `global-bar-init.js` by one.
