@@ -1,3 +1,8 @@
+$govuk-compatibility-govuktemplate: true;
+@import "govuk/settings/all";
+@import "govuk/tools/all";
+@import "govuk/helpers/all";
+
 /* govuk_frontend_toolkit includes */
 @import "colours";
 @import "conditionals";
