@@ -112,7 +112,7 @@
     '/guidance/advice-for-british-nationals-travelling-and-living-in-europe': [
       ['Heading', 'Travelling to the UK']
     ],
-    '/guidance/living-in-france#visas-and-residency': [
+    '/guidance/living-in-france': [
       ['Heading', 'Passports and travel']
     ],
     '/family-permit': [
@@ -236,7 +236,7 @@
       ['Heading', 'Importing and exporting']
     ],
     '/guidance/exporting-and-importing-fish-if-theres-no-brexit-deal': [
-      ['Heading', 'Send fish to an EU border inspection post']
+      ['Heading', 'Send fish to an EU border control post']
     ],
     '/guidance/the-fisheries-sector-and-preparing-for-eu-exit': [
       ['Heading', 'Licensing arrangements']
@@ -293,7 +293,7 @@
       ['Heading', '3. Action taken by the UK']
     ],
     '/government/publications/eu-lawyers-in-the-uk-after-a-no-deal-brexit/eu-lawyers-in-the-uk-after-a-no-deal-brexit': [
-      ['Heading', 'Lawyers with EU, Norway, Iceland or Liechtenstein qualifications and professional']
+      ['Heading', 'Lawyers with EU, Norway, Iceland or Liechtenstein qualifications and professional titles']
     ],
     '/government/publications/further-guidance-note-on-the-regulation-of-medicines-medical-devices-and-clinical-trials-if-theres-no-brexit-deal/further-guidance-note-on-the-regulation-of-medicines-medical-devices-and-clinical-trials-if-theres-no-brexit-deal': [
       ['Heading', '1.4 Orphan medicines']
