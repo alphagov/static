@@ -2,6 +2,8 @@
 
 describe('Global bar initialize', function () {
   beforeEach(function() {
+    window.GOVUK.setConsentCookie({ 'settings': true });
+
     spyOn(globalBarInit, 'getBannerVersion').and.returnValue(5)
     $('html').removeClass('show-global-bar');
     deleteAllCookies();
