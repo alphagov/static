@@ -1,4 +1,4 @@
-(function() {
+var analyticsInit = function() {
   "use strict";
 
   var consentCookie = window.GOVUK.getConsentCookie();
@@ -162,4 +162,6 @@
   } else {
     GOVUK.analytics = dummyAnalytics
   }
-})();
+}
+
+window.GOVUK.analyticsInit = analyticsInit
