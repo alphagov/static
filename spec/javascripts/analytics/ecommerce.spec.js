@@ -5,9 +5,19 @@ describe('Ecommerce reporter for results pages', function() {
       element;
 
   beforeEach(function() {
+    window.GOVUK.setConsentCookie({
+      'essential': true,
+      'settings': false,
+      'usage': true,
+      'campaigns': false
+    })
+
+    window.GOVUK.analyticsInit()
+
     ecommerce = new GOVUK.Ecommerce();
     GOVUK.analytics.gaClientId = '12345.67890'
     spyOn(window, 'ga')
+
   });
 
   it('requires content id or path', function() {

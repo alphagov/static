@@ -1,4 +1,4 @@
-(function() {
+var analyticsInit = function() {
   "use strict";
 
   var consentCookie = window.GOVUK.getConsentCookie();
@@ -16,7 +16,7 @@
   // This will be reversed below, if the consent cookie says usage cookies are allowed
   window['ga-disable-UA-26179049-1'] = true;
 
-  if (!consentCookie || consentCookie["usage"]) {
+  if (consentCookie && consentCookie["usage"]) {
     window['ga-disable-UA-26179049-1'] = false;
 
     // Load Google Analytics libraries
@@ -162,4 +162,6 @@
   } else {
     GOVUK.analytics = dummyAnalytics
   }
-})();
+}
+
+window.GOVUK.analyticsInit = analyticsInit
