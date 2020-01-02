@@ -69,32 +69,7 @@
       frequency: 6,
       surveyType: 'email'
     },
-    smallSurveys: [
-      {
-        identifier: '#Userpanel',
-        surveyType: 'url',
-        frequency: 5,
-        startTime: new Date("February 01, 2019").getTime(),
-        endTime: new Date("December 31, 2019").getTime(),
-        url: 'https://response.questback.com/intellectualpropertyoffice/ipocustomerpanel?c={{currentPath}}',
-        templateArgs: {
-          title: "Help improve our online services",
-          surveyCta: 'Join the IPO user panel',
-          surveyCtaPostscript: '(opens in new window)'
-        },
-        activeWhen: {
-          path: [
-            '^/topic/intellectual-property/trade-marks',
-            '^/topic/intellectual-property/patents',
-            '^/topic/intellectual-property/designs',
-            '^/government/organisations/intellectual-property-office',
-            '^/how-to-register-a-trade-mark',
-            '^/apply-for-a-patent',
-            '^/apply-register-design'
-          ]
-        }
-      }
-    ],
+    smallSurveys: [],
 
     init: function () {
       if (userSurveys.canShowAnySurvey()) {
