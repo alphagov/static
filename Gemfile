@@ -37,7 +37,7 @@ group :development, :test do
   gem "rubocop-govuk"
 end
 
-gem "gds-api-adapters", "~> 63.2"
+gem "gds-api-adapters", "~> 63.3"
 gem "govuk_frontend_toolkit", "~> 9.0.0"
 gem "govuk_template", "0.26.0"
 gem "plek", "3.0.0"
