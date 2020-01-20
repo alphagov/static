@@ -96,9 +96,6 @@
       @include ie-lte(8) {
         min-height: 24px;
       }
-      @include ie-lte(6) {
-        height: 24px;
-      }
       @include appearance(none);
     }
 
@@ -115,9 +112,6 @@
         outline-offset: -3px;
       }
 
-      @include ie-lte(7){
-        padding-left: 0;
-      }
       .js-enabled & {
         width: 86%;
         @include calc(width, "100% - 35.1px"); /* 35.1 is for Safari, which renders this input too narrow */
@@ -134,9 +128,6 @@
 
       border: 1px solid $mainstream-brand;
       border-width: 0 0 0 1px;
-      @include ie-lte(7){
-        border-width: 1px;
-      }
       border-left-color: #222;
       @include border-radius(0);
 
@@ -152,11 +143,6 @@
       @include device-pixel-ratio() {
         background-size: 52.5px 35px;
         background-position: 100% 50%;
-      }
-
-      @include ie-lte(7) {
-        background-image: none;
-        width: auto;
       }
 
       &:hover {
