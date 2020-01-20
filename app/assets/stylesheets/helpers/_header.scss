@@ -180,10 +180,6 @@
     @include core-19;
     margin: 0 auto;
     max-width: 960px;
-
-    @include ie-lte(6) {
-      width: 960px;
-    }
   }
 
   @include media-down(mobile) {
@@ -198,10 +194,6 @@
     position: relative;
     padding-right: 20px;
     max-width: 940px;
-
-    @include ie(6) {
-      width: 940px;
-    }
   }
 
   .dismiss {
