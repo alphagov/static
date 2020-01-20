@@ -110,20 +110,8 @@ header.page-header div {
   @include core-16;
   color: $secondary-text-colour;
 
-  @include ie-lte(7) {
-    width: 60%;
-  }
-
-  @include ie(6) {
-    zoom: 1;
-  }
-
   p{
     text-align: left;
-
-    @include ie-lte(7) {
-      zoom: 1;
-    }
 
     a{
       color: $secondary-text-colour;
