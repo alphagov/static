@@ -206,10 +206,6 @@ aside .page-navigation {
       color: $link-colour;
       text-decoration: none;
 
-      @include ie-lte(7) {
-        height: 4.5em;
-      }
-
       &:hover,
       &:active {
         background-color: $canvas-colour;
@@ -281,30 +277,16 @@ aside .page-navigation {
   .last {
     min-height: 4.5em;
 
-    @include ie-lte(7) {
-      height: 4.5em;
-    }
-
     span {
       display: block;
       min-height: 4.5em;
       padding: 0.75em 5%;
       width: 90%;
-
-      @include ie-lte(7) {
-        height: 4.5em;
-      }
     }
 
     .pagination-label {
       display: block;
       margin-bottom: 0.5em;
-    }
-  }
-
-  @include ie(6) {
-    .first {
-      text-align: left;
     }
   }
 }
