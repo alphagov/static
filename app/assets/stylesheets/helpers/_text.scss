@@ -25,7 +25,6 @@ article {
     span {
       @include core-16;
       display: block;
-      // display: none;
       margin-bottom: 0.4em;
     }
   }
@@ -246,10 +245,6 @@ article {
 
   .summary h2 {
     line-height: 1.35em;
-
-    @include ie(6) {
-      height: 2.75em;
-    }
   }
   .licence-finder &.outcome ul {
     padding: 1em 1em;
@@ -279,10 +274,6 @@ article {
       margin: 0 0.75em 0 0;
       min-height: 1.75em;
       padding-right: 3em;
-
-      @include ie-lte(7) {
-        height: 1.75em;
-      }
     }
 
     strong {
@@ -495,12 +486,6 @@ article {
       @include core-16;
       display: inline-block;
       margin-right: 1em;
-
-      @include ie-lte(7) {
-        display: inline;
-        padding-right: 1em;
-        margin-right: 0;
-      }
     }
   }
 
