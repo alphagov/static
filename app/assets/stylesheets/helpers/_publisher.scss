@@ -19,10 +19,6 @@
     @include media(tablet) {
       margin: 0 0 2.5em;
     }
-
-    @include ie(6) {
-      zoom: 1;
-    }
   }
 }
 
