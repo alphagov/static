@@ -4,7 +4,7 @@ ruby File.read(".ruby-version").chomp
 
 gem "actionpack-page_caching", "1.2.0"
 gem "asset_bom_removal-rails", "~> 1.0.0"
-gem "govuk_app_config", "~> 2.0.1"
+gem "govuk_app_config", "~> 2.0.2"
 gem "govuk_publishing_components", "~> 21.21.0"
 gem "nokogiri", "~> 1.10"
 gem "rack_strip_client_ip", "0.0.2"
