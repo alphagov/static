@@ -4,18 +4,8 @@
   // Replaces the 1px #a1acb2 border from govuk_template
   border-top: 10px solid $mainstream-brand;
 
-  a:focus {
-    outline: 3px solid transparent;
-    color: #0b0c0c;
-    // Instead of using #fd0 as per GOV.UK Frontend 3, until we are using
-    // govuk_publishing_components we'll stick to the legacy colours for now
-    // to keep things consistent.
-    background-color: #ffbf47;
-    -webkit-box-shadow: 0 -2px #ffbf47,
-    0 4px #0b0c0c;
-    box-shadow: 0 -2px #ffbf47,
-    0 4px #0b0c0c;
-    text-decoration: none;
+  .govuk-link:focus {
+    color: $govuk-focus-text-colour;
   }
 
   .footer-categories {
@@ -94,6 +84,35 @@
             width: 100%;
           }
         }
+      }
+    }
+  }
+
+  .footer-meta {
+    .footer-meta-inner {
+      .open-government-licence {
+        .logo {
+          .open-government-licence__logo-link {
+            background-position: 0 1px;
+            padding-bottom: $govuk-focus-width;
+
+            &:focus {
+              background-color: $govuk-focus-colour;
+            }
+          }
+        }
+      }
+    }
+
+    .copyright {
+      text-align: center;
+
+      @include media(tablet) {
+        text-align: right;
+      }
+
+      a {
+        display: inline-block;
       }
     }
   }
