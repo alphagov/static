@@ -10,13 +10,6 @@ body {
 #wrapper {
   @extend %site-width-container;
 }
-.grid-row {
-  @extend %grid-row;
-
-  main#content {
-    @include grid-column( 2/3, $full-width: desktop );
-  }
-}
 
 // Needed for the positioning of the sidebar. Deprecated.
 .related-container {
