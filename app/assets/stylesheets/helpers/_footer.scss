@@ -13,31 +13,24 @@
     background-color: govuk-colour("light-grey");
   }
 
-  .footer-categories {
-    @extend %contain-floats;
-    @extend %grid-row;
+  .footer-container {
+    @include media(tablet) {
+      padding-top: 60px;
+    }
+  }
 
+  .footer-categories {
     @include media(tablet) {
       padding-bottom: govuk-spacing(6);
     }
 
+    h2 {
+      padding: govuk-spacing(2) 0 0;
 
-    .footer-explore,
-    .footer-inside-government {
       @include media(tablet) {
-        float: left;
-        width: 66.66%;
-        padding-bottom: govuk-spacing(9);
-      }
-
-      h2 {
-        margin: 0 govuk-spacing(3);
-        padding: govuk-spacing(2) 0 0;
-
-        @include media(tablet) {
-          padding: 0 0 govuk-spacing(4);
-          border-bottom: 1px solid $govuk-border-colour;
-        }
+        margin: 0 0 govuk-spacing(3) 0;
+        padding: 0 0 govuk-spacing(4);
+        border-bottom: 1px solid $border-colour;
       }
     }
 
@@ -59,35 +52,16 @@
       margin: 0;
 
       @include media(tablet) {
-        float: left;
-        margin: govuk-spacing(3) 0 0 0;
-        width: 50%;
+        padding-bottom: govuk-spacing(9);
       }
 
-
       li {
-        display: block;
-        margin-bottom: govuk-spacing(1);
-
         padding: govuk-spacing(2) 0 0;
-        margin: 0 govuk-spacing(3) govuk-spacing(1);
+        margin-bottom: govuk-spacing(1);
 
         @include media(tablet) {
           padding: govuk-spacing(4) 0 0;
-          margin: 0 govuk-spacing(3);
-        }
-      }
-    }
-
-    .footer-inside-government {
-      @include media(tablet) {
-        float: left;
-        width: 33.33%;
-
-        ul {
-          li {
-            width: 100%;
-          }
+          margin-bottom: 0;
         }
       }
     }
