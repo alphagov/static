@@ -72,26 +72,27 @@
     <%= content_for?(:content) ? yield(:content) : yield %>
 
     <footer class="group js-footer" id="footer" role="contentinfo">
+      <div class="govuk-width-container">
+        <div class="footer-container govuk-main-wrapper">
+          <%= yield :footer_top %>
 
-      <div class="footer-wrapper">
-        <%= yield :footer_top %>
+          <div class="footer-meta">
+            <div class="footer-meta-inner">
+              <%= yield :footer_support_links %>
 
-        <div class="footer-meta">
-          <div class="footer-meta-inner">
-            <%= yield :footer_support_links %>
-
-            <div class="open-government-licence">
-              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
-              <% if content_for?(:licence_message) %>
-                <%= yield :licence_message %>
-              <% else %>
-                <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
-              <% end %>
+              <div class="open-government-licence">
+                <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+                <% if content_for?(:licence_message) %>
+                  <%= yield :licence_message %>
+                <% else %>
+                  <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+                <% end %>
+              </div>
             </div>
-          </div>
 
-          <div class="copyright">
-            <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"><%= content_for?(:crown_copyright_message) ? yield(:crown_copyright_message) : "© Crown copyright" %></a>
+            <div class="copyright">
+              <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"><%= content_for?(:crown_copyright_message) ? yield(:crown_copyright_message) : "© Crown copyright" %></a>
+            </div>
           </div>
         </div>
       </div>
