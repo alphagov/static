@@ -2,10 +2,15 @@
 
 #footer {
   // Replaces the 1px #a1acb2 border from govuk_template
-  border-top: 10px solid $mainstream-brand;
+  border-top: 10px solid $govuk-brand-colour;
 
   .govuk-link:focus {
     color: $govuk-focus-text-colour;
+  }
+
+  &,
+  .footer-wrapper {
+    background-color: govuk-colour("light-grey");
   }
 
   .footer-categories {
@@ -31,7 +36,7 @@
 
         @include media(tablet) {
           padding: 0 0 govuk-spacing(4);
-          border-bottom: 1px solid $border-colour;
+          border-bottom: 1px solid $govuk-border-colour;
         }
       }
     }
@@ -39,7 +44,7 @@
     hr {
       clear: both;
       margin: 0 govuk-spacing(3) govuk-spacing(6);
-      border: 1px solid $border-colour;
+      border: 1px solid $govuk-border-colour;
       border-width: 1px 0 0 0;
 
       @include media(tablet) {
