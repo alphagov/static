@@ -1,3 +1,7 @@
+#wrapper {
+  @extend %site-width-container;
+}
+
 .grid-row {
   @extend %grid-row;
 
