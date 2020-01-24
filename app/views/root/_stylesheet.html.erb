@@ -2,8 +2,6 @@
   css_file = local_assigns[:css_file] || 'static'
 %>
 <!--[if gt IE 8]><!--><%= stylesheet_link_tag css_file, integrity: true, crossorigin: "anonymous" %><!--<![endif]-->
-<!--[if IE 6]><%= stylesheet_link_tag "#{css_file}-ie6" %><script>var ieVersion = 6;</script><![endif]-->
-<!--[if IE 7]><%= stylesheet_link_tag "#{css_file}-ie7" %><script>var ieVersion = 7;</script><![endif]-->
 <!--[if IE 8]><%= stylesheet_link_tag "#{css_file}-ie8" %><script>var ieVersion = 8;</script><![endif]-->
 
 <%= stylesheet_link_tag "#{css_file}-print", media: "print", integrity: true, crossorigin: "anonymous" %>

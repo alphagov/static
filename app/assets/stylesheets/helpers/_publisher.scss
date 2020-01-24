@@ -19,10 +19,6 @@
     @include media(tablet) {
       margin: 0 0 2.5em;
     }
-
-    @include ie(6) {
-      zoom: 1;
-    }
   }
 }
 
@@ -63,10 +59,6 @@ aside .page-navigation {
     overflow: hidden;
     width:50%;
 
-    @include ie-lte(7) {
-      width: 49%;
-    }
-
     @include media-down(mobile) {
       float: none;
       display: block;
@@ -83,12 +75,6 @@ aside .page-navigation {
 
     @include core-16;
 
-    @include ie-lte(7) {
-      list-style: none;
-      margin-left: 0;
-      display: list-item;
-    }
-
     @include media-down(mobile) {
       float: none;
       margin: 0 1em 0 2.25em;
@@ -97,11 +83,6 @@ aside .page-navigation {
     a {
       display: block;
       padding: 0.25em 1em 0.25em 0;
-
-      @include ie-lte(7) {
-        display: inline;
-        float: left;
-      }
 
       span {
         cursor: pointer;
@@ -116,18 +97,9 @@ aside .page-navigation {
     }
 
     span {
-      @include ie-lte(7) {
-        float: left;
-      }
-
       &.part-number {
         display: none;
         width: 1.75em;
-
-        @include ie-lte(7) {
-          display: inline;
-          padding: 0.25em 0;
-        }
       }
 
       &.part-label,
@@ -234,10 +206,6 @@ aside .page-navigation {
       color: $link-colour;
       text-decoration: none;
 
-      @include ie-lte(7) {
-        height: 4.5em;
-      }
-
       &:hover,
       &:active {
         background-color: $canvas-colour;
@@ -309,30 +277,16 @@ aside .page-navigation {
   .last {
     min-height: 4.5em;
 
-    @include ie-lte(7) {
-      height: 4.5em;
-    }
-
     span {
       display: block;
       min-height: 4.5em;
       padding: 0.75em 5%;
       width: 90%;
-
-      @include ie-lte(7) {
-        height: 4.5em;
-      }
     }
 
     .pagination-label {
       display: block;
       margin-bottom: 0.5em;
-    }
-  }
-
-  @include ie(6) {
-    .first {
-      text-align: left;
     }
   }
 }

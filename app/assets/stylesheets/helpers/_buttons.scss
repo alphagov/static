@@ -31,11 +31,6 @@
   @include bold-24($line-height: (16 / 24));
   padding: 0.45em 0.5em 0.45em 0.5em;
   display: inline-block;
-
-  /* IE6 adds its own side padding so requires no extra */
-  @include ie(6) {
-    padding: 0.45em 0.5em 0.62em 0.5em;
-  }
 }
 
 .transaction .get-started .button,
@@ -51,26 +46,9 @@
     background-position: 110% 50%;
   }
 
-  @include ie(7) {
-    padding: 0.45em 1.7em 0.62em 0.67em;
-  }
-
-  @include ie(6) {
-    background-image: image-url('icon-pointer-indexed.png');
-  }
-
   @include device-pixel-ratio() {
     background-image: image-url("icon-pointer-2x.png");
     background-size: 30px 19px;
-  }
-}
-
-/* IE6 adds its own side padding so requires no extra */
-@include ie(6) {
-  .transaction .get-started input.button,
-  .local_transaction .get-started input.button,
-  .licence .get-started input.button {
-    padding: 0.45em 0.5em 0.62em 0em;
   }
 }
 
@@ -100,10 +78,6 @@ input{
     min-width: 8em;
     margin: 0 0.5em;
     padding: 0.25em;
-
-    @include ie-lte(7) {
-      width:8em;
-    }
   }
 
   /* below fixes a bug where IE puts a nasty black border around these elements */

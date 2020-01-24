@@ -7,8 +7,6 @@
     <title><%= content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information" %></title>
 
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag "govuk-template.css", integrity: true, crossorigin: "anonymous" %><!--<![endif]-->
-    <!--[if IE 6]><%= stylesheet_link_tag "govuk-template-ie6.css" %><![endif]-->
-    <!--[if IE 7]><%= stylesheet_link_tag "govuk-template-ie7.css" %><![endif]-->
     <!--[if IE 8]><%= stylesheet_link_tag "govuk-template-ie8.css" %><![endif]-->
     <%= stylesheet_link_tag "govuk-template-print.css", media: "print", integrity: true, crossorigin: "anonymous" %>
 
