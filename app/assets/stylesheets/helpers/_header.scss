@@ -1,6 +1,82 @@
 @import '_shims';
 
 #global-header {
+  $govuk-header-background: govuk-colour("black");
+  $govuk-header-border-color: $govuk-brand-colour;
+  $govuk-header-border-width: 10px;
+  $govuk-header-text: govuk-colour("white");
+  $govuk-header-link: govuk-colour("white");
+  $govuk-header-link-hover: govuk-colour("white");
+  $govuk-header-link-active: #1d8feb;
+  $govuk-header-nav-item-border-color: #2e3133;
+
+  #logo {
+    background: none;
+    padding-bottom: 4px;
+
+    &:focus {
+      background-color: $govuk-focus-colour;
+      border-color: $govuk-focus-colour;
+      box-shadow:
+        0 -2px $govuk-focus-colour,
+        0 4px $govuk-focus-text-colour;
+      color: $govuk-focus-text-colour;
+      outline: 3px solid transparent;
+      text-decoration: none;
+    }
+  }
+
+  .govuk-header__logotype {
+    margin-right: 0;
+  }
+
+  .govuk-header__logotype-text {
+    position: relative;
+    top: 4px;
+  }
+
+  .govuk-header__logotype-crown {
+    fill: currentColor;
+    margin-right: 1px;
+    position: relative;
+    top: 0;
+    vertical-align: top;
+  }
+
+  .govuk-header__logotype-crown-fallback-image {
+    border: 0;
+    height: 32px;
+    vertical-align: middle;
+    width: 36px;
+  }
+
+  .govuk-header__link--homepage {
+    display: inline-block;
+    font: bold 30px "GDS Transport", nta, Arial, sans-serif;
+    line-height: 1;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      margin-bottom: -1px;
+      border-bottom: 1px solid;
+    }
+
+    &:focus {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  .govuk-header__logo,
+  .govuk-header__content {
+    box-sizing: border-box;
+  }
+
   .header-wrapper .header-global .site-search {
     @extend %contain-floats;
     width: 49%;
