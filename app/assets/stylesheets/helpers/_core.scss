@@ -7,10 +7,6 @@ body {
   }
 }
 
-#wrapper {
-  @extend %site-width-container;
-}
-
 p {
   @include core-19;
 }

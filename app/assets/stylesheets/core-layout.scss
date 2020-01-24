@@ -1,9 +1,6 @@
-// govuk_frontend_toolkit includes
-@import "grid_layout";
-
 // import the base styles
 @import "header-footer-only";
 
-// import layouts
-@import "helpers/layouts";
+@import "helpers/mixins";
 @import "helpers/reset";
+@import "helpers/wrapper";

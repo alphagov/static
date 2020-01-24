@@ -1,0 +1,19 @@
+// this is a modified copy of the mixin from toolkit, which we're trying to remove our
+// dependency on. Hopefully this mixin will be temporary
+
+%site-width-container {
+  max-width: 960px;
+  margin: 0 15px;
+
+  @include ie-lte(8) {
+    width: 960px;
+  }
+
+  @include media(tablet) {
+    margin: 0 30px;
+  }
+
+  @include media($min-width: (960px + 30px * 2)) {
+    margin: 0 auto;
+  }
+}

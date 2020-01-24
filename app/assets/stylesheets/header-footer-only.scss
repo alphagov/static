@@ -9,7 +9,7 @@
 @import "conditionals";
 @import "css3";
 @import "device-pixels";
-@import "grid_layout";
+@import "measurements";
 @import "typography";
 @import "design-patterns/buttons";
 
@@ -17,6 +17,7 @@
 @import "styleguide/conditionals2";
 
 // basic styles for HTML5 and other elements
+@import "helpers/mixins";
 @import "helpers/draft";
 @import "helpers/footer";
 @import "helpers/header";
