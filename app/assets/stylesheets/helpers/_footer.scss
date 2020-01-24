@@ -18,24 +18,31 @@
     text-decoration: none;
   }
 
-  .footer-container {
-    @include media(tablet) {
-      padding-top: 60px;
-    }
-  }
-
   .footer-categories {
+    @extend %contain-floats;
+    @extend %grid-row;
+
     @include media(tablet) {
       padding-bottom: $gutter;
     }
 
-    h2 {
-      padding: 10px 0 0;
 
+    .footer-explore,
+    .footer-inside-government {
       @include media(tablet) {
-        margin: 0 0 15px 0;
-        padding: 0 0 20px;
-        border-bottom: 1px solid $border-colour;
+        float: left;
+        width: 66.66%;
+        padding-bottom: 60px;
+      }
+
+      h2 {
+        margin: 0 15px;
+        padding: 10px 0 0;
+
+        @include media(tablet) {
+          padding: 0 0 20px;
+          border-bottom: 1px solid $border-colour;
+        }
       }
     }
 
@@ -57,16 +64,35 @@
       margin: 0;
 
       @include media(tablet) {
-        padding-bottom: 60px;
+        float: left;
+        margin: 15px 0 0 0;
+        width: 50%;
       }
 
+
       li {
-        padding: 10px 0 0;
+        display: block;
         margin-bottom: 5px;
+
+        padding: 10px 0 0;
+        margin: 0 15px 5px;
 
         @include media(tablet) {
           padding: 20px 0 0;
-          margin-bottom: 0;
+          margin: 0 15px;
+        }
+      }
+    }
+
+    .footer-inside-government {
+      @include media(tablet) {
+        float: left;
+        width: 33.33%;
+
+        ul {
+          li {
+            width: 100%;
+          }
         }
       }
     }
