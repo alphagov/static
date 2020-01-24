@@ -8,7 +8,20 @@ body {
 }
 
 #wrapper {
-  @extend %site-width-container;
+  max-width: 960px;
+  margin: 0 15px;
+
+  @include ie-lte(8) {
+    width: 960px;
+  }
+
+  @include media(tablet) {
+    margin: 0 30px;
+  }
+
+  @include media($min-width: (960px + 30px * 2)) {
+    margin: 0 auto;
+  }
 }
 
 // Needed for the positioning of the sidebar. Deprecated.
