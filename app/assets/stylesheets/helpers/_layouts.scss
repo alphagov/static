@@ -1,0 +1,41 @@
+.grid-row {
+  @extend %grid-row;
+
+  .column-quarter {
+    @include grid-column( 1/4 );
+
+    .direction-rtl & {
+      @include grid-column( 1/4, $float: right );
+    }
+  }
+  .column-half {
+    @include grid-column( 1/2 );
+
+    .direction-rtl & {
+      @include grid-column( 1/2, $float: right );
+    }
+  }
+  .column-three-quarters {
+    @include grid-column( 3/4 );
+
+    .direction-rtl & {
+      @include grid-column( 3/4, $float: right );
+    }
+  }
+
+  .column-one-third,
+  .column-third {
+    @include grid-column( 1/3 );
+
+    .direction-rtl & {
+      @include grid-column( 1/3, $float: right );
+    }
+  }
+  .column-two-thirds {
+    @include grid-column( 2/3 );
+
+    .direction-rtl & {
+      @include grid-column( 2/3, $float: right );
+    }
+  }
+}
