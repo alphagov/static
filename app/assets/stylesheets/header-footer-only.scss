@@ -3,13 +3,13 @@
 @import "conditionals";
 @import "css3";
 @import "device-pixels";
+@import "grid_layout";
 @import "measurements";
 @import "typography";
 @import "design-patterns/buttons";
 
 /* local styleguide includes */
 @import "styleguide/conditionals2";
-@import "helpers/wrapper";
 
 // basic styles for HTML5 and other elements
 @import "helpers/draft";
