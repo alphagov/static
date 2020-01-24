@@ -7,7 +7,7 @@ body {
   }
 }
 
-#wrapper {
+%site-width-container {
   max-width: 960px;
   margin: 0 15px;
 
@@ -22,6 +22,10 @@ body {
   @include media($min-width: (960px + 30px * 2)) {
     margin: 0 auto;
   }
+}
+
+#wrapper {
+  @extend %site-width-container;
 }
 
 p {
