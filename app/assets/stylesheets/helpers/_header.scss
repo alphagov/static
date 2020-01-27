@@ -119,6 +119,13 @@
       text-indent: -5000px;
       width: 36px;
 
+      &:focus {
+        border-width: 0;
+        box-shadow: inset 0 0 0 4px $govuk-input-border-colour;
+        outline: $govuk-focus-width solid $govuk-focus-colour;
+        outline-offset: 0;
+      }
+
       body.search & {
         display: none;
       }
@@ -259,6 +266,41 @@
 
     &.js-visible {
       display: block;
+    }
+  }
+
+  .header-proposition {
+    a {
+      &.menu {
+        padding-bottom: 4px;
+      }
+    }
+  }
+
+  #proposition-links {
+    list-style: none;
+
+    li:last-child {
+      border-bottom: 0;
+      width: 100%;
+
+      @include media(tablet) {
+        width: auto;
+      }
+    }
+  }
+
+  #proposition-links,
+  .header-proposition {
+    a:focus {
+      background-color: $govuk-focus-colour;
+      border-color: $govuk-focus-colour;
+      box-shadow:
+        0 -2px $govuk-focus-colour,
+        0 4px $govuk-focus-text-colour;
+      color: $govuk-focus-text-colour;
+      outline: 3px solid transparent;
+      text-decoration: none;
     }
   }
 }
