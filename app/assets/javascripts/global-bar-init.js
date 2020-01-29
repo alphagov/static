@@ -23,7 +23,12 @@ var globalBarInit = {
   },
 
   blacklistedUrl: function() {
-    var paths = ["/register-to-vote", "/done", "/brexit", "/get-ready-brexit-check"]
+    var paths = [
+      "/register-to-vote",
+      "/done",
+      "/transition",
+      "/transition-check"
+    ]
 
     return new RegExp(paths.join("|")).test(window.location.pathname)
   },
