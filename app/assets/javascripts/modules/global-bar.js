@@ -12,15 +12,18 @@
     this.start = function($el) {
       var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen";
       var always_on = $el.data("global-bar-permanent");
+      var cookieConsent = GOVUK.getConsentCookie().settings;
 
-      // If the cookie is not set, let's set a basic one
-      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["count"] === undefined) {
-        GOVUK.setCookie("global_bar_seen", JSON.stringify({count: 0, version: 0}), {days: 84});
+      if (cookieConsent) {
+        // If the cookie is not set, let's set a basic one
+        if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))["count"] === undefined) {
+          GOVUK.setCookie("global_bar_seen", JSON.stringify({count: 0, version: 0}), {days: 84});
+        }
+
+        var current_cookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)),
+        current_cookie_version = current_cookie["version"],
+        count = viewCount();
       }
-
-      var current_cookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)),
-      current_cookie_version = current_cookie["version"],
-      count = viewCount();
 
       $el.on('click', '.dismiss', hide);
       $el.on('click', '.js-call-to-action', handleCallToActionClick);
@@ -76,5 +79,4 @@
       }
     };
   };
-
 })(window.GOVUK.Modules);
