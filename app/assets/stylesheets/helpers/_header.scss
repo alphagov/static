@@ -196,10 +196,11 @@
 
     input#site-search-text {
       @include core-16($line-height: (23/16), $line-height-640: (23/13));
-      position: relative;
-      padding: 6px;
-      z-index: 3;
       background: transparent;
+      height: 36px;
+      padding: 6px;
+      position: relative;
+      z-index: 3;
 
       &.focus,
       &:focus {
