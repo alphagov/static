@@ -13,7 +13,7 @@
 
 <% if show_global_bar %>
   <% content_for :head do %>
-    <%= javascript_include_tag 'global-bar-init', integrity: true, crossorigin: 'anonymous' %>
+    <%= javascript_include_tag 'global-bar-init', integrity: false %>
     <script>
       if (GOVUK.globalBarInit) {
         window.GOVUK.globalBarInit.init()
