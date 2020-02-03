@@ -12,7 +12,8 @@
     this.start = function($el) {
       var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen";
       var always_on = $el.data("global-bar-permanent");
-      var cookieConsent = GOVUK.getConsentCookie().settings;
+      var cookieCategory = GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE);
+      var cookieConsent = GOVUK.getConsentCookie()[cookieCategory]
 
       if (cookieConsent) {
         // If the cookie is not set, let's set a basic one
