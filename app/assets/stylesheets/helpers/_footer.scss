@@ -23,7 +23,7 @@
     @extend %grid-row;
 
     @include media(tablet) {
-      padding-bottom: $gutter;
+      padding-bottom: govuk-spacing(6);
     }
 
 

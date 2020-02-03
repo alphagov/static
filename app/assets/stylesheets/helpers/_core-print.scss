@@ -62,7 +62,7 @@ article {
 
   .info-notice p,
   .help-notice p {
-    margin-left: $gutter;
+    margin-left: govuk-spacing(6);
     position: relative;
 
     &:before {

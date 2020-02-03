@@ -2,10 +2,10 @@
   background-color: $panel-colour;
   color: $white;
   margin-top: 2px;
-  padding: $gutter-half 0;
+  padding: govuk-spacing(3) 0;
 
   @include media(tablet) {
-    padding: $gutter 0;
+    padding: govuk-spacing(6) 0;
   }
 
   div {
@@ -19,7 +19,7 @@
     .homepage & {
       @include bold-48;
       @include media(tablet) {
-        margin-bottom: $gutter-two-thirds;
+        margin-bottom: govuk-spacing(4);
       }
     }
   }
@@ -28,7 +28,7 @@
     @include core-19;
     color: $white;
     margin-top: 0;
-    margin-bottom: $gutter-two-thirds;
+    margin-bottom: govuk-spacing(4);
 
     @include media(tablet) {
       width: percentage(2/3);
@@ -39,7 +39,7 @@
     }
 
     .homepage & {
-      margin: $gutter-two-thirds 0;
+      margin: govuk-spacing(4) 0;
     }
   }
 
