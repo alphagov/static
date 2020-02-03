@@ -93,6 +93,14 @@
     }
   }
 
+  // TODO (GOVUK_TEMPLATE) REFACTOR ONCE GOVUK_TEMPLATE HAS BEEN REMOVED
+  // ---------------------------------------------------------------------------
+  // This abyss of deeply nested selectors is to override another abyss of
+  // deeply nested selectors from `govuk-template`. This makes sure that the
+  // correct focus state is used on the Open Government Licence (OGL) link in
+  // the footer.
+  //
+  // This should be refactored once govuk_template has been removed.
   .footer-meta {
     .footer-meta-inner {
       .open-government-licence {
