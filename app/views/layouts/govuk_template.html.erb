@@ -6,12 +6,12 @@
     <meta charset="utf-8" />
     <title><%= content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information" %></title>
 
-    <!--[if gt IE 8]><!--><%= stylesheet_link_tag "govuk-template.css", integrity: true, crossorigin: "anonymous" %><!--<![endif]-->
+    <!--[if gt IE 8]><!--><%= stylesheet_link_tag "govuk-template.css", integrity: false %><!--<![endif]-->
     <!--[if IE 8]><%= stylesheet_link_tag "govuk-template-ie8.css" %><![endif]-->
-    <%= stylesheet_link_tag "govuk-template-print.css", media: "print", integrity: true, crossorigin: "anonymous" %>
+    <%= stylesheet_link_tag "govuk-template-print.css", media: "print", integrity: false %>
 
-    <%= stylesheet_link_tag "fonts.css", media: "all", integrity: true, crossorigin: "anonymous" %>
-    <!--[if lt IE 9]><%= javascript_include_tag "ie.js", integrity: true, crossorigin: "anonymous" %><![endif]-->
+    <%= stylesheet_link_tag "fonts.css", media: "all", integrity: false %>
+    <!--[if lt IE 9]><%= javascript_include_tag "ie.js", integrity: false %><![endif]-->
 
     <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>" type="image/x-icon" />
     <%# the colour used for mask-icon is the standard palette $black from
