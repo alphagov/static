@@ -32,15 +32,15 @@
       @include media(tablet) {
         float: left;
         width: 66.66%;
-        padding-bottom: 60px;
+        padding-bottom: govuk-spacing(9);
       }
 
       h2 {
-        margin: 0 15px;
-        padding: 10px 0 0;
+        margin: 0 govuk-spacing(3);
+        padding: govuk-spacing(2) 0 0;
 
         @include media(tablet) {
-          padding: 0 0 20px;
+          padding: 0 0 govuk-spacing(4);
           border-bottom: 1px solid $border-colour;
         }
       }
@@ -48,7 +48,7 @@
 
     hr {
       clear: both;
-      margin: 0 15px 30px;
+      margin: 0 govuk-spacing(3) govuk-spacing(6);
       border: 1px solid $border-colour;
       border-width: 1px 0 0 0;
 
@@ -65,21 +65,21 @@
 
       @include media(tablet) {
         float: left;
-        margin: 15px 0 0 0;
+        margin: govuk-spacing(3) 0 0 0;
         width: 50%;
       }
 
 
       li {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: govuk-spacing(1);
 
-        padding: 10px 0 0;
-        margin: 0 15px 5px;
+        padding: govuk-spacing(2) 0 0;
+        margin: 0 govuk-spacing(3) govuk-spacing(1);
 
         @include media(tablet) {
-          padding: 20px 0 0;
-          margin: 0 15px;
+          padding: govuk-spacing(4) 0 0;
+          margin: 0 govuk-spacing(3);
         }
       }
     }

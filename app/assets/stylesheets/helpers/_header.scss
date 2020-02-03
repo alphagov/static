@@ -14,7 +14,7 @@
     }
 
     .content {
-      margin: 0 15px;
+      margin: 0 govuk-spacing(3);
     }
   }
   &.with-proposition {
@@ -32,7 +32,7 @@
       height: 30px;
       width: 36px;
       padding: 0;
-      margin: -32px 15px;
+      margin: -32px govuk-spacing(3);
       overflow: hidden;
       text-indent: -5000px;
       background-color: $govuk-blue;
@@ -68,7 +68,7 @@
       text-indent: 15px;
       overflow: hidden;
       display: block;
-      margin-right: 10px;
+      margin-right: govuk-spacing(2);
 
       .js-enabled & {
         float: none;
@@ -330,7 +330,7 @@ $light-blue: #259EDA;
 .global-bar {
   background-color: #E5EAF1;
   display: none;
-  padding: 15px 0;
+  padding: govuk-spacing(3) 0;
   border-top: 8px solid $light-blue;
 
   .show-global-bar & {
@@ -377,8 +377,8 @@ $light-blue: #259EDA;
     .global-bar-title {
       display: block;
       font-weight: 700;
-      margin-right: 10px;
-      margin-bottom: 5px;
+      margin-right: govuk-spacing(2);
+      margin-bottom: govuk-spacing(1);
     }
   }
 }

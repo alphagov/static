@@ -60,8 +60,8 @@
   }
 
   .homepage & {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: govuk-spacing(1);
+    margin-bottom: govuk-spacing(1);
   }
 
   &.notable-death {
