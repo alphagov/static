@@ -12,12 +12,12 @@
   height: auto;
   width: auto;
   padding-top: 23px;
-  padding-left: 10px;
+  padding-left: govuk-spacing(2);
 
   @include media(tablet) {
     font-size: 19px;
     line-height: (20 / 19);
-    padding-top: 30px;
+    padding-top: govuk-spacing(6);
     background-image: image-url("coa-default-24.gif");
   }
 
@@ -28,7 +28,7 @@
     position: static;
 
     @include media(tablet) {
-      padding: 5px 0 5px 45px;
+      padding: govuk-spacing(1) 0 govuk-spacing(1) 45px;
       background-position: 8px 50%;
     }
   }

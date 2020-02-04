@@ -56,8 +56,8 @@ h4 {
 
 header.page-header div {
   @include media(tablet){
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: govuk-spacing(6);
+    margin-bottom: govuk-spacing(6);
   }
 
   h1 {
@@ -83,7 +83,7 @@ header.page-header div {
 /* Licence Application */
 
 .relevant-authority {
-  margin: 0 0 20px 84px;
+  margin: 0 0 govuk-spacing(4) 84px;
 
   h2 {
     margin: 0;
@@ -96,7 +96,7 @@ header.page-header div {
   }
   li { list-style: none;
     label {
-      padding-left: 5px;
+      padding-left: govuk-spacing(1);
     }
   }
 }
@@ -178,7 +178,7 @@ header.page-header div {
   right: 0.75em;
 
   @include media-down(mobile) {
-    bottom: 20px;
+    bottom: govuk-spacing(4);
     right: 16px;
   }
 }

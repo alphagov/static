@@ -10,16 +10,16 @@ label.selectable {
 
   background: $panel-colour;
   border: 1px solid $panel-colour;
-  padding: (18px $gutter $gutter-half $gutter*1.5);
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding: (govuk-spacing(4) govuk-spacing(6) govuk-spacing(3) govuk-spacing(5));
+  margin-top: govuk-spacing(2);
+  margin-bottom: govuk-spacing(2);
 
   cursor: pointer; // Encourage clicking on block labels
 
   @include media(tablet) {
     float: left;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: govuk-spacing(1);
+    margin-bottom: govuk-spacing(1);
   }
 
   &:hover {
@@ -30,14 +30,14 @@ label.selectable {
   input {
     position: absolute;
     top: 18px;
-    left: $gutter-half;
+    left: govuk-spacing(3);
     cursor: pointer;
   }
 
   // Use inline, to sit block labels next to each other
   .inline & {
     clear: none;
-    margin-right: $gutter-half;
+    margin-right: govuk-spacing(3);
   }
 
   // Only if JavaScript is enabled
