@@ -35,9 +35,14 @@ var globalBarInit = {
   },
 
   setBannerCookie: function() {
+    var cookieCategory = window.GOVUK.getCookieCategory("global_bar_seen")
+    var cookieConsent = GOVUK.getConsentCookie()
+
+    if (cookieConsent && cookieConsent[cookieCategory]) {
       var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
 
       window.GOVUK.setCookie("global_bar_seen", value, {days: 84});
+    }
   },
 
   makeBannerVisible: function() {
