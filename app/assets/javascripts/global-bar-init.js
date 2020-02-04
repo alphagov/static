@@ -1,4 +1,5 @@
 //= require libs/GlobalBarHelper.js
+//= require govuk_publishing_components/lib/cookie-functions
 
 'use strict'
 window.GOVUK = window.GOVUK || {}
@@ -34,12 +35,9 @@ var globalBarInit = {
   },
 
   setBannerCookie: function() {
-    var eighty_four_days = 84*24*60*60*1000
-    var expiryDate = new Date(Date.now() + eighty_four_days).toUTCString()
-    var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
-    var cookieString = "global_bar_seen=" + value + "; expires=" + expiryDate + ";"
+      var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
 
-    document.cookie=cookieString
+      window.GOVUK.setCookie("global_bar_seen", value, {days: 84});
   },
 
   makeBannerVisible: function() {
