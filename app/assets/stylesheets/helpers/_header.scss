@@ -78,7 +78,6 @@
   }
 
   .header-wrapper .header-global .site-search {
-    @extend %contain-floats;
     width: 49%;
     float: right;
 
@@ -147,7 +146,6 @@
 
   form#search {
     .content {
-      @extend %contain-floats;
       position: relative;
       background: govuk-colour("white");
     }
