@@ -7,6 +7,7 @@ window.GOVUK = window.GOVUK || {}
 // Bump this if you are releasing a major change to the banner
 // This will reset the view count so all users will see the banner, even if previously seen
 var BANNER_VERSION = 3;
+var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen"
 
 var globalBarInit = {
   getBannerVersion: function() {
@@ -14,12 +15,12 @@ var globalBarInit = {
   },
 
   getLatestCookie: function() {
-    var currentCookie = document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))")
+    var currentCookie = window.GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)
 
     if (currentCookie == null) {
       return currentCookie
     } else {
-      return currentCookie[1]
+      return currentCookie
     }
   },
 
@@ -35,13 +36,13 @@ var globalBarInit = {
   },
 
   setBannerCookie: function() {
-    var cookieCategory = window.GOVUK.getCookieCategory("global_bar_seen")
+    var cookieCategory = window.GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE)
     var cookieConsent = GOVUK.getConsentCookie()
 
     if (cookieConsent && cookieConsent[cookieCategory]) {
       var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
 
-      window.GOVUK.setCookie("global_bar_seen", value, {days: 84});
+      window.GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, value, {days: 84});
     }
   },
 
