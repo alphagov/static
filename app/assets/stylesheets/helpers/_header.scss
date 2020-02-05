@@ -1,13 +1,91 @@
 @import '_shims';
+
 #global-header {
+  $govuk-header-background: govuk-colour("black");
+  $govuk-header-border-color: $govuk-brand-colour;
+  $govuk-header-border-width: 10px;
+  $govuk-header-text: govuk-colour("white");
+  $govuk-header-link: govuk-colour("white");
+  $govuk-header-link-hover: govuk-colour("white");
+  $govuk-header-link-active: #1d8feb;
+  $govuk-header-nav-item-border-color: #2e3133;
+
+  #logo {
+    background: none;
+    padding-bottom: 4px;
+
+    &:focus {
+      background-color: $govuk-focus-colour;
+      border-color: $govuk-focus-colour;
+      box-shadow:
+        0 -2px $govuk-focus-colour,
+        0 4px $govuk-focus-text-colour;
+      color: $govuk-focus-text-colour;
+      outline: 3px solid transparent;
+      text-decoration: none;
+    }
+  }
+
+  .govuk-header__logotype {
+    margin-right: 0;
+  }
+
+  .govuk-header__logotype-text {
+    position: relative;
+    top: 4px;
+  }
+
+  .govuk-header__logotype-crown {
+    fill: currentColor;
+    margin-right: 1px;
+    position: relative;
+    top: 0;
+    vertical-align: top;
+  }
+
+  .govuk-header__logotype-crown-fallback-image {
+    border: 0;
+    height: 32px;
+    vertical-align: middle;
+    width: 36px;
+  }
+
+  .govuk-header__link--homepage {
+    display: inline-block;
+    font: bold 30px "GDS Transport", nta, Arial, sans-serif;
+    line-height: 1;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      margin-bottom: -1px;
+      border-bottom: 1px solid;
+    }
+
+    &:focus {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  .govuk-header__logo,
+  .govuk-header__content {
+    box-sizing: border-box;
+  }
+
   .header-wrapper .header-global .site-search {
     @extend %contain-floats;
     width: 49%;
     float: right;
 
-    @include media(desktop){
+    @include media(desktop) {
       width: 33.33%;
     }
+
     @media screen and (max-width: 379px) {
       width: auto;
       float: none;
@@ -17,6 +95,7 @@
       margin: 0 govuk-spacing(3);
     }
   }
+
   &.with-proposition {
     #search {
       margin-top: 4px;
@@ -27,20 +106,29 @@
     display: none;
 
     @media screen and (max-width: 379px) {
+      background-color: $govuk-brand-colour;
+      background-image: image-url("search-button.png");
+      background-position: 0 50%;
+      background-repeat: no-repeat;
       display: block;
       float: right;
       height: 30px;
-      width: 36px;
-      padding: 0;
       margin: -32px govuk-spacing(3);
       overflow: hidden;
+      padding: 0;
       text-indent: -5000px;
-      background-color: $govuk-blue;
-      background-image: image-url("search-button.png");
-      background-repeat: no-repeat;
-      background-position: 0 50%;
+      width: 36px;
 
-      body.search & { display: none; }
+      &:focus {
+        border-width: 0;
+        box-shadow: inset 0 0 0 4px $govuk-input-border-colour;
+        outline: $govuk-focus-width solid $govuk-focus-colour;
+        outline-offset: 0;
+      }
+
+      body.search & {
+        display: none;
+      }
 
       @include device-pixel-ratio() {
         background-size: 52.5px 35px;
@@ -49,18 +137,21 @@
     }
 
     &:hover {
-      background-color: darken($mainstream-brand, 5%);
+      background-color: darken($govuk-brand-colour, 5%);
     }
 
-    &.js-hidden { display: none; }
+    &.js-hidden {
+      display: none;
+    }
   }
 
   form#search {
     .content {
       @extend %contain-floats;
       position: relative;
-      background: #fff;
+      background: govuk-colour("white");
     }
+
     label {
       float: left;
       min-height: 36px;
@@ -80,6 +171,7 @@
         margin-right: 0;
       }
     }
+
     input {
       @include box-sizing(border-box);
       float: left;
@@ -90,26 +182,32 @@
       border: 0;
       min-height: 36px;
       padding: 6px 0;
+
       &::-moz-focus-inner {
         border: 0;
       }
+
       @include ie-lte(8) {
         min-height: 24px;
       }
+
       @include appearance(none);
     }
 
     input#site-search-text {
       @include core-16($line-height: (23/16), $line-height-640: (23/13));
-      position: relative;
-      padding: 6px;
-      z-index: 3;
       background: transparent;
+      height: 36px;
+      padding: 6px;
+      position: relative;
+      z-index: 3;
 
       &.focus,
       &:focus {
-        background: #fff;
-        outline-offset: -3px;
+        background: govuk-colour("white");
+        outline: $govuk-focus-width solid $govuk-focus-colour;
+        outline-offset: 0;
+        z-index: 5;
       }
 
       .js-enabled & {
@@ -126,16 +224,16 @@
       width: 36px;
       height: 36px;
 
-      border: 1px solid $mainstream-brand;
+      border: 1px solid $govuk-brand-colour;
       border-width: 0 0 0 1px;
       border-left-color: #222;
-      @include border-radius(0);
+      border-radius: 0;
 
       overflow: hidden;
       text-indent: -5000px;
 
-      color: $white;
-      background-color: $mainstream-brand;
+      color: govuk-colour("white");
+      background-color: $govuk-brand-colour;
       background-image: image-url("search-button.png");
       background-repeat: no-repeat;
       background-position: 0 50%;
@@ -146,12 +244,15 @@
       }
 
       &:hover {
-        background-color: darken($mainstream-brand, 5%);
+        background-color: darken($govuk-brand-colour, 5%);
       }
 
       &.focus,
       &:focus {
-        outline-offset: -3px;
+        border-width: 0;
+        box-shadow: inset 0 0 0 4px $govuk-input-border-colour;
+        outline: $govuk-focus-width solid $govuk-focus-colour;
+        outline-offset: 0;
       }
     }
 
@@ -163,7 +264,45 @@
         width: 80%;
       }
     }
-    &.js-visible { display: block; }
+
+    &.js-visible {
+      display: block;
+    }
+  }
+
+  .header-proposition {
+    a {
+      &.menu {
+        padding-bottom: 4px;
+      }
+    }
+  }
+
+  #proposition-links {
+    list-style: none;
+
+    li:last-child {
+      border-bottom: 0;
+      width: 100%;
+
+      @include media(tablet) {
+        width: auto;
+      }
+    }
+  }
+
+  #proposition-links,
+  .header-proposition {
+    a:focus {
+      background-color: $govuk-focus-colour;
+      border-color: $govuk-focus-colour;
+      box-shadow:
+        0 -2px $govuk-focus-colour,
+        0 4px $govuk-focus-text-colour;
+      color: $govuk-focus-text-colour;
+      outline: 3px solid transparent;
+      text-decoration: none;
+    }
   }
 }
 
@@ -217,9 +356,9 @@
    * JavaScript enabled.
    */
   display: none;
-  background-color: $govuk-blue;
+  background-color: $govuk-brand-colour;
   margin-bottom: 1px;
-  color: $white;
+  color: govuk-colour("white");
   @include core-16;
 
   &.visible {
@@ -229,12 +368,15 @@
       .survey-close-button {
         font-size: 16px;
       }
+
       .survey-title {
         display: inline-block;
         font-size: 18px;
         width: 75%;
       }
-      .survey-primary-link, .postscript-cta {
+
+      .survey-primary-link,
+      .postscript-cta {
         font-size: 18px;
       }
     }
@@ -251,8 +393,9 @@
     &:visited {
       color: inherit;
     }
+
     &:focus {
-      color: $black;
+      color: $govuk-focus-text-colour;
     }
   }
 
@@ -294,7 +437,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 5px 4px 4px;
-    border: 2px solid $white;
+    border: 2px solid govuk-colour("white");
     margin: 0; // TODO: Remove this when all applications are moved away from the 'wrapper' template
     margin-bottom: 1em;
   }
@@ -305,13 +448,13 @@
   }
 
   .survey-form-button {
-    @include button($white);
+    @include button(govuk-colour("white"));
     @include bold-19($line-height: 1.1);
-    color: $govuk-blue;
+    color: $govuk-brand-colour;
 
     &:hover,
     &:focus {
-      color: darken($govuk-blue, 5%);
+      color: darken($govuk-brand-colour, 5%);
     }
 
     &:focus {
@@ -329,9 +472,9 @@ $light-blue: #259EDA;
 
 .global-bar {
   background-color: #E5EAF1;
+  border-top: 8px solid $govuk-brand-colour;
   display: none;
   padding: govuk-spacing(3) 0;
-  border-top: 8px solid $light-blue;
 
   .show-global-bar & {
     display: block;

@@ -2,20 +2,15 @@
 
 #footer {
   // Replaces the 1px #a1acb2 border from govuk_template
-  border-top: 10px solid $mainstream-brand;
+  border-top: 10px solid $govuk-brand-colour;
 
-  a:focus {
-    outline: 3px solid transparent;
-    color: #0b0c0c;
-    // Instead of using #fd0 as per GOV.UK Frontend 3, until we are using
-    // govuk_publishing_components we'll stick to the legacy colours for now
-    // to keep things consistent.
-    background-color: #ffbf47;
-    -webkit-box-shadow: 0 -2px #ffbf47,
-    0 4px #0b0c0c;
-    box-shadow: 0 -2px #ffbf47,
-    0 4px #0b0c0c;
-    text-decoration: none;
+  .govuk-link:focus {
+    color: $govuk-focus-text-colour;
+  }
+
+  &,
+  .footer-wrapper {
+    background-color: govuk-colour("light-grey");
   }
 
   .footer-categories {
@@ -41,7 +36,7 @@
 
         @include media(tablet) {
           padding: 0 0 govuk-spacing(4);
-          border-bottom: 1px solid $border-colour;
+          border-bottom: 1px solid $govuk-border-colour;
         }
       }
     }
@@ -49,7 +44,7 @@
     hr {
       clear: both;
       margin: 0 govuk-spacing(3) govuk-spacing(6);
-      border: 1px solid $border-colour;
+      border: 1px solid $govuk-border-colour;
       border-width: 1px 0 0 0;
 
       @include media(tablet) {
@@ -94,6 +89,44 @@
             width: 100%;
           }
         }
+      }
+    }
+  }
+
+  // TODO (GOVUK_TEMPLATE) REFACTOR ONCE GOVUK_TEMPLATE HAS BEEN REMOVED
+  // ---------------------------------------------------------------------------
+  // This abyss of deeply nested selectors is to override another abyss of
+  // deeply nested selectors from `govuk-template`. This makes sure that the
+  // correct focus state is used on the Open Government Licence (OGL) link in
+  // the footer.
+  //
+  // This should be refactored once govuk_template has been removed.
+  .footer-meta {
+    .footer-meta-inner {
+      .open-government-licence {
+        .logo {
+          .open-government-licence__logo-link {
+            background-position: 0 1px;
+            padding-bottom: $govuk-focus-width;
+
+            &:focus {
+              background-color: $govuk-focus-colour;
+            }
+          }
+        }
+      }
+    }
+
+    .copyright {
+      text-align: center;
+
+      @include media(tablet) {
+        text-align: right;
+      }
+
+      a {
+        display: inline-block;
+        min-width: 134px;
       }
     }
   }
