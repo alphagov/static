@@ -1,4 +1,5 @@
 //= require libs/GlobalBarHelper.js
+//= require govuk_publishing_components/lib/cookie-functions
 
 'use strict'
 window.GOVUK = window.GOVUK || {}
@@ -6,6 +7,7 @@ window.GOVUK = window.GOVUK || {}
 // Bump this if you are releasing a major change to the banner
 // This will reset the view count so all users will see the banner, even if previously seen
 var BANNER_VERSION = 3;
+var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen"
 
 var globalBarInit = {
   getBannerVersion: function() {
@@ -13,12 +15,12 @@ var globalBarInit = {
   },
 
   getLatestCookie: function() {
-    var currentCookie = document.cookie.match("(?:^|[ ;])(?:global_bar_seen=)(.+?)(?:(?=;|$))")
+    var currentCookie = window.GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)
 
     if (currentCookie == null) {
       return currentCookie
     } else {
-      return currentCookie[1]
+      return currentCookie
     }
   },
 
@@ -34,12 +36,14 @@ var globalBarInit = {
   },
 
   setBannerCookie: function() {
-    var eighty_four_days = 84*24*60*60*1000
-    var expiryDate = new Date(Date.now() + eighty_four_days).toUTCString()
-    var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
-    var cookieString = "global_bar_seen=" + value + "; expires=" + expiryDate + ";"
+    var cookieCategory = window.GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE)
+    var cookieConsent = GOVUK.getConsentCookie()
 
-    document.cookie=cookieString
+    if (cookieConsent && cookieConsent[cookieCategory]) {
+      var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
+
+      window.GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, value, {days: 84});
+    }
   },
 
   makeBannerVisible: function() {
