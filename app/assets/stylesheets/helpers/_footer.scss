@@ -1,21 +1,16 @@
 /* Global footer */
 
 #footer {
-  // Replaces the 1px #a1acb2 border from govuk_template
-  border-top: 10px solid $govuk-brand-colour;
+  background-color: govuk-colour("light-grey");
+  border-top: 10px solid $govuk-brand-colour; // Replaces the 1px #a1acb2 border from govuk_template
 
   .govuk-link:focus {
     color: $govuk-focus-text-colour;
   }
 
-  &,
-  .footer-wrapper {
-    background-color: govuk-colour("light-grey");
-  }
-
   .footer-container {
     @include media(tablet) {
-      padding-top: 60px;
+      padding-top: govuk-spacing(9);
     }
   }
 

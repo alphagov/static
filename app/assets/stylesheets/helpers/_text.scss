@@ -378,7 +378,12 @@ article {
     background: none;
     border-left: 10px solid $border-colour;
     margin-bottom: 1em;
-    @extend %contain-floats;
+
+    &:after {
+      clear: both;
+      content: "";
+      display: block;
+    }
   }
 
   .help-notice p,
