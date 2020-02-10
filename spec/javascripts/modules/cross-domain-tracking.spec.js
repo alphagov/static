@@ -15,7 +15,7 @@ describe('Cross Domain Tracking', function () {
   it('tracks realistic example', function () {
     var anchorToTest = document.createElement('a')
     anchorToTest.href = 'https://www.registertovote.service.gov.uk/register-to-vote/start'
-    anchorToTest.className = 'button button--start'
+    anchorToTest.className = 'gem-c-button gem-c-button--start'
     anchorToTest.setAttribute('role', 'button')
     anchorToTest.setAttribute('data-module', 'cross-domain-tracking')
     anchorToTest.setAttribute('data-tracking-code', 'UA-23066786-5')

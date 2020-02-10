@@ -429,6 +429,7 @@
   }
 
   .survey-form-input {
+    @include core-16($line-height: 1.1);
     display: block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -446,19 +447,24 @@
   }
 
   .survey-form-button {
-    @include button(govuk-colour("white"));
     @include bold-19($line-height: 1.1);
+    padding: govuk-spacing(2) govuk-spacing(3) govuk-spacing(1) govuk-spacing(3);
+    margin-right: .5em;
     color: $govuk-brand-colour;
+    background: govuk-colour("white");
+    border: 0;
+    border-bottom: solid 2px $govuk-border-colour;
 
     &:hover,
     &:focus {
       color: darken($govuk-brand-colour, 5%);
+      background: govuk-colour("light-grey");
+      cursor: pointer;
     }
 
     &:focus {
       outline: 3px solid $focus-colour;
     }
-    margin-right: .5em;
   }
 }
 
