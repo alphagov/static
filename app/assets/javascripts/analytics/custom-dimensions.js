@@ -50,6 +50,7 @@
       'withdrawn': {dimension: 12, defaultValue: 'not withdrawn'},
       'schema-name': {dimension: 17},
       'rendering-application': {dimension: 20},
+      'search-autocomplete-status': {dimension: 21},
       'navigation-legacy': {dimension: 30, defaultValue: 'none'},
       'navigation-page-type': {dimension: 32, defaultValue: 'none'},
       'taxon-slug': {dimension: 56, defaultValue: 'other'},
