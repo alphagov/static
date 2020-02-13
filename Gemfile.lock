@@ -83,7 +83,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
     fspath (3.1.2)
-    gds-api-adapters (63.3.0)
+    gds-api-adapters (63.4.0)
       addressable
       link_header
       null_logger
@@ -190,7 +190,7 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.1.2)
+    rack (2.2.1)
     rack-cache (1.11.0)
       rack (>= 0.4)
     rack-test (1.1.0)
@@ -331,7 +331,7 @@ DEPENDENCIES
   asset_bom_removal-rails (~> 1.0.0)
   better_errors
   binding_of_caller
-  gds-api-adapters (~> 63.3)
+  gds-api-adapters (~> 63.4)
   govuk-content-schema-test-helpers (~> 1.6)
   govuk_app_config (~> 2.0.3)
   govuk_frontend_toolkit (~> 9.0.0)
