@@ -69,7 +69,7 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     coderay (1.1.2)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -102,7 +102,7 @@ GEM
     govuk_frontend_toolkit (9.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (21.22.1)
+    govuk_publishing_components (21.22.2)
       gds-api-adapters
       govuk_app_config
       kramdown
@@ -190,7 +190,7 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.2.1)
+    rack (2.2.2)
     rack-cache (1.11.0)
       rack (>= 0.4)
     rack-test (1.1.0)
@@ -235,7 +235,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rouge (3.15.0)
+    rouge (3.16.0)
     rubocop (0.77.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -335,7 +335,7 @@ DEPENDENCIES
   govuk-content-schema-test-helpers (~> 1.6)
   govuk_app_config (~> 2.0.3)
   govuk_frontend_toolkit (~> 9.0.0)
-  govuk_publishing_components (~> 21.22.1)
+  govuk_publishing_components (~> 21.22.2)
   govuk_template (= 0.26.0)
   govuk_test
   image_optim (= 0.26.5)
