@@ -38,7 +38,7 @@ h4 {
  */
 
 header.page-header div {
-  @include media(tablet){
+  @include govuk-media-query($from: tablet) {
     margin-top: govuk-spacing(6);
     margin-bottom: govuk-spacing(6);
   }

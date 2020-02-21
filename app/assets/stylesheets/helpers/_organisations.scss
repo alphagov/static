@@ -14,7 +14,7 @@
   padding-top: 23px;
   padding-left: govuk-spacing(2);
 
-  @include media(tablet) {
+  @include govuk-media-query($from: tablet) {
     font-size: 19px;
     line-height: (20 / 19);
     padding-top: govuk-spacing(6);
@@ -27,7 +27,7 @@
     top: 0;
     position: static;
 
-    @include media(tablet) {
+    @include govuk-media-query($from: tablet) {
       padding: govuk-spacing(1) 0 govuk-spacing(1) 45px;
       background-position: 8px 50%;
     }
@@ -159,7 +159,7 @@
 @mixin organisation-logo-image($crest) {
   background: image-url('crests/#{$crest}_13px.png') no-repeat 8px 0;
 
-  @include media(tablet) {
+  @include govuk-media-query($from: tablet) {
     background-image: image-url('crests/#{$crest}_18px.png');
   }
 }
