@@ -24,7 +24,7 @@
     }
   }
 
-  @include media(mobile) {
+  @include govuk-media-query($until: tablet) {
     .page-header div {
       padding-left: 1em;
     }

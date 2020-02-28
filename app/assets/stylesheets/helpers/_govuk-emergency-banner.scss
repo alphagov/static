@@ -4,7 +4,7 @@
   margin-top: 2px;
   padding: govuk-spacing(3) 0;
 
-  @include media(tablet) {
+  @include govuk-media-query($from: tablet) {
     padding: govuk-spacing(6) 0;
   }
 
@@ -18,7 +18,7 @@
 
     .homepage & {
       @include bold-48;
-      @include media(tablet) {
+      @include govuk-media-query($from: tablet) {
         margin-bottom: govuk-spacing(4);
       }
     }
@@ -30,7 +30,7 @@
     margin-top: 0;
     margin-bottom: govuk-spacing(4);
 
-    @include media(tablet) {
+    @include govuk-media-query($from: tablet) {
       width: percentage(2/3);
     }
 

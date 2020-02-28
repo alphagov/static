@@ -9,11 +9,11 @@
     width: 960px;
   }
 
-  @include media(tablet) {
+  @include govuk-media-query($from: tablet) {
     margin: 0 30px;
   }
 
-  @include media($min-width: (960px + 30px * 2)) {
+  @include govuk-media-query($and: "(min-width: #{($govuk-page-width + $govuk-gutter * 2)})") {
     margin: 0 auto;
   }
 }

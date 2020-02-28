@@ -2,7 +2,7 @@
 $govuk-compatibility-govuktemplate: true;
 $govuk-use-legacy-palette: false;
 
-@import "govuk_publishing_components/all_components_print";
+@import "govuk_publishing_components/components/print/feedback";
 
 // STYLEGUIDE
 // Mixins to be shared across gov.uk sites. Anything set in these

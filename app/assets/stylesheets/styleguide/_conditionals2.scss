@@ -20,3 +20,21 @@ $is-ie: false !default;
     }
   }
 }
+
+// mixins from toolkit, only used now by static and whitehall
+
+@mixin ie-lte($version) {
+  @if $is-ie {
+    @if $ie-version <= $version {
+      @content;
+    }
+  }
+}
+
+@mixin ie($version) {
+  @if $is-ie {
+    @if $ie-version == $version {
+      @content;
+    }
+  }
+}

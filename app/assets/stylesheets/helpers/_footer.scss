@@ -9,20 +9,20 @@
   }
 
   .footer-container {
-    @include media(tablet) {
+    @include govuk-media-query($from: tablet) {
       padding-top: govuk-spacing(9);
     }
   }
 
   .footer-categories {
-    @include media(tablet) {
+    @include govuk-media-query($from: tablet) {
       padding-bottom: govuk-spacing(6);
     }
 
     h2 {
       padding: govuk-spacing(2) 0 0;
 
-      @include media(tablet) {
+      @include govuk-media-query($from: tablet) {
         margin: 0 0 govuk-spacing(3) 0;
         padding: 0 0 govuk-spacing(4);
         border-bottom: 1px solid $border-colour;
@@ -35,7 +35,7 @@
       border: 1px solid $govuk-border-colour;
       border-width: 1px 0 0 0;
 
-      @include media(tablet) {
+      @include govuk-media-query($from: tablet) {
         margin-bottom: 0;
       }
     }
@@ -46,7 +46,7 @@
       padding: 0;
       margin: 0;
 
-      @include media(tablet) {
+      @include govuk-media-query($from: tablet) {
         padding-bottom: govuk-spacing(9);
       }
 
@@ -54,7 +54,7 @@
         padding: govuk-spacing(2) 0 0;
         margin-bottom: govuk-spacing(1);
 
-        @include media(tablet) {
+        @include govuk-media-query($from: tablet) {
           padding: govuk-spacing(4) 0 0;
           margin-bottom: 0;
         }
@@ -89,7 +89,7 @@
     .copyright {
       text-align: center;
 
-      @include media(tablet) {
+      @include govuk-media-query($from: tablet) {
         text-align: right;
       }
 

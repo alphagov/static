@@ -16,7 +16,7 @@ label.selectable {
 
   cursor: pointer; // Encourage clicking on block labels
 
-  @include media(tablet) {
+  @include govuk-media-query($from: tablet) {
     float: left;
     margin-top: govuk-spacing(1);
     margin-bottom: govuk-spacing(1);
