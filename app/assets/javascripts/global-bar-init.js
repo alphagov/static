@@ -29,6 +29,11 @@ var globalBarInit = {
       "/done"
     ]
 
+    var ctaLink = document.querySelector('.js-call-to-action')
+    if (ctaLink) {
+      paths.push(ctaLink.getAttribute('href'))
+    }
+
     return new RegExp(paths.join("|")).test(window.location.pathname)
   },
 
