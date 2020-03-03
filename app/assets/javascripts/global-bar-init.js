@@ -26,10 +26,7 @@ var globalBarInit = {
 
   blacklistedUrl: function() {
     var paths = [
-      "/register-to-vote",
-      "/done",
-      "/transition",
-      "/transition-check"
+      "/done"
     ]
 
     return new RegExp(paths.join("|")).test(window.location.pathname)
