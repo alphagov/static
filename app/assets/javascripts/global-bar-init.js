@@ -26,7 +26,8 @@ var globalBarInit = {
 
   blacklistedUrl: function() {
     var paths = [
-      "/done"
+      "/done",
+      "/transition-check"
     ]
 
     var ctaLink = document.querySelector('.js-call-to-action')
