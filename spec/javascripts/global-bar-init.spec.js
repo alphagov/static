@@ -9,8 +9,8 @@ describe('Global bar initialize', function () {
     deleteAllCookies();
   })
 
-  it('does not set cookie for blacklisted URL', function() {
-    spyOn(globalBarInit, 'blacklistedUrl').and.returnValue(true)
+  it('does not set cookie for blocked URL', function() {
+    spyOn(globalBarInit, 'urlBlockList').and.returnValue(true)
     GOVUK.globalBarInit.init()
 
     expect(GOVUK.getCookie("global_bar_seen")).toBeNull()
