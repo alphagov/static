@@ -26,11 +26,14 @@ var globalBarInit = {
 
   blacklistedUrl: function() {
     var paths = [
-      "/register-to-vote",
       "/done",
-      "/transition",
       "/transition-check"
     ]
+
+    var ctaLink = document.querySelector('.js-call-to-action')
+    if (ctaLink) {
+      paths.push(ctaLink.getAttribute('href'))
+    }
 
     return new RegExp(paths.join("|")).test(window.location.pathname)
   },
