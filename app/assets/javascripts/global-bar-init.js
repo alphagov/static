@@ -24,7 +24,7 @@ var globalBarInit = {
     }
   },
 
-  blacklistedUrl: function() {
+  urlBlockList: function() {
     var paths = [
       "/done",
       "/transition-check"
@@ -80,7 +80,7 @@ var globalBarInit = {
   },
 
   init: function() {
-    if (!globalBarInit.blacklistedUrl()) {
+    if (!globalBarInit.urlBlockList()) {
       // We had a bug which meant that the global_bar_seen cookie was sometimes set more than once.
       // This bug has now been fixed, but some users will be left with these duplicate cookies and therefore will continue to see the issue.
       // We need to check for duplicate cookies so we can delete them
