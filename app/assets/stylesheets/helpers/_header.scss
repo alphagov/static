@@ -520,6 +520,10 @@ $light-blue: #259EDA;
       font-weight: 700;
       margin-right: govuk-spacing(2);
       margin-bottom: govuk-spacing(1);
+
+      &:only-child {
+        margin: 0;
+      }
     }
   }
 }
