@@ -463,7 +463,7 @@ describe('Surveys', function () {
     })
 
     it('returns false if the path is blacklisted', function () {
-      spyOn(surveys, 'pathInBlacklist').and.returnValue(true)
+      spyOn(surveys, 'pathInBlocklist').and.returnValue(true)
 
       expect(surveys.canShowAnySurvey()).toBeFalsy()
     })
@@ -598,36 +598,36 @@ describe('Surveys', function () {
     })
   })
 
-  describe('pathInBlacklist', function () {
+  describe('pathInBlocklist', function () {
     // we make sure that slash-terminated and slash-unterminated versions
     // of these paths work
     it('returns true if the path is /service-manual', function () {
       spyOn(surveys, 'currentPath').and.returnValues('/service-manual', '/service-manual/')
-      expect(surveys.pathInBlacklist()).toBeTruthy()
-      expect(surveys.pathInBlacklist()).toBeTruthy()
+      expect(surveys.pathInBlocklist()).toBeTruthy()
+      expect(surveys.pathInBlocklist()).toBeTruthy()
     })
 
     it('returns true if the path is a sub-folder under /service-manual', function () {
       spyOn(surveys, 'currentPath').and.returnValues('/service-manual/some-other-page', '/service-manual/some-other-page/')
-      expect(surveys.pathInBlacklist()).toBeTruthy()
-      expect(surveys.pathInBlacklist()).toBeTruthy()
+      expect(surveys.pathInBlocklist()).toBeTruthy()
+      expect(surveys.pathInBlocklist()).toBeTruthy()
     })
 
     it('returns false if the path is /service-manual-with-a-suffix', function () {
       spyOn(surveys, 'currentPath').and.returnValues('/service-manual-with-a-suffix', '/service-manual-with-a-suffix/')
-      expect(surveys.pathInBlacklist()).toBeFalsy()
-      expect(surveys.pathInBlacklist()).toBeFalsy()
+      expect(surveys.pathInBlocklist()).toBeFalsy()
+      expect(surveys.pathInBlocklist()).toBeFalsy()
     })
 
     it('returns false if the path is /some-other-parent-of/service-manual', function () {
       spyOn(surveys, 'currentPath').and.returnValues('/some-other-parent-of/service-manual', '/some-other-parent-of/service-manual/')
-      expect(surveys.pathInBlacklist()).toBeFalsy()
-      expect(surveys.pathInBlacklist()).toBeFalsy()
+      expect(surveys.pathInBlocklist()).toBeFalsy()
+      expect(surveys.pathInBlocklist()).toBeFalsy()
     })
 
     it('returns false otherwise', function () {
       spyOn(surveys, 'currentPath').and.returnValue('/')
-      expect(surveys.pathInBlacklist()).toBeFalsy()
+      expect(surveys.pathInBlocklist()).toBeFalsy()
     })
   })
 

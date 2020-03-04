@@ -82,7 +82,7 @@
     },
 
     canShowAnySurvey: function () {
-      if (userSurveys.pathInBlacklist()) {
+      if (userSurveys.pathInBlocklist()) {
         return false
       } else if (userSurveys.otherNotificationVisible()) {
         return false
@@ -315,7 +315,7 @@
       }
     },
 
-    pathInBlacklist: function () {
+    pathInBlocklist: function () {
       var blackList = new RegExp('^/(?:' +
         /service-manual/.source +
         // add more blacklist paths in the form:
