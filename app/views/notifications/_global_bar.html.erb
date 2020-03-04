@@ -12,7 +12,7 @@
 -%>
 
 <% if show_global_bar %>
-  <% content_for :head do %>
+  <% content_for :body_end do %>
     <%= javascript_include_tag 'global-bar-init', integrity: false %>
     <script>
       if (GOVUK.globalBarInit) {
