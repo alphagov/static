@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w{
   core-layout*.css
   static-print.css
   error-page.css
+  error-page-print.css
 }
