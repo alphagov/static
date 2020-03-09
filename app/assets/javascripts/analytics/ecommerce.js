@@ -24,7 +24,9 @@
           path = $ecommerceRow.attr('data-ecommerce-path');
 
         addImpression(contentId, path, index + startPosition, searchQuery, listTitle, variant);
-        trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle, variant, trackClickLabel);
+        if (this.eventListenersLoaded !== true) {
+          trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle, variant, trackClickLabel);
+        }
       });
     }
 
@@ -73,6 +75,7 @@
   }
 
   Ecommerce.ecLoaded = false;
+  Ecommerce.eventListenersLoaded = false;
   Ecommerce.start = function (element) {
     if (!window.ga) { return }
     element = element || $('[data-analytics-ecommerce]');
@@ -86,6 +89,7 @@
         ecommerce.init($(this));
       })
     }
+    Ecommerce.eventListenersLoaded = true;
   }
 
   GOVUK.Ecommerce = Ecommerce;
