@@ -79,6 +79,28 @@ describe('Ecommerce reporter for results pages', function() {
     });
   });
 
+  it('tracks ecommerce subheading', function() {
+    element = $('\
+      <div data-analytics-ecommerce data-search-query data-list-title="ecommerce-list" data-ecommerce-start-index="1">\
+        <div \
+          data-ecommerce-row=1\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-subheading="Human Readable Subheading"\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      name: "/path/to/page",
+      position: 1,
+      list: 'ecommerce-list',
+      dimension71: '',
+      dimension94: 'Human Readable Subheading',
+    });
+  })
+
   it('tracks multiple lists individually', function() {
     element = $('\
       <div> \
