@@ -57,23 +57,23 @@
       }
     }
 
-    function constructData(contentId, path, position, listTitle, searchQuery, variant) {
+    function constructData(ecommerceRow, rowIndex, listData) {
       var data = {
         position: position,
         list: listTitle,
-        dimension71: searchQuery
+        dimension71: listData.searchQuery
       }
 
-      if (contentId !== undefined) {
-        data.id = contentId
+      if (ecommerceRow.contentId !== undefined) {
+        data.id = ecommerceRow.contentId
       }
 
-      if (path !== undefined) {
-        data.name = path
+      if (ecommerceRow.path !== undefined) {
+        data.name = ecommerceRow.path
       }
 
-      if (variant !== undefined) {
-        data.variant = variant
+      if (listData.variant !== undefined) {
+        data.variant = listData.variant
       }
 
       return data
@@ -81,14 +81,7 @@
 
     function addImpression (ecommerceRow, rowIndex, listData) {
       if (ecommerceRow.contentId || ecommerceRow.path) {
-        var impressionData = constructData(
-            ecommerceRow.contentId,
-            ecommerceRow.path,
-            listData.startPosition + rowIndex,
-            listData.listTitle,
-            listData.searchQuery,
-            listData.variant
-          )
+        var impressionData = constructData(ecommerceRow, rowIndex, listData);
         ga('ec:addImpression', impressionData);
       }
     }
@@ -96,14 +89,7 @@
     function trackProductOnClick (ecommerceRow, rowIndex, listData) {
       $(ecommerceRow.rowElement).click(function() {
         if (ecommerceRow.contentId || ecommerceRow.path) {
-          var clickData = constructData(
-            ecommerceRow.contentId,
-            ecommerceRow.path,
-            listData.startPosition + rowIndex,
-            listData.listTitle,
-            listData.searchQuery,
-            listData.variant
-          )
+          var clickData = constructData(ecommerceRow, rowIndex, listData);
           ga('ec:addProduct', clickData);
         }
 
