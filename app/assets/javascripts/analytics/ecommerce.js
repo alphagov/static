@@ -17,13 +17,10 @@
           listData,
         );
         trackProductOnClick(
-          ecommerceRow.contentId,
-          ecommerceRow.path,
-          listData.startPosition + index,
-          listData.searchQuery,
-          listData.listTitle,
-          listData.variant,
-          listData.trackClickLabel,
+          ecommerceRow,
+          index,
+          listData,
+
         );
       })
     }
@@ -96,16 +93,23 @@
       }
     }
 
-    function trackProductOnClick (row, contentId, path, position, searchQuery, listTitle, variant, trackClickLabel) {
-      row.click(function() {
-        if (contentId || path) {
-          var clickData = constructData(contentId, path, position, listTitle, searchQuery, variant)
+    function trackProductOnClick (ecommerceRow, rowIndex, listData) {
+      $(ecommerceRow.rowElement).click(function() {
+        if (ecommerceRow.contentId || ecommerceRow.path) {
+          var clickData = constructData(
+            ecommerceRow.contentId,
+            ecommerceRow.path,
+            listData.startPosition + rowIndex,
+            listData.listTitle,
+            listData.searchQuery,
+            listData.variant
+          )
           ga('ec:addProduct', clickData);
         }
 
-        ga('ec:setAction', 'click', {list: listTitle});
+        ga('ec:setAction', 'click', {list: listData.trackClickLabel});
         GOVUK.analytics.trackEvent('UX', 'click',
-          GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions({label: trackClickLabel})
+          GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions({label: listData.trackClickLabel})
         );
       });
     }
