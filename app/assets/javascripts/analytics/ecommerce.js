@@ -8,24 +8,50 @@
 
   var Ecommerce = function (config) {
     this.init = function (element) {
-      // Limiting to 100 characters to avoid noise from extra longs search queries
-      // and to stop the size of the payload going over 8k limit.
-      var searchQuery   = GOVUK.analytics.stripPII(element.attr('data-search-query')).substring(0, 100).toLowerCase();
-      var ecommerceRows = element.find('[data-ecommerce-row]');
-      var startPosition = parseInt(element.data('ecommerce-start-index'), 10);
-      var listTitle     = element.data('list-title') || DEFAULT_LIST_TITLE;
-      var variant       = element.data('ecommerce-variant');
-      var trackClickLabel = element.data('track-click-label') || DEFAULT_TRACK_CLICK_LABEL;
+      var listData = parseEcommerceList(element)
 
-      ecommerceRows.each(function(index, ecommerceRow) {
-        var $ecommerceRow = $(ecommerceRow);
+      listData.ecommerceRows.each(function(index, ecommerceRow) {
+        addImpression(
+          ecommerceRow.contentId,
+          ecommerceRow.path,
+          listData.startPosition + index,
+          listData.searchQuery,
+          listData.listTitle,
+          listData.variant
+        );
+        trackProductOnClick(
+          ecommerceRow.contentId,
+          ecommerceRow.path,
+          listData.startPosition + index,
+          listData.searchQuery,
+          listData.listTitle,
+          listData.variant,
+          listData.trackClickLabel,
+        );
+      })
+    }
 
-        var contentId = $ecommerceRow.attr('data-ecommerce-content-id'),
-          path = $ecommerceRow.attr('data-ecommerce-path');
+    function parseEcommerceList(listElement) {
+      return {
+        searchQuery: GOVUK.analytics.stripPII(listElement.attr('data-search-query')).substring(0, 100).toLowerCase(),
+        startPosition: parseInt(listElement.data('ecommerce-start-index'), 10),
+        listTitle: listElement.data('list-title') || DEFAULT_LIST_TITLE,
+        variant: listElement.data('ecommerce-variant'),
+        trackClickLabel: listElement.data('track-click-label') || DEFAULT_TRACK_CLICK_LABEL,
+        ecommerceRows: parseEcommerceRows(listElement)
+      };
+    }
 
-        addImpression(contentId, path, index + startPosition, searchQuery, listTitle, variant);
-        trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle, variant, trackClickLabel);
+    function parseEcommerceRows(listElement) {
+      var ecommerceItems = []
+      listElement.find('[data-ecommerce-row]').forEach(function(ecommerceRow) {
+        ecommerceItems.push({
+          rowElement: ecommerceRow,
+          contentId: $(ecommerceRow).attr('data-commerce-content-id'),
+          path:  $(ecommerceRow).attr('data-commerce-content-id'),
+        })
       });
+      return ecommerceItems;
     }
 
     function constructData(contentId, path, position, listTitle, searchQuery, variant) {
