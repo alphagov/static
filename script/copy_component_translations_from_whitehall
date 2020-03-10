@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-require 'yaml'
+require "yaml"
 
 class Hash
   def dig_by_path path
@@ -26,6 +26,7 @@ whitehall_locales.each do |locale_file|
   src = YAML.load_file(locale_file)
   locale = File.basename(locale_file, ".yml")
   next if locale == "en"
+
   new_locale_data = {
     locale => {
       "govuk_component" => {
@@ -39,9 +40,9 @@ whitehall_locales.each do |locale_file|
           "first_published" => src.dig_by_path("#{locale}.change_notes.published_at"),
           "last_updated" => src.dig_by_path("#{locale}.change_notes.published_at"),
           "see_all_updates" => src.dig_by_path("#{locale}.change_notes.see_all_updates"),
-        }
-      }
-    }
+        },
+      },
+    },
   }
 
   File.open(File.expand_path("../config/locales/#{locale}.yml", __dir__), "w") do |f|
