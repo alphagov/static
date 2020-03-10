@@ -33,7 +33,7 @@
 
     function parseEcommerceList(listElement) {
       return {
-        searchQuery: GOVUK.analytics.stripPII(listElement.attr('data-search-query')).substring(0, 100).toLowerCase(),
+        searchQuery: extractSerachQuery(listElement),
         startPosition: parseInt(listElement.data('ecommerce-start-index'), 10),
         listTitle: listElement.data('list-title') || DEFAULT_LIST_TITLE,
         variant: listElement.data('ecommerce-variant'),
@@ -52,6 +52,15 @@
         })
       });
       return ecommerceItems;
+    }
+
+    function extractSerachQuery(listElement) {
+      if (listElement.attr('data-search-query') !== undefined) {
+        // Limiting to 100 characters to avoid noise from extra longs search queries
+        // and to stop the size of the payload going over 8k limit and strip Personally Identifying Inforamtion
+        // from any serach term
+        return GOVUK.analytics.stripPII(listElement.attr('data-search-query')).substring(0, 100).toLowerCase();
+      }
     }
 
     function constructData(contentId, path, position, listTitle, searchQuery, variant) {
