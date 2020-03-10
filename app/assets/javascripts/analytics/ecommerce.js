@@ -12,12 +12,9 @@
 
       listData.ecommerceRows.each(function(index, ecommerceRow) {
         addImpression(
-          ecommerceRow.contentId,
-          ecommerceRow.path,
-          listData.startPosition + index,
-          listData.searchQuery,
-          listData.listTitle,
-          listData.variant
+          ecommerceRow,
+          index,
+          listData,
         );
         trackProductOnClick(
           ecommerceRow.contentId,
@@ -85,9 +82,16 @@
       return data
     }
 
-    function addImpression (contentId, path, position, searchQuery, listTitle, variant) {
-      if (contentId || path) {
-        var impressionData = constructData(contentId, path, position, listTitle, searchQuery, variant)
+    function addImpression (ecommerceRow, rowIndex, listData) {
+      if (ecommerceRow.contentId || ecommerceRow.path) {
+        var impressionData = constructData(
+            ecommerceRow.contentId,
+            ecommerceRow.path,
+            listData.startPosition + rowIndex,
+            listData.listTitle,
+            listData.searchQuery,
+            listData.variant
+          )
         ga('ec:addImpression', impressionData);
       }
     }
