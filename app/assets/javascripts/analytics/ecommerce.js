@@ -3,9 +3,6 @@
   "use strict";
   window.GOVUK = window.GOVUK || {};
 
-  var DEFAULT_LIST_TITLE = 'Site search results';
-  var DEFAULT_TRACK_CLICK_LABEL = 'Results';
-
   var Ecommerce = function (config) {
     this.init = function (element) {
       var listData = parseEcommerceList(element)
