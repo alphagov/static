@@ -38,6 +38,7 @@ group :development, :test do
 end
 
 gem "gds-api-adapters", "~> 63.5"
-gem "govuk_frontend_toolkit", "~> 9.0.0"
+# gem "govuk_frontend_toolkit", "~> 9.0.0"
+gem "govuk_frontend_toolkit", github: "alphagov/govuk_frontend_toolkit_gem", submodules: true, branch: "add-tracking-see-where-js-is-being-used"
 gem "govuk_template", "0.26.0"
 gem "plek", "3.0.0"
