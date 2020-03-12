@@ -528,7 +528,7 @@ $light-blue: #259EDA;
   padding: govuk-spacing(5) 0;
 
   .global-bar-message {
-    .global-bar-title {
+    .global-bar-title:link {
       color: govuk-colour("white");
     }
   }
