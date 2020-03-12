@@ -489,25 +489,18 @@ $light-blue: #259EDA;
     @extend %site-width-container;
     position: relative;
 
-    @include govuk-media-query($until: mobile) {
-      .dismiss {
-        position: relative;
-      }
+    .global-bar__dismiss {
+      display: inline-block;
+      position: relative;
+      margin-top: govuk-spacing(4);
     }
 
     @include govuk-media-query($from: tablet) {
-      .dismiss {
+      .global-bar__dismiss {
         position: absolute;
+        margin-top: 0;
         right: 0;
         top: 0;
-      }
-    }
-
-    @include govuk-media-query($from: mobile) {
-      .dismiss {
-        position: absolute;
-        right: 0;
-        bottom: 0;
       }
     }
   }
@@ -515,14 +508,9 @@ $light-blue: #259EDA;
   .global-bar-message {
     margin-bottom: 0;
     margin-top: 0;
-    max-width: 70%;
-
-    @include govuk-media-query($from: tablet) {
-      max-width: auto;
-    }
 
     .global-bar-title {
-      display: block;
+      display: inline-block;
       font-weight: 700;
       margin-right: govuk-spacing(2);
       margin-bottom: govuk-spacing(1);
@@ -531,5 +519,21 @@ $light-blue: #259EDA;
         margin: 0;
       }
     }
+  }
+}
+
+.global-bar--warning {
+  background-color: govuk-colour("red");
+  border-top: none;
+  padding: govuk-spacing(5) 0;
+
+  .global-bar-message {
+    .global-bar-title {
+      color: govuk-colour("white");
+    }
+  }
+
+  .global-bar__dismiss:link {
+    color: govuk-colour("white");
   }
 }

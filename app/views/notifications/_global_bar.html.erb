@@ -1,14 +1,20 @@
 <%
   show_global_bar ||= true # Toggles the appearance of the global bar
-  title = "Get information on the government’s response to coronavirus (COVID-19)"
+  title = "Coronavirus (COVID-19): what you need to do"
   title_href = "/government/topical-events/coronavirus-covid-19-uk-government-response"
   link_text = false
   link_href = false
+
+  # Toggles the banner to have a red background and white text.
+  warning ||= true
 
   # Toggles banner being permanently visible
   # If true, banner is always_visible & does not disappear automatically after 3 pageviews
   # Regardless of value, banner is always manually dismissable by users
   always_visible = true
+
+  global_bar_classes = %w(global-bar dont-print)
+  global_bar_classes << "global-bar--warning" if warning
 -%>
 
 <% if show_global_bar %>
@@ -21,7 +27,7 @@
     </script>
   <% end %>
   <!--[if gt IE 7]><!-->
-  <div id="global-bar" class="global-bar dont-print" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
+  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
     <div class="global-bar-message-container">
     <p class="global-bar-message">
       <% if title %>
@@ -46,7 +52,7 @@
       <% end %>
     </p>
     <a href="#hide-message"
-       class="govuk-link dismiss"
+       class="govuk-link global-bar__dismiss dismiss"
        role="button"
        aria-controls="global-bar">Hide&nbsp;message</a>
     </div>
