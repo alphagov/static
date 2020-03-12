@@ -19,20 +19,24 @@
 
       ecommerceRows.each(function(index, ecommerceRow) {
         var $ecommerceRow = $(ecommerceRow);
-
+        var listSubheading  = $ecommerceRow.data('ecommerce-subheading') || undefined;
         var contentId = $ecommerceRow.attr('data-ecommerce-content-id'),
           path = $ecommerceRow.attr('data-ecommerce-path');
 
-        addImpression(contentId, path, index + startPosition, searchQuery, listTitle, variant);
-        trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle, variant, trackClickLabel);
+        addImpression(contentId, path, index + startPosition, searchQuery, listTitle, listSubheading, variant);
+        trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle, listSubheading, variant, trackClickLabel);
       });
     }
 
-    function constructData(contentId, path, position, listTitle, searchQuery, variant) {
+    function constructData(contentId, path, position, listTitle, listSubheading, searchQuery, variant) {
       var data = {
         position: position,
         list: listTitle,
         dimension71: searchQuery
+      }
+
+      if (listSubheading !== undefined) {
+        data.dimension94 = listSubheading
       }
 
       if (contentId !== undefined) {
@@ -50,17 +54,17 @@
       return data
     }
 
-    function addImpression (contentId, path, position, searchQuery, listTitle, variant) {
+    function addImpression (contentId, path, position, searchQuery, listTitle, listSubheading, variant) {
       if (contentId || path) {
-        var impressionData = constructData(contentId, path, position, listTitle, searchQuery, variant)
+        var impressionData = constructData(contentId, path, position, listTitle, listSubheading, searchQuery, variant)
         ga('ec:addImpression', impressionData);
       }
     }
 
-    function trackProductOnClick (row, contentId, path, position, searchQuery, listTitle, variant, trackClickLabel) {
+    function trackProductOnClick (row, contentId, path, position, searchQuery, listTitle, listSubheading, variant, trackClickLabel) {
       row.click(function() {
         if (contentId || path) {
-          var clickData = constructData(contentId, path, position, listTitle, searchQuery, variant)
+          var clickData = constructData(contentId, path, position, listTitle, listSubheading, searchQuery, variant)
           ga('ec:addProduct', clickData);
         }
 
