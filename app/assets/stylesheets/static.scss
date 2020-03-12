@@ -6,12 +6,8 @@ $govuk-use-legacy-palette: false;
 
 @import "header-footer-only";
 
-/* govuk_frontend_toolkit includes */
-@import "design-patterns/buttons";
-
 /* styles */
 @import "helpers/mixins";
-@import "helpers/buttons";
 @import "helpers/core";
 @import "helpers/multi-step";
 @import "helpers/organisations";
