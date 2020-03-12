@@ -528,12 +528,20 @@ $light-blue: #259EDA;
   padding: govuk-spacing(5) 0;
 
   .global-bar-message {
-    .global-bar-title:link {
+    .global-bar-title {
       color: govuk-colour("white");
+
+      &:focus {
+        @include govuk-focused-text;
+      }
     }
   }
 
-  .global-bar__dismiss:link {
+  .global-bar__dismiss {
     color: govuk-colour("white");
+
+      &:focus {
+        @include govuk-focused-text;
+      }
   }
 }

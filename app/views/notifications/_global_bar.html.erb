@@ -15,6 +15,14 @@
 
   global_bar_classes = %w(global-bar dont-print)
   global_bar_classes << "global-bar--warning" if warning
+
+  title_classes = %w(global-bar-title)
+  title_classes << "js-call-to-action" if title_href
+  title_classes << "govuk-link" if title_href && !warning
+
+  dismiss_classes = %w(global-bar__dismiss dismiss)
+  dismiss_classes << "govuk-link" unless warning
+
 -%>
 
 <% if show_global_bar %>
@@ -32,9 +40,9 @@
     <p class="global-bar-message">
       <% if title %>
         <% if title_href %>
-          <a class="global-bar-title govuk-link js-call-to-action" href="<%= title_href %>"><%= title %></a>
+          <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
         <% else %>
-          <span class="global-bar-title"><%= title %></span>
+          <span class="<%= title_classes.join(' ') %>"><%= title %></span>
         <% end %>
       <% end %>
 
@@ -52,7 +60,7 @@
       <% end %>
     </p>
     <a href="#hide-message"
-       class="govuk-link global-bar__dismiss dismiss"
+       class="<%= dismiss_classes.join(' ') %>"
        role="button"
        aria-controls="global-bar">Hide&nbsp;message</a>
     </div>
