@@ -540,8 +540,8 @@ $light-blue: #259EDA;
   .global-bar__dismiss {
     color: govuk-colour("white");
 
-      &:focus {
-        @include govuk-focused-text;
-      }
+    &:focus {
+      @include govuk-focused-text;
+    }
   }
 }
