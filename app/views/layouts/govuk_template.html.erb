@@ -5,23 +5,6 @@
   <head>
     <meta charset="utf-8">
     <title><%= content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information" %></title>
-
-    <!--[if gt IE 8]><!--><%= stylesheet_link_tag "govuk-template.css", integrity: false %><!--<![endif]-->
-    <!--[if IE 8]><%= stylesheet_link_tag "govuk-template-ie8.css" %><![endif]-->
-    <%= stylesheet_link_tag "govuk-template-print.css", media: "print", integrity: false %>
-
-    <%= stylesheet_link_tag "fonts.css", media: "all", integrity: false %>
-
-    <%# the colour used for theme-color is the standard palette $black from
-        https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/colours/_palette.scss %>
-    <meta name="theme-color" content="#0b0c0c" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <%= yield :head %>
-
-    <%# The default og:image is added below :head so that scrapers see any custom metatags first, and this is just a fallback %>
-    <meta property="og:image" content="<%= asset_path "opengraph-image.png" %>">
   </head>
 
   <body<%= content_for?(:body_classes) ? raw(" class=\"#{yield(:body_classes)}\"") : '' %>>
@@ -29,11 +12,6 @@
 
     <%= yield :body_start %>
 
-    <div id="skiplink-container">
-      <div>
-        <a href="#content" class="skiplink govuk-link"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : "Skip to main content" %></a>
-      </div>
-    </div>
 
     <%= render "govuk_publishing_components/components/cookie_banner" %>
 
@@ -64,5 +42,4 @@
 
     <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
     <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
-  </body>
-</html>
+
