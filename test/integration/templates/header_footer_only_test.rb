@@ -11,10 +11,9 @@ class HeaderFooterOnlyTest < ActionDispatch::IntegrationTest
     end
 
     within "body" do
-      # TODO: This is temporary
-      # within "header#global-header" do
-      #   assert page.has_selector?("form#search")
-      # end
+      within "header#global-header" do
+        assert page.has_selector?("form#search")
+      end
 
       assert page.has_selector?("#global-cookie-message")
       assert page.has_selector?("#user-satisfaction-survey-container")
