@@ -69,7 +69,12 @@ var globalBarInit = {
     var cookieConsent = GOVUK.getConsentCookie()
 
     if (cookieConsent && cookieConsent[cookieCategory]) {
-      var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
+      // Coronavirus banner - auto hide after user has been on landing page
+      if (window.location.pathname === "/coronavirus") {
+        var value = JSON.stringify({count: 999, version: globalBarInit.getBannerVersion()})
+      } else {
+        var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
+      }
 
       window.GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, value, {days: 84});
     }
