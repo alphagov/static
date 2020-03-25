@@ -106,6 +106,17 @@ var globalBarInit = {
 
         globalBarInit.makeBannerVisible()
       }
+    } else {
+      // If on a url in the blocklist, set cookie but don't show the banner
+      if (globalBarInit.getLatestCookie() === null) {
+        globalBarInit.setBannerCookie()
+      } else {
+        var currentCookieVersion = parseCookie(globalBarInit.getLatestCookie()).version
+
+        if (currentCookieVersion !== globalBarInit.getBannerVersion()) {
+          globalBarInit.setBannerCookie()
+        }
+      }
     }
   }
 }
