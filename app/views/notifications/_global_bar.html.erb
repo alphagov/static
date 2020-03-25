@@ -33,36 +33,38 @@
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
     <div class="global-bar-message-container">
-      <div class="global-bar-message">
-        <% if title %>
-          <% if title_href %>
-            <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
-          <% else %>
-            <span class="<%= title_classes.join(' ') %>"><%= title %></span>
+      <div class="global-bar-header">
+        <div class="global-bar-message">
+          <% if title %>
+            <% if title_href %>
+              <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
+            <% else %>
+              <span class="<%= title_classes.join(' ') %>"><%= title %></span>
+            <% end %>
           <% end %>
-        <% end %>
 
-        <% if link_text %>
-          <p>
-          <% if link_href %>
-            <%= link_to(
-              link_text,
-              link_href,
-              rel: "external noreferrer",
-              class: "govuk-link js-call-to-action"
-            ) %>
-          <% else %>
-            <%= link_text %>
+          <% if link_text %>
+            <p>
+            <% if link_href %>
+              <%= link_to(
+                link_text,
+                link_href,
+                rel: "external noreferrer",
+                class: "govuk-link js-call-to-action"
+              ) %>
+            <% else %>
+              <%= link_text %>
+            <% end %>
+            </p>
           <% end %>
-          </p>
-        <% end %>
+        </div>
+        <span class="global-bar-dismiss-wrapper global-bar-dismiss-wrapper--show">
+          <a href="#hide-message"
+            class="<%= dismiss_classes.join(' ') %>"
+            role="button"
+            aria-controls="global-bar">Hide</a>
+        </span>
       </div>
-      <span class="global-bar-dismiss-wrapper global-bar-dismiss-wrapper--show">
-        <a href="#hide-message"
-          class="<%= dismiss_classes.join(' ') %>"
-          role="button"
-          aria-controls="global-bar">Hide</a>
-      </span>
       <div class="global-bar-additional global-bar-additional--show govuk-grid-row">
         <div class="govuk-grid-column-two-thirds global-bar-additional__text">
         <%= render "govuk_publishing_components/components/govspeak", {

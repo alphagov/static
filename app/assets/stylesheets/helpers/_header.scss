@@ -503,18 +503,17 @@ $covid-green: #7eff8e;
     position: relative;
     color: govuk-colour("white");
 
+    .global-bar-header {
+      display: table;
+      width: 100%;
+    }
+
     .global-bar-message {
-      display: block;
       margin-bottom: 0;
       margin-top: 0;
 
-      @include govuk-media-query($from: tablet) {
-        display: inline-block;
-        width: 66%;
-      }
-
       .global-bar-title {
-        display: inline-block;
+        display: table-cell;
         font-weight: 700;
         margin-right: govuk-spacing(2);
         margin-bottom: govuk-spacing(1);
@@ -527,21 +526,12 @@ $covid-green: #7eff8e;
 
     .global-bar-dismiss-wrapper {
       display: none;
-      margin-top: govuk-spacing(2);
-
-      @include govuk-media-query($from: tablet) {
-        width: 33%;
-        text-align: right;
-        vertical-align: top;
-        margin-top: 0;
-      }
 
       &--show {
-        display: block;
-
-        @include govuk-media-query($from: tablet) {
-          display: inline-block;
-        }
+        display: table-cell;
+        padding-left: govuk-spacing(4);
+        text-align: right;
+        margin-top: 0;
       }
     }
   }
