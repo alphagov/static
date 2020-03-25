@@ -16,7 +16,7 @@
   title_classes << "js-call-to-action" if title_href
   title_classes << "govuk-link" if title_href
 
-  dismiss_classes = %w(global-bar__dismiss dismiss)
+  dismiss_classes = %w(global-bar__dismiss global-bar__dismiss--show dismiss)
   dismiss_classes << "govuk-link"
 
 -%>
@@ -33,37 +33,29 @@
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
     <div class="global-bar-message-container">
-      <div class="global-bar-header">
-        <div class="global-bar-message">
-          <% if title %>
-            <% if title_href %>
-              <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
-            <% else %>
-              <span class="<%= title_classes.join(' ') %>"><%= title %></span>
-            <% end %>
+      <div class="global-bar-message">
+        <% if title %>
+          <% if title_href %>
+            <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
+          <% else %>
+            <span class="<%= title_classes.join(' ') %>"><%= title %></span>
           <% end %>
+        <% end %>
 
-          <% if link_text %>
-            <p>
-            <% if link_href %>
-              <%= link_to(
-                link_text,
-                link_href,
-                rel: "external noreferrer",
-                class: "govuk-link js-call-to-action"
-              ) %>
-            <% else %>
-              <%= link_text %>
-            <% end %>
-            </p>
+        <% if link_text %>
+          <p>
+          <% if link_href %>
+            <%= link_to(
+              link_text,
+              link_href,
+              rel: "external noreferrer",
+              class: "govuk-link js-call-to-action"
+            ) %>
+          <% else %>
+            <%= link_text %>
           <% end %>
-        </div>
-        <span class="global-bar-dismiss-wrapper global-bar-dismiss-wrapper--show">
-          <a href="#hide-message"
-            class="<%= dismiss_classes.join(' ') %>"
-            role="button"
-            aria-controls="global-bar">Hide</a>
-        </span>
+          </p>
+        <% end %>
       </div>
       <div class="global-bar-additional global-bar-additional--show govuk-grid-row">
         <div class="govuk-grid-column-two-thirds global-bar-additional__text">
@@ -84,6 +76,10 @@
           <img class="global-bar-image" src="<%= asset_path 'covid.png' %>" alt="Stay at home. Protect the NHS. Save lives.">
         </div>
       </div>
+      <a href="#hide-message"
+        class="<%= dismiss_classes.join(' ') %>"
+        role="button"
+        aria-controls="global-bar">Hide message</a>
     </div>
   </div>
   <!--<![endif]-->
