@@ -44,7 +44,14 @@
       }
 
       function hide(evt) {
-        var cookie_value = JSON.stringify({count: 999, version: current_cookie_version});
+        var current_cookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
+        var cookie_version = current_cookie_version
+
+        if (current_cookie) {
+          cookie_version = current_cookie["version"]
+        }
+
+        var cookie_value = JSON.stringify({count: 999, version: cookie_version});
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookie_value, {days: 84});
         $('.global-bar-additional').removeClass('global-bar-additional--show');
         $('.global-bar__dismiss').removeClass('global-bar__dismiss--show');
