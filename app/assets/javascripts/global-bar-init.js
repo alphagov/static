@@ -100,9 +100,12 @@ var globalBarInit = {
 
         var newCookieCount = parseCookie(globalBarInit.getLatestCookie()).count
 
-        if (newCookieCount < 3) {
-          globalBarInit.makeBannerVisible()
+        // If banner has been manually dismissed, hide the additional info
+        if (newCookieCount === 999) {
+          document.querySelector(".global-bar-additional").classList.remove('global-bar-additional--show');
         }
+
+        globalBarInit.makeBannerVisible()
       }
     }
   }

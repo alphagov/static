@@ -540,6 +540,7 @@ $covid-green: #7eff8e;
   }
 
   .global-bar-additional {
+    display: none;
     position: relative;
     padding: govuk-spacing(4) 0;
 
@@ -575,5 +576,9 @@ $covid-green: #7eff8e;
         }
       }
     }
+  }
+
+  .global-bar-additional--show {
+    display: block;
   }
 }
