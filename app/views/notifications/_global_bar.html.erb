@@ -5,23 +5,19 @@
   link_text = false
   link_href = false
 
-  # Toggles the banner to have a red background and white text.
-  warning ||= true
-
   # Toggles banner being permanently visible
   # If true, banner is always_visible & does not disappear automatically after 3 pageviews
   # Regardless of value, banner is always manually dismissable by users
   always_visible = true
 
   global_bar_classes = %w(global-bar dont-print)
-  global_bar_classes << "global-bar--warning" if warning
 
   title_classes = %w(global-bar-title)
   title_classes << "js-call-to-action" if title_href
-  title_classes << "govuk-link" if title_href && !warning
+  title_classes << "govuk-link" if title_href
 
   dismiss_classes = %w(global-bar__dismiss dismiss)
-  dismiss_classes << "govuk-link" unless warning
+  dismiss_classes << "govuk-link"
 
 -%>
 
