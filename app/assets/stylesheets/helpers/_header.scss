@@ -476,7 +476,7 @@ $covid-green: #7eff8e;
 
 .global-bar {
   background-color: govuk-colour("black");
-  border-top: 5px solid $covid-green;
+  border-top: $govuk-border-width solid $covid-green;
   display: none;
   padding: govuk-spacing(5) 0;
 
@@ -520,12 +520,12 @@ $covid-green: #7eff8e;
 
     .global-bar__dismiss {
       display: none;
+    }
 
-      &--show {
-        display: inline-block;
-        text-align: right;
-        margin-top: 0;
-      }
+    .global-bar__dismiss--show {
+      display: inline-block;
+      text-align: right;
+      margin-top: 0;
     }
   }
 
@@ -537,6 +537,7 @@ $covid-green: #7eff8e;
 
     .global-bar__heading {
       @include bold-19;
+      margin-bottom: govuk-spacing(1);
     }
 
     .global-bar__list {
