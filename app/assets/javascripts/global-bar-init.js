@@ -6,7 +6,7 @@ window.GOVUK = window.GOVUK || {}
 
 // Bump this if you are releasing a major change to the banner
 // This will reset the view count so all users will see the banner, even if previously seen
-var BANNER_VERSION = 5;
+var BANNER_VERSION = 6;
 var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen"
 
 var globalBarInit = {
@@ -26,8 +26,6 @@ var globalBarInit = {
 
   urlBlockList: function() {
     var paths = [
-      "^/done",
-      "^/transition-check$",
       "^/coronavirus$"
     ]
 
@@ -71,7 +69,12 @@ var globalBarInit = {
     var cookieConsent = GOVUK.getConsentCookie()
 
     if (cookieConsent && cookieConsent[cookieCategory]) {
-      var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
+      // Coronavirus banner - auto hide after user has been on landing page
+      if (window.location.pathname === "/coronavirus") {
+        var value = JSON.stringify({count: 999, version: globalBarInit.getBannerVersion()})
+      } else {
+        var value = JSON.stringify({count: 0, version: globalBarInit.getBannerVersion()})
+      }
 
       window.GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, value, {days: 84});
     }
@@ -100,8 +103,23 @@ var globalBarInit = {
 
         var newCookieCount = parseCookie(globalBarInit.getLatestCookie()).count
 
-        if (newCookieCount < 3) {
-          globalBarInit.makeBannerVisible()
+        // If banner has been manually dismissed, hide the additional info
+        if (newCookieCount === 999) {
+          document.querySelector(".global-bar-additional").classList.remove('global-bar-additional--show')
+          document.querySelector(".global-bar__dismiss").classList.remove('global-bar__dismiss--show')
+        }
+
+        globalBarInit.makeBannerVisible()
+      }
+    } else {
+      // If on a url in the blocklist, set cookie but don't show the banner
+      if (globalBarInit.getLatestCookie() === null) {
+        globalBarInit.setBannerCookie()
+      } else {
+        var currentCookieVersion = parseCookie(globalBarInit.getLatestCookie()).version
+
+        if (currentCookieVersion !== globalBarInit.getBannerVersion()) {
+          globalBarInit.setBannerCookie()
         }
       }
     }

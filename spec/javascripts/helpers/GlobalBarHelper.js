@@ -7,3 +7,11 @@ function expectGlobalBarToShow() {
 function expectGlobalBarToBeHidden() {
   expect($('html').hasClass("show-global-bar")).toBe(false);
 }
+
+function expectAdditionalSectionToBeVisible() {
+  expect($('.global-bar-additional').hasClass("global-bar-additional--show")).toBe(true)
+}
+
+function expectAdditionalSectionToBeHidden() {
+  expect($('.global-bar-additional').hasClass("global-bar-additional--show")).toBe(false)
+}

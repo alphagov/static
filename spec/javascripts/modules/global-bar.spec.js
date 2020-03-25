@@ -16,6 +16,7 @@ describe('Global bar module', function () {
       <div id="global-bar" data-module="global-bar">\
         <a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>\
         <a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>\
+        <div class="global-bar-additional">This is some additional content</div>\
       </div>')
 
       document.cookie = 'global_bar_seen=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
@@ -62,14 +63,26 @@ describe('Global bar module', function () {
       expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(0)
     })
 
-    it('hides banner when dismiss link is clicked', function () {
+    it('hides additional information section when dismiss link is clicked', function () {
       globalBar.start(element)
 
       $(element).find(".dismiss").click()
 
       expect(parseCookie(GOVUK.getCookie("global_bar_seen")).count).toBe(999)
       expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(0)
-      expectGlobalBarToBeHidden()
+
+      expectAdditionalSectionToBeHidden()
+    })
+
+    it('hides dismiss link once dismiss link is clicked', function () {
+      globalBar.start(element)
+
+      $(element).find(".dismiss").click()
+
+      expect(parseCookie(GOVUK.getCookie("global_bar_seen")).count).toBe(999)
+      expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(0)
+
+      expect($('.global-bar-dismiss').hasClass("global-bar-dismiss--show")).toBe(false)
     })
   })
 
