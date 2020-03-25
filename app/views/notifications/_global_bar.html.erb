@@ -33,7 +33,7 @@
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
     <div class="global-bar-message-container">
-      <p class="global-bar-message">
+      <div class="global-bar-message">
         <% if title %>
           <% if title_href %>
             <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
@@ -43,6 +43,7 @@
         <% end %>
 
         <% if link_text %>
+          <p>
           <% if link_href %>
             <%= link_to(
               link_text,
@@ -51,10 +52,11 @@
               class: "govuk-link js-call-to-action"
             ) %>
           <% else %>
-            <span><%= link_text %></span>
+            <%= link_text %>
           <% end %>
+          </p>
         <% end %>
-      </p>
+      </div>
       <span class="global-bar-dismiss-wrapper global-bar-dismiss-wrapper--show">
         <a href="#hide-message"
           class="<%= dismiss_classes.join(' ') %>"
