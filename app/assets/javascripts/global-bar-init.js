@@ -26,8 +26,6 @@ var globalBarInit = {
 
   urlBlockList: function() {
     var paths = [
-      "^/done",
-      "^/transition-check$",
       "^/coronavirus$"
     ]
 
