@@ -33,32 +33,53 @@
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
     <div class="global-bar-message-container">
-    <p class="global-bar-message">
-      <% if title %>
-        <% if title_href %>
-          <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
-        <% else %>
-          <span class="<%= title_classes.join(' ') %>"><%= title %></span>
+      <p class="global-bar-message">
+        <% if title %>
+          <% if title_href %>
+            <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
+          <% else %>
+            <span class="<%= title_classes.join(' ') %>"><%= title %></span>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <% if link_text %>
-        <% if link_href %>
-          <%= link_to(
-            link_text,
-            link_href,
-            rel: "external noreferrer",
-            class: "govuk-link js-call-to-action"
-          ) %>
-        <% else %>
-          <span><%= link_text %></span>
+        <% if link_text %>
+          <% if link_href %>
+            <%= link_to(
+              link_text,
+              link_href,
+              rel: "external noreferrer",
+              class: "govuk-link js-call-to-action"
+            ) %>
+          <% else %>
+            <span><%= link_text %></span>
+          <% end %>
         <% end %>
-      <% end %>
-    </p>
-    <a href="#hide-message"
-       class="<%= dismiss_classes.join(' ') %>"
-       role="button"
-       aria-controls="global-bar">Hide&nbsp;message</a>
+      </p>
+      <span class="global-bar-dismiss-wrapper">
+        <a href="#hide-message"
+          class="<%= dismiss_classes.join(' ') %>"
+          role="button"
+          aria-controls="global-bar">Hide</a>
+      </span>
+      <div class="global-bar-additional global-bar-additional--show govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds global-bar-additional__text">
+        <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+          <div class="global-bar-additional__text-govspeak">
+            <h2 class="global-bar__heading">Stay at home</h2>
+            <ul class="global-bar__list">
+              <li>Only go outside for food, health reasons or work (where this absolutely cannot be done from home)</li>
+              <li>Stay 2 metres (6ft) away from other people</li>
+              <li>Wash your hands as soon as you get home</li>
+            </ul>
+            <p>You can spread the virus even if you don’t have symptoms.</p>
+          </div>
+        <% end %>
+        </div>
+        <div class="govuk-grid-column-one-third global-bar-additional__image">
+          <img class="global-bar-image" src="<%= asset_path 'covid.png' %>" alt="Stay at home. Protect the NHS. Save lives.">
+        </div>
+      </div>
     </div>
   </div>
   <!--<![endif]-->
