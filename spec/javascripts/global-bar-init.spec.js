@@ -9,11 +9,13 @@ describe('Global bar initialize', function () {
     deleteAllCookies();
   })
 
-  it('does not set cookie for blocked URL', function() {
+  it('does not show the banner on a blocked URL', function() {
     spyOn(globalBarInit, 'urlBlockList').and.returnValue(true)
     GOVUK.globalBarInit.init()
 
-    expect(GOVUK.getCookie("global_bar_seen")).toBeNull()
+    // The cookie should still be set, but the banner should not be visible
+    expect(parseCookie(GOVUK.getCookie("global_bar_seen")).count).toBe(0)
+    expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(5)
     expectGlobalBarToBeHidden()
   })
 
@@ -58,13 +60,6 @@ describe('Global bar initialize', function () {
     GOVUK.globalBarInit.init()
 
     expectGlobalBarToShow()
-  })
-
-  it('hides banner if view count is more than 3', function() {
-    GOVUK.setCookie("global_bar_seen", JSON.stringify({count: 6, version: 5}))
-    GOVUK.globalBarInit.init()
-
-    expectGlobalBarToBeHidden()
   })
 })
 
