@@ -102,7 +102,8 @@ var globalBarInit = {
 
         // If banner has been manually dismissed, hide the additional info
         if (newCookieCount === 999) {
-          document.querySelector(".global-bar-additional").classList.remove('global-bar-additional--show');
+          document.querySelector(".global-bar-additional").classList.remove('global-bar-additional--show')
+          document.querySelector(".global-bar-dismiss-wrapper").classList.remove('global-bar-dismiss-wrapper--show')
         }
 
         globalBarInit.makeBannerVisible()

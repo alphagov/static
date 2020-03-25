@@ -46,8 +46,9 @@
       function hide(evt) {
         var cookie_value = JSON.stringify({count: 999, version: current_cookie_version});
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookie_value, {days: 84});
-        track('Manually dismissed');
         $('.global-bar-additional').removeClass('global-bar-additional--show');
+        $('.global-bar-dismiss-wrapper').removeClass('global-bar-dismiss-wrapper--show');
+        track('Manually dismissed');
         evt.preventDefault();
       }
 

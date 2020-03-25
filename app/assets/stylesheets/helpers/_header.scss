@@ -526,15 +526,22 @@ $covid-green: #7eff8e;
     }
 
     .global-bar-dismiss-wrapper {
-      display: block;
+      display: none;
       margin-top: govuk-spacing(2);
 
       @include govuk-media-query($from: tablet) {
-        display: inline-block;
         width: 33%;
         text-align: right;
         vertical-align: top;
         margin-top: 0;
+      }
+
+      &--show {
+        display: block;
+
+        @include govuk-media-query($from: tablet) {
+          display: inline-block;
+        }
       }
     }
   }
