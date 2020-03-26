@@ -22,16 +22,8 @@
 } do %>
 
 <%= yield :after_header %>
-I am static hear me roar
     <div id="global-header-bar"></div>
 <%= content_for?(:content) ? yield(:content) : yield %>
 
 <% end %>
-
-
-
-
-
-    <div id="global-app-error" class="app-error hidden"></div>
-
-    <%= yield :body_end %>
+<div id="global-app-error" class="app-error hidden"></div>

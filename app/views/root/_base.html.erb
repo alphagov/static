@@ -1,4 +1,9 @@
-
+<% content_for :head do %>
+<%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'static' } %>
+<% end %>
+<% content_for :body_end do %>
+  <%= render :partial => 'javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } %>
+<% end %>
 
 <% @emergency_banner = emergency_banner_notification %>
 
@@ -18,7 +23,7 @@
   <%= render "notifications/global_bar" %>
 
   <div id="wrapper" class="govuk-width-container group">
-    xxx<%= yield :wrapper_content %>xxx
+    <%= yield :wrapper_content %>
   </div>
 <% end %>
 
