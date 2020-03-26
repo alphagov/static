@@ -476,7 +476,8 @@ $covid-green: #7eff8e;
 
 .global-bar {
   background-color: govuk-colour("black");
-  border-top: $govuk-border-width solid $covid-green;
+  border-top: govuk-spacing(2) solid $covid-green;
+  border-bottom: 1px solid govuk-colour("white");
   display: none;
   padding: govuk-spacing(5) 0;
 
