@@ -555,14 +555,15 @@ $covid-grey: #262828;
 }
 
 .global-bar-image {
-  display: none;
+  display: block;
+  position: absolute;
+  margin-bottom: govuk-spacing(1);
+  right: 0;
+  bottom: 0;
 
-  @include govuk-media-query($from: tablet) {
-    display: block;
-    position: absolute;
-    margin-bottom: govuk-spacing(1);
-    right: 0;
-    bottom: 0;
+
+  @include govuk-media-query($until: desktop) {
+    display: none;
   }
 }
 
