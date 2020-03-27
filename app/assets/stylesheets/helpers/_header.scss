@@ -542,6 +542,12 @@ $covid-grey: #262828;
   margin-top: 0;
 }
 
+.global-bar-additional {
+  display: none;
+  padding: govuk-spacing(4) 0;
+  background-color: $covid-grey;
+}
+
 .global-bar-additional__text {
   position: relative;
 
