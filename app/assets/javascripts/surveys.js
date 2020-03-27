@@ -318,6 +318,7 @@
     pathInBlocklist: function () {
       var blackList = new RegExp('^/(?:' +
         /service-manual/.source +
+        /|coronavirus/.source +
         // add more blacklist paths in the form:
         // + /|path-to\/blacklist/.source
         ')(?:\/|$)'
@@ -390,7 +391,8 @@
       var notificationIds = [
         '.govuk-emergency-banner:visible',
         '#global-browser-prompt:visible',
-        '#taxonomy-survey:visible'
+        '#taxonomy-survey:visible',
+        '#global-bar:visible', // Currently about Coronavirus
       ]
       return $(notificationIds.join(', ')).length > 0
     },
