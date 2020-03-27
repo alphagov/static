@@ -56,6 +56,29 @@ describe('Ecommerce reporter for results pages', function() {
     });
   });
 
+  it('uses data-ecommerce-index to override the implicit index', function() {
+    element = $('\
+      <div data-ecommerce-start-index="1" data-search-query="search query">\
+        <div \
+          data-ecommerce-row\
+          data-ecommerce-path="/path/to/page"\
+          data-ecommerce-index="42"\
+          data-ecommerce-content-id="AAAA-1111">\
+        </div>\
+      </div>\
+    ');
+
+    ecommerce.init(element);
+
+    expect(ga).toHaveBeenCalledWith('ec:addImpression', {
+      id: 'AAAA-1111',
+      name: "/path/to/page",
+      position: 42,
+      list: 'Site search results',
+      dimension71: 'search query'
+    });
+  });
+
   it('tracks impressions with product variants', function() {
     element = $('\
       <div data-ecommerce-start-index="1" data-search-query="search query" data-ecommerce-variant="variant-x">\
