@@ -473,13 +473,14 @@
 }
 
 $covid-green: #7eff8e;
+$covid-grey: #262828;
 
 .global-bar {
+  @include core-19;
   background-color: govuk-colour("black");
   border-top: govuk-spacing(2) solid $covid-green;
   border-bottom: 1px solid govuk-colour("white");
   display: none;
-  padding: govuk-spacing(5) 0;
 
   .show-global-bar & {
     display: block;
@@ -498,54 +499,53 @@ $covid-green: #7eff8e;
     }
   }
 
-  .global-bar-message-container {
-    @include core-19;
-    @extend %site-width-container;
-    position: relative;
-    color: govuk-colour("white");
+  .global-bar-message {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: govuk-spacing(4) 0;
 
-    .global-bar-message {
-      margin-bottom: 0;
-      margin-top: 0;
+    .global-bar-title {
+      font-weight: 700;
+      margin-right: govuk-spacing(2);
+      margin-bottom: govuk-spacing(1);
 
-      .global-bar-title {
-        font-weight: 700;
-        margin-right: govuk-spacing(2);
-        margin-bottom: govuk-spacing(1);
-
-        &:only-child {
-          margin: 0;
-        }
+      &:only-child {
+        margin: 0;
       }
     }
+  }
 
-    .global-bar__dismiss {
-      display: none;
-    }
+  .global-bar-dismiss-wrapper {
+    margin-top: govuk-spacing(4);
+  }
 
-    .global-bar__dismiss--show {
-      display: inline-block;
-      text-align: right;
-      margin-top: 0;
-    }
+  .global-bar__dismiss {
+    display: none;
+  }
+
+  .global-bar__dismiss--show {
+    display: inline-block;
   }
 
   .global-bar-additional {
     display: none;
     position: relative;
-    margin-top: govuk-spacing(4);
-    margin-bottom: govuk-spacing(4);
+    padding: govuk-spacing(4) 0;
+    background-color: $covid-grey;
 
-    .global-bar__heading {
+    .gem-c-govspeak .global-bar__heading {
       @include bold-19;
+      margin-top: 0;
       margin-bottom: govuk-spacing(1);
     }
 
-    .global-bar__list {
+    .gem-c-govspeak .global-bar__list {
       margin-top: 0;
     }
 
     .global-bar-additional__text {
+      position: relative;
+
       p:last-child {
         margin-bottom: 0;
       }
@@ -555,7 +555,7 @@ $covid-green: #7eff8e;
       color: govuk-colour("white");
     }
 
-    .global-bar-additional__image {
+    .global-bar-image {
       display: none;
 
       @include govuk-media-query($from: tablet) {
@@ -563,10 +563,6 @@ $covid-green: #7eff8e;
         position: absolute;
         right: 0;
         bottom: 0;
-
-        .global-bar-image {
-          width: 100%;
-        }
       }
     }
   }
