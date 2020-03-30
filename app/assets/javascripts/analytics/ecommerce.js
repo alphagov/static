@@ -23,6 +23,9 @@
         var contentId = $ecommerceRow.attr('data-ecommerce-content-id'),
           path = $ecommerceRow.attr('data-ecommerce-path');
 
+        var index_override = $ecommerceRow.attr('data-ecommerce-index');
+        index = index_override ? parseInt(index_override, 10) - 1 : index;
+
         addImpression(contentId, path, index + startPosition, searchQuery, listTitle, listSubheading, variant);
         trackProductOnClick($ecommerceRow, contentId, path, index + startPosition, searchQuery, listTitle, listSubheading, variant, trackClickLabel);
       });
