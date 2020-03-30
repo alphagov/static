@@ -31,7 +31,7 @@
     </script>
   <% end %>
   <!--[if gt IE 7]><!-->
-  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %>>
+  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
     <div class="global-bar-message govuk-width-container">
       <% if title %>
         <% if title_href %>
