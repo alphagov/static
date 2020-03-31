@@ -98,10 +98,10 @@
 <%= render "govuk_publishing_components/components/layout_for_public", {
   title: content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information"
 } do %>
-Placeholder
+  <%= content_for?(:content) ? yield(:content) : yield %>
 <% end %>
 
-    <%= content_for?(:content) ? yield(:content) : yield %>
+
 
     <footer class="group js-footer" id="footer" role="contentinfo">
       <div class="govuk-width-container">
