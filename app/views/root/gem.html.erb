@@ -1,0 +1,9 @@
+<%
+ # This allows us to implement an alternate layout based on using the
+ # public_layout component from govuk_publishing_components, while
+ # preserving the old way of working for templates and apps that have
+ # not yet adopted the component approach
+%>
+<%= render partial: 'blocks' %>
+<%= render :file => 'layouts/gem_layout' %>
+<!-- gem layout -->

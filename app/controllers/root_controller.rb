@@ -13,6 +13,7 @@ class RootController < ApplicationController
     proposition_menu
     homepage
   ].freeze
+
   def template
     if NON_LAYOUT_TEMPLATES.include?(params[:template])
       render action: params[:template]
