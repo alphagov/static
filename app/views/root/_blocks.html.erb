@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :head do %>
-  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'static' } %>
+  <%= render :partial => 'gem_layout_stylesheet' %>
 <% end %>
 
 <% content_for :after_header do %>
@@ -15,9 +15,11 @@
   <% if @emergency_banner %>
     <%= render "notifications/emergency_banner", banner: @emergency_banner %>
   <% end %>
+
 <% end %>
 
 <% content_for :content do %>
+
   <%= render "notifications/global_bar" %>
 
   <div id="wrapper" class="govuk-width-container group">

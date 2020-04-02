@@ -1,0 +1,16 @@
+$govuk-compatibility-govuktemplate: true;
+$govuk-use-legacy-palette: false;
+
+@import "govuk_publishing_components/govuk_frontend_support";
+@import "govuk_publishing_components/components/_cookie-banner";
+
+@import "header-footer-only";
+
+/* styles */
+@import "helpers/mixins";
+@import "helpers/core";
+@import "helpers/multi-step";
+@import "helpers/organisations";
+@import "helpers/publisher";
+@import "helpers/text";
+@import "helpers/wrapper";
