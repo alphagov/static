@@ -472,13 +472,13 @@
   display: none;
 }
 
-$covid-green: #7eff8e;
+$covid-yellow: #ffe114;
 $covid-grey: #262828;
 
 .global-bar {
   @include core-19;
   background-color: govuk-colour("black");
-  border-top: govuk-spacing(2) solid $covid-green;
+  border-top: govuk-spacing(2) solid $covid-yellow;
   border-bottom: 1px solid govuk-colour("white");
   display: none;
 
