@@ -1,5 +1,5 @@
 <%
-  css_file = local_assigns[:css_file] || 'static'
+  css_file = local_assigns[:css_file] || 'static-gem-layout'
 %>
 <!--[if gt IE 8]><!--><%= stylesheet_link_tag css_file, integrity: false %><!--<![endif]-->
 <!--[if IE 8]><%= stylesheet_link_tag "#{css_file}-ie8" %><script>var ieVersion = 8;</script><![endif]-->
