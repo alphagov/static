@@ -2,6 +2,7 @@
   show_global_bar ||= true # Toggles the appearance of the global bar
   title = "Coronavirus (COVID-19): what you need to do"
   title_href = "/coronavirus"
+  title_icon = true
   link_text = false
   link_href = false
 
@@ -15,6 +16,7 @@
   title_classes = %w(global-bar-title)
   title_classes << "js-call-to-action" if title_href
   title_classes << "govuk-link" if title_href
+  title_icon_class = "global-bar-title__icon" if title_icon
 
   dismiss_classes = %w(global-bar__dismiss global-bar__dismiss--show dismiss)
   dismiss_classes << "govuk-link"
@@ -35,7 +37,9 @@
     <div class="global-bar-message govuk-width-container">
       <% if title %>
         <% if title_href %>
-          <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
+          <span class="<%= title_icon_class %>">
+            <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
+          </span>
         <% else %>
           <span class="<%= title_classes.join(' ') %>"><%= title %></span>
         <% end %>
