@@ -5,6 +5,7 @@ Rake::Task["assets:precompile"].enhance do
 end
 
 namespace :asset_precompile do
+  desc "Create aliases for assets with random/digest filenames"
   task create_non_digest_assets: :environment do
     relative_asset_path = "public/static"
     manifest_path = Dir.glob(Rails.root.join(relative_asset_path, ".sprockets-manifest-*.json")).first
