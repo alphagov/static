@@ -1,6 +1,6 @@
 <%
   show_global_bar ||= true # Toggles the appearance of the global bar
-  title = "Coronavirus (COVID-19): <span class='global-bar-title__nowrap'>what you need to do</span>"
+  title = sanitize("Coronavirus (COVID-19): <span class='global-bar-title__nowrap'>what you need to do</span>")
   title_href = "/coronavirus"
   title_icon = true
   link_text = false
@@ -38,10 +38,10 @@
       <% if title %>
         <% if title_href %>
           <span class="<%= title_icon_class %>">
-            <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= raw title %></a>
+            <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
           </span>
         <% else %>
-          <span class="<%= title_classes.join(' ') %>"><%= raw title %></span>
+          <span class="<%= title_classes.join(' ') %>"><%= title %></span>
         <% end %>
       <% end %>
 
