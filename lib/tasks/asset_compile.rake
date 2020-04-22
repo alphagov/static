@@ -7,7 +7,7 @@ end
 namespace :asset_precompile do
   desc "Create aliases for assets with random/digest filenames"
   task create_non_digest_assets: :environment do
-    relative_asset_path = "public/static"
+    relative_asset_path = "public/assets/static"
     manifest_path = Dir.glob(Rails.root.join(relative_asset_path, ".sprockets-manifest-*.json")).first
 
     manifest_data = JSON.parse(File.read(manifest_path))

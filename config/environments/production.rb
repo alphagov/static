@@ -5,7 +5,7 @@ Rails.application.configure do
   # apps we have the hostname set at the time of the app being built so can't
   # be set up in the app.json
   if ENV["HEROKU_APP_NAME"]
-    ENV["GOVUK_ASSET_ROOT"] = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("GOVUK_ASSET_ROOT")
+    ENV["ASSET_HOST"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("ASSET_HOST")
     ENV["PLEK_SERVICE_STATIC_URI"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("PLEK_SERVICE_STATIC_URI")
   end
 
@@ -64,7 +64,7 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_controller.asset_host = ENV["GOVUK_ASSET_HOST"]
+  config.action_controller.asset_host = ENV["ASSET_HOST"] || ENV["GOVUK_ASSET_ROOT"]
 
   config.eager_load = true
 
