@@ -13,11 +13,6 @@
       delete config.universalId
       this.trackers.push(new GOVUK.GoogleAnalyticsUniversalTracker(universalId, config))
     }
-    if (typeof config.govukTrackerUrl !== 'undefined') {
-      var govukTrackerUrl = config.govukTrackerUrl
-      delete config.govukTrackerUrl
-      this.trackers.push(new GOVUK.GOVUKTracker(govukTrackerUrl))
-    }
   }
 
   var PIISafe = function (value) {
@@ -38,7 +33,6 @@
 
   Analytics.load = function () {
     GOVUK.GoogleAnalyticsUniversalTracker.load()
-    GOVUK.GOVUKTracker.load()
   }
 
   Analytics.prototype.defaultPathForTrackPageview = function (location) {
