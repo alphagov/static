@@ -26,7 +26,7 @@ var globalBarInit = {
 
   urlBlockList: function() {
     var paths = [
-      "^/coronavirus/business-support$"
+      "^/coronavirus/.*$"
     ]
 
     var ctaLink = document.querySelector('.js-call-to-action')
