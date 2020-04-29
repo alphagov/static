@@ -1,4 +1,4 @@
-Rails.application.config.assets.precompile += %w{
+Rails.application.config.assets.precompile += %w[
   favicon.ico
   libs/jquery/jquery-1.12.4.js
   modules/base-target.js
@@ -16,4 +16,4 @@ Rails.application.config.assets.precompile += %w{
   static-print.css
   error-page.css
   error-page-print.css
-}
+]

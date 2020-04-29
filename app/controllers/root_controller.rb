@@ -7,12 +7,12 @@ class RootController < ApplicationController
 
   caches_page :template
 
-  NON_LAYOUT_TEMPLATES = %w(
+  NON_LAYOUT_TEMPLATES = %w[
     campaign
     print
     proposition_menu
     homepage
-  ).freeze
+  ].freeze
   def template
     if NON_LAYOUT_TEMPLATES.include?(params[:template])
       render action: params[:template]
