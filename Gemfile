@@ -9,7 +9,7 @@ gem "govuk_publishing_components", "~> 21.43.0"
 gem "nokogiri", "~> 1.10"
 gem "rack_strip_client_ip", "0.0.2"
 gem "rails", "~> 5.2"
-gem "redis", "~> 4.1.3"
+gem "redis", "~> 4.1.4"
 gem "sass-rails", "5.0.7"
 gem "uglifier", ">= 1.3.0"
 
