@@ -3,7 +3,7 @@ require_relative "../integration_test_helper"
 class TemplatesTest < ActionDispatch::IntegrationTest
   context "fetching templates" do
     should "be 200 for templates that exist" do
-      %w(wrapper header_footer_only chromeless 404 406 500).each do |template|
+      %w[wrapper header_footer_only chromeless 404 406 500].each do |template|
         get "/templates/#{template}.html.erb"
         assert_equal 200, last_response.status
       end

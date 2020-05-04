@@ -5,10 +5,10 @@ class NonLayoutTemplatesTest < ActionDispatch::IntegrationTest
     Rails.root.join("app", "views", "root", "#{name}.html.erb")
   end
 
-  %w(
+  %w[
     campaign
     proposition_menu
-  ).each do |template|
+  ].each do |template|
     should "not add a layout to the #{template} snippet" do
       get "/templates/#{template}.html.erb"
 
