@@ -120,8 +120,7 @@ describe('Global bar module', function () {
 
     it('tracks when global bar is seen', function() {
       globalBar.start(element)
-
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('Global bar', 'Viewed', {nonInteraction: 1})
+      expect(GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions().dimension38.value).toBe("Global Banner viewed")
     })
   })
 

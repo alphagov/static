@@ -92,7 +92,8 @@
     return {
       dimension26: GOVUK.PageContent.getNumberOfSections(),
       dimension27: GOVUK.PageContent.getNumberOfLinks(),
-      dimension23: $('main[id="content"]').attr('lang') || 'unknown'
+      dimension23: $('main[id="content"]').attr('lang') || 'unknown',
+      dimension38: $('[data-module="global-bar"]').is(':visible') && 'Global Banner viewed'
     };
   }
 
