@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "actionpack-page_caching", "1.2.0"
+gem "actionpack-page_caching", "1.2.1"
 gem "asset_bom_removal-rails", "~> 1.0.0"
 gem "govuk_app_config", "~> 2.1.2"
 gem "govuk_publishing_components", "~> 21.45.0"
