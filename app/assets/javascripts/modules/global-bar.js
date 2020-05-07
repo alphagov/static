@@ -34,7 +34,6 @@
         if (!always_on) {
           incrementViewCount(count);
         }
-        track('Viewed');
       }
 
       function handleCallToActionClick () {
