@@ -185,10 +185,6 @@
         border: 0;
       }
 
-      @include ie-lte(8) {
-        min-height: 24px;
-      }
-
       @include appearance(none);
     }
 

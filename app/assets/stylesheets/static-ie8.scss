@@ -4,3 +4,17 @@ $is-ie: true;
 $ie-version: 8;
 
 @import "static";
+
+#wrapper,
+.survey-wrapper,
+.govuk-emergency-banner div {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.js-enabled .govuk-sticky-element--hidden {
+  // XXX: Would be nice to `@include .visuallyhidden`.
+  position: absolute;
+  left: -9999em;
+}

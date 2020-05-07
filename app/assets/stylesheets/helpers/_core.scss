@@ -55,10 +55,6 @@ header.page-header div {
       margin-bottom: 0.25em;
       text-shadow: none;
       color: $secondary-text-colour ;
-
-      @include ie-lte(8) {
-        height: 1%;
-      }
     }
   }
 }
@@ -147,13 +143,6 @@ header.page-header div {
   position: absolute;
   bottom: 1em;
   right: 1em;
-
-  @include ie-lte(8) {
-    bottom: auto;
-    right: auto;
-    margin-top: 1em;
-    position: relative;
-  }
 }
 
 .find-location-for-service .cookie-container {

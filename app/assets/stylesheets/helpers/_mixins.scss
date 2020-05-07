@@ -5,10 +5,6 @@
   max-width: 960px;
   margin: 0 15px;
 
-  @include ie-lte(8) {
-    width: 960px;
-  }
-
   @include govuk-media-query($from: tablet) {
     margin: 0 30px;
   }
