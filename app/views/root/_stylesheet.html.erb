@@ -1,7 +1,7 @@
 <%
   css_file = local_assigns[:css_file] || 'static'
 %>
-<!--[if gt IE 8]><!--><%= stylesheet_link_tag css_file, integrity: false %><!--<![endif]-->
-<!--[if IE 8]><%= stylesheet_link_tag "#{css_file}-ie8" %><script>var ieVersion = 8;</script><![endif]-->
+<%= stylesheet_link_tag css_file, integrity: false %>
+<!--[if lte IE 8]><%= stylesheet_link_tag "#{css_file}-ie8" %><script>var ieVersion = 8;</script><![endif]-->
 
 <%= stylesheet_link_tag "#{css_file}-print", media: "print", integrity: false %>
