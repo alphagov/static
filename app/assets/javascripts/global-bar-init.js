@@ -6,7 +6,7 @@ window.GOVUK = window.GOVUK || {}
 
 // Bump this if you are releasing a major change to the banner
 // This will reset the view count so all users will see the banner, even if previously seen
-var BANNER_VERSION = 7;
+var BANNER_VERSION = 6;
 var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen"
 
 var globalBarInit = {
