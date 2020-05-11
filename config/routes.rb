@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   # Old devices with old OSs may still request these old image sizes
   # They should receive a working image.
-  # It’s acceptable to send them a higher resolution image which they will downscale.
+  # It's acceptable to send them a higher resolution image which they will downscale.
   # https://mathiasbynens.be/notes/touch-icons
   get "/apple-touch-icon-120x120.png", to: "icon_redirects#apple_old_size_icon"
   get "/apple-touch-icon-76x76.png", to: "icon_redirects#apple_old_size_icon"
