@@ -14,7 +14,6 @@
 
 <% content_for :wrapper_content do %>
 <main id="content" role="main" class="group">
-
   <header class="page-header group">
     <div>
       <h1><%= heading %></h1>
@@ -33,9 +32,7 @@
     </article>
   </div>
 
-<% if status_code.in?(400..499) %>
   <%= render "govuk_publishing_components/components/feedback" %>
-<% end %>
 
 <% if status_code %>
   <script type="text/javascript">
