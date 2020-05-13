@@ -17,11 +17,7 @@
 
   <header class="page-header group">
     <div>
-      <% if local_assigns.include?(:heading) %>
-        <h1><%= heading %></h1>
-      <% else %>
-        <h1>Sorry, we're experiencing technical difficulties</h1>
-      <% end %>
+      <h1><%= heading %></h1>
     </div>
   </header>
   <div class="article-container">
@@ -31,12 +27,7 @@
           text: "Status code: #{status_code}"
         } %>
 
-        <% if local_assigns.include?(:intro) %>
-          <%= raw intro %>
-        <% else %>
-          <p>Please try again in a few moments.</p>
-        <% end %>
-
+        <%= raw intro %>
         <p>You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
       </div>
     </article>
