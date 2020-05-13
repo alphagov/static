@@ -27,6 +27,10 @@
   <div class="article-container">
     <article role="article" class="group">
       <div class="inner">
+        <%= render "govuk_publishing_components/components/warning_text", {
+          text: "Status code: #{status_code}"
+        } %>
+
         <% if local_assigns.include?(:intro) %>
           <%= raw intro %>
         <% else %>
