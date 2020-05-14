@@ -1,7 +1,6 @@
 <%= render partial: "error_page", locals: {
-    title: "Forbidden",
-    heading: "You are not permitted to see this page",
+    title: "Unauthorized",
+    heading: "You are not permitted to access this page",
     intro: '<p>This page is restricted to certain users only.</p>',
-    status_code: 403
+    status_code: 401
 } %>
-

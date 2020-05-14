@@ -14,39 +14,29 @@
 
 <% content_for :wrapper_content do %>
 <main id="content" role="main" class="group">
-
   <header class="page-header group">
     <div>
-      <% if local_assigns.include?(:heading) %>
-        <h1><%= heading %></h1>
-      <% else %>
-        <h1>Sorry, we're experiencing technical difficulties</h1>
-      <% end %>
+      <h1><%= heading %></h1>
     </div>
   </header>
   <div class="article-container">
     <article role="article" class="group">
       <div class="inner">
-        <% if local_assigns.include?(:intro) %>
-          <%= raw intro %>
-        <% else %>
-          <p>Please try again in a few moments.</p>
-        <% end %>
+        <%= render "govuk_publishing_components/components/warning_text", {
+          text: "Status code: #{status_code}"
+        } %>
 
+        <%= raw intro %>
         <p>You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
       </div>
     </article>
   </div>
 
-<% if status_code.in?(400..499) %>
   <%= render "govuk_publishing_components/components/feedback" %>
-<% end %>
 
-<% if status_code %>
   <script type="text/javascript">
     window.httpStatusCode = '<%= status_code %>';
   </script>
-<% end %>
 </main>
 <% end %>
 

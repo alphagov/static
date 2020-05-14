@@ -6,8 +6,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
 
     assert page.has_selector?("body.mainstream.error")
     within "head", visible: :all do
-      assert page.has_selector?("title", text: "Page not found - 404 - GOV.UK", visible: :all)
-
+      assert page.has_selector?("title", text: "Page not found - GOV.UK", visible: :all)
       assert page.has_selector?("link[href='/static/static.css']", visible: :all)
     end
 
@@ -21,11 +20,11 @@ class Error4XXTest < ActionDispatch::IntegrationTest
 
       within "#wrapper" do
         assert page.has_selector?("h1", text: "Page not found")
+        assert page.has_selector?(".govuk-warning-text__text", text: "Status code: 404", visible: :all)
       end
 
       within "footer" do
         assert page.has_selector?(".footer-categories")
-
         assert page.has_selector?(".footer-meta")
       end
     end
