@@ -393,6 +393,13 @@
     ],
     '/government/publications/vat-for-businesses-if-theres-no-brexit-deal/vat-for-businesses-if-theres-no-brexit-deal': [
       ['Heading', 'UK businesses importing goods from the EU']
+    ],
+    '/guidance/answers-to-the-most-common-topics-asked-about-by-the-public-for-the-coronavirus-press-conference': [
+      ['Percent', 20],
+      ['Percent', 40],
+      ['Percent', 60],
+      ['Percent', 80],
+      ['Percent', 100]
     ]
   };
 
