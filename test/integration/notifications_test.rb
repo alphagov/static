@@ -34,9 +34,11 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     end
 
     should "render the more information link" do
-      stub_redis_response(campaign_class: "notable-death",
-                          heading: "Alas poor Yorick",
-                          link: "https://yoricks.gov")
+      stub_redis_response(
+        campaign_class: "notable-death",
+        heading: "Alas poor Yorick",
+        link: "https://yoricks.gov",
+      )
 
       visit "/templates/wrapper.html.erb"
 
@@ -45,10 +47,12 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     end
 
     should "render the more information link with specified text" do
-      stub_redis_response(campaign_class: "notable-death",
-                          heading: "Alas poor Yorick",
-                          link: "https://yoricks.gov",
-                          link_text: "Some specified text for more information")
+      stub_redis_response(
+        campaign_class: "notable-death",
+        heading: "Alas poor Yorick",
+        link: "https://yoricks.gov",
+        link_text: "Some specified text for more information",
+      )
 
       visit "/templates/wrapper.html.erb"
 
@@ -56,8 +60,10 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     end
 
     should "not render the more information link if it does not exist" do
-      stub_redis_response(campaign_class: "notable-death",
-                          heading: "Alas poor Yorick")
+      stub_redis_response(
+        campaign_class: "notable-death",
+        heading: "Alas poor Yorick",
+      )
 
       visit "/templates/wrapper.html.erb"
 
@@ -66,9 +72,11 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     end
 
     should "render the extra information" do
-      stub_redis_response(campaign_class: "notable-death",
-                          heading: "Alas poor Yorick",
-                          short_description: "I knew him well")
+      stub_redis_response(
+        campaign_class: "notable-death",
+        heading: "Alas poor Yorick",
+        short_description: "I knew him well",
+      )
 
       visit "/templates/wrapper.html.erb"
 
@@ -76,8 +84,10 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     end
 
     should "does not render the extra information if it does not exist" do
-      stub_redis_response(campaign_class: "notable-death",
-                          heading: "Alas poor Yorick")
+      stub_redis_response(
+        campaign_class: "notable-death",
+        heading: "Alas poor Yorick",
+      )
 
       visit "/templates/wrapper.html.erb"
 

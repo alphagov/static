@@ -3,7 +3,7 @@
 require "yaml"
 
 class Hash
-  def dig_by_path path
+  def dig_by_path(path)
     dig(*path.split("."))
   end
 
