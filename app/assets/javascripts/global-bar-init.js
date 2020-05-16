@@ -6,7 +6,7 @@ window.GOVUK = window.GOVUK || {}
 
 // Bump this if you are releasing a major change to the banner
 // This will reset the view count so all users will see the banner, even if previously seen
-var BANNER_VERSION = 8;
+var BANNER_VERSION = 7;
 var GLOBAL_BAR_SEEN_COOKIE = "global_bar_seen"
 
 var globalBarInit = {
@@ -105,7 +105,10 @@ var globalBarInit = {
 
         // If banner has been manually dismissed, hide the additional info
         if (newCookieCount === 999) {
-          document.querySelector(".global-bar-additional").classList.remove('global-bar-additional--show')
+          var globalBarAdditional = document.querySelector(".global-bar-additional");
+          if (globalBarAdditional) {
+            globalBarAdditional.classList.remove('global-bar-additional--show');
+          }
           document.querySelector(".global-bar__dismiss").classList.remove('global-bar__dismiss--show')
         }
 
