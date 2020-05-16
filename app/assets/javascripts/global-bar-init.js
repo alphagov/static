@@ -109,7 +109,10 @@ var globalBarInit = {
           if (globalBarAdditional) {
             globalBarAdditional.classList.remove('global-bar-additional--show');
           }
-          document.querySelector(".global-bar__dismiss").classList.remove('global-bar__dismiss--show')
+          var globarBarDismiss = document.querySelector(".global-bar__dismiss")
+          if (globarBarDismiss) {
+            globarBarDismiss.classList.remove('global-bar__dismiss--show')
+          }
         }
 
         globalBarInit.makeBannerVisible()
