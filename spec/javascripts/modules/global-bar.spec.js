@@ -62,28 +62,6 @@ describe('Global bar module', function () {
       expect(parseCookie(GOVUK.getCookie("global_bar_seen")).count).toBe(2)
       expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(0)
     })
-
-    it('hides additional information section when dismiss link is clicked', function () {
-      globalBar.start(element)
-
-      $(element).find(".dismiss").click()
-
-      expect(parseCookie(GOVUK.getCookie("global_bar_seen")).count).toBe(999)
-      expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(0)
-
-      expectAdditionalSectionToBeHidden()
-    })
-
-    it('hides dismiss link once dismiss link is clicked', function () {
-      globalBar.start(element)
-
-      $(element).find(".dismiss").click()
-
-      expect(parseCookie(GOVUK.getCookie("global_bar_seen")).count).toBe(999)
-      expect(parseCookie(GOVUK.getCookie("global_bar_seen")).version).toBe(0)
-
-      expect($('.global-bar-dismiss').hasClass("global-bar-dismiss--show")).toBe(false)
-    })
   })
 
   describe('tracking global banner interactions', function () {
@@ -100,14 +78,6 @@ describe('Global bar module', function () {
 
       document.cookie = 'global_bar_seen=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
       spyOn(GOVUK.analytics, 'trackEvent')
-    })
-
-    it('tracks when dismiss link is clicked', function () {
-      globalBar.start(element)
-
-      $(element).find(".dismiss").click()
-
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('Global bar', 'Manually dismissed', {nonInteraction: 1})
     })
 
     it('tracks when clicking on a link marked with js-call-to-action', function () {

@@ -103,18 +103,6 @@ var globalBarInit = {
 
         var newCookieCount = parseCookie(globalBarInit.getLatestCookie()).count
 
-        // If banner has been manually dismissed, hide the additional info
-        if (newCookieCount === 999) {
-          var globalBarAdditional = document.querySelector(".global-bar-additional");
-          if (globalBarAdditional) {
-            globalBarAdditional.classList.remove('global-bar-additional--show');
-          }
-          var globarBarDismiss = document.querySelector(".global-bar__dismiss")
-          if (globarBarDismiss) {
-            globarBarDismiss.classList.remove('global-bar__dismiss--show')
-          }
-        }
-
         globalBarInit.makeBannerVisible()
       }
     } else {
