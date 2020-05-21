@@ -506,56 +506,6 @@ $covid-grey: #262828;
   padding: govuk-spacing(4) 0;
 }
 
-.global-bar-title {
-  font-weight: 700;
-  margin-right: govuk-spacing(2);
-  margin-bottom: govuk-spacing(1);
-
-  &:only-child {
-    margin: 0;
-  }
-}
-
-.global-bar-title__nowrap {
-  white-space: nowrap;
-}
-
-.global-bar-title__icon {
-  display: inline-block;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  box-sizing: border-box;
-  padding-left: 50px;
-  min-height: 45px;
-  background-image: image-url("covid-arrow.png"); // PNG fallback for SVG
-  background-image: image-url("covid-arrow.svg");
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  background-size: 37px auto;
-
-  @include govuk-media-query($from: desktop) {
-    // IE10/11 specific - vertical align in flexbox is ignored
-    // unless an explicit height is set
-    @media screen and (min-width:0\0) {
-      height: 45px;
-    }
-  }
-}
-
-.global-bar-dismiss-wrapper {
-  margin-top: govuk-spacing(4);
-}
-
-.global-bar__dismiss {
-  display: none;
-}
-
-.global-bar__dismiss--show {
-  display: inline-block;
-}
-
 .gem-c-govspeak .global-bar__heading {
   @include bold-19;
   margin-top: 0;
@@ -570,24 +520,6 @@ $covid-grey: #262828;
   margin-top: 0;
 }
 
-.global-bar-additional {
-  display: none;
-  padding: govuk-spacing(4) 0;
-  background-color: $covid-grey;
-}
-
-.global-bar-additional__text {
-  position: relative;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.global-bar-additional__text-govspeak {
-  color: govuk-colour("white");
-}
-
 .global-bar-image {
   display: block;
   position: absolute;
@@ -599,8 +531,4 @@ $covid-grey: #262828;
   @include govuk-media-query($until: desktop) {
     display: none;
   }
-}
-
-.global-bar-additional--show {
-  display: block;
 }
