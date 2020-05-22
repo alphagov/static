@@ -1,4 +1,4 @@
-// = require govuk/modules
+// = require govuk_publishing_components/modules
 // = require modules/global-bar
 // = require modules/sticky-element-container
 // = require modules/toggle
