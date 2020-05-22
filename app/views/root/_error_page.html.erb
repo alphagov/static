@@ -1,5 +1,4 @@
-<% title = "Sorry, we're experiencing technical difficulties (#{status_code} error)" unless local_assigns.include?(:title) %>
-<% content_for :title, "#{title} - GOV.UK" %>
+<% content_for :title, "#{heading} - GOV.UK" %>
 
 <% content_for :head do %>
   <%= stylesheet_link_tag "error-page", media: "screen" %>
@@ -22,12 +21,10 @@
   <div class="article-container">
     <article role="article" class="group">
       <div class="inner">
-        <%= render "govuk_publishing_components/components/warning_text", {
-          text: "Status code: #{status_code}"
-        } %>
-
         <%= raw intro %>
         <p>You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
+        <br/>
+        <pre>Status code: <%= status_code %></pre>
       </div>
     </article>
   </div>

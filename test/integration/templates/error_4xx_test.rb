@@ -20,7 +20,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
 
       within "#wrapper" do
         assert page.has_selector?("h1", text: "Page not found")
-        assert page.has_selector?(".govuk-warning-text__text", text: "Status code: 404", visible: :all)
+        assert page.has_selector?("pre", text: "Status code: 404", visible: :all)
       end
 
       within "footer" do

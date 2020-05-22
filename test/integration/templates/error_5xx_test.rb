@@ -20,7 +20,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
 
       within "#wrapper" do
         assert page.has_selector?("h1", text: "Sorry, we're experiencing technical difficulties")
-        assert page.has_selector?(".govuk-warning-text__text", text: "Status code: 500", visible: :all)
+        assert page.has_selector?("pre", text: "Status code: 500", visible: :all)
       end
 
       within "footer" do
