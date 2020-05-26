@@ -3,6 +3,8 @@ $govuk-use-legacy-palette: false;
 
 @import "govuk_publishing_components/govuk_frontend_support";
 @import "govuk_publishing_components/components/_cookie-banner";
+// collections uses the action-link component and relies upon this line, see
+// https://github.com/alphagov/collections/pull/1754
 @import "govuk_publishing_components/components/_action-link";
 
 /* govuk_frontend_toolkit includes */
