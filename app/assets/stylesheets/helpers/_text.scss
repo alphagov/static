@@ -18,10 +18,6 @@ article {
     margin-top: 0;
     margin-bottom: 0;
 
-    @include ie-lte(8) {
-      zoom: 1;
-    }
-
     span {
       @include core-16;
       display: block;
@@ -222,10 +218,6 @@ article {
     margin: 0 0 2em 0;
     padding: 0;
     color: $text-colour;
-
-    @include ie-lte(8) {
-      zoom: 1;
-    }
 
     p {
       @include core-19;
@@ -515,11 +507,6 @@ article {
             background-size: 24px 24px;
           }
         }
-      }
-
-      @include ie-lte(8) {
-        margin-left: 1.5em;
-        padding-left: 0;
       }
     }
   }

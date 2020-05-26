@@ -19,12 +19,5 @@
   &--hidden {
     opacity: 0;
     pointer-events: none;
-
-    @include ie-lte(8) {
-      // XXX: Would be nice to `@include .visuallyhidden`.
-      position: absolute;
-      left: -9999em;
-    }
   }
-
 }
