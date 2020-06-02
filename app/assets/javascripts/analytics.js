@@ -7,6 +7,7 @@
 //= require analytics_toolkit/mailto-link-tracker
 //= require analytics_toolkit/external-link-tracker
 //= require analytics_toolkit/download-link-tracker
+//= require analytics_toolkit/auto-track-event
 
 //= require analytics/page-content
 //= require analytics/custom-dimensions
