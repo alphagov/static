@@ -102,7 +102,7 @@ GEM
     govuk_frontend_toolkit (9.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (21.54.0)
+    govuk_publishing_components (21.55.0)
       gds-api-adapters
       govuk_app_config
       kramdown
@@ -315,7 +315,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -331,7 +331,7 @@ DEPENDENCIES
   govuk-content-schema-test-helpers (~> 1.6)
   govuk_app_config (~> 2.2.0)
   govuk_frontend_toolkit (~> 9.0.0)
-  govuk_publishing_components (~> 21.54.0)
+  govuk_publishing_components (~> 21.55.0)
   govuk_template (= 0.26.0)
   govuk_test
   image_optim (= 0.26.5)
