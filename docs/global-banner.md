@@ -11,7 +11,7 @@ In `app/views/notifications/_global_bar.html.erb`
 2. Update the `show_global_bar` variable to `true`
 3. Deploy static
 
-![screenshot](/doc/global-banner.png?raw=true)
+![screenshot](/docs/global-banner.png?raw=true)
 
 If you are in the production environment, once the origin cache is purged the CDN cache will be purged automatically.
 This will clear cache for the top 10 most visited pages.

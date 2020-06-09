@@ -61,7 +61,7 @@
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
   var MAX_MOBILE_WIDTH = "(max-width: 800px)"
 
-  /* This data structure is explained in `doc/surveys.md` */
+  /* This data structure is explained in `docs/surveys.md` */
   var userSurveys = {
     defaultSurvey: {
       url: 'https://www.smartsurvey.co.uk/s/gov_uk?c={{currentPath}}',
