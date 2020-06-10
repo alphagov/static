@@ -4,7 +4,7 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 
 ## Screenshots
 
-![screenshot](/doc/screenshot.png?raw=true)
+![screenshot](/docs/screenshot.png?raw=true)
 
 ## Nomenclature
 
@@ -12,10 +12,10 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 
 ## Technical documentation
 
-- [Image optimisation](doc/image-optimisation.md)
-- [Slimmer templates](doc/slimmer_templates.md)
-- [Emergency Banner](doc/emergency-banner.md)
-- [Analytics](doc/analytics.md)
+- [Image optimisation](docs/image-optimisation.md)
+- [Slimmer templates](docs/slimmer_templates.md)
+- [Emergency Banner](docs/emergency-banner.md)
+- [Analytics](docs/analytics.md)
 
 ### Running the application
 
