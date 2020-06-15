@@ -18,7 +18,7 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionpack-page_caching (1.2.2)
+    actionpack-page_caching (1.2.3)
       actionpack (>= 5.0.0)
     actionview (5.2.4.3)
       activesupport (= 5.2.4.3)
@@ -327,7 +327,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-page_caching (= 1.2.2)
+  actionpack-page_caching (= 1.2.3)
   asset_bom_removal-rails (~> 1.0.0)
   better_errors
   binding_of_caller
