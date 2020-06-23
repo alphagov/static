@@ -557,6 +557,18 @@ $covid-grey: #262828;
   background-color: $covid-grey;
 }
 
+.global-bar-additional__text {
+  position: relative;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.global-bar-additional__text-govspeak {
+  color: govuk-colour("white");
+}
+
 .global-bar-additional--show {
   display: block;
 }
