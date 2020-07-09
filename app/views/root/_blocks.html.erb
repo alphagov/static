@@ -18,9 +18,11 @@
 
 <% end %>
 
-<% content_for :content do %>
-
+<% content_for :notifications do %>
   <%= render "notifications/global_bar" %>
+<% end %>
+
+<% content_for :content do %>
 
   <div id="wrapper" class="govuk-width-container group">
     <%= yield :wrapper_content %>
