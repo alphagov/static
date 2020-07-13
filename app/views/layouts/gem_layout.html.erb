@@ -12,7 +12,7 @@
     <%= render "govuk_publishing_components/components/cookie_banner" %>
 
 
-  <!-- unsure what this produces <%= yield :proposition_header %> -->
+    <%= yield :proposition_header %>
 
     <%= yield :after_header %>
 
@@ -20,16 +20,15 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
   title: content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information",
-  notifications: content_for?(:notifications) ? sanitize(yield(:notifications)) : ""
+  notifications: content_for?(:notifications) ? sanitize(yield(:notifications)) : "",
+  remove_bottom_border: true,
 } do %>
   <%= content_for?(:content) ? yield(:content) : yield %>
 <% end %>
 
 
     <div id="global-app-error" class="app-error hidden"></div>
-
     <%= yield :body_end %>
-
     <%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
     <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
   </body>
