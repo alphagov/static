@@ -1,0 +1,10 @@
+// this needs to replicate the styles in govuk-emergency-banner but
+// in the modern design system way as detailed here:
+// https://design-system.service.gov.uk/get-started/updating-your-code/
+// this is just a rough and ready colour change for the spike
+
+.govuk-emergency-banner {
+  background-color: black;
+  color: white;
+  margin-top: 2px;
+}
