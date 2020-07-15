@@ -10,15 +10,11 @@
   <%= render :partial => 'gem_layout_stylesheet' %>
 <% end %>
 
-<% content_for :after_header do %>
+<% content_for :before_content do %>
   <div id="user-satisfaction-survey-container"></div>
   <% if @emergency_banner %>
     <%= render "notifications/emergency_banner", banner: @emergency_banner %>
   <% end %>
-
-<% end %>
-
-<% content_for :notifications do %>
   <%= render "notifications/global_bar" %>
 <% end %>
 
