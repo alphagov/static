@@ -3,7 +3,9 @@
 <% @emergency_banner = emergency_banner_notification %>
 
 <% if ENV["DRAFT_ENVIRONMENT"].present? %>
-  <% content_for :body_classes, "draft" %>
+  <% content_for :body_classes, "draft gem-c-layout-for-public" %>
+<% else %>
+  <% content_for :body_classes, "gem-c-layout-for-public" %>
 <% end %>
 
 <% content_for :head do %>
