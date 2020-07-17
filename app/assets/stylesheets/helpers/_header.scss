@@ -189,12 +189,15 @@
     }
 
     input#site-search-text {
-      @include core-16($line-height: (23/16), $line-height-640: (23/13));
+      @include govuk-font(16, $line-height: (23/16));
       background: transparent;
       height: 36px;
       padding: 6px;
       position: relative;
       z-index: 3;
+      @include govuk-media-query($from: tablet) {
+        @include govuk-font(16, $line-height: (23/13));
+      }
 
       &.focus,
       &:focus {
@@ -310,7 +313,7 @@
   padding: 0.5em 2em;
 
   p {
-    @include core-19;
+    @include govuk-font(19);
     margin: 0 auto;
     max-width: 960px;
   }
@@ -353,7 +356,7 @@
   background-color: $govuk-brand-colour;
   margin-bottom: 1px;
   color: govuk-colour("white");
-  @include core-16;
+  @include govuk-font(16);
 
   &.visible {
     display: block;
@@ -405,17 +408,17 @@
   }
 
   .survey-title {
-    @include bold-19;
+    @include govuk-font(19, $weight: bold);
     margin-bottom: .5em;
   }
 
   .survey-close-button {
     float: right;
-    @include core-19;
+    @include govuk-font(19);
   }
 
   .survey-primary-link {
-    @include core-19;
+    @include govuk-font(19);
     margin-right: .5em;
   }
 
@@ -425,7 +428,7 @@
   }
 
   .survey-form-input {
-    @include core-16($line-height: 1.1);
+    @include govuk-font($size: 16, $line-height: 1.1);
     display: block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -438,12 +441,12 @@
   }
 
   .survey-form-description {
-    @include core-14;
+    @include govuk-font(14);
     margin-bottom: .5em;
   }
 
   .survey-form-button {
-    @include bold-19($line-height: 1.1);
+    @include govuk-font(19, $weight: bold, $line-height: 1.1);
     padding: govuk-spacing(2) govuk-spacing(3) govuk-spacing(1) govuk-spacing(3);
     margin-right: .5em;
     color: $govuk-brand-colour;
@@ -472,7 +475,7 @@ $covid-yellow: #fff500;
 $covid-grey: #262828;
 
 .global-bar {
-  @include core-19;
+  @include govuk-font(19);
   background-color: govuk-colour("black");
   border-top: govuk-spacing(2) solid $covid-yellow;
   border-bottom: 1px solid govuk-colour("white");
@@ -538,7 +541,7 @@ $covid-grey: #262828;
 }
 
 .gem-c-govspeak .global-bar__heading {
-  @include bold-19;
+  @include govuk-font(19, $weight: bold);
   margin-top: 0;
   margin-bottom: govuk-spacing(1);
 }

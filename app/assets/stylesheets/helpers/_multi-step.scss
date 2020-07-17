@@ -4,7 +4,7 @@
  * questions
  */
 .hint {
-  @include core-16;
+  @include govuk-font(16);
   display: block;
 }
 
@@ -21,10 +21,13 @@
   width: 11em;
 
   a {
-    @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
+    @include govuk-font(19, $line-height: 40 / 19);
     display: block;
     text-align: center;
     text-decoration: underline;
+    @include govuk-media-query($from: tablet) {
+      @include govuk-font(19, $line-height: 40 / 13);
+    }
 
     &:hover {
       text-decoration: none;
@@ -64,7 +67,7 @@
     }
 
     h3 {
-      @include core-16;
+      @include govuk-font(16);
     }
 
     &.done {
@@ -74,7 +77,7 @@
       padding-right: 9.5em;
 
       .answer {
-        @include bold-16;
+        @include govuk-font(16, $weight: bold);
         color: #315843;
         display: block;
         margin: 0 0.5em 0 1em;
@@ -112,7 +115,7 @@ li.done .undo {
   top: (0.75em/0.9);
   right: (1.5em/0.9);
   margin: 0;
-  @include core-14;
+  @include govuk-font(14);
 
   a {
     color: $text-colour;

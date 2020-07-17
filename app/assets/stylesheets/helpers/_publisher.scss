@@ -73,7 +73,7 @@ aside .page-navigation {
     margin-left: 1.5em;
     clear: left;
 
-    @include core-16;
+    @include govuk-font(16);
 
     @include media-down(mobile) {
       float: none;
@@ -145,7 +145,7 @@ aside .page-navigation {
         padding: 0;
       }
 
-      @include core-19($line-height: (45/19));
+      @include govuk-font(19, $line-height: (45/19));
 
       span, a {
         margin: 0 -1em 0 -2.25em;
@@ -192,7 +192,7 @@ aside .page-navigation {
   }
 
   li {
-    @include core-16($line-height: (20 / 16));
+    @include govuk-font(16, $line-height: (20 / 16));
     float: left;
     list-style: none;
     text-align: right;
@@ -212,7 +212,7 @@ aside .page-navigation {
       }
 
       .pagination-label {
-        @include core-27($line-height: (33.75 / 27));
+        @include govuk-font(27, $line-height: (33.75 / 27));
         margin-bottom: 0.1em;
         display: block;
       }
@@ -314,7 +314,7 @@ aside .page-navigation {
 
   p.geolocate-me {
     border-top: 1px solid $border-colour;
-    @include core-16;
+    @include govuk-font(16);
     margin-bottom: 0;
     padding-top: 1em;
 

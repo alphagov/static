@@ -34,25 +34,25 @@ h4 {
 }
 
 h2 {
-  @include bold-19;
+  @include govuk-font(19, $weight: bold);
   padding-top: 7pt;
 }
 
 h3 {
-  @include bold-16;
+  @include govuk-font(16, $weight: bold);
 }
 
 h4 {
-  @include bold-14;
+  @include govuk-font(14, $weight: bold);
 }
 
 p {
-  @include core-14;
+  @include govuk-font(14);
 }
 
 ul,
 ol {
-  @include core-14;
+  @include govuk-font(14);
   padding-left: 26pt;
 }
 
@@ -88,7 +88,7 @@ table {
   }
 
   caption {
-    @include core-19;
+    @include govuk-font(19);
     margin: govuk-spacing(3) 0;
   }
 }
