@@ -4,6 +4,64 @@
  # preserving the old way of working for templates and apps that have
  # not yet adopted the component approach
 %>
-<%= render partial: 'blocks' %>
-<%= render :file => 'layouts/gem_layout' %>
+<% content_for :homepage_url, Plek.new.website_root %>
+<% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
+<% @emergency_banner = emergency_banner_notification %>
+
+<% if ENV["DRAFT_ENVIRONMENT"].present? %>
+  <% content_for :body_classes, "draft gem-c-layout-for-public" %>
+<% else %>
+  <% content_for :body_classes, "gem-c-layout-for-public" %>
+<% end %>
+
+<% content_for :head do %>
+  <%= render :partial => 'gem_layout_stylesheet' %>
+<% end %>
+
+<% content_for :before_content do %>
+<%= yield :proposition_header %>
+  <div id="user-satisfaction-survey-container"></div>
+  <% if @emergency_banner %>
+    <%= render "notifications/emergency_banner", banner: @emergency_banner %>
+  <% end %>
+  <%= render "notifications/global_bar" %>
+<% end %>
+
+<% content_for :content do %>
+  <div id="wrapper" class="govuk-width-container group">
+    <%= yield :wrapper_content %>
+  </div>
+<% end %>
+
+<% content_for :body_end do %>
+  <%= render :partial => 'javascript', :locals => { :js_file => local_assigns[:js_file] || 'application' } %>
+<% end %>
+
+<%= yield :top_of_page %>
+
+<%= yield :head %>
+
+<body <%= content_for?(:body_classes) ? raw(" class=\"#{yield(:body_classes)}\"") : '' %>>
+
+<%= yield :body_start %>
+
+<%= render "govuk_publishing_components/components/cookie_banner" %>
+
+<%= yield :after_header %>
+
+<div id="global-header-bar"></div>
+
+<%= render "govuk_publishing_components/components/layout_for_public", {
+  title: content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information",
+  before_content: content_for?(:before_content) ? sanitize(yield(:before_content)) : "",
+  remove_bottom_border: true,
+} do %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
+<% end %>
+
+<div id="global-app-error" class="app-error hidden"></div>
+<%= yield :body_end %>
+<%# if no GOVUK-namespaced module has loaded we can assume JS has failed and remove the class %>
+<script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+</body>
 <!-- gem layout -->
