@@ -16,7 +16,6 @@ Rails.application.config.assets.precompile += %w[
   static-print.css
   error-page.css
   error-page-print.css
-  static-gem-layout.css
   static-gem-layout-ie8.css
-  static-gem-layout-print.css
+  print.css
 ]
