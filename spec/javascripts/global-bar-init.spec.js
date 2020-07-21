@@ -2,11 +2,11 @@
 
 describe('Global bar initialize', function () {
   beforeEach(function() {
-    window.GOVUK.setConsentCookie({ 'settings': true });
-
+    deleteAllCookies();
     spyOn(globalBarInit, 'getBannerVersion').and.returnValue(5)
     $('html').removeClass('show-global-bar');
-    deleteAllCookies();
+
+    window.GOVUK.setConsentCookie({ 'settings': true });
   })
 
   it('does not show the banner on a blocked URL', function() {
