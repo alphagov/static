@@ -573,6 +573,10 @@ describe('Surveys', function () {
   })
 
   describe('currentTlsVersion', function() {
+    beforeEach(function() {
+      window.GOVUK.setConsentCookie({ 'usage': true })
+    })
+    
     afterEach(function() {
       window.GOVUK.setCookie('TLSversion', null)
     })
