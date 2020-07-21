@@ -105,7 +105,7 @@ namespace :publishing_api do
           type: "exact",
           publishing_app: "static",
           rendering_app: "static",
-          public_updated_at: Time.now.iso8601,
+          public_updated_at: Time.zone.now.iso8601,
           update_type: "major",
         ),
       )
