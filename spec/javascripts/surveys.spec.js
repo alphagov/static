@@ -578,11 +578,11 @@ describe('Surveys', function () {
     })
     
     afterEach(function() {
-      window.GOVUK.setCookie('TLSversion', null)
+      window.GOVUK.setCookie('TLSversion', '')
     })
 
     it('returns an empty string when the cookie returns null', function () {
-      window.GOVUK.setCookie('TLSversion', null)
+      window.GOVUK.setCookie('TLSversion', '')
       expect(surveys.currentTlsVersion()).toBe('')
     })
 
