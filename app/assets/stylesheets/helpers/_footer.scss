@@ -41,7 +41,7 @@
     }
 
     ul {
-      @include core-16;
+      @include govuk-font(16);
       list-style: none;
       padding: 0;
       margin: 0;

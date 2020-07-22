@@ -7,14 +7,14 @@ main > header {
   position: relative;
 
   h1 {
-    @include bold-24;
+    @include govuk-font(24, $weight: bold);
     border-bottom: solid 1pt black;
     padding-bottom: 6pt;
     width: 80%;
   }
 
   p {
-    @include core-14;
+    @include govuk-font(14);
     border-bottom: solid 1pt black;
     bottom: -11pt;
     position: absolute;
@@ -36,7 +36,7 @@ article {
   }
 
   header h1 {
-    @include bold-19;
+    @include govuk-font(19, $weight: bold);
     border-bottom: 1pt solid $border-colour;
     padding-top: 7pt;
     padding-bottom: 7pt;
@@ -66,7 +66,7 @@ article {
     position: relative;
 
     &:before {
-      @include core-27;
+      @include govuk-font(27);
       font-weight: bold;
       content: "!";
       position: absolute;
@@ -78,7 +78,7 @@ article {
   .highlight-answer,
   .highlighted-event {
     p {
-      @include core-19;
+      @include govuk-font(19);
 
       em {
         font-style: normal;
@@ -90,7 +90,7 @@ article {
 
 .modified-date {
   color: rgb(225,225,225);
-  @include core-14;
+  @include govuk-font(14);
 
   &:after {
     content: "\00A9  Crown Copyright";

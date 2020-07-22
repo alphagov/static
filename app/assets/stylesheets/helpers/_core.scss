@@ -8,7 +8,7 @@ body {
 }
 
 p {
-  @include core-19;
+  @include govuk-font(19);
 }
 
 h2, h3, h4 {
@@ -16,19 +16,19 @@ h2, h3, h4 {
 }
 
 h2 {
-  @include core-24;
+  @include govuk-font(24);
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
 h3 {
-  @include core-19;
+  @include govuk-font(19);
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
 h4 {
-  @include core-19;
+  @include govuk-font(19);
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
@@ -44,17 +44,17 @@ header.page-header div {
   }
 
   h1 {
-    @include heading-48;
+    @extend %govuk-heading-xl;
     background-repeat: no-repeat;
     color: $text-colour;
     font-weight: 600;
 
     span {
-      @include core-27($line-height: 1);
+      @include govuk-font($size: 27, $line-height: 1);
       display: block;
       margin-bottom: 0.25em;
       text-shadow: none;
-      color: $secondary-text-colour ;
+      color: $secondary-text-colour;
     }
   }
 }
@@ -86,7 +86,7 @@ header.page-header div {
 
 /* Meta-data */
 .meta-data {
-  @include core-16;
+  @include govuk-font(16);
   color: $secondary-text-colour;
 
   p{
@@ -95,7 +95,7 @@ header.page-header div {
     a{
       color: $secondary-text-colour;
     }
-    @include core-16
+    @include govuk-font(16);
   }
 }
 
@@ -107,7 +107,7 @@ header.page-header div {
   margin-bottom: 1em;
 
   p {
-    @include core-16;
+    @include govuk-font(16);
   }
 }
 
@@ -135,7 +135,7 @@ header.page-header div {
 }
 
 .sets-cookie {
-  @include core-14;
+  @include govuk-font(14);
 }
 
 .cookie-container {

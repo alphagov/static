@@ -13,11 +13,11 @@
   }
 
   h2 {
-    @include bold-24;
+    @include govuk-font(24, $weight: bold);
     margin: 0;
 
     .homepage & {
-      @include bold-48;
+      @include govuk-font(48, $weight: bold);
       @include govuk-media-query($from: tablet) {
         margin-bottom: govuk-spacing(4);
       }
@@ -25,7 +25,7 @@
   }
 
   p {
-    @include core-19;
+    @include govuk-font(19);
     color: $white;
     margin-top: 0;
     margin-bottom: govuk-spacing(4);

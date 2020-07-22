@@ -1,6 +1,7 @@
 $govuk-compatibility-govuktemplate: true;
 $govuk-use-legacy-palette: false;
 
+@import "govuk_publishing_components/component_support";
 @import "header-footer-only";
 
 /* styles */

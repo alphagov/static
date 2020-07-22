@@ -6,20 +6,20 @@
 .content-block,
 article {
   h1 {
-    @include bold-24;
+    @include govuk-font(24, $weight: bold);
     margin-top: 1.5em;
     margin-bottom: 0.75em;
   }
 
   header h1 {
-    @include heading-27;
+    @include govuk-font(27, $weight: bold);
     font-weight: 700;
     color: $text-colour;
     margin-top: 0;
     margin-bottom: 0;
 
     span {
-      @include core-16;
+      @include govuk-font(16);
       display: block;
       margin-bottom: 0.4em;
     }
@@ -30,7 +30,7 @@ article {
   }
 
   h2 {
-    @include bold-24;
+    @include govuk-font(24, $weight: bold);
     margin: 1.2em 0 0.4em 0;
   }
 
@@ -39,7 +39,7 @@ article {
   }
 
   h3 {
-    @include bold-19;
+    @include govuk-font(19, $weight: bold);
     margin-top: 1em;
     margin-bottom: 0.75em;
   }
@@ -81,7 +81,7 @@ article {
   }
 
   p {
-    @include core-19;
+    @include govuk-font(19);
   }
 
   p + .help-notice{
@@ -89,7 +89,7 @@ article {
   }
 
   li {
-    @include core-19;
+    @include govuk-font(19);
     margin: 0.25em 0;
     padding-left: 0.3em;
 
@@ -105,12 +105,12 @@ article {
     }
 
     li {
-      @include core-19;
+      @include govuk-font(19);
       list-style-type: circle;
     }
 
     p {
-      @include core-19;
+      @include govuk-font(19);
       margin: 0;
     }
   }
@@ -159,7 +159,7 @@ article {
   }
 
   dt {
-    @include core-19;
+    @include govuk-font(19);
     margin-bottom: 0.25em;
   }
 
@@ -174,7 +174,7 @@ article {
     width: 100%;
 
     caption {
-      @include bold-24;
+      @include govuk-font(24, $weight: bold);
       margin: 0.4em 0.5em 0.4em 0.7em;
       text-align: left;
     }
@@ -190,7 +190,7 @@ article {
   }
 
   th, td {
-    @include core-16($tabular-numbers: true);
+    @include govuk-font(16, $tabular: true);
     vertical-align: top;
     padding: .75em .5em .75em 0;
   }
@@ -199,7 +199,7 @@ article {
     border-bottom: solid 1px $border-colour;
 
     small {
-      @include core-16;
+      @include govuk-font(16);
     }
   }
 
@@ -220,7 +220,7 @@ article {
     color: $text-colour;
 
     p {
-      @include core-19;
+      @include govuk-font(19);
     }
 
     @include media-down(mobile) {
@@ -462,7 +462,7 @@ article {
     }
 
     .additional-information {
-      @include core-16;
+      @include govuk-font(16);
 
       p {
         margin: 0.25em 0;
@@ -480,7 +480,7 @@ article {
     margin: 1em 0;
 
     li {
-      @include core-16;
+      @include govuk-font(16);
       display: inline-block;
       margin-right: 1em;
     }
@@ -577,7 +577,7 @@ section.places h3 {
   @include media-down(mobile) {
     margin: 0 0 1em 0;
 
-    @include core-48;
+    @include govuk-font(48);
 
     p {
       font-size: 1em;
