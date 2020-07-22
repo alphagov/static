@@ -25,6 +25,7 @@
     display: block;
     text-align: center;
     text-decoration: underline;
+
     @include govuk-media-query($from: tablet) {
       @include govuk-font(19, $line-height: 40 / 13);
     }

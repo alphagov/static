@@ -72,7 +72,6 @@ aside .page-navigation {
     margin-right: 0.75em;
     margin-left: 1.5em;
     clear: left;
-
     @include govuk-font(16);
 
     @include media-down(mobile) {

@@ -195,6 +195,7 @@
       padding: 6px;
       position: relative;
       z-index: 3;
+
       @include govuk-media-query($from: tablet) {
         @include govuk-font(16, $line-height: (23/13));
       }
