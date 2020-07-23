@@ -1023,6 +1023,7 @@ describe("GOVUK.StaticAnalytics", function() {
     var pageViewObject;
 
     beforeEach(function() {
+      GOVUK.cookie('seen_cookie_message', null);
       window.ga.calls.reset();
       analytics = new GOVUK.StaticAnalytics({universalId: 'universal-id'});
       pageViewObject = getPageViewObject();

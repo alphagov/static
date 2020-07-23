@@ -25,7 +25,8 @@ group :development do
 end
 
 group :development, :test do
-  gem "jasmine-rails"
+  gem "jasmine"
+  gem "jasmine_selenium_runner", require: false
   gem "pry"
   gem "rubocop-govuk"
 end
@@ -38,5 +39,6 @@ group :test do
   gem "minitest-capybara"
   gem "mocha", require: false
   gem "shoulda-context"
+  gem "webdrivers"
   gem "webmock"
 end
