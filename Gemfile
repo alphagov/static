@@ -5,7 +5,6 @@ ruby File.read(".ruby-version").chomp
 gem "rails", "5.2.4.3"
 
 gem "actionpack-page_caching"
-gem "asset_bom_removal-rails"
 gem "gds-api-adapters"
 gem "govuk_app_config"
 gem "govuk_frontend_toolkit"
