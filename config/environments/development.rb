@@ -6,32 +6,45 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  # Show full error reports and disable caching
-  config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  # Do not eager load code on boot.
+  config.eager_load = false
 
-  # Don't care if the mailer can't send
-  # config.action_mailer.raise_delivery_errors = false
+  # Show full error reports.
+  config.consider_all_requests_local = true
 
-  # Print deprecation notices to the Rails logger
+  # Enable/disable caching. By default caching is disabled.
+  # Run rails dev:cache to toggle caching.
+  if Rails.root.join("tmp/caching-dev.txt").exist?
+    config.action_controller.perform_caching = true
+
+    config.cache_store = :memory_store
+    config.public_file_server.headers = {
+      "Cache-Control" => "public, max-age=#{2.days.to_i}"
+    }
+  else
+    config.action_controller.perform_caching = false
+
+    config.cache_store = :null_store
+  end
+
+  # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Only use best-standards-support built into browsers
-  config.action_dispatch.best_standards_support = :builtin
-
-  # Do not compress assets
-  config.assets.compress = false
-
-  # rev filenames for assets
-  config.assets.digest = false
-
-  config.asset_host = ENV["ASSET_HOST"] || ENV["GOVUK_ASSET_ROOT"] || Plek.current.find("static")
-
-  # Expands the lines which load the assets
+  # Debug mode disables concatenation and preprocessing of assets.
+  # This option may cause significant delays in view rendering with a large
+  # number of complex assets.
   config.assets.debug = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.eager_load = false
+  # Allow overriding the asset host with an environment variable.
+  config.asset_host = ENV["ASSET_HOST"] || ENV["GOVUK_ASSET_ROOT"] || Plek.current.find("static")
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
+
+  # Use an evented file watcher to asynchronously detect changes in source code,
+  # routes, locales, etc. This feature depends on the listen gem.
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
