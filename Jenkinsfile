@@ -13,7 +13,7 @@ node {
     overrideTestTask: {
       stage("Test") {
         govuk.runTests("test")
-        govuk.runTests("spec:javascript")
+        govuk.runTests("jasmine:ci")
       }
     },
     publishingE2ETests: true,
