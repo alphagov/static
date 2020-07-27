@@ -8,10 +8,6 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if !Rails.env.production? || ENV["HEROKU_APP_NAME"].present?
-  require "govuk_publishing_components"
-end
-
 module Static
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
