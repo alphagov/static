@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "5.2.4.3"
+gem "rails", "6.0.3.2"
 
 gem "actionpack-page_caching"
 gem "gds-api-adapters"
