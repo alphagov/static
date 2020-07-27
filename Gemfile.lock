@@ -101,13 +101,11 @@ GEM
     govuk_frontend_toolkit (9.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (21.59.0)
-      gds-api-adapters
+    govuk_publishing_components (21.60.0)
       govuk_app_config
       kramdown
       plek
       rails (>= 5.0.0.1)
-      rake
       rouge
       sprockets (< 4)
     govuk_template (0.26.0)
@@ -122,7 +120,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.8.4)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_optim (0.26.5)
       exifr (~> 1.2, >= 1.2.2)
@@ -332,7 +330,7 @@ DEPENDENCIES
   govuk-content-schema-test-helpers (~> 1.6)
   govuk_app_config (~> 2.2.0)
   govuk_frontend_toolkit (~> 9.0.0)
-  govuk_publishing_components (~> 21.59.0)
+  govuk_publishing_components (~> 21.60.0)
   govuk_template (= 0.26.0)
   govuk_test
   image_optim (= 0.26.5)
