@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "/component-guide" => redirect("https://govuk-publishing-components.herokuapp.com/component-guide")
 
   scope format: false do
-    with_options to: proc { [410, {}, ["The component system has moved to https://github.com/alphagov/govuk_publishing_components"]] } do
+    scope to: proc { [410, {}, ["The component system has moved to https://github.com/alphagov/govuk_publishing_components"]] } do
       get "/templates/govuk_component/:template.raw.html.erb"
       get "/templates/govuk_component/docs"
       get "/templates/locales"
