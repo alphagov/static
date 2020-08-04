@@ -7,9 +7,7 @@
     // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/analytics.js
     var consentCookie = window.GOVUK.getConsentCookie();
 
-    if (!consentCookie || consentCookie['usage']) {
-      this.analytics = new GOVUK.Analytics(config);
-    }
+    this.analytics = new GOVUK.Analytics(config);
 
     var trackingOptions = getOptionsFromCookie();
 
