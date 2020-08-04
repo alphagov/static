@@ -24,8 +24,10 @@ var analyticsInit = function() {
       universalId: universalId,
       cookieDomain: cookieDomain,
       allowLinker: true,
+      storage: 'none'
     });
   } else {
+    window['ga-disable-UA-26179049-1'] = false;
     var analytics = new GOVUK.StaticAnalytics({
       universalId: universalId,
       cookieDomain: cookieDomain,
