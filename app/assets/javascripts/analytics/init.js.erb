@@ -160,9 +160,7 @@ var analyticsInit = function() {
     'visas-immigration.service.gov.uk',
     'your-defra-account.defra.gov.uk'
   ];
-  if (consentCookie && consentCookie["usage"]) {
-    GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'govuk', linkedDomains);
-  }
+  GOVUK.analytics.addLinkedTrackerDomain(secondaryId, 'govuk', linkedDomains);
 }
 
 window.GOVUK.analyticsInit = analyticsInit
