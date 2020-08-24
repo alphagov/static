@@ -62,4 +62,4 @@ development VM it's possible to increase the `proxy_read_timeout` value in
 
 Tests can run in browser at `/specs`
 
-Or in terminal to run only the jasmine tests you can use `RAILS_ENV=test bundle exec rake spec:javascript`
+Or in terminal to run only the jasmine tests you can use `RAILS_ENV=test bundle exec rake jasmine:ci`
