@@ -22,6 +22,9 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
+  # Compress JS using a preprocessor.
+  config.assets.js_compressor = :uglifier
+
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
@@ -31,6 +34,15 @@ Rails.application.configure do
   # Rather than use a CSS compressor, use the SASS style to perform compression.
   config.sass.style = :compressed
   config.sass.line_comments = false
+
+  # Compress static CSS assets using the SASS compressor.
+  Sprockets.register_postprocessor "text/css", :static_postprocessor do |input|
+    if input[:filename].match?(/\.css/)
+      { data: Sprockets::SassCompressor.call(input) }
+    else
+      { data: input[:data] }
+    end
+  end
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
