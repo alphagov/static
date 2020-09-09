@@ -14,7 +14,7 @@
   <a href="#search" class="search-toggle js-header-toggle">Search</a>
   <% # The /search page redirects to a finder if keywords are included. Be careful about
      # changing this, as the redirect adds some parameters to the search query. %>
-  <form id="search" class="site-search govuk-clearfix" action="/search" method="get" role="search">
+  <form id="search" class="site-search govuk-clearfix" action="/search" method="get" role="search" aria-label="Sitewide">
     <div class="content govuk-clearfix">
       <label for="site-search-text">Search</label>
       <input type="search" name="q" id="site-search-text" title="Search" class="js-search-focus">
