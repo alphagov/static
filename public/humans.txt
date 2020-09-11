@@ -12,5 +12,5 @@ makes working on GOV.UK great. Our applications, our developer tools, our
 documentation - in thousands of pull requests, Issy has made everything better.
 
 Issy - thank you for all your hard work. GDS won’t be the same without you, but
-we’re looking forward to seeing all your future successes. Keep being amazing! 🦄🚀
+we’re looking forward to seeing all your future successes. Keep being amazing!
 
