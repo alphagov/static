@@ -400,6 +400,9 @@
       ['Percent', 60],
       ['Percent', 80],
       ['Percent', 100]
+    ],
+    '/eubusiness': [
+      ['Heading', 'Additional help and support']
     ]
   };
 
