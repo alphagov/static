@@ -269,6 +269,36 @@
     }
   }
 
+  .mobile-menu-toggle {
+    @include govuk-font(16);
+    float: right;
+    padding: 6px 0 4px 0;
+    color: govuk-colour("white");
+    background: none;
+    border: 0;
+
+    @include govuk-media-query($from: tablet) {
+      display: none;
+    }
+
+    &:focus {
+      @include govuk-focused-text;
+    }
+
+    &:after {
+      display: inline-block;
+      font-size: 8px;
+      height: 8px;
+      padding-left: 5px;
+      vertical-align: middle;
+      content: " \25BC";
+    }
+
+    &.js-visible:after {
+      content: " \25B2";
+    }
+  }
+
   .header-proposition {
     a {
       &.menu {
