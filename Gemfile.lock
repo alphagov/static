@@ -119,7 +119,7 @@ GEM
       sprockets (< 4)
     govuk_template (0.26.0)
       rails (>= 3.1)
-    govuk_test (1.0.3)
+    govuk_test (2.0.0)
       brakeman (~> 4.6)
       capybara
       puma
@@ -198,7 +198,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    puma (4.3.5)
+    puma (5.0.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
