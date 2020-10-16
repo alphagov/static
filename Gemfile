@@ -37,6 +37,7 @@ group :test do
   gem "minitest-capybara"
   gem "mocha", require: false
   gem "shoulda-context"
+  gem "simplecov"
   gem "webdrivers"
   gem "webmock"
 end
