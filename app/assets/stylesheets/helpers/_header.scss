@@ -9,6 +9,7 @@
   $govuk-header-link-hover: govuk-colour("white");
   $govuk-header-link-active: #1d8feb;
   $govuk-header-nav-item-border-color: #2e3133;
+  position: relative;
 
   #logo {
     background: none;
@@ -104,7 +105,10 @@
   .search-toggle {
     display: none;
 
-    @media screen and (max-width: 379px) {
+    @include govuk-media-query($until: tablet) {
+      position: absolute;
+      right: 0;
+      top: 0;
       background-color: $govuk-brand-colour;
       background-image: image-url("search-button.png");
       background-position: 0 50%;
@@ -112,7 +116,7 @@
       display: block;
       float: right;
       height: 30px;
-      margin: -32px govuk-spacing(3);
+      margin: govuk-spacing(2) govuk-spacing(3);
       overflow: hidden;
       padding: 0;
       text-indent: -5000px;
@@ -255,7 +259,7 @@
       }
     }
 
-    @media screen and (max-width: 379px) {
+    @include govuk-media-query($until: tablet) {
       display: none;
       width: 100%;
 
