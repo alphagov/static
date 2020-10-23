@@ -9,6 +9,14 @@
   $govuk-header-link-hover: govuk-colour("white");
   $govuk-header-link-active: #1d8feb;
   $govuk-header-nav-item-border-color: #2e3133;
+  position: relative;
+
+  .header-logo {
+    width: 100%;
+    @include govuk-media-query($from: tablet) {
+      width: auto;
+    }
+  }
 
   #logo {
     background: none;
@@ -78,9 +86,11 @@
   }
 
   .header-wrapper .header-global .site-search {
-    width: 49%;
     float: right;
 
+    @include govuk-media-query($from: tablet) {
+      width: 49%;
+    }
     @include govuk-media-query($from: desktop) {
       width: 33.33%;
     }
@@ -97,43 +107,47 @@
 
   &.with-proposition {
     #search {
-      margin-top: 4px;
+      @include govuk-media-query($from: tablet) {
+        margin-top: govuk-spacing(1);
+        box-sizing: border-box;
+      }
     }
   }
 
   .search-toggle {
-    display: none;
+    @include govuk-media-query($from: tablet) {
+      display: none;
+    }
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $govuk-brand-colour;
+    background-image: image-url("search-button.png");
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 30px;
+    margin: govuk-spacing(2) govuk-spacing(3);
+    overflow: hidden;
+    padding: 0;
+    text-indent: -5000px;
+    width: 36px;
+    border: 0;
 
-    @media screen and (max-width: 379px) {
-      background-color: $govuk-brand-colour;
-      background-image: image-url("search-button.png");
-      background-position: 0 50%;
-      background-repeat: no-repeat;
-      display: block;
-      float: right;
-      height: 30px;
-      margin: -32px govuk-spacing(3);
-      overflow: hidden;
-      padding: 0;
-      text-indent: -5000px;
-      width: 36px;
-      border: 0;
+    &:focus {
+      border-width: 0;
+      box-shadow: inset 0 0 0 4px $govuk-input-border-colour;
+      outline: $govuk-focus-width solid $govuk-focus-colour;
+      outline-offset: 0;
+    }
 
-      &:focus {
-        border-width: 0;
-        box-shadow: inset 0 0 0 4px $govuk-input-border-colour;
-        outline: $govuk-focus-width solid $govuk-focus-colour;
-        outline-offset: 0;
-      }
+    body.search & {
+      display: none;
+    }
 
-      body.search & {
-        display: none;
-      }
-
-      @include device-pixel-ratio() {
-        background-size: 52.5px 35px;
-        background-position: 100% 50%;
-      }
+    @include device-pixel-ratio() {
+      background-size: 52.5px 35px;
+      background-position: 100% 50%;
     }
 
     &:hover {
@@ -146,125 +160,17 @@
   }
 
   form#search {
+    display: none;
+
     .content {
       position: relative;
-      background: govuk-colour("white");
-    }
-
-    label {
-      float: left;
-      min-height: 36px;
-      line-height: 35px;
-      text-indent: 15px;
-      overflow: hidden;
-      display: block;
-      margin-right: govuk-spacing(2);
-
-      .js-enabled & {
-        float: none;
-        position: absolute;
-        left: 0;
-        top: 1px;
-        z-index: 1;
-        width: 100%;
-        margin-right: 0;
-      }
-    }
-
-    input {
-      @include box-sizing(border-box);
-      float: left;
-      width: 50%;
-      min-width: 0;
-      display: block;
-      margin: 0;
-      border: 0;
-      min-height: 36px;
-      padding: 6px 0;
-
-      &::-moz-focus-inner {
-        border: 0;
-      }
-
-      @include appearance(none);
-    }
-
-    input#site-search-text {
-      @include govuk-font(16, $line-height: (23/16));
-      background: transparent;
-      height: 36px;
-      padding: 6px;
-      position: relative;
-      z-index: 3;
-
-      @include govuk-media-query($from: tablet) {
-        @include govuk-font(16, $line-height: (23/13));
-      }
-
-      &.focus,
-      &:focus {
-        background: govuk-colour("white");
-        outline: $govuk-focus-width solid $govuk-focus-colour;
-        outline-offset: 0;
-        z-index: 5;
-      }
-
-      .js-enabled & {
-        width: 86%;
-        @include calc(width, "100% - 35.1px"); /* 35.1 is for Safari, which renders this input too narrow */
-      }
-    }
-
-    input.submit {
-      position: absolute;
-      z-index: 4;
-      right: 0;
-      top: 0;
-      width: 36px;
-      height: 36px;
-
-      border: 1px solid $govuk-brand-colour;
-      border-width: 0 0 0 1px;
-      border-left-color: #222;
-      border-radius: 0;
-
-      overflow: hidden;
-      text-indent: -5000px;
-
-      color: govuk-colour("white");
-      background-color: $govuk-brand-colour;
-      background-image: image-url("search-button.png");
-      background-repeat: no-repeat;
-      background-position: 0 50%;
-
-      @include device-pixel-ratio() {
-        background-size: 52.5px 35px;
-        background-position: 100% 50%;
-      }
-
-      &:hover {
-        background-color: darken($govuk-brand-colour, 5%);
-      }
-
-      &.focus,
-      &:focus {
-        border-width: 0;
-        box-shadow: inset 0 0 0 4px $govuk-input-border-colour;
-        outline: $govuk-focus-width solid $govuk-focus-colour;
-        outline-offset: 0;
-      }
-    }
-
-    @media screen and (max-width: 379px) {
-      display: none;
-      width: 100%;
-
-      #site-search-text {
-        width: 80%;
-      }
     }
 
     &.js-visible {
+      display: block;
+    }
+
+    @include govuk-media-query($from: tablet) {
       display: block;
     }
   }
