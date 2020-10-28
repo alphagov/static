@@ -6,6 +6,7 @@ $govuk-use-legacy-palette: false;
 // collections uses the action-link component and relies upon this line, see
 // https://github.com/alphagov/collections/pull/1754
 @import "govuk_publishing_components/components/_action-link";
+@import "govuk_publishing_components/components/layout-header";
 @import "govuk_publishing_components/components/_search";
 
 /* govuk_frontend_toolkit includes */
@@ -29,3 +30,22 @@ $govuk-use-legacy-palette: false;
 // implementation existing in multiple apps would need to be updated to make
 // that change just make it available globally for the moment.
 @import "helpers/selectable";
+
+// The following overrides are in place to allow the govuk-header play nicely
+// with govuk_template in our attempt to show account navigation in certain apps
+.header-global {
+  position: relative;
+}
+
+.govuk-header__content {
+  padding: 0 govuk-spacing(3);
+}
+
+.govuk-header__menu-button {
+  top: govuk-spacing(2);
+  right: govuk-spacing(3);
+}
+
+.gem-c-header__nav {
+  clear: both;
+}
