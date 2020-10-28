@@ -30,7 +30,7 @@
     <nav class="gem-c-header__nav">
       <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
         <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="https://www.gov.uk/transition-check/login">Sign in</a>
+          <a class="govuk-header__link" href="<% Plek.new.website_root %>/transition-check/login">Sign in</a>
         </li>
       </ul>
     </nav>
@@ -41,10 +41,10 @@
     <nav class="gem-c-header__nav">
       <ul id="navigation" class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
         <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="https://www.account.publishing.service.gov.uk/">Account</a>
+          <a class="govuk-header__link" href="<% Plek.find("account-manager") %>">Account</a>
         </li>
         <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="https://www.gov.uk/transition-check/logout">Sign out</a>
+          <a class="govuk-header__link" href="<% Plek.new.website_root %>/transition-check/logout">Sign out</a>
         </li>
       </ul>
     </nav>
