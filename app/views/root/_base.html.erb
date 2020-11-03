@@ -1,3 +1,5 @@
+<% hide_account_navigation ||= false %>
+
 <% content_for :homepage_url, Plek.new.website_root %>
 <% content_for :page_title, content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information" %>
 <% @emergency_banner = emergency_banner_notification %>
@@ -25,30 +27,9 @@
     </div>
   </form>
 
-  <div id="accounts-signed-out" class="govuk-header__content gem-c-header__content" data-module="govuk-header">
-    <button role="button" class="govuk-header__menu-button gem-c-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
-    <nav class="gem-c-header__nav">
-      <ul class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
-        <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="<%= Plek.new.website_root %>/transition-check/login">Sign in</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <div id="accounts-signed-in" class="govuk-header__content gem-c-header__content" data-module="govuk-header">
-    <button role="button" class="govuk-header__menu-button gem-c-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
-    <nav class="gem-c-header__nav">
-      <ul class="govuk-header__navigation govuk-header__navigation--end" aria-label="Top Level Navigation">
-        <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="<%= Plek.new.find("account-manager") %>">Account</a>
-        </li>
-        <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="<%= Plek.new.website_root %>/transition-check/logout">Sign out</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <% unless hide_account_navigation %>
+    <%= render partial: 'account_navigation' %>
+  <% end %>
 <% end %>
 
 <% content_for :after_header do %>
