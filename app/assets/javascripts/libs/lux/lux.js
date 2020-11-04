@@ -1,29 +1,28 @@
 var LUX = LUX || {};
 LUX.samplerate = 0;
-var LUX_t_start = Date.now();
+var LUX_t_start = Date.now(),
+    LUX = window.LUX || {};
 LUX = function() {
+    var gaLog = [];
     dlog("lux.js evaluation start.");
-    var version = "206",
-        _label = _getPageLabel(),
+    var version = "208",
         _errorUrl = "https://lux.speedcurve.com/error/",
-        sError = "",
         nErrors = 0,
         maxErrors = 5;
 
     function errorHandler(e) {
-        nErrors++, e && void 0 !== e.filename && void 0 !== e.message && (-1 !== e.filename.indexOf("/lux.js?") || -1 !== e.message.indexOf("LUX") || nErrors <= maxErrors && "function" == typeof _sample && _sample()) && (_label = _getPageLabel(), (new Image).src = _errorUrl + "?v=" + version + "&id=" + getCustomerId() + "&fn=" + encodeURIComponent(e.filename) + "&ln=" + e.lineno + "&cn=" + e.colno + "&msg=" + encodeURIComponent(e.message) + "&l=" + encodeURIComponent(_label) + (connectionType() ? "&ct=" + connectionType() : ""))
+        nErrors++, e && void 0 !== e.filename && void 0 !== e.message && (-1 !== e.filename.indexOf("/lux.js?") || -1 !== e.message.indexOf("LUX") || nErrors <= maxErrors && "function" == typeof _sample && _sample()) && ((new Image).src = _errorUrl + "?v=" + version + "&id=" + getCustomerId() + "&fn=" + encodeURIComponent(e.filename) + "&ln=" + e.lineno + "&cn=" + e.colno + "&msg=" + encodeURIComponent(e.message) + "&l=" + encodeURIComponent(_getPageLabel()) + (connectionType() ? "&ct=" + connectionType() : ""))
     }
     window.addEventListener("error", errorHandler);
-    var gaPerfEntries = "object" == typeof LUX_al ? LUX_al.slice() : [];
-    if ("function" == typeof PerformanceObserver && "function" == typeof PerformanceLongTaskTiming) {
+    var gaPerfEntries = "object" == typeof window.LUX_al ? window.LUX_al.slice() : [];
+    if ("function" == typeof PerformanceObserver) {
         var perfObserver = new PerformanceObserver((function(e) {
-            for (var t = e.getEntries(), n = 0; n < t.length; n++) {
-                var r = t[n];
-                gaPerfEntries.push(r)
-            }
+            e.getEntries().forEach((function(e) {
+                gaPerfEntries.push(e)
+            }))
         }));
         try {
-            perfObserver.observe({
+            "function" == typeof PerformanceLongTaskTiming && perfObserver.observe({
                 type: "longtask"
             }), "function" == typeof LargestContentfulPaint && perfObserver.observe({
                 type: "largest-contentful-paint",
@@ -47,8 +46,8 @@ LUX = function() {
         gFlag_NoNavTiming = 2,
         gFlag_NoUserTiming = 4,
         gFlag_NotVisible = 8,
-        gaMarks = "undefined" != typeof LUX && void 0 !== LUX.gaMarks ? LUX.gaMarks : [],
-        gaMeasures = "undefined" != typeof LUX && void 0 !== LUX.gaMeasures ? LUX.gaMeasures : [],
+        gaMarks = void 0 !== LUX.gaMarks ? LUX.gaMarks : [],
+        gaMeasures = void 0 !== LUX.gaMeasures ? LUX.gaMeasures : [],
         ghIx = {},
         ghData = {},
         gbLuxSent = 0,
@@ -63,21 +62,21 @@ LUX = function() {
         gUid = refreshUniqueId(gSyncId),
         gCustomerDataTimeout, perf = window.performance,
         gMaxQuerystring = 2e3,
-        _beaconUrl = "undefined" != typeof LUX && LUX.beaconUrl ? LUX.beaconUrl : "https://lux.speedcurve.com/lux/",
-        _samplerate = "undefined" != typeof LUX && void 0 !== LUX.samplerate ? LUX.samplerate : 100;
+        _beaconUrl = void 0 !== LUX.beaconUrl ? LUX.beaconUrl : "https://lux.speedcurve.com/lux/",
+        _samplerate = void 0 !== LUX.samplerate ? LUX.samplerate : 100;
     dlog("Sample rate = " + _samplerate + "%. " + (_sample() ? "This session IS being sampled." : "This session is NOT being sampled. The data will NOT show up in your LUX dashboards. Call LUX.forceSample() and try again."));
-    var _auto = "undefined" == typeof LUX || void 0 === LUX.auto || LUX.auto,
-        _navigationStart = "undefined" != typeof LUX && LUX.ns ? LUX.ns : Date.now ? Date.now() : +new Date,
+    var _auto = void 0 === LUX.auto || LUX.auto,
+        _navigationStart = LUX.ns ? LUX.ns : Date.now ? Date.now() : +new Date,
         gLuxSnippetStart = 0,
         gFirstInputDelay;
-    perf && perf.timing && perf.timing.navigationStart ? (_navigationStart = perf.timing.navigationStart, gLuxSnippetStart = "undefined" != typeof LUX && LUX.ns ? LUX.ns - _navigationStart : 0) : (dlog("Nav Timing is not supported."), gFlags |= gFlag_NoNavTiming);
+    perf && perf.timing && perf.timing.navigationStart ? (_navigationStart = perf.timing.navigationStart, gLuxSnippetStart = LUX.ns ? LUX.ns - _navigationStart : 0) : (dlog("Nav Timing is not supported."), gFlags |= gFlag_NoNavTiming);
     var gaEventTypes = ["click", "mousedown", "keydown", "touchstart", "pointerdown"],
         ghListenerOptions = {
             passive: !0,
             capture: !0
         };
 
-    function recordDelay(e, t) {
+    function recordDelay(e) {
         gFirstInputDelay || (gFirstInputDelay = Math.round(e), gaEventTypes.forEach((function(e) {
             removeEventListener(e, onInput, ghListenerOptions)
         })))
@@ -166,15 +165,11 @@ LUX = function() {
         return _getM(e, _getMarks())
     }
 
-    function _getMeasure(e) {
-        return _getM(e, _getMeasures())
-    }
-
     function _getM(e, t) {
         if (t)
-            for (i = t.length - 1; i >= 0; i--) {
-                var n = t[i];
-                if (e === n.name) return n
+            for (var n = t.length - 1; n >= 0; n--) {
+                var r = t[n];
+                if (e === r.name) return r
             }
     }
 
@@ -197,40 +192,41 @@ LUX = function() {
     function _clearMarks(e) {
         if (perf && perf.clearMarks) return perf.clearMarks(e);
         if (e)
-            for (i = gaMarks.length - 1; i >= 0; i--) e === gaMarks[i].name && gaMarks.splice(i, 1);
+            for (var t = gaMarks.length - 1; t >= 0; t--) e === gaMarks[t].name && gaMarks.splice(t, 1);
         else gaMarks = []
     }
 
     function _clearMeasures(e) {
         if (perf && perf.clearMeasures) return perf.clearMeasures(e);
         if (e)
-            for (i = gaMeasures.length - 1; i >= 0; i--) e === gaMeasures[i].name && gaMeasures.splice(i, 1);
+            for (var t = gaMeasures.length - 1; t >= 0; t--) e === gaMeasures[t].name && gaMeasures.splice(t, 1);
         else gaMeasures = []
     }
 
     function userTimingValues() {
         var e = {},
             t = _getMarks();
-        if (t)
-            for (var n = 0, r = t.length; n < r; n++) {
-                var a = (o = t[n]).name,
-                    i = Math.round(o.startTime);
-                void 0 === e[a] ? e[a] = i : e[a] = Math.max(i, e[a])
+        t && t.forEach((function(t) {
+            var n = _getMark(gStartMark),
+                r = a !== gStartMark && n ? n.startTime : 0,
+                a = t.name,
+                i = Math.round(t.startTime - r);
+            void 0 === e[a] ? e[a] = i : e[a] = Math.max(i, e[a])
+        }));
+        var n = _getMeasures();
+        n && n.forEach((function(t) {
+            var n = t.name,
+                r = Math.round(t.duration);
+            void 0 === e[n] ? e[n] = r : e[n] = Math.max(r, e[n])
+        }));
+        var r = [],
+            a = Object.keys(e);
+        if (a)
+            for (var i = 0, o = a.length; i < o; i++) {
+                var s = a[i];
+                r.push(s + "|" + e[s])
             }
-        if (t = _getMeasures())
-            for (n = 0, r = t.length; n < r; n++) {
-                var o;
-                a = (o = t[n]).name, i = Math.round(o.duration);
-                void 0 === e[a] ? e[a] = i : e[a] = Math.max(i, e[a])
-            }
-        var s = [],
-            d = Object.keys(e);
-        if (d)
-            for (n = 0, r = d.length; n < r; n++) {
-                a = d[n];
-                s.push(a + "|" + e[a])
-            }
-        return s.join(",")
+        return r.join(",")
     }
 
     function elementTimingValues() {
@@ -249,21 +245,21 @@ LUX = function() {
             t = {},
             n = {};
         if (gaPerfEntries.length)
-            for (var r = _getMark(gStartMark) ? _getMark(gStartMark).startTime : 0, a = _getMark(gStartMark) ? _getMark(gEndMark).startTime : perf.timing.loadEventEnd - perf.timing.navigationStart, i = 0; i < gaPerfEntries.length; i++) {
-                var o = gaPerfEntries[i];
-                if ("longtask" === o.entryType) {
-                    var s = Math.round(o.duration);
-                    if (o.startTime < r) s -= r - o.startTime;
-                    else if (o.startTime >= a) continue;
-                    var d = o.attribution[0].name;
-                    t[d] || (t[d] = 0, n[d] = ""), t[d] += s, n[d] += "," + Math.round(o.startTime) + "|" + s
+            for (var r = _getMark(gStartMark), a = r ? r.startTime : 0, i = r ? _getMark(gEndMark).startTime : perf.timing.loadEventEnd - perf.timing.navigationStart, o = 0; o < gaPerfEntries.length; o++) {
+                var s = gaPerfEntries[o];
+                if ("longtask" === s.entryType) {
+                    var d = Math.round(s.duration);
+                    if (s.startTime < a) d -= a - s.startTime;
+                    else if (s.startTime >= i) continue;
+                    var g = s.attribution[0].name;
+                    t[g] || (t[g] = 0, n[g] = ""), t[g] += d, n[g] += "," + Math.round(s.startTime) + "|" + d
                 }
             }
-        var g = void 0 !== t.script ? "script" : "unknown";
-        void 0 === t[g] && (t[g] = 0, n[g] = "");
-        var u = cpuStats(n[g]),
-            c = ",n|" + u.count + ",d|" + u.median + ",x|" + u.max + (0 === u.fci ? "" : ",i|" + u.fci);
-        return e += "s|" + t[g] + c + n[g]
+        var u = void 0 !== t.script ? "script" : "unknown";
+        void 0 === t[u] && (t[u] = 0, n[u] = "");
+        var c = cpuStats(n[u]),
+            l = ",n|" + c.count + ",d|" + c.median + ",x|" + c.max + (0 === c.fci ? "" : ",i|" + c.fci);
+        return e += "s|" + t[u] + l + n[u]
     }
 
     function cpuStats(e) {
@@ -354,7 +350,7 @@ LUX = function() {
     }
 
     function _init() {
-        dlog("Enter LUX.init()."), _clearMarks(), _clearMeasures(), _clearIx(), _removeIxHandlers(), _addIxHandlers(), _label = _getPageLabel(), gbNavSent = 0, gbLuxSent = 0, gbIxSent = 0, gbFirstPV = 0, gSyncId = createSyncId(), gUid = refreshUniqueId(gSyncId), gaPerfEntries.splice(0), gFlags = 0, gFlags |= gFlag_InitCalled, _mark(gStartMark)
+        dlog("Enter LUX.init()."), _clearMarks(), _clearMeasures(), _clearIx(), _removeIxHandlers(), _addIxHandlers(), gbNavSent = 0, gbLuxSent = 0, gbIxSent = 0, gbFirstPV = 0, gSyncId = createSyncId(), gUid = refreshUniqueId(gSyncId), gaPerfEntries.splice(0), gFlags = 0, gFlags |= gFlag_InitCalled, _mark(gStartMark)
     }
 
     function blockingScripts() {
@@ -470,7 +466,7 @@ LUX = function() {
     }
 
     function getCustomerId() {
-        if ("undefined" != typeof LUX && LUX.customerid) return LUX.customerid;
+        if (void 0 !== LUX.customerid) return LUX.customerid;
         var e = getScriptElement("/js/lux.js");
         return e ? (LUX.customerid = getQuerystringParam(e.src, "id"), LUX.customerid) : ""
     }
@@ -564,8 +560,8 @@ LUX = function() {
     }
 
     function findPos(e) {
-        for (var t = curtop = 0; e;) t += e.offsetLeft, curtop += e.offsetTop, e = e.offsetParent;
-        return [t, curtop]
+        for (var t = 0, n = 0; e;) t += e.offsetLeft, n += e.offsetTop, e = e.offsetParent;
+        return [t, n]
     }
 
     function _sendLux() {
@@ -581,27 +577,29 @@ LUX = function() {
             var i = cpuTimes(),
                 o = calculateDCLS(),
                 s = selfLoading();
-            document.visibilityState && "visible" !== document.visibilityState && (gFlags |= gFlag_NotVisible), _label = _getPageLabel();
-            var d = _beaconUrl + "?v=" + version + "&id=" + e + "&sid=" + gSyncId + "&uid=" + gUid + (r ? "&CD=" + r : "") + "&l=" + encodeURIComponent(_label),
+            document.visibilityState && "visible" !== document.visibilityState && (gFlags |= gFlag_NotVisible);
+            var d = _beaconUrl + "?v=" + version + "&id=" + e + "&sid=" + gSyncId + "&uid=" + gUid + (r ? "&CD=" + r : "") + "&l=" + encodeURIComponent(_getPageLabel()),
                 g = inlineTagSize("script"),
                 u = inlineTagSize("style"),
                 c = (gbNavSent ? "" : "&NT=" + getNavTiming()) + (gbFirstPV ? "&LJS=" + s : "") + "&PS=ns" + numScripts() + "bs" + blockingScripts() + (g > -1 ? "is" + g : "") + "ss" + numStylesheets() + "bc" + blockingStylesheets() + (u > -1 ? "ic" + u : "") + "ia" + imagesATF().length + "it" + document.getElementsByTagName("img").length + "dd" + avgDomDepth() + "nd" + document.getElementsByTagName("*").length + "vh" + document.documentElement.clientHeight + "vw" + document.documentElement.clientWidth + "dh" + docHeight(document) + "dw" + docWidth(document) + (docSize() ? "ds" + docSize() : "") + (connectionType() ? "ct" + connectionType() + "_" : "") + "er" + nErrors + "nt" + navigationType() + (navigator.deviceMemory ? "dm" + Math.round(navigator.deviceMemory) : "") + (a ? "&IX=" + a : "") + (gFirstInputDelay ? "&FID=" + gFirstInputDelay : "") + (i ? "&CPU=" + i : "") + (gFlags ? "&fl=" + gFlags : "") + (n ? "&ET=" + n : "") + "&HN=" + encodeURIComponent(document.location.hostname) + (!1 !== o ? "&CLS=" + o : ""),
-                f = "";
+                l = "";
             if (t) {
-                var l = d.length + c.length;
-                if (l + t.length <= gMaxQuerystring) c += "&UT=" + t;
+                var f = d.length + c.length;
+                if (f + t.length <= gMaxQuerystring) c += "&UT=" + t;
                 else {
-                    var p = gMaxQuerystring - l,
-                        m = t.lastIndexOf(",", p);
-                    c += "&UT=" + t.substring(0, m), f = t.substring(m + 1)
+                    var m = gMaxQuerystring - f,
+                        p = t.lastIndexOf(",", m);
+                    c += "&UT=" + t.substring(0, p), l = t.substring(p + 1)
                 }
             }
-            dlog("Sending main LUX beacon: " + (v = d + c)), _sendBeacon(v), gbLuxSent = 1, gbNavSent = 1, gbIxSent = a;
-            for (p = gMaxQuerystring - d.length; f;) {
-                var v, h = "";
-                if (f.length <= p) h = f, f = "";
-                else -1 === (m = f.lastIndexOf(",", p)) && (m = f.indexOf(",")), -1 === m ? (h = f, f = "") : (h = f.substring(0, m), f = f.substring(m + 1));
-                dlog("Sending extra User Timing beacon: " + (v = d + "&UT=" + h)), _sendBeacon(v)
+            var v = d + c;
+            dlog("Sending main LUX beacon: " + v), _sendBeacon(v), gbLuxSent = 1, gbNavSent = 1, gbIxSent = a;
+            for (m = gMaxQuerystring - d.length; l;) {
+                var h = "";
+                if (l.length <= m) h = l, l = "";
+                else -1 === (p = l.lastIndexOf(",", m)) && (p = l.indexOf(",")), -1 === p ? (h = l, l = "") : (h = l.substring(0, p), l = l.substring(p + 1));
+                var y = d + "&UT=" + h;
+                dlog("Sending extra User Timing beacon: " + y), _sendBeacon(y)
             }
         }
     }
@@ -612,7 +610,7 @@ LUX = function() {
             var t = ixValues();
             if (t) {
                 var n = customerDataValues(),
-                    r = "?v=" + version + "&id=" + e + "&sid=" + gSyncId + "&uid=" + gUid + (n ? "&CD=" + n : "") + "&l=" + encodeURIComponent(_label) + "&IX=" + t + (gFirstInputDelay ? "&FID=" + gFirstInputDelay : "") + "&HN=" + encodeURIComponent(document.location.hostname),
+                    r = "?v=" + version + "&id=" + e + "&sid=" + gSyncId + "&uid=" + gUid + (n ? "&CD=" + n : "") + "&l=" + encodeURIComponent(_getPageLabel()) + "&IX=" + t + (gFirstInputDelay ? "&FID=" + gFirstInputDelay : "") + "&HN=" + encodeURIComponent(document.location.hostname),
                     a = _beaconUrl + r;
                 dlog("Sending Interaction Metrics beacon: " + a), _sendBeacon(a), gbIxSent = 1
             }
@@ -624,7 +622,7 @@ LUX = function() {
         if (e && gSyncId && validDomain() && _sample() && gbLuxSent) {
             var t = customerDataValues();
             if (t) {
-                var n = "?v=" + version + "&id=" + e + "&sid=" + gSyncId + "&uid=" + gUid + "&CD=" + t + "&l=" + encodeURIComponent(_label) + "&HN=" + encodeURIComponent(document.location.hostname),
+                var n = "?v=" + version + "&id=" + e + "&sid=" + gSyncId + "&uid=" + gUid + "&CD=" + t + "&l=" + encodeURIComponent(_getPageLabel()) + "&HN=" + encodeURIComponent(document.location.hostname),
                     r = _beaconUrl + n;
                 dlog("Sending late Customer Data beacon: " + r), _sendBeacon(r)
             }
@@ -728,13 +726,11 @@ LUX = function() {
     }
 
     function _getPageLabel() {
-        if ("undefined" != typeof LUX) {
-            if (void 0 !== LUX.label) return LUX.label;
-            if (void 0 !== LUX.jspagelabel) try {
-                return eval(LUX.jspagelabel)
-            } catch (e) {
-                console.log("Error evaluating customer settings LUX page label:", e)
-            }
+        if (void 0 !== LUX.label) return LUX.label;
+        if (void 0 !== LUX.jspagelabel) try {
+            return eval(LUX.jspagelabel)
+        } catch (e) {
+            console.log("Error evaluating customer settings LUX page label:", e)
         }
         return document.title
     }
@@ -767,7 +763,7 @@ LUX = function() {
     }
 
     function dlog(e) {
-        "undefined" == typeof gaLog && (gaLog = []), gaLog.push(e), "undefined" != typeof LUX && LUX.debug && console.log("LUX: " + e)
+        gaLog.push(e), LUX.debug && console.log("LUX: " + e)
     }
     gaEventTypes.forEach((function(e) {
         window.addEventListener(e, onInput, ghListenerOptions)
@@ -795,20 +791,17 @@ LUX = function() {
         beaconUrl: _beaconUrl,
         samplerate: _samplerate,
         auto: _auto,
-        label: _label,
+        label: void 0 !== LUX.label ? LUX.label : void 0,
         version: version,
         ae: [],
         al: [],
-        debug: !("undefined" == typeof LUX || !LUX.debug)
+        debug: !!LUX.debug
     };
-    if (window.LUX && LUX.ac && LUX.ac.length)
-        for (var i = 0; i < LUX.ac.length; i++) {
-            var args = LUX.ac[i],
-                fn = args.shift();
-            "function" == typeof _LUX[fn] && _LUX[fn].apply(_LUX, args)
-        }
-    for (var i = 0;
-        "object" == typeof LUX_ae && i < LUX_ae.length; i++) errorHandler(LUX_ae[i]);
-    return dlog("lux.js evaluation end."), _LUX
+    return LUX.ac && LUX.ac.length && LUX.ac.forEach((function(e) {
+        var t = e.shift();
+        "function" == typeof _LUX[t] && _LUX[t].apply(_LUX, e)
+    })), void 0 !== window.LUX_ae && window.LUX_ae.forEach((function(e) {
+        errorHandler(e)
+    })), dlog("lux.js evaluation end."), _LUX
 }();
 var LUX_t_end = Date.now();
