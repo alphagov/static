@@ -127,7 +127,7 @@ Rails.application.configure do
   # Allow access to the application when in ECS
   if ENV["ECS_HOSTNAME"]
     config.hosts += %W[
-      #{ENV["ECS_HOSTNAME"]}
+      #{ENV['ECS_HOSTNAME']}
     ]
   end
 end
