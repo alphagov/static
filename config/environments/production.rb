@@ -124,11 +124,10 @@ Rails.application.configure do
     ENV["PLEK_SERVICE_STATIC_URI"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("PLEK_SERVICE_STATIC_URI")
   end
 
-
   # Allow access to the application when in ECS
   if ENV["ECS_HOSTNAME"]
-  config.hosts += %w[
-    ENV["ECS_HOSTNAME"]
-  ]
+    config.hosts += %w[
+      ENV["ECS_HOSTNAME"]
+    ]
   end
 end
