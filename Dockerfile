@@ -15,7 +15,9 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 ADD .ruby-version $APP_HOME/
 ADD Gemfile* $APP_HOME/
-RUN bundle install
+RUN bundle config set deployment 'true'
+RUN bundle config set without 'development test'
+RUN bundle install --jobs 4
 
 ADD . $APP_HOME
 
