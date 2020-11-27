@@ -1,5 +1,5 @@
 GOV.UK is built by a team at the Government Digital Service (with thanks to Martha!) in London,
-Bristol and Manchester.  If you'd like to join us, see https://jobs.jobvite.com/gds
+Bristol and Manchester.  If you'd like to join us, see https://gdscareers.tal.net/candidate
 
 We don't often have cause to edit GOV.UK's humans.txt file, but the departure of our lead content designer, Jon Sanger, is a very good one.
 
