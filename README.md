@@ -16,6 +16,7 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 - [Slimmer templates](docs/slimmer_templates.md)
 - [Emergency Banner](docs/emergency-banner.md)
 - [Analytics](docs/analytics.md)
+- [`humans.txt`](docs/humans.md)
 
 ### Running the application
 
