@@ -1,11 +1,9 @@
-var LUX = LUX || {};
-LUX.samplerate = 0;
 var LUX_t_start = Date.now(),
     LUX = window.LUX || {};
 LUX = function() {
     var gaLog = [];
     dlog("lux.js evaluation start.");
-    var version = "208",
+    var version = "209",
         _errorUrl = "https://lux.speedcurve.com/error/",
         nErrors = 0,
         maxErrors = 5;
@@ -727,10 +725,13 @@ LUX = function() {
 
     function _getPageLabel() {
         if (void 0 !== LUX.label) return LUX.label;
-        if (void 0 !== LUX.jspagelabel) try {
-            return eval(LUX.jspagelabel)
-        } catch (e) {
-            console.log("Error evaluating customer settings LUX page label:", e)
+        if (void 0 !== LUX.jspagelabel) {
+            try {
+                var label = eval(LUX.jspagelabel)
+            } catch (e) {
+                console.log("Error evaluating customer settings LUX page label:", e)
+            }
+            if (label) return label
         }
         return document.title
     }
@@ -792,6 +793,7 @@ LUX = function() {
         samplerate: _samplerate,
         auto: _auto,
         label: void 0 !== LUX.label ? LUX.label : void 0,
+        jspagelabel: void 0 !== LUX.jspagelabel ? LUX.jspagelabel : void 0,
         version: version,
         ae: [],
         al: [],
