@@ -402,7 +402,7 @@
       ['Percent', 100]
     ],
     '/eubusiness': [
-      ['Heading', 'Additional help and support']
+      ['Heading', 'Webinars for EU-based businesses trading with the UK']
     ]
   };
 
