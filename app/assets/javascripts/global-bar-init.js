@@ -29,7 +29,7 @@ var globalBarInit = {
       "^/coronavirus/.*$",
       "^/transition(.cy)?$",
       "^/transition-check/.*$",
-      "^/eubusiness$",
+      "^/eubusiness(\..*)?$",
     ]
 
     var ctaLink = document.querySelector('.js-call-to-action')
