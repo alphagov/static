@@ -14,7 +14,7 @@
     return (
       '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
       '  <div class="survey-wrapper">' +
-      '    <a class="survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>' +
+      '    <a class="govuk-link survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>' +
       '    <h2 class="survey-title" id="survey-title">{{title}}</h2>' +
            children +
       '  </div>' +
@@ -24,14 +24,14 @@
 
   var URL_SURVEY_TEMPLATE = templateBase(
     '<p>' +
-      takeSurveyLink('{{surveyCta}}', 'survey-primary-link') +
+      takeSurveyLink('{{surveyCta}}', 'govuk-link survey-primary-link') +
     ' <span class="postscript-cta">{{surveyCtaPostscript}}</span>' +
     '</p>'
   )
 
   var EMAIL_SURVEY_TEMPLATE = templateBase(
     '<div id="email-survey-pre">' +
-    '  <a class="survey-primary-link" href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">' +
+    '  <a class="govuk-link survey-primary-link" href="#email-survey-form" id="email-survey-open" rel="noopener noreferrer" role="button" aria-expanded="false">' +
     '    {{surveyCta}}' +
     '  </a>' +
     '</div>' +
