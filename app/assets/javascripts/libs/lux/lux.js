@@ -3,7 +3,7 @@ var LUX_t_start = Date.now(),
 LUX = function() {
     var gaLog = [];
     dlog("lux.js evaluation start.");
-    var version = "209",
+    var version = "210",
         _errorUrl = "https://lux.speedcurve.com/error/",
         nErrors = 0,
         maxErrors = 5;
@@ -592,12 +592,14 @@ LUX = function() {
             }
             var v = d + c;
             dlog("Sending main LUX beacon: " + v), _sendBeacon(v), gbLuxSent = 1, gbNavSent = 1, gbIxSent = a;
-            for (m = gMaxQuerystring - d.length; l;) {
-                var h = "";
-                if (l.length <= m) h = l, l = "";
-                else -1 === (p = l.lastIndexOf(",", m)) && (p = l.indexOf(",")), -1 === p ? (h = l, l = "") : (h = l.substring(0, p), l = l.substring(p + 1));
-                var y = d + "&UT=" + h;
-                dlog("Sending extra User Timing beacon: " + y), _sendBeacon(y)
+            for (var h = gMaxQuerystring - d.length; l;) {
+                var y = "";
+                if (l.length <= h) y = l, l = "";
+                else {
+                    var _ = l.lastIndexOf(",", h); - 1 === _ && (_ = l.indexOf(",")), -1 === _ ? (y = l, l = "") : (y = l.substring(0, _), l = l.substring(_ + 1))
+                }
+                var L = d + "&UT=" + y;
+                dlog("Sending extra User Timing beacon: " + L), _sendBeacon(L)
             }
         }
     }
@@ -628,6 +630,11 @@ LUX = function() {
     }
 
     function _sendBeacon(e) {
+        if ("simple" !== LUX.beaconMode) return _sendBeaconAutoUpdate(e);
+        (new Image).src = e
+    }
+
+    function _sendBeaconAutoUpdate(e) {
         var t = document.createElement("script");
         t.async = !0, t.src = e;
         var n = document.getElementsByTagName("script");
