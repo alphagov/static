@@ -62,7 +62,7 @@ describe("GOVUK.PII", function() {
       var state = pii.stripPII('https://www.account.publishing.service.gov.uk/new-account?state=4be6f4db-f32a-4d75-b0c7-3b3533ff31c4&somethingelse=24342fdjfskf')
       expect(state).toEqual('https://www.account.publishing.service.gov.uk/new-account?state=[state]&somethingelse=24342fdjfskf')
     })
-  })  
+  })
 
   describe('when configured to remove all PII', function() {
     beforeEach(function() {
@@ -138,9 +138,44 @@ describe("GOVUK.PII", function() {
     });
   });
 
+  describe('when there is a govuk:static-analytics:strip-query-string-parameters meta tag present', function() {
+    afterEach(function() {
+      resetHead()
+    })
+
+    it('strips specified query strings that are identified in a string', function() {
+      pageWantsQueryStringParametersStripped(['strip-parameter-1', 'strip-parameter-2'])
+      pii = new GOVUK.pii()
+      var string = pii.stripPII('this is a string with a url /test?strip-parameter-1=secret&strip-parameter-2=more-secret')
+      expect(string).toEqual('this is a string with a url /test?strip-parameter-1=[strip-parameter-1]&strip-parameter-2=[strip-parameter-2]')
+    })
+
+    it('can strip query strings with special characters', function() {
+      pageWantsQueryStringParametersStripped(['parameter[]'])
+      pii = new GOVUK.pii()
+      var string = pii.stripPII('/url?parameter[]=secret&parameter[]=more-secret')
+      expect(string).toEqual('/url?parameter[]=[parameter[]]&parameter[]=[parameter[]]')
+    })
+
+    it('matches a URL with a fragment', function() {
+      pageWantsQueryStringParametersStripped(['parameter'])
+      pii = new GOVUK.pii()
+      var string = pii.stripPII('/url?parameter=secret#anchor')
+      expect(string).toEqual('/url?parameter=[parameter]#anchor')
+    })
+
+    it('doesn\'t match params without a query string prefix', function() {
+      pageWantsQueryStringParametersStripped(['parameter'])
+      pii = new GOVUK.pii()
+      var string = pii.stripPII('parameter=secret')
+      expect(string).toEqual('parameter=secret')
+    })
+  })
+
   function resetHead() {
     $('head').find('meta[name="govuk:static-analytics:strip-postcodes"]').remove();
     $('head').find('meta[name="govuk:static-analytics:strip-dates"]').remove();
+    $('head').find('meta[name="govuk:static-analytics:strip-query-string-parameters"]').remove();
   }
 
   function pageWantsDatesStripped() {
@@ -149,5 +184,9 @@ describe("GOVUK.PII", function() {
 
   function pageWantsPostcodesStripped() {
     $('head').append('<meta name="govuk:static-analytics:strip-postcodes" value="does not matter" />');
+  }
+
+  function pageWantsQueryStringParametersStripped (parameters) {
+    $('head').append('<meta name="govuk:static-analytics:strip-query-string-parameters" content="' + parameters.join(", ") + '" />')
   }
 });
