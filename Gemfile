@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "6.0.3.4"
+gem "rails", "6.1.1"
 
 gem "actionpack-page_caching"
 gem "gds-api-adapters"
