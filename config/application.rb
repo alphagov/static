@@ -4,6 +4,7 @@ require "rails"
 
 require "action_controller/railtie"
 require "action_view/railtie"
+require "active_support/time"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
