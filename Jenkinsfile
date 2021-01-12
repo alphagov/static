@@ -6,6 +6,7 @@ REPOSITORY = 'static'
 
 node {
   govuk.buildProject(
+    beforeTest: { sh("yarn install") },
     sassLint: false,
     overrideTestTask: {
       stage("Test") {

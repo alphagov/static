@@ -6,6 +6,8 @@
 
 tmp/*
 log/*.log
-public/static/
+public/assets
 .bundle
 coverage
+node_modules
+yarn-error.log
