@@ -12,7 +12,7 @@ gem "nokogiri"
 gem "plek"
 gem "rack_strip_client_ip"
 gem "redis"
-gem "sass-rails"
+gem "sassc-rails"
 gem "uglifier"
 
 group :development do
