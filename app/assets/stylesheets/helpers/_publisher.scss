@@ -11,7 +11,7 @@
 
   aside {
     z-index: 10;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #bbbbbb;
     margin-bottom: 1em;
     padding-bottom: 1em;
     overflow: hidden;
@@ -54,10 +54,10 @@ aside .page-navigation {
   ol {
     margin: 0;
     padding: 0;
-    float:left;
+    float: left;
     display: inline;
     overflow: hidden;
-    width:50%;
+    width: 50%;
 
     @include media-down(mobile) {
       float: none;
@@ -69,7 +69,7 @@ aside .page-navigation {
   li {
     list-style: decimal;
     list-style-position: outside;
-    margin-right: 0.75em;
+    margin-right: .75em;
     margin-left: 1.5em;
     clear: left;
     @include govuk-font(16);
@@ -81,7 +81,7 @@ aside .page-navigation {
 
     a {
       display: block;
-      padding: 0.25em 1em 0.25em 0;
+      padding: .25em 1em .25em 0;
 
       span {
         cursor: pointer;
@@ -109,7 +109,7 @@ aside .page-navigation {
 
       &.part-label {
         color: $text-colour;
-        padding:0 0.5em 0 0;
+        padding: 0 .5em 0 0;
       }
 
       &.part-description {
@@ -119,15 +119,15 @@ aside .page-navigation {
       }
 
       &.part-title {
-        color: #2E3191;
+        color: #2e3191;
         text-decoration: underline;
         line-height: 1.5;
       }
     }
 
     &.active {
-      padding-top: 0.25em;
-      padding-bottom: 0.25em;
+      padding-top: .25em;
+      padding-bottom: .25em;
 
       span.part-number {
         padding: 0;
@@ -146,9 +146,10 @@ aside .page-navigation {
 
       @include govuk-font(19, $line-height: (45/19));
 
-      span, a {
+      span,
+      a {
         margin: 0 -1em 0 -2.25em;
-        padding: 0em 1em 0.75em 2.75em;
+        padding: 0 1em .75em 2.75em;
       }
 
       span {
@@ -178,11 +179,11 @@ aside .page-navigation {
 /* guides pagination */
 .pagination {
   display: block;
-  margin: 4em 0 0 0;
+  margin: 4em 0 0;
   border-bottom: 1px solid $border-colour;
 
   @include media-down(mobile) {
-    margin: 2em 0 0 0;
+    margin: 2em 0 0;
   }
 
   ul {
@@ -212,7 +213,7 @@ aside .page-navigation {
 
       .pagination-label {
         @include govuk-font(27, $line-height: (33.75 / 27));
-        margin-bottom: 0.1em;
+        margin-bottom: .1em;
         display: block;
       }
 
@@ -244,7 +245,7 @@ aside .page-navigation {
       width: 30px;
       height: 38px;
       content: " ";
-      }
+    }
 
     &.previous {
       float: left;
@@ -252,11 +253,11 @@ aside .page-navigation {
     }
 
     &.previous a {
-      padding: 0.75em 0 0.75em 3em;
+      padding: .75em 0 .75em 3em;
     }
 
     &.next a {
-      padding: 0.75em 3em 0.75em 0;
+      padding: .75em 3em .75em 0;
     }
 
     @include media-down(mobile) {
@@ -279,13 +280,13 @@ aside .page-navigation {
     span {
       display: block;
       min-height: 4.5em;
-      padding: 0.75em 5%;
+      padding: .75em 5%;
       width: 90%;
     }
 
     .pagination-label {
       display: block;
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
     }
   }
 }
@@ -294,18 +295,20 @@ aside .page-navigation {
  * Transactions and local transactions styles
  */
 
-.find-location-for-service, .find-location-for-licence {
+.find-location-for-service,
+.find-location-for-licence {
   background-color: $panel-colour;
   min-height: 2em;
   line-height: 2;
   margin: 2em 0;
-  padding: 1em 0.75em 1em 1em;
+  padding: 1em .75em 1em 1em;
   position: relative;
 
   @include media-down(mobile) {
     margin: 1.2em 0;
     padding-left: 1em;
     padding-right: 1em;
+
     .postcode {
       margin-left: 0;
     }

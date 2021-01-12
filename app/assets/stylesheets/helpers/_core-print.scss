@@ -89,7 +89,7 @@ article {
 }
 
 .modified-date {
-  color: rgb(225,225,225);
+  color: rgb(225, 225, 225);
   @include govuk-font(14);
 
   &:after {
@@ -115,7 +115,6 @@ body .actions,
 .done-questions .question-number,
 .done-questions li.done .undo,
 .player-container,
-.video-transcript-toggle
-.return-to-top {
+.video-transcript-toggle .return-to-top {
   display: none !important;
 }

@@ -1,6 +1,6 @@
 .error {
   .intro {
-    background-color: #D5E8F3;
+    background-color: #d5e8f3;
     color: $text-colour;
   }
 
@@ -8,7 +8,7 @@
     input[type="text"] {
       @include govuk-font(24);
 
-      padding: 0.3em 0 0.1em 0.4em;
+      padding: .3em 0 .1em .4em;
       margin-left: 0;
     }
   }
@@ -18,7 +18,8 @@
       display: block;
     }
 
-    input[type="text"], input[type="search"] {
+    input[type="text"],
+    input[type="search"] {
       background-color: $panel-colour;
       border: 2px inset;
     }

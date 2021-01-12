@@ -33,7 +33,7 @@
       clear: both;
       margin: 0 govuk-spacing(3) govuk-spacing(6);
       border: 1px solid $govuk-border-colour;
-      border-width: 1px 0 0 0;
+      border-width: 1px 0 0;
 
       @include govuk-media-query($from: tablet) {
         margin-bottom: 0;
