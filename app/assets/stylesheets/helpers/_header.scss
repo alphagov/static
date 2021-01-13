@@ -1,5 +1,7 @@
-@import '_shims';
+@import 'shims';
 
+// stylelint-disable selector-max-id, selector-no-qualifying-type, max-nesting-depth
+// These should be removed in a refactoring with the underlying HTML.
 #global-header {
   $govuk-header-background: govuk-colour("black");
   $govuk-header-border-color: $govuk-brand-colour;
@@ -241,33 +243,23 @@
   }
 }
 
-/* Global browser prompt message */
+// Global browser prompt message
 
 #global-browser-prompt {
-  display: none; /* shown with JS, always hidden for non-JS */
-}
-
-#global-browser-prompt {
+  display: none; // shown with JS, always hidden for non-JS
   padding: .5em 2em;
+  background-color: $light-blue-25;
 
   p {
     @include govuk-font(19);
+    position: relative;
     margin: 0 auto;
-    max-width: 960px;
+    padding-right: 20px;
+    max-width: 940px;
   }
 
   @include media-down(mobile) {
     padding: .5em 1em;
-  }
-}
-
-#global-browser-prompt {
-  background-color: $light-blue-25;
-
-  p {
-    position: relative;
-    padding-right: 20px;
-    max-width: 940px;
   }
 
   .dismiss {
@@ -286,10 +278,7 @@
 }
 
 #user-satisfaction-survey {
-  /**
-   * Hidden by default as we only want to show it to users who have
-   * JavaScript enabled.
-   */
+  // Hidden by default as we only want to show it to users who have JavaScript enabled.
   display: none;
   background-color: $govuk-brand-colour;
   margin-bottom: 1px;

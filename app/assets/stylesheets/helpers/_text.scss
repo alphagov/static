@@ -1,7 +1,4 @@
-/*
- * Text styles for articles.
- * It's kind of like typography innit.
-*/
+// Text styles for articles.
 
 .content-block,
 article {
@@ -133,10 +130,8 @@ article {
     }
   }
 
-  /*
-* Example has a green background, so we need an additional indent to
-* avoid the bullets hanging on the edge of the colour.
-*/
+  // Example has a green background, so we need an additional indent to
+  // avoid the bullets hanging on the edge of the colour.
   .example ul,
   .example ol {
     margin-left: .5em;
@@ -179,20 +174,19 @@ article {
     border-spacing: 0;
     margin: 1em 0 2em;
     width: 100%;
-
-    caption {
-      @include govuk-font(24, $weight: bold);
-      margin: .4em .5em .4em .7em;
-      text-align: left;
-    }
-
     @include media-down(mobile) {
       margin: 1em 0 2em;
       width: 100%;
+    }
+  }
 
-      caption {
-        padding-left: 0;
-      }
+  table caption {
+    @include govuk-font(24, $weight: bold);
+    margin: .4em .5em .4em .7em;
+    text-align: left;
+
+    @include media-down(mobile) {
+      padding-left: 0;
     }
   }
 
@@ -218,9 +212,7 @@ article {
     border-bottom: solid 1px $border-colour;
   }
 
-  /*
-  * More article formatting including markdown styles.
-  */
+  // More article formatting including markdown styles.
 
   .mainstream & .summary {
     margin: 0 0 2em;
@@ -247,7 +239,7 @@ article {
     line-height: 1.35em;
   }
 
-  .licence-finder &.outcome ul {
+  .licence-finder &.outcome ul { // stylelint-disable-line selector-no-qualifying-type
     padding: 1em;
     margin: 0 -1em;
 
@@ -305,7 +297,7 @@ article {
     }
   }
 
-  #wrapper.place & .intro {
+  #wrapper.place & .intro { // stylelint-disable-line selector-max-id
     margin-bottom: 0;
   }
 
@@ -354,14 +346,14 @@ article {
 
     p {
       font-weight: 600;
+    }
 
-      a {
-        font-weight: 600;
-      }
+    p a {
+      font-weight: 600;
     }
   }
 
-  a.important {
+  a.important { // stylelint-disable-line selector-no-qualifying-type
     background: image-url("icon-important.png") no-repeat scroll 100% 0 #ffffff;
   }
 
@@ -396,7 +388,7 @@ article {
     padding: 0 1em 0 0;
   }
 
-  .help-notice p {
+  .help-notice p { // stylelint-disable no-duplicate-selectors
     padding: 0 1em 0 2em;
   }
 
@@ -407,22 +399,22 @@ article {
 
   .form-download {
     padding: .25em 0;
+  }
 
-    p {
-      padding-right: 3em;
-    }
+  .form-download p {
+    padding-right: 3em;
+  }
 
-    a {
-      display: block;
-      font-weight: 600;
-      background: image-url("icon-file-download.png") no-repeat scroll 0 0;
-      min-height: 2.5em;
-      padding: 0 0 0 2.5em;
+  .form-download a {
+    display: block;
+    font-weight: 600;
+    background: image-url("icon-file-download.png") no-repeat scroll 0 0;
+    min-height: 2.5em;
+    padding: 0 0 0 2.5em;
 
-      @include device-pixel-ratio {
-        background-image: image-url("icon-file-download-2x.png");
-        background-size: 25px 25px;
-      }
+    @include device-pixel-ratio {
+      background-image: image-url("icon-file-download-2x.png");
+      background-size: 25px 25px;
     }
   }
 
@@ -436,6 +428,7 @@ article {
     margin-top: .5em;
   }
 
+  // stylelint-disable selector-no-qualifying-type
   ol.places {
     list-style-type: none;
     padding-left: 0;
@@ -450,6 +443,7 @@ article {
       padding-left: 0;
     }
   }
+  // stylelint-enable selector-no-qualifying-type
 
   .place {
     margin: 1.5em 0;
@@ -470,10 +464,10 @@ article {
 
     .additional-information {
       @include govuk-font(16);
+    }
 
-      p {
-        margin: .25em 0;
-      }
+    .additional-information p {
+      margin: .25em 0;
     }
 
     @include media-down(mobile) {
@@ -481,6 +475,7 @@ article {
     }
   }
 
+  // stylelint-disable selector-no-qualifying-type
   ul.view-maps {
     list-style: none;
     padding: 0;
@@ -509,7 +504,7 @@ article {
         &:nth-child(#{$i}) {
           background-image: image-url("icon-steps/icon-step-#{$i}.png");
 
-          @include device-pixel-ratio {
+          @include device-pixel-ratio { // stylelint-disable-line  max-nesting-depth
             background-image: image-url("icon-steps/icon-step-#{$i}-2x.png");
             background-size: 24px 24px;
           }
@@ -517,6 +512,7 @@ article {
       }
     }
   }
+  // stylelint-enable selector-no-qualifying-type
 }
 
 .contact {
@@ -539,7 +535,7 @@ article {
   }
 }
 
-section.places h3 {
+section.places h3 { // stylelint-disable-line selector-no-qualifying-type
   margin-top: 0;
 }
 
@@ -588,11 +584,11 @@ section.places h3 {
     p {
       font-size: 1em;
       line-height: inherit;
+    }
 
-      em {
-        font-size: 1em;
-        display: inline;
-      }
+    p em {
+      font-size: 1em;
+      display: inline;
     }
   }
 }

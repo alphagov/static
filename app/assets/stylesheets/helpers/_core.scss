@@ -1,6 +1,4 @@
-/*
- * Core global styles
- */
+// Core global styles
 body {
   @include ie(8) {
     min-width: 1024px;
@@ -35,11 +33,8 @@ h4 {
   margin-bottom: .25em;
 }
 
-/*
- * Page headers
- */
-
-header.page-header div {
+// Page headers
+header.page-header div { // stylelint-disable-line selector-no-qualifying-type
   @include govuk-media-query($from: tablet) {
     margin-top: govuk-spacing(6);
     margin-bottom: govuk-spacing(6);
@@ -61,8 +56,7 @@ header.page-header div {
   }
 }
 
-/* Licence Application */
-
+// Licence Application
 .relevant-authority {
   margin: 0 0 govuk-spacing(4) 84px;
 
@@ -85,11 +79,9 @@ header.page-header div {
   }
 }
 
-/*
-  ============================== Stuff (mainly) used in publications =============================
-*/
+// Stuff (mainly) used in publications
 
-/* Meta-data */
+// Meta-data
 .meta-data {
   @include govuk-font(16);
   color: $secondary-text-colour;
@@ -104,7 +96,7 @@ header.page-header div {
   }
 }
 
-/* Error messages */
+// Error messages
 .error-notification {
   border: 1px solid #ffc946;
   background-color: #fbedcd;

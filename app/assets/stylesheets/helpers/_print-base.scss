@@ -1,4 +1,4 @@
-/* Global print stylesheet */
+// Global print stylesheet
 
 a {
   text-decoration: none;
@@ -94,7 +94,9 @@ table {
   }
 }
 
-/* hide the unnecessary page elements */
+// hide the unnecessary page elements
+
+// stylelint-disable selector-max-id
 .dont-print,
 #global-header #search,
 #global-header .search-toggle,

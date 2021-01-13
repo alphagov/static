@@ -4,7 +4,7 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/component_support";
 @import "header-footer-only";
 
-/* styles */
+// styles
 @import "helpers/mixins";
 @import "helpers/core";
 @import "helpers/multi-step";

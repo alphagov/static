@@ -1,9 +1,7 @@
-/* This is basically Smart Answers & Licence Finder & Finance Finder */
+// This is basically Smart Answers & Licence Finder & Finance Finder
 // Additional Smart Answers specific css can be found in the smart-answers repo
 
-/*
- * questions
- */
+// Questions
 .hint {
   @include govuk-font(16);
   display: block;
@@ -51,6 +49,7 @@
   padding-right: .5em;
 }
 
+// stylelint-disable selector-no-qualifying-type, max-nesting-depth
 .done-questions ol,
 .upcoming-questions ol {
   background-color: #ffffff;
@@ -100,6 +99,7 @@
     }
   }
 }
+// stylelint-enable selector-no-qualifying-type, max-nesting-depth
 
 .upcoming-questions ol {
   li {
@@ -112,10 +112,10 @@
   font-weight: normal;
 }
 
-li.done .undo {
+li.done .undo { // stylelint-disable-line selector-no-qualifying-type
   position: absolute;
-  top: (.75em/.9);
-  right: (1.5em/.9);
+  top: (.75em / .9);
+  right: (1.5em / .9);
   margin: 0;
   @include govuk-font(14);
 
@@ -125,12 +125,12 @@ li.done .undo {
   }
 }
 
-li.done .answer ul {
+li.done .answer ul { // stylelint-disable-line selector-no-qualifying-type
   margin: .5em 0 0 -2.1em;
   padding-left: 2.1em;
 }
 
-li.done:hover .undo a {
+li.done:hover .undo a { // stylelint-disable-line selector-no-qualifying-type
   color: inherit;
 }
 
@@ -150,10 +150,7 @@ li.done:hover .undo a {
   margin: 1.5em 0 .5em;
 }
 
-/*
- * results / outcome
- */
-
+// Results / outcome
 .outcome {
   background-color: #ffffff;
   float: none;
@@ -165,9 +162,7 @@ li.done:hover .undo a {
   }
 }
 
-/*
- * errors messages
- */
+// Errors messages
 .content-block .error,
 article .error {
   border: 1px solid #b01117;
