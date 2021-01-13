@@ -1,17 +1,20 @@
+//= require libs/GlobalBarHelper.js
+
+/* global parseCookie */
+
 /*
   Global bar
 
   Manages count of how many times a global bar has been seen
   using cookies.
 */
-//= require libs/GlobalBarHelper.js
 (function (Modules) {
   'use strict'
 
   Modules.GlobalBar = function () {
     this.start = function ($el) {
       var GLOBAL_BAR_SEEN_COOKIE = 'global_bar_seen'
-      var always_on = $el.data('global-bar-permanent')
+      var alwaysOn = $el.data('global-bar-permanent')
       var cookieCategory = GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE)
       var cookieConsent = GOVUK.getConsentCookie()[cookieCategory]
 
@@ -21,8 +24,8 @@
           GOVUK.setCookie('global_bar_seen', JSON.stringify({ count: 0, version: 0 }), { days: 84 })
         }
 
-        var current_cookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
-        var current_cookie_version = current_cookie.version
+        var currentCookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
+        var currentCookieVersion = currentCookie.version
         var count = viewCount()
       }
 
@@ -30,7 +33,7 @@
       $el.on('click', '.js-call-to-action', handleCallToActionClick)
 
       if ($el.is(':visible')) {
-        if (!always_on) {
+        if (!alwaysOn) {
           incrementViewCount(count)
         }
       }
@@ -42,15 +45,15 @@
       }
 
       function hide (evt) {
-        var current_cookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
-        var cookie_version = current_cookie_version
+        var currentCookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
+        var cookieVersion = currentCookieVersion
 
-        if (current_cookie) {
-          cookie_version = current_cookie.version
+        if (currentCookie) {
+          cookieVersion = currentCookie.version
         }
 
-        var cookie_value = JSON.stringify({ count: 999, version: cookie_version })
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookie_value, { days: 84 })
+        var cookieValue = JSON.stringify({ count: 999, version: cookieVersion })
+        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
         $('.global-bar-additional').removeClass('global-bar-additional--show')
         $('.global-bar__dismiss').removeClass('global-bar__dismiss--show')
         track('Manually dismissed')
@@ -59,10 +62,10 @@
 
       function incrementViewCount (count) {
         count = count + 1
-        var cookie_value = JSON.stringify({ count: count, version: current_cookie_version })
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookie_value, { days: 84 })
+        var cookieValue = JSON.stringify({ count: count, version: currentCookieVersion })
+        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
 
-        if (count == 2) {
+        if (count === 2) {
           track('Automatically dismissed')
         }
       }

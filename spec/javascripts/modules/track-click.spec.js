@@ -13,14 +13,11 @@ describe('A click tracker', function () {
     GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent')
 
-    element = $('\
-      <div \
-        data-track-category="category"\
-        data-track-action="action"\
-        data-track-label="Foo">\
-        Bar!\
-      </div>\
-    ')
+    element = $(
+      '<div data-track-category="category" data-track-action="action" data-track-label="Foo">' +
+        'Bar!' +
+      '</div>'
+    )
 
     tracker.start(element)
 
@@ -34,12 +31,12 @@ describe('A click tracker', function () {
     spyOn(GOVUK.analytics, 'trackEvent')
 
     element = $(
-      '<a data-track-category="category" \
-          data-track-action="1" \
-          data-track-label="/" \
-          data-track-dimension="dimension-value" \
-          data-track-dimension-index="29" \
-          href="/">Home</a>'
+      '<a data-track-category="category" ' +
+        'data-track-action="1" ' +
+        'data-track-label="/" ' +
+        'data-track-dimension="dimension-value" ' +
+        'data-track-dimension-index="29" ' +
+        'href="/">Home</a>'
     )
 
     tracker.start(element)
@@ -57,15 +54,15 @@ describe('A click tracker', function () {
     GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent')
 
-    element = $('\
-      <div \
-        data-track-category="category"\
-        data-track-action="action"\
-        data-track-label="Foo"\
-        data-track-dimension-index="29">\
-        Bar!\
-      </div>\
-    ')
+    element = $(
+      '<div ' +
+        'data-track-category="category"' +
+        'data-track-action="action"' +
+        'data-track-label="Foo"' +
+        'data-track-dimension-index="29">' +
+        'Bar!' +
+      '</div>'
+    )
 
     tracker.start(element)
 
@@ -78,15 +75,15 @@ describe('A click tracker', function () {
     GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent')
 
-    element = $('\
-      <div \
-        data-track-category="category"\
-        data-track-action="action"\
-        data-track-label="Foo"\
-        data-track-dimension="Home">\
-        Bar!\
-      </div>\
-    ')
+    element = $(
+      '<div ' +
+        'data-track-category="category" ' +
+        'data-track-action="action" ' +
+        'data-track-label="Foo" ' +
+        'data-track-dimension="Home">' +
+        'Bar!' +
+      '</div>'
+    )
 
     tracker.start(element)
 
@@ -100,11 +97,11 @@ describe('A click tracker', function () {
     spyOn(GOVUK.analytics, 'trackEvent')
 
     element = $(
-      '<a data-track-category="category" \
-          data-track-action="1" \
-          data-track-label="/" \
-          data-track-value="9" \
-          href="/">Home</a>'
+      '<a data-track-category="category" ' +
+        'data-track-action="1" ' +
+        'data-track-label="/" ' +
+        'data-track-value="9" ' +
+        'href="/">Home</a>'
     )
 
     tracker.start(element)
@@ -123,11 +120,11 @@ describe('A click tracker', function () {
     spyOn(GOVUK.analytics, 'trackEvent')
 
     element = $(
-      "<a data-track-category='category' \
-          data-track-action='1' \
-          data-track-label='/' \
-          data-track-options='{\"dimension28\": \"foo\", \"dimension29\": \"bar\"}' \
-          href='/'>Home</a>"
+      '<a data-track-category="category" ' +
+        'data-track-action="1" ' +
+        'data-track-label="/" ' +
+        'data-track-options=\'{"dimension28": "foo", "dimension29": "bar"}\' ' +
+        'href="/">Home</a>'
     )
 
     tracker.start(element)
@@ -145,23 +142,23 @@ describe('A click tracker', function () {
     GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent')
 
-    element = $('\
-      <div>\
-        <a class="first" href="#" \
-          data-track-category="cat1"\
-          data-track-action="action1"\
-          data-track-label="label1">\
-          Link 1\
-        </a>\
-        <a class="second" href="#" \
-          data-track-category="cat2"\
-          data-track-action="action2"\
-          data-track-label="label2">\
-          Link 2\
-        </a>\
-        <span class="nothing"></span>\
-      </div>\
-    ')
+    element = $(
+      '<div>' +
+        '<a class="first" href="#" ' +
+          'data-track-category="cat1" ' +
+          'data-track-action="action1" ' +
+          'data-track-label="label1">' +
+          'Link 1' +
+        '</a>' +
+        '<a class="second" href="#" ' +
+          'data-track-category="cat2" ' +
+          'data-track-action="action2" ' +
+          'data-track-label="label2">' +
+          'Link 2' +
+        '</a>' +
+        '<span class="nothing"></span>' +
+      '</div>'
+    )
 
     tracker.start(element)
 
@@ -179,16 +176,16 @@ describe('A click tracker', function () {
     GOVUK.analytics = { trackEvent: function () {} }
     spyOn(GOVUK.analytics, 'trackEvent')
 
-    element = $('\
-      <div>\
-        <a class="first" href="#" \
-          data-track-category="parent-category"\
-          data-track-action="parent-action"\
-          data-track-label="parent-label">\
-          <b><span class="child-of-link">I am a child</span></b>\
-        </a>\
-      </div>\
-    ')
+    element = $(
+      '<div>' +
+        '<a class="first" href="#" ' +
+          'data-track-category="parent-category" ' +
+          'data-track-action="parent-action" ' +
+          'data-track-label="parent-label">' +
+          '<b><span class="child-of-link">I am a child</span></b>' +
+        '</a>' +
+      '</div>'
+    )
 
     tracker.start(element)
 

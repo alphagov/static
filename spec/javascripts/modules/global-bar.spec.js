@@ -1,3 +1,4 @@
+/* global parseCookie, expectAdditionalSectionToBeHidden */
 describe('Global bar module', function () {
   'use strict'
 
@@ -12,12 +13,13 @@ describe('Global bar module', function () {
 
   describe('global banner default', function () {
     beforeEach(function () {
-      element = $('\
-      <div id="global-bar" data-module="global-bar">\
-        <a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>\
-        <a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>\
-        <div class="global-bar-additional">This is some additional content</div>\
-      </div>')
+      element = $(
+        '<div id="global-bar" data-module="global-bar">' +
+          '<a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>' +
+          '<a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>' +
+          '<div class="global-bar-additional">This is some additional content</div>' +
+        '</div>'
+      )
 
       document.cookie = 'global_bar_seen=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
     })
@@ -43,11 +45,12 @@ describe('Global bar module', function () {
 
   describe('global banner interactions', function () {
     beforeEach(function () {
-      element = $('\
-      <div id="global-bar" data-module="global-bar">\
-        <a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>\
-        <a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>\
-      </div>')
+      element = $(
+        '<div id="global-bar" data-module="global-bar">' +
+          '<a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>' +
+          '<a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>' +
+        '</div>'
+      )
 
       $(document.body).append(element)
 
@@ -90,11 +93,12 @@ describe('Global bar module', function () {
     var element
 
     beforeEach(function () {
-      element = $('\
-      <div id="global-bar" data-module="global-bar">\
-        <a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>\
-        <a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>\
-      </div>')
+      element = $(
+        '<div id="global-bar" data-module="global-bar">' +
+          '<a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>' +
+          '<a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>' +
+        '</div>'
+      )
 
       $(document.body).append(element)
 
@@ -131,11 +135,12 @@ describe('Global bar module', function () {
     })
 
     it('does not increment view count when on', function () {
-      element = $('\
-      <div id="global-bar" data-module="global-bar" data-global-bar-permanent="true">\
-        <a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>\
-        <a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>\
-      </div>')
+      element = $(
+        '<div id="global-bar" data-module="global-bar" data-global-bar-permanent="true">' +
+          '<a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>' +
+          '<a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>' +
+        '</div>'
+      )
 
       $(document.body).append(element)
 
@@ -148,11 +153,12 @@ describe('Global bar module', function () {
     })
 
     it('continues to increment view count when off', function () {
-      element = $('\
-      <div id="global-bar" data-module="global-bar" data-global-bar-permanent="false">\
-        <a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>\
-        <a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>\
-      </div>')
+      element = $(
+        '<div id="global-bar" data-module="global-bar" data-global-bar-permanent="false">' +
+          '<a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>' +
+          '<a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>' +
+        '</div>'
+      )
 
       $(document.body).append(element)
 

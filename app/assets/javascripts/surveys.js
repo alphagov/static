@@ -1,6 +1,8 @@
 //= require govuk_publishing_components/lib/cookie-functions
 //= require_self
 
+// There are a few violations of these, that we may want to refactor away.
+/* eslint-disable no-prototype-builtins */
 (function ($) {
   'use strict'
   window.GOVUK = window.GOVUK || {}
@@ -101,7 +103,7 @@
     processTemplate: function (args, template) {
       $.each(args, function (key, value) {
         template = template.replace(
-          new RegExp('\{\{' + key + '\}\}', 'g'),
+          new RegExp('{{' + key + '}}', 'g'),
           value
         )
       })
@@ -320,7 +322,7 @@
         /|coronavirus/.source +
         // add more blacklist paths in the form:
         // + /|path-to\/blacklist/.source
-        ')(?:\/|$)'
+        ')(?:/|$)'
       )
       return blackList.test(userSurveys.currentPath())
     },
@@ -435,10 +437,10 @@
       } else {
         var pathMatchingExpr = new RegExp(
           $.map($.makeArray(paths), function (path, _i) {
-            if (/[\^\$]/.test(path)) {
+            if (/[\^$]/.test(path)) {
               return '(?:' + path + ')'
             } else {
-              return '(?:\/' + path + '(?:\/|$))'
+              return '(?:/' + path + '(?:/|$))'
             }
           }).join('|')
         )
@@ -475,7 +477,7 @@
 
     tlsCookieMatch: function (tlsCookieVersionLimit) {
       var currentTlsVersion = userSurveys.currentTlsVersion()
-      if (tlsCookieVersionLimit === undefined || currentTlsVersion == '') {
+      if (tlsCookieVersionLimit === undefined || currentTlsVersion === '') {
         return false
       } else {
         return currentTlsVersion < tlsCookieVersionLimit[0]
@@ -518,7 +520,7 @@
     currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' },
     currentTlsVersion: function () {
       var tlsCookie = GOVUK.getCookie('TLSversion')
-      if (tlsCookie == null || tlsCookie == 'unknown') {
+      if (tlsCookie === null || tlsCookie === 'unknown') {
         return ''
       } else {
         var cookieVersion = parseFloat(tlsCookie.replace('TLSv', ''))
@@ -529,7 +531,7 @@
 
   var generateCookieName = function (cookieName) {
     // taken_user_satisfaction_survey => takenUserSatisfactionSurvey
-    var cookieStub = cookieName.replace(/(\_\w)/g, function (m) {
+    var cookieStub = cookieName.replace(/(_\w)/g, function (m) {
       return m.charAt(1).toUpperCase()
     })
     return 'govuk_' + cookieStub

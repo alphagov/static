@@ -1,7 +1,4 @@
-/* globals $, GOVUK, suchi */
-/* jslint
- white: true,
- browser: true */
+/* globals suchi */
 
 $(function () {
   'use strict'
@@ -16,7 +13,7 @@ $(function () {
   // we don't show the message when the cookie warning is also there
   if (GOVUK.cookie('seen_cookie_message')) {
     var tlsCookie = GOVUK.getCookie('TLSversion')
-    var tlsIsOld = (tlsCookie == 'TLSv1' || tlsCookie == 'TLSv1.1')
+    var tlsIsOld = (tlsCookie === 'TLSv1' || tlsCookie === 'TLSv1.1')
     var browserIsOld = suchi.isOld(navigator.userAgent)
 
     if (browserIsOld || tlsIsOld) {

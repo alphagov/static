@@ -1,5 +1,6 @@
 //= require libs/GlobalBarHelper.js
 
+/* eslint-disable no-unused-vars */
 function expectGlobalBarToShow () {
   expect($('html').hasClass('show-global-bar')).toBe(true)
 }

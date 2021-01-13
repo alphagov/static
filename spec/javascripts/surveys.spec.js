@@ -127,21 +127,18 @@ describe('Surveys', function () {
       describe('without overrides for the template defaults', function () {
         it('uses the default title', function () {
           surveys.displaySurvey(urlSurvey)
-          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
           expect($('#user-satisfaction-survey h2').text()).toEqual('Tell us what you think of GOV.UK')
         })
 
         it('uses the default call-to-action text', function () {
           surveys.displaySurvey(urlSurvey)
-          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
           expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('Take the 3 minute survey')
         })
 
         it('uses the default call-to-action postscript text', function () {
           surveys.displaySurvey(urlSurvey)
-          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
           expect($('#user-satisfaction-survey .postscript-cta').text()).toEqual('This will open a short survey on another website')
         })
@@ -251,35 +248,30 @@ describe('Surveys', function () {
       describe('without overrides for the template defaults', function () {
         it('uses the default title', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey h2').text()).toEqual('Tell us what you think of GOV.UK')
         })
 
         it('uses the default call-to-action text', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('    Take a short survey to give us your feedback  ')
         })
 
         it('uses the default survey form call-to-action-postscript text', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey form #survey-form-description').text()).toEqual('We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.       Don’t worry: we won’t send you spam or share your email address with anyone.    ')
         })
 
         it('uses the default survey form success text', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey #email-survey-post-success').text()).toEqual('  Thanks, we’ve sent you an email with a link to the survey.')
         })
 
         it('uses the default survey form failure text', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey  #email-survey-post-failure').text()).toEqual('  Sorry, we’re unable to send you an email right now. Please try again later.')
         })

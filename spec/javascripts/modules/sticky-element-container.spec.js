@@ -1,6 +1,3 @@
-/* eslint-env jasmine */
-/* eslint-disable no-multi-str */
-
 describe('A sticky-element-container module', function () {
   'use strict'
 
@@ -13,12 +10,12 @@ describe('A sticky-element-container module', function () {
   })
 
   describe('in a large parent element', function () {
-    var $element = $('\
-      <div data-module="sticky-element-container" style="height: 9001px; margin-bottom: 1000px">\
-        <div data-sticky-element>\
-          <span>Content</span>\
-        </div>\
-      </div>'
+    var $element = $(
+      '<div data-module="sticky-element-container" style="height: 9001px; margin-bottom: 1000px">' +
+        '<div data-sticky-element>' +
+          '<span>Content</span>' +
+        '</div>' +
+      '</div>'
     )
     var $footer = $element.find('[data-sticky-element]')
 

@@ -21,7 +21,7 @@ $(document).ready(function () {
   if (window.GOVUK) {
     // for radio buttons and checkboxes
     var buttonsSelector = "label.selectable input[type='radio'], label.selectable input[type='checkbox']"
-    new GOVUK.SelectionButtons(buttonsSelector)
+    new GOVUK.SelectionButtons(buttonsSelector) // eslint-disable-line no-new
 
     if (GOVUK.shimLinksWithButtonRole) {
       GOVUK.shimLinksWithButtonRole.init()
