@@ -59,7 +59,7 @@
     '</div>'
   )
   var SURVEY_SEEN_TOO_MANY_TIMES_LIMIT = 2
-  var MAX_MOBILE_WIDTH = "(max-width: 800px)"
+  var MAX_MOBILE_WIDTH = '(max-width: 800px)'
 
   /* This data structure is explained in `docs/surveys.md` */
   var userSurveys = {
@@ -75,7 +75,7 @@
       if (userSurveys.canShowAnySurvey()) {
         var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
         if (activeSurvey !== undefined) {
-          $('#global-bar').hide(); // Hide global bar if one is showing
+          $('#global-bar').hide() // Hide global bar if one is showing
           userSurveys.displaySurvey(activeSurvey)
         }
       }
@@ -110,12 +110,12 @@
 
     getUrlSurveyTemplate: function () {
       return {
-        render: function(survey) {
+        render: function (survey) {
           var defaultUrlArgs = {
             title: 'Tell us what you think of GOV.UK',
             surveyCta: 'Take the 3 minute survey',
             surveyCtaPostscript: 'This will open a short survey on another website',
-            surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey)),
+            surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey))
           }
           var mergedArgs = $.extend(defaultUrlArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, URL_SURVEY_TEMPLATE)
@@ -125,7 +125,7 @@
 
     getEmailSurveyTemplate: function () {
       return {
-        render: function(survey) {
+        render: function (survey) {
           var defaultEmailArgs = {
             title: 'Tell us what you think of GOV.UK',
             surveyCta: 'Take a short survey to give us your feedback',
@@ -138,7 +138,7 @@
             surveyId: survey.identifier,
             surveySource: userSurveys.currentPath(),
             surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey)),
-            gaClientId: GOVUK.analytics.gaClientId,
+            gaClientId: GOVUK.analytics.gaClientId
           }
           var mergedArgs = $.extend(defaultEmailArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, EMAIL_SURVEY_TEMPLATE)
@@ -202,12 +202,11 @@
     },
 
     addParamsToURL: function (surveyUrl) {
-      var newSurveyUrl = surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath());
-      if (surveyUrl.indexOf("?c=") !== -1) {
-        return newSurveyUrl + "&gcl=" + GOVUK.analytics.gaClientId;
-      }
-      else {
-        return newSurveyUrl + "?gcl=" + GOVUK.analytics.gaClientId;
+      var newSurveyUrl = surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath())
+      if (surveyUrl.indexOf('?c=') !== -1) {
+        return newSurveyUrl + '&gcl=' + GOVUK.analytics.gaClientId
+      } else {
+        return newSurveyUrl + '?gcl=' + GOVUK.analytics.gaClientId
       }
     },
 
@@ -379,7 +378,7 @@
       return (Math.floor(Math.random() * frequency) === 0)
     },
 
-    getSurveyUrl: function(survey) {
+    getSurveyUrl: function (survey) {
       if (survey.url instanceof Array) {
         return survey.url[Math.floor(Math.random() * survey.url.length)]
       } else {
@@ -392,7 +391,7 @@
         '.govuk-emergency-banner:visible',
         '#global-browser-prompt:visible',
         '#taxonomy-survey:visible',
-        '#global-bar:visible', // Currently about Coronavirus
+        '#global-bar:visible' // Currently about Coronavirus
       ]
       return $(notificationIds.join(', ')).length > 0
     },
@@ -435,14 +434,14 @@
         return false
       } else {
         var pathMatchingExpr = new RegExp(
-              $.map($.makeArray(paths), function (path, _i) {
-                if (/[\^\$]/.test(path)) {
-                  return '(?:' + path + ')'
-                } else {
-                  return '(?:\/' + path + '(?:\/|$))'
-                }
-              }).join('|')
-            )
+          $.map($.makeArray(paths), function (path, _i) {
+            if (/[\^\$]/.test(path)) {
+              return '(?:' + path + ')'
+            } else {
+              return '(?:\/' + path + '(?:\/|$))'
+            }
+          }).join('|')
+        )
         return pathMatchingExpr.test(userSurveys.currentPath())
       }
     },
@@ -519,7 +518,7 @@
     currentOrganisation: function () { return $('meta[name="govuk:analytics:organisations"]').attr('content') || '' },
     currentTlsVersion: function () {
       var tlsCookie = GOVUK.getCookie('TLSversion')
-      if (tlsCookie == null || tlsCookie == "unknown") {
+      if (tlsCookie == null || tlsCookie == 'unknown') {
         return ''
       } else {
         var cookieVersion = parseFloat(tlsCookie.replace('TLSv', ''))
@@ -529,7 +528,7 @@
   }
 
   var generateCookieName = function (cookieName) {
-      // taken_user_satisfaction_survey => takenUserSatisfactionSurvey
+    // taken_user_satisfaction_survey => takenUserSatisfactionSurvey
     var cookieStub = cookieName.replace(/(\_\w)/g, function (m) {
       return m.charAt(1).toUpperCase()
     })
@@ -551,9 +550,8 @@
     if (GOVUK.userSurveys) {
       if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
         window.GOVUK.userSurveys.init()
-      }
-      else {
-        $(window).on('gaClientSet', function() {
+      } else {
+        $(window).on('gaClientSet', function () {
           window.GOVUK.userSurveys.init()
         })
       }
