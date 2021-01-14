@@ -22,7 +22,7 @@ section > header h1:after {
   content: "";
 }
 
-#how-to-claim {
-  border: 1pt solid rgb(225,225,225);
+#how-to-claim { // stylelint-disable-line selector-max-id
+  border: 1pt solid rgb(225, 225, 225);
   padding: 2pt 4pt;
 }

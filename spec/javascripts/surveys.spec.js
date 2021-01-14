@@ -42,7 +42,7 @@ describe('Surveys', function () {
     })
 
     GOVUK.analytics = {
-      trackEvent: function() {},
+      trackEvent: function () {},
       gaClientId: '12345.67890'
     }
   })
@@ -116,10 +116,10 @@ describe('Surveys', function () {
         expect($('#take-survey').attr('href')).toContain('?c=' + window.location.pathname)
       })
 
-      it("does not inject the current path if the survey url does not contain the {{currentPath}} template parameter", function () {
+      it('does not inject the current path if the survey url does not contain the {{currentPath}} template parameter', function () {
         surveys.displaySurvey(urlSurvey)
 
-        var expectedUrl = urlSurvey.url + "?gcl=" + GOVUK.analytics.gaClientId
+        var expectedUrl = urlSurvey.url + '?gcl=' + GOVUK.analytics.gaClientId
 
         expect($('#take-survey').attr('href')).toEqual(expectedUrl)
       })
@@ -127,21 +127,18 @@ describe('Surveys', function () {
       describe('without overrides for the template defaults', function () {
         it('uses the default title', function () {
           surveys.displaySurvey(urlSurvey)
-          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
           expect($('#user-satisfaction-survey h2').text()).toEqual('Tell us what you think of GOV.UK')
         })
 
         it('uses the default call-to-action text', function () {
           surveys.displaySurvey(urlSurvey)
-          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
           expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('Take the 3 minute survey')
         })
 
         it('uses the default call-to-action postscript text', function () {
           surveys.displaySurvey(urlSurvey)
-          urlSurveyTemplate = surveys.getUrlSurveyTemplate()
 
           expect($('#user-satisfaction-survey .postscript-cta').text()).toEqual('This will open a short survey on another website')
         })
@@ -214,130 +211,125 @@ describe('Surveys', function () {
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_shown', 'Banner has been shown')
       })
 
-      it("replaces the current path if the survey url contains the {{currentPath}} template parameter", function () {
+      it('replaces the current path if the survey url contains the {{currentPath}} template parameter', function () {
         var emailSurveyWithCurrentPath = {
           surveyType: 'email',
           url: 'smartsurvey.com/default?c={{currentPath}}',
-          identifier: 'email-survey',
+          identifier: 'email-survey'
         }
         surveys.displaySurvey(emailSurveyWithCurrentPath)
 
-        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname)
+        expect($('#take-survey').attr('href')).toContain('?c=' + window.location.pathname)
       })
 
-      it("does not inject the current path if the {{currentPath}} template parameter is missing", function () {
+      it('does not inject the current path if the {{currentPath}} template parameter is missing', function () {
         surveys.displaySurvey(emailSurvey)
 
-        expect($('#take-survey').attr('href')).not.toContain("?c=" + window.location.pathname)
+        expect($('#take-survey').attr('href')).not.toContain('?c=' + window.location.pathname)
       })
 
-      it("adds the GA client ID to the survey url if the {{currentPath}} template parameter is present", function () {
+      it('adds the GA client ID to the survey url if the {{currentPath}} template parameter is present', function () {
         var emailSurveyWithCurrentPath = {
           surveyType: 'email',
           url: 'smartsurvey.com/default?c={{currentPath}}',
-          identifier: 'email-survey',
+          identifier: 'email-survey'
         }
         surveys.displaySurvey(emailSurveyWithCurrentPath)
 
-        expect($('#take-survey').attr('href')).toContain("?c=" + window.location.pathname + "&gcl=" + GOVUK.analytics.gaClientId)
+        expect($('#take-survey').attr('href')).toContain('?c=' + window.location.pathname + '&gcl=' + GOVUK.analytics.gaClientId)
       })
 
-      it("adds the GA client ID to the survey url if the {{currentPath}} template parameter is missing", function () {
+      it('adds the GA client ID to the survey url if the {{currentPath}} template parameter is missing', function () {
         surveys.displaySurvey(emailSurvey)
 
-        expect($('#take-survey').attr('href')).toEqual(emailSurvey.url + "?gcl=" + GOVUK.analytics.gaClientId)
+        expect($('#take-survey').attr('href')).toEqual(emailSurvey.url + '?gcl=' + GOVUK.analytics.gaClientId)
       })
 
-      describe("without overrides for the template defaults", function() {
-        it("uses the default title", function() {
-          surveys.displaySurvey(emailSurvey);
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
+      describe('without overrides for the template defaults', function () {
+        it('uses the default title', function () {
+          surveys.displaySurvey(emailSurvey)
 
           expect($('#user-satisfaction-survey h2').text()).toEqual('Tell us what you think of GOV.UK')
         })
 
         it('uses the default call-to-action text', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('    Take a short survey to give us your feedback  ')
         })
 
         it('uses the default survey form call-to-action-postscript text', function () {
           surveys.displaySurvey(emailSurvey)
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate()
 
           expect($('#user-satisfaction-survey form #survey-form-description').text()).toEqual('We’ll send you a link to a feedback form. It only takes 2 minutes to fill in.       Don’t worry: we won’t send you spam or share your email address with anyone.    ')
         })
 
-        it("uses the default survey form success text", function() {
-          surveys.displaySurvey(emailSurvey);
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+        it('uses the default survey form success text', function () {
+          surveys.displaySurvey(emailSurvey)
 
-          expect($('#user-satisfaction-survey #email-survey-post-success').text()).toEqual('  Thanks, we’ve sent you an email with a link to the survey.');
-        });
+          expect($('#user-satisfaction-survey #email-survey-post-success').text()).toEqual('  Thanks, we’ve sent you an email with a link to the survey.')
+        })
 
-        it("uses the default survey form failure text", function() {
-          surveys.displaySurvey(emailSurvey);
-          emailSurveyTemplate = surveys.getEmailSurveyTemplate();
+        it('uses the default survey form failure text', function () {
+          surveys.displaySurvey(emailSurvey)
 
-          expect($('#user-satisfaction-survey  #email-survey-post-failure').text()).toEqual('  Sorry, we’re unable to send you an email right now. Please try again later.');
-        });
-      });
+          expect($('#user-satisfaction-survey  #email-survey-post-failure').text()).toEqual('  Sorry, we’re unable to send you an email right now. Please try again later.')
+        })
+      })
 
-      describe("with overrides for the template defaults", function() {
-        it("uses the title defined in the survey", function() {
-            var survey = {
-                surveyType: 'email',
-                identifier: 'email_survey',
-                frequency: 6,
-                startTime: new Date("July 17, 2017").getTime(),
-                endTime: new Date("August 16, 2017 23:59:50").getTime(),
-                url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
-                templateArgs: {
-                  title: 'Do you like email?'
-                }
-            };
-            surveys.displaySurvey(survey);
+      describe('with overrides for the template defaults', function () {
+        it('uses the title defined in the survey', function () {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            frequency: 6,
+            startTime: new Date('July 17, 2017').getTime(),
+            endTime: new Date('August 16, 2017 23:59:50').getTime(),
+            url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+            templateArgs: {
+              title: 'Do you like email?'
+            }
+          }
+          surveys.displaySurvey(survey)
 
-            expect($('#user-satisfaction-survey h2').text()).toEqual('Do you like email?');
-          });
+          expect($('#user-satisfaction-survey h2').text()).toEqual('Do you like email?')
+        })
 
-        it("uses the call to action text defined in the survey", function() {
-            var survey = {
-                surveyType: 'email',
-                identifier: 'email_survey',
-                frequency: 6,
-                startTime: new Date("July 17, 2017").getTime(),
-                endTime: new Date("August 16, 2017 23:59:50").getTime(),
-                url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
-                templateArgs: {
-                  surveyCta: 'Click here now!'
-                }
-            };
-            surveys.displaySurvey(survey);
+        it('uses the call to action text defined in the survey', function () {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            frequency: 6,
+            startTime: new Date('July 17, 2017').getTime(),
+            endTime: new Date('August 16, 2017 23:59:50').getTime(),
+            url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+            templateArgs: {
+              surveyCta: 'Click here now!'
+            }
+          }
+          surveys.displaySurvey(survey)
 
-            expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('    Click here now!  ');
-        });
+          expect($('#user-satisfaction-survey .survey-primary-link').text()).toEqual('    Click here now!  ')
+        })
 
-        it("uses the survey form call to action defined in the survey", function() {
-            var survey = {
-                surveyType: 'email',
-                identifier: 'email_survey',
-                frequency: 6,
-                startTime: new Date("July 17, 2017").getTime(),
-                endTime: new Date("August 16, 2017 23:59:50").getTime(),
-                url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
-                templateArgs: {
-                  surveyFormCta: 'Clicking this sends us your address'
-                }
-            };
-            surveys.displaySurvey(survey);
+        it('uses the survey form call to action defined in the survey', function () {
+          var survey = {
+            surveyType: 'email',
+            identifier: 'email_survey',
+            frequency: 6,
+            startTime: new Date('July 17, 2017').getTime(),
+            endTime: new Date('August 16, 2017 23:59:50').getTime(),
+            url: 'https://www.smartsurvey.co.uk/s/govukpublisherguidance?c={{currentPath}}',
+            templateArgs: {
+              surveyFormCta: 'Clicking this sends us your address'
+            }
+          }
+          surveys.displaySurvey(survey)
 
-            expect($('#user-satisfaction-survey form button').text()).toEqual('Clicking this sends us your address');
-        });
+          expect($('#user-satisfaction-survey form button').text()).toEqual('Clicking this sends us your address')
+        })
 
-        it("uses the survey form call to action postscript defined in the survey", function() {
+        it('uses the survey form call to action postscript defined in the survey', function () {
           var survey = {
             surveyType: 'email',
             identifier: 'email_survey',
@@ -500,7 +492,7 @@ describe('Surveys', function () {
   })
 
   describe('isSurveyToBeDisplayed', function () {
-    describe('when the page is viewed on desktop', function() {
+    describe('when the page is viewed on desktop', function () {
       beforeEach(function () {
         spyOn(surveys, 'isBeingViewedOnMobile').and.returnValue(false)
       })
@@ -531,7 +523,7 @@ describe('Surveys', function () {
         expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
       })
 
-      it("returns true even if the survey is allowed on mobile", function () {
+      it('returns true even if the survey is allowed on mobile', function () {
         spyOn(surveys, 'surveyIsAllowedOnMobile').and.returnValue(true)
         spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
         expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
@@ -564,7 +556,7 @@ describe('Surveys', function () {
         expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeTruthy()
       })
 
-      it("returns false when the random number matches and is not allowed on mobile", function () {
+      it('returns false when the random number matches and is not allowed on mobile', function () {
         spyOn(surveys, 'surveyIsAllowedOnMobile').and.returnValue(false)
         spyOn(surveys, 'randomNumberMatches').and.returnValue(true)
         expect(surveys.isSurveyToBeDisplayed(defaultSurvey)).toBeFalsy()
@@ -572,12 +564,12 @@ describe('Surveys', function () {
     })
   })
 
-  describe('currentTlsVersion', function() {
-    beforeEach(function() {
-      window.GOVUK.setConsentCookie({ 'usage': true })
+  describe('currentTlsVersion', function () {
+    beforeEach(function () {
+      window.GOVUK.setConsentCookie({ usage: true })
     })
-    
-    afterEach(function() {
+
+    afterEach(function () {
       window.GOVUK.setCookie('TLSversion', '')
     })
 
@@ -587,17 +579,17 @@ describe('Surveys', function () {
     })
 
     it('returns an empty string when the cookie returns "unknown"', function () {
-      window.GOVUK.setCookie('TLSversion', "unknown")
+      window.GOVUK.setCookie('TLSversion', 'unknown')
       expect(surveys.currentTlsVersion()).toBe('')
     })
 
     it('returns the correct version when the cookie returns a valid value"', function () {
-      window.GOVUK.setCookie('TLSversion', "TLSv1.1")
+      window.GOVUK.setCookie('TLSversion', 'TLSv1.1')
       expect(surveys.currentTlsVersion()).toBe(1.1)
     })
 
     it('returns an empty string when the TLS version is malformed"', function () {
-      window.GOVUK.setCookie('TLSversion', "TLSvabcd11123")
+      window.GOVUK.setCookie('TLSversion', 'TLSvabcd11123')
       expect(surveys.currentTlsVersion()).toBe('')
     })
   })
@@ -764,7 +756,7 @@ describe('Surveys', function () {
           beforeEach(function () {
             spyOn($, 'ajax').and.callFake(function (options) {
               if (options.success) {
-                options.success({message: 'great success!'})
+                options.success({ message: 'great success!' })
               }
             })
           })
@@ -795,7 +787,7 @@ describe('Surveys', function () {
         describe('but submitting it results in an error', function () {
           beforeEach(function () {
             spyOn($, 'ajax').and.callFake(function (options) {
-              options.error({message: 'bad error!'})
+              options.error({ message: 'bad error!' })
             })
           })
 
@@ -864,14 +856,14 @@ describe('Surveys', function () {
 
   describe('surveyTakenCookieName', function () {
     it('returns a cookie name based on the survey identifier', function () {
-      var surveyMock = {identifier: 'sample_survey'}
+      var surveyMock = { identifier: 'sample_survey' }
       expect(surveys.surveyTakenCookieName(surveyMock)).toBe('govuk_takenSampleSurvey')
     })
   })
 
   describe('surveySeenCookieName', function () {
     it('returns a cookie name based on the survey identifier', function () {
-      var surveyMock = {identifier: 'sample_survey'}
+      var surveyMock = { identifier: 'sample_survey' }
       expect(surveys.surveySeenCookieName(surveyMock)).toBe('govuk_surveySeenSampleSurvey')
     })
   })

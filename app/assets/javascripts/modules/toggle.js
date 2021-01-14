@@ -32,9 +32,9 @@
       }
 
       function toggle (event) {
-        var $toggle = $(event.target),
-          expanded = $toggle.attr('aria-expanded') === 'true',
-          $targets = $toggle.data('$targets')
+        var $toggle = $(event.target)
+        var expanded = $toggle.attr('aria-expanded') === 'true'
+        var $targets = $toggle.data('$targets')
 
         if (expanded) {
           $toggle.attr('aria-expanded', false)
@@ -54,8 +54,8 @@
       }
 
       function getTargetElements ($toggle) {
-        var ids = $toggle.attr('aria-controls').split(' '),
-          selector = '#' + ids.join(', #')
+        var ids = $toggle.attr('aria-controls').split(' ')
+        var selector = '#' + ids.join(', #')
 
         return $el.find(selector)
       }

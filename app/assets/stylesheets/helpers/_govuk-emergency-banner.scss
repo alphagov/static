@@ -15,12 +15,12 @@
   h2 {
     @include govuk-font(24, $weight: bold);
     margin: 0;
+  }
 
-    .homepage & {
-      @include govuk-font(48, $weight: bold);
-      @include govuk-media-query($from: tablet) {
-        margin-bottom: govuk-spacing(4);
-      }
+  .homepage & h2 {
+    @include govuk-font(48, $weight: bold);
+    @include govuk-media-query($from: tablet) {
+      margin-bottom: govuk-spacing(4);
     }
   }
 
@@ -31,7 +31,7 @@
     margin-bottom: govuk-spacing(4);
 
     @include govuk-media-query($from: tablet) {
-      width: percentage(2/3);
+      width: percentage(2 / 3);
     }
 
     &:last-child {

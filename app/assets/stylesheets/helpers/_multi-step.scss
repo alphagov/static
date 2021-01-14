@@ -1,8 +1,7 @@
-/* This is basically Smart Answers & Licence Finder & Finance Finder */
+// This is basically Smart Answers & Licence Finder & Finance Finder
 // Additional Smart Answers specific css can be found in the smart-answers repo
-/*
- * questions
- */
+
+// Questions
 .hint {
   @include govuk-font(16);
   display: block;
@@ -13,7 +12,7 @@
 }
 
 .start-again {
-  background: #fff;
+  background: #ffffff;
   position: absolute;
   right: 0;
   top: -2.5em;
@@ -47,12 +46,13 @@
 }
 
 .question-number {
-  padding-right: 0.5em;
+  padding-right: .5em;
 }
 
+// stylelint-disable selector-no-qualifying-type, max-nesting-depth
 .done-questions ol,
 .upcoming-questions ol {
-  background-color: #fff;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
   position: relative;
@@ -61,10 +61,10 @@
   li {
     list-style: none;
     position: relative;
-    padding: 0.75em 1.5em 0.75em 1em;
+    padding: .75em 1.5em .75em 1em;
 
     @include media-down(mobile) {
-      padding: 0.5em 1em;
+      padding: .5em 1em;
     }
 
     h3 {
@@ -72,7 +72,7 @@
     }
 
     &.done {
-      background: #D5ECEA;
+      background: #d5ecea;
       border-bottom: solid 1px #b6d6d2;
       overflow: hidden;
       padding-right: 9.5em;
@@ -81,7 +81,7 @@
         @include govuk-font(16, $weight: bold);
         color: #315843;
         display: block;
-        margin: 0 0.5em 0 1em;
+        margin: 0 .5em 0 1em;
 
         &.multiple {
           display: block;
@@ -99,6 +99,7 @@
     }
   }
 }
+// stylelint-enable selector-no-qualifying-type, max-nesting-depth
 
 .upcoming-questions ol {
   li {
@@ -111,10 +112,10 @@
   font-weight: normal;
 }
 
-li.done .undo {
+li.done .undo { // stylelint-disable-line selector-no-qualifying-type
   position: absolute;
-  top: (0.75em/0.9);
-  right: (1.5em/0.9);
+  top: (.75em / .9);
+  right: (1.5em / .9);
   margin: 0;
   @include govuk-font(14);
 
@@ -124,37 +125,34 @@ li.done .undo {
   }
 }
 
-li.done .answer ul {
-  margin: 0.5em 0 0 -2.1em;
+li.done .answer ul { // stylelint-disable-line selector-no-qualifying-type
+  margin: .5em 0 0 -2.1em;
   padding-left: 2.1em;
 }
 
-li.done:hover .undo a {
+li.done:hover .undo a { // stylelint-disable-line selector-no-qualifying-type
   color: inherit;
 }
 
 .step.current {
-  background-color: #fff;
+  background-color: #ffffff;
   margin-right: 15em;
   padding: 0 10em 1em 0;
   position: relative;
 
   @include media-down(tablet) {
     margin-right: 0;
-    padding: 0 1em 1em 1em;
+    padding: 0 1em 1em;
   }
 }
 
 .next-question {
-  margin: 1.5em 0 0.5em 0;
+  margin: 1.5em 0 .5em;
 }
 
-/*
- * results / outcome
- */
-
+// Results / outcome
 .outcome {
-  background-color: #fff;
+  background-color: #ffffff;
   float: none;
   margin-right: 0;
   min-height: 480px;
@@ -164,16 +162,14 @@ li.done:hover .undo a {
   }
 }
 
-/*
- * errors messages
- */
+// Errors messages
 .content-block .error,
 article .error {
-  border:1px solid #B01117;
-  background-color:#FFF3CF;
-  color:#B01117;
-  margin: 0 0 -0.5em -0.5em;
-  padding: 0.5em;
+  border: 1px solid #b01117;
+  background-color: #fff3cf;
+  color: #b01117;
+  margin: 0 0 -.5em -.5em;
+  padding: .5em;
 
   ul {
     margin-bottom: 0;
@@ -182,5 +178,5 @@ article .error {
 
 .error-message {
   margin-top: 0;
-  color:#B01117;
+  color: #b01117;
 }

@@ -1,5 +1,7 @@
-/* Global footer */
+// Global footer
 
+// stylelint-disable selector-max-id, max-nesting-depth -- These should be
+// removed in a refactoring with the underlying HTML.
 #footer {
   background-color: govuk-colour("light-grey");
   border-top: 10px solid $govuk-brand-colour; // Replaces the 1px #a1acb2 border from govuk_template
@@ -33,7 +35,7 @@
       clear: both;
       margin: 0 govuk-spacing(3) govuk-spacing(6);
       border: 1px solid $govuk-border-colour;
-      border-width: 1px 0 0 0;
+      border-width: 1px 0 0;
 
       @include govuk-media-query($from: tablet) {
         margin-bottom: 0;

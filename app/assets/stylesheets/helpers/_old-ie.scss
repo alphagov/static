@@ -1,6 +1,7 @@
 @import "govuk_publishing_components/govuk_frontend_support";
 
 // static specific styles
+// stylelint-disable-next-line selector-max-id
 #wrapper,
 .survey-wrapper,
 .govuk-emergency-banner div {

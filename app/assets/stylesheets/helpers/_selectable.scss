@@ -2,6 +2,8 @@
 // Radio buttons & checkboxes
 
 //scoped to label to reduce the possibility of class name clash
+
+// stylelint-disable selector-no-qualifying-type
 label.selectable {
   display: block;
   float: none;

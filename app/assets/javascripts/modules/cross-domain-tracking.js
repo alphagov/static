@@ -38,7 +38,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
         if (trackEvent) {
           $element.click({ text: $element.text(), name: name }, function (e) {
-            GOVUK.analytics.trackEvent("External Link Clicked", e.data.text, { trackerName: e.data.name })
+            GOVUK.analytics.trackEvent('External Link Clicked', e.data.text, { trackerName: e.data.name })
           })
         }
       }

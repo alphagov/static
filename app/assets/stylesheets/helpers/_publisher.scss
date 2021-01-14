@@ -1,4 +1,6 @@
-/* visited link colour overrides */
+// visited link colour overrides
+
+// stylelint-disable selector-max-id
 #content.multi-page li a:visited,
 #content.multi-page .pagination li a:visited {
   color: $link-visited-colour;
@@ -11,7 +13,7 @@
 
   aside {
     z-index: 10;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #bbbbbb;
     margin-bottom: 1em;
     padding-bottom: 1em;
     overflow: hidden;
@@ -27,6 +29,7 @@
     padding-bottom: 1em;
   }
 }
+// stylelint-enable selector-max-id
 
 .video-guide {
   .content-block .inner,
@@ -45,6 +48,7 @@
   padding-top: 0;
 }
 
+// stylelint-disable max-nesting-depth, selector-no-qualifying-type
 aside .page-navigation {
 
   @include media-down(mobile) {
@@ -54,10 +58,10 @@ aside .page-navigation {
   ol {
     margin: 0;
     padding: 0;
-    float:left;
+    float: left;
     display: inline;
     overflow: hidden;
-    width:50%;
+    width: 50%;
 
     @include media-down(mobile) {
       float: none;
@@ -69,7 +73,7 @@ aside .page-navigation {
   li {
     list-style: decimal;
     list-style-position: outside;
-    margin-right: 0.75em;
+    margin-right: .75em;
     margin-left: 1.5em;
     clear: left;
     @include govuk-font(16);
@@ -81,7 +85,7 @@ aside .page-navigation {
 
     a {
       display: block;
-      padding: 0.25em 1em 0.25em 0;
+      padding: .25em 1em .25em 0;
 
       span {
         cursor: pointer;
@@ -109,7 +113,7 @@ aside .page-navigation {
 
       &.part-label {
         color: $text-colour;
-        padding:0 0.5em 0 0;
+        padding: 0 .5em 0 0;
       }
 
       &.part-description {
@@ -119,15 +123,15 @@ aside .page-navigation {
       }
 
       &.part-title {
-        color: #2E3191;
+        color: #2e3191;
         text-decoration: underline;
         line-height: 1.5;
       }
     }
 
     &.active {
-      padding-top: 0.25em;
-      padding-bottom: 0.25em;
+      padding-top: .25em;
+      padding-bottom: .25em;
 
       span.part-number {
         padding: 0;
@@ -144,11 +148,12 @@ aside .page-navigation {
         padding: 0;
       }
 
-      @include govuk-font(19, $line-height: (45/19));
+      @include govuk-font(19, $line-height: (45 / 19));
 
-      span, a {
+      span,
+      a {
         margin: 0 -1em 0 -2.25em;
-        padding: 0em 1em 0.75em 2.75em;
+        padding: 0 1em .75em 2.75em;
       }
 
       span {
@@ -174,15 +179,18 @@ aside .page-navigation {
     }
   }
 }
+// stylelint-enable max-nesting-depth, selector-no-qualifying-type
 
-/* guides pagination */
+// guides pagination
+
+// stylelint-disable selector-no-qualifying-type
 .pagination {
   display: block;
-  margin: 4em 0 0 0;
+  margin: 4em 0 0;
   border-bottom: 1px solid $border-colour;
 
   @include media-down(mobile) {
-    margin: 2em 0 0 0;
+    margin: 2em 0 0;
   }
 
   ul {
@@ -210,13 +218,13 @@ aside .page-navigation {
         background-color: $canvas-colour;
       }
 
-      .pagination-label {
+      .pagination-label { // stylelint-disable-line max-nesting-depth
         @include govuk-font(27, $line-height: (33.75 / 27));
-        margin-bottom: 0.1em;
+        margin-bottom: .1em;
         display: block;
       }
 
-      .pagination-part-title {
+      .pagination-part-title { // stylelint-disable-line max-nesting-depth
         text-decoration: underline;
       }
     }
@@ -244,7 +252,7 @@ aside .page-navigation {
       width: 30px;
       height: 38px;
       content: " ";
-      }
+    }
 
     &.previous {
       float: left;
@@ -252,11 +260,11 @@ aside .page-navigation {
     }
 
     &.previous a {
-      padding: 0.75em 0 0.75em 3em;
+      padding: .75em 0 .75em 3em;
     }
 
     &.next a {
-      padding: 0.75em 3em 0.75em 0;
+      padding: .75em 3em .75em 0;
     }
 
     @include media-down(mobile) {
@@ -279,39 +287,40 @@ aside .page-navigation {
     span {
       display: block;
       min-height: 4.5em;
-      padding: 0.75em 5%;
+      padding: .75em 5%;
       width: 90%;
     }
 
     .pagination-label {
       display: block;
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
     }
   }
 }
+// stylelint-enable selector-no-qualifying-type
 
-/*
- * Transactions and local transactions styles
- */
+// Transactions and local transactions styles
 
-.find-location-for-service, .find-location-for-licence {
+.find-location-for-service,
+.find-location-for-licence {
   background-color: $panel-colour;
   min-height: 2em;
   line-height: 2;
   margin: 2em 0;
-  padding: 1em 0.75em 1em 1em;
+  padding: 1em .75em 1em 1em;
   position: relative;
 
   @include media-down(mobile) {
     margin: 1.2em 0;
     padding-left: 1em;
     padding-right: 1em;
+
     .postcode {
       margin-left: 0;
     }
   }
 
-  p.geolocate-me {
+  p.geolocate-me { // stylelint-disable-line selector-no-qualifying-type
     border-top: 1px solid $border-colour;
     @include govuk-font(16);
     margin-bottom: 0;

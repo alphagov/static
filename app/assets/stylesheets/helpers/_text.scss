@@ -1,14 +1,11 @@
-/*
- * Text styles for articles.
- * It's kind of like typography innit.
-*/
+// Text styles for articles.
 
 .content-block,
 article {
   h1 {
     @include govuk-font(24, $weight: bold);
     margin-top: 1.5em;
-    margin-bottom: 0.75em;
+    margin-bottom: .75em;
   }
 
   header h1 {
@@ -21,31 +18,31 @@ article {
     span {
       @include govuk-font(16);
       display: block;
-      margin-bottom: 0.4em;
+      margin-bottom: .4em;
     }
   }
 
   h1 + h2 {
-    margin-top: 0.75em;
+    margin-top: .75em;
   }
 
   h2 {
     @include govuk-font(24, $weight: bold);
-    margin: 1.2em 0 0.4em 0;
+    margin: 1.2em 0 .4em;
   }
 
   h2 + h3 {
-    margin-top: 0.75em;
+    margin-top: .75em;
   }
 
   h3 {
     @include govuk-font(19, $weight: bold);
     margin-top: 1em;
-    margin-bottom: 0.75em;
+    margin-bottom: .75em;
   }
 
   h3 + h4 {
-    margin-top: 0.75em;
+    margin-top: .75em;
   }
 
   h4 {
@@ -54,17 +51,23 @@ article {
   }
 
   h3 + table {
-    margin-top: 0.652em;
+    margin-top: .652em;
   }
 
   h4 + table {
-    margin-top: 0.75em;
+    margin-top: .75em;
   }
 
-  h2 + p,  h3 + p,  h4 + p,
-  h2 + ol, h3 + ol, h4 + ol,
-  h2 + ul, h3 + ul, h4 + ul {
-    margin-top: 0.2em;
+  h2 + p,
+  h3 + p,
+  h4 + p,
+  h2 + ol,
+  h3 + ol,
+  h4 + ol,
+  h2 + ul,
+  h3 + ul,
+  h4 + ul {
+    margin-top: .2em;
   }
 
   h1,
@@ -77,21 +80,21 @@ article {
   p,
   ul,
   ol {
-    margin: 0.75em 0;
+    margin: .75em 0;
   }
 
   p {
     @include govuk-font(19);
   }
 
-  p + .help-notice{
+  p + .help-notice {
     margin-top: 2em;
   }
 
   li {
     @include govuk-font(19);
-    margin: 0.25em 0;
-    padding-left: 0.3em;
+    margin: .25em 0;
+    padding-left: .3em;
 
     @include media-down(mobile) {
       margin-left: 16px;
@@ -115,10 +118,11 @@ article {
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: 1em;
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
+    margin-top: .75em;
+    margin-bottom: .75em;
 
     @include media-down(mobile) {
       padding-left: 0;
@@ -126,13 +130,11 @@ article {
     }
   }
 
-/*
-* Example has a green background, so we need an additional indent to
-* avoid the bullets hanging on the edge of the colour.
-*/
+  // Example has a green background, so we need an additional indent to
+  // avoid the bullets hanging on the edge of the colour.
   .example ul,
   .example ol {
-    margin-left:0.5em;
+    margin-left: .5em;
   }
 
   ul {
@@ -145,7 +147,7 @@ article {
   }
 
   table ul {
-    padding-left: 0.75em;
+    padding-left: .75em;
     margin: 0;
   }
 
@@ -160,11 +162,11 @@ article {
 
   dt {
     @include govuk-font(19);
-    margin-bottom: 0.25em;
+    margin-bottom: .25em;
   }
 
   dd {
-    margin-bottom: 0.75em;
+    margin-bottom: .75em;
   }
 
   table {
@@ -172,24 +174,24 @@ article {
     border-spacing: 0;
     margin: 1em 0 2em;
     width: 100%;
-
-    caption {
-      @include govuk-font(24, $weight: bold);
-      margin: 0.4em 0.5em 0.4em 0.7em;
-      text-align: left;
-    }
-
     @include media-down(mobile) {
-      margin: 1em 0 2em 0;
+      margin: 1em 0 2em;
       width: 100%;
-
-      caption {
-        padding-left: 0;
-      }
     }
   }
 
-  th, td {
+  table caption {
+    @include govuk-font(24, $weight: bold);
+    margin: .4em .5em .4em .7em;
+    text-align: left;
+
+    @include media-down(mobile) {
+      padding-left: 0;
+    }
+  }
+
+  th,
+  td {
     @include govuk-font(16, $tabular: true);
     vertical-align: top;
     padding: .75em .5em .75em 0;
@@ -210,12 +212,10 @@ article {
     border-bottom: solid 1px $border-colour;
   }
 
-  /*
-  * More article formatting including markdown styles.
-  */
+  // More article formatting including markdown styles.
 
   .mainstream & .summary {
-    margin: 0 0 2em 0;
+    margin: 0 0 2em;
     padding: 0;
     color: $text-colour;
 
@@ -224,7 +224,7 @@ article {
     }
 
     @include media-down(mobile) {
-      margin: 0 0 2em 0;
+      margin: 0 0 2em;
       padding: 0;
     }
   }
@@ -232,38 +232,39 @@ article {
   .summary p,
   .summary h2 {
     border: none;
-    margin: 0 0.75em 0 0;
+    margin: 0 .75em 0 0;
   }
 
   .summary h2 {
     line-height: 1.35em;
   }
-  .licence-finder &.outcome ul {
-    padding: 1em 1em;
+
+  .licence-finder &.outcome ul { // stylelint-disable-line selector-no-qualifying-type
+    padding: 1em;
     margin: 0 -1em;
 
     li {
       list-style-type: none;
       list-style-image: none;
-      margin: 0 0 0.75em 0;
+      margin: 0 0 .75em;
       padding: 0;
     }
   }
 
   .advisory {
-    background: image-url("icon-information.png") no-repeat scroll 98% 1em #D5E8F3;
+    background: image-url("icon-information.png") no-repeat scroll 98% 1em #d5e8f3;
     line-height: 1.3em;
-    margin: 0 -1em 1em -1em;
+    margin: 0 -1em 1em;
     padding: 1em;
     text-align: left;
 
-    @include device-pixel-ratio() {
+    @include device-pixel-ratio {
       background-image: image-url("icon-information-2x.png");
       background-size: 27px 27px;
     }
 
     p {
-      margin: 0 0.75em 0 0;
+      margin: 0 .75em 0 0;
       min-height: 1.75em;
       padding-right: 3em;
     }
@@ -274,11 +275,11 @@ article {
 
     &.high-alert {
       background-color: $panel-colour;
-      border-color: #C00;
+      border-color: #cc0000;
     }
 
     @include media-down(mobile) {
-      margin: 0 0 1em 0;
+      margin: 0 0 1em;
     }
   }
 
@@ -291,12 +292,12 @@ article {
     }
 
     @include media-down(mobile) {
-      margin: 0 0 1.5em 0;
+      margin: 0 0 1.5em;
       padding: 0;
     }
   }
 
-  #wrapper.place & .intro {
+  #wrapper.place & .intro { // stylelint-disable-line selector-max-id
     margin-bottom: 0;
   }
 
@@ -310,7 +311,7 @@ article {
     }
 
     @include media-down(mobile) {
-      margin: 0.75 0;
+      margin: .75 0;
     }
   }
 
@@ -318,52 +319,51 @@ article {
   .advisory.minor,
   .form-download,
   .subscribe {
-    padding: 0.25em 0 0.25em 3.5em;
+    padding: .25em 0 .25em 3.5em;
 
     @include media-down(mobile) {
-      margin: 1em 0 1.5em 0;
+      margin: 1em 0 1.5em;
     }
   }
 
   .application-notice {
-    padding: 0.1em 0 0.1em 1em;
+    padding: .1em 0 .1em 1em;
   }
 
   .advisory.minor {
     background-image: none;
-    padding: 0.75em 1em;
+    padding: .75em 1em;
   }
 
   .help-notice {
-    background:none;
-    background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
+    background: none;
+    background: image-url("icon-important.png") no-repeat scroll 0 .5em;
 
-    @include device-pixel-ratio() {
+    @include device-pixel-ratio {
       background-image: image-url("icon-important-2x.png");
       background-size: 34px 34px;
     }
 
     p {
-      font-weight:600;
+      font-weight: 600;
+    }
 
-      a {
-        font-weight:600;
-      }
+    p a {
+      font-weight: 600;
     }
   }
 
-  a.important {
-    background: image-url("icon-important.png") no-repeat scroll 100% 0 #FFF;
+  a.important { // stylelint-disable-line selector-no-qualifying-type
+    background: image-url("icon-important.png") no-repeat scroll 100% 0 #ffffff;
   }
 
   .subscribe {
-    background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #D5E8F3;
+    background: image-url("icon-calendar.png") no-repeat scroll 98% 1em #d5e8f3;
 
-    @include device-pixel-ratio() {
+    @include device-pixel-ratio {
       background-image: image-url("icon-calendar-2x.png");
       background-size: 27px 27px;
     }
-
   }
 
   .info-notice {
@@ -388,10 +388,9 @@ article {
     padding: 0 1em 0 0;
   }
 
-  .help-notice p {
+  .help-notice p { // stylelint-disable no-duplicate-selectors
     padding: 0 1em 0 2em;
   }
-
 
   p + .help-notice,
   p + .info-notice {
@@ -399,23 +398,23 @@ article {
   }
 
   .form-download {
-    padding: 0.25em 0 0.25em 0;
+    padding: .25em 0;
+  }
 
-    p {
-      padding-right: 3em;
-    }
+  .form-download p {
+    padding-right: 3em;
+  }
 
-    a {
-      display: block;
-      font-weight: 600;
-      background: image-url("icon-file-download.png") no-repeat scroll 0 0;
-      min-height: 2.5em;
-      padding:0 0 0 2.5em;
+  .form-download a {
+    display: block;
+    font-weight: 600;
+    background: image-url("icon-file-download.png") no-repeat scroll 0 0;
+    min-height: 2.5em;
+    padding: 0 0 0 2.5em;
 
-      @include device-pixel-ratio() {
-        background-image: image-url("icon-file-download-2x.png");
-        background-size: 25px 25px;
-      }
+    @include device-pixel-ratio {
+      background-image: image-url("icon-file-download-2x.png");
+      background-size: 25px 25px;
     }
   }
 
@@ -429,6 +428,7 @@ article {
     margin-top: .5em;
   }
 
+  // stylelint-disable selector-no-qualifying-type
   ol.places {
     list-style-type: none;
     padding-left: 0;
@@ -443,6 +443,7 @@ article {
       padding-left: 0;
     }
   }
+  // stylelint-enable selector-no-qualifying-type
 
   .place {
     margin: 1.5em 0;
@@ -463,17 +464,18 @@ article {
 
     .additional-information {
       @include govuk-font(16);
+    }
 
-      p {
-        margin: 0.25em 0;
-      }
+    .additional-information p {
+      margin: .25em 0;
     }
 
     @include media-down(mobile) {
-      margin: 0.75em 0;
+      margin: .75em 0;
     }
   }
 
+  // stylelint-disable selector-no-qualifying-type
   ul.view-maps {
     list-style: none;
     padding: 0;
@@ -492,17 +494,17 @@ article {
     overflow: hidden;
 
     > li {
-      background-position: 0 0.87em;
+      background-position: 0 .87em;
       background-repeat: no-repeat;
       list-style-type: decimal;
       margin-left: 0;
-      padding: 0.75em 0 0.75em 2.2em;
+      padding: .75em 0 .75em 2.2em;
 
       @for $i from 1 through 14 {
         &:nth-child(#{$i}) {
           background-image: image-url("icon-steps/icon-step-#{$i}.png");
 
-          @include device-pixel-ratio() {
+          @include device-pixel-ratio { // stylelint-disable-line  max-nesting-depth
             background-image: image-url("icon-steps/icon-step-#{$i}-2x.png");
             background-size: 24px 24px;
           }
@@ -510,29 +512,30 @@ article {
       }
     }
   }
+  // stylelint-enable selector-no-qualifying-type
 }
 
 .contact {
-  margin: 0.75em 0;
+  margin: .75em 0;
   min-width: 60%;
 
   dl {
     dt {
       font-weight: bold;
-      margin: 0 0 0.25em 0;
+      margin: 0 0 .25em;
     }
 
     dd {
-      margin: 0 0 0.5em 0;
+      margin: 0 0 .5em;
     }
   }
 
   @include media-down(mobile) {
-    margin: 0.75em 0;
+    margin: .75em 0;
   }
 }
 
-section.places h3 {
+section.places h3 { // stylelint-disable-line selector-no-qualifying-type
   margin-top: 0;
 }
 
@@ -551,42 +554,41 @@ section.places h3 {
   margin-left: 8.5em;
 }
 
-
 .highlight-answer,
 .highlighted-event {
   background-color: #28a197;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
-  padding: 0.1em 2em 0.2em 2em;
-  margin: 0 -1em 1em -1em;
+  padding: .1em 2em .2em;
+  margin: 0 -1em 1em;
 
   p {
     line-height: 2.3em;
-    color: #fff;
+    color: #ffffff;
 
     em {
       font-size: 2.45em;
       font-style: normal;
       font-weight: 700;
       display: block;
-      margin-bottom: 0.5em;
-      color: #fff;
+      margin-bottom: .5em;
+      color: #ffffff;
     }
   }
 
   @include media-down(mobile) {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em;
 
     @include govuk-font(48);
 
     p {
       font-size: 1em;
       line-height: inherit;
+    }
 
-      em {
-        font-size: 1em;
-        display: inline;
-      }
+    p em {
+      font-size: 1em;
+      display: inline;
     }
   }
 }

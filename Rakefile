@@ -2,14 +2,7 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path("config/application", __dir__)
-Static::Application.load_tasks
-
-begin
-  require "rubocop/rake_task"
-  RuboCop::RakeTask.new
-rescue LoadError
-  # Rubocop isn't available in all environments
-end
+Rails.application.load_tasks
 
 Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
-task default: %i[rubocop jasmine:ci test]
+task default: %i[lint jasmine:ci test]

@@ -4,20 +4,20 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/govuk_frontend_support";
 // The search component requires this helper mixin to render height #PR-2380
 @import "govuk_publishing_components/components/helpers/px-to-em";
-@import "govuk_publishing_components/components/_cookie-banner";
+@import "govuk_publishing_components/components/cookie-banner";
 // collections uses the action-link component and relies upon this line, see
 // https://github.com/alphagov/collections/pull/1754
-@import "govuk_publishing_components/components/_action-link";
+@import "govuk_publishing_components/components/action-link";
 @import "govuk_publishing_components/components/layout-header";
-@import "govuk_publishing_components/components/_search";
+@import "govuk_publishing_components/components/search";
 
-/* govuk_frontend_toolkit includes */
+// govuk_frontend_toolkit includes
 @import "colours";
 @import "css3";
 @import "device-pixels";
 @import "measurements";
 
-/* local styleguide includes */
+// local styleguide includes
 @import "styleguide/conditionals2";
 
 // basic styles for HTML5 and other elements

@@ -1,4 +1,4 @@
-/* Global print stylesheet */
+// Global print stylesheet
 html {
   font-size: 62.5%;
 }
@@ -8,14 +8,14 @@ main > header {
 
   h1 {
     @include govuk-font(24, $weight: bold);
-    border-bottom: solid 1pt black;
+    border-bottom: solid 1pt #000000;
     padding-bottom: 6pt;
     width: 80%;
   }
 
   p {
     @include govuk-font(14);
-    border-bottom: solid 1pt black;
+    border-bottom: solid 1pt #000000;
     bottom: -11pt;
     position: absolute;
     text-align: center;
@@ -49,7 +49,7 @@ article {
   }
 
   select {
-    background: white;
+    background: #ffffff;
   }
 
   .contact,
@@ -79,17 +79,17 @@ article {
   .highlighted-event {
     p {
       @include govuk-font(19);
+    }
 
-      em {
-        font-style: normal;
-        font-weight: 700;
-      }
+    p em {
+      font-style: normal;
+      font-weight: 700;
     }
   }
 }
 
 .modified-date {
-  color: rgb(225,225,225);
+  color: rgb(225, 225, 225);
   @include govuk-font(14);
 
   &:after {
@@ -98,7 +98,9 @@ article {
   }
 }
 
-/* hide the unnecessary page elements */
+// hide the unnecessary page elements
+
+// stylelint-disable selector-max-id, selector-no-qualifying-type, declaration-no-important
 body #global-user-location,
 body .related-positioning,
 header.page-header div h1 span,
@@ -115,7 +117,6 @@ body .actions,
 .done-questions .question-number,
 .done-questions li.done .undo,
 .player-container,
-.video-transcript-toggle
-.return-to-top {
+.video-transcript-toggle .return-to-top {
   display: none !important;
 }

@@ -1,19 +1,19 @@
 describe('A toggle module', function () {
   'use strict'
 
-  var toggle,
-    element
+  var toggle
 
   beforeEach(function () {
     toggle = new GOVUK.Modules.Toggle()
   })
 
   describe('when starting', function () {
-    var element = $('\
-      <div>\
-        <a href="#" class="my-toggle" data-expanded="false" data-controls="target">Toggle</a>\
-        <div id="target">Target</div>\
-      </div>')
+    var element = $(
+      '<div>' +
+        '<a href="#" class="my-toggle" data-expanded="false" data-controls="target">Toggle</a>' +
+        '<div id="target">Target</div>' +
+      '</div>'
+    )
 
     it('adds aria attributes to toggles', function () {
       toggle.start(element)
@@ -29,11 +29,12 @@ describe('A toggle module', function () {
     var element
 
     beforeEach(function () {
-      element = $('\
-        <div>\
-          <a href="#" class="my-toggle" data-expanded="false" data-controls="target" data-toggled-text="Show fewer">Toggle</a>\
-          <div id="target" class="js-hidden">Target</div>\
-        </div>')
+      element = $(
+        '<div>' +
+          '<a href="#" class="my-toggle" data-expanded="false" data-controls="target" data-toggled-text="Show fewer">Toggle</a>' +
+          '<div id="target" class="js-hidden">Target</div>' +
+        '</div>'
+      )
 
       toggle.start(element)
       element.find('.my-toggle').trigger('click')
@@ -63,12 +64,13 @@ describe('A toggle module', function () {
 
   describe('when clicking a toggle that controls multiple targets', function () {
     it('toggles the display of each target', function () {
-      var element = $('\
-        <div>\
-          <a href="#" class="my-toggle" data-expanded="false" data-controls="target another-target">Toggle</a>\
-          <div id="target" class="js-hidden">Target</div>\
-          <div id="another-target" class="js-hidden">Another target</div>\
-        </div>')
+      var element = $(
+        '<div>' +
+          '<a href="#" class="my-toggle" data-expanded="false" data-controls="target another-target">Toggle</a>' +
+          '<div id="target" class="js-hidden">Target</div>' +
+          '<div id="another-target" class="js-hidden">Another target</div>' +
+        '</div>'
+      )
 
       toggle.start(element)
       expect(element.find('#target').is('.js-hidden')).toBe(true)

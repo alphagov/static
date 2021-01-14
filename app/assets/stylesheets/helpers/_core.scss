@@ -1,9 +1,7 @@
-/*
- * Core global styles
- */
+// Core global styles
 body {
   @include ie(8) {
-    min-width:1024px;
+    min-width: 1024px;
   }
 }
 
@@ -11,33 +9,32 @@ p {
   @include govuk-font(19);
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
   font-weight: 400;
 }
 
 h2 {
   @include govuk-font(24);
-  margin-top: 0.5em;
-  margin-bottom: 0.25em;
+  margin-top: .5em;
+  margin-bottom: .25em;
 }
 
 h3 {
   @include govuk-font(19);
-  margin-top: 0.5em;
-  margin-bottom: 0.25em;
+  margin-top: .5em;
+  margin-bottom: .25em;
 }
 
 h4 {
   @include govuk-font(19);
-  margin-top: 0.5em;
-  margin-bottom: 0.25em;
+  margin-top: .5em;
+  margin-bottom: .25em;
 }
 
-/*
- * Page headers
- */
-
-header.page-header div {
+// Page headers
+header.page-header div { // stylelint-disable-line selector-no-qualifying-type
   @include govuk-media-query($from: tablet) {
     margin-top: govuk-spacing(6);
     margin-bottom: govuk-spacing(6);
@@ -52,15 +49,14 @@ header.page-header div {
     span {
       @include govuk-font($size: 27, $line-height: 1);
       display: block;
-      margin-bottom: 0.25em;
+      margin-bottom: .25em;
       text-shadow: none;
       color: $secondary-text-colour;
     }
   }
 }
 
-/* Licence Application */
-
+// Licence Application
 .relevant-authority {
   margin: 0 0 govuk-spacing(4) 84px;
 
@@ -73,33 +69,34 @@ header.page-header div {
   ul {
     padding-left: 12px;
   }
-  li { list-style: none;
+
+  li {
+    list-style: none;
+
     label {
       padding-left: govuk-spacing(1);
     }
   }
 }
 
-/*
-  ============================== Stuff (mainly) used in publications =============================
-*/
+// Stuff (mainly) used in publications
 
-/* Meta-data */
+// Meta-data
 .meta-data {
   @include govuk-font(16);
   color: $secondary-text-colour;
 
-  p{
+  p {
     text-align: left;
 
-    a{
+    a {
       color: $secondary-text-colour;
     }
     @include govuk-font(16);
   }
 }
 
-/* Error messages */
+// Error messages
 .error-notification {
   border: 1px solid #ffc946;
   background-color: #fbedcd;
@@ -129,7 +126,7 @@ header.page-header div {
     text-indent: -9999px;
 
     &:hover {
-      background-color: rgba(0,0,0,0.25);
+      background-color: rgba(0, 0, 0, .25);
     }
   }
 }
@@ -147,7 +144,7 @@ header.page-header div {
 
 .find-location-for-service .cookie-container {
   bottom: 1em;
-  right: 0.75em;
+  right: .75em;
 
   @include media-down(mobile) {
     bottom: govuk-spacing(4);
