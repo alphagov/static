@@ -3,7 +3,7 @@ var LUX_t_start = Date.now(),
 LUX = function() {
     var gaLog = [];
     dlog("lux.js evaluation start.");
-    var version = "210",
+    var version = "211",
         _errorUrl = "https://lux.speedcurve.com/error/",
         nErrors = 0,
         maxErrors = 5;
@@ -187,44 +187,28 @@ LUX = function() {
         return gaMeasures
     }
 
-    function _clearMarks(e) {
-        if (perf && perf.clearMarks) return perf.clearMarks(e);
-        if (e)
-            for (var t = gaMarks.length - 1; t >= 0; t--) e === gaMarks[t].name && gaMarks.splice(t, 1);
-        else gaMarks = []
-    }
-
-    function _clearMeasures(e) {
-        if (perf && perf.clearMeasures) return perf.clearMeasures(e);
-        if (e)
-            for (var t = gaMeasures.length - 1; t >= 0; t--) e === gaMeasures[t].name && gaMeasures.splice(t, 1);
-        else gaMeasures = []
-    }
-
     function userTimingValues() {
         var e = {},
-            t = _getMarks();
-        t && t.forEach((function(t) {
-            var n = _getMark(gStartMark),
-                r = a !== gStartMark && n ? n.startTime : 0,
-                a = t.name,
-                i = Math.round(t.startTime - r);
-            void 0 === e[a] ? e[a] = i : e[a] = Math.max(i, e[a])
+            t = _getMark(gStartMark),
+            n = _getMarks();
+        n && n.forEach((function(n) {
+            var r = n.name,
+                a = r !== gStartMark && t ? t.startTime : 0,
+                i = Math.round(n.startTime - a);
+            i < 0 || (void 0 === e[r] ? e[r] = i : e[r] = Math.max(i, e[r]))
         }));
-        var n = _getMeasures();
-        n && n.forEach((function(t) {
-            var n = t.name,
-                r = Math.round(t.duration);
-            void 0 === e[n] ? e[n] = r : e[n] = Math.max(r, e[n])
-        }));
-        var r = [],
-            a = Object.keys(e);
-        if (a)
-            for (var i = 0, o = a.length; i < o; i++) {
-                var s = a[i];
-                r.push(s + "|" + e[s])
+        var r = _getMeasures();
+        r && r.forEach((function(n) {
+            if (!(t && n.startTime < t.startTime)) {
+                var r = n.name,
+                    a = Math.round(n.duration);
+                void 0 === e[r] ? e[r] = a : e[r] = Math.max(a, e[r])
             }
-        return r.join(",")
+        }));
+        var a = [];
+        return Object.keys(e).forEach((function(t) {
+            a.push(t + "|" + e[t])
+        })), a.join(",")
     }
 
     function elementTimingValues() {
@@ -348,7 +332,7 @@ LUX = function() {
     }
 
     function _init() {
-        dlog("Enter LUX.init()."), _clearMarks(), _clearMeasures(), _clearIx(), _removeIxHandlers(), _addIxHandlers(), gbNavSent = 0, gbLuxSent = 0, gbIxSent = 0, gbFirstPV = 0, gSyncId = createSyncId(), gUid = refreshUniqueId(gSyncId), gaPerfEntries.splice(0), gFlags = 0, gFlags |= gFlag_InitCalled, _mark(gStartMark)
+        dlog("Enter LUX.init()."), _clearIx(), _removeIxHandlers(), _addIxHandlers(), gbNavSent = 0, gbLuxSent = 0, gbIxSent = 0, gbFirstPV = 0, gSyncId = createSyncId(), gUid = refreshUniqueId(gSyncId), gaPerfEntries.splice(0), gFlags = 0, gFlags |= gFlag_InitCalled, _mark(gStartMark)
     }
 
     function blockingScripts() {
