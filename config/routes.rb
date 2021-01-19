@@ -27,4 +27,13 @@ Rails.application.routes.draw do
   get "/apple-touch-icon-76x76.png", to: "icon_redirects#apple_old_size_icon"
   get "/apple-touch-icon-60x60.png", to: "icon_redirects#apple_old_size_icon"
   get "/apple-touch-icon-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-114x114-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-120x120-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-144x144-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-152x152-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-176x176-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-180x180-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-57x57-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-72x72-precomposed.png", to: "icon_redirects#apple_old_size_icon"
+  get "/apple-touch-icon-76x76-precomposed.png", to: "icon_redirects#apple_old_size_icon"
 end

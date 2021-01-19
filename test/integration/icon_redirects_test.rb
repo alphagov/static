@@ -11,6 +11,7 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
     should "redirect #{file} to the asset path" do
       get "/#{file}"
       assert_equal 301, last_response.status
+      assert_equal last_response.headers["Cache-Control"], "max-age=86400, public"
       # In development and test mode the asset pipeline doesn't add the hashes to the URLs
       assert_equal "http://example.org/assets/static/#{file}", last_response.location
     end
@@ -37,6 +38,7 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
     should "redirect old icon size #{file} to the default apple-touch-icon.png icon" do
       get "/#{file}"
       assert_equal 301, last_response.status
+      assert_equal last_response.headers["Cache-Control"], "max-age=86400, public"
       # In development and test mode the asset pipeline doesn't add the hashes to the URLs
       assert_equal "http://example.org/assets/static/apple-touch-icon.png", last_response.location
     end
