@@ -12,29 +12,26 @@
 <% content_for :body_classes, "mainstream error" %>
 
 <% content_for :wrapper_content do %>
-<main id="content" role="main" class="group">
-  <header class="page-header group">
-    <div>
-      <h1><%= heading %></h1>
-    </div>
-  </header>
-  <div class="article-container">
-    <article role="article" class="group">
-      <div class="inner">
+  <main id="content" role="main" class="govuk-main-wrapper govuk-main-wrapper--l">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "govuk_publishing_components/components/title", {
+          title: heading,
+          margin_top: 0,
+        } %>
         <%= raw intro %>
-        <p>You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
+        <p class="govuk-body">You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
         <br/>
         <pre>Status code: <%= status_code %></pre>
       </div>
-    </article>
-  </div>
+    </div>
+  </main>
 
   <%= render "govuk_publishing_components/components/feedback" %>
 
   <script type="text/javascript">
     window.httpStatusCode = '<%= status_code %>';
   </script>
-</main>
 <% end %>
 
 <%= render partial: 'base', locals: { hide_account_navigation: true } %>
