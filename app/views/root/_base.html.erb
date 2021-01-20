@@ -16,7 +16,7 @@
   <button class="search-toggle js-header-toggle" data-search-toggle-for="search">Show or hide search</button>
   <% # The /search page redirects to a finder if keywords are included. Be careful about
      # changing this, as the redirect adds some parameters to the search query. %>
-  <form id="search" class="site-search govuk-clearfix" action="/search" method="get" role="search" aria-label="Sitewide">
+  <form id="search" class="site-search govuk-clearfix" action="/search" method="get" role="search" aria-label="Site-wide">
     <div class="content govuk-clearfix">
       <%= render "govuk_publishing_components/components/search", {
         id: "site-search-text",
