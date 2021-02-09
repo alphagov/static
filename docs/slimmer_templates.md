@@ -17,9 +17,3 @@ GOV.UK.
 
 Use this layout if you want to explicitly control the full layout of your page
 including centering all the content.
-
-## `wrapper` (deprecated)
-
-This template historically contained all the styles for GOV.UK.
-
-**You should not use this template**
