@@ -3,14 +3,14 @@ require_relative "../integration_test_helper"
 class TemplatesTest < ActionDispatch::IntegrationTest
   context "fetching templates" do
     should "be 200 for templates that exist" do
-      %w[wrapper header_footer_only chromeless 404 406 500].each do |template|
+      %w[core_layout header_footer_only chromeless 404 406 500].each do |template|
         get "/templates/#{template}.html.erb"
         assert_equal 200, last_response.status
       end
     end
 
     should "return the rendered templates" do
-      visit "/templates/wrapper.html.erb"
+      visit "/templates/core_layout.html.erb"
       assert_no_match(/<%/, page.source) # Should be no ERB tags
       assert page.has_selector?("#wrapper")
     end

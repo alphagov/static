@@ -5,10 +5,5 @@ $govuk-use-legacy-palette: false;
 @import "header-footer-only";
 
 // styles
-@import "helpers/mixins";
-@import "helpers/core";
-@import "helpers/multi-step";
 @import "helpers/organisations";
-@import "helpers/publisher";
-@import "helpers/text";
 @import "helpers/wrapper";
