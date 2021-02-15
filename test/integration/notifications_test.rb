@@ -14,14 +14,14 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   context "emergency banner notifications" do
     should "not render a banner if one does not exist" do
       visit "/templates/core_layout.html.erb"
-      assert_not page.has_selector? ".govuk-emergency-banner"
+      assert_not page.has_selector? ".emergency-banner"
     end
 
     should "render a banner if one does exist" do
       stub_redis_response(campaign_class: "foo", heading: "bar")
 
       visit "/templates/core_layout.html.erb"
-      assert page.has_selector? ".govuk-emergency-banner"
+      assert page.has_selector? ".emergency-banner"
     end
 
     should "render a banner with a heading and campaign colour" do
@@ -29,7 +29,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/core_layout.html.erb"
 
-      assert page.has_selector? ".govuk-emergency-banner.notable-death"
+      assert page.has_selector? ".emergency-banner--notable-death"
       assert_match "Alas poor Yorick", page.body
     end
 
@@ -67,7 +67,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/core_layout.html.erb"
 
-      assert_not page.has_selector? ".more-information"
+      assert_not page.has_selector? ".emergency-banner__description"
       assert_no_match(/yoricks\.gov/, page.body)
     end
 
