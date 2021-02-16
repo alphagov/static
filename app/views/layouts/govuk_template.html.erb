@@ -39,13 +39,13 @@
 
     <%= yield :body_start %>
 
+    <%= render "govuk_publishing_components/components/cookie_banner" %>
+
     <div id="skiplink-container">
       <div>
         <a href="#content" class="skiplink govuk-link"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : "Skip to main content" %></a>
       </div>
     </div>
-
-    <%= render "govuk_publishing_components/components/cookie_banner" %>
 
     <% unless @omit_header %>
     <header role="banner" id="global-header" class="<%= yield(:header_class) %>">
