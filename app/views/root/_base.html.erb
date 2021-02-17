@@ -26,13 +26,39 @@
       } %>
     </div>
   </form>
-
-  <% unless hide_account_navigation %>
-    <%= render partial: 'account_navigation' %>
-  <% end %>
 <% end %>
 
 <% content_for :after_header do %>
+  <% unless hide_account_navigation %>
+    <%= render "govuk_publishing_components/components/layout_header", {
+      remove_bottom_border: true,
+      navigation_items: [
+      {
+        text: "Account",
+        href: Plek.new.find("account-manager"),
+        data: {
+          module: "explicit-cross-domain-links",
+          link_for: "accounts-signed-in",
+        },
+      },
+      {
+        text: "Sign out",
+        href: Plek.new.website_root + "/transition-check/logout",
+        data: {
+          module: "explicit-cross-domain-links",
+          link_for: "accounts-signed-in",
+        },
+      },
+      {
+        text: "Sign in",
+        href: Plek.new.website_root + "/transition-check/login",
+        data: {
+          module: "explicit-cross-domain-links",
+          link_for: "accounts-signed-out",
+        },
+      }],
+    } %>
+  <% end %>
   <div id="user-satisfaction-survey-container"></div>
   <% if @emergency_banner %>
     <%= render "notifications/emergency_banner", banner: @emergency_banner %>
