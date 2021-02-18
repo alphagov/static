@@ -25,7 +25,7 @@ $govuk-use-legacy-palette: false;
 @import "helpers/draft";
 @import "helpers/footer";
 @import "helpers/header";
-@import "helpers/govuk-emergency-banner";
+@import "helpers/emergency-banner";
 @import "modules/*";
 
 // This should be a component in the future. As the JavaScript and current
