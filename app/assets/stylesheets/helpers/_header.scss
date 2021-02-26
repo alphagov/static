@@ -62,7 +62,9 @@
 
   .govuk-header__link--homepage {
     display: inline-block;
-    font: bold 30px "GDS Transport", nta, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: "nta", Arial, sans-serif;
     line-height: 1;
 
     &:link,
