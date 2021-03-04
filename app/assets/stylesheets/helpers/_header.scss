@@ -149,7 +149,7 @@
       display: none;
     }
 
-    @include device-pixel-ratio {
+    @include govuk-device-pixel-ratio {
       background-size: 52.5px 35px;
       background-position: 100% 50%;
     }
@@ -391,7 +391,7 @@
     }
 
     &:focus {
-      outline: 3px solid $focus-colour;
+      outline: 3px solid $govuk-focus-colour;
     }
   }
 }
