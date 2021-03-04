@@ -11,10 +11,6 @@ $is-print: true;
 
 @import "govuk_publishing_components/govuk_frontend_support";
 
-// govuk_frontend_toolkit includes
-@import "colours";
-@import "measurements";
-
 // OUTPUT
 // The following files and inline CSS will form the output of print.css
 @import "helpers/print-base";
