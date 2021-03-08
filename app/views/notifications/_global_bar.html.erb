@@ -6,13 +6,17 @@
   link_text = false
   link_href = false
 
+  show_coronavirus_link = true
   coronavirus_title = "Coronavirus (COVID-19)"
   coronavirus_href = "/coronavirus"
   coronavirus_subtext = "National lockdown: stay at home"
 
+  show_transition_link = true
   transition_title = "Brexit"
   transition_href = "/transition"
   transition_subtext = "Check what you need to do"
+
+  coronavirus_link_margin_bottom = show_transition_link ? { margin_bottom: 3 } : {}
 
   # Toggles banner being permanently visible
   # If true, banner is always_visible & does not disappear automatically after 3 pageviews
@@ -66,8 +70,11 @@
         </p>
       <% end %>
 
-      <% if coronavirus_title && coronavirus_href %>
+      <% if show_coronavirus_link || show_transition_link %>
         <div class="global-bar-covid-wrapper">
+      <% end %>
+
+      <% if show_coronavirus_link %>
           <%= render "govuk_publishing_components/components/action_link", {
             text: coronavirus_title,
             href: coronavirus_href,
@@ -75,9 +82,11 @@
             classes: "js-call-to-action",
             light_text: true,
             simple_light: true,
-            margin_bottom: 3
-          } %>
+          }.merge(coronavirus_link_margin_bottom)
+         %>
+      <% end %>
 
+      <% if show_transition_link %>
           <%= render "govuk_publishing_components/components/action_link", {
             text: transition_title,
             href: transition_href,
@@ -86,6 +95,9 @@
             light_text: true,
             simple_light: true
           } %>
+      <% end %>
+
+      <% if show_coronavirus_link || show_transition_link %>
         </div>
       <% end %>
     </div>
