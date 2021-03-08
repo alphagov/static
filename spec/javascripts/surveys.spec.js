@@ -29,7 +29,6 @@ describe('Surveys', function () {
   beforeEach(function () {
     $block = $('<div class="emergency-banner" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
-               '<div id="global-browser-prompt" style="display: none"></div>' +
                '<div id="taxonomy-survey" style="display: none"></div>' +
                '<div id="user-satisfaction-survey-container"></div>')
 
@@ -474,12 +473,6 @@ describe('Surveys', function () {
 
     it('returns false if the emergency banner is visible', function () {
       $('.emergency-banner').css('display', 'block')
-
-      expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
-    })
-
-    it('returns false if the global browser prompt message is visible', function () {
-      $('#global-browser-prompt').css('display', 'block')
 
       expect(surveys.canShowAnySurvey(defaultSurvey)).toBeFalsy()
     })

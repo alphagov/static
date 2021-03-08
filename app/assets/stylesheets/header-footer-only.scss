@@ -11,12 +11,6 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/components/layout-header";
 @import "govuk_publishing_components/components/search";
 
-// govuk_frontend_toolkit includes
-@import "colours";
-@import "css3";
-@import "device-pixels";
-@import "measurements";
-
 // local styleguide includes
 @import "styleguide/conditionals2";
 

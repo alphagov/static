@@ -391,7 +391,6 @@
     otherNotificationVisible: function () {
       var notificationIds = [
         '.emergency-banner:visible',
-        '#global-browser-prompt:visible',
         '#taxonomy-survey:visible',
         '#global-bar:visible' // Currently about Coronavirus
       ]

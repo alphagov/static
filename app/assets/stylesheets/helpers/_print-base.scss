@@ -83,7 +83,7 @@ table {
 
   th,
   td {
-    border: 1pt solid $border-colour;
+    border: 1pt solid $govuk-border-colour;
     padding: govuk-spacing(2);
     text-align: left;
   }
@@ -102,7 +102,6 @@ table {
 #global-header .search-toggle,
 #global-header .header-proposition,
 #global-breadcrumb,
-#global-browser-prompt,
 #user-satisfaction-survey,
 .print-link {
   display: none;

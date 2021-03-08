@@ -37,7 +37,7 @@ article {
 
   header h1 {
     @include govuk-font(19, $weight: bold);
-    border-bottom: 1pt solid $border-colour;
+    border-bottom: 1pt solid $govuk-border-colour;
     padding-top: 7pt;
     padding-bottom: 7pt;
   }
@@ -55,7 +55,7 @@ article {
   .contact,
   .info-notice,
   .help-notice {
-    border: 1pt solid $border-colour;
+    border: 1pt solid $govuk-border-colour;
     padding: 2pt;
     margin: 14pt 0;
   }
