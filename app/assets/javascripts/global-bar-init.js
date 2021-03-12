@@ -141,3 +141,4 @@ var globalBarInit = {
 }
 
 window.GOVUK.globalBarInit = globalBarInit
+window.GOVUK.globalBarInit.init()

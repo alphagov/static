@@ -1,11 +1,11 @@
 ## Global banner
 
 A site-wide banner can be activated to convey important information on GOV.UK which is not deemed emergency level information.
-The file `app/views/notifications/_global_bar.html.erb` contains the necessary code to activate and render the banner.
+The file `app/views/components/_global_bar.html.erb` contains the necessary code to activate and render the banner.
 
 ### Activating the global banner
 
-In `app/views/notifications/_global_bar.html.erb`
+In `app/views/components/_global_bar.html.erb`
 
 1. Update the variables `title`, `title_href`, `link_href` and `link_text` with the relevant info where applicable, otherwise set to `false`.
 2. Update the `show_global_bar` variable to `true`
@@ -43,7 +43,7 @@ Usually this is because the caching has not cleared properly. This can be at var
   - [varnish](https://deploy.blue.production.govuk.digital/job/clear-varnish-cache/)
 
 ### Removing the global banner
-In `app/views/notifications/_global_bar.html.erb`
+In `app/views/components/_global_bar.html.erb`
 
 1. Update the show_global_bar variable to false
 2. Deploy static

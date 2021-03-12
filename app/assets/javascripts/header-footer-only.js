@@ -5,4 +5,5 @@
 //= require govuk_publishing_components/lib/track-click
 //= require modules/global-bar
 //= require modules/cross-domain-tracking
+//= require global-bar-init
 //= require surveys

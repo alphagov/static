@@ -12,6 +12,7 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/components/search";
 
 @import "components/emergency-banner";
+@import "components/global-bar";
 
 // basic styles for HTML5 and other elements
 @import "helpers/mixins";
