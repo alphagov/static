@@ -26,7 +26,6 @@ class HeaderFooterOnlyTest < ActionDispatch::IntegrationTest
         assert page.has_selector?(".footer-meta")
       end
 
-      assert page.has_selector?("script[src$='libs/jquery/jquery-1.12.4.js']", visible: :all)
       assert page.has_selector?("script[src$='header-footer-only.js']", visible: :all)
     end
   end

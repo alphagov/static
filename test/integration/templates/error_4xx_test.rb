@@ -29,7 +29,6 @@ class Error4XXTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert page.has_selector?("script[src$='libs/jquery/jquery-1.12.4.js']", visible: :all)
     assert page.has_selector?("script[src$='application.js']", visible: :all)
   end
 end
