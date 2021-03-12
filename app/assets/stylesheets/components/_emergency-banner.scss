@@ -1,4 +1,5 @@
 .emergency-banner {
+  @include govuk-font(19);
   background-color: govuk-colour("mid-grey");
   color: govuk-colour("white");
   margin-top: 2px;
@@ -31,7 +32,8 @@
   }
 }
 
-.emergency-banner .emergency-banner__description {
+.emergency-banner__description {
+  @include govuk-font(19);
   color: govuk-colour("white");
   margin-top: 0;
   margin-bottom: govuk-spacing(4);
@@ -45,7 +47,9 @@
   }
 }
 
-.emergency-banner .emergency-banner__link {
+.emergency-banner__link {
+  @include govuk-font(19);
+
   &:link,
   &:visited {
     color: govuk-colour("white");

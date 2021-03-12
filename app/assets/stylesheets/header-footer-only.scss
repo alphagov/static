@@ -11,12 +11,13 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/components/layout-header";
 @import "govuk_publishing_components/components/search";
 
+@import "components/emergency-banner";
+
 // basic styles for HTML5 and other elements
 @import "helpers/mixins";
 @import "helpers/draft";
 @import "helpers/footer";
 @import "helpers/header";
-@import "helpers/emergency-banner";
 
 // The following overrides are in place to allow the govuk-header play nicely
 // with govuk_template in our attempt to show account navigation in certain apps

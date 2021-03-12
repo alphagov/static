@@ -61,7 +61,14 @@
   <% end %>
   <div id="user-satisfaction-survey-container"></div>
   <% if @emergency_banner %>
-    <%= render "notifications/emergency_banner", banner: @emergency_banner %>
+    <%= render "components/emergency_banner", {
+      campaign_class: @emergency_banner.campaign_class,
+      heading: @emergency_banner.heading,
+      short_description: @emergency_banner.short_description,
+      link: @emergency_banner.link,
+      link_text: @emergency_banner.link_text,
+    }
+    %>
   <% end %>
 <% end %>
 
