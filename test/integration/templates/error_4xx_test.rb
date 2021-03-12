@@ -7,7 +7,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("body.mainstream.error")
     within "head", visible: :all do
       assert page.has_selector?("title", text: "Page not found - GOV.UK", visible: :all)
-      assert page.has_selector?("link[href$='static.css']", visible: :all)
+      assert page.has_selector?("link[href$='application.css']", visible: :all)
     end
 
     within "body.mainstream.error" do

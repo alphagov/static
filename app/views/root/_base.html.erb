@@ -9,7 +9,7 @@
 <% end %>
 
 <% content_for :head do %>
-  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'static' } %>
+  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'application' } %>
 <% end %>
 
 <% content_for :inside_header do %>
