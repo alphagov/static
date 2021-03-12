@@ -11,9 +11,6 @@ $govuk-use-legacy-palette: false;
 @import "govuk_publishing_components/components/layout-header";
 @import "govuk_publishing_components/components/search";
 
-// local styleguide includes
-@import "styleguide/conditionals2";
-
 // basic styles for HTML5 and other elements
 @import "helpers/mixins";
 @import "helpers/draft";

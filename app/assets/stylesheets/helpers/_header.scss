@@ -254,7 +254,7 @@
   &.visible {
     display: block;
 
-    @include media-down(mobile) {
+    @include govuk-media-query($until: tablet) {
       .survey-close-button {
         font-size: 16px;
       }
