@@ -36,14 +36,6 @@
 -%>
 
 <% if show_global_bar %>
-  <% content_for :body_end do %>
-    <%= javascript_include_tag 'global-bar-init', integrity: false %>
-    <script>
-      if (GOVUK.globalBarInit) {
-        window.GOVUK.globalBarInit.init()
-      }
-    </script>
-  <% end %>
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
     <div class="global-bar-message govuk-width-container">

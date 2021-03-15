@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/component-guide" => redirect("https://govuk-publishing-components.herokuapp.com/component-guide")
+  mount GovukPublishingComponents::Engine, at: "/component-guide" if Rails.env.development?
 
   scope format: false do
     scope to: proc { [410, {}, ["The component system has moved to https://github.com/alphagov/govuk_publishing_components"]] } do

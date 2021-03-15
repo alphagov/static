@@ -1,0 +1,117 @@
+// stylelint-disable selector-max-id
+#user-satisfaction-survey {
+  // Hidden by default as we only want to show it to users who have JavaScript enabled.
+  display: none;
+  background-color: $govuk-brand-colour;
+  margin-bottom: 1px;
+  color: govuk-colour("white");
+  @include govuk-font(16);
+
+  &.visible {
+    display: block;
+
+    @include govuk-media-query($until: tablet) {
+      .survey-close-button {
+        font-size: 16px;
+      }
+
+      .survey-title {
+        display: inline-block;
+        font-size: 18px;
+        width: 75%;
+      }
+
+      .survey-primary-link,
+      .postscript-cta {
+        font-size: 18px;
+      }
+    }
+  }
+
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  a {
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+      color: inherit;
+    }
+
+    &:focus {
+      color: $govuk-focus-text-colour;
+    }
+  }
+
+  .survey-wrapper {
+    @extend %site-width-container;
+    padding-top: govuk-spacing(3);
+    padding-bottom: govuk-spacing(4);
+    clear: both;
+  }
+
+  .survey-inner-wrapper {
+    max-width: 30em;
+  }
+
+  .survey-title {
+    @include govuk-font(19, $weight: bold);
+    margin-bottom: .5em;
+  }
+
+  .survey-close-button {
+    float: right;
+    @include govuk-font(19);
+  }
+
+  .survey-primary-link {
+    @include govuk-font(19);
+    margin-right: .5em;
+  }
+
+  .survey-form-label {
+    display: block;
+    margin-bottom: .25em;
+  }
+
+  .survey-form-input {
+    @include govuk-font($size: 16, $line-height: 1.1);
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 4px 4px;
+    border: 2px solid govuk-colour("white");
+    margin: 0; // TODO: Remove this when all applications are moved away from the 'wrapper' template
+    margin-bottom: 1em;
+  }
+
+  .survey-form-description {
+    @include govuk-font(14);
+    margin-bottom: .5em;
+  }
+
+  .survey-form-button {
+    @include govuk-font(19, $weight: bold, $line-height: 1.1);
+    padding: govuk-spacing(2) govuk-spacing(3) govuk-spacing(1) govuk-spacing(3);
+    margin-right: .5em;
+    color: $govuk-brand-colour;
+    background: govuk-colour("white");
+    border: 0;
+    border-bottom: solid 2px $govuk-border-colour;
+
+    &:hover,
+    &:focus {
+      color: darken($govuk-brand-colour, 5%);
+      background: govuk-colour("light-grey");
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 3px solid $govuk-focus-colour;
+    }
+  }
+}

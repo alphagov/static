@@ -9,7 +9,7 @@
 <% end %>
 
 <% content_for :head do %>
-  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'static' } %>
+  <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'application' } %>
 <% end %>
 
 <% content_for :inside_header do %>
@@ -61,12 +61,19 @@
   <% end %>
   <div id="user-satisfaction-survey-container"></div>
   <% if @emergency_banner %>
-    <%= render "notifications/emergency_banner", banner: @emergency_banner %>
+    <%= render "components/emergency_banner", {
+      campaign_class: @emergency_banner.campaign_class,
+      heading: @emergency_banner.heading,
+      short_description: @emergency_banner.short_description,
+      link: @emergency_banner.link,
+      link_text: @emergency_banner.link_text,
+    }
+    %>
   <% end %>
 <% end %>
 
 <% content_for :content do %>
-  <%= render "notifications/global_bar" %>
+  <%= render "components/global_bar" %>
 
   <div id="wrapper" class="govuk-width-container group">
     <%= yield :wrapper_content %>

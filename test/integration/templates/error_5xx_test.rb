@@ -7,7 +7,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("body.mainstream.error")
     within "head", visible: :all do
       assert page.has_selector?("title", text: "Sorry, we're experiencing technical difficulties - GOV.UK", visible: :all)
-      assert page.has_selector?("link[href$='static.css']", visible: :all)
+      assert page.has_selector?("link[href$='application.css']", visible: :all)
     end
 
     within "body.mainstream.error" do
@@ -29,7 +29,6 @@ class Error5XXTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert page.has_selector?("script[src$='libs/jquery/jquery-1.12.4.js']", visible: :all)
     assert page.has_selector?("script[src$='application.js']", visible: :all)
   end
 end

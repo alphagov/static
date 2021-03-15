@@ -7,7 +7,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   context "emergency banner file" do
     should "have an emergency banner file" do
-      assert File.exist? Rails.root.join("app/views/notifications/_emergency_banner.html.erb")
+      assert File.exist? Rails.root.join("app/views/components/_emergency_banner.html.erb")
     end
   end
 

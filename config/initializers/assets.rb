@@ -18,8 +18,8 @@ Rails.application.config.assets.precompile += %w[
   global-bar-init.js
   error-page.js
   surveys.js
-  static.css
-  static-ie*.css
+  application*.css
+  print.css
   fonts*.css
   guides-print.css
   header-footer-only*.css

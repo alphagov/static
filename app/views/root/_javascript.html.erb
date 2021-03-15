@@ -1,6 +1,4 @@
-<%= javascript_include_tag 'libs/jquery/jquery-1.12.4.js', integrity: false %>
 <%= javascript_include_tag local_assigns[:js_file] || 'application', integrity: false %>
 <% if ENV["DRAFT_ENVIRONMENT"].present? %>
   <%= javascript_include_tag 'modules/base-target', integrity: false %>
 <% end %>
-<%= javascript_include_tag 'surveys', integrity: false %>
