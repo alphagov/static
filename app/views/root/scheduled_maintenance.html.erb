@@ -2,12 +2,12 @@
 # This view is fetched by Puppet so that the loadbalancer can serve a nice
 # error when it's put into maintenance mode (to switch off the backend).
 %>
-<%= render partial: 'error_page', locals: {
+<%= render partial: "error_page", locals: {
   status_code: 503,
-  title: 'Scheduled maintenance',
-  heading: 'GOV.UK publishing tools are currently unavailable due to scheduled maintenance',
-  intro: '<p>Contact the GOV.UK lead (Single Point Of Contact) for your department or agency if you need to publish something in an <a href="https://www.gov.uk/guidance/contact-the-government-digital-service/how-to-contact-gds#emergency-support-requests">emergency</a>.</p>
+  title: "Scheduled maintenance",
+  heading: "GOV.UK publishing tools are currently unavailable due to scheduled maintenance",
+  intro: "<p class='govuk-body'>Contact the GOV.UK lead (Single Point Of Contact) for your department or agency if you need to publish something in an <a href='https://www.gov.uk/guidance/contact-the-government-digital-service/how-to-contact-gds#emergency-support-requests' class='govuk-link'>emergency</a>.</p>
 
-    <p><a href="https://status.publishing.service.gov.uk/">The GOV.UK status page</a> has more information about the scheduled maintenance.</p>',
+    <p class='govuk-body'><a class='govuk-link' href='https://status.publishing.service.gov.uk/'>The GOV.UK status page</a> has more information about the scheduled maintenance.</p>",
 }
 %>

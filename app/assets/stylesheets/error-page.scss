@@ -1,9 +1,2 @@
-$govuk-compatibility-govuktemplate: true;
-$govuk-use-legacy-palette: false;
-
 @import "govuk_publishing_components/govuk_frontend_support";
-@import "govuk_publishing_components/component_support";
-@import "govuk_publishing_components/components/cookie-banner";
-@import "govuk_publishing_components/components/button";
-@import "govuk_publishing_components/components/feedback";
-@import "govuk_publishing_components/components/action-link";
+@import "govuk_publishing_components/components/title";

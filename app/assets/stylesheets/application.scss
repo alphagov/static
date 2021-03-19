@@ -1,9 +1,16 @@
-$govuk-compatibility-govuktemplate: true;
-$govuk-use-legacy-palette: false;
-
+@import "govuk_publishing_components/govuk_frontend_support";
 @import "govuk_publishing_components/component_support";
-@import "header-footer-only";
 
-// styles
-@import "helpers/organisations";
-@import "helpers/wrapper";
+@import "govuk_publishing_components/components/action-link";
+@import "govuk_publishing_components/components/button";
+@import "govuk_publishing_components/components/cookie-banner";
+@import "govuk_publishing_components/components/feedback";
+@import "govuk_publishing_components/components/input";
+@import "govuk_publishing_components/components/layout-footer";
+@import "govuk_publishing_components/components/layout-for-public";
+@import "govuk_publishing_components/components/layout-header";
+@import "govuk_publishing_components/components/search";
+@import "govuk_publishing_components/components/skip-link";
+
+@import "components/emergency-banner";
+@import "components/global-bar";
