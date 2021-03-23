@@ -9,3 +9,4 @@ log/*.log
 public/static/
 .bundle
 coverage
+node_modules
