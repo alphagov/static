@@ -1,9 +1,9 @@
 /* global $ */
 
 // Desktop: when the Topics header button is clicked
-$('#xpl-topics-menu-item, #xpl-topics-button-desktop').on('click', event => {
+$('#xpl-topics-menu-item, #xpl-topics-button-desktop').on('click', function(event) {
   event.stopPropagation();
-  const menuLabel = $('#xpl-topics-button-desktop');
+  var menuLabel = $('#xpl-topics-button-desktop');
   if (menuLabel.parent().hasClass('menu-item-open')) {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
     $('.xpl-backdrop').hide();
@@ -18,9 +18,9 @@ $('#xpl-topics-menu-item, #xpl-topics-button-desktop').on('click', event => {
 });
 
 // Desktop: when the Government activity header button is clicked
-$('#xpl-activity-menu-item, #xpl-activity-button-desktop').on('click', event => {
+$('#xpl-activity-menu-item, #xpl-activity-button-desktop').on('click', function(event) {
   event.stopPropagation();
-  const menuLabel = $('#xpl-activity-button-desktop');
+  var menuLabel = $('#xpl-activity-button-desktop');
   if (menuLabel.parent().hasClass('menu-item-open')) {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
     $('.xpl-backdrop').hide();
@@ -35,9 +35,9 @@ $('#xpl-activity-menu-item, #xpl-activity-button-desktop').on('click', event => 
 });
 
 // Desktop: when the Search header button is clicked
-$('#xpl-search-menu-item, #xpl-search-button-desktop').on('click', event => {
+$('#xpl-search-menu-item, #xpl-search-button-desktop').on('click', function(event) {
   event.stopPropagation();
-  const menuLabel = $('#xpl-search-button-desktop');
+  var menuLabel = $('#xpl-search-button-desktop');
   if (menuLabel.parent().hasClass('menu-item-open')) {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
     $('.xpl-backdrop').hide();
@@ -55,7 +55,7 @@ $('#xpl-search-menu-item, #xpl-search-button-desktop').on('click', event => {
 
 
 // Mobile -- button to show or hide the menu
-document.getElementById('xpl-menu-button').addEventListener('click', event => {
+document.getElementById('xpl-menu-button').addEventListener('click', function(event) {
 
   // change the button itself
   event.target.classList.toggle('govuk-header__menu-button--open');
@@ -77,7 +77,7 @@ document.getElementById('xpl-menu-button').addEventListener('click', event => {
 
 
 // Mobile -- button to show or hide the search panel
-document.getElementById('xpl-search-button').addEventListener('click', event => {
+document.getElementById('xpl-search-button').addEventListener('click', function(event) {
   // change the button itself
   event.target.classList.toggle('govuk-header__menu-button--open');
   event.target.innerText = event.target.classList.contains('govuk-header__menu-button--open') ? '×' : 'Search';
@@ -105,29 +105,8 @@ $('.xpl-backdrop').on('click', function() {
 });
 
 
-const cookieBanners = [
-  document.getElementById('global-cookie-message'),
-  document.querySelector('.app-cookie-banner')
-];
-cookieBanners.forEach(banner => banner && banner.parentNode.removeChild(banner));
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  $('#xpl-topics-button-desktop').replaceWith(`
-    <button id="xpl-topics-button-desktop" class="xpl-menu__button">
-      Topics
-    </button>
- `);
-
-  $('#xpl-activity-button-desktop').replaceWith(`
-    <button id="xpl-activity-button-desktop" class="xpl-menu__button">
-       Government activity
-    </button>
-  `);
-
-  $('#xpl-search-button-desktop').replaceWith(`
-    <button id="xpl-search-button-desktop" class="xpl-menu__button xpl-search-button">Search</button>
-  `);
-
-
+document.addEventListener('DOMContentLoaded', function() {
+  $('#xpl-topics-button-desktop').replaceWith('<button id="xpl-topics-button-desktop" class="xpl-menu__button">Topics</button>');
+  $('#xpl-activity-button-desktop').replaceWith('<button id="xpl-activity-button-desktop" class="xpl-menu__button">Government activity</button>');
+  $('#xpl-search-button-desktop').replaceWith('<button id="xpl-search-button-desktop" class="xpl-menu__button xpl-search-button">Search</button>');
 });
