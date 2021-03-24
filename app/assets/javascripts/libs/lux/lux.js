@@ -1,3 +1,14 @@
+/* eslint-disable */
+
+// ! Remember to keep the settings at the end of this file when updating LUX.
+//
+// The settings are:
+//  * `LUX.customerid = 47044334` to let LUX know who this is
+//  * `LUX.beaconMode = "simple"` to fire the beacon as an image, which is now
+//    allowed by the content security policy.
+//  * `LUX.debug = false` turns debugging on and off. Left set to false - and
+//    kept in the file so it's easier to remember that this can be turned on.
+
 var LUX_t_start = Date.now(),
     LUX = window.LUX || {};
 LUX = function() {
@@ -808,3 +819,17 @@ LUX = function() {
     })), dlog("lux.js evaluation end."), _LUX
 }();
 var LUX_t_end = Date.now();
+
+// This ID usually appended to the end of the lux.js as a query string when
+// using the SpeedCurve hosted version - but we have to include it here as this
+// is self hosted.
+LUX.customerid = 47044334;
+
+// Turn on the image-based beacon, rather than have a remote JavaScript file
+// fetched and executed.
+LUX.beaconMode = "simple";
+
+// Setting debug to `true` shows what happening as it happens. Running
+// `LUX.getDebug()` in the browser's console will show the history of what's
+// happened.
+LUX.debug = false;

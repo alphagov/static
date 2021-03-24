@@ -15,6 +15,11 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#wrapper")
     end
 
+    should "contain real user metric scripts that are deferred" do
+      assert page.has_selector?("html > head > script[src*='libs/lux/lux-polyfill'][defer]", visible: :all)
+      assert page.has_selector?("html > head > script[src*='libs/lux/lux'][defer]", visible: :all)
+    end
+
     should "404 for non-existent templates" do
       get "/templates/fooey.html.erb"
       assert_equal 404, last_response.status

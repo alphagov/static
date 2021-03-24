@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <title><%= content_for?(:page_title) ? yield(:page_title) : "GOV.UK - The best place to find government services and information" %></title>
 
+    <%= javascript_include_tag "libs/lux/lux-polyfill", { defer: true } %>
+    <%= javascript_include_tag "libs/lux/lux", { defer: true } %>
+
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag "govuk-template.css", integrity: false %><!--<![endif]-->
     <!--[if IE 8]><%= stylesheet_link_tag "govuk-template-ie8.css" %><![endif]-->
     <%= stylesheet_link_tag "govuk-template-print.css", media: "print", integrity: false %>

@@ -11,12 +11,14 @@ Rails.application.config.assets.prefix = "/assets/static"
 # folder are already added.
 Rails.application.config.assets.precompile += %w[
   favicon.ico
-  libs/jquery/jquery-1.12.4.js
-  modules/base-target.js
   application.js
-  header-footer-only.js
-  global-bar-init.js
   error-page.js
+  global-bar-init.js
+  header-footer-only.js
+  libs/jquery/jquery-1.12.4.js
+  libs/lux/lux-polyfill.js
+  libs/lux/lux.js
+  modules/base-target.js
   surveys.js
   application*.css
   print.css
