@@ -18,7 +18,26 @@ $font: "GDS Transport", nta, Arial, sans-serif;
   }
 }
 
+
+// FIXME: these rules exist on gov.uk, not on static
+
+#global-header-bar {
+  display: none;
+}
+
+.global-bar {
+  background-color: #0b0c0c;
+  border-top: 10px solid #1d70b8;
+  border-bottom: 1px solid #fff;
+  &-message {
+    padding: 20px 0;
+  }
+}
+
+
 //---- menu ----
+
+
 .govuk-header {
   border-bottom: 0;
 
