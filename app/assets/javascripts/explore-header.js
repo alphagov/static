@@ -1,16 +1,16 @@
 /* global $ */
 
 // Desktop: when the Topics header button is clicked
-$('#xpl-topics-menu-item, #xpl-topics-button-desktop').on('click', function(event) {
+$('#govuk-header__topics-menu-item, #govuk-header__topics-button--desktop').on('click', function(event) {
   event.stopPropagation();
-  var menuLabel = $('#xpl-topics-button-desktop');
+  var menuLabel = $('#govuk-header__topics-button--desktop');
   if (menuLabel.parent().hasClass('menu-item-open')) {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
-    $('.xpl-backdrop').hide();
+    $('.govuk-header__backdrop').hide();
   } else {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
     menuLabel.parent('li').addClass('menu-item-open');
-    $('.xpl-backdrop').show();
+    $('.govuk-header__backdrop').show();
   }
   $('#xpl-frame2-topics').toggle();
   $('#xpl-frame2-search').hide();
@@ -18,16 +18,16 @@ $('#xpl-topics-menu-item, #xpl-topics-button-desktop').on('click', function(even
 });
 
 // Desktop: when the Government activity header button is clicked
-$('#xpl-activity-menu-item, #xpl-activity-button-desktop').on('click', function(event) {
+$('#govuk-header__activity-menu-item, #govuk-header__activity-button--desktop').on('click', function(event) {
   event.stopPropagation();
-  var menuLabel = $('#xpl-activity-button-desktop');
+  var menuLabel = $('#govuk-header__activity-button--desktop');
   if (menuLabel.parent().hasClass('menu-item-open')) {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
-    $('.xpl-backdrop').hide();
+    $('.govuk-header__backdrop').hide();
   } else {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
     menuLabel.parent('li').addClass('menu-item-open');
-    $('.xpl-backdrop').show();
+    $('.govuk-header__backdrop').show();
   }
   $('#xpl-frame2-topics').hide();
   $('#xpl-frame2-search').hide();
@@ -35,16 +35,16 @@ $('#xpl-activity-menu-item, #xpl-activity-button-desktop').on('click', function(
 });
 
 // Desktop: when the Search header button is clicked
-$('#xpl-search-menu-item, #xpl-search-button-desktop').on('click', function(event) {
+$('#govuk-header__search-menu-item, #govuk-header__search-button--desktop').on('click', function(event) {
   event.stopPropagation();
-  var menuLabel = $('#xpl-search-button-desktop');
+  var menuLabel = $('#govuk-header__search-button--desktop');
   if (menuLabel.parent().hasClass('menu-item-open')) {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
-    $('.xpl-backdrop').hide();
+    $('.govuk-header__backdrop').hide();
   } else {
     menuLabel.closest('ul').children('li').removeClass('menu-item-open');
     menuLabel.parent('li').addClass('menu-item-open');
-    $('.xpl-backdrop').show();
+    $('.govuk-header__backdrop').show();
   }
   $('#xpl-frame2-topics').hide();
   $('#xpl-frame2-activity').hide();
@@ -55,7 +55,7 @@ $('#xpl-search-menu-item, #xpl-search-button-desktop').on('click', function(even
 
 
 // Mobile -- button to show or hide the menu
-document.getElementById('xpl-menu-button').addEventListener('click', function(event) {
+document.getElementById('govuk-header__menu-button').addEventListener('click', function(event) {
 
   // change the button itself
   event.target.classList.toggle('govuk-header__menu-button--open');
@@ -64,10 +64,10 @@ document.getElementById('xpl-menu-button').addEventListener('click', function(ev
   // show or hide the dropdown
   $('.govuk-header #xpl-popup-menu').toggle();
 
-  if ($('#xpl-search-button').hasClass('govuk-header__menu-button--open')) {
+  if ($('#govuk-header__search-button').hasClass('govuk-header__menu-button--open')) {
     // hide the search popup
-    $('#xpl-search-button').removeClass('govuk-header__menu-button--open');
-    $('#xpl-search-button').text('Search');
+    $('#govuk-header__search-button').removeClass('govuk-header__menu-button--open');
+    $('#govuk-header__search-button').text('Search');
     $('#xpl-popup-search').hide();
   } else {
     // hide or show the rest of the page
@@ -77,7 +77,7 @@ document.getElementById('xpl-menu-button').addEventListener('click', function(ev
 
 
 // Mobile -- button to show or hide the search panel
-document.getElementById('xpl-search-button').addEventListener('click', function(event) {
+document.getElementById('govuk-header__search-button').addEventListener('click', function(event) {
   // change the button itself
   event.target.classList.toggle('govuk-header__menu-button--open');
   event.target.innerText = event.target.classList.contains('govuk-header__menu-button--open') ? '×' : 'Search';
@@ -88,9 +88,9 @@ document.getElementById('xpl-search-button').addEventListener('click', function(
   // hide or show the rest of the page
   $('.govuk-header').prevAll().toggle();
 
-  if ($('#xpl-menu-button').hasClass('govuk-header__menu-button--open')) {
-    $('#xpl-menu-button').removeClass('govuk-header__menu-button--open');
-    $('#xpl-menu-button').text('Menu');
+  if ($('#govuk-header__menu-button').hasClass('govuk-header__menu-button--open')) {
+    $('#govuk-header__menu-button').removeClass('govuk-header__menu-button--open');
+    $('#govuk-header__menu-button').text('Menu');
     $('#xpl-popup-menu').hide();
   } else {
     $('.govuk-header').nextAll().toggle();
@@ -98,7 +98,7 @@ document.getElementById('xpl-search-button').addEventListener('click', function(
 });
 
 
-$('.xpl-backdrop').on('click', function() {
+$('.govuk-header__backdrop').on('click', function() {
   $(this).hide();
   $('.xpl-frame2').hide();
   $('#navigation-desktop li').removeClass('menu-item-open');
@@ -106,7 +106,7 @@ $('.xpl-backdrop').on('click', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  $('#xpl-topics-button-desktop').replaceWith('<button id="xpl-topics-button-desktop" class="xpl-menu__button">Topics</button>');
-  $('#xpl-activity-button-desktop').replaceWith('<button id="xpl-activity-button-desktop" class="xpl-menu__button">Government activity</button>');
-  $('#xpl-search-button-desktop').replaceWith('<button id="xpl-search-button-desktop" class="xpl-menu__button xpl-search-button">Search</button>');
+  $('#govuk-header__topics-button--desktop').replaceWith('<button id="govuk-header__topics-button--desktop" class="govuk-header__menu-button">Topics</button>');
+  $('#govuk-header__activity-button--desktop').replaceWith('<button id="govuk-header__activity-button--desktop" class="govuk-header__menu-button">Government activity</button>');
+  $('#govuk-header__search-button--desktop').replaceWith('<button id="govuk-header__search-button--desktop" class="govuk-header__menu-button govuk-header__search-button">Search</button>');
 });
