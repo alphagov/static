@@ -62,7 +62,7 @@ document.getElementById('xpl-menu-button').addEventListener('click', function(ev
   event.target.innerText = event.target.classList.contains('govuk-header__menu-button--open') ? '×' : 'Menu';
 
   // show or hide the dropdown
-  $('.explore-header #xpl-popup-menu').toggle();
+  $('.govuk-header #xpl-popup-menu').toggle();
 
   if ($('#xpl-search-button').hasClass('govuk-header__menu-button--open')) {
     // hide the search popup
@@ -71,7 +71,7 @@ document.getElementById('xpl-menu-button').addEventListener('click', function(ev
     $('#xpl-popup-search').hide();
   } else {
     // hide or show the rest of the page
-    $('.explore-header').nextAll().toggle();
+    $('.govuk-header').nextAll().toggle();
   }
 });
 
@@ -83,17 +83,17 @@ document.getElementById('xpl-search-button').addEventListener('click', function(
   event.target.innerText = event.target.classList.contains('govuk-header__menu-button--open') ? '×' : 'Search';
 
   // show or hide the dropdown
-  $('.explore-header #xpl-popup-search').toggle();
+  $('.govuk-header #xpl-popup-search').toggle();
 
   // hide or show the rest of the page
-  $('.explore-header').prevAll().toggle();
+  $('.govuk-header').prevAll().toggle();
 
   if ($('#xpl-menu-button').hasClass('govuk-header__menu-button--open')) {
     $('#xpl-menu-button').removeClass('govuk-header__menu-button--open');
     $('#xpl-menu-button').text('Menu');
     $('#xpl-popup-menu').hide();
   } else {
-    $('.explore-header').nextAll().toggle();
+    $('.govuk-header').nextAll().toggle();
   }
 });
 

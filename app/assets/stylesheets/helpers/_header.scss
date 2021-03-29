@@ -19,7 +19,7 @@ $font: "GDS Transport", nta, Arial, sans-serif;
 }
 
 //---- menu ----
-.explore-header {
+.govuk-header {
   border-bottom: 0;
 
   button { font-family: inherit; }
@@ -468,7 +468,7 @@ $font: "GDS Transport", nta, Arial, sans-serif;
 
 // Very small width
 @include govuk-media-query ($until: $mobile-width) {
-  .explore-header {
+  .govuk-header {
     svg {
       width: 25px;
       padding-top: 3px;
@@ -526,7 +526,7 @@ $font: "GDS Transport", nta, Arial, sans-serif;
 // Desktop
 
 @include govuk-media-query ($from: $desktop-width) {
-  .explore-header {
+  .govuk-header {
     .govuk-header__container {
       padding: 0 25px 0 25px;
       margin-left: auto;
@@ -774,7 +774,7 @@ $font: "GDS Transport", nta, Arial, sans-serif;
 
 // JS-specific styling
 
-.js-enabled .explore-header {
+.js-enabled .govuk-header {
   nav {
     padding-left: 20px;
     padding-right: 20px;
@@ -788,7 +788,7 @@ $font: "GDS Transport", nta, Arial, sans-serif;
 }
 
 @include govuk-media-query ($from: $desktop-width) {
-  .js-enabled .explore-header {
+  .js-enabled .govuk-header {
     .govuk-header__container {
       .govuk-header__navigation-item {
         a:link, a:visited, button#xpl-activity-button-desktop, button#xpl-topics-button-desktop {
