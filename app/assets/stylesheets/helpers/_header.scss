@@ -87,7 +87,7 @@ $font: nta, Arial, sans-serif;
     }
   }
 
-  .xpl-frame2 ul {
+  .govuk-header__menu-panel ul {
     list-style-type: none;
     padding: 0;
     li {
@@ -651,7 +651,7 @@ $font: nta, Arial, sans-serif;
           }
         }
       }
-      .xpl-frame2 {
+      .govuk-header__menu-panel {
         position: absolute;
         left: 50%;
         right: 50%;
@@ -812,7 +812,7 @@ $font: nta, Arial, sans-serif;
         padding-top: 0;
         margin: unset auto;
       }
-      .xpl-frame2 {
+      .govuk-header__menu-panel {
         a:link {
           color: $govuk-link-colour;
         }

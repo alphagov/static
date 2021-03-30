@@ -12,9 +12,9 @@ $('#govuk-header__topics-menu-item, #govuk-header__topics-button--desktop').on('
     menuLabel.parent('li').addClass('menu-item-open');
     $('.govuk-header__backdrop').show();
   }
-  $('#xpl-frame2-topics').toggle();
-  $('#xpl-frame2-search').hide();
-  $('#xpl-frame2-activity').hide();
+  $('#govuk-header__topics-panel').toggle();
+  $('#govuk-header__search-panel').hide();
+  $('#govuk-header__activity-panel').hide();
 });
 
 // Desktop: when the Government activity header button is clicked
@@ -29,9 +29,9 @@ $('#govuk-header__activity-menu-item, #govuk-header__activity-button--desktop').
     menuLabel.parent('li').addClass('menu-item-open');
     $('.govuk-header__backdrop').show();
   }
-  $('#xpl-frame2-topics').hide();
-  $('#xpl-frame2-search').hide();
-  $('#xpl-frame2-activity').toggle();
+  $('#govuk-header__topics-panel').hide();
+  $('#govuk-header__search-panel').hide();
+  $('#govuk-header__activity-panel').toggle();
 });
 
 // Desktop: when the Search header button is clicked
@@ -46,9 +46,9 @@ $('#govuk-header__search-menu-item, #govuk-header__search-button--desktop').on('
     menuLabel.parent('li').addClass('menu-item-open');
     $('.govuk-header__backdrop').show();
   }
-  $('#xpl-frame2-topics').hide();
-  $('#xpl-frame2-activity').hide();
-  $('#xpl-frame2-search').toggle();
+  $('#govuk-header__topics-panel').hide();
+  $('#govuk-header__activity-panel').hide();
+  $('#govuk-header__search-panel').toggle();
 });
 
 
@@ -100,7 +100,7 @@ document.getElementById('govuk-header__search-button').addEventListener('click',
 
 $('.govuk-header__backdrop').on('click', function() {
   $(this).hide();
-  $('.xpl-frame2').hide();
+  $('.govuk-header__menu-panel').hide();
   $('#navigation-desktop li').removeClass('menu-item-open');
 });
 
