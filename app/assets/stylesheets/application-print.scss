@@ -1,5 +1,14 @@
-// PRINT STYLESHEET COMPILER
-// OUTPUT
-// The following files and inline CSS will form the output of print.css
-@import "header-footer-only-print";
-@import "helpers/core-print";
+// is-print is used by govuk_frontend_toolkit to alter the printed font-stack
+$is-print: true;
+
+@import "govuk_publishing_components/govuk_frontend_support";
+@import "govuk_publishing_components/component_support";
+
+@import "govuk_publishing_components/components/print/button";
+@import "govuk_publishing_components/components/print/feedback";
+@import "govuk_publishing_components/components/print/layout-footer";
+@import "govuk_publishing_components/components/print/layout-header";
+@import "govuk_publishing_components/components/print/search";
+@import "govuk_publishing_components/components/print/skip-link";
+
+@import "helpers/print-base";

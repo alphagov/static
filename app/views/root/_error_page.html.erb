@@ -1,37 +1,40 @@
-<% content_for :title, "#{heading} - GOV.UK" %>
-
 <% content_for :head do %>
   <%= stylesheet_link_tag "error-page", media: "screen" %>
   <%= stylesheet_link_tag "error-page-print", media: "print" %>
 <% end %>
 
-<% content_for :body_end do %>
-  <%= javascript_include_tag "error-page" %>
-<% end %>
+<% if @emergency_banner then
+    emergency_banner = render "components/emergency_banner", {
+      campaign_class: @emergency_banner.campaign_class,
+      heading: @emergency_banner.heading,
+      link: @emergency_banner.link,
+      link_text: @emergency_banner.link_text,
+      short_description: @emergency_banner.short_description,
+    }
+  end
+  user_satisfaction_survey = '<div id="user-satisfaction-survey-container"></div>'
+  global_bar = render "components/global_bar"
+%>
 
-<% content_for :body_classes, "mainstream error" %>
-
-<% content_for :wrapper_content do %>
-  <main id="content" role="main" class="govuk-main-wrapper govuk-main-wrapper--l">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <%= render "govuk_publishing_components/components/title", {
-          title: heading,
-          margin_top: 0,
-        } %>
-        <%= raw intro %>
-        <p class="govuk-body">You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
-        <br/>
-        <pre>Status code: <%= status_code %></pre>
-      </div>
+<%= render "govuk_publishing_components/components/layout_for_public", {
+  emergency_banner: emergency_banner,
+  full_width: false,
+  global_bar: user_satisfaction_survey + global_bar,
+  title: "#{heading} - GOV.UK",
+} do %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+        title: heading,
+        margin_top: 0,
+      } %>
+      <%= raw intro %>
+      <p class="govuk-body">You can <a class="govuk-link" href="/coronavirus">find coronavirus information</a> on GOV.UK.</p>
+      <pre class="govuk-!-margin-top-8">Status code: <%= status_code %></pre>
     </div>
-  </main>
-
-  <%= render "govuk_publishing_components/components/feedback" %>
-
-  <script type="text/javascript">
-    window.httpStatusCode = '<%= status_code %>';
+  </div>
+  <script>
+    window.httpStatusCode = '<%= status_code %>'
   </script>
 <% end %>
 
-<%= render partial: 'base', locals: { hide_account_navigation: true } %>

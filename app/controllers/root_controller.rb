@@ -8,10 +8,26 @@ class RootController < ApplicationController
   caches_page :template
 
   NON_LAYOUT_TEMPLATES = %w[
+    400
+    401
+    403
+    404
+    405
+    406
+    410
+    422
+    429
+    500
+    501
+    502
+    503
+    504
     campaign
+    scheduled_maintenance
     print
     proposition_menu
   ].freeze
+
   def template
     if NON_LAYOUT_TEMPLATES.include?(params[:template])
       render action: params[:template]
