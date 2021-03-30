@@ -62,13 +62,13 @@ document.getElementById('govuk-header__menu-button').addEventListener('click', f
   event.target.innerText = event.target.classList.contains('govuk-header__menu-button--open') ? '×' : 'Menu';
 
   // show or hide the dropdown
-  $('.govuk-header #xpl-popup-menu').toggle();
+  $('.govuk-header #govuk-header__mobile-menu-panel').toggle();
 
   if ($('#govuk-header__search-button').hasClass('govuk-header__menu-button--open')) {
     // hide the search popup
     $('#govuk-header__search-button').removeClass('govuk-header__menu-button--open');
     $('#govuk-header__search-button').text('Search');
-    $('#xpl-popup-search').hide();
+    $('#govuk-header__mobile-search-panel').hide();
   } else {
     // hide or show the rest of the page
     $('.govuk-header').nextAll().toggle();
@@ -83,7 +83,7 @@ document.getElementById('govuk-header__search-button').addEventListener('click',
   event.target.innerText = event.target.classList.contains('govuk-header__menu-button--open') ? '×' : 'Search';
 
   // show or hide the dropdown
-  $('.govuk-header #xpl-popup-search').toggle();
+  $('.govuk-header #govuk-header__mobile-search-panel').toggle();
 
   // hide or show the rest of the page
   $('.govuk-header').prevAll().toggle();
@@ -91,7 +91,7 @@ document.getElementById('govuk-header__search-button').addEventListener('click',
   if ($('#govuk-header__menu-button').hasClass('govuk-header__menu-button--open')) {
     $('#govuk-header__menu-button').removeClass('govuk-header__menu-button--open');
     $('#govuk-header__menu-button').text('Menu');
-    $('#xpl-popup-menu').hide();
+    $('#govuk-header__mobile-menu-panel').hide();
   } else {
     $('.govuk-header').nextAll().toggle();
   }
