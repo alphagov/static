@@ -285,11 +285,15 @@ $font: nta, Arial, sans-serif;
   #govuk-header__mobile-menu-panel {
     #navigation {
       height: 100vh;
-      .xpl-below-accordion li.govuk-header__navigation-item.xpl-minor-nav-item {
-        margin-left: 5px;
-        margin-right: 5px;
-        padding: 15px 0 0 0;
+      .xpl-below-accordion li.govuk-header__navigation-item {
+        margin: 30px 5px 0 5px;
+        padding-bottom: 0;
+        &:last-of-type {
+          padding-bottom: 60px;
+        }
         a {
+          margin-left: 25px;
+          margin-right: 25px;
           font-weight: normal;
           font-size: 18px;
         }
@@ -371,7 +375,6 @@ $font: nta, Arial, sans-serif;
     color: govuk-colour("black");
     a:link, a:visited {
       font-size: 18px;
-      color: govuk-colour("white");
     }
     button.govuk-header__search-button:focus {
       outline: 3px solid #fd0;
@@ -383,18 +386,6 @@ $font: nta, Arial, sans-serif;
       a:link, a:visited {
         color: govuk-colour("blue");
         font-size: 18px;
-      }
-    }
-    &.xpl-minor-nav-item {
-      margin-left: -25px;
-      margin-right: -25px;
-      padding-bottom: 0;
-      &:last-of-type {
-        padding-bottom: 60px;
-      }
-      a {
-        margin-left: 25px;
-        margin-right: 25px;
       }
     }
     h2 {
