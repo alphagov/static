@@ -285,7 +285,7 @@ $font: nta, Arial, sans-serif;
   #govuk-header__mobile-menu-panel {
     #navigation {
       height: 100vh;
-      .xpl-below-accordion li.govuk-header__navigation-item {
+      .govuk-header__after-accordion li.govuk-header__navigation-item {
         margin: 30px 5px 0 5px;
         padding-bottom: 0;
         &:last-of-type {
@@ -663,7 +663,7 @@ $font: nta, Arial, sans-serif;
           a:hover {
             color: $link-hover-colour;
           }
-          .xpl-minor-item {
+          .govuk-header__panel-footer {
             border-top: 1px solid $govuk-border-colour;
             padding-top: 30px;
           }
