@@ -690,20 +690,6 @@ $font: nta, Arial, sans-serif;
             vertical-align: top;
           }
         }
-        &#xpl-frame2-search {
-          a:link, a:visited {
-            font-size: 19px;
-          }
-          h2.govuk-heading-l {
-            padding-bottom: 30px;
-            margin-bottom: 0;
-          }
-          button.govuk-input__suffix:focus {
-            outline: 3px solid #fd0;
-            outline-offset: 0;
-            box-shadow: inset 0 0 0 4px #0b0c0c;
-          }
-        }
       }
     }
     .govuk-header__backdrop {
