@@ -444,23 +444,12 @@ $font: nta, Arial, sans-serif;
     }
   }
 
-  .govuk-header__navigation, #xpl-search-box {
+  .govuk-header__navigation {
     padding-top: 20px;
     margin: 0 auto 0 auto;
     max-width: 960px;
   }
 
-  #xpl-search-box {
-    padding: 30px 0 60px 0;
-    h2 {
-      color: govuk-colour("black");
-      margin: 0;
-      margin-bottom: 30px;
-    }
-    button {
-      background-color: govuk-colour("blue");
-    }
-  }
 }
 
 // Very small width
