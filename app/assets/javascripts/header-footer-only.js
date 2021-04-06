@@ -2,8 +2,8 @@
 //= require vendor/polyfills/bind
 //= require analytics
 //= require start-modules
-//= require explore-header
-//= require explore-accordion
+//= require govuk-header
+//= require govuk-header-accordion
 //= require govuk/selection-buttons
 //= require govuk/shim-links-with-button-role
 //= require govuk_publishing_components/components/header
