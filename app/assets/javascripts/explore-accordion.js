@@ -750,17 +750,17 @@ if (detect) return
 function Accordion ($module) {
   this.$module = $module;
   this.moduleId = $module.getAttribute('id');
-  this.$sections = $module.querySelectorAll('.xpl-accordion__section');
+  this.$sections = $module.querySelectorAll('.govuk-header-accordion__section');
   this.browserSupportsSessionStorage = helper.checkForSessionStorage();
 
-  this.iconClass = 'xpl-accordion__icon';
+  this.iconClass = 'govuk-header-accordion__icon';
 
-  this.sectionHeaderClass = 'xpl-accordion__section-header';
-  this.sectionHeaderFocusedClass = 'xpl-accordion__section-header--focused';
-  this.sectionHeadingClass = 'xpl-accordion__section-heading';
-  this.sectionSummaryClass = 'xpl-accordion__section-summary';
-  this.sectionButtonClass = 'xpl-accordion__section-button';
-  this.sectionExpandedClass = 'xpl-accordion__section--expanded';
+  this.sectionHeaderClass = 'govuk-header-accordion__section-header';
+  this.sectionHeaderFocusedClass = 'govuk-header-accordion__section-header--focused';
+  this.sectionHeadingClass = 'govuk-header-accordion__section-heading';
+  this.sectionSummaryClass = 'govuk-header-accordion__section-summary';
+  this.sectionButtonClass = 'govuk-header-accordion__section-button';
+  this.sectionExpandedClass = 'govuk-header-accordion__section--expanded';
 }
 
 // Initialize component
@@ -886,4 +886,4 @@ var helper = {
   }
 };
 
-new Accordion(document.getElementById('xpl-accordion-default')).init();
+new Accordion(document.getElementById('govuk-header-accordion-default')).init();

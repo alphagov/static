@@ -184,7 +184,7 @@ $font: nta, Arial, sans-serif;
     }
   }
 
-  .xpl-accordion {
+  .govuk-header-accordion {
     margin-bottom: 0;
     border-bottom: 0;
     &__controls {
@@ -204,10 +204,10 @@ $font: nta, Arial, sans-serif;
     }
     &__section--expanded {
       background: #f3f2f1;
-      .xpl-accordion__icon {
+      .govuk-header-accordion__icon {
         background-image: image-url("chevron-up.svg");
       }
-      .xpl-accordion__section-content {
+      .govuk-header-accordion__section-content {
         display: block;
       }
     }
@@ -494,7 +494,7 @@ $font: nta, Arial, sans-serif;
       background-size: 25px auto;
       background-position: 10px 10px;
     }
-    .xpl-accordion__section-heading {
+    .govuk-header-accordion__section-heading {
       margin-right: 20px;
     }
   }
