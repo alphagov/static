@@ -50,12 +50,12 @@
 .emergency-banner__link {
   @include govuk-font(19);
 
-  &:link,
-  &:visited {
+  &.govuk-link:link,
+  &.govuk-link:visited {
     color: govuk-colour("white");
   }
 
-  &:focus {
+  &.govuk-link:focus {
     color: $govuk-focus-text-colour;
   }
 }
