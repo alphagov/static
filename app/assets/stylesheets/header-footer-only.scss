@@ -20,22 +20,3 @@ $govuk-use-legacy-palette: false;
 @import "helpers/draft";
 @import "helpers/footer";
 @import "helpers/header";
-
-// The following overrides are in place to allow the govuk-header play nicely
-// with govuk_template in our attempt to show account navigation in certain apps
-.header-global {
-  position: relative;
-}
-
-.govuk-header__content {
-  padding: 0 govuk-spacing(3);
-}
-
-.govuk-header__menu-button {
-  top: govuk-spacing(2);
-  right: govuk-spacing(3);
-}
-
-.gem-c-header__nav {
-  clear: both;
-}
