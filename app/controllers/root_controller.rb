@@ -23,6 +23,8 @@ class RootController < ApplicationController
     503
     504
     campaign
+    gem_layout
+    gem_layout_full_width
     scheduled_maintenance
     print
     proposition_menu

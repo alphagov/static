@@ -3,7 +3,7 @@
   <%= stylesheet_link_tag "error-page-print", media: "print" %>
 <% end %>
 
-<% if @emergency_banner then
+<% if @emergency_banner
     emergency_banner = render "components/emergency_banner", {
       campaign_class: @emergency_banner.campaign_class,
       heading: @emergency_banner.heading,
