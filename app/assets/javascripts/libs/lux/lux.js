@@ -3,7 +3,7 @@ var LUX_t_start = Date.now(),
 LUX = function() {
     var gaLog = [];
     dlog("lux.js evaluation start.");
-    var version = "211",
+    var version = "214",
         _errorUrl = "https://lux.speedcurve.com/error/",
         nErrors = 0,
         maxErrors = 5;
@@ -103,7 +103,7 @@ LUX = function() {
             return void dlog("Permission error accessing input event.")
         }
         if (t) {
-            var n = _now(),
+            var n = _now(!0),
                 r = e.timeStamp;
             if (r > 152e7 && (n = Number(new Date)), r > n) return;
             var a = n - r;
@@ -111,8 +111,10 @@ LUX = function() {
         }
     }
 
-    function _now() {
-        return perf && perf.now ? perf.now() : (Date.now ? Date.now() : +new Date) - _navigationStart
+    function _now(e) {
+        var t = (Date.now ? Date.now() : +new Date) - _navigationStart,
+            n = _getMark(gStartMark);
+        return n && !e ? t - n.startTime : perf && perf.now ? perf.now() : t
     }
 
     function _mark(e) {
@@ -575,7 +577,7 @@ LUX = function() {
                 }
             }
             var v = d + c;
-            dlog("Sending main LUX beacon: " + v), _sendBeacon(v), gbLuxSent = 1, gbNavSent = 1, gbIxSent = a;
+            dlog("Sending main LUX beacon: " + v), _sendBeacon(v), gbLuxSent = 1, gbNavSent = 1, gbIxSent = a ? 1 : 0;
             for (var h = gMaxQuerystring - d.length; l;) {
                 var y = "";
                 if (l.length <= h) y = l, l = "";
@@ -625,8 +627,16 @@ LUX = function() {
         n.length ? n[0].parentNode.insertBefore(t, n[0]) : ((n = document.getElementsByTagName("head")).length || (n = document.getElementsByTagName("body")).length) && n[0].appendChild(t)
     }
 
-    function _findTrackedElement(e, t, n) {
-        return e && e.hasAttribute ? (e.hasAttribute("data-sctrack") && (n = !0, e.id && (t = e.id)), !t && e.id && (t = e.id), n && t ? t : _findTrackedElement(e.parentNode, t, n)) : t
+    function interactionAttributionForElement(e) {
+        if (e.id) return e.id;
+        for (var t, n = e; n.parentNode && n.parentNode.tagName;) {
+            if ((n = n.parentNode).hasAttribute("data-sctrack")) return n.getAttribute("data-sctrack");
+            n.id && !t && (t = n.id)
+        }
+        var r = "INPUT" === e.tagName && "submit" === e.type,
+            a = "BUTTON" === e.tagName,
+            i = "A" === e.tagName;
+        return r && e.value ? e.value : (a || i) && e.innerText ? e.innerText : t || ""
     }
 
     function _scrollHandler() {
@@ -636,7 +646,7 @@ LUX = function() {
     function _keyHandler(e) {
         if (_removeIxHandlers(), void 0 === ghIx.k) {
             if (ghIx.k = Math.round(_now()), e && e.target) {
-                var t = _findTrackedElement(e.target);
+                var t = interactionAttributionForElement(e.target);
                 t && (ghIx.ki = t)
             }
             _sendIx()
@@ -654,7 +664,7 @@ LUX = function() {
             }
             if (t) {
                 e.clientX && (ghIx.cx = e.clientX, ghIx.cy = e.clientY);
-                var n = _findTrackedElement(e.target);
+                var n = interactionAttributionForElement(e.target);
                 n && (ghIx.ci = n)
             }
             _sendIx()
