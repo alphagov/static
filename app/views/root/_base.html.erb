@@ -13,23 +13,7 @@
 <% end %>
 
 <% content_for :inside_header do %>
-  <button class="search-toggle js-header-toggle" data-search-toggle-for="search">Show or hide search</button>
-  <%
-    # The /search page redirects to a finder if keywords are included. Be
-    # careful about changing this, as the redirect adds some parameters to the
-    # search query.
-  %>
-  <form id="search" class="site-search govuk-clearfix" action="/search" method="get" role="search" aria-label="Site-wide">
-    <div class="content govuk-clearfix">
-      <%= render "govuk_publishing_components/components/search", {
-        button_text: "Search GOV.UK",
-        id: "site-search-text",
-        label_text: "Search on GOV.UK",
-        margin_bottom: 0,
-        no_border: true,
-      } %>
-    </div>
-  </form>
+  <%= render "components/header/navigation" %>
 <% end %>
 
 <% content_for :after_header do %>

@@ -1,0 +1,46 @@
+$govuk-link-underline-thickness: 0.0625rem !default;
+$govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
+
+#global-header {
+  height: 60px;
+
+  .header-wrapper {
+    padding: 0;
+  }
+
+  .header-logo {
+    padding: govuk-spacing(2) 0;
+  }
+}
+
+.govuk-header__navigation {
+  position: absolute;
+  right: 0;
+}
+
+.govuk-header__navigation-link {
+  @include govuk-font(16, bold);
+  color: govuk-colour("white");
+  background: none;
+  border: 0;
+  padding: govuk-spacing(3) 0;
+  display: block;
+
+  &:visited,
+  &:link {
+    text-decoration: none;
+              color: govuk-colour("white");
+  }
+
+  &:hover,
+  &:active {
+    color: govuk-colour("white");
+    text-decoration-line: underline;
+    text-decoration-thickness: $govuk-heavy-link-underline-thickness;
+    text-underline-offset: $govuk-heavy-link-underline-thickness;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+}
