@@ -17,10 +17,13 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
 .govuk-header__navigation {
   position: absolute;
   right: 0;
+  display: flex;
 }
 
 .govuk-header__navigation-item {
   padding: 0;
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 .govuk-header__navigation-link {
@@ -28,8 +31,6 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   color: govuk-colour("white");
   background: none;
   border: 0;
-  padding: govuk-spacing(3) 0;
-  display: block;
 
   &:visited,
   &:link {
@@ -54,8 +55,8 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   background-color: govuk-colour('blue');
   background-image: image-url("search-icon.svg");
   background-position: 50%;
-  background-repeat: no-repeat;
   background-size: 35%;
+  background-repeat: no-repeat;
   height: $header-height;
   width: $header-height;
   text-indent: -5000px;
