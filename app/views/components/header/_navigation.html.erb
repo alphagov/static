@@ -6,17 +6,17 @@
   ]
 %>
 
-<nav class="govuk-header__navigation">
-  <ul class="govuk-header__navigation-items">
+<nav class="govuk-header__super-navigation">
+  <ul class="govuk-header__super-navigation-items">
     <% navigation_links.each do | link | %>
-      <li class="govuk-header__navigation-item">
-        <a class="govuk-header__navigation-link" 
+      <li class="govuk-header__super-navigation-item">
+        <a class="govuk-header__super-navigation-link" 
           href="<%= link[:href] %>">
           <%= link[:label] %>
         </a>
       </li>
     <% end %>
-    <li class="govuk-header__navigation-item">
+    <li class="govuk-header__super-navigation-item">
       <%= render "components/header/search" %>
     </li>
   </ul>

@@ -3,31 +3,55 @@ $govuk-link-underline-thickness: 0.0625rem !default;
 $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
 
 #global-header {
-  height: $header-height;
+  @include govuk-media-query($from: tablet) {
+    height: $header-height;
+  }
 
   .header-wrapper {
     padding: 0;
+
+    .header-global {
+      .header-logo {
+        padding: govuk-spacing(2) 0;
+        border-bottom: 1px solid govuk-colour('light-grey');
+        float: none;
+        margin-top: 0;
+    
+        @include govuk-media-query($from: tablet) {
+          border-bottom: none;
+          float: left;
+          margin-top: 2px;
+        }
+      }
+    }
   }
+}
 
-  .header-logo {
-    padding: govuk-spacing(2) 0;
+.govuk-header__super-navigation {
+  margin-top: govuk-spacing(4);
+  display: block;
+
+  @include govuk-media-query($from: tablet) {
+    position: absolute;
+    right: 0;
+    margin-top: 0;
   }
 }
 
-.govuk-header__navigation {
-  position: absolute;
-  right: 0;
-  display: flex;
+.govuk-header__super-navigation-item {
+  display: block;
+  margin: govuk-spacing(4) govuk-spacing(3);
+
+  @include govuk-media-query($from: tablet) {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+  }
 }
 
-.govuk-header__navigation-item {
-  padding: 0;
-  display: inline-flex;
-  vertical-align: middle;
-}
-
-.govuk-header__navigation-link {
-  @include govuk-font(16, bold);
+.govuk-header__super-navigation-link {
+  @include govuk-font(24, bold);
   color: govuk-colour("white");
   background: none;
   border: 0;
@@ -35,7 +59,7 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   &:visited,
   &:link {
     text-decoration: none;
-              color: govuk-colour("white");
+    color: govuk-colour("white");
   }
 
   &:hover,
@@ -49,18 +73,26 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   &:focus {
     @include govuk-focused-text;
   }
+
+  @include govuk-media-query($from: tablet) {
+    @include govuk-font(16, $weight: bold, $line-height: $header-height);
+    height: $header-height;
+    padding: 0 govuk-spacing(3);
+  }
 }
 
-.govuk-header__navigation-search-button {
-  background-color: govuk-colour('blue');
-  background-image: image-url("search-icon.svg");
-  background-position: 50%;
-  background-size: 35%;
-  background-repeat: no-repeat;
-  height: $header-height;
-  width: $header-height;
-  text-indent: -5000px;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
+.govuk-header__super-navigation-search-button {
+  @include govuk-media-query($from: tablet) {
+    background-color: govuk-colour('blue');
+    background-image: image-url("search-icon.svg");
+    background-position: 50%;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    height: $header-height;
+    width: $header-height;
+    text-indent: -5000px;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+  }
 }
