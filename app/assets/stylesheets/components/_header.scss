@@ -45,17 +45,16 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
       display: block;
     }
   }
+
+  .govuk-header__super-navigation {
+    display: block;
+  }
 }
 
 // Generic navigation styling
 
-.govuk-header__super-navigationx {
-  display: block;
-
-  @include govuk-media-query($from: tablet) {
-    position: absolute;
-    right: 0;
-  }
+.govuk-header__super-navigation {
+  display: none;
 }
 
 .govuk-header__super-navigation-item {
