@@ -28,33 +28,32 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
 }
 
 .govuk-header__super-navigation {
-  margin-top: govuk-spacing(4);
   display: block;
 
   @include govuk-media-query($from: tablet) {
     position: absolute;
     right: 0;
-    margin-top: 0;
   }
 }
 
 .govuk-header__super-navigation-item {
   display: block;
-  margin: govuk-spacing(4) govuk-spacing(3);
 
   @include govuk-media-query($from: tablet) {
     display: inline-flex;
     vertical-align: middle;
-    padding: 0;
-    margin: 0;
   }
 }
 
 .govuk-header__super-navigation-link {
-  @include govuk-font(24, bold);
+  @include govuk-font(24, bold, $line-height: $header-height);
   color: govuk-colour("white");
   background: none;
   border: 0;
+  display: block;
+  width: 100%;
+  padding: govuk-spacing(1) govuk-spacing(3);
+
 
   &:visited,
   &:link {
