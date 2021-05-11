@@ -1,8 +1,9 @@
+$header-height: 60px;
 $govuk-link-underline-thickness: 0.0625rem !default;
 $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
 
 #global-header {
-  height: 60px;
+  height: $header-height;
 
   .header-wrapper {
     padding: 0;
@@ -43,4 +44,18 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   &:focus {
     @include govuk-focused-text;
   }
+}
+
+.govuk-header__navigation-search-button {
+  background-color: govuk-colour('blue');
+  background-image: image-url("search-icon.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  height: $header-height - govuk-spacing(2);
+  overflow: hidden;
+  padding: 0;
+  text-indent: -5000px;
+  width: $header-height - govuk-spacing(2);
+  border: 0;
 }
