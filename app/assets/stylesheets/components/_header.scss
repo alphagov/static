@@ -4,7 +4,7 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
 
 #global-header {
   @include govuk-media-query($from: tablet) {
-    height: $header-height;
+    height: auto;
   }
 
   .header-wrapper {
@@ -135,4 +135,14 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   padding-left: govuk-spacing(3);
   border-left: 1px solid govuk-colour('mid-grey');
   border-right: 1px solid govuk-colour('mid-grey');
+}
+
+.govuk-heading__super-navigation-menu {
+  display: none;
+  border-top: 1px solid govuk-colour('mid-grey');
+  padding: govuk-spacing(2) 0;
+
+  .govuk-header__super-navigation-item {
+    display: block;
+  }
 }

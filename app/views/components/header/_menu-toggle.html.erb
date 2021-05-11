@@ -1,3 +1,17 @@
-<button class="govuk-header__super-navigation-link govuk-header__super-navigation-menu-toggle">
+<button class="govuk-header__super-navigation-link govuk-header__super-navigation-menu-toggle" type="button" data-module="header-menu">
   Menu
 </button>
+
+<script>
+  // ONLY ADDED FOR TESTING PURPOSES
+  (function(){
+    document
+    .getElementsByClassName("govuk-header__super-navigation-menu-toggle")[0]
+    .addEventListener("click", function () {
+      var menu = document.getElementsByClassName("govuk-heading__super-navigation-menu")[0]
+
+      if (menu.style.display == "none" || ! menu.style.display) menu.style.display = "block"
+      else menu.style.display = "none"
+    })
+  })()
+</script>

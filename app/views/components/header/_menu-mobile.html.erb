@@ -1,0 +1,12 @@
+<div class="govuk-heading__super-navigation-menu govuk-heading__super-navigation-menu--mobile">
+  <ul class="govuk-header__super-navigation-items govuk-width-container">
+    <% navigation_links.each do | link | %>
+      <li class="govuk-header__super-navigation-item">
+        <a class="govuk-header__super-navigation-link" 
+           href="<%= link[:href] %>">
+          <%= link[:label] %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

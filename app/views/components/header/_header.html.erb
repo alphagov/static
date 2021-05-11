@@ -1,3 +1,11 @@
+<%
+  navigation_links = [
+    { label: "Topic", href: "/topic" },
+    { label: "Departments", href: "/government/organisations" },
+    { label: "Government activities", href: "/search/news-and-communications" },
+  ]
+%>
+
 <header role="banner" id="global-header" class="<%= yield(:header_class) %>">
   <div class="header-wrapper">
     <div class="header-global">
@@ -34,8 +42,12 @@
           </span>
         </a>
       </div>
-      <%= yield :inside_header %>
+      <%= render "components/header/navigation", {
+        navigation_links: navigation_links
+      } %>
     </div>
-    <%= yield :proposition_header %>
   </div>
+  <%= render "components/header/menu-mobile", {
+      navigation_links: navigation_links
+    } %>
 </header>

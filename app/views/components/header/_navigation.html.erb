@@ -1,17 +1,9 @@
-<%
-  navigation_links = [
-    { label: "Topic", href: "/topic" },
-    { label: "Departments", href: "/government/organisations" },
-    { label: "Government activities", href: "/search/news-and-communications" },
-  ]
-%>
-
 <nav class="govuk-header__super-navigation">
   <ul class="govuk-header__super-navigation-items">
     <% navigation_links.each do | link | %>
       <li class="govuk-header__super-navigation-item govuk-header__super-navigation-item--hide-on-mobile">
         <a class="govuk-header__super-navigation-link" 
-          href="<%= link[:href] %>">
+           href="<%= link[:href] %>">
           <%= link[:label] %>
         </a>
       </li>

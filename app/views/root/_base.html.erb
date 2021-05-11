@@ -12,10 +12,6 @@
   <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'application' } %>
 <% end %>
 
-<% content_for :inside_header do %>
-  <%= render "components/header/navigation" %>
-<% end %>
-
 <% content_for :after_header do %>
   <% unless hide_account_navigation %>
     <%= render "govuk_publishing_components/components/layout_header", {
