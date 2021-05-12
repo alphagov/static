@@ -1,8 +1,53 @@
 <%
   navigation_links = [
-    { label: "Topic", href: "/topic" },
+    { 
+      label: "Topic", href: "/topic",
+      description: "Find help, guidance and services",
+      link_sections: [
+        [
+          { label: "Benefits", href: "/topic" },
+          { label: "Births, death, marriages and care", href: "/topic" },
+          { label: "Brexit", href: "/topic" },
+          { label: "Business and self-employed", href: "/topic" },
+          { label: "Childcare and parenting", href: "/topic" },
+          { label: "Citizenship and living in the UK", href: "/topic" },
+          { label: "Coronavirus", href: "/topic" },
+          { label: "Crime, justice and the law", href: "/topic" },
+          { label: "Disabled people", href: "/topic" },
+        ],
+        [
+          { label: "Driving and transport", href: "/topic" },
+          { label: "Education and learning", href: "/topic" },
+          { label: "Employing people", href: "/topic" },
+          { label: "Environment and countryside", href: "/topic" },
+          { label: "Housing and local services", href: "/topic" },
+          { label: "Money and tax", href: "/topic" },
+          { label: "Passports, travel and living abroad", href: "/topic" },
+          { label: "Visas and immigration", href: "/topic" },
+          { label: "Working, jobs and pensions", href: "/topic" },
+        ]
+      ]
+    },
     { label: "Departments", href: "/government/organisations" },
-    { label: "Government activities", href: "/search/news-and-communications" },
+    {
+      label: "Government activities", href: "/search/news-and-communications",
+      description: "Find out what the government is doing and how to get involved",
+      link_sections: [
+        [
+          { label: "News", href: "/topic", description: "News stories, speeches, letters and notices" },
+          { label: "Guidance and regulation", href: "/topic", description: "Detailed guidance, rules and regulations" },
+          { label: "Research and statistics", href: "/topic", description: "Reports, analysis and official statistics" },
+        ],
+        [
+          { label: "Policy papers and consultation", href: "/topic", description: "Consultations and strategy" },
+          { label: "Transparency", href: "/topic", description: "Government data, freedom of information releases and corporate reports" },
+        ],
+      ],
+      footer_links: [
+        { label: "How government works", href: "/topic" },
+        { label: "Get involved", href: "/topic" },
+      ]
+    },
   ]
 %>
 
