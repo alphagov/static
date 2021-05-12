@@ -84,7 +84,7 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   background: none;
   border: 0;
   display: block;
-  padding-right: govuk-spacing(3);
+  padding: 0 govuk-spacing(3);
 
   &:visited,
   &:link {
