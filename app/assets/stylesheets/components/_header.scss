@@ -22,6 +22,12 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
           border-bottom: none;
           margin-top: 2px;
         }
+
+        .content {
+          @include govuk-media-query($until: 325px) {
+            margin-right: 0;
+          }
+        } 
       }
     }
   }
