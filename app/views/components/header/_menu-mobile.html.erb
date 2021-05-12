@@ -1,12 +1,20 @@
-<div class="govuk-heading__super-navigation-menu govuk-heading__super-navigation-menu--mobile">
-  <ul class="govuk-header__super-navigation-items govuk-width-container">
-    <% navigation_links.each do | link | %>
-      <li class="govuk-header__super-navigation-item">
-        <a class="govuk-header__super-navigation-link" 
-           href="<%= link[:href] %>">
-          <%= link[:label] %>
-        </a>
-      </li>
-    <% end %>
-  </ul>
+<div class="govuk-heading__super-navigation-menu govuk-heading__super-navigation-menu--mobile js-header-menu">
+  <div class="govuk-width-container">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <% navigation_links.each do | link | %>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                <a class="govuk-link" href="<%= link[:href] %>"><%= link[:label] %></a>
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <p class='govuk-body'>This is the content for Writing well for the web.</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
