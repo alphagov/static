@@ -1,6 +1,6 @@
 $header-height: 60px;
-$govuk-link-underline-thickness: 0.0625rem !default;
-$govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
+$govuk-heavy-link-underline-thickness: 3px;
+$govuk-heavy-link-underline-offset: .1em;
 
 #global-header {
   @include govuk-media-query($from: tablet) {
@@ -103,7 +103,7 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
     color: govuk-colour("white");
     text-decoration-line: underline;
     text-decoration-thickness: $govuk-heavy-link-underline-thickness;
-    text-underline-offset: $govuk-heavy-link-underline-thickness;
+    text-underline-offset: $govuk-heavy-link-underline-offset;
   }
 
   &:focus {
@@ -170,6 +170,7 @@ $govuk-heavy-link-underline-thickness: $govuk-link-underline-thickness * 6;
   padding: govuk-spacing(2) 0;
   background-color: govuk-colour("white");
   color: govuk-colour("black");
+  height: 100vh;
 
   .govuk-header__super-navigation-item {
     display: block;
