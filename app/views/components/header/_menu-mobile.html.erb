@@ -1,16 +1,16 @@
 <div class="govuk-header__super-navigation-menu govuk-header__super-navigation-menu--mobile js-govuk-header__super-navigation-menu--mobile">
   <div class="govuk-width-container">
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-      <% navigation_links.each do | link | %>
+      <% navigation_links.each_with_index do | link, index | %>
         <div class="govuk-accordion__section">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
-              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-<%= index %>">
                 <a class="govuk-link" href="<%= link[:href] %>"><%= link[:label] %></a>
               </span>
             </h2>
           </div>
-          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <div id="accordion-default-content-<%= index %>" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-<%= index %>">
             <p class='govuk-body'>This is the content for Writing well for the web.</p>
           </div>
         </div>

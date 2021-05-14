@@ -20,3 +20,5 @@ $govuk-use-legacy-palette: false;
 @import "helpers/draft";
 @import "helpers/footer";
 @import "helpers/header";
+
+@import "govuk/components/accordion/accordion";

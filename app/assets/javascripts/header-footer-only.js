@@ -7,8 +7,7 @@
 //= require modules/global-bar
 //= require modules/cross-domain-tracking
 //= require modules/super-header
+//= require modules/accordion
 
 //= require global-bar-init
 //= require surveys
-
-
