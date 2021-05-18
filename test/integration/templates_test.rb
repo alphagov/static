@@ -15,9 +15,59 @@ class TemplatesTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#wrapper")
     end
 
-    should "contain real user metric scripts that are deferred" do
-      assert page.has_selector?("html > head > script[src*='libs/lux/lux-polyfill'][defer]", visible: :all)
-      assert page.has_selector?("html > head > script[src*='libs/lux/lux'][defer]", visible: :all)
+    should "contain real user metrics loader script" do
+      visit "/templates/core_layout.html.erb"
+      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
+    end
+
+    should "not contain real user metrics scripts before cookie banner interacted with" do
+      Capybara.current_driver = Capybara.javascript_driver
+
+      visit "/templates/core_layout.html.erb"
+
+      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='lux/lux']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+    end
+
+    should "not contain real user metrics scripts on the page where cookies are accepted" do
+      Capybara.current_driver = Capybara.javascript_driver
+
+      visit "/templates/core_layout.html.erb"
+
+      click_button "Accept additional cookies"
+
+      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='lux/lux']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+    end
+
+    should "contain real user metrics scripts on page after cookies opted in" do
+      Capybara.current_driver = Capybara.javascript_driver
+
+      visit "/templates/core_layout.html.erb"
+
+      click_button "Accept additional cookies"
+
+      visit "/templates/core_layout.html.erb"
+
+      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='lux/lux']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+    end
+
+    should "not contain real user metrics scripts on page after cookies opted out" do
+      Capybara.current_driver = Capybara.javascript_driver
+
+      visit "/templates/core_layout.html.erb"
+
+      click_button "Reject additional cookies"
+
+      visit "/templates/core_layout.html.erb"
+
+      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='lux/lux']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
     end
 
     should "404 for non-existent templates" do

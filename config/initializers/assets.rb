@@ -19,14 +19,15 @@ Rails.application.config.assets.precompile += %w[
   libs/lux/lux-polyfill.js
   libs/lux/lux.js
   modules/base-target.js
+  rum-loader.js
   surveys.js
   application*.css
-  print.css
+  core-layout*.css
+  error-page-print.css
+  error-page.css
   fonts*.css
   guides-print.css
   header-footer-only*.css
-  core-layout*.css
+  print.css
   static-print.css
-  error-page.css
-  error-page-print.css
 ]
