@@ -1,11 +1,17 @@
 <nav class="govuk-header__super-navigation">
   <ul class="govuk-header__super-navigation-items">
-    <% navigation_links.each do | link | %>
+    <% navigation_links.each_with_index do | link, index | %>
       <li class="govuk-header__super-navigation-item govuk-header__super-navigation-item--hide-on-mobile">
         <a class="govuk-header__super-navigation-link" 
-           href="<%= link[:href] %>">
+           href="<%= link[:href] %>" data-dropdown-target="#dropdown-<%= index %>">
           <%= link[:label] %>
+          <% if link[:link_sections] %>
+            <%= image_tag "down-arrow.svg" %>
+          <% end %>
         </a>
+        <div class="govuk-header__super-navigation-dropdown" id="dropdown-<%= index %>">
+          
+        </div>
       </li>
     <% end %>
     <li class="govuk-header__super-navigation-item govuk-header__super-navigation-item--hide-from-tablet">

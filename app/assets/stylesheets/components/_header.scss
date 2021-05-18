@@ -141,7 +141,6 @@ $govuk-heavy-link-underline-offset: .1em;
   padding-left: govuk-spacing(3);
   border-left: 1px solid govuk-colour('mid-grey');
   border-right: 1px solid govuk-colour('mid-grey');
-  width: 80px;
 }
 
 .govuk-header__super-navigation-menu-toggle-text--open {
@@ -174,6 +173,10 @@ $govuk-heavy-link-underline-offset: .1em;
 
   .govuk-header__super-navigation-item {
     display: block;
+  }
+
+  .govuk-header__super-navigation-section-button {
+    margin-bottom: govuk-spacing(1);
   }
 }
 

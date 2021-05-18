@@ -1,17 +1,25 @@
 <div class="govuk-header__super-navigation-menu govuk-header__super-navigation-menu--mobile js-govuk-header__super-navigation-menu--mobile">
   <div class="govuk-width-container">
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="navigation-links">
       <% navigation_links.each_with_index do | link, index | %>
         <div class="govuk-accordion__section">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
-              <span class="govuk-accordion__section-button" id="accordion-default-heading-<%= index %>">
+              <span class="govuk-accordion__section-button govuk-header__super-navigation-section-button" id="navigation-link-heading-<%= index %>">
                 <a class="govuk-link" href="<%= link[:href] %>"><%= link[:label] %></a>
               </span>
             </h2>
           </div>
-          <div id="accordion-default-content-<%= index %>" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-<%= index %>">
-            <p class='govuk-body'>This is the content for Writing well for the web.</p>
+          <div id="navigation-link-content-<%= index %>" class="govuk-accordion__section-content" aria-labelledby="navigation-link-heading-<%= index %>">
+            <% if link[:link_sections].present? %>
+              <ul class="govuk-list">
+                <% link[:link_sections].each do | section | %>
+                  <% section.each do | section_link | %>
+                    <li><a class="govuk-link" href="<%= section_link[:href] %>"><%= section_link[:label] %></a></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            <% end %>
           </div>
         </div>
       <% end %>
