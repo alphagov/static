@@ -1,0 +1,26 @@
+<% navigation_links.each_with_index do | link, index | %>
+  <% if link[:link_sections].present? %>
+    <div class="govuk-header__super-navigation-dropdown" id="dropdown-<%= index %>">
+      <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <p class="govuk-body-l"><%= link[:description] %></p>
+          </div>
+          <% link[:link_sections].each do | section | %>
+            <div class="govuk-grid-column-one-third">
+              <ul class="govuk-list">
+                <% section.each do | section_link | %>
+                  <li class="govuk-header__super-navigation-dropdown-list-item">
+                    <a class="govuk-link govuk-link--no-visited-state" href="<%= section_link[:href] %>"><%= section_link[:label] %></a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="govuk-header__super-navigation-dropdown-shadow"></div>
