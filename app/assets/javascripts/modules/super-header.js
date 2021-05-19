@@ -30,7 +30,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.module.querySelectorAll('.js-govuk-header__super-navigation-dropdown-toggle').forEach(function (menuLink) {
       menuLink.addEventListener('click', function (event) {
         event.preventDefault()
-        const shown = menuLink.classList.contains('govuk-header__super-navigation-dropdown-toggle--shown')
+        var shown = menuLink.classList.contains('govuk-header__super-navigation-dropdown-toggle--shown')
         this.hideDropDown()
 
         // show all current targets
@@ -54,9 +54,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   SuperHeader.prototype.hideDropDown = function () {
-    const shadow = this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow--shown')
-    const currentlyShown = this.module.querySelector('.govuk-header__super-navigation-dropdown--shown')
-    const currentlyShownToggle = this.module.querySelector('.govuk-header__super-navigation-dropdown-toggle--shown')
+    var shadow = this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow--shown')
+    var currentlyShown = this.module.querySelector('.govuk-header__super-navigation-dropdown--shown')
+    var currentlyShownToggle = this.module.querySelector('.govuk-header__super-navigation-dropdown-toggle--shown')
 
     // hide all other shown elements
     if (shadow) shadow.classList.toggle('govuk-header__super-navigation-dropdown-shadow--shown')
