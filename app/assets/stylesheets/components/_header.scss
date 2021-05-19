@@ -149,6 +149,7 @@ $govuk-heavy-link-underline-offset: .1em;
 }
 
 .js-govuk-header__super-navigation-menu-toggle-button--shown {
+  width: 90px;
 
   &.govuk-header__super-navigation-menu-toggle {
     background-color: govuk-colour('white');
