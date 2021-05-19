@@ -6,6 +6,6 @@ window.GOVUK.Modules.GovukFrontendAccordion = window.GOVUKFrontend
 
 var $accordions = document.querySelectorAll('[data-module="govuk-accordion"]')
 
-$accordions.forEach(function($accordion) {
+$accordions.forEach(function ($accordion) {
   new window.GOVUK.Modules.GovukFrontendAccordion($accordion).init()
 })

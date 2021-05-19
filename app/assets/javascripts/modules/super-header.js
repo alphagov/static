@@ -7,30 +7,30 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   SuperHeader.prototype.start = function ($module) {
     this.module = $module[0]
 
-    this.initMobileMenu();
-  }
-
-  SuperHeader.prototype.initMobileMenu = function () {
-    this.mobileMenuToggleButton = this.module.querySelector(".js-govuk-header__super-navigation-menu-toggle-button")
-    this.mobileMenu = this.module.querySelector(".js-govuk-header__super-navigation-menu--mobile")
-
-    this.initMobileMenuToggle()
+    this.initMobileMenu()
     this.initDropDownMenu()
     this.initDropDownShadowListener()
   }
 
+  SuperHeader.prototype.initMobileMenu = function () {
+    this.mobileMenuToggleButton = this.module.querySelector('.js-govuk-header__super-navigation-menu-toggle-button')
+    this.mobileMenu = this.module.querySelector('.js-govuk-header__super-navigation-menu--mobile')
+
+    this.initMobileMenuToggle()
+  }
+
   SuperHeader.prototype.initMobileMenuToggle = function () {
-    this.mobileMenuToggleButton.addEventListener("click", function(event) {
-      this.mobileMenuToggleButton.classList.toggle("js-govuk-header__super-navigation-menu-toggle-button--shown")
-      this.mobileMenu.classList.toggle("js-govuk-header__super-navigation-menu--mobile-shown")
+    this.mobileMenuToggleButton.addEventListener('click', function (event) {
+      this.mobileMenuToggleButton.classList.toggle('js-govuk-header__super-navigation-menu-toggle-button--shown')
+      this.mobileMenu.classList.toggle('js-govuk-header__super-navigation-menu--mobile-shown')
     }.bind(this))
   }
 
-  SuperHeader.prototype.initDropDownMenu = function() {
-    this.module.querySelectorAll(".js-govuk-header__super-navigation-dropdown-toggle").forEach(function (menuLink) {
-      menuLink.addEventListener("click", function(event) {
+  SuperHeader.prototype.initDropDownMenu = function () {
+    this.module.querySelectorAll('.js-govuk-header__super-navigation-dropdown-toggle').forEach(function (menuLink) {
+      menuLink.addEventListener('click', function (event) {
         event.preventDefault()
-        let shown = menuLink.classList.contains('govuk-header__super-navigation-dropdown-toggle--shown')
+        const shown = menuLink.classList.contains('govuk-header__super-navigation-dropdown-toggle--shown')
         this.hideDropDown()
 
         // show all current targets
@@ -46,17 +46,17 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }.bind(this))
   }
 
-  SuperHeader.prototype.initDropDownShadowListener = function() {
+  SuperHeader.prototype.initDropDownShadowListener = function () {
     this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow')
-      .addEventListener("click", function(){
+      .addEventListener('click', function () {
         this.hideDropDown()
       }.bind(this))
   }
 
-  SuperHeader.prototype.hideDropDown = function() {
-    let shadow = this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow--shown')
-    let currentlyShown = this.module.querySelector('.govuk-header__super-navigation-dropdown--shown')
-    let currentlyShownToggle = this.module.querySelector('.govuk-header__super-navigation-dropdown-toggle--shown')
+  SuperHeader.prototype.hideDropDown = function () {
+    const shadow = this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow--shown')
+    const currentlyShown = this.module.querySelector('.govuk-header__super-navigation-dropdown--shown')
+    const currentlyShownToggle = this.module.querySelector('.govuk-header__super-navigation-dropdown-toggle--shown')
 
     // hide all other shown elements
     if (shadow) shadow.classList.toggle('govuk-header__super-navigation-dropdown-shadow--shown')

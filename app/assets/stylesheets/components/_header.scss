@@ -2,6 +2,11 @@ $header-height: 60px;
 $govuk-heavy-link-underline-thickness: 3px;
 $govuk-heavy-link-underline-offset: .1em;
 
+// disabling for testing - @todo - remove before PR
+// stylelint-disable selector-max-id
+// stylelint-disable max-nesting-depth
+// stylelint-disable number-leading-zero
+
 #global-header {
   @include govuk-media-query($from: tablet) {
     height: auto;
@@ -28,7 +33,7 @@ $govuk-heavy-link-underline-offset: .1em;
           @include govuk-media-query($until: 325px) {
             margin-right: 0;
           }
-        } 
+        }
       }
     }
   }
