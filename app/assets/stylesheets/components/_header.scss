@@ -190,22 +190,40 @@ $govuk-heavy-link-underline-offset: .1em;
 }
 
 .govuk-header__super-navigation-dropdown {
+  display: none;
   position: absolute;
   top: $header-height;
   width: 100%;
-  padding: govuk-spacing(4);
+  padding: govuk-spacing(8) 0;
   background-color: govuk-colour("white");
   z-index: 10;
 }
 
 .govuk-header__super-navigation-dropdown-shadow {
+  display: none;
   position: fixed;
   top: -$header-height;
   width: 200vw;
   height: 120vh;
-  background: black;
+  background: govuk-colour("black");
   opacity: 0.8;
   z-index: 1;
+}
+
+.govuk-header__super-navigation-dropdown--shown,
+.govuk-header__super-navigation-dropdown-shadow--shown {
+  display: block;
+}
+
+.govuk-header__super-navigation-dropdown-toggle--shown {
+  background: govuk-colour("white");
+  color: govuk-colour("black");
+
+  &:visited,
+  &:link,
+  &:hover {
+    color: govuk-colour("black");
+  }
 }
 
 .govuk-list .govuk-header__super-navigation-dropdown-list-item {

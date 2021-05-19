@@ -2,8 +2,8 @@
   <ul class="govuk-header__super-navigation-items">
     <% navigation_links.each_with_index do | link, index | %>
       <li class="govuk-header__super-navigation-item govuk-header__super-navigation-item--hide-on-mobile">
-        <a class="govuk-header__super-navigation-link" 
-           href="<%= link[:href] %>" data-dropdown-target="#dropdown-<%= index %>">
+        <a class="govuk-header__super-navigation-link js-govuk-header__super-navigation-dropdown-toggle" 
+           href="<%= link[:href] %>" data-dropdown-target="#govuk-header-dropdown-<%= index %>">
           <%= link[:label] %>
           <% if link[:link_sections] %>
             <%= image_tag "down-arrow.svg" %>
