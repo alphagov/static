@@ -16,6 +16,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     this.initMobileMenuToggle()
     this.initDropDownMenu()
+    this.initDropDownShadowListener()
   }
 
   SuperHeader.prototype.initMobileMenuToggle = function () {
@@ -30,14 +31,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       menuLink.addEventListener("click", function(event) {
         event.preventDefault()
         let shown = menuLink.classList.contains('govuk-header__super-navigation-dropdown-toggle--shown')
-        let shadow = this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow--shown')
-        let currentlyShown = this.module.querySelector('.govuk-header__super-navigation-dropdown--shown')
-        let currentlyShownToggle = this.module.querySelector('.govuk-header__super-navigation-dropdown-toggle--shown')
-
-        // hide all other shown elements
-        if (shadow) shadow.classList.toggle('govuk-header__super-navigation-dropdown-shadow--shown')
-        if (currentlyShown) currentlyShown.classList.toggle('govuk-header__super-navigation-dropdown--shown')
-        if (currentlyShownToggle) currentlyShownToggle.classList.toggle('govuk-header__super-navigation-dropdown-toggle--shown')
+        this.hideDropDown()
 
         // show all current targets
         if (!shown) {
@@ -50,6 +44,24 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         }
       }.bind(this))
     }.bind(this))
+  }
+
+  SuperHeader.prototype.initDropDownShadowListener = function() {
+    this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow')
+      .addEventListener("click", function(){
+        this.hideDropDown()
+      }.bind(this))
+  }
+
+  SuperHeader.prototype.hideDropDown = function() {
+    let shadow = this.module.querySelector('.govuk-header__super-navigation-dropdown-shadow--shown')
+    let currentlyShown = this.module.querySelector('.govuk-header__super-navigation-dropdown--shown')
+    let currentlyShownToggle = this.module.querySelector('.govuk-header__super-navigation-dropdown-toggle--shown')
+
+    // hide all other shown elements
+    if (shadow) shadow.classList.toggle('govuk-header__super-navigation-dropdown-shadow--shown')
+    if (currentlyShown) currentlyShown.classList.toggle('govuk-header__super-navigation-dropdown--shown')
+    if (currentlyShownToggle) currentlyShownToggle.classList.toggle('govuk-header__super-navigation-dropdown-toggle--shown')
   }
 
   Modules.SuperHeader = SuperHeader
