@@ -18,9 +18,28 @@
             </div>
           <% end %>
         </div>
+        <% if link[:footer_links].present? %>
+          <hr class="govuk-!-margin-bottom-6" />
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">&nbsp;</div>
+              <% link[:footer_links].each do |section| %>
+                <div class="govuk-grid-column-one-third">
+                  <ul class="govuk-list">
+                    <% section.each do | section_link | %>
+                      <li class="govuk-header__super-navigation-dropdown-list-item">
+                        <a class="govuk-link govuk-link--no-visited-state" href="<%= section_link[:href] %>"><%= section_link[:label] %></a>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
+  
 <% end %>
 
 <div class="govuk-header__super-navigation-dropdown-shadow"></div>

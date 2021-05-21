@@ -222,7 +222,11 @@ $govuk-heavy-link-underline-offset: .1em;
 
 .govuk-header__super-navigation-dropdown--shown,
 .govuk-header__super-navigation-dropdown-shadow--shown {
-  display: block;
+  display: none;
+
+  @include govuk-media-query($from: tablet) {
+    display: block;
+  }
 }
 
 .govuk-header__super-navigation-dropdown-toggle--shown {
