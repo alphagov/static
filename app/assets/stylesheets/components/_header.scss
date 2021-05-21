@@ -237,7 +237,8 @@ $govuk-heavy-link-underline-offset: .1em;
   margin-bottom: govuk-spacing(4);
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     color: govuk-colour("white");
     text-decoration-line: underline;
     text-decoration-thickness: $govuk-heavy-link-underline-thickness;
