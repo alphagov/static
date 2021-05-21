@@ -9,7 +9,9 @@
         <a class="<%= classes %>" href="<%= link[:href] %>" data-dropdown-target="#govuk-header-dropdown-<%= index %>">
           <%= link[:label] %>
           <% if link[:link_sections].present? %>
-            <%= image_tag "down-arrow.svg" %>
+            <svg class="govuk-header__super-navigation-item-icon" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.2098 1.70982L6.23145 7.26509L1.25305 1.70982" stroke-width="2"/>
+            </svg>
           <% end %>
         </a>
       </li>

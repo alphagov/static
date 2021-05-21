@@ -104,16 +104,20 @@ $govuk-heavy-link-underline-offset: .1em;
     color: govuk-colour("white");
   }
 
+  &:focus {
+    @include govuk-focused-text;
+
+    .govuk-header__super-navigation-item-icon {
+      stroke: govuk-colour('black');
+    }
+  }
+
   &:hover,
   &:active {
     color: govuk-colour("white");
     text-decoration-line: underline;
     text-decoration-thickness: $govuk-heavy-link-underline-thickness;
     text-underline-offset: $govuk-heavy-link-underline-offset;
-  }
-
-  &:focus {
-    @include govuk-focused-text;
   }
 
   @include govuk-media-query($from: tablet) {
@@ -230,6 +234,10 @@ $govuk-heavy-link-underline-offset: .1em;
   &:hover {
     color: govuk-colour("black");
   }
+
+  .govuk-header__super-navigation-item-icon {
+    stroke: govuk-colour('black');
+  }
 }
 
 .govuk-list .govuk-header__super-navigation-dropdown-list-item {
@@ -244,4 +252,8 @@ $govuk-heavy-link-underline-offset: .1em;
     text-decoration-thickness: $govuk-heavy-link-underline-thickness;
     text-underline-offset: $govuk-heavy-link-underline-offset;
   }
+}
+
+.govuk-header__super-navigation-item-icon {
+  stroke: govuk-colour("white");
 }
