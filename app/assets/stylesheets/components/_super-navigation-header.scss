@@ -10,3 +10,9 @@
   padding-bottom: govuk-spacing(2);
   margin-bottom: 0;
 }
+
+.app-c-super-navigation-header__content {
+  @include govuk-media-query($from: 769px) {
+    text-align: right;
+  }
+}
