@@ -8,7 +8,8 @@ $breakpoint: 769px;
 }
 
 .app-c-super-navigation-header__header-logo {
-  padding: govuk-spacing(2) 0;
+  padding-top: govuk-spacing(2) + 4;
+  padding-bottom: govuk-spacing(2);
   margin-bottom: 0;
 }
 
@@ -40,10 +41,11 @@ $breakpoint: 769px;
 }
 
 .app-c-super-navigation-header__item-link {
-  padding: govuk-spacing(3);
+  padding: govuk-spacing(4) 0;
   width: 100%;
 
   @include govuk-media-query($from: $breakpoint) {
+    padding: govuk-spacing(3) + 2;
     width: auto;
   }
 }
