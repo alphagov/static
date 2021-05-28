@@ -1,0 +1,12 @@
+// Remove bottom borders
+
+.app-c-super-navigation-header,
+.app-c-super-navigation-header__container {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.app-c-super-navigation-header__header-logo {
+  padding-bottom: govuk-spacing(2);
+  margin-bottom: 0;
+}

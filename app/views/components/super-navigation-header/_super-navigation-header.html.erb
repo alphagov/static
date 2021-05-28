@@ -2,22 +2,8 @@
   navigation_links = YAML.load(File.read(File.join(File.dirname(__FILE__),"/navigation-links.yml")))
 %>
 
-<header role="banner" id="global-header" class="<%= yield(:header_class) %>">
-  <div class="header-wrapper">
-    <div class="header-global">
-      <div class="header-logo">
-        <a href="<%= content_for?(:homepage_url) ? yield(:homepage_url) : "https://www.gov.uk/" %>"
-            title="<%= content_for?(:logo_link_title) ? yield(:logo_link_title) : "Go to the GOV.UK homepage" %>"
-            class="content govuk-header__link govuk-header__link--homepage"
-            id="logo"
-            data-module="gem-track-click"
-            data-track-category="homeLinkClicked"
-            data-track-action="homeHeader">
-          <%= render "components/super-navigation-header/govuk-brand" %>
-        </a>
-      </div>
-      <%= yield :inside_header %>
-    </div>
-    <%= yield :proposition_header %>
+<header role="banner" data-module="govuk-header" class="govuk-header app-c-super-navigation-header <%= yield(:header_class) %>">
+  <div class="govuk-header__container app-c-super-navigation-header__container govuk-width-container">
+    <%= render "components/super-navigation-header/header-logo" %>
   </div>
 </header>
