@@ -49,3 +49,38 @@ $breakpoint: 769px;
     width: auto;
   }
 }
+
+// Search
+
+.app-c-super-navigation-header__item--search {
+  @include govuk-media-query($from: $breakpoint) {
+    height: 55px;
+    width: 55px;
+    padding: 0;
+    margin-right: govuk-spacing(3);
+    background-color: govuk-colour('blue');
+  }
+}
+
+.app-c-super-navigation-header__item-link--search {
+  @include govuk-media-query($from: $breakpoint) {
+    background-image: image-url("search-icon.svg");
+    background-position: 50%;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    display: inherit;
+    width: 55px;
+
+    &:focus {
+      background-image: image-url("search-icon--black.svg");
+    }
+  }
+}
+
+.app-c-super-navigation-header__item-link-text--search {
+  @include govuk-media-query($from: $breakpoint) {
+    display: block;
+    text-indent: -5000px;
+    overflow: hidden;
+  }
+}
