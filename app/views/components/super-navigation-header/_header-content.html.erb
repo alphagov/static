@@ -1,10 +1,10 @@
 <div class="govuk-header__content app-c-super-navigation-header__content">
   <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide navigation menu">Menu</button>
   <nav>
-    <ul id="navigation" class="govuk-header__navigation" aria-label="Navigation menu">
+    <ul id="navigation" class="govuk-header__navigation app-c-super-navigation-header__items" aria-label="Navigation menu">
       <% navigation_links.each do | link | %>
-        <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="<%= link["href"] %>">
+        <li class="govuk-header__navigation-item app-c-super-navigation-header__item">
+          <a class="govuk-header__link app-c-super-navigation-header__item-link" href="<%= link["href"] %>">
             <%= link["label"] %>
           </a>
         </li>

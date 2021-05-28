@@ -1,4 +1,4 @@
-// Remove bottom borders
+$breakpoint: 769px;
 
 .app-c-super-navigation-header,
 .app-c-super-navigation-header__container {
@@ -13,7 +13,37 @@
 }
 
 .app-c-super-navigation-header__content {
-  @include govuk-media-query($from: 769px) {
+  @include govuk-media-query($from: $breakpoint) {
     text-align: right;
+  }
+}
+
+.app-c-super-navigation-header__items {
+  margin-bottom: 0;
+
+  &.govuk-header__navigation {
+    @include govuk-media-query($from: $breakpoint) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.app-c-super-navigation-header__item {
+  display: flex;
+  margin-right: 0;
+  padding: 0;
+
+  @include govuk-media-query($from: $breakpoint) {
+    display: inline-flex;
+  }
+}
+
+.app-c-super-navigation-header__item-link {
+  padding: govuk-spacing(3);
+  width: 100%;
+
+  @include govuk-media-query($from: $breakpoint) {
+    width: auto;
   }
 }
