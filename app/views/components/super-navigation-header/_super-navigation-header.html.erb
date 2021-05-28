@@ -1,3 +1,7 @@
+<%
+  navigation_links = YAML.load(File.read(File.join(File.dirname(__FILE__),"/navigation-links.yml")))
+%>
+
 <header role="banner" id="global-header" class="<%= yield(:header_class) %>">
   <div class="header-wrapper">
     <div class="header-global">
