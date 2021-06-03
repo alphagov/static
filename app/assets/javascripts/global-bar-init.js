@@ -28,7 +28,7 @@ var globalBarInit = {
   urlBlockList: function () {
     var paths = [
       '^/coronavirus/.*$',
-      '^/transition(.cy)?$',
+      '^/brexit(.cy)?$',
       '^/transition-check/.*$',
       '^/eubusiness(\\..*)?$'
     ]
