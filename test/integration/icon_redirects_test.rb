@@ -43,4 +43,21 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
       assert_equal "http://example.org/assets/static/apple-touch-icon.png", last_response.location
     end
   end
+
+  [
+    "favicon.txt",
+    "favicon.ico.txt",
+    "apple-touch-icon.txt",
+    "apple-touch-icon.png.txt",
+    "apple-touch-icon-180x180.txt",
+    "apple-touch-icon-180x180.png.txt",
+    "apple-touch-icon-167x167.txt",
+    "apple-touch-icon-167x167.png.txt",
+    "apple-touch-icon-152x152.txt",
+    "apple-touch-icon-152x152.png.txt",
+  ].each do |file|
+    should "raise a routing error for disallowed content types" do
+      assert_raises(ActionController::RoutingError) { get "/#{file}" }
+    end
+  end
 end
