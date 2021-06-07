@@ -42,7 +42,7 @@ private
 
   def validate_template_param
     # Allow alphanumeric and _ in template filenames.
-    # Prevent any attempts to traverse directores etc...
+    # Prevent any attempts to traverse directories etc...
     unless params[:template].match?(/\A\w+\z/)
       error_404
     end
