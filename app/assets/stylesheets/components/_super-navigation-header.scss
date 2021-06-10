@@ -49,6 +49,16 @@ $header-height: 55px;
   @include govuk-media-query($from: $breakpoint) {
     padding: govuk-spacing(3) + 2;
     width: auto;
+
+    &:focus {
+      .app-c-super-navigation-header__item-icon--white {
+        display: none;
+      }
+    
+      .app-c-super-navigation-header__item-icon--black {
+        display: inline;
+      }
+    }
   }
 }
 
@@ -59,6 +69,22 @@ $header-height: 55px;
   &:link {
     color: govuk-colour('black');
   }
+
+  .app-c-super-navigation-header__item-icon--white {
+    display: none;
+  }
+
+  .app-c-super-navigation-header__item-icon--black {
+    display: inline;
+  }
+}
+
+.app-c-super-navigation-header__item-icon {
+  padding-left: govuk-spacing(1);
+}
+
+.app-c-super-navigation-header__item-icon--black {
+  display: none;
 }
 
 // Search
