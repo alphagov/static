@@ -1,4 +1,4 @@
-<% navigation_links.each_with_index do | link, index | %>
+<% navigation_data["navigation_links"].each_with_index do | link, index | %>
   <% if link["link_sections"].present? %>
     <div class="app-c-super-navigation-header__dropdown-menu" data-dropdown-id="supernav-dropdown-<%= index %>">
       <div class="govuk-width-container">
@@ -27,7 +27,7 @@
               <div class="govuk-grid-column-one-third">
                 <ul class="govuk-list">
                   <% section.each do | section_link | %>
-                    <li class="govuk-header__super-navigation-dropdown-list-item">
+                    <li class="app-c-super-navigation-header__dropdown-list-item">
                       <a class="govuk-link govuk-link--no-visited-state" href="<%= section_link["href"] %>"><%= section_link["label"] %></a>
                     </li>
                   <% end %>
@@ -41,6 +41,6 @@
   <% end %>
 <% end %>
 
-<%= render "components/super-navigation-header/dropdown-search-menu" %>
+<%= render "components/super-navigation-header/dropdown-search-menu", most_visited_links: navigation_data["search"]["most_viewed_links"] %>
 
 <div class="app-c-super-navigation-header__dropdown-shadow js-app-c-super-navigation-header__dropdown-shadow"></div>

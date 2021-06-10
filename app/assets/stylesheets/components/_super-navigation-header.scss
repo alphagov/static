@@ -67,19 +67,21 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-link--active {
-  background-color: govuk-colour('white');
-
-  &:visited,
-  &:link {
-    color: govuk-colour('black');
-  }
-
   .app-c-super-navigation-header__item-icon--white {
     display: none;
   }
 
   .app-c-super-navigation-header__item-icon--black {
     display: inline;
+  }
+
+  @include govuk-media-query($from: $breakpoint) {
+    background-color: govuk-colour('white');
+
+    &:visited,
+    &:link {
+      color: govuk-colour('black');
+    }
   }
 }
 
@@ -165,7 +167,12 @@ $header-height: 55px;
 .app-c-super-navigation-header__dropdown-list-item {
   @include govuk-font(19, $weight: bold);
   margin-bottom: govuk-spacing(4);
-  min-height: 60px;
+  min-height: govuk-spacing(9);
+}
+
+.app-c-super-navigation-header__dropdown-menu--search
+.app-c-super-navigation-header__dropdown-list-item {
+  min-height: govuk-spacing(7);
 }
 
 .app-c-super-navigation-header__dropdown-shadow {
