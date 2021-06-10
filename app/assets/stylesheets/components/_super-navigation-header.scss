@@ -119,7 +119,8 @@ $header-height: 55px;
     display: inherit;
     width: $header-height;
 
-    &:focus {
+    &:focus,
+    &.app-c-super-navigation-header__item-link--active {
       background-image: image-url("search-icon--black.svg");
     }
   }
