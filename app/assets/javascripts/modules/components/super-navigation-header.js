@@ -7,6 +7,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   SuperNavigationHeader.prototype.start = function ($module) {
     this.module = $module[0]
     this.initDropDownMenu()
+    this.initShadowListener()
   }
 
   SuperNavigationHeader.prototype.initDropDownMenu = function() {
@@ -30,6 +31,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         }
       }.bind(this))
     }
+  }
+
+  SuperNavigationHeader.prototype.initShadowListener = function() {
+    var shadow = this.module.querySelector('.js-app-c-super-navigation-header__dropdown-shadow')
+
+    shadow.addEventListener("click", function(e) {
+      this.hideActiveDropDown()
+    }.bind(this))
   }
 
   SuperNavigationHeader.prototype.showDropDown = function(target, dropdown, shadow) {
