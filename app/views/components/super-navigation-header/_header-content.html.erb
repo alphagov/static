@@ -4,9 +4,17 @@
   </button>
   <nav>
     <ul id="navigation" class="govuk-header__navigation app-c-super-navigation-header__items" aria-label="Navigation menu">
-      <% navigation_links.each do | link | %>
+      <% navigation_links.each_with_index do | link, index | %>
+        <%
+          link_classes = "govuk-header__link app-c-super-navigation-header__item-link"
+          link_classes << " js-app-c-super-navigation-header__item-link" if link["link_sections"].present?
+        %>
         <li class="govuk-header__navigation-item app-c-super-navigation-header__item">
-          <a class="govuk-header__link app-c-super-navigation-header__item-link" href="<%= link["href"] %>">
+          <a 
+            class="<%= link_classes %>"
+            href="<%= link["href"] %>"
+            data-target-dropdown="supernav-dropdown-<%= index %>"
+          >
             <%= link["label"] %>
           </a>
         </li>

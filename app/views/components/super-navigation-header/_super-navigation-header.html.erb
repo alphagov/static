@@ -3,10 +3,12 @@
 %>
 
 <header role="banner" data-module="govuk-header" class="govuk-header app-c-super-navigation-header <%= yield(:header_class) %>">
-  <div class="govuk-header__container app-c-super-navigation-header__container govuk-width-container">
-    <%= render "components/super-navigation-header/header-logo" %>
-    <%= render "components/super-navigation-header/header-content", navigation_links: navigation_links %>
-  </div>
+  <div data-module="super-navigation-header">
+    <div class="govuk-header__container app-c-super-navigation-header__container govuk-width-container">
+      <%= render "components/super-navigation-header/header-logo" %>
+      <%= render "components/super-navigation-header/header-content", navigation_links: navigation_links %>
+    </div>
 
-  <%= render "components/super-navigation-header/dropdown-menu", navigation_links: navigation_links %>
+    <%= render "components/super-navigation-header/dropdown-menu", navigation_links: navigation_links %>
+  </div>
 </header>

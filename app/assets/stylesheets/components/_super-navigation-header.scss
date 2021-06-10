@@ -140,7 +140,7 @@ $header-height: 55px;
   opacity: 0.8;
   z-index: 2;
 
-  &.app-c-super-navigation-header__dropdown-shadow--shown {
+  &.app-c-super-navigation-header__dropdown-shadow--active {
     display: none;
   
     @include govuk-media-query($from: $breakpoint) {

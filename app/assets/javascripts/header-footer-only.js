@@ -7,3 +7,4 @@
 //= require modules/cross-domain-tracking
 //= require global-bar-init
 //= require surveys
+//= require modules/components/super-navigation-header
