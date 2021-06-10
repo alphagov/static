@@ -80,7 +80,12 @@ $header-height: 55px;
 }
 
 .app-c-super-navigation-header__item-icon {
-  padding-left: govuk-spacing(1);
+  display: none;
+
+  @include govuk-media-query($from: $breakpoint) {
+    padding-left: govuk-spacing(1);
+    display: inline;
+  }
 }
 
 .app-c-super-navigation-header__item-icon--black {
