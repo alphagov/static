@@ -1,0 +1,96 @@
+$breakpoint: 769px;
+
+.app-c-super-navigation-header,
+.app-c-super-navigation-header__container {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.app-c-super-navigation-header__header-logo {
+  padding-top: govuk-spacing(2) + 4;
+  padding-bottom: govuk-spacing(2);
+  margin-bottom: 0;
+}
+
+.app-c-super-navigation-header__content {
+  @include govuk-media-query($from: $breakpoint) {
+    text-align: right;
+  }
+}
+
+.app-c-super-navigation-header__items {
+  margin-bottom: 0;
+
+  &.govuk-header__navigation {
+    @include govuk-media-query($from: $breakpoint) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.app-c-super-navigation-header__item {
+  display: flex;
+  margin-right: 0;
+  padding: 0;
+
+  @include govuk-media-query($from: $breakpoint) {
+    display: inline-flex;
+  }
+}
+
+.app-c-super-navigation-header__item-link {
+  padding: govuk-spacing(4) 0;
+  width: 100%;
+
+  @include govuk-media-query($from: $breakpoint) {
+    padding: govuk-spacing(3) + 2;
+    width: auto;
+  }
+}
+
+// Search
+
+.app-c-super-navigation-header__item--search {
+  @include govuk-media-query($from: $breakpoint) {
+    height: 55px;
+    width: 55px;
+    padding: 0;
+    margin-right: govuk-spacing(3);
+    background-color: govuk-colour('blue');
+  }
+}
+
+.app-c-super-navigation-header__item-link--search {
+  @include govuk-media-query($from: $breakpoint) {
+    background-image: image-url("search-icon.svg");
+    background-position: 50%;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    display: inherit;
+    width: 55px;
+
+    &:focus {
+      background-image: image-url("search-icon--black.svg");
+    }
+  }
+}
+
+.app-c-super-navigation-header__item-link-text--search {
+  @include govuk-media-query($from: $breakpoint) {
+    display: block;
+    text-indent: -5000px;
+    overflow: hidden;
+  }
+}
+
+.app-c-super-navigation-header__menu-button {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.3;
+  border-left: 1px solid govuk-colour("mid-grey");
+  border-right: 1px solid govuk-colour("mid-grey");
+  padding: govuk-spacing(3) govuk-spacing(4);
+  top: 0;
+}
