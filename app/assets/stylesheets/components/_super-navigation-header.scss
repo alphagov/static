@@ -1,10 +1,12 @@
 $breakpoint: 769px;
+$header-height: 55px;
 
 .app-c-super-navigation-header,
 .app-c-super-navigation-header__container {
   border-bottom: 0;
   margin-bottom: 0;
   padding-top: 0;
+  z-index: 3;
 }
 
 .app-c-super-navigation-header__header-logo {
@@ -50,12 +52,21 @@ $breakpoint: 769px;
   }
 }
 
+.app-c-super-navigation-header__item-link--active {
+  background-color: govuk-colour('white');
+
+  &:visited,
+  &:link {
+    color: govuk-colour('black');
+  }
+}
+
 // Search
 
 .app-c-super-navigation-header__item--search {
   @include govuk-media-query($from: $breakpoint) {
-    height: 55px;
-    width: 55px;
+    height: $header-height;
+    width: $header-height;
     padding: 0;
     margin-right: govuk-spacing(3);
     background-color: govuk-colour('blue');
@@ -69,7 +80,7 @@ $breakpoint: 769px;
     background-size: 35%;
     background-repeat: no-repeat;
     display: inherit;
-    width: 55px;
+    width: $header-height;
 
     &:focus {
       background-image: image-url("search-icon--black.svg");
@@ -93,4 +104,47 @@ $breakpoint: 769px;
   border-right: 1px solid govuk-colour("mid-grey");
   padding: govuk-spacing(3) govuk-spacing(4);
   top: 0;
+}
+
+.app-c-super-navigation-header__dropdown-menu {
+  display: none;
+  position: absolute;
+  padding: govuk-spacing(8) 0;
+  background-color: govuk-colour('white');
+  width: 100%;
+  z-index: 3;
+
+  &.app-c-super-navigation-header__dropdown-menu--active {
+    display: none;
+  
+    @include govuk-media-query($from: $breakpoint) {
+      display: block;
+    }
+  }
+}
+
+.app-c-super-navigation-header__dropdown-menu
+.app-c-super-navigation-header__dropdown-list-item {
+  @include govuk-font(19, $weight: bold);
+  margin-bottom: govuk-spacing(4);
+  min-height: 60px;
+}
+
+.app-c-super-navigation-header__dropdown-shadow {
+  display: none;
+  position: fixed;
+  top: -$header-height;
+  width: 200vw;
+  height: 120vh;
+  background: govuk-colour("black");
+  opacity: 0.8;
+  z-index: 2;
+
+  &.app-c-super-navigation-header__dropdown-shadow--shown {
+    display: none;
+  
+    @include govuk-media-query($from: $breakpoint) {
+      display: block;
+    }
+  }
 }
