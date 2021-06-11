@@ -167,7 +167,11 @@ $header-height: 55px;
 .app-c-super-navigation-header__dropdown-list-item {
   @include govuk-font(19, $weight: bold);
   margin-bottom: govuk-spacing(4);
-  min-height: govuk-spacing(9);
+  min-height: govuk-spacing(6);
+}
+
+.app-c-super-navigation-header__dropdown-list-item-description {
+  min-height: govuk-spacing(7);
 }
 
 .app-c-super-navigation-header__dropdown-menu--search
