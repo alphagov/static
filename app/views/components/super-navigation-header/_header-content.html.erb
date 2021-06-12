@@ -4,7 +4,7 @@
   </button>
   <nav>
     <ul id="navigation" class="govuk-header__navigation app-c-super-navigation-header__items" aria-label="Navigation menu">
-      <% navigation_links.each_with_index do | link, index | %>
+      <% navigation_data["navigation_links"].each_with_index do | link, index | %>
         <%
           link_classes = "govuk-header__link app-c-super-navigation-header__item-link"
           link_classes << " js-app-c-super-navigation-header__item-link" if link["link_sections"].present?
@@ -21,6 +21,10 @@
               <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black" %>
             <% end %>
           </a>
+          <%= render "components/super-navigation-header/dropdown-menu2", {
+                index: index,
+                link: link
+              }%>
         </li>
       <% end %>
       <li class="govuk-header__navigation-item app-c-super-navigation-header__item app-c-super-navigation-header__item--search">
@@ -31,6 +35,7 @@
         >
           <span class="app-c-super-navigation-header__item-link-text--search">Search</span>
         </a>
+        <%= render "components/super-navigation-header/dropdown-search-menu", most_visited_links: navigation_data["search"]["most_viewed_links"] %>
       </li>
     </ul>
   </nav>

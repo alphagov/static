@@ -21,13 +21,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         var target = e.target
         var dropdownId = e.target.getAttribute('data-target-dropdown')
         var dropdown = this.module.querySelector("[data-dropdown-id=" + dropdownId + "]")
+        var dropdownBackdrop = this.module.querySelector('.app-c-super-navigation-header__dropdown-menu-full-width-backdrop')
         var shadow = this.module.querySelector('.js-app-c-super-navigation-header__dropdown-shadow')
         var alreadyShown = e.target.classList.contains('app-c-super-navigation-header__item-link--active')
 
         if (alreadyShown) this.hideActiveDropDown()
         else {
           this.hideActiveDropDown(target, dropdown)
-          this.showDropDown(target, dropdown, shadow)
+          this.showDropDown(target, dropdown, shadow, dropdownBackdrop)
         }
       }.bind(this))
     }
@@ -41,10 +42,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }.bind(this))
   }
 
-  SuperNavigationHeader.prototype.showDropDown = function(target, dropdown, shadow) {
+  SuperNavigationHeader.prototype.showDropDown = function(target, dropdown, shadow, dropdownBackdrop) {
     dropdown.classList.add('app-c-super-navigation-header__dropdown-menu--active')
     shadow.classList.add('app-c-super-navigation-header__dropdown-shadow--active')
     target.classList.add('app-c-super-navigation-header__item-link--active')
+    dropdownBackdrop.style.height = dropdown.offsetHeight.toString() + "px"
+    dropdownBackdrop.classList.add('app-c-super-navigation-header__dropdown-menu-full-width-backdrop--active')
   }
 
   SuperNavigationHeader.prototype.hideActiveDropDown = function(newTarget, newTargetDropdown) {
@@ -73,6 +76,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       if (!newTargetDropdown || dropDown !== newTargetDropdown) {
         dropDown.classList.remove('app-c-super-navigation-header__dropdown-menu--active')
       }
+    }
+
+    // dropdown backdrop
+    if (!newTarget || !newTargetDropdown) {
+      this.module.querySelector('.app-c-super-navigation-header__dropdown-menu-full-width-backdrop')
+        .classList.remove('app-c-super-navigation-header__dropdown-menu-full-width-backdrop--active')
     }
   }
 

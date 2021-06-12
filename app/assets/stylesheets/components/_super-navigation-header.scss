@@ -6,7 +6,7 @@ $header-height: 55px;
   border-bottom: 0;
   margin-bottom: 0;
   padding-top: 0;
-  z-index: 3;
+  z-index: 4;
 }
 
 .app-c-super-navigation-header__header-logo {
@@ -152,7 +152,7 @@ $header-height: 55px;
   padding: govuk-spacing(8) 0;
   background-color: govuk-colour('white');
   width: 100%;
-  z-index: 3;
+  z-index: 4;
 
   &.app-c-super-navigation-header__dropdown-menu--active {
     display: none;
@@ -161,6 +161,28 @@ $header-height: 55px;
       display: block;
     }
   }
+}
+
+.app-c-super-navigation-header__dropdown-menu--inline {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  right: 0;
+  left: 0;
+  text-align: left;
+}
+
+.app-c-super-navigation-header__dropdown-menu-full-width-backdrop {
+  display: none;
+  height: 550px;
+  background: white;
+  z-index: 3;
+  width: 100%;
+  position: absolute;
+}
+
+.app-c-super-navigation-header__dropdown-menu-full-width-backdrop--active {
+  display: block;
 }
 
 .app-c-super-navigation-header__dropdown-menu

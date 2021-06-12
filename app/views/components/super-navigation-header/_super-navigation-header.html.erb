@@ -6,9 +6,10 @@
   <div data-module="super-navigation-header">
     <div class="govuk-header__container app-c-super-navigation-header__container govuk-width-container">
       <%= render "components/super-navigation-header/header-logo" %>
-      <%= render "components/super-navigation-header/header-content", navigation_links: navigation_data["navigation_links"] %>
+      <%= render "components/super-navigation-header/header-content", navigation_data: navigation_data %>
     </div>
 
-    <%= render "components/super-navigation-header/dropdown-menu", navigation_data: navigation_data %>
+    <div class="app-c-super-navigation-header__dropdown-menu-full-width-backdrop">&nbsp;</div>
+    <div class="app-c-super-navigation-header__dropdown-shadow js-app-c-super-navigation-header__dropdown-shadow"></div>
   </div>
 </header>
