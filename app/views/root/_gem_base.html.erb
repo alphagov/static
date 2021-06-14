@@ -19,6 +19,7 @@
   emergency_banner: emergency_banner,
   full_width: full_width,
   global_bar: user_satisfaction_survey + global_bar,
+  logo_link: Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/",
   navigation_items: [
   {
     text: "Account",
@@ -45,5 +46,4 @@
     },
   }],
   title: content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information",
-
 } %>
