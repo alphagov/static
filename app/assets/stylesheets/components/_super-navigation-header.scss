@@ -9,20 +9,50 @@ $header-height: 55px;
   z-index: 4;
 }
 
+.app-c-super-navigation-header__container.govuk-width-container {
+  margin-left: 0;
+  margin-right: 0;
+
+  @include govuk-media-query($from: $breakpoint) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .app-c-super-navigation-header__header-logo {
   padding-top: govuk-spacing(2) + 4;
+  padding-left: govuk-spacing(3);
   padding-bottom: govuk-spacing(2);
   margin-bottom: 0;
 }
 
-.app-c-super-navigation-header__content {
+.js-enabled .app-c-super-navigation-header__content {
+  background-color: govuk-colour('white');
+
   @include govuk-media-query($from: $breakpoint) {
     text-align: right;
+    background-color: govuk-colour('black');
+  }
+}
+
+.app-c-super-navigation-header__content
+.govuk-header__navigation--open {
+  @include govuk-font(24);
+
+  height: 100vh;
+
+  @include govuk-media-query($from: $breakpoint) {
+    height: auto;
   }
 }
 
 .app-c-super-navigation-header__items {
   margin-bottom: 0;
+  padding: govuk-spacing(2) govuk-spacing(3);
+
+  @include govuk-media-query($from: $breakpoint) {
+    padding: 0;
+  }
 
   &.govuk-header__navigation {
     @include govuk-media-query($from: $breakpoint) {
@@ -55,13 +85,37 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-link {
-  &:focus {
+  color: govuk-colour('black');
+
+  .app-c-super-navigation-header__item-icon--white {
+    display: none;
+  }
+
+  .app-c-super-navigation-header__item-icon--black {
+    display: inline;
+  }
+
+  @include govuk-media-query($from: $breakpoint) {
+    color: govuk-colour('white');
+
     .app-c-super-navigation-header__item-icon--white {
-      display: none;
+      display: inline;
     }
   
     .app-c-super-navigation-header__item-icon--black {
-      display: inline;
+      display: none;
+    }
+
+    &:focus {
+      color: govuk-colour('black');
+
+      .app-c-super-navigation-header__item-icon--white {
+        display: none;
+      }
+    
+      .app-c-super-navigation-header__item-icon--black {
+        display: inline;
+      }
     }
   }
 }

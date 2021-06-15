@@ -33,7 +33,11 @@
           href="/search"
           data-target-dropdown="supernav-dropdown-search"
         >
-          <span class="app-c-super-navigation-header__item-link-text--search">Search</span>
+          <span class="app-c-super-navigation-header__item-link-text--search">
+            Search
+            <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white" %>
+            <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black" %>  
+          </span>
         </a>
         <%= render "components/super-navigation-header/dropdown-search-menu", most_visited_links: navigation_data["search"]["most_viewed_links"] %>
       </li>
