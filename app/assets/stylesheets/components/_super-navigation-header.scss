@@ -64,6 +64,7 @@ $header-height: 55px;
   margin-right: 0;
   padding: 0;
   flex-direction: column;
+  border-bottom: 1px solid $govuk-border-colour;
 
   @include govuk-media-query($from: $breakpoint) {
     display: inline-flex;
@@ -83,7 +84,9 @@ $header-height: 55px;
 
 .js-enabled .app-c-super-navigation-header__item-link {
   @include govuk-font(27, $weight: bold);
-  color: govuk-colour('black');
+
+  color: $govuk-link-colour;
+  text-decoration: underline;
   padding: govuk-spacing(6) govuk-spacing(3);
 
   .app-c-super-navigation-header__item-icon--white {
@@ -95,10 +98,11 @@ $header-height: 55px;
   }
 
   @include govuk-media-query($from: $breakpoint) {
-    color: govuk-colour('white');
-    padding: govuk-spacing(3) + 2;
     @include govuk-font(16, $weight: bold);
 
+    color: govuk-colour('white');
+    padding: govuk-spacing(3) + 2;
+    text-decoration: none;
 
     .app-c-super-navigation-header__item-icon--white {
       display: inline;
@@ -148,8 +152,21 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-icon {
-  padding-left: govuk-spacing(1);
   display: inline;
+  position: absolute;
+  right: 0;
+  padding-right: govuk-spacing(3);
+  padding-top: govuk-spacing(1);
+  width: govuk-spacing(3);
+
+  @include govuk-media-query($from: $breakpoint) {
+    padding-left: govuk-spacing(1);
+    padding-right: 0;
+    padding-top: 0;
+    position: relative;
+    right: none;
+    width: auto;
+  }
 }
 
 .js-enabled .app-c-super-navigation-header__item-icon--black {
