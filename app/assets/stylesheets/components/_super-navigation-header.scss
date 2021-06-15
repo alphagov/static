@@ -69,6 +69,7 @@ $header-height: 55px;
   @include govuk-media-query($from: $breakpoint) {
     display: inline-flex;
     flex-direction: row;
+    border-bottom: none;
   }
 }
 
