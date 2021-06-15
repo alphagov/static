@@ -36,9 +36,11 @@ $header-height: 55px;
   display: flex;
   margin-right: 0;
   padding: 0;
+  flex-direction: column;
 
   @include govuk-media-query($from: $breakpoint) {
     display: inline-flex;
+    flex-direction: row;
   }
 }
 
@@ -53,35 +55,31 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-link {
-  @include govuk-media-query($from: $breakpoint) {
-    &:focus {
-      .app-c-super-navigation-header__item-icon--white {
-        display: none;
-      }
-    
-      .app-c-super-navigation-header__item-icon--black {
-        display: inline;
-      }
+  &:focus {
+    .app-c-super-navigation-header__item-icon--white {
+      display: none;
+    }
+  
+    .app-c-super-navigation-header__item-icon--black {
+      display: inline;
     }
   }
 }
 
 .js-enabled .app-c-super-navigation-header__item-link--active {
+  background-color: govuk-colour('white');
+
+  &:visited,
+  &:link {
+    color: govuk-colour('black');
+  }
+  
   .app-c-super-navigation-header__item-icon--white {
     display: none;
   }
 
   .app-c-super-navigation-header__item-icon--black {
     display: inline;
-  }
-
-  @include govuk-media-query($from: $breakpoint) {
-    background-color: govuk-colour('white');
-
-    &:visited,
-    &:link {
-      color: govuk-colour('black');
-    }
   }
 }
 
@@ -90,10 +88,8 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-icon {
-  @include govuk-media-query($from: $breakpoint) {
-    padding-left: govuk-spacing(1);
-    display: inline;
-  }
+  padding-left: govuk-spacing(1);
+  display: inline;
 }
 
 .js-enabled .app-c-super-navigation-header__item-icon--black {
@@ -148,28 +144,28 @@ $header-height: 55px;
 
 .app-c-super-navigation-header__dropdown-menu {
   display: none;
-  position: absolute;
-  padding: govuk-spacing(8) 0;
   background-color: govuk-colour('white');
   width: 100%;
   z-index: 4;
 
+  @include govuk-media-query($from: $breakpoint) {
+    padding: govuk-spacing(8) 0;
+  }
+
   &.app-c-super-navigation-header__dropdown-menu--active {
-    display: none;
-  
-    @include govuk-media-query($from: $breakpoint) {
-      display: block;
-    }
+    display: block;
   }
 }
 
 .app-c-super-navigation-header__dropdown-menu--inline {
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  right: 0;
-  left: 0;
-  text-align: left;
+  @include govuk-media-query($from: $breakpoint) {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    right: 0;
+    left: 0;
+    text-align: left;
+  }
 }
 
 .app-c-super-navigation-header__dropdown-menu-full-width-backdrop {
@@ -182,7 +178,9 @@ $header-height: 55px;
 }
 
 .app-c-super-navigation-header__dropdown-menu-full-width-backdrop--active {
-  display: block;
+  @include govuk-media-query($from: $breakpoint) {
+    display: block;
+  }
 }
 
 .app-c-super-navigation-header__dropdown-menu
