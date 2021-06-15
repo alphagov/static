@@ -46,6 +46,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     dropdown.classList.add('app-c-super-navigation-header__dropdown-menu--active')
     shadow.classList.add('app-c-super-navigation-header__dropdown-shadow--active')
     target.classList.add('app-c-super-navigation-header__item-link--active')
+    target.setAttribute('aria-expanded', 'true')
     dropdownBackdrop.style.height = dropdown.offsetHeight.toString() + "px"
     dropdownBackdrop.classList.add('app-c-super-navigation-header__dropdown-menu-full-width-backdrop--active')
   }
@@ -66,6 +67,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       var navLink = navLinks[index];
       if (!newTarget || navLinks !== newTarget) {
         navLink.classList.remove('app-c-super-navigation-header__item-link--active')
+        navLink.setAttribute('aria-expanded', 'false')
       }
     }
 

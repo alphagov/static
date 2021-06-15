@@ -14,6 +14,7 @@
             class="<%= link_classes %>"
             href="<%= link["href"] %>"
             data-target-dropdown="supernav-dropdown-<%= index %>"
+            <% if  link["link_sections"].present? %> aria-expanded="false" <% end %>
           >
             <%= link["label"] %>
             <% if  link["link_sections"].present? %>
@@ -32,6 +33,7 @@
           class="govuk-header__link app-c-super-navigation-header__item-link app-c-super-navigation-header__item-link--search js-app-c-super-navigation-header__item-link" 
           href="/search"
           data-target-dropdown="supernav-dropdown-search"
+          aria-expanded="false"
         >
           <span class="app-c-super-navigation-header__item-link-text--search">
             Search
