@@ -24,6 +24,10 @@ $header-height: 55px;
   padding-left: govuk-spacing(3);
   padding-bottom: govuk-spacing(2);
   margin-bottom: 0;
+
+  @include govuk-media-query($from: $breakpoint) {
+    padding-left: 0;
+  }
 }
 
 .js-enabled .app-c-super-navigation-header__content {
