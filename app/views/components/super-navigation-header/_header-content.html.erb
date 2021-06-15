@@ -22,10 +22,7 @@
               <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black" %>
             <% end %>
           </a>
-          <%= render "components/super-navigation-header/dropdown-menu2", {
-                index: index,
-                link: link
-              }%>
+          <%= render "components/super-navigation-header/dropdown-menu", { index: index, link: link } %>
         </li>
       <% end %>
       <li class="govuk-header__navigation-item app-c-super-navigation-header__item app-c-super-navigation-header__item--search">
