@@ -37,9 +37,7 @@ $header-height: 55px;
 
 .app-c-super-navigation-header__content
 .govuk-header__navigation--open {
-  @include govuk-font(24);
-
-  height: 100vh;
+  height: 200vh;
 
   @include govuk-media-query($from: $breakpoint) {
     height: auto;
@@ -48,7 +46,6 @@ $header-height: 55px;
 
 .app-c-super-navigation-header__items {
   margin-bottom: 0;
-  padding: govuk-spacing(2) govuk-spacing(3);
 
   @include govuk-media-query($from: $breakpoint) {
     padding: 0;
@@ -85,7 +82,9 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-link {
+  @include govuk-font(27, $weight: bold);
   color: govuk-colour('black');
+  padding: govuk-spacing(6) govuk-spacing(3);
 
   .app-c-super-navigation-header__item-icon--white {
     display: none;
@@ -97,6 +96,9 @@ $header-height: 55px;
 
   @include govuk-media-query($from: $breakpoint) {
     color: govuk-colour('white');
+    padding: govuk-spacing(3) + 2;
+    @include govuk-font(16, $weight: bold);
+
 
     .app-c-super-navigation-header__item-icon--white {
       display: inline;
@@ -121,7 +123,7 @@ $header-height: 55px;
 }
 
 .js-enabled .app-c-super-navigation-header__item-link--active {
-  background-color: govuk-colour('white');
+  background-color: govuk-colour('light-grey');
 
   &:visited,
   &:link {
@@ -134,6 +136,10 @@ $header-height: 55px;
 
   .app-c-super-navigation-header__item-icon--black {
     display: inline;
+  }
+
+  @include govuk-media-query($from: $breakpoint) {
+    background-color: govuk-colour('white');
   }
 }
 
@@ -198,12 +204,14 @@ $header-height: 55px;
 
 .app-c-super-navigation-header__dropdown-menu {
   display: none;
-  background-color: govuk-colour('white');
+  background-color: govuk-colour('light-grey');
   width: 100%;
   z-index: 4;
+  padding: govuk-spacing(3) 0;
 
   @include govuk-media-query($from: $breakpoint) {
     padding: govuk-spacing(8) 0;
+    background-color: govuk-colour('white');
   }
 
   &.app-c-super-navigation-header__dropdown-menu--active {
