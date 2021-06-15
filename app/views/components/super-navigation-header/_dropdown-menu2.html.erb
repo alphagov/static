@@ -10,7 +10,7 @@
             <ul class="govuk-list">
               <% section.each do | section_link | %>
                 <li class="app-c-super-navigation-header__dropdown-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="<%= section_link["href"] %>"><%= section_link["label"] %></a>
+                  <a class="govuk-link govuk-link--no-visited-state app-c-super-navigation-header__dropdown-list-item-link" href="<%= section_link["href"] %>"><%= section_link["label"] %></a>
                   <%= tag.p section_link["description"], class: "govuk-body-s app-c-super-navigation-header__dropdown-list-item-description" if section_link["description"].present? %>
                 </li>
               <% end %>

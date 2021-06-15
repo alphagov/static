@@ -214,9 +214,13 @@ $header-height: 55px;
   font-weight: bold;
   line-height: 1.3;
   border-left: 1px solid govuk-colour("mid-grey");
-  border-right: 1px solid govuk-colour("mid-grey");
   padding: govuk-spacing(3) govuk-spacing(4);
   top: 0;
+}
+
+.app-c-super-navigation-header__menu-button.govuk-header__menu-button--open {
+  background-color: govuk-colour("white");
+  color: govuk-colour("black");
 }
 
 .app-c-super-navigation-header__dropdown-menu {
@@ -264,9 +268,17 @@ $header-height: 55px;
 
 .app-c-super-navigation-header__dropdown-menu
 .app-c-super-navigation-header__dropdown-list-item {
-  @include govuk-font(19, $weight: bold);
   margin-bottom: govuk-spacing(4);
   min-height: govuk-spacing(6);
+}
+
+.app-c-super-navigation-header__dropdown-list-item
+.app-c-super-navigation-header__dropdown-list-item-link {
+  @include govuk-font(27, $weight: bold);
+
+  @include govuk-media-query($from: $breakpoint) {
+    @include govuk-font(19, $weight: bold);
+  }
 }
 
 .app-c-super-navigation-header__dropdown-list-item-description {

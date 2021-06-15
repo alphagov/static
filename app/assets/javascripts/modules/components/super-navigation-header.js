@@ -16,14 +16,18 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     for (var index = 0; index < menuLinks.length; index++) {
       var menuLink = menuLinks[index]
 
-      menuLink.addEventListener("click", function(e) {
+      menuLink.addEventListener('click', function(e) {
         e.preventDefault()
         var target = e.target
-        var dropdownId = e.target.getAttribute('data-target-dropdown')
+        if (!target.classList.contains('js-app-c-super-navigation-header__item-link')) {
+          target = target.parentElement
+        }
+
+        var dropdownId = target.getAttribute('data-target-dropdown')
         var dropdown = this.module.querySelector("[data-dropdown-id=" + dropdownId + "]")
         var dropdownBackdrop = this.module.querySelector('.app-c-super-navigation-header__dropdown-menu-full-width-backdrop')
         var shadow = this.module.querySelector('.js-app-c-super-navigation-header__dropdown-shadow')
-        var alreadyShown = e.target.classList.contains('app-c-super-navigation-header__item-link--active')
+        var alreadyShown = target.classList.contains('app-c-super-navigation-header__item-link--active')
 
         if (alreadyShown) this.hideActiveDropDown()
         else {
@@ -57,8 +61,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     // shadow
     if (!newTarget || !newTargetDropdown) {
-      this.module.querySelector('.app-c-super-navigation-header__dropdown-shadow--active')
-        .classList.remove('app-c-super-navigation-header__dropdown-shadow--active')
+      var activeShadow = this.module.querySelector('.app-c-super-navigation-header__dropdown-shadow--active')
+      if (activeShadow) activeShadow.classList.remove('app-c-super-navigation-header__dropdown-shadow--active')
     }
 
     // nav link
