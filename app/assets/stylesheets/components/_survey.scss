@@ -46,7 +46,6 @@
   }
 
   .survey-wrapper {
-    @extend %site-width-container;
     padding-top: govuk-spacing(3);
     padding-bottom: govuk-spacing(4);
     clear: both;
@@ -113,5 +112,9 @@
     &:focus {
       outline: 3px solid $govuk-focus-colour;
     }
+  }
+
+  .js-hidden {
+    display: none;
   }
 }

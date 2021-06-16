@@ -2,7 +2,7 @@
 
 ## `gem_layout`
 
-This template uses the [public layout component] from the GOV.UK Publishing Components gem. It supplies the header and footer only - this includes the cookie banner, skip to content link, header bar, emergency banner, survery banner, global bar, feedback, and footer. The content is constrained and centred.
+This template uses the [public layout component] from the GOV.UK Publishing Components gem. It supplies the header and footer only - this includes the cookie banner, skip to content link, header bar, emergency banner, survey banner, global bar, feedback, and footer. The content is constrained and centred.
 
 ## `gem_layout_full_width`
 
