@@ -7,7 +7,7 @@ class RootController < ApplicationController
 
   caches_page :template
 
-  NON_LAYOUT_TEMPLATES = %w[
+  TEMPLATES = %w[
     400
     401
     403
@@ -31,7 +31,7 @@ class RootController < ApplicationController
   ].freeze
 
   def template
-    if NON_LAYOUT_TEMPLATES.include?(params[:template])
+    if TEMPLATES.include?(params[:template])
       render action: params[:template]
     else
       render action: params[:template], layout: "govuk_template"
@@ -42,7 +42,7 @@ private
 
   def validate_template_param
     # Allow alphanumeric and _ in template filenames.
-    # Prevent any attempts to traverse directores etc...
+    # Prevent any attempts to traverse directories etc...
     unless params[:template].match?(/\A\w+\z/)
       error_404
     end
