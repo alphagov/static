@@ -36,7 +36,7 @@
   <% unless hide_account_navigation %>
     <%= render "govuk_publishing_components/components/layout_header", {
       remove_bottom_border: true,
-      navigation_items: [
+      navigation_items: [ # Remember to update the links in _gem_base.html.erb as well.
       {
         text: "Account",
         href: Plek.new.find("account-manager"),

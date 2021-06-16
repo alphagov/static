@@ -20,7 +20,7 @@
   full_width: full_width,
   global_bar: user_satisfaction_survey + global_bar,
   logo_link: Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/",
-  navigation_items: [
+  navigation_items: [ # Remember to update the links in _base.html.erb as well.
   {
     text: "Account",
     href: Plek.new.find("account-manager"),
@@ -31,7 +31,7 @@
   },
   {
     text: "Sign out",
-    href: Plek.new.website_root + "/transition-check/logout",
+    href: Plek.new.website_root + "/sign-out",
     data: {
       module: "explicit-cross-domain-links",
       link_for: "accounts-signed-in",
@@ -39,7 +39,7 @@
   },
   {
     text: "Sign in",
-    href: Plek.new.website_root + "/transition-check/login",
+    href: Plek.new.website_root + "/sign-in",
     data: {
       module: "explicit-cross-domain-links",
       link_for: "accounts-signed-out",
