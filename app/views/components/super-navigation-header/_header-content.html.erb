@@ -18,8 +18,8 @@
           >
             <%= link["label"] %>
             <% if  link["link_sections"].present? %>
-              <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white" %>
-              <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black" %>
+              <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white", alt: "" %>
+              <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black", alt: "" %>
             <% end %>
           </a>
           <%= render "components/super-navigation-header/dropdown-menu", { index: index, link: link } %>
@@ -34,8 +34,8 @@
         >
           <span class="app-c-super-navigation-header__item-link-text--search">
             Search
-            <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white" %>
-            <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black" %>  
+            <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white", alt: "" %>
+            <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black", alt: "" %>  
           </span>
         </a>
         <%= render "components/super-navigation-header/dropdown-search-menu", most_visited_links: navigation_data["search"]["most_viewed_links"] %>
