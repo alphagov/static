@@ -14,7 +14,7 @@
         <ul class="govuk-list">
           <% most_visited_links.each do | link | %>
             <li class="app-c-super-navigation-header__dropdown-list-item">
-              <a class="govuk-link govuk-link--no-visited-state" href="<%= link["href"] %>"><%= link["label"] %></a>
+              <a class="govuk-link govuk-link--no-visited-state app-c-super-navigation-header__dropdown-list-item-link" href="<%= link["href"] %>"><%= link["label"] %></a>
             </li>
           <% end %>
         </ul>
