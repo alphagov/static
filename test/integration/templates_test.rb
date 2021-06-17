@@ -17,7 +17,7 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
     should "contain real user metrics loader script" do
       visit "/templates/core_layout.html.erb"
-      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/rum-loader']", visible: :all)
     end
 
     should "not contain real user metrics scripts before cookie banner interacted with" do
@@ -25,9 +25,9 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
       visit "/templates/core_layout.html.erb"
 
-      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
-      assert page.has_no_selector?("html > head > script[src*='lux/lux']", visible: :all)
-      assert page.has_no_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/rum-loader']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux-polyfill']", visible: :all)
     end
 
     should "not contain real user metrics scripts on the page where cookies are accepted" do
@@ -37,9 +37,9 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
       click_button "Accept additional cookies"
 
-      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
-      assert page.has_no_selector?("html > head > script[src*='lux/lux']", visible: :all)
-      assert page.has_no_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/rum-loader']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux-polyfill']", visible: :all)
     end
 
     should "contain real user metrics scripts on page after cookies opted in" do
@@ -51,9 +51,9 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
       visit "/templates/core_layout.html.erb"
 
-      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
-      assert page.has_selector?("html > head > script[src*='lux/lux']", visible: :all)
-      assert page.has_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/rum-loader']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux-polyfill']", visible: :all)
     end
 
     should "not contain real user metrics scripts on page after cookies opted out" do
@@ -65,9 +65,9 @@ class TemplatesTest < ActionDispatch::IntegrationTest
 
       visit "/templates/core_layout.html.erb"
 
-      assert page.has_selector?("html > head > script[src*='rum-loader']", visible: :all)
-      assert page.has_no_selector?("html > head > script[src*='lux/lux']", visible: :all)
-      assert page.has_no_selector?("html > head > script[src*='lux/lux-polyfill']", visible: :all)
+      assert page.has_selector?("html > head > script[src*='govuk_publishing_components/rum-loader']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux']", visible: :all)
+      assert page.has_no_selector?("html > head > script[src*='govuk_publishing_components/vendor/lux/lux-polyfill']", visible: :all)
     end
 
     should "404 for non-existent templates" do
