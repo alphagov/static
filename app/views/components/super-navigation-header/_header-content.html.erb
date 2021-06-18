@@ -4,18 +4,40 @@
   </button>
   <nav>
     <ul id="navigation" class="govuk-header__navigation app-c-super-navigation-header__items" aria-label="Navigation menu">
-      <% navigation_data["navigation_links"].each do | link | %>
+      <% navigation_data["navigation_links"].each_with_index do | link, index | %>
+        <%
+          link_classes = "govuk-header__link app-c-super-navigation-header__item-link"
+          link_classes << " js-app-c-super-navigation-header__item-link" if link["link_sections"].present?
+        %>
         <li class="govuk-header__navigation-item app-c-super-navigation-header__item">
-          <a class="govuk-header__link app-c-super-navigation-header__item-link" href="<%= link["href"] %>">
+          <a 
+            class="<%= link_classes %>"
+            href="<%= link["href"] %>"
+            data-target-dropdown="supernav-dropdown-<%= index %>"
+          >
             <%= link["label"] %>
+            <% if  link["link_sections"].present? %>
+              <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white", alt: "" %>
+              <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black", alt: "" %>
+            <% end %>
           </a>
+          <%= render "components/super-navigation-header/dropdown-menu", { index: index, link: link } %>
         </li>
       <% end %>
       <li class="govuk-header__navigation-item app-c-super-navigation-header__item app-c-super-navigation-header__item--search">
-          <a class="govuk-header__link app-c-super-navigation-header__item-link app-c-super-navigation-header__item-link--search" href="/search">
-            <span class="app-c-super-navigation-header__item-link-text--search">Search</span>
-          </a>
-        </li>
+        <a
+          class="govuk-header__link app-c-super-navigation-header__item-link app-c-super-navigation-header__item-link--search js-app-c-super-navigation-header__item-link" 
+          href="/search"
+          data-target-dropdown="supernav-dropdown-search"
+        >
+          <span class="app-c-super-navigation-header__item-link-text--search">
+            Search
+            <%= image_tag "down-arrow-white.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--white", alt: "" %>
+            <%= image_tag "down-arrow-black.svg", class: "app-c-super-navigation-header__item-icon app-c-super-navigation-header__item-icon--black", alt: "" %>  
+          </span>
+        </a>
+        <%= render "components/super-navigation-header/dropdown-menu-search", most_visited_links: navigation_data["search"]["most_viewed_links"] %>
+      </li>
     </ul>
   </nav>
 </div>

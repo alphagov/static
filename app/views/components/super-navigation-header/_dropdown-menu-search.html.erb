@@ -1,0 +1,24 @@
+<div class="app-c-super-navigation-header__dropdown-menu app-c-super-navigation-header__dropdown-menu--inline app-c-super-navigation-header__dropdown-menu--search" data-dropdown-id="supernav-dropdown-search">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <form id="search" class="site-search govuk-clearfix" action="/search" method="get" role="search" aria-label="Site-wide">
+          <%= render "govuk_publishing_components/components/search", {
+            inline_label: false,
+            label_text: sanitize("<h2 class=\"govuk-heading-m\">Search GOV.UK</h2>"),
+            size: "large",
+          } %>
+        </form>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-8 govuk-!-margin-bottom-6">Most visited</h2>
+        <ul class="govuk-list">
+          <% most_visited_links.each do | link | %>
+            <li class="app-c-super-navigation-header__dropdown-list-item">
+              <a class="govuk-link govuk-link--no-visited-state app-c-super-navigation-header__dropdown-list-item-link" href="<%= link["href"] %>"><%= link["label"] %></a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
