@@ -16,7 +16,18 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     for (var index = 0; index < menuLinks.length; index++) {
       var menuLink = menuLinks[index]
 
-      menuLink.addEventListener('click', function(e) {
+      var button = document.createElement('button')
+      button.innerHTML = menuLink.innerHTML
+      button.setAttribute('class', menuLink.getAttribute('class') + " app-c-super-navigation-header__item-link--button")
+      button.setAttribute('data-target-dropdown', menuLink.getAttribute('data-target-dropdown'))
+      button.setAttribute('aria-controls', menuLink.getAttribute('data-target-dropdown'))
+      button.setAttribute('aria-expanded', "false")
+
+      var parentElement = menuLink.parentElement
+      parentElement.insertBefore(button, menuLink)
+      parentElement.removeChild(menuLink)
+
+      button.addEventListener('click', function(e) {
         e.preventDefault()
         var target = e.target
         if (!target.classList.contains('js-app-c-super-navigation-header__item-link')) {

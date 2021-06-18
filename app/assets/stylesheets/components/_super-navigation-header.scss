@@ -118,7 +118,7 @@ $header-height: 55px;
     }
 
     &:focus {
-      color: govuk-colour('black');
+      @include govuk-focused-text;
 
       .app-c-super-navigation-header__item-icon--white {
         display: none;
@@ -131,7 +131,14 @@ $header-height: 55px;
   }
 }
 
+.js-enabled .app-c-super-navigation-header__item-link--button {
+  border: none;
+  background-color: inherit;
+  text-align: left;
+}
+
 .js-enabled .app-c-super-navigation-header__item-link--active {
+  color: govuk-colour('black');
   background-color: govuk-colour('light-grey');
 
   &:visited,
