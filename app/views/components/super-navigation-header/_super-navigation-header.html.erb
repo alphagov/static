@@ -1,10 +1,10 @@
 <%
-  navigation_links = YAML.load(File.read(File.join(File.dirname(__FILE__),"/navigation-links.yml")))
+  navigation_data = YAML.load(File.read(File.join(File.dirname(__FILE__),"/navigation-data.yml")))
 %>
 
 <header role="banner" data-module="govuk-header" class="govuk-header app-c-super-navigation-header <%= yield(:header_class) %>">
   <div class="govuk-header__container app-c-super-navigation-header__container govuk-width-container">
     <%= render "components/super-navigation-header/header-logo" %>
-    <%= render "components/super-navigation-header/header-content", navigation_links: navigation_links %>
+    <%= render "components/super-navigation-header/header-content", navigation_data: navigation_data %>
   </div>
 </header>
