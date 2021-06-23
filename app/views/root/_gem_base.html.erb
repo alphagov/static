@@ -1,4 +1,6 @@
 <%
+  @emergency_banner = emergency_banner_notification
+
   full_width ||= false
 
   if @emergency_banner
@@ -16,7 +18,7 @@
 %>
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
-  emergency_banner: emergency_banner,
+  emergency_banner: emergency_banner.presence,
   full_width: full_width,
   global_bar: user_satisfaction_survey + global_bar,
   logo_link: Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/",
