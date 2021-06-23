@@ -25,6 +25,7 @@ class RootController < ApplicationController
     campaign
     gem_layout
     gem_layout_full_width
+    gem_layout_account
     scheduled_maintenance
     print
     proposition_menu
