@@ -1,6 +1,9 @@
 <%
   @emergency_banner = emergency_banner_notification
 
+  product_name ||= nil
+  omit_feedback_form ||= nil
+  logo_link ||= Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/"
   full_width ||= false
 
   if @emergency_banner
@@ -20,8 +23,10 @@
 <%= render "govuk_publishing_components/components/layout_for_public", {
   emergency_banner: emergency_banner.presence,
   full_width: full_width,
+  omit_feedback_form: omit_feedback_form,
   global_bar: user_satisfaction_survey + global_bar,
-  logo_link: Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/",
+  logo_link: logo_link,
+  product_name: product_name,
   navigation_items: [ # Remember to update the links in _base.html.erb as well.
   {
     text: "Account",
