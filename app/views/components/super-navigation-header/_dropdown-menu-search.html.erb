@@ -10,9 +10,9 @@
           } %>
         </form>
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-8 govuk-!-margin-bottom-6">Most visited</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-top-8 govuk-!-margin-bottom-6">Popular on GOV.UK</h2>
         <ul class="govuk-list">
-          <% most_visited_links.each do | link | %>
+          <% popular_links.each do | link | %>
             <li class="app-c-super-navigation-header__dropdown-list-item">
               <a class="govuk-link govuk-link--no-visited-state app-c-super-navigation-header__dropdown-list-item-link" href="<%= link["href"] %>"><%= link["label"] %></a>
             </li>
