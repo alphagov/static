@@ -55,7 +55,7 @@ navigation_links:
   - label: Departments
     href: /government/organisations
   - label: Government activity
-    href: /search/news-and-communications
+    href: /#departments-and-policy-label
     description: Find out what the government is doing
     link_sections: 
       - - label: News
