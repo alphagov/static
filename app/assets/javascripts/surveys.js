@@ -15,7 +15,7 @@
   var templateBase = function (children) {
     return (
       '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-      '  <div class="survey-wrapper">' +
+      '  <div class="survey-wrapper govuk-width-container">' +
       '    <a class="govuk-link survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>' +
       '    <h2 class="survey-title" id="survey-title">{{title}}</h2>' +
            children +
