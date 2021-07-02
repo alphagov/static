@@ -1,0 +1,40 @@
+<% if link["link_sections"].present? %>
+  <div id="supernav-dropdown-<%= index %>" class="app-c-super-navigation-header__dropdown-menu app-c-super-navigation-header__dropdown-menu--inline" data-dropdown-id="supernav-dropdown-<%= index %>">
+    <div class="govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body-l"><%= link["description"] %></p>
+        </div>
+        <% link["link_sections"].each do | section | %>
+          <div class="govuk-grid-column-one-third">
+            <ul class="govuk-list">
+              <% section.each do | section_link | %>
+                <li class="app-c-super-navigation-header__dropdown-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state app-c-super-navigation-header__dropdown-list-item-link" href="<%= section_link["href"] %>"><%= section_link["label"] %></a>
+                  <%= tag.p section_link["description"], class: "govuk-body-s app-c-super-navigation-header__dropdown-list-item-description" if section_link["description"].present? %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <% if link["footer_links"].present? %>
+        <div class="govuk-grid-row">
+          <hr class="govuk-!-margin-bottom-6" />
+          <div class="govuk-grid-column-one-third">&nbsp;</div>
+          <% link["footer_links"].each do |section| %>
+            <div class="govuk-grid-column-one-third">
+              <ul class="govuk-list">
+                <% section.each do | section_link | %>
+                  <li class="app-c-super-navigation-header__dropdown-list-item">
+                    <a class="govuk-link govuk-link--no-visited-state app-c-super-navigation-header__dropdown-list-item-link" href="<%= section_link["href"] %>"><%= section_link["label"] %></a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
