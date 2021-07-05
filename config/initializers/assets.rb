@@ -16,10 +16,7 @@ Rails.application.config.assets.precompile += %w[
   global-bar-init.js
   header-footer-only.js
   libs/jquery/jquery-1.12.4.js
-  libs/lux/lux-polyfill.js
-  libs/lux/lux.js
   modules/base-target.js
-  rum-loader.js
   surveys.js
   application*.css
   core-layout*.css
