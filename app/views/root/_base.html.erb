@@ -12,6 +12,8 @@
   <%= render :partial => 'stylesheet', :locals => { :css_file => local_assigns[:css_file] || 'application' } %>
 <% end %>
 
+<% content_for :show_explore_header, local_assigns[:show_explore_header] %>
+
 <% content_for :inside_header do %>
   <button class="search-toggle js-header-toggle" data-search-toggle-for="search">Show or hide search</button>
   <%
