@@ -1,10 +1,11 @@
 <%
   @emergency_banner = emergency_banner_notification
 
-  product_name ||= nil
-  omit_feedback_form ||= nil
   logo_link ||= Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/"
   full_width ||= false
+  omit_feedback_form ||= nil
+  product_name ||= nil
+  show_explore_header ||= false
 
   if @emergency_banner
     emergency_banner = render "components/emergency_banner", {
@@ -23,10 +24,8 @@
 <%= render "govuk_publishing_components/components/layout_for_public", {
   emergency_banner: emergency_banner.presence,
   full_width: full_width,
-  omit_feedback_form: omit_feedback_form,
   global_bar: user_satisfaction_survey + global_bar,
   logo_link: logo_link,
-  product_name: product_name,
   navigation_items: [ # Remember to update the links in _base.html.erb as well.
   {
     text: "Account",
@@ -52,5 +51,8 @@
       link_for: "accounts-signed-out",
     },
   }],
+  omit_feedback_form: omit_feedback_form,
+  product_name: product_name,
+  show_explore_header: show_explore_header,
   title: content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information",
 } %>
