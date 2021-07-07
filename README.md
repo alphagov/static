@@ -27,12 +27,14 @@ env RAILS_ENV=test bundle exec rake jasmine:ci
 
 ### Further documentation
 
+Background information:
+
 - [List of Slimmer templates](docs/slimmer_templates.md)
 - [How Slimmer and Static work together](https://docs.publishing.service.gov.uk/apps/slimmer/what-slimmer-does.html)
 - [Frontend architecture and long term plan to remove Static / Slimmer](https://docs.publishing.service.gov.uk/manual/frontend-architecture.html)
 - [Analytics (no longer in Static, but imported from govuk_publishing_components)](docs/analytics.md)
 
-### How to's
+How to's:
 
 - [How to: deploy the Emergency Banner](docs/emergency-banner.md)
 - [How to: optimise images](docs/image-optimisation.md)
