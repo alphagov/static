@@ -9,11 +9,16 @@ This application defines global templates for [GOV.UK](https://www.gov.uk) pages
 
 ## Technical documentation
 
-- [Image optimisation](docs/image-optimisation.md)
-- [Slimmer templates](docs/slimmer_templates.md)
-- [Emergency Banner](docs/emergency-banner.md)
-- [Analytics](docs/analytics.md)
-- [`humans.txt`](docs/humans.md)
+- [List of Slimmer templates](docs/slimmer_templates.md)
+- [How Slimmer and Static work together](https://docs.publishing.service.gov.uk/apps/slimmer/what-slimmer-does.html)
+- [Frontend architecture and long term plan to remove Static / Slimmer](https://docs.publishing.service.gov.uk/manual/frontend-architecture.html)
+- [Analytics (no longer in Static, but imported from govuk_publishing_components)](docs/analytics.md)
+
+### How to's
+
+- [How to: deploy the Emergency Banner](docs/emergency-banner.md)
+- [How to: optimise images](docs/image-optimisation.md)
+- [How to: update `humans.txt`](docs/humans.md)
 
 ### Running the application
 
