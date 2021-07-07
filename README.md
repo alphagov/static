@@ -1,16 +1,11 @@
 # Static
 
-This application defines global templates for [GOV.UK](https://www.gov.uk) pages.
-
+This application defines global templates for [GOV.UK](https://www.gov.uk) pages. It is used in conjunction with [Slimmer](https://github.com/alphagov/slimmer), which is Rack middleware that takes a HTML response from a Rails app and combines it with a template from Static.
 ## Screenshots
 
 `gem_layout` template:
 
 ![screenshot](/docs/gem_layout.png?raw=true)
-
-## Nomenclature
-
-* [slimmer](https://github.com/alphagov/slimmer) - Rack middleware for wrapping Rack applications in shared templated layouts
 
 ## Technical documentation
 
