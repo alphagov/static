@@ -13,6 +13,18 @@ This is a Ruby on Rails app, and should follow [our Rails app conventions](https
 
 You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) to run the app. Remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
 
+### Running the test suite
+
+```
+bundle exec rake
+```
+
+To run JavaScript tests (only):
+
+```
+env RAILS_ENV=test bundle exec rake jasmine:ci
+```
+
 ### Further documentation
 
 - [List of Slimmer templates](docs/slimmer_templates.md)
@@ -25,13 +37,3 @@ You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-do
 - [How to: deploy the Emergency Banner](docs/emergency-banner.md)
 - [How to: optimise images](docs/image-optimisation.md)
 - [How to: update `humans.txt`](docs/humans.md)
-
-### Running the test suite
-
-`bundle exec rake` runs the test suite.
-
-#### Javascript unit tests
-
-Tests can run in browser at `/specs`
-
-Or in terminal to run only the jasmine tests you can use `RAILS_ENV=test bundle exec rake jasmine:ci` or in Docker `govuk-docker run -e RAILS_ENV=test static-lite bundle exec rake jasmine:ci`
