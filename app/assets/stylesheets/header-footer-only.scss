@@ -9,6 +9,7 @@ $govuk-use-legacy-palette: false;
 // https://github.com/alphagov/collections/pull/1754
 @import "govuk_publishing_components/components/action-link";
 @import "govuk_publishing_components/components/layout-header";
+@import "govuk_publishing_components/components/layout-super-navigation-header";
 @import "govuk_publishing_components/components/search";
 
 @import "components/emergency-banner";
