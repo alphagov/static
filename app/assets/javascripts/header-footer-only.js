@@ -8,7 +8,6 @@
 
 //= require modules/global-bar
 //= require modules/cross-domain-tracking
-//= require modules/components/super-navigation-header
 
 //= require global-bar-init
 //= require surveys
