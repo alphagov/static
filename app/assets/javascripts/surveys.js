@@ -317,14 +317,15 @@
     },
 
     pathInBlocklist: function () {
-      var blackList = new RegExp('^/(?:' +
+      var blockList = new RegExp('^/(?:' +
         /service-manual/.source +
         /|coronavirus/.source +
-        // add more blacklist paths in the form:
-        // + /|path-to\/blacklist/.source
+        /|account/.source +
+        // add more blockList paths in the form:
+        // + /|path-to\/blockList/.source
         ')(?:/|$)'
       )
-      return blackList.test(userSurveys.currentPath())
+      return blockList.test(userSurveys.currentPath())
     },
 
     userCompletedTransaction: function () {

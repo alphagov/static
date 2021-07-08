@@ -614,6 +614,18 @@ describe('Surveys', function () {
       expect(surveys.pathInBlocklist()).toBeFalsy()
     })
 
+    it('returns true if the path is /account', function () {
+      spyOn(surveys, 'currentPath').and.returnValues('/account', '/account/')
+      expect(surveys.pathInBlocklist()).toBeTruthy()
+      expect(surveys.pathInBlocklist()).toBeTruthy()
+    })
+
+    it('returns true if the path is a sub-folder under /account', function () {
+      spyOn(surveys, 'currentPath').and.returnValues('/account/home', '/account/home/')
+      expect(surveys.pathInBlocklist()).toBeTruthy()
+      expect(surveys.pathInBlocklist()).toBeTruthy()
+    })
+
     it('returns false otherwise', function () {
       spyOn(surveys, 'currentPath').and.returnValue('/')
       expect(surveys.pathInBlocklist()).toBeFalsy()
