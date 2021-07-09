@@ -46,7 +46,7 @@
       navigation_items: [ # Remember to update the links in _gem_base.html.erb as well.
       {
         text: "Account",
-        href: Plek.new.find("account-manager"),
+        href: Plek.new.website_root + "/account/home",
         data: {
           module: "explicit-cross-domain-links",
           link_for: "accounts-signed-in",
