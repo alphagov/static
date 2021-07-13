@@ -9,11 +9,11 @@ See this [`gem_layout` template screenshot](/docs/gem_layout.png?raw=true) for a
 
 This is a Ruby on Rails app, and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
-You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) to run the app. Remember to combine it with the commands that follow.
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) to run the the application and its tests with all the necessary dependencies. Follow the [usage instructions](https://github.com/alphagov/govuk-docker#usage) to get started.
 
 ### Running the app
 
-Run the app [using GOV.UK Docker](https://github.com/alphagov/govuk-docker#usage). You can then view your templates - here's an example:
+Static has no home page or navigation, so you need to manually type in the URL of the template you want to view. Here's an example:
 
 <http://static.dev.gov.uk/templates/gem_layout.html.erb>
 
