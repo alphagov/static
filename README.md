@@ -1,68 +1,52 @@
 # Static
 
-This application defines global templates for [GOV.UK](https://www.gov.uk) pages.
+This application defines global templates for [GOV.UK](https://www.gov.uk) pages. It is used in conjunction with [Slimmer](https://github.com/alphagov/slimmer), which is Rack middleware that takes a HTML response from a Rails app and combines it with a template from Static.
+## Live examples
 
-## Screenshots
-
-`gem_layout` template:
-
-![screenshot](/docs/gem_layout.png?raw=true)
-
-## Nomenclature
-
-* [slimmer](https://github.com/alphagov/slimmer) - Rack middleware for wrapping Rack applications in shared templated layouts
+See this [`gem_layout` template screenshot](/docs/gem_layout.png?raw=true) for an example of the page furniture Static provides.
 
 ## Technical documentation
 
-- [Image optimisation](docs/image-optimisation.md)
-- [Slimmer templates](docs/slimmer_templates.md)
-- [Emergency Banner](docs/emergency-banner.md)
-- [Analytics](docs/analytics.md)
-- [`humans.txt`](docs/humans.md)
+This is a Ruby on Rails app, and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
-### Running the application
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) to run the the application and its tests with all the necessary dependencies. Follow the [usage instructions](https://github.com/alphagov/govuk-docker#usage) to get started.
 
-`./startup.sh`
+### Running the app
 
-This will start the server running on http://0.0.0.0:3013
+Static has no home page or navigation, so you need to manually type in the URL of the template you want to view. Here's an example:
 
-#### Running Locally
+<http://static.dev.gov.uk/templates/gem_layout.html.erb>
 
-If you'd like to run static locally, and keep all its asset links pointing to
-the same local instance, you'll need to set `PLEK_SERVICE_STATIC_URI`, which is
-the host used for static assets (even on static).
+See the [list of Slimmer templates](docs/slimmer_templates.md) for more.
 
-Otherwise it defaults to `static.dev.gov.uk`, which won't exist if you're
-running this repo locally, without the rest of the GOV.UK stack.
-
-To run this app locally, and have it point at its own assets, run it like this:
-
-```
-PLEK_SERVICE_STATIC_URI=0.0.0.0:3013 ./startup.sh
-```
-
-If you're making front end changes to `static` and testing them out
-on your development VM, you may find that it takes several minutes for changes to
-appear due to caching in Slimmer. One approach to speed this up is to run all of the
-relevant app's dependencies (including static), then start that app separately.
-Restarting the app should pick up the changes.
-
-For example, to see changes made to static templates which
-are wrapped around feedback pages, run `bowl feedback
---without=feedback` in one terminal and the `.startup.sh` script for `feedback`
-in a separate terminal. Following local edits to `static`, restarting only
-`feedback` should be sufficient.
-
-If you repeatedly see 504 Gateway Timeout errors when developing with static in your
-development VM it's possible to increase the `proxy_read_timeout` value in
-`/etc/nginx/sites-available/static.dev.gov.uk` and restart nginx on the VM.
+If you're making front end changes to Static and testing them out inside your other apps, you may find that it takes several minutes for changes to appear due to caching in Slimmer. Restarting the consumer app should pick up the changes.
 
 ### Running the test suite
 
-`bundle exec rake` runs the test suite.
+```
+bundle exec rake
+```
 
-#### Javascript unit tests
+To run JavaScript tests (only):
 
-Tests can run in browser at `/specs`
+```
+env RAILS_ENV=test bundle exec rake jasmine:ci
+```
 
-Or in terminal to run only the jasmine tests you can use `RAILS_ENV=test bundle exec rake jasmine:ci` or in Docker `govuk-docker run -e RAILS_ENV=test static-lite bundle exec rake jasmine:ci`
+### Further documentation
+
+Background information:
+
+- [How Slimmer and Static work together](https://docs.publishing.service.gov.uk/apps/slimmer/what-slimmer-does.html)
+- [Frontend architecture and long term plan to remove Static / Slimmer](https://docs.publishing.service.gov.uk/manual/frontend-architecture.html)
+- [Analytics (no longer in Static, but imported from govuk_publishing_components)](docs/analytics.md)
+
+How to's:
+
+- [How to: deploy the Emergency Banner](docs/emergency-banner.md)
+- [How to: optimise images](docs/image-optimisation.md)
+- [How to: update `humans.txt`](docs/humans.md)
+
+## License
+
+[MIT License](LICENCE)
