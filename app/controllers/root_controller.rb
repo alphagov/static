@@ -24,7 +24,9 @@ class RootController < ApplicationController
     504
     campaign
     gem_layout
+    gem_layout_explore_header
     gem_layout_full_width
+    gem_layout_full_width_explore_header
     gem_layout_account
     scheduled_maintenance
     print
