@@ -23,4 +23,4 @@ Write tests.
 
 ## Images ##
 
-- optimise images as described in [README](https://github.com/alphagov/static/blob/master/README.md)
+- optimise images as described in [README](https://github.com/alphagov/static/blob/main/README.md)
