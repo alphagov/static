@@ -45,11 +45,11 @@ module EmergencyBanner
       return @content if defined? @content
 
       @content = begin
-                   client.hgetall("emergency_banner").try(:symbolize_keys)
-                 rescue StandardError => e
-                   GovukError.notify(e)
-                   nil
-                 end
+        client.hgetall("emergency_banner").try(:symbolize_keys)
+      rescue StandardError => e
+        GovukError.notify(e)
+        nil
+      end
     end
   end
 end
