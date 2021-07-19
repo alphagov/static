@@ -142,7 +142,7 @@ namespace :publishing_api do
     require "gds_api/publishing_api/special_route_publisher"
 
     publisher = GdsApi::PublishingApi::SpecialRoutePublisher.new(
-      logger: Logger.new(STDOUT),
+      logger: Logger.new($stdout),
       publishing_api: GdsApi.publishing_api,
     )
 
