@@ -2,8 +2,6 @@ $govuk-compatibility-govuktemplate: true;
 $govuk-use-legacy-palette: false;
 
 @import "govuk_publishing_components/govuk_frontend_support";
-// The search component requires this helper mixin to render height #PR-2380
-@import "govuk_publishing_components/components/helpers/px-to-em";
 @import "govuk_publishing_components/components/cookie-banner";
 // collections uses the action-link component and relies upon this line, see
 // https://github.com/alphagov/collections/pull/1754
