@@ -5,10 +5,5 @@ $is-print: true;
 @import "govuk_publishing_components/component_support";
 
 @import "govuk_publishing_components/components/print/button";
-@import "govuk_publishing_components/components/print/feedback";
-@import "govuk_publishing_components/components/print/layout-footer";
-@import "govuk_publishing_components/components/print/layout-header";
-@import "govuk_publishing_components/components/print/search";
-@import "govuk_publishing_components/components/print/skip-link";
 
 @import "helpers/print-base";
