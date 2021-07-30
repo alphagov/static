@@ -2,7 +2,6 @@
 
 //= require govuk_publishing_components/lib/cookie-functions
 //= require govuk_publishing_components/lib/header-navigation
-//= require govuk_publishing_components/lib/track-click
 
 //= require analytics
 
