@@ -15,7 +15,7 @@
 <% content_for :show_explore_header, local_assigns[:show_explore_header] %>
 
 <% content_for :inside_header do %>
-  <button class="search-toggle js-header-toggle" data-search-toggle-for="search">Show or hide search</button>
+  <a class="search-toggle js-header-toggle" data-search-toggle-for="search" data-button-text="Show or hide search" href="/search">Search on GOV.UK</a>
   <%
     # The /search page redirects to a finder if keywords are included. Be
     # careful about changing this, as the redirect adds some parameters to the
