@@ -5,8 +5,12 @@
   full_width ||= false
   omit_feedback_form ||= nil
   omit_footer_navigation ||= nil
+  omit_global_banner ||= nil
+  omit_user_satisfaction_survey ||= nil
   product_name ||= nil
   show_explore_header ||= false
+  show_account_layout ||= false
+  account_nav_location ||= nil
 
   if @emergency_banner
     emergency_banner = render "components/emergency_banner", {
@@ -17,15 +21,16 @@
       short_description: @emergency_banner.short_description,
     }
   end
-
-  user_satisfaction_survey = '<div id="user-satisfaction-survey-container"></div>'
-  global_bar = render "components/global_bar"
+  global_bar = ''
+  global_banner = render "components/global_bar" unless omit_global_banner
+  global_bar << '<div id="user-satisfaction-survey-container"></div>' unless omit_user_satisfaction_survey
+  global_bar << global_banner if global_banner
 %>
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
   emergency_banner: emergency_banner.presence,
   full_width: full_width,
-  global_bar: user_satisfaction_survey + global_bar,
+  global_bar: global_bar,
   logo_link: logo_link,
   navigation_items: [ # Remember to update the links in _base.html.erb as well.
   {
@@ -57,4 +62,6 @@
   product_name: product_name,
   show_explore_header: show_explore_header,
   title: content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information",
+  show_account_layout: show_account_layout,
+  account_nav_location: account_nav_location
 } %>
