@@ -10,21 +10,13 @@ This is the same as the `gem_layout` template, except that this layout **doesn't
 
 Use this layout if you want to have full width content - such as the blue welcome bar on the GOV.UK homepage.
 
-## `gem_layout_account` (deprecated – use `gem_layout_account_manager` instead)
-
-**NOTE:** `frontend` is still using this layout in [`account_home_controller.rb`](https://github.com/alphagov/frontend/blob/465a00aae52b6bd762debc14a0f1aba3b61d8dd4/app/controllers/account_home_controller.rb#L3). Once `frontend` has been updated to `gem_layout_account_manager`, this layout can be removed.
-
-This is a variation on the `gem_layout` template intended to be used on GOV.UK Account pages. This layout **doesn't** include the feedback component as the account pages use a different one from the rest of GOV.UK.
-
-This also includes the Account product name in the layout header and changes the logo link to the account homepage link.
-
 ## `gem_layout_account_manager`
 
 This is intended as a skeleton wrapper for account pages. It is intended to be used when we need a page rendered by another frontend app to look like a page from `govuk-account-manager-prototype`.
 
 This layout omits the default feedback component for GOVUK as the account pages use a different one from the rest of GOV.UK. Instead it introduces an account-specific phase banner, account feedback prompt, and an account nav component. It also purposefully omits the global bar and user satisfaction survey bar.
 
-Like the former `gem_layout_account` template, this also includes the Account product name in the layout header and changes the logo link to the account homepage link.
+This also includes the Account product name in the layout header and changes the logo link to the account homepage link.
 
 
 ## `core_layout` (default)
