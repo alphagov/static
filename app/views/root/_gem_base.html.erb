@@ -36,7 +36,7 @@
   navigation_items: [ # Remember to update the links in _base.html.erb as well.
   {
     text: "Account",
-    href: Plek.new.website_root + "/account/home",
+    href: GovukPersonalisation::Urls.your_account,
     data: {
       module: "explicit-cross-domain-links",
       link_for: "accounts-signed-in",
@@ -44,7 +44,7 @@
   },
   {
     text: "Sign out",
-    href: Plek.new.website_root + "/sign-out",
+    href: GovukPersonalisation::Urls.sign_out,
     data: {
       module: "explicit-cross-domain-links",
       link_for: "accounts-signed-in",
@@ -52,7 +52,7 @@
   },
   {
     text: "Sign in",
-    href: Plek.new.website_root + "/sign-in",
+    href: GovukPersonalisation::Urls.sign_in,
     data: {
       module: "explicit-cross-domain-links",
       link_for: "accounts-signed-out",
