@@ -24,7 +24,6 @@ class RootController < ApplicationController
     504
     campaign
     gem_layout
-    gem_layout_account
     gem_layout_account_manager
     gem_layout_explore_header
     gem_layout_full_width
