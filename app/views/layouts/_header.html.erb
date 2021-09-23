@@ -1,5 +1,5 @@
 <%
-  show_super_navigation_header = content_for?(:show_explore_header) ? yield(:show_explore_header) : false # will be shown or hidden by A/B Test variable
+  show_super_navigation_header = content_for?(:show_explore_header) ? yield(:show_explore_header) : true
 %>
 
 <% if show_super_navigation_header %>

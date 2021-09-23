@@ -11,7 +11,7 @@ class HeaderFooterOnlyTest < ActionDispatch::IntegrationTest
     end
 
     within "body" do
-      within "header#global-header" do
+      within "header.gem-c-layout-super-navigation-header" do
         assert page.has_selector?("form#search")
       end
 
