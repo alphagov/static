@@ -8,7 +8,7 @@
   omit_global_banner ||= nil
   omit_user_satisfaction_survey ||= nil
   product_name ||= nil
-  show_explore_header = show_explore_header === false ? false : true
+  show_explore_header ||= false
   show_account_layout ||= false
   account_nav_location ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
