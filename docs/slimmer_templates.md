@@ -19,6 +19,11 @@ This layout omits the default feedback component for GOVUK as the account pages 
 This also includes the Account product name in the layout header and changes the logo link to the account homepage link.
 
 
+## `gem_layout_account_manager_no_nav`
+
+Same as the `gem_layout_account_manager`, but displays without the account nav component.
+
+
 ## `core_layout` (default)
 
 This template contains styles for the black header bar, the footer and core layout classes. By default it will centre your content to the same width as the GOV.UK header. It provides classes for grid layouts using the column mixins from the frontend toolkit.
