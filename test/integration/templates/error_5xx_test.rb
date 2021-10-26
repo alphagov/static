@@ -10,10 +10,6 @@ class Error5XXTest < ActionDispatch::IntegrationTest
     end
 
     within "body" do
-      within "header.gem-c-layout-header.govuk-header" do
-        assert page.has_selector?("form#search")
-      end
-
       assert page.has_selector?("#global-cookie-message")
       assert page.has_selector?("#user-satisfaction-survey-container")
 
