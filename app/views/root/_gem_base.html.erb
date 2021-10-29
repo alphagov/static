@@ -5,6 +5,7 @@
   full_width ||= false
   omit_feedback_form ||= nil
   omit_footer_navigation ||= nil
+  omit_footer_border ||= nil
   omit_global_banner ||= nil
   omit_user_satisfaction_survey ||= nil
   omit_account_navigation ||= nil
@@ -12,6 +13,7 @@
   show_explore_header = show_explore_header === false ? false : true
   show_account_layout ||= false
   account_nav_location ||= nil
+  footer_meta ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
 
   if @emergency_banner
@@ -66,8 +68,10 @@
   omit_feedback_form: omit_feedback_form,
   omit_footer_navigation: omit_footer_navigation,
   omit_account_navigation: omit_account_navigation,
+  omit_footer_border: omit_footer_border,
   product_name: product_name,
   show_account_layout: show_account_layout,
   show_explore_header: show_explore_header,
   title: content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information",
+  footer_meta: footer_meta,
 } %>
