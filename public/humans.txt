@@ -1,14 +1,2 @@
 GOV.UK is built by a team at the Government Digital Service (with thanks to Martha!) in London,
 Bristol and Manchester.  If you'd like to join us, see https://gdscareers.gov.uk/
-
-Happy birthday to our friends at the UK Government Web Archive.
-
-       iiiiiiiiiii
-      | H a p p y |
-    __|___________|__
-   |^^^^^^^^^^^^^^^^^|
-   |     2 5 t h     |
-   | B i r t h d a y |
-   ~~~~~~~~~~~~~~~~~~~
-
-https://blog.nationalarchives.gov.uk/preserving-uk-government-history-for-25-years/
