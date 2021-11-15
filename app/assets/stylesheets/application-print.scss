@@ -5,5 +5,6 @@ $is-print: true;
 @import "govuk_publishing_components/component_support";
 
 @import "govuk_publishing_components/components/print/button";
+@import "govuk_publishing_components/components/print/layout-super-navigation-header";
 
 @import "helpers/print-base";
