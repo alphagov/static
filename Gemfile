@@ -14,6 +14,7 @@ gem "rack_strip_client_ip"
 gem "redis"
 gem "sassc-rails"
 gem "uglifier"
+gem "whenever"
 
 group :development do
   gem "better_errors"
