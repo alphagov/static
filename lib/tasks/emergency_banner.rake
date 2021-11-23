@@ -8,10 +8,12 @@ namespace :emergency_banner do
     raise ArgumentError unless args.heading
 
     EmergencyBanner::Deploy.new.run(args.campaign_class, args.heading, args.short_description, args.link, args.link_text)
+    Services::ClearTemplateCache.run!
   end
 
   desc "Remove the emergency banner"
   task remove: :environment do
     EmergencyBanner::Remove.new.run
+    Services::ClearTemplateCache.run!
   end
 end

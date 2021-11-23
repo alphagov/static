@@ -22,6 +22,8 @@ module Static
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.eager_load_paths += %W[#{config.root}/lib]
+
     # Using a sass css compressor causes a scss file to be processed twice
     # (once to build, once to compress) which breaks the usage of "unquote"
     # to use CSS that has same function names as SCSS such as max.

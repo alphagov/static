@@ -9,7 +9,7 @@ describe "emergency_banner:deploy" do
 
   should "run the process to deploy the emergency banner" do
     EmergencyBanner::Deploy.any_instance.expects(:run)
-
+    Services::ClearTemplateCache.expects(:run!)
     Rake::Task["emergency_banner:deploy"].invoke("campaign class", "heading")
   end
 
@@ -41,7 +41,7 @@ end
 describe "emergency_banner:remove" do
   should "run the process to remove the emergency banner" do
     EmergencyBanner::Remove.any_instance.expects(:run)
-
+    Services::ClearTemplateCache.expects(:run!)
     Rake::Task["emergency_banner:remove"].invoke
   end
 end
