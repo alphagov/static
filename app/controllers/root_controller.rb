@@ -22,7 +22,7 @@ class RootController < ApplicationController
     502
     503
     504
-    campaign
+    chromeless
     gem_layout
     gem_layout_account_manager
     gem_layout_account_manager_manage_your_account_active
@@ -37,14 +37,13 @@ class RootController < ApplicationController
     gem_layout_old_header_full_width
     scheduled_maintenance
     print
-    proposition_menu
   ].freeze
 
   def template
     if TEMPLATES.include?(params[:template])
       render action: params[:template]
     else
-      render action: params[:template], layout: "govuk_template"
+      error_404
     end
   end
 

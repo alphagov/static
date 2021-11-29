@@ -13,21 +13,21 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   context "emergency banner notifications" do
     should "not render a banner if one does not exist" do
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
       assert_not page.has_selector? ".emergency-banner"
     end
 
     should "render a banner if one does exist" do
       stub_redis_response(campaign_class: "foo", heading: "bar")
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
       assert page.has_selector? ".emergency-banner"
     end
 
     should "render a banner with a heading and campaign colour" do
       stub_redis_response(campaign_class: "notable-death", heading: "Alas poor Yorick")
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
 
       assert page.has_selector? ".emergency-banner--notable-death"
       assert_match "Alas poor Yorick", page.body
@@ -40,7 +40,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
         link: "https://yoricks.gov",
       )
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
 
       assert_match "More information", page.body
       assert_match(/yoricks\.gov/, page.body)
@@ -54,7 +54,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
         link_text: "Some specified text for more information",
       )
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
 
       assert_match "Some specified text for more information", page.body
     end
@@ -65,7 +65,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
         heading: "Alas poor Yorick",
       )
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
 
       assert_not page.has_selector? ".emergency-banner__description"
       assert_no_match(/yoricks\.gov/, page.body)
@@ -78,7 +78,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
         short_description: "I knew him well",
       )
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
 
       assert_match "I knew him well", page.body
     end
@@ -89,7 +89,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
         heading: "Alas poor Yorick",
       )
 
-      visit "/templates/core_layout.html.erb"
+      visit "/templates/gem_layout.html.erb"
 
       assert_no_match "I knew him well", page.body
     end
