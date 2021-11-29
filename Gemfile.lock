@@ -142,8 +142,6 @@ GEM
       rails (>= 6)
       rouge
       sprockets (< 4)
-    govuk_template (0.26.0)
-      rails (>= 3.1)
     govuk_test (2.3.0)
       brakeman (>= 5.0.2)
       capybara
@@ -372,7 +370,6 @@ DEPENDENCIES
   govuk_app_config
   govuk_personalisation
   govuk_publishing_components
-  govuk_template
   govuk_test
   image_optim
   jasmine
