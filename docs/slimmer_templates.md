@@ -20,6 +20,9 @@ This layout omits the default feedback component for GOVUK as the account pages 
 
 Same as the `gem_layout_account_manager`, but displays without the account nav component.
 
+## `gem_layout_account_manager_manage_your_account_active`
+
+Same as the `gem_layout_account_manager`, but displays "Manage your account" as active in the [account navigation element](https://components.publishing.service.gov.uk/component-guide/layout_for_public/with_current_account_navigation/preview).
 
 ## `core_layout` (default)
 
