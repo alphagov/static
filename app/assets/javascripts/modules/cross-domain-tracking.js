@@ -1,47 +1,55 @@
+window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
-(function (Modules, global) {
-  'use strict'
+(function (Modules) {
+  function CrossDomainTracking ($module) {
+    this.$module = $module
+    Modules.crossDomainLinkedTrackers = Modules.crossDomainLinkedTrackers || []
+  }
 
-  var $ = global.$
-
-  Modules.crossDomainLinkedTrackers = []
-
-  Modules.CrossDomainTracking = function () {
-    this.start = function ($context) {
-      var trackableLinkSelector = '[href][data-tracking-code][data-tracking-name]'
-
-      if ($context.is(trackableLinkSelector)) {
-        addLinkedTrackerDomain($context)
-      } else {
-        $context
-          .find(trackableLinkSelector)
-          .each(function () {
-            addLinkedTrackerDomain($(this))
-          })
-      }
+  CrossDomainTracking.prototype.init = function () {
+    if (this.isTrackable(this.$module)) {
+      this.addLinkedTrackerDomain(this.$module)
+    } else {
+      this.findTrackableElements()
     }
+  }
 
-    function addLinkedTrackerDomain ($element) {
-      var name = $element.attr('data-tracking-name')
-      var code = $element.attr('data-tracking-code')
-      var trackEvent = ($element.attr('data-tracking-track-event') === 'true')
+  CrossDomainTracking.prototype.isTrackable = function (element) {
+    if (element.getAttribute('href') && element.getAttribute('data-tracking-code') && element.getAttribute('data-tracking-name')) {
+      return true
+    }
+  }
 
-      if (GOVUK.analytics !== 'undefined') {
-        if (Modules.crossDomainLinkedTrackers.indexOf(name) === -1) {
-          var hostname = $element.prop('hostname')
-
-          GOVUK.analytics.addLinkedTrackerDomain(code, name, hostname)
-
-          Modules.crossDomainLinkedTrackers.push(name)
-        }
-
-        if (trackEvent) {
-          $element.click({ text: $element.text(), name: name }, function (e) {
-            GOVUK.analytics.trackEvent('External Link Clicked', e.data.text, { trackerName: e.data.name })
-          })
-        }
+  CrossDomainTracking.prototype.findTrackableElements = function () {
+    var links = this.$module.querySelectorAll('a')
+    for (var i = 0; i < links.length; i++) {
+      if (this.isTrackable(links[i])) {
+        this.addLinkedTrackerDomain(links[i])
       }
     }
   }
-})(window.GOVUK.Modules, window)
+
+  CrossDomainTracking.prototype.addLinkedTrackerDomain = function (element) {
+    var name = element.getAttribute('data-tracking-name')
+    var code = element.getAttribute('data-tracking-code')
+    var trackEvent = (element.getAttribute('data-tracking-track-event') === 'true')
+
+    if (GOVUK.analytics !== 'undefined') {
+      if (Modules.crossDomainLinkedTrackers.indexOf(name) === -1) {
+        var hostname = element.hostname
+        GOVUK.analytics.addLinkedTrackerDomain(code, name, hostname)
+        Modules.crossDomainLinkedTrackers.push(name)
+      }
+
+      if (trackEvent) {
+        element.addEventListener('click', function (e) {
+          var target = e.target
+          GOVUK.analytics.trackEvent('External Link Clicked', target.textContent, { trackerName: name })
+        })
+      }
+    }
+  }
+
+  Modules.CrossDomainTracking = CrossDomainTracking
+})(window.GOVUK.Modules)

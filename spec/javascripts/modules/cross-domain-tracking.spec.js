@@ -1,3 +1,5 @@
+//= require govuk_publishing_components/lib/trigger-event.js
+
 describe('Cross Domain Tracking', function () {
   'use strict'
   var module
@@ -9,7 +11,6 @@ describe('Cross Domain Tracking', function () {
     GOVUK.analytics.addLinkedTrackerDomain = function () {}
 
     spyOn(GOVUK.analytics, 'addLinkedTrackerDomain')
-    module = new GOVUK.Modules.CrossDomainTracking()
   })
 
   it('tracks realistic example', function () {
@@ -22,7 +23,8 @@ describe('Cross Domain Tracking', function () {
     anchorToTest.setAttribute('data-tracking-name', 'transactionTracker')
     anchorToTest.textContent = 'Start Now'
 
-    module.start($(anchorToTest))
+    module = new GOVUK.Modules.CrossDomainTracking($(anchorToTest)[0])
+    module.init()
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
@@ -39,7 +41,8 @@ describe('Cross Domain Tracking', function () {
     var wrapperDiv = document.createElement('div')
     wrapperDiv.appendChild(anchorToTest)
 
-    module.start($(wrapperDiv))
+    module = new GOVUK.Modules.CrossDomainTracking($(wrapperDiv)[0])
+    module.init()
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
@@ -73,7 +76,8 @@ describe('Cross Domain Tracking', function () {
     wrapperDiv.appendChild(anchorToTest)
     wrapperDiv.appendChild(secondAnchorToTest)
 
-    module.start($(wrapperDiv))
+    module = new GOVUK.Modules.CrossDomainTracking($(wrapperDiv)[0])
+    module.init()
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
@@ -91,7 +95,8 @@ describe('Cross Domain Tracking', function () {
     var wrapperDiv = document.createElement('div')
     wrapperDiv.appendChild(anchorToTest)
 
-    module.start($(wrapperDiv))
+    module = new GOVUK.Modules.CrossDomainTracking($(wrapperDiv)[0])
+    module.init()
 
     expect(GOVUK.analytics.addLinkedTrackerDomain).not.toHaveBeenCalled()
   })
@@ -112,13 +117,14 @@ describe('Cross Domain Tracking', function () {
     var wrapperDiv = document.createElement('div')
     wrapperDiv.appendChild(anchorToTest)
 
-    module.start($(wrapperDiv))
+    module = new GOVUK.Modules.CrossDomainTracking($(wrapperDiv)[0])
+    module.init()
 
     expect(
       GOVUK.analytics.addLinkedTrackerDomain
     ).toHaveBeenCalledWith('UA-XXXXXXXXX-Y', 'govspeakButtonTracker', 'www.gov.uk')
 
-    $(anchorToTest).trigger('click')
+    window.GOVUK.triggerEvent($(anchorToTest)[0], 'click')
 
     expect(
       GOVUK.analytics.trackEvent
@@ -150,20 +156,21 @@ describe('Cross Domain Tracking', function () {
     wrapperDiv.appendChild(anchor1)
     wrapperDiv.appendChild(anchor2)
 
-    module.start($(wrapperDiv))
+    module = new GOVUK.Modules.CrossDomainTracking($(wrapperDiv)[0])
+    module.init()
 
-    var moduleDup = new GOVUK.Modules.CrossDomainTracking()
-    moduleDup.start($(anchor2))
+    var moduleDup = new GOVUK.Modules.CrossDomainTracking($(anchor2)[0])
+    moduleDup.init()
 
     expect(GOVUK.analytics.addLinkedTrackerDomain.calls.count()).toBe(1)
 
-    $(anchor1).trigger('click')
+    window.GOVUK.triggerEvent($(anchor1)[0], 'click')
 
     expect(
       GOVUK.analytics.trackEvent
     ).toHaveBeenCalledWith('External Link Clicked', 'Do some surfing', { trackerName: 'govspeakButtonTracker' })
 
-    $(anchor2).trigger('click')
+    window.GOVUK.triggerEvent($(anchor2)[0], 'click')
 
     expect(
       GOVUK.analytics.trackEvent
