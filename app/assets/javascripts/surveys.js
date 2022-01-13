@@ -77,13 +77,18 @@
       if (userSurveys.canShowAnySurvey()) {
         var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
         if (activeSurvey !== undefined) {
-          $('#global-bar').hide() // Hide global bar if one is showing
+          // Hide global bar if one is showing
+          var globalBar = document.getElementById('global-bar')
+          if (globalBar) {
+            globalBar.style.display = 'none'
+          }
           userSurveys.displaySurvey(activeSurvey)
         }
       }
     },
 
     canShowAnySurvey: function () {
+      var userSatisfactionSurvey = document.getElementById('user-satisfaction-survey-container')
       if (userSurveys.pathInBlocklist()) {
         return false
       } else if (userSurveys.otherNotificationVisible()) {
@@ -93,7 +98,7 @@
         // transaction as they may complete the survey with the department's
         // transaction in mind as opposed to the GOV.UK content.
         return false
-      } else if ($('#user-satisfaction-survey-container').length <= 0) {
+      } else if (!userSatisfactionSurvey) {
         return false
       } else {
         return true
