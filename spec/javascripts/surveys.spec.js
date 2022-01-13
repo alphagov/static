@@ -717,6 +717,7 @@ describe('Surveys', function () {
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
+        emailSurvey.surveyExpanded = false
         $('#user-survey-cancel').trigger('click')
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
@@ -830,6 +831,7 @@ describe('Surveys', function () {
 
         it("records an event when clicking 'no thanks'", function () {
           spyOn(surveys, 'trackEvent')
+          emailSurvey.surveyExpanded = true
           $('#user-survey-cancel').trigger('click')
           expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_cancel', 'Email survey cancelled')
         })
