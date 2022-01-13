@@ -13,8 +13,12 @@
 
   Modules.GlobalBar = function () {
     this.start = function ($el) {
+      this.$module = $el[0]
       var GLOBAL_BAR_SEEN_COOKIE = 'global_bar_seen'
-      var alwaysOn = $el.data('global-bar-permanent')
+      var alwaysOn = this.$module.getAttribute('data-global-bar-permanent')
+      if (alwaysOn === 'false') {
+        alwaysOn = false // in this situation we need to convert string to boolean
+      }
       var cookieCategory = GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE)
       var cookieConsent = GOVUK.getConsentCookie()[cookieCategory]
 
@@ -29,18 +33,24 @@
         var count = viewCount()
       }
 
-      $el.on('click', '.dismiss', hide)
-      $el.on('click', '.js-call-to-action', handleCallToActionClick)
+      this.$module.addEventListener('click', function (e) {
+        var target = e.target
+        if (target.classList.contains('dismiss')) {
+          hide(e)
+        } else if (target.classList.contains('js-call-to-action')) {
+          handleCallToActionClick(target)
+        }
+      })
 
-      if ($el.is(':visible')) {
+      // if the element is visible
+      if (this.$module.offsetParent !== null) {
         if (!alwaysOn) {
           incrementViewCount(count)
         }
       }
 
-      function handleCallToActionClick () {
-        var $link = $(this)
-        var url = $link.attr('href')
+      function handleCallToActionClick (target) {
+        var url = target.getAttribute('href')
         track(url)
       }
 
@@ -54,8 +64,14 @@
 
         var cookieValue = JSON.stringify({ count: 999, version: cookieVersion })
         GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
-        $('.global-bar-additional').removeClass('global-bar-additional--show')
-        $('.global-bar__dismiss').removeClass('global-bar__dismiss--show')
+        var additional = document.querySelector('.global-bar-additional')
+        if (additional) {
+          additional.classList.remove('global-bar-additional--show')
+        }
+        var dismiss = document.querySelector('.global-bar__dismiss')
+        if (dismiss) {
+          dismiss.classList.remove('global-bar__dismiss--show')
+        }
         track('Manually dismissed')
         evt.preventDefault()
       }
