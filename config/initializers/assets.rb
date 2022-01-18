@@ -14,17 +14,11 @@ Rails.application.config.assets.precompile += %w[
   application.js
   error-page.js
   global-bar-init.js
-  header-footer-only.js
-  libs/jquery/jquery-1.12.4.js
   modules/base-target.js
   surveys.js
   application*.css
-  core-layout*.css
   error-page-print.css
   error-page.css
-  fonts*.css
   guides-print.css
-  header-footer-only*.css
   print.css
-  static-print.css
 ]
