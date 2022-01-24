@@ -52,6 +52,7 @@ describe('Surveys', function () {
       GOVUK.cookie(surveys.surveySeenCookieName(survey), null)
     })
     $block.remove()
+    $('#global-bar').remove()
   })
 
   describe('init', function () {
@@ -459,13 +460,23 @@ describe('Surveys', function () {
       expect(surveys.canShowAnySurvey()).toBeFalsy()
     })
 
-    xit('returns true otherwise', function () {
+    it('returns true otherwise', function () {
+      spyOn(surveys, 'otherNotificationVisible').and.returnValue(false)
+      spyOn(surveys, 'userCompletedTransaction').and.returnValue(false)
+      spyOn(surveys, 'pathInBlocklist').and.returnValue(false)
       expect(surveys.canShowAnySurvey()).toBeTruthy()
     })
   })
 
   describe('otherNotificationVisible', function () {
-    xit('returns true if the global cookie banner is visible', function () {
+    beforeEach(function () {
+      $('#global-cookie-message').css('display', 'none')
+      $('.emergency-banner').css('display', 'none')
+      $('#taxonomy-survey').css('display', 'none')
+      $('#global-bar').css('display', 'none')
+    })
+
+    it('returns true if the global cookie banner is visible', function () {
       $('#global-cookie-message').css('display', 'block')
 
       expect(surveys.canShowAnySurvey(defaultSurvey)).toBeTruthy()
