@@ -8,84 +8,102 @@
   Manages count of how many times a global bar has been seen
   using cookies.
 */
+window.GOVUK = window.GOVUK || {}
+window.GOVUK.Modules = window.GOVUK.Modules || {};
+
 (function (Modules) {
-  'use strict'
+  function GlobalBar ($module) {
+    this.$module = $module
+  }
 
-  Modules.GlobalBar = function () {
-    this.start = function ($el) {
-      var GLOBAL_BAR_SEEN_COOKIE = 'global_bar_seen'
-      var alwaysOn = $el.data('global-bar-permanent')
-      var cookieCategory = GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE)
-      var cookieConsent = GOVUK.getConsentCookie()[cookieCategory]
+  GlobalBar.prototype.init = function () {
+    var GLOBAL_BAR_SEEN_COOKIE = 'global_bar_seen'
+    var alwaysOn = this.$module.getAttribute('data-global-bar-permanent')
+    if (alwaysOn === 'false') {
+      alwaysOn = false // in this situation we need to convert string to boolean
+    }
+    var cookieCategory = GOVUK.getCookieCategory(GLOBAL_BAR_SEEN_COOKIE)
+    var cookieConsent = GOVUK.getConsentCookie()[cookieCategory]
 
-      if (cookieConsent) {
-        // If the cookie is not set, let's set a basic one
-        if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)).count === undefined) {
-          GOVUK.setCookie('global_bar_seen', JSON.stringify({ count: 0, version: 0 }), { days: 84 })
-        }
-
-        var currentCookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
-        var currentCookieVersion = currentCookie.version
-        var count = viewCount()
+    if (cookieConsent) {
+      // If the cookie is not set, let's set a basic one
+      if (GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE) === null || parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)).count === undefined) {
+        GOVUK.setCookie('global_bar_seen', JSON.stringify({ count: 0, version: 0 }), { days: 84 })
       }
 
-      $el.on('click', '.dismiss', hide)
-      $el.on('click', '.js-call-to-action', handleCallToActionClick)
+      var currentCookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
+      var currentCookieVersion = currentCookie.version
+      var count = viewCount()
+    }
 
-      if ($el.is(':visible')) {
-        if (!alwaysOn) {
-          incrementViewCount(count)
-        }
+    this.$module.addEventListener('click', function (e) {
+      var target = e.target
+      if (target.classList.contains('dismiss')) {
+        hide(e)
+      } else if (target.classList.contains('js-call-to-action')) {
+        handleCallToActionClick(target)
+      }
+    })
+
+    // if the element is visible
+    if (this.$module.offsetParent !== null && !alwaysOn) {
+      incrementViewCount(count)
+    }
+
+    function handleCallToActionClick (target) {
+      var url = target.getAttribute('href')
+      track(url)
+    }
+
+    function hide (event) {
+      var currentCookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
+      var cookieVersion = currentCookieVersion
+
+      if (currentCookie) {
+        cookieVersion = currentCookie.version
       }
 
-      function handleCallToActionClick () {
-        var $link = $(this)
-        var url = $link.attr('href')
-        track(url)
+      var cookieValue = JSON.stringify({ count: 999, version: cookieVersion })
+      GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
+      var additional = document.querySelector('.global-bar-additional')
+      if (additional) {
+        additional.classList.remove('global-bar-additional--show')
+      }
+      var dismiss = document.querySelector('.global-bar__dismiss')
+      if (dismiss) {
+        dismiss.classList.remove('global-bar__dismiss--show')
+      }
+      track('Manually dismissed')
+      event.preventDefault()
+    }
+
+    function incrementViewCount (count) {
+      count = count + 1
+      var cookieValue = JSON.stringify({ count: count, version: currentCookieVersion })
+      GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
+
+      if (count === 2) {
+        track('Automatically dismissed')
+      }
+    }
+
+    function viewCount () {
+      var viewCountCookie = GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)
+      var viewCount = parseInt(parseCookie(viewCountCookie).count, 10)
+
+      if (isNaN(viewCount)) {
+        viewCount = 0
       }
 
-      function hide (evt) {
-        var currentCookie = parseCookie(GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE))
-        var cookieVersion = currentCookieVersion
+      return viewCount
+    }
 
-        if (currentCookie) {
-          cookieVersion = currentCookie.version
-        }
-
-        var cookieValue = JSON.stringify({ count: 999, version: cookieVersion })
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
-        $('.global-bar-additional').removeClass('global-bar-additional--show')
-        $('.global-bar__dismiss').removeClass('global-bar__dismiss--show')
-        track('Manually dismissed')
-        evt.preventDefault()
-      }
-
-      function incrementViewCount (count) {
-        count = count + 1
-        var cookieValue = JSON.stringify({ count: count, version: currentCookieVersion })
-        GOVUK.setCookie(GLOBAL_BAR_SEEN_COOKIE, cookieValue, { days: 84 })
-
-        if (count === 2) {
-          track('Automatically dismissed')
-        }
-      }
-
-      function viewCount () {
-        var viewCountCookie = GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)
-        var viewCount = parseInt(parseCookie(viewCountCookie).count, 10)
-
-        if (isNaN(viewCount)) {
-          viewCount = 0
-        }
-
-        return viewCount
-      }
-
-      function track (action) {
-        if (GOVUK.analytics && typeof GOVUK.analytics.trackEvent === 'function') {
-          GOVUK.analytics.trackEvent('Global bar', action, { nonInteraction: 1 })
-        }
+    function track (action) {
+      if (GOVUK.analytics && typeof GOVUK.analytics.trackEvent === 'function') {
+        GOVUK.analytics.trackEvent('Global bar', action, { nonInteraction: 1 })
       }
     }
   }
+
+  Modules.GlobalBar = GlobalBar
 })(window.GOVUK.Modules)
