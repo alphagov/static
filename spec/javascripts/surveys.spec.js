@@ -36,8 +36,11 @@ describe('Surveys', function () {
     $('#user-satisfaction-survey').remove()
 
     // Don't actually try and take a survey in test.
-    $('#take-survey').on('click', function (e) {
-      e.preventDefault()
+    document.addEventListener('click', function (e) {
+      var matchingIds = ['take-survey', 'user-survey-cancel', 'email-survey-open']
+      if (matchingIds.indexOf(e.target.getAttribute('id')) >= 0) { // true
+        e.preventDefault()
+      }
     })
 
     GOVUK.analytics = {
@@ -672,35 +675,35 @@ describe('Surveys', function () {
       })
 
       it("sets a cookie when clicking 'take survey'", function () {
-        $('#take-survey').trigger('click')
+        $('#take-survey')[0].click()
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey))).toBe('true')
       })
 
       it("sets a cookie when clicking 'no thanks'", function () {
-        $('#user-survey-cancel').trigger('click')
+        $('#user-survey-cancel')[0].click()
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(defaultSurvey))).toBe('true')
       })
 
       it("hides the satisfaction survey bar after clicking 'take survey'", function () {
-        $('#take-survey').trigger('click')
+        $('#take-survey')[0].click()
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
         expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('true')
       })
 
       it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
-        $('#user-survey-cancel').trigger('click')
+        $('#user-survey-cancel')[0].click()
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
       })
 
       it("records an event when clicking 'take survey'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#take-survey').trigger('click')
+        $('#take-survey')[0].click()
         expect(surveys.trackEvent).toHaveBeenCalledWith(defaultSurvey.identifier, 'banner_taken', 'User taken survey')
       })
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#user-survey-cancel').trigger('click')
+        $('#user-survey-cancel')[0].click()
         expect(surveys.trackEvent).toHaveBeenCalledWith(defaultSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
     })
@@ -717,85 +720,87 @@ describe('Surveys', function () {
       })
 
       it("sets a cookie when clicking 'no thanks'", function () {
-        $('#user-survey-cancel').trigger('click')
+        $('#user-survey-cancel')[0].click()
         expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
       })
 
       it("hides the satisfaction survey bar after clicking 'no thanks'", function () {
-        $('#user-survey-cancel').trigger('click')
+        $('#user-survey-cancel')[0].click()
         expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
       })
 
       it("records an event when clicking 'no thanks'", function () {
         spyOn(surveys, 'trackEvent')
         emailSurvey.surveyExpanded = false
-        $('#user-survey-cancel').trigger('click')
+        $('#user-survey-cancel')[0].click()
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_no_thanks', 'No thanks clicked')
       })
 
       it("opens the email form when clicking on 'Your feedback will help us ...'", function () {
-        $('#email-survey-open').trigger('click')
+        $('#email-survey-open')[0].click()
         expect($('#email-survey-form').hasClass('js-hidden')).toBe(false)
       })
 
       it("hides the invitation to take the survey when clicking on 'Your feedback will help us ...'", function () {
-        $('#email-survey-open').trigger('click')
+        $('#email-survey-open')[0].click()
         expect($('#email-survey-pre').hasClass('js-hidden')).toBe(true)
       })
 
       it("records an event when clicking on 'Your feedback will help us ...'", function () {
         spyOn(surveys, 'trackEvent')
-        $('#email-survey-open').trigger('click')
+        $('#email-survey-open')[0].click()
         expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_open', 'Email survey opened')
       })
 
       describe('once the email form is opened', function () {
-        it('sends the details to the feedback app with ajax when submitting the form', function () {
-          spyOn($, 'ajax')
-          $('#email-survey-form').trigger('submit')
+        beforeEach(function () {
+          jasmine.Ajax.install()
+        })
 
-          expect($.ajax).toHaveBeenCalled()
-          var args = $.ajax.calls.mostRecent().args
-          expect(args[0].url).toBe('/contact/govuk/email-survey-signup.js')
+        afterEach(function () {
+          jasmine.Ajax.uninstall()
+        })
+
+        it('sends the details to the feedback app with ajax when submitting the form', function () {
+          window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
+
+          var request = jasmine.Ajax.requests.mostRecent()
+          expect(request.url).toBe('/contact/govuk/email-survey-signup.js')
         })
 
         it("doesn't add .js to the form action if it's already a .js url when submitting the form", function () {
-          spyOn($, 'ajax')
           $('#email-survey-form').attr('action', '/contact/govuk/js-already/email-survey-signup.js')
-          $('#email-survey-form').trigger('submit')
+          window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
 
-          expect($.ajax).toHaveBeenCalled()
-          var args = $.ajax.calls.mostRecent().args
-          expect(args[0].url).toBe('/contact/govuk/js-already/email-survey-signup.js')
+          var request = jasmine.Ajax.requests.mostRecent()
+          expect(request.url).toBe('/contact/govuk/js-already/email-survey-signup.js')
         })
 
         describe('and submitting it is a success', function () {
           beforeEach(function () {
-            spyOn($, 'ajax').and.callFake(function (options) {
-              if (options.success) {
-                options.success({ message: 'great success!' })
-              }
+            jasmine.Ajax.stubRequest('/contact/govuk/email-survey-signup.js').andReturn({
+              status: 200
             })
           })
 
           it('opens the post submit success message', function () {
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect($('#email-survey-post-success').hasClass('js-hidden')).toBe(false)
           })
 
           it('hides the email form', function () {
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect($('#email-survey-form').hasClass('js-hidden')).toBe(true)
           })
 
           it('sets a cookie', function () {
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
           })
 
           it('records an event', function () {
             spyOn(surveys, 'trackEvent')
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_taken', 'Email survey taken')
             expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_taken', 'User taken survey')
           })
@@ -803,63 +808,63 @@ describe('Surveys', function () {
 
         describe('but submitting it results in an error', function () {
           beforeEach(function () {
-            spyOn($, 'ajax').and.callFake(function (options) {
-              options.error({ message: 'bad error!' })
+            jasmine.Ajax.stubRequest('/contact/govuk/email-survey-signup.js').andReturn({
+              status: 422
             })
           })
 
           it('opens the post submit failure message', function () {
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect($('#email-survey-post-failure').hasClass('js-hidden')).toBe(false)
           })
 
           it('hides the email form', function () {
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect($('#email-survey-form').hasClass('js-hidden')).toBe(true)
           })
 
           it('does not sets a cookie', function () {
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).not.toBe('true')
           })
 
           it('does not records any events', function () {
             spyOn(surveys, 'trackEvent')
-            $('#email-survey-form').trigger('submit')
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect(surveys.trackEvent).not.toHaveBeenCalled()
           })
         })
 
         it("hides the email form when clicking 'No thanks'", function () {
-          $('#user-survey-cancel').trigger('click')
+          $('#user-survey-cancel')[0].click()
           expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
         })
 
         it("hides the whole email survey interface after clicking 'no thanks'", function () {
-          $('#user-survey-cancel').trigger('click')
+          $('#user-survey-cancel')[0].click()
           expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
         })
 
         it("records an event when clicking 'no thanks'", function () {
           spyOn(surveys, 'trackEvent')
           emailSurvey.surveyExpanded = true
-          $('#user-survey-cancel').trigger('click')
+          $('#user-survey-cancel')[0].click()
           expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_cancel', 'Email survey cancelled')
         })
 
         it("hides the email form when clicking 'take survey' if no email", function () {
-          $('#take-survey').trigger('click')
+          $('#take-survey')[0].click()
           expect(GOVUK.cookie(surveys.surveyTakenCookieName(emailSurvey))).toBe('true')
         })
 
         it("hides the whole email survey interface after clicking 'take survey' if no email", function () {
-          $('#take-survey').trigger('click')
+          $('#take-survey')[0].click()
           expect($('#user-satisfaction-survey').hasClass('visible')).toBe(false)
         })
 
         it("records an event when clicking 'take survey' if no email", function () {
           spyOn(surveys, 'trackEvent')
-          $('#take-survey').trigger('click')
+          $('#take-survey')[0].click()
           expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'no_email_link', 'User taken survey via no email link')
         })
       })
