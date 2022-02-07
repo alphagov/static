@@ -618,17 +618,13 @@
 
   window.GOVUK.userSurveys = userSurveys
 
-  document.onreadystatechange = function () {
-    if (document.readyState === 'interactive') {
-      if (GOVUK.userSurveys) {
-        if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
-          window.GOVUK.userSurveys.init()
-        } else {
-          window.addEventListener('gaClientSet', function () {
-            window.GOVUK.userSurveys.init()
-          })
-        }
-      }
+  if (GOVUK.userSurveys) {
+    if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
+      window.GOVUK.userSurveys.init()
+    } else {
+      window.addEventListener('gaClientSet', function () {
+        window.GOVUK.userSurveys.init()
+      })
     }
   }
 })()
