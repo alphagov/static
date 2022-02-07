@@ -494,7 +494,7 @@
       if (breadcrumbs === undefined) {
         return false
       } else {
-        var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join('|'), 'i')
+        var breadcrumbMatchingExpr = new RegExp(breadcrumbs.join('|'), 'i')
         return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb())
       }
     },
