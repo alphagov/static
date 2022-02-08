@@ -244,7 +244,6 @@
           $emailSurveyForm.setAttribute('aria-hidden', 'false')
           $emailSurveyField.focus()
           e.stopPropagation()
-          return false
         })
       }
 
@@ -258,7 +257,7 @@
             userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
           }
           e.stopPropagation()
-          return false
+          e.preventDefault()
         })
       }
 
@@ -302,7 +301,7 @@
 
           xhr.send(params)
           e.stopPropagation()
-          return false
+          e.preventDefault()
         })
       }
     },
@@ -317,7 +316,7 @@
           userSurveys.hideSurvey(survey)
           userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
           e.stopPropagation()
-          return false
+          e.preventDefault()
         })
       }
 
@@ -419,8 +418,7 @@
 
     otherNotificationVisible: function () {
       function isVisible (el) {
-        var style = window.getComputedStyle(el)
-        return !((style.display === 'none') || (style.visibility === 'hidden'))
+        return el.offsetParent !== null
       }
       var notificationIds = [
         '.emergency-banner',
@@ -496,7 +494,7 @@
       if (breadcrumbs === undefined) {
         return false
       } else {
-        var breadcrumbMatchingExpr = new RegExp($.makeArray(breadcrumbs).join('|'), 'i')
+        var breadcrumbMatchingExpr = new RegExp(breadcrumbs.join('|'), 'i')
         return breadcrumbMatchingExpr.test(userSurveys.currentBreadcrumb())
       }
     },
@@ -620,17 +618,13 @@
 
   window.GOVUK.userSurveys = userSurveys
 
-  document.onreadystatechange = function () {
-    if (document.readyState === 'interactive') {
-      if (GOVUK.userSurveys) {
-        if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
-          window.GOVUK.userSurveys.init()
-        } else {
-          window.addEventListener('gaClientSet', function () {
-            window.GOVUK.userSurveys.init()
-          })
-        }
-      }
+  if (GOVUK.userSurveys) {
+    if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
+      window.GOVUK.userSurveys.init()
+    } else {
+      window.addEventListener('gaClientSet', function () {
+        window.GOVUK.userSurveys.init()
+      })
     }
   }
 })()
