@@ -30,6 +30,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "climate_control"
   gem "govuk-content-schema-test-helpers"
   gem "jasmine-core"
   gem "minitest"
