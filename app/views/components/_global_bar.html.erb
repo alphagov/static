@@ -11,16 +11,11 @@
   # Regardless of value, banner is always manually dismissable by users
   always_visible = true
 
-  show_additional_banner = false
-
   global_bar_classes = %w(global-bar dont-print)
 
   title_classes = %w(global-bar-title)
   title_classes << "js-call-to-action" if title_href
   title_classes << "govuk-link" if title_href
-
-  dismiss_classes = %w(global-bar__dismiss global-bar__dismiss--show dismiss)
-  dismiss_classes << "govuk-link"
 -%>
 
 <% if show_global_bar %>
@@ -50,27 +45,6 @@
         </p>
       <% end %>
     </div>
-
-    <% if show_additional_banner %>
-      <div class="global-bar-additional global-bar-additional--show">
-        <div class="govuk-width-container govuk-grid-row">
-          <%= render "govuk_publishing_components/components/govspeak", {
-          } do %>
-            <div class="global-bar-additional__text-govspeak govuk-grid-column-two-thirds govuk-!-padding-0">
-              <p class="govuk-!-margin-bottom-1">Coronavirus guidance is being updated.</p>
-              <p class="govuk-!-margin-top-0">Read <a href="/government/speeches/prime-ministers-statement-to-the-house-on-covid-19-23-june-2020" class="govuk-link">the Prime Minister’s statement</a> for the latest information.</p>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="govuk-width-container global-bar-dismiss-wrapper">
-          <a href="#hide-message"
-            class="<%= dismiss_classes.join(' ') %>"
-            role="button"
-            aria-controls="global-bar">Hide message</a>
-        </div>
-      </div>
-    <% end %>
   </div>
   <!--<![endif]-->
 <% end %>
