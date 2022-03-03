@@ -50,10 +50,6 @@ $covid-grey: #262828;
 .global-bar-title,
 .global-bar-text {
   color: govuk-colour("white");
-
-  & + .global-bar-covid-wrapper {
-    margin-top: govuk-spacing(2);
-  }
 }
 
 .global-bar-title__nowrap {

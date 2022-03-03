@@ -6,11 +6,6 @@
   link_text = false
   link_href = false
 
-  show_coronavirus_link = true
-  coronavirus_title = "Coronavirus (COVID-19)"
-  coronavirus_href = "/coronavirus"
-  coronavirus_subtext = "Latest updates and guidance"
-
   # Toggles banner being permanently visible
   # If true, banner is always_visible & does not disappear automatically after 3 pageviews
   # Regardless of value, banner is always manually dismissable by users
@@ -53,20 +48,6 @@
           <%= link_text %>
         <% end %>
         </p>
-      <% end %>
-
-      <% if show_coronavirus_link %>
-        <div class="global-bar-covid-wrapper">
-          <%= render "govuk_publishing_components/components/action_link", {
-            text: coronavirus_title,
-            href: coronavirus_href,
-            subtext: coronavirus_subtext,
-            classes: "js-call-to-action",
-            light_text: true,
-            simple_light: true,
-          }
-         %>
-        </div>
       <% end %>
     </div>
 
