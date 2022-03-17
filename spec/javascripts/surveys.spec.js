@@ -1,4 +1,6 @@
 // = require surveys
+//= require govuk_publishing_components/lib/trigger-event.js
+
 describe('Surveys', function () {
   var surveys = GOVUK.userSurveys
   var $block
