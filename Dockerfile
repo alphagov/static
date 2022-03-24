@@ -1,6 +1,9 @@
 FROM ruby:2.7.5-slim-buster
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y build-essential nodejs && apt-get clean
 
+# Temporarily install git to allow a gem to be built from a git clone
+RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y git && apt-get clean
+
 # This image is only intended to be able to run this app in a production RAILS_ENV
 ENV RAILS_ENV production
 
