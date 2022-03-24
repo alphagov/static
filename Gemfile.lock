@@ -113,7 +113,7 @@ GEM
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
-    ffi (1.13.1)
+    ffi (1.15.5)
     fspath (3.1.2)
     gds-api-adapters (79.1.0)
       addressable
