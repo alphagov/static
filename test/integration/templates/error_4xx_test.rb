@@ -15,6 +15,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
 
       within "#content" do
         assert page.has_selector?("h1", text: "Page not found")
+        assert page.has_no_selector?("p", text: "find coronavirus information")
         assert page.has_selector?("pre", text: "Status code: 404", visible: :all)
       end
 
