@@ -101,7 +101,7 @@ GEM
     faraday-net_http (2.0.1)
     ffi (1.13.1)
     fspath (3.1.2)
-    gds-api-adapters (79.1.0)
+    gds-api-adapters (79.1.1)
       addressable
       link_header
       null_logger
@@ -327,7 +327,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.1)
     unicode-display_width (2.1.0)
     unicorn (5.8.0)
       kgio (~> 2.6)
