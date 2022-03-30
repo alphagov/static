@@ -85,7 +85,7 @@ GEM
     childprocess (3.0.0)
     climate_control (1.0.1)
     coderay (1.1.3)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     crack (0.4.4)
     crass (1.0.6)
     debug_inspector (0.0.3)
@@ -99,7 +99,7 @@ GEM
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
-    ffi (1.13.1)
+    ffi (1.15.5)
     fspath (3.1.2)
     gds-api-adapters (79.1.1)
       addressable
@@ -111,7 +111,7 @@ GEM
       activesupport (>= 5.0)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk_app_config (4.4.2)
+    govuk_app_config (4.4.3)
       logstasher (>= 1.2.2, < 2.2.0)
       prometheus_exporter (~> 2.0.2)
       puma (~> 5.0)
@@ -122,7 +122,7 @@ GEM
     govuk_personalisation (0.11.2)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (29.0.0)
+    govuk_publishing_components (29.1.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -311,7 +311,7 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.3)
-    sprockets (3.7.2)
+    sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
@@ -332,10 +332,6 @@ GEM
     unicorn (5.8.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    webdrivers (4.6.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (>= 3.0, < 4.0)
     webmock (3.9.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -381,7 +377,6 @@ DEPENDENCIES
   shoulda-context
   simplecov
   uglifier
-  webdrivers
   webmock
 
 BUNDLED WITH

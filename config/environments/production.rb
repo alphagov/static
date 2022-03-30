@@ -35,15 +35,6 @@ Rails.application.configure do
   config.sass.style = :compressed
   config.sass.line_comments = false
 
-  # Compress static CSS assets using the SASS compressor.
-  Sprockets.register_postprocessor "text/css", :static_postprocessor do |input|
-    if input[:filename].match?(/\.css/)
-      { data: Sprockets::SassCompressor.call(input) }
-    else
-      { data: input[:data] }
-    end
-  end
-
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
