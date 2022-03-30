@@ -49,4 +49,4 @@ How to's:
 
 ## License
 
-[MIT License](LICENCE)
+[MIT License](LICENSE)
