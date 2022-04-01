@@ -3,7 +3,6 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y build-essenti
 
 # This image is only intended to be able to run this app in a production RAILS_ENV
 ENV RAILS_ENV production
-RUN bundle config set force_ruby_platform true
 
 ENV GOVUK_APP_NAME static
 ENV REDIS_URL redis://redis
