@@ -20,6 +20,9 @@ RUN bundle install --jobs 4
 
 ADD . $APP_HOME
 
+RUN groupadd -g 1001 appGroup && useradd appUser -u 1001 -g 1001 -m --home /home/appUser
+RUN chown appUser /app/public
+
 RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bundle exec rails assets:precompile
 
 CMD bundle exec puma
