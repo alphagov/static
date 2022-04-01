@@ -3,8 +3,7 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y build-essenti
 
 # This image is only intended to be able to run this app in a production RAILS_ENV
 ENV RAILS_ENV production
-
-RUN useradd appuser
+RUN bundle config set force_ruby_platform true
 
 ENV GOVUK_APP_NAME static
 ENV REDIS_URL redis://redis
@@ -24,6 +23,6 @@ ADD . $APP_HOME
 
 RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bundle exec rails assets:precompile
 
-RUN chmod -R 666 ${APP_HOME}/app
+RUN chmod -R 776 ${APP_HOME}/app
 
 CMD bundle exec puma
