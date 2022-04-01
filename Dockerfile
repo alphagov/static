@@ -9,7 +9,7 @@ ENV REDIS_URL redis://redis
 ENV PORT 3013
 
 ENV APP_HOME /app
-RUN mkdir -p $APP_HOME/public/templates
+RUN mkdir $APP_HOME
  
 WORKDIR $APP_HOME
 ADD .ruby-version $APP_HOME/
@@ -19,8 +19,6 @@ RUN bundle config set without 'development test'
 RUN bundle install --jobs 4
 
 ADD . $APP_HOME
-
-RUN chmod -R 777 /app/public/templates
 
 RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bundle exec rails assets:precompile
 
