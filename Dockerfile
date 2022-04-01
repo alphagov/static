@@ -22,6 +22,6 @@ ADD . $APP_HOME
 
 RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bundle exec rails assets:precompile
 
-RUN chmod -R 777 ${APP_HOME}/app
+RUN chmod -R 777 /app
 
 CMD bundle exec puma
