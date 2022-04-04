@@ -50,10 +50,6 @@ $covid-grey: #262828;
 .global-bar-title,
 .global-bar-text {
   color: govuk-colour("white");
-
-  & + .global-bar-covid-wrapper {
-    margin-top: govuk-spacing(2);
-  }
 }
 
 .global-bar-title__nowrap {
@@ -84,26 +80,4 @@ $covid-grey: #262828;
 
 .global-bar__list {
   margin-top: 0;
-}
-
-.global-bar-additional {
-  display: none;
-  padding: govuk-spacing(4) 0;
-  background-color: $covid-grey;
-}
-
-.global-bar-additional__text {
-  position: relative;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.global-bar-additional__text-govspeak {
-  color: govuk-colour("white");
-}
-
-.global-bar-additional--show {
-  display: block;
 }
