@@ -15,6 +15,7 @@ class Error5XXTest < ActionDispatch::IntegrationTest
 
       within "#content" do
         assert page.has_selector?("h1", text: "Sorry, we’re experiencing technical difficulties")
+        assert page.has_no_selector?("p", text: "find coronavirus information")
         assert page.has_selector?("pre", text: "Status code: 500", visible: :all)
       end
 
