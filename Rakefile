@@ -5,4 +5,4 @@ require File.expand_path("config/application", __dir__)
 Rails.application.load_tasks
 
 Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
-task default: %i[lint jasmine:ci test]
+task default: %i[lint jasmine test]
