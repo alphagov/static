@@ -8,3 +8,4 @@
 //= link error-page-print.css
 //= link guides-print.css
 //= link print.css
+//= link modules/base-target.js

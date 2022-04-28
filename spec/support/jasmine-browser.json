@@ -1,7 +1,8 @@
 {
   "srcDir": "public/assets/static",
   "srcFiles": [
-    "application-*.js"
+    "application-*.js",
+    "modules/base-target-*.js"
   ],
   "cssFiles": [
     "application-*.css"
