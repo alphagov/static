@@ -30,7 +30,7 @@ bundle exec rake
 To run JavaScript tests (only):
 
 ```
-env RAILS_ENV=test bundle exec rake jasmine
+env RAILS_ENV=test bundle exec rake jasmine:ci
 ```
 
 ### Further documentation

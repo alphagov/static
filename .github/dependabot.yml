@@ -18,9 +18,7 @@ updates:
       - dependency-name: rubocop-govuk
         dependency-type: direct
       # Framework gems
-      - dependency-name: jasmine-browser-runner
-        dependency-type: direct
-      - dependency-name: jasmine-core
+      - dependency-name: jasmine-rails
         dependency-type: direct
       - dependency-name: minitest
         dependency-type: direct
