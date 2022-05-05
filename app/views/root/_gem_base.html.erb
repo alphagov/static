@@ -7,7 +7,6 @@
   omit_footer_navigation ||= nil
   omit_footer_border ||= nil
   omit_global_banner ||= nil
-  omit_user_satisfaction_survey ||= nil
   omit_account_navigation ||= nil
   product_name ||= nil
   show_explore_header = show_explore_header === false ? false : true
@@ -28,7 +27,6 @@
 
   global_bar = ''
   global_banner = render "components/global_bar" unless omit_global_banner
-  global_bar << '<div id="user-satisfaction-survey-container"></div>' unless omit_user_satisfaction_survey
   global_bar << global_banner if global_banner
 %>
 
