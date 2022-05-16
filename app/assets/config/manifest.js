@@ -1,10 +1,7 @@
 //= link_tree ../images
 //= link application.js
-//= link error-page.js
 //= link application-ie8.css
 //= link application-print.css
 //= link application.css
-//= link error-page.css
-//= link error-page-print.css
 //= link guides-print.css
 //= link print.css
