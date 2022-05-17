@@ -25,7 +25,7 @@ RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bundle exe
 
 FROM $base_image
 
-ENV RAILS_ENV=production GOVUK_APP_NAME=static
+ENV GOVUK_PROMETHEUS_EXPORTER=true RAILS_ENV=production GOVUK_APP_NAME=static
 
 RUN apt-get update -qy && \
     apt-get upgrade -y && \
