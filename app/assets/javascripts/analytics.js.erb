@@ -1,5 +1,9 @@
 //= require govuk_publishing_components/analytics
 
+<% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
+  //= require govuk_publishing_components/analytics-ga4
+<% end %>
+
 var linkedDomains = [
   'access.service.gov.uk',
   'access.tax.service.gov.uk',
