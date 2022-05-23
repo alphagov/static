@@ -6,10 +6,12 @@ describe('Global bar module', function () {
   var element
 
   beforeEach(function () {
+    window.GOVUK.setConsentCookie({ settings: true })
     document.cookie = 'global_bar_seen=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
   })
 
   afterEach(function () {
+    window.GOVUK.setConsentCookie({ settings: null })
     $('#global-bar').remove()
   })
 

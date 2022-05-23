@@ -26,6 +26,7 @@ describe('Surveys', function () {
   }
 
   beforeEach(function () {
+    window.GOVUK.setConsentCookie({ settings: true })
     $block = $('<div class="emergency-banner" style="display: none"></div>' +
                '<div id="global-cookie-message" style="display: none"></div>' +
                '<div id="taxonomy-survey" style="display: none"></div>' +
@@ -55,6 +56,7 @@ describe('Surveys', function () {
     })
     $block.remove()
     $('#global-bar').remove()
+    window.GOVUK.setConsentCookie({ settings: null })
   })
 
   describe('init', function () {
