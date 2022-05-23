@@ -107,7 +107,7 @@ GEM
       activesupport (>= 5.0)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk_app_config (4.6.0)
+    govuk_app_config (4.6.1)
       logstasher (~> 2.1)
       prometheus_exporter (~> 2.0)
       puma (~> 5.6)
@@ -197,7 +197,7 @@ GEM
     phantomjs (2.1.1.0)
     plek (4.0.0)
     progress (3.5.2)
-    prometheus_exporter (2.0.2)
+    prometheus_exporter (2.0.3)
       webrick
     pry (0.13.1)
       coderay (~> 1.1)
