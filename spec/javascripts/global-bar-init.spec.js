@@ -1,5 +1,3 @@
-// = require global-bar-init
-
 /* global globalBarInit, parseCookie, expectGlobalBarToShow, expectGlobalBarToBeHidden */
 
 describe('Global bar initialize', function () {

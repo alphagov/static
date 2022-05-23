@@ -5,3 +5,4 @@
 //= link application.css
 //= link guides-print.css
 //= link print.css
+//= link modules/base-target.js
