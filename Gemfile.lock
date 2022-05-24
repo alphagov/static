@@ -145,7 +145,7 @@ GEM
       progress (~> 3.0, >= 3.0.1)
     image_size (2.1.0)
     in_threads (1.5.4)
-    jasmine-core (3.6.0)
+    jasmine-core (3.99.0)
     json-schema (2.8.1)
       addressable (>= 2.4)
     kgio (2.11.4)
