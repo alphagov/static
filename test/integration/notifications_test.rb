@@ -5,23 +5,17 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     Redis.any_instance.stubs(:hgetall).with("emergency_banner").returns(hash)
   end
 
-  context "emergency banner file" do
-    should "have an emergency banner file" do
-      assert File.exist? Rails.root.join("app/views/components/_emergency_banner.html.erb")
-    end
-  end
-
   context "emergency banner notifications" do
     should "not render a banner if one does not exist" do
       visit "/templates/gem_layout.html.erb"
-      assert_not page.has_selector? ".emergency-banner"
+      assert_not page.has_selector? ".gem-c-emergency-banner"
     end
 
     should "render a banner if one does exist" do
-      stub_redis_response(campaign_class: "foo", heading: "bar")
+      stub_redis_response(campaign_class: "local-emergency", heading: "bar")
 
       visit "/templates/gem_layout.html.erb"
-      assert page.has_selector? ".emergency-banner"
+      assert page.has_selector? ".gem-c-emergency-banner"
     end
 
     should "render a banner with a heading and campaign colour" do
@@ -29,7 +23,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/gem_layout.html.erb"
 
-      assert page.has_selector? ".emergency-banner--notable-death"
+      assert page.has_selector? ".gem-c-emergency-banner--notable-death"
       assert_match "Alas poor Yorick", page.body
     end
 
@@ -67,7 +61,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
       visit "/templates/gem_layout.html.erb"
 
-      assert_not page.has_selector? ".emergency-banner__description"
+      assert_not page.has_selector? ".gem-c-emergency-banner__description"
       assert_no_match(/yoricks\.gov/, page.body)
     end
 
