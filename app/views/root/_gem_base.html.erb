@@ -18,10 +18,10 @@
   @emergency_banner = !omit_emergency_banner && emergency_banner_notification
 
   if @emergency_banner
-    emergency_banner = render "components/emergency_banner", {
-      campaign_class: @emergency_banner.campaign_class,
+    emergency_banner = render "govuk_publishing_components/components/emergency_banner", {
+      emergency_type: @emergency_banner.campaign_class,
       heading: @emergency_banner.heading,
-      link: @emergency_banner.link,
+      link_href: @emergency_banner.link,
       link_text: @emergency_banner.link_text,
       short_description: @emergency_banner.short_description,
     }
