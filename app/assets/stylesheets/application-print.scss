@@ -4,6 +4,9 @@ $is-print: true;
 @import "govuk_publishing_components/govuk_frontend_support";
 @import "govuk_publishing_components/component_support";
 
+// some applications may depend on these component asset imports
+// check the component auditing before removing any of them
+// https://github.com/alphagov/govuk_publishing_components/blob/main/docs/auditing.md
 @import "govuk_publishing_components/components/print/button";
 @import "govuk_publishing_components/components/print/layout-super-navigation-header";
 
