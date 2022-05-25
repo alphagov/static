@@ -10,6 +10,7 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/button";
 @import "govuk_publishing_components/components/cookie-banner";
 @import "govuk_publishing_components/components/feedback";
+@import "govuk_publishing_components/components/emergency-banner";
 @import "govuk_publishing_components/components/input";
 @import "govuk_publishing_components/components/layout-footer";
 @import "govuk_publishing_components/components/layout-for-public";
@@ -19,7 +20,6 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/skip-link";
 @import "govuk_publishing_components/components/textarea";
 
-@import "components/emergency-banner";
 @import "components/global-bar";
 @import "components/survey";
 

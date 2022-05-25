@@ -1,11 +1,5 @@
 <%
-  @emergency_banner = {
-    campaign_class: "notable-death",
-    heading: "His Royal Highness Henry VIII",
-    short_description: "1491 to 1547",
-    link_text: "Override Link Text",
-    link: "https://www.gov.uk/",
-  }
+  @emergency_banner = emergency_banner_notification
 
   logo_link ||= Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/"
   full_width ||= false
@@ -23,9 +17,9 @@
 
   if @emergency_banner
     emergency_banner = render "govuk_publishing_components/components/emergency_banner", {
-      emergency_type: @emergency_banner.campaign_class,
+      campaign_class: @emergency_banner.campaign_class,
       heading: @emergency_banner.heading,
-      link_href: @emergency_banner.link,
+      link: @emergency_banner.link,
       link_text: @emergency_banner.link_text,
       short_description: @emergency_banner.short_description,
     }
