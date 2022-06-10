@@ -1,2 +1,10 @@
 GOV.UK is built by a team at the Government Digital Service (with thanks to Martha!) in London,
 Bristol and Manchester.  If you'd like to join us, see https://gdscareers.gov.uk/
+
+Today we're saying goodbye to Stephen Ford, one of our Senior Site Reliability
+Engineers. Stephen has worked at GDS since 2015 and during his time with us
+has been instrumental in keeping GOV.UK available and secure. He's also a great
+human being, and has been a positive and supportive influence on so many of us.
+
+Thank you Stephen for all the work you've done and all the support
+you've given us. Good luck, we'll miss you!
