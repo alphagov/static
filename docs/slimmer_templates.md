@@ -10,6 +10,10 @@ This is the same as the `gem_layout` template, except that this layout **doesn't
 
 Use this layout if you want to have full width content - such as the blue welcome bar on the GOV.UK homepage.
 
+## `gem_layout_homepage`
+
+Same as the `gem_layout_full_width` template, except this layout is only used on the home page. The only difference is that `homepage` has been set which will apply specific homepage styles to the emergency banner component (if present).
+
 ## `gem_layout_account_manager`
 
 This is intended as a skeleton wrapper for account pages. It is intended to be used when we need a page rendered by another frontend app to look like a page from `govuk-account-manager-prototype`.

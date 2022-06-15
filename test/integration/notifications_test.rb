@@ -27,6 +27,22 @@ class NotificationsTest < ActionDispatch::IntegrationTest
       assert_match "Alas poor Yorick", page.body
     end
 
+    should "render a homepage banner if page is homepage" do
+      stub_redis_response(
+        campaign_class: "notable-death",
+        heading: "Alas poor Yorick",
+        link: "https://yoricks.gov",
+        link_text: "Some specified text for more information",
+        short_description: "I knew him well",
+      )
+
+      visit "/templates/gem_layout_homepage.html.erb"
+
+      assert page.has_selector? ".gem-c-emergency-banner--homepage"
+      assert page.has_selector? ".gem-c-emergency-banner__heading--homepage"
+      assert page.has_selector? ".gem-c-emergency-banner__description--homepage"
+    end
+
     should "render the more information link" do
       stub_redis_response(
         campaign_class: "notable-death",
