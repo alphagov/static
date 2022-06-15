@@ -13,6 +13,7 @@
   account_nav_location ||= nil
   footer_meta ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
+  homepage ||= false
 
   @emergency_banner = !omit_emergency_banner && emergency_banner_notification
 
@@ -23,6 +24,7 @@
       link: @emergency_banner.link,
       link_text: @emergency_banner.link_text,
       short_description: @emergency_banner.short_description,
+      homepage: homepage,
     }
   end
 
