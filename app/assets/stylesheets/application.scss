@@ -6,17 +6,27 @@ $govuk-new-link-styles: true;
 // some applications may depend on these component asset imports
 // check the component auditing before removing any of them
 // https://github.com/alphagov/govuk_publishing_components/blob/main/docs/auditing.md
+
+// Styles shared CSS across all rendering applications
+@import "govuk_publishing_components/components/breadcrumbs";
 @import "govuk_publishing_components/components/button";
+@import "govuk_publishing_components/components/error-message";
+@import "govuk_publishing_components/components/heading";
+@import "govuk_publishing_components/components/hint";
+@import "govuk_publishing_components/components/input";
+@import "govuk_publishing_components/components/label";
+@import "govuk_publishing_components/components/search";
+@import "govuk_publishing_components/components/skip-link";
+@import "govuk_publishing_components/components/textarea";
+@import "govuk_publishing_components/components/title";
+
+// Styles used by the templates in Static
 @import "govuk_publishing_components/components/cookie-banner";
 @import "govuk_publishing_components/components/feedback";
-@import "govuk_publishing_components/components/input";
 @import "govuk_publishing_components/components/layout-footer";
 @import "govuk_publishing_components/components/layout-for-public";
 @import "govuk_publishing_components/components/layout-header";
 @import "govuk_publishing_components/components/layout-super-navigation-header";
-@import "govuk_publishing_components/components/search";
-@import "govuk_publishing_components/components/skip-link";
-@import "govuk_publishing_components/components/textarea";
 
 @import "components/emergency-banner";
 @import "components/global-bar";
