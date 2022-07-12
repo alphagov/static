@@ -6,7 +6,7 @@ ENV RAILS_ENV=production GOVUK_APP_NAME=static
 
 RUN apt-get update -qq && \
     apt-get upgrade -y && \
-    apt-get install -y build-essential nodejs && \
+    apt-get install -y build-essential nodejs git && \
     apt-get clean
 
 RUN mkdir /app

@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 2881c3fd29a68b5a0aff430dcb9ce614108e4a90
+  branch: test-banner-integration
+  specs:
+    govuk_publishing_components (29.15.0)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -107,7 +121,7 @@ GEM
       activesupport (>= 5.0)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk_app_config (4.6.1)
+    govuk_app_config (4.6.3)
       logstasher (~> 2.1)
       prometheus_exporter (~> 2.0)
       puma (~> 5.6)
@@ -115,17 +129,9 @@ GEM
       sentry-ruby (~> 5.3)
       statsd-ruby (~> 1.5)
       unicorn (~> 6.1)
-    govuk_personalisation (0.11.2)
+    govuk_personalisation (0.12.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (29.11.0)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
     govuk_test (3.0.0)
       brakeman (>= 5.0.2)
       capybara
@@ -135,7 +141,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
-    i18n (1.10.0)
+    i18n (1.11.0)
       concurrent-ruby (~> 1.0)
     image_optim (0.27.0)
       exifr (~> 1.2, >= 1.2.2)
@@ -171,7 +177,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    minitest (5.16.2)
     minitest-capybara (0.9.0)
       capybara
       minitest (~> 5.0)
@@ -197,9 +203,9 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3.1)
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    rack (2.2.4)
+    rack-test (2.0.2)
+      rack (>= 1.3)
     rack_strip_client_ip (0.0.2)
     rails (6.1.5.1)
       actioncable (= 6.1.5.1)
@@ -219,7 +225,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     railties (6.1.5.1)
       actionpack (= 6.1.5.1)
@@ -243,7 +249,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    rouge (3.28.0)
+    rouge (3.29.0)
     rubocop (1.27.0)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
@@ -295,7 +301,7 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.3)
-    sprockets (4.0.3)
+    sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
@@ -326,7 +332,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
@@ -340,7 +346,7 @@ DEPENDENCIES
   govuk-content-schema-test-helpers
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_test
   image_optim
   jasmine-core
