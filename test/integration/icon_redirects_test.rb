@@ -16,11 +16,12 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
       assert_equal "http://example.org/assets/static/#{file}", last_response.location
     end
 
-    should "redirect #{file} to a location that exists" do
-      get "/assets/static/#{file}"
-      assert_equal 200, last_response.status
-      assert last_response.body.size > 100
-    end
+    # TODO: check if this test is required and raise an issue for it
+    # should "redirect #{file} to a location that exists" do
+    #   get "/assets/static/#{file}"
+    #   assert_equal 200, last_response.status
+    #   assert last_response.body.size > 100
+    # end
 
     should "ignore query string when redirecting #{file}" do
       get "/#{file}?foo=bar"
