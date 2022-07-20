@@ -386,6 +386,7 @@ DEPENDENCIES
   sassc-rails
   shoulda-context
   simplecov
+  sprockets-rails
   uglifier
   webmock
 

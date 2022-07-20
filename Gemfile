@@ -14,6 +14,7 @@ gem "plek"
 gem "rack_strip_client_ip"
 gem "redis"
 gem "sassc-rails"
+gem "sprockets-rails"
 gem "uglifier"
 
 group :development do
