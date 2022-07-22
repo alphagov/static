@@ -1,6 +1,7 @@
 require "test_helper"
 require_relative "../../lib/emergency_banner/deploy"
 require_relative "../../lib/emergency_banner/remove"
+Rails.application.load_tasks
 
 describe "emergency_banner:deploy" do
   before do
