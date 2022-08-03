@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "6.1.6.1"
+gem "rails", "7.0.3.1"
 
 gem "actionpack-page_caching"
 gem "gds-api-adapters"
@@ -14,6 +14,7 @@ gem "plek"
 gem "rack_strip_client_ip"
 gem "redis"
 gem "sassc-rails"
+gem "sprockets-rails"
 gem "uglifier"
 
 group :development do
@@ -32,7 +33,6 @@ end
 group :test do
   gem "climate_control"
   gem "govuk-content-schema-test-helpers"
-  gem "jasmine-core"
   gem "minitest"
   gem "minitest-capybara"
   gem "mocha", require: false
