@@ -136,9 +136,7 @@ var linkedDomains = [
 ]
 
 window.GOVUK.analyticsVars = window.GOVUK.analyticsVars || {}
-window.GOVUK.analyticsVars.gaProperty = '<%= Rails.application.config.ga_universal_id %>'
 window.GOVUK.analyticsVars.primaryLinkedDomains = ['account.gov.uk']
-window.GOVUK.analyticsVars.gaPropertyCrossDomain = '<%= Rails.application.config.ga_secondary_id %>'
 window.GOVUK.analyticsVars.linkedDomains = linkedDomains
 
 if (typeof window.GOVUK.analyticsInit !== 'undefined') {
