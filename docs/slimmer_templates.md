@@ -14,14 +14,6 @@ Use this layout if you want to have full width content - such as the blue welcom
 
 This is intended as a skeleton wrapper for account pages. It is intended to be used when we need a page rendered by another frontend app to look like a page from `govuk-account-manager-prototype`.
 
-This layout omits the default feedback component for GOVUK as the account pages use a different one from the rest of GOV.UK. Instead it introduces an account-specific phase banner, and an account nav component. It also purposefully omits the global bar and user satisfaction survey bar.
-
-## `gem_layout_account_manager_no_nav`
-
-Same as the `gem_layout_account_manager`, but displays without the account nav component.
-
-## `gem_layout_account_manager_manage_your_account_active`
-
-Same as the `gem_layout_account_manager`, but displays "Manage your account" as active in the [account navigation element](https://components.publishing.service.gov.uk/component-guide/layout_for_public/with_current_account_navigation/preview).
+This layout omits the default feedback component for GOVUK as the account pages use a different one from the rest of GOV.UK. Instead it introduces an account-specific phase banner. It also purposefully omits the global bar and user satisfaction survey bar.
 
 [public layout component]: https://components.publishing.service.gov.uk/component-guide/layout_for_public
