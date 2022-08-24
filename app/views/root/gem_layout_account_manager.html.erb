@@ -1,5 +1,4 @@
 <%
-  omit_account_navigation ||= nil
   account_nav_location ||= "your-account"
   di_location = "https://signin.account.gov.uk"
 %>
@@ -12,7 +11,7 @@
   omit_footer_navigation: true,
   show_account_layout: true,
   show_explore_header: false,
-  omit_account_navigation: omit_account_navigation,
+  omit_account_navigation: true,
   footer_meta: { items: [
     {
       href: "#{di_location}/accessibility-statement",
