@@ -82,13 +82,13 @@ Rails.application.configure do
   end
 
   # Allow overriding the asset host with an environment variable.
-  config.action_controller.asset_host = ENV["ASSET_HOST"] || ENV["GOVUK_ASSET_ROOT"]
+  config.action_controller.asset_host = ENV["ASSET_HOST"]
 
   # Google Analytics ID
   config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-26179049-1")
   config.ga_secondary_id = ENV.fetch("GA_SECONDARY_ID", "UA-145652997-1")
 
-  # Set GOVUK_ASSET_ROOT & PLEK_SERVICE_STATIC_URI for heroku - for review
+  # Set ASSET_HOST & PLEK_SERVICE_STATIC_URI for heroku - for review
   # apps we have the hostname set at the time of the app being built so can't
   # be set up in the app.json
   if ENV["HEROKU_APP_NAME"]

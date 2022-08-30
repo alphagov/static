@@ -46,7 +46,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # Allow overriding the asset host with an environment variable.
-  config.asset_host = ENV["ASSET_HOST"] || ENV["GOVUK_ASSET_ROOT"] || Plek.current.find("static")
+  config.asset_host = ENV["ASSET_HOST"] || Plek.current.find("static")
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
