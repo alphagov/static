@@ -31,6 +31,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "awesome_print"
   gem "climate_control"
   gem "govuk-content-schema-test-helpers"
   gem "minitest"
