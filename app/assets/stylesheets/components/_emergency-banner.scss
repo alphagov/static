@@ -12,6 +12,7 @@
   .homepage & {
     border-bottom: govuk-spacing(1) solid govuk-colour("white");
     border-top: govuk-spacing(1) solid govuk-colour("white");
+    padding: govuk-spacing(4) 0;
     margin-bottom: (0 - govuk-spacing(2));
     margin-top: 0;
     position: relative;
@@ -26,6 +27,7 @@
   .homepage & {
     @include govuk-font(48, $weight: bold);
 
+    margin-bottom: govuk-spacing(3);
     @include govuk-media-query($from: tablet) {
       margin-bottom: govuk-spacing(4);
     }
@@ -40,10 +42,6 @@
 
   &:last-child {
     margin-bottom: 0;
-  }
-
-  .homepage & {
-    margin: govuk-spacing(4) 0;
   }
 }
 
