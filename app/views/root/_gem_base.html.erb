@@ -1,8 +1,8 @@
 <%
-  @emergency_banner = emergency_banner_notification
 
   logo_link ||= Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/"
   full_width ||= false
+  omit_emergency_banner ||= false
   omit_feedback_form ||= nil
   omit_footer_navigation ||= nil
   omit_footer_border ||= nil
@@ -14,6 +14,8 @@
   account_nav_location ||= nil
   footer_meta ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
+
+  @emergency_banner = !omit_emergency_banner && emergency_banner_notification
 
   if @emergency_banner
     emergency_banner = render "components/emergency_banner", {
