@@ -144,3 +144,15 @@ window.GOVUK.analyticsVars.linkedDomains = linkedDomains
 if (typeof window.GOVUK.analyticsInit !== 'undefined') {
   window.GOVUK.analyticsInit()
 }
+
+<% if ENV["GOOGLE_TAG_MANAGER_ID"] %>
+  if (typeof window.GOVUK.analyticsGA4.init !== 'undefined') {
+    window.GOVUK.analyticsGA4 = window.GOVUK.analyticsGA4 || {}
+    window.GOVUK.analyticsGA4.vars = window.GOVUK.analyticsGA4.vars || {}
+    window.GOVUK.analyticsGA4.vars.id = '<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>'
+    window.GOVUK.analyticsGA4.vars.auth = '<%= ENV["GOOGLE_TAG_MANAGER_AUTH"] %>'
+    window.GOVUK.analyticsGA4.vars.preview = '<%= ENV["GOOGLE_TAG_MANAGER_PREVIEW"] %>'
+
+    window.GOVUK.analyticsGA4.init()
+  }
+<% end %>
