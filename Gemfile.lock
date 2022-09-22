@@ -186,7 +186,7 @@ GEM
       capybara
       minitest (~> 5.0)
       rake
-    mocha (1.14.0)
+    mocha (1.15.0)
     net-imap (0.2.3)
       digest
       net-protocol
