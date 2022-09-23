@@ -18,6 +18,13 @@
   title_classes << "govuk-link" if title_href
 -%>
 
+<div id="mirror-banner" class="govuk-width-container govuk-!-margin-top-4">
+  <%= render "govuk_publishing_components/components/notice", {
+    title: "This content may be out of date",
+    description: sanitize("<p class=\"govuk-body\">This page was served from the GOV.UK mirror and may not work properly.</p>"),
+  } %>
+</div>
+
 <% if show_global_bar %>
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
