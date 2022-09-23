@@ -5,12 +5,9 @@ FROM $builder_image AS builder
 
 ENV GOVUK_APP_NAME=static
 
-RUN mkdir /app
-
 WORKDIR /app
 
 COPY Gemfile* .ruby-version /app/
-
 RUN bundle install
 
 COPY . /app
