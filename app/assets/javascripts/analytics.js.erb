@@ -152,6 +152,7 @@ if (gtm_id || gtag_id) {
   if (typeof window.GOVUK.analyticsGA4.init !== 'undefined') {
     window.GOVUK.analyticsGA4 = window.GOVUK.analyticsGA4 || {}
     window.GOVUK.analyticsGA4.vars = window.GOVUK.analyticsGA4.vars || {}
+    window.GOVUK.analyticsGA4.vars.gem_version = '<%= GovukPublishingComponents::VERSION %>'
 
     if (gtag_id) {
       window.GOVUK.analyticsGA4.vars.gtag_id = gtag_id
