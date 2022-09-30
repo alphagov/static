@@ -82,7 +82,7 @@ Rails.application.configure do
   end
 
   # Allow overriding the asset host with an environment variable.
-  config.action_controller.asset_host = ENV["ASSET_HOST"]
+  # config.action_controller.asset_host = ENV["ASSET_HOST"]
 
   # Google Analytics ID
   config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-26179049-1")
