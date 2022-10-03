@@ -8,6 +8,7 @@ $is-print: true;
 // check the component auditing before removing any of them
 // https://github.com/alphagov/govuk_publishing_components/blob/main/docs/auditing.md
 @import "govuk_publishing_components/components/print/button";
+@import "govuk_publishing_components/components/print/emergency-banner";
 @import "govuk_publishing_components/components/print/layout-super-navigation-header";
 
 @import "helpers/print-base";

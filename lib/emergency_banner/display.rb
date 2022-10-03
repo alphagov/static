@@ -33,13 +33,9 @@ module EmergencyBanner
     def link_text
       return nil if link.blank?
       return content[:link_text] if content[:link_text].present?
-
-      MORE_INFORMATION
     end
 
   private
-
-    MORE_INFORMATION = "More information".freeze
 
     def content
       return @content if defined? @content

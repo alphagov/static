@@ -29,6 +29,7 @@ class RootController < ApplicationController
     gem_layout_full_width
     gem_layout_full_width_explore_header
     gem_layout_full_width_no_footer_navigation
+    gem_layout_homepage
     gem_layout_no_emergency_banner
     gem_layout_no_feedback_form
     gem_layout_no_footer_navigation
