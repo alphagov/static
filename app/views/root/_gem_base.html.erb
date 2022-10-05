@@ -14,6 +14,7 @@
   account_nav_location ||= nil
   footer_meta ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
+  blue_bar ||= false
 
   @emergency_banner = !omit_emergency_banner && emergency_banner_notification
 
@@ -34,6 +35,7 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
   account_nav_location: account_nav_location,
+  blue_bar: blue_bar,
   draft_watermark: draft_environment,
   emergency_banner: emergency_banner.presence,
   full_width: full_width,
