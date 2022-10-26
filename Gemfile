@@ -32,7 +32,6 @@ end
 
 group :test do
   gem "climate_control"
-  gem "govuk-content-schema-test-helpers"
   gem "minitest"
   gem "minitest-capybara"
   gem "mocha", require: false
