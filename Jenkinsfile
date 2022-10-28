@@ -6,7 +6,6 @@ REPOSITORY = 'static'
 
 node {
   govuk.buildProject(
-    publishingE2ETests: true,
     brakeman: true,
   )
 }
