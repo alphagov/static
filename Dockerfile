@@ -19,11 +19,12 @@ FROM $base_image
 
 ENV GOVUK_APP_NAME=static
 
+WORKDIR /app
+
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder /app /app
 RUN mkdir -p /app/public/templates && chown -R 1001:1001 /app/public/templates
 
 USER app
-WORKDIR /app
 
 CMD ["bundle", "exec", "puma"]
