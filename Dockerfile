@@ -26,4 +26,4 @@ RUN mkdir -p /app/public/templates && chown -R 1001:1001 /app/public/templates
 USER app
 WORKDIR /app
 
-CMD bundle exec puma
+CMD ["bundle", "exec", "puma"]
