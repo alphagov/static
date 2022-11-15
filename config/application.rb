@@ -41,6 +41,9 @@ module Static
     config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-UNSET")
     config.ga_secondary_id = ENV.fetch("GA_SECONDARY_ID", "UA-UNSET")
 
+    # Use temporary directory for page cache if filesystem is read-only
+    config.action_controller.page_cache_directory = File.join(ENV["TMPDIR"], "page_cache") if ENV.fetch("USE_TMPDIR_PAGE_CACHE", "false") == "true"
+
     # Rotate SHA1 cookies to SHA256 (the new Rails 7 default)
     # TODO: Remove this after existing user sessions have been rotated
     # https://guides.rubyonrails.org/v7.0/upgrading_ruby_on_rails.html#key-generator-digest-class-changing-to-use-sha256
