@@ -44,7 +44,6 @@ Background information:
 How to's:
 
 - [How to: deploy the Emergency Banner](docs/emergency-banner.md)
-- [How to: optimise images](docs/image-optimisation.md)
 - [How to: update `humans.txt`](docs/humans.md)
 
 ## License
