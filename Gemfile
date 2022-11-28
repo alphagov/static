@@ -20,7 +20,6 @@ gem "uglifier"
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "image_optim"
   gem "listen"
 end
 
