@@ -102,9 +102,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.11.0)
     execjs (2.8.1)
-    exifr (1.3.10)
     ffi (1.15.5)
-    fspath (3.1.2)
     gds-api-adapters (84.0.0)
       addressable
       link_header
@@ -145,14 +143,6 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    image_optim (0.31.1)
-      exifr (~> 1.2, >= 1.2.2)
-      fspath (~> 3.0)
-      image_size (>= 1.5, < 4)
-      in_threads (~> 1.3)
-      progress (~> 3.0, >= 3.0.1)
-    image_size (3.2.0)
-    in_threads (1.6.0)
     json (2.6.2)
     kgio (2.11.4)
     kramdown (2.4.0)
@@ -202,7 +192,6 @@ GEM
     parser (3.1.3.0)
       ast (~> 2.4.1)
     plek (4.1.0)
-    progress (3.6.0)
     prometheus_exporter (2.0.5)
       webrick
     pry (0.14.1)
@@ -366,7 +355,6 @@ DEPENDENCIES
   govuk_personalisation
   govuk_publishing_components
   govuk_test
-  image_optim
   listen
   minitest
   minitest-capybara
