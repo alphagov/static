@@ -5,6 +5,10 @@ FROM $builder_image AS builder
 
 ENV GOVUK_APP_NAME=static
 
+# GOOGLE_TAG_MANAGER_ID is set to ensure assets are precompiled with GTM
+# module enabled. Value is set to the real GTM ID during deployment.
+ENV GOOGLE_TAG_MANAGER_ID=true
+
 WORKDIR /app
 
 COPY Gemfile* .ruby-version /app/
