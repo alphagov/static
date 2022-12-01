@@ -3,7 +3,8 @@ ARG builder_image=ghcr.io/alphagov/govuk-ruby-builder:3.1.2
 
 FROM $builder_image AS builder
 
-ENV GOVUK_APP_NAME=static
+ENV GOVUK_APP_NAME=static \
+    GOOGLE_TAG_MANAGER_ID=GTM-MG7HG5W
 
 WORKDIR /app
 
