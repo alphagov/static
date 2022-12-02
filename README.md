@@ -46,6 +46,6 @@ How to's:
 - [How to: deploy the Emergency Banner](docs/emergency-banner.md)
 - [How to: update `humans.txt`](docs/humans.md)
 
-## License
+## Licence
 
 [MIT License](LICENCE)
