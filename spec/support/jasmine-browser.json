@@ -2,6 +2,7 @@
   "srcDir": "public/assets/static",
   "srcFiles": [
     "application-*.js",
+    "test-dependencies-*.js",
     "modules/base-target-*.js"
   ],
   "cssFiles": [

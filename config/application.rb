@@ -37,10 +37,6 @@ module Static
 
     config.paths["log"] = ENV["LOG_PATH"] if ENV["LOG_PATH"]
 
-    # Google Analytics ID
-    config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-UNSET")
-    config.ga_secondary_id = ENV.fetch("GA_SECONDARY_ID", "UA-UNSET")
-
     # Use temporary directory for page cache if filesystem is read-only
     config.action_controller.page_cache_directory = File.join(ENV["TMPDIR"], "page_cache") if ENV.fetch("USE_TMPDIR_PAGE_CACHE", "false") == "true"
   end

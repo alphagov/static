@@ -81,10 +81,6 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # Google Analytics ID
-  config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-26179049-1")
-  config.ga_secondary_id = ENV.fetch("GA_SECONDARY_ID", "UA-145652997-1")
-
   # Set PLEK_SERVICE_STATIC_URI for heroku - for review
   # apps we have the hostname set at the time of the app being built so can't
   # be set up in the app.json
