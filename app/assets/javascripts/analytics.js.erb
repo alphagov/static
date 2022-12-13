@@ -149,22 +149,16 @@ if (typeof window.GOVUK.analyticsInit !== 'undefined') {
 }
 
 var gtm_id = '<%= ENV["GOOGLE_TAG_MANAGER_ID"] %>' || null
-var gtag_id = '<%= ENV["GTAG_ID"] %>' || null
 
-if (gtm_id || gtag_id) {
+if (gtm_id) {
   if (typeof window.GOVUK.analyticsGa4.init !== 'undefined') {
     window.GOVUK.analyticsGa4 = window.GOVUK.analyticsGa4 || {}
     window.GOVUK.analyticsGa4.vars = window.GOVUK.analyticsGa4.vars || {}
     window.GOVUK.analyticsGa4.vars.gem_version = '<%= GovukPublishingComponents::VERSION %>'
 
-    if (gtag_id) {
-      window.GOVUK.analyticsGa4.vars.gtag_id = gtag_id
-    } else {
-      window.GOVUK.analyticsGa4.vars.id = gtm_id
-      window.GOVUK.analyticsGa4.vars.auth = '<%= ENV["GOOGLE_TAG_MANAGER_AUTH"] %>'
-      window.GOVUK.analyticsGa4.vars.preview = '<%= ENV["GOOGLE_TAG_MANAGER_PREVIEW"] %>'
-    }
-
+    window.GOVUK.analyticsGa4.vars.id = gtm_id
+    window.GOVUK.analyticsGa4.vars.auth = '<%= ENV["GOOGLE_TAG_MANAGER_AUTH"] %>'
+    window.GOVUK.analyticsGa4.vars.preview = '<%= ENV["GOOGLE_TAG_MANAGER_PREVIEW"] %>'
     window.GOVUK.analyticsGa4.init()
   }
 }
