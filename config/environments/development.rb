@@ -45,20 +45,15 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # Allow overriding the asset host with an environment variable.
-  config.asset_host = ENV["ASSET_HOST"] || Plek.new.find("static")
-
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
-  # Allow access to the application using dev.gov.uk hostnames
-  config.hosts += %w[
-    draft-static.dev.gov.uk
-    static.dev.gov.uk
-  ]
+  # Allow requests for all domains e.g. <app>.dev.gov.uk
+  config.hosts.clear
+
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
