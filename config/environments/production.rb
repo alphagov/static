@@ -81,18 +81,14 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # Allow overriding the asset host with an environment variable.
-  config.action_controller.asset_host = ENV["ASSET_HOST"]
-
   # Google Analytics ID
   config.ga_universal_id = ENV.fetch("GA_UNIVERSAL_ID", "UA-26179049-1")
   config.ga_secondary_id = ENV.fetch("GA_SECONDARY_ID", "UA-145652997-1")
 
-  # Set ASSET_HOST & PLEK_SERVICE_STATIC_URI for heroku - for review
+  # Set PLEK_SERVICE_STATIC_URI for heroku - for review
   # apps we have the hostname set at the time of the app being built so can't
   # be set up in the app.json
-  if ENV["HEROKU_APP_NAME"]
-    ENV["ASSET_HOST"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("ASSET_HOST")
-    ENV["PLEK_SERVICE_STATIC_URI"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" unless ENV.include?("PLEK_SERVICE_STATIC_URI")
+  if ENV["HEROKU_APP_NAME"] && !ENV.include?("PLEK_SERVICE_STATIC_URI")
+    ENV["PLEK_SERVICE_STATIC_URI"] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
   end
 end
