@@ -1,4 +1,5 @@
 beforeEach(function () {
+  window.GOVUK.loadAnalytics.loadUa()
   jasmine.addMatchers({
     toBeEqualAsJSON: function (util, customEqualityTesters) {
       return {
