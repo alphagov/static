@@ -5,6 +5,7 @@ ruby File.read(".ruby-version").chomp
 gem "rails", "7.0.4"
 
 gem "actionpack-page_caching"
+gem "bootsnap", require: false
 gem "gds-api-adapters"
 gem "govuk_app_config"
 gem "govuk_personalisation"
