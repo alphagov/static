@@ -360,7 +360,6 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_test
   listen
-  mail (~> 2.8.0)
   minitest
   minitest-capybara
   mocha
