@@ -10,7 +10,6 @@ gem "gds-api-adapters"
 gem "govuk_app_config"
 gem "govuk_personalisation"
 gem "govuk_publishing_components"
-gem "mail", "~> 2.7.1"  # TODO: remove once https://github.com/mikel/mail/issues/1489 is fixed.
 gem "nokogiri"
 gem "plek"
 gem "redis"
