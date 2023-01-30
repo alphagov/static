@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "7.0.4.1"
+gem "rails", "7.0.4.2"
 
 gem "actionpack-page_caching"
 gem "bootsnap", require: false
