@@ -7,6 +7,11 @@
 tmp/*
 log/*.log
 public/assets
+
+# See https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/cache/
+.yarn/install-state.gz
+
 .bundle
 coverage
 node_modules
