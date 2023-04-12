@@ -21,7 +21,7 @@
 <% if show_global_bar %>
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
-    <div class="global-bar-message govuk-width-container">
+    <p class="global-bar-message govuk-width-container">
       <% if title %>
         <% if title_href %>
           <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
@@ -31,7 +31,7 @@
       <% end %>
 
       <% if link_text %>
-        <p class="global-bar-text">
+        <span class="global-bar-text">
         <% if link_href %>
           <%= link_to(
             link_text,
@@ -42,9 +42,9 @@
         <% else %>
           <%= link_text %>
         <% end %>
-        </p>
+        </span>
       <% end %>
-    </div>
+    </p>
   </div>
   <!--<![endif]-->
 <% end %>
