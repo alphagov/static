@@ -13,6 +13,22 @@ ROUTES = [
                       such as developers interested in joining GDS.",
   },
   {
+    base_path: "/googlea6393a390aadfbaa.html",
+    content_id: "5a14203f-f79e-4cca-831e-668043f49f1a",
+    title: "Google site verification a6393a390aadfbaa",
+    description: "These files allow Google to verify ownership of a site.
+                      They should not be removed as that can cause the site to become unverified
+                      See https://support.google.com/webmasters/answer/35658",
+  },
+  {
+    base_path: "/googlec908b3bc32386239.html",
+    content_id: "7ca03916-4340-4b95-a4dd-3078c0446768",
+    title: "Google site verification c908b3bc32386239",
+    description: "These files allow Google to verify ownership of a site.
+                      They should not be removed as that can cause the site to become unverified
+                      See https://support.google.com/webmasters/answer/35658",
+  },
+  {
     base_path: "/google6db9c061ce178960.html",
     content_id: "10bdfc2b-6e25-45d9-8a6d-330bd70de056",
     title: "Google site verification 6db9c061ce178960",
