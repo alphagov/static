@@ -1,9 +1,9 @@
 <%
-  show_global_bar ||= true # Toggles the appearance of the global bar
+  show_global_bar ||= false # Toggles the appearance of the global bar
 
-  title = "Emergency Alerts"
-  title_href = "/alerts"
-  link_text = "Test on Sunday 23 April, 3pm"
+  title = false
+  title_href = false
+  link_text = false
   link_href = false
 
   # Toggles banner being permanently visible
@@ -21,7 +21,7 @@
 <% if show_global_bar %>
   <!--[if gt IE 7]><!-->
   <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
-    <p class="global-bar-message govuk-width-container">
+    <div class="global-bar-message govuk-width-container">
       <% if title %>
         <% if title_href %>
           <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
@@ -31,7 +31,7 @@
       <% end %>
 
       <% if link_text %>
-        <span class="global-bar-text">
+        <p class="global-bar-text">
         <% if link_href %>
           <%= link_to(
             link_text,
@@ -42,9 +42,9 @@
         <% else %>
           <%= link_text %>
         <% end %>
-        </span>
+        </p>
       <% end %>
-    </p>
+    </div>
   </div>
   <!--<![endif]-->
 <% end %>

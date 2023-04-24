@@ -8,7 +8,7 @@ $covid-grey: #262828;
 
 .global-bar {
   @include govuk-font(19);
-  background-color: #d9e7f2;
+  background-color: govuk-colour("black");
   border-top: govuk-spacing(2) solid govuk-colour("blue");
   border-bottom: 1px solid govuk-colour("white");
   display: none;
@@ -19,10 +19,10 @@ $covid-grey: #262828;
 
   .govuk-link,
   .govuk-link:link {
-    color: govuk-colour("black");
+    color: govuk-colour("white");
 
     &:visited {
-      color: govuk-colour("black");
+      color: govuk-colour("white");
     }
 
     &:focus {
@@ -49,7 +49,7 @@ $covid-grey: #262828;
 
 .global-bar-title,
 .global-bar-text {
-  color: govuk-colour("black");
+  color: govuk-colour("white");
 }
 
 .global-bar-title__nowrap {
