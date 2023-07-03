@@ -7,7 +7,7 @@ gem "rails", "7.0.5"
 gem "actionpack-page_caching"
 gem "bootsnap", require: false
 gem "gds-api-adapters"
-gem "govuk_app_config"
+gem "govuk_app_config", github: "alphagov/govuk_app_config", ref: "add-otel"
 gem "govuk_personalisation"
 gem "govuk_publishing_components"
 gem "nokogiri"
