@@ -182,7 +182,7 @@ GEM
       capybara
       minitest (~> 5.0)
       rake
-    mocha (2.0.4)
+    mocha (2.1.0)
       ruby2_keywords (>= 0.0.5)
     msgpack (1.6.0)
     net-imap (0.3.6)
