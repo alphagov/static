@@ -37,6 +37,13 @@ describe "emergency_banner:deploy" do
 
     Rake::Task["emergency_banner:deploy"].invoke("campaign class", "heading", "short description", "link", "link_text")
   end
+
+  should "raise an exception if unexpected arguments are passed" do
+    exception = assert_raises ArgumentError do
+      Rake::Task["emergency_banner:deploy"].invoke("campaign class", "heading", "short description", "link", "link_text", "something else")
+    end
+    assert_equal("Expected up to 5 arguments. 6 were provided", exception.message)
+  end
 end
 
 describe "emergency_banner:remove" do
