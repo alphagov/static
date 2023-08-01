@@ -105,7 +105,7 @@ GEM
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
-    gds-api-adapters (89.0.0)
+    gds-api-adapters (90.0.0)
       addressable
       link_header
       null_logger
