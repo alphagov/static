@@ -1,6 +1,17 @@
+require "uri"
+
 module EmergencyBanner
   class Deploy
     def run(campaign_class, heading, short_description = "", link = "", link_text = "")
+      unless %w[notable-death national-emergency local-emergency].include?(campaign_class)
+        raise ArgumentError, "Invalid campaign_class provided: #{campaign_class}"
+      end
+
+      if link != ""
+        uri = URI.parse(link)
+        raise ArgumentError, "Invalid URL provided: #{link}" unless uri.is_a?(URI::HTTP) && !uri.host.nil?
+      end
+
       redis = Redis.new
       redis.hmset(
         :emergency_banner,

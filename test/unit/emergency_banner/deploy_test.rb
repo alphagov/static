@@ -21,6 +21,16 @@ describe "Emergency Banner::Deploy" do
       EmergencyBanner::Deploy.new.run("notable-death", "A title")
     end
 
+    should "raise an exception if the campaign_class is invalid" do
+      exception = assert_raises ArgumentError do
+        EmergencyBanner::Deploy.new.run(
+          "notable-deathh", # spot the deliberate error!
+          "A title",
+        )
+      end
+      assert_equal("Invalid campaign_class provided: notable-deathh", exception.message)
+    end
+
     should "create an emergency_banner with a campaign_class, heading and short_description" do
       Redis.any_instance.expects(:hmset).with(
         :emergency_banner,
@@ -91,6 +101,19 @@ describe "Emergency Banner::Deploy" do
       )
 
       EmergencyBanner::Deploy.new.run("notable-death", "A title", "A short description of the event", "https://www.gov.uk", "Text for hyperlink")
+    end
+
+    should "raise an exception if the input for the link doesn't pass validation" do
+      exception = assert_raises ArgumentError do
+        EmergencyBanner::Deploy.new.run(
+          "notable-death",
+          "A title",
+          "A short description of the event",
+          "https:/www.gov.uk", # spot the deliberate error!
+          "Text for hyperlink",
+        )
+      end
+      assert_equal("Invalid URL provided: https:/www.gov.uk", exception.message)
     end
   end
 end
