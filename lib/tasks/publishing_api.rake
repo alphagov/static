@@ -6,13 +6,6 @@ ROUTES = [
     description: "The favicon is the image displayed in locations such as the browser tabs.",
   },
   {
-    base_path: "/humans.txt",
-    content_id: "6e92af59-3a73-4db6-b58b-740a02b229d0",
-    title: "humans.txt",
-    description: "In opposition to robots.txt, humans.txt provides information about GOV.UK to interested readers,
-                      such as developers interested in joining GDS.",
-  },
-  {
     base_path: "/googlea6393a390aadfbaa.html",
     content_id: "5a14203f-f79e-4cca-831e-668043f49f1a",
     title: "Google site verification a6393a390aadfbaa",
