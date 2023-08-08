@@ -14,7 +14,7 @@ $is-print: true;
 @import "helpers/core-print";
 @import "helpers/print-base";
 
-section > header h1:after {
+section > header h1::after {
   content: "";
 }
 
