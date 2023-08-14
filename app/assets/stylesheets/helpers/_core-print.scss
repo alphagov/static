@@ -65,7 +65,7 @@ article {
     margin-left: govuk-spacing(6);
     position: relative;
 
-    &:before {
+    &::before {
       @include govuk-font(27);
       font-weight: bold;
       content: "!";
@@ -92,7 +92,7 @@ article {
   color: rgb(225, 225, 225);
   @include govuk-font(14);
 
-  &:after {
+  &::after {
     content: "\00A9  Crown Copyright";
     float: right;
   }
