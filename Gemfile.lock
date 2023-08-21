@@ -1,3 +1,15 @@
+PATH
+  remote: ../govuk_publishing_components
+  specs:
+    govuk_publishing_components (35.14.0)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -131,14 +143,6 @@ GEM
     govuk_personalisation (0.14.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (35.13.2)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
     govuk_test (3.0.1)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -560,7 +564,7 @@ DEPENDENCIES
   gds-api-adapters
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_test
   listen
   minitest
