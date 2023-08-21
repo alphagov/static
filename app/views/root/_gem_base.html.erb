@@ -14,6 +14,7 @@
   footer_meta ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
   homepage ||= false
+  logo_text ||= nil
 
   @emergency_banner = !omit_emergency_banner && emergency_banner_notification
 
@@ -40,6 +41,7 @@
   full_width: full_width,
   global_bar: global_bar,
   logo_link: logo_link,
+  logo_text: logo_text,
   navigation_items: [ # Remember to update the links in _base.html.erb as well.
     {
       text: "Your GOV.UK One Login",
