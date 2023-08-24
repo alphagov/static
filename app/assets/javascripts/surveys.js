@@ -15,10 +15,22 @@
   var templateBase = function (children) {
     return (
       '<section id="user-satisfaction-survey" class="visible" aria-hidden="false">' +
-      '  <div class="survey-wrapper govuk-width-container">' +
-      '    <a class="govuk-link survey-close-button" href="#user-survey-cancel" aria-labelledby="survey-title user-survey-cancel" id="user-survey-cancel" role="button">Close</a>' +
+      '  <div class="survey-wrapper govuk-width-container" data-module="ga4-auto-tracker" ' +
+              'data-ga4-auto=\'' + JSON.stringify({ event_data: { event_name: 'element_visible', type: 'survey banner' } }) +
+              '\'>' +
+      '    <a class="govuk-link survey-close-button" ' +
+              'href="#user-survey-cancel" ' +
+              'aria-labelledby="survey-title user-survey-cancel" ' +
+              'id="user-survey-cancel" ' +
+              'role="button" ' +
+              'data-module="ga4-event-tracker" ' +
+              'data-ga4-event=\'' + JSON.stringify({ event_name: 'select_content', type: 'survey banner', action: 'closed' }) +
+            '\'>Close</a>' +
       '    <h2 class="survey-title" id="survey-title">{{title}}</h2>' +
-           children +
+          '<div data-module="ga4-link-tracker" data-ga4-track-links-only ' +
+                'data-ga4-link=\'' + JSON.stringify({ event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1 }) + '\'>' +
+            children +
+          '</div>' +
       '  </div>' +
       '</section>'
     )
@@ -197,12 +209,14 @@
     displayURLSurvey: function (survey, surveyContainer) {
       var urlSurveyTemplate = userSurveys.getUrlSurveyTemplate()
       surveyContainer.innerHTML = urlSurveyTemplate.render(survey)
+      window.GOVUK.modules.start(surveyContainer) // Initialises our GA4 modules
       userSurveys.setURLSurveyEventHandlers(survey)
     },
 
     displayEmailSurvey: function (survey, surveyContainer) {
       var emailSurveyTemplate = userSurveys.getEmailSurveyTemplate()
       surveyContainer.innerHTML = emailSurveyTemplate.render(survey)
+      window.GOVUK.modules.start(surveyContainer) // Initialises our GA4 modules
       userSurveys.setEmailSurveyEventHandlers(survey)
     },
 
