@@ -1,6 +1,4 @@
 <%
-  blue_bar ||= true
-  blue_bar_background_colour ||= nil
   logo_link ||= Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/"
   full_width ||= false
   omit_emergency_banner ||= false
@@ -37,8 +35,6 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
   account_nav_location: account_nav_location,
-  blue_bar: blue_bar,
-  blue_bar_background_colour: blue_bar_background_colour,
   draft_watermark: draft_environment,
   emergency_banner: emergency_banner.presence,
   full_width: full_width,
