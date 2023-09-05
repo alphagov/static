@@ -25,6 +25,7 @@
       link_text: @emergency_banner.link_text,
       short_description: @emergency_banner.short_description,
       homepage: homepage,
+      ga4_tracking: true,
     }
   end
 
@@ -35,6 +36,9 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
   account_nav_location: account_nav_location,
+  cookie_banner_data: {
+    ga4_tracking: true,
+  },
   draft_watermark: draft_environment,
   emergency_banner: emergency_banner.presence,
   full_width: full_width,
