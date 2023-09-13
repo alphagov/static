@@ -90,6 +90,30 @@ describe('Surveys', function () {
       expect($('#user-satisfaction-survey').attr('aria-hidden')).toBe('false')
     })
 
+    it('displays the survey with GA4 attributes', function () {
+      var surveyTypes = [defaultSurvey, smallSurvey, urlSurvey, emailSurvey]
+
+      for (var i = 0; i < surveyTypes.length; i++) {
+        var survey = surveyTypes[i]
+        surveys.displaySurvey(survey)
+        var surveyParent = document.querySelector('#user-satisfaction-survey')
+
+        var ga4AutoElement = surveyParent.querySelector('.survey-wrapper')
+        var ga4EventElement = surveyParent.querySelector('.survey-close-button')
+        var ga4LinkElement = surveyParent.querySelector('.survey-title + div')
+
+        var expectedGa4Auto = { event_data: { event_name: 'element_visible', type: 'survey banner' } }
+        var expectedGa4Event = { event_name: 'select_content', type: 'survey banner', action: 'closed' }
+        var expectedGa4Link = { event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1 }
+
+        expect(JSON.parse(ga4AutoElement.getAttribute('data-ga4-auto'))).toEqual(expectedGa4Auto)
+        expect(JSON.parse(ga4EventElement.getAttribute('data-ga4-event'))).toEqual(expectedGa4Event)
+        expect(JSON.parse(ga4LinkElement.getAttribute('data-ga4-link'))).toEqual(expectedGa4Link)
+
+        expect(ga4LinkElement.hasAttribute('data-ga4-track-links-only')).toEqual(true)
+      }
+    })
+
     it('increments the survey seen cookie counter', function () {
       GOVUK.cookie(surveys.surveySeenCookieName(defaultSurvey), null)
       surveys.displaySurvey(defaultSurvey)
