@@ -103,12 +103,25 @@ describe('Surveys', function () {
         var ga4LinkElement = surveyParent.querySelector('.survey-title + div')
 
         var expectedGa4Auto = { event_data: { event_name: 'element_visible', type: 'survey banner' } }
-        var expectedGa4Event = { event_name: 'select_content', type: 'survey banner', action: 'closed' }
+        var expectedGa4Event = { event_name: 'select_content', type: 'survey banner', action: 'closed', section: 'Tell us what you think of GOV.UK' }
         var expectedGa4Link = { event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1 }
+        var expectedGa4Form = {
+          event_name: 'form_submit',
+          type: 'survey banner',
+          action: 'submit',
+          section: 'Tell us what you think of GOV.UK',
+          text: 'Send me the survey',
+          tool_name: 'Tell us what you think of GOV.UK'
+        }
 
         expect(JSON.parse(ga4AutoElement.getAttribute('data-ga4-auto'))).toEqual(expectedGa4Auto)
         expect(JSON.parse(ga4EventElement.getAttribute('data-ga4-event'))).toEqual(expectedGa4Event)
         expect(JSON.parse(ga4LinkElement.getAttribute('data-ga4-link'))).toEqual(expectedGa4Link)
+
+        if (survey === emailSurvey) {
+          var ga4FormElement = surveyParent.querySelector('#email-survey-form')
+          expect(JSON.parse(ga4FormElement.getAttribute('data-ga4-form'))).toEqual(expectedGa4Form)
+        }
 
         expect(ga4LinkElement.hasAttribute('data-ga4-track-links-only')).toEqual(true)
       }
@@ -829,6 +842,23 @@ describe('Surveys', function () {
             expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'email_survey_taken', 'Email survey taken')
             expect(surveys.trackEvent).toHaveBeenCalledWith(emailSurvey.identifier, 'banner_taken', 'User taken survey')
           })
+
+          it('adds the GA4 form complete <span>', function () {
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
+            // For some reason the submit event triggers twice in tests, so we have to get the second <span>.
+            var span = document.querySelectorAll('#email-survey-form span[data-ga4-auto]')[1]
+
+            var expectedGa4Auto = {
+              event_name: 'form_complete',
+              action: 'complete',
+              type: 'survey banner',
+              text: 'Thanks, we’ve sent you an email with a link to the survey.',
+              section: 'Tell us what you think of GOV.UK',
+              tool_name: 'Tell us what you think of GOV.UK'
+            }
+            expect(span.getAttribute('data-module')).toEqual('ga4-auto-tracker')
+            expect(span.getAttribute('data-ga4-auto')).toEqual(JSON.stringify(expectedGa4Auto))
+          })
         })
 
         describe('but submitting it results in an error', function () {
@@ -857,6 +887,23 @@ describe('Surveys', function () {
             spyOn(surveys, 'trackEvent')
             window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
             expect(surveys.trackEvent).not.toHaveBeenCalled()
+          })
+
+          it('adds the GA4 form complete <span>', function () {
+            window.GOVUK.triggerEvent($('#email-survey-form')[0], 'submit')
+            // For some reason the submit event triggers twice in tests, so we have to get the second <span>.
+            var span = document.querySelectorAll('#email-survey-form span[data-ga4-auto]')[1]
+
+            var expectedGa4Auto = {
+              event_name: 'form_complete',
+              action: 'complete',
+              type: 'survey banner',
+              text: 'Sorry, we’re unable to send you an email right now. Please try again later.',
+              section: 'Tell us what you think of GOV.UK',
+              tool_name: 'Tell us what you think of GOV.UK'
+            }
+            expect(span.getAttribute('data-module')).toEqual('ga4-auto-tracker')
+            expect(span.getAttribute('data-ga4-auto')).toEqual(JSON.stringify(expectedGa4Auto))
           })
         })
 

@@ -327,7 +327,8 @@
       // The module is then started - the module will send data-ga4-auto object to the dataLayer.
       // Doing it this way prevents us from calling and having to maintaining GA4 JS/cookie consent in this repo.
       var emailSurveyHeading = document.getElementById('survey-title').textContent.trim()
-      var emailSurveyText = error ? document.getElementById('email-survey-post-failure') : document.getElementById('#email-survey-post-success')
+
+      var emailSurveyText = error ? document.getElementById('email-survey-post-failure') : document.getElementById('email-survey-post-success')
       emailSurveyText = emailSurveyText.textContent.trim()
       var span = document.createElement('span')
       span.setAttribute('data-module', 'ga4-auto-tracker')
