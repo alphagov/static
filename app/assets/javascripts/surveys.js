@@ -308,8 +308,10 @@
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
               successCallback()
+              userSurveys.attachGa4FormCompleteElement($emailSurveyForm, false)
             } else {
               errorCallback()
+              userSurveys.attachGa4FormCompleteElement($emailSurveyForm, true)
             }
           }
 
@@ -318,6 +320,27 @@
           e.preventDefault()
         })
       }
+    },
+
+    attachGa4FormCompleteElement: function (emailSurveyElement, error) {
+      // When the email survey form is submitted, this attaches a HTML element with our GA4 auto tracker to the DOM.
+      // The module is then started - the module will send data-ga4-auto object to the dataLayer.
+      // Doing it this way prevents us from calling and having to maintaining GA4 JS/cookie consent in this repo.
+      var emailSurveyHeading = document.getElementById('survey-title').textContent.trim()
+      var emailSurveyText = error ? document.getElementById('email-survey-post-failure') : document.getElementById('#email-survey-post-success')
+      emailSurveyText = emailSurveyText.textContent.trim()
+      var span = document.createElement('span')
+      span.setAttribute('data-module', 'ga4-auto-tracker')
+      span.setAttribute('data-ga4-auto', JSON.stringify({
+        event_name: 'form_complete',
+        action: 'complete',
+        type: 'survey banner',
+        text: emailSurveyText,
+        section: emailSurveyHeading,
+        tool_name: emailSurveyHeading
+      }))
+      emailSurveyElement.appendChild(span)
+      window.GOVUK.modules.start(emailSurveyElement)
     },
 
     setURLSurveyEventHandlers: function (survey) {
