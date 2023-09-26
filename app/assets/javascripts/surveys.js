@@ -24,7 +24,7 @@
               'id="user-survey-cancel" ' +
               'role="button" ' +
               'data-module="ga4-event-tracker" ' +
-              'data-ga4-event=\'' + JSON.stringify({ event_name: 'select_content', type: 'survey banner', action: 'closed' }) +
+              'data-ga4-event=\'' + JSON.stringify({ event_name: 'select_content', type: 'survey banner', action: 'closed', section: '{{title}}' }) +
             '\'>Close</a>' +
       '    <h2 class="survey-title" id="survey-title">{{title}}</h2>' +
           '<div data-module="ga4-link-tracker" data-ga4-track-links-only ' +
@@ -49,7 +49,7 @@
     '    {{surveyCta}}' +
     '  </a>' +
     '</div>' +
-    '<form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true">' +
+    '<form id="email-survey-form" action="/contact/govuk/email-survey-signup" method="post" class="js-hidden" aria-hidden="true" data-module="ga4-form-tracker" data-ga4-form=\'' + JSON.stringify({ event_name: 'form_submit', type: 'survey banner', action: 'submit', section: '{{title}}', text: '{{surveyFormCta}}', tool_name: '{{title}}' }) + '\'>' +
     '  <div class="survey-inner-wrapper">' +
     '    <div id="survey-form-description" class="survey-form-description">{{surveyFormDescription}}' +
     '      <br> {{surveyFormCtaPostscript}}' +
