@@ -104,7 +104,7 @@ describe('Surveys', function () {
 
         var expectedGa4Auto = { event_data: { event_name: 'element_visible', type: 'survey banner' } }
         var expectedGa4Event = { event_name: 'select_content', type: 'survey banner', action: 'closed', section: 'Tell us what you think of GOV.UK' }
-        var expectedGa4Link = { event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1 }
+        var expectedGa4Link = { event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1, section: 'Tell us what you think of GOV.UK' }
         var expectedGa4Form = {
           event_name: 'form_submit',
           type: 'survey banner',

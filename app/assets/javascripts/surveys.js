@@ -28,7 +28,7 @@
             '\'>Close</a>' +
       '    <h2 class="survey-title" id="survey-title">{{title}}</h2>' +
           '<div data-module="ga4-link-tracker" data-ga4-track-links-only ' +
-                'data-ga4-link=\'' + JSON.stringify({ event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1 }) + '\'>' +
+                'data-ga4-link=\'' + JSON.stringify({ event_name: 'navigation', type: 'survey banner', index: 1, index_total: 1, section: '{{title}}' }) + '\'>' +
             children +
           '</div>' +
       '  </div>' +
