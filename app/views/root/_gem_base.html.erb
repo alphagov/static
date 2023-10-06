@@ -16,19 +16,16 @@
   homepage ||= false
   homepage_blue_navbar ||= false
 
-  @emergency_banner = !omit_emergency_banner && emergency_banner_notification
+emergency_banner = render "govuk_publishing_components/components/emergency_banner", {
+    campaign_class: 'notable-death',
+    heading: "Welcome to GOV.UK",
+    link: "https://www.gov.uk",
+    link_text: "Example link",
+    short_description: "The GA4 team are testing the GA4 attributes on this. This should only exist on the integration envrionment.",
+    homepage: true,
+    ga4_tracking: true,
+  }
 
-  if @emergency_banner
-    emergency_banner = render "govuk_publishing_components/components/emergency_banner", {
-      campaign_class: @emergency_banner.campaign_class,
-      heading: @emergency_banner.heading,
-      link: @emergency_banner.link,
-      link_text: @emergency_banner.link_text,
-      short_description: @emergency_banner.short_description,
-      homepage: homepage,
-      ga4_tracking: true,
-    }
-  end
 
   global_bar = ''
   global_banner = render "components/global_bar" unless omit_global_banner
