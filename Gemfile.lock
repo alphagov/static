@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 57e80cbbe5b0497c302ef7ad687a2bed7787b24d
+  revision: b3417de43765da97cf63d7536aeeea272070ffef
   branch: fixes-to-homepage-navbar
   specs:
     govuk_publishing_components (35.18.0)
