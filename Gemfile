@@ -9,7 +9,7 @@ gem "bootsnap", require: false
 gem "gds-api-adapters"
 gem "govuk_app_config"
 gem "govuk_personalisation"
-gem "govuk_publishing_components", git: 'https://github.com/alphagov/govuk_publishing_components.git', branch: 'fixes-to-homepage-navbar'
+gem "govuk_publishing_components", git: 'https://github.com/alphagov/govuk_publishing_components.git', ref: 'b3417de43765da97cf63d7536aeeea272070ffef'
 gem "nokogiri"
 gem "plek"
 gem "redis"
