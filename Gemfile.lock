@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: a9c01893fd63a07bdb07ba01ecf84c2a359e1e7f
-  ref: a9c01893fd63a07bdb07ba01ecf84c2a359e1e7f
+  revision: 1d4c579b30050a7b716a285e57b81168599354b9
+  ref: 1d4c579b30050a7b716a285e57b81168599354b9
   specs:
     govuk_publishing_components (35.19.0)
       govuk_app_config
