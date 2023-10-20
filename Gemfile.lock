@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 8019a968b6417815fb1cb2d007839eac8778bf89
-  ref: 8019a968b6417815fb1cb2d007839eac8778bf89
+  revision: a9c01893fd63a07bdb07ba01ecf84c2a359e1e7f
+  ref: a9c01893fd63a07bdb07ba01ecf84c2a359e1e7f
   specs:
     govuk_publishing_components (35.19.0)
       govuk_app_config
@@ -191,7 +191,7 @@ GEM
     mocha (2.1.0)
       ruby2_keywords (>= 0.0.5)
     msgpack (1.6.0)
-    net-imap (0.4.1)
+    net-imap (0.4.2)
       date
       net-protocol
     net-pop (0.1.2)
