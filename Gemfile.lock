@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 5adbd07e718f11ef4a0f8c786635b8b5d829f297
-  ref: 5adbd07e718f11ef4a0f8c786635b8b5d829f297
+  revision: 8019a968b6417815fb1cb2d007839eac8778bf89
+  ref: 8019a968b6417815fb1cb2d007839eac8778bf89
   specs:
-    govuk_publishing_components (35.18.0)
+    govuk_publishing_components (35.19.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
