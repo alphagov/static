@@ -7,13 +7,14 @@
 // check the component auditing before removing any of them
 // https://github.com/alphagov/govuk_publishing_components/blob/main/docs/auditing.md
 
-//= require govuk_publishing_components/components/button
+// These modules from govuk_publishing_components don't
+// depend on any modules from govuk-frontend so can be
+// included here:
+//
 //= require govuk_publishing_components/components/cookie-banner
 //= require govuk_publishing_components/components/cross-service-header
 //= require govuk_publishing_components/components/feedback
-//= require govuk_publishing_components/components/layout-header
 //= require govuk_publishing_components/components/layout-super-navigation-header
-//= require govuk_publishing_components/components/skip-link
 
 //= require modules/global-bar
 
