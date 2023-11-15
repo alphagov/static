@@ -22,6 +22,7 @@ $govuk-new-link-styles: true;
 
 // Styles used by the templates in Static
 @import "govuk_publishing_components/components/cookie-banner";
+@import "govuk_publishing_components/components/cross-service-header";
 @import "govuk_publishing_components/components/feedback";
 @import "govuk_publishing_components/components/emergency-banner";
 @import "govuk_publishing_components/components/layout-footer";
