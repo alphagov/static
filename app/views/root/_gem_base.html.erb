@@ -8,7 +8,10 @@
   omit_global_banner ||= nil
   omit_account_navigation ||= nil
   product_name ||= nil
+  navigation_items ||= []
+  one_login_navigation_items ||= {}
   show_explore_header = show_explore_header === false ? false : true
+  show_cross_service_header ||= false
   show_account_layout ||= false
   account_nav_location ||= nil
   footer_meta ||= nil
@@ -37,6 +40,7 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
   account_nav_location: account_nav_location,
+  **(defined?(blue_bar) ? {blue_bar: blue_bar,} : {}),
   cookie_banner_data: {
     ga4_tracking: true,
   },
@@ -46,39 +50,16 @@
   global_bar: global_bar,
   homepage: homepage_blue_navbar,
   logo_link: logo_link,
-  navigation_items: [ # Remember to update the links in _base.html.erb as well.
-    {
-      text: "Your GOV.UK One Login",
-      href: GovukPersonalisation::Urls.your_account,
-      data: {
-        module: "explicit-cross-domain-links",
-        link_for: "accounts-signed-in",
-      },
-      active: show_account_layout,
-    },
-    {
-      text: "Sign out",
-      href: GovukPersonalisation::Urls.sign_out,
-      data: {
-        module: "explicit-cross-domain-links",
-        link_for: "accounts-signed-in",
-      },
-    },
-    {
-      text: "Sign in",
-      href: GovukPersonalisation::Urls.sign_in,
-      data: {
-        module: "explicit-cross-domain-links",
-        link_for: "accounts-signed-out",
-      },
-    }
-  ],
+  product_name: product_name,
+  navigation_items: navigation_items,
   omit_feedback_form: omit_feedback_form,
   omit_footer_navigation: omit_footer_navigation,
   omit_account_navigation: omit_account_navigation,
   omit_footer_border: omit_footer_border,
+  one_login_navigation_items: one_login_navigation_items,
   product_name: product_name,
   show_account_layout: show_account_layout,
+  show_cross_service_header: show_cross_service_header,
   show_explore_header: show_explore_header,
   title: content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information",
   footer_meta: footer_meta,
