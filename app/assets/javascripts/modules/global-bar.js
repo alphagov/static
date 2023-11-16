@@ -14,6 +14,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   function GlobalBar ($module) {
     this.$module = $module
+    this.init()
   }
 
   GlobalBar.prototype.init = function () {
