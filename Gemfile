@@ -6,6 +6,7 @@ gem "rails", "7.1.2"
 
 gem "actionpack-page_caching"
 gem "bootsnap", require: false
+gem "dartsass-rails"
 gem "gds-api-adapters"
 gem "govuk_app_config"
 gem "govuk_personalisation"
@@ -13,7 +14,6 @@ gem "govuk_publishing_components"
 gem "nokogiri"
 gem "plek"
 gem "redis"
-gem "sassc-rails"
 gem "sprockets-rails"
 gem "uglifier"
 
