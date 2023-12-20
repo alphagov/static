@@ -7,6 +7,8 @@
 tmp/*
 log/*.log
 public/assets
+/app/assets/builds
+!/app/assets/builds/.keep
 
 # See https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 .yarn/cache/
