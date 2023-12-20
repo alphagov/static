@@ -132,7 +132,7 @@ GEM
     google-protobuf (3.25.1)
     googleapis-common-protos-types (1.11.0)
       google-protobuf (~> 3.18)
-    govuk_app_config (9.6.0)
+    govuk_app_config (9.7.0)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.27)
       opentelemetry-instrumentation-all (>= 0.39.1, < 0.52.0)
@@ -168,7 +168,7 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.1)
-    irb (1.10.1)
+    irb (1.11.0)
       rdoc
       reline (>= 0.3.8)
     json (2.6.3)
