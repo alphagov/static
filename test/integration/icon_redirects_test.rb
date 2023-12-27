@@ -2,7 +2,6 @@ require_relative "../integration_test_helper"
 
 class IconRedirectsTest < ActionDispatch::IntegrationTest
   [
-    "favicon.ico",
     "apple-touch-icon.png",
     "apple-touch-icon-180x180.png",
     "apple-touch-icon-167x167.png",
@@ -13,7 +12,7 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
       assert_equal 301, last_response.status
       assert_equal last_response.headers["Cache-Control"], "max-age=86400, public"
       # In development and test mode the asset pipeline doesn't add the hashes to the URLs
-      assert_equal "http://example.org/assets/static/#{file}", last_response.location
+      assert_equal "http://example.org/assets/static/govuk-#{file}", last_response.location
     end
 
     # TODO: check if this test is required and raise an issue for it
@@ -23,10 +22,18 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
     #   assert last_response.body.size > 100
     # end
 
+    should "redirect favicon.ico to the asset path" do
+      get "/favicon.ico"
+      assert_equal 301, last_response.status
+      assert_equal last_response.headers["Cache-Control"], "max-age=86400, public"
+      # In development and test mode the asset pipeline doesn't add the hashes to the URLs
+      assert_equal "http://example.org/assets/static/favicon.ico", last_response.location
+    end
+
     should "ignore query string when redirecting #{file}" do
       get "/#{file}?foo=bar"
       assert_equal 301, last_response.status
-      assert_equal "http://example.org/assets/static/#{file}", last_response.location
+      assert_equal "http://example.org/assets/static/govuk-#{file}", last_response.location
     end
   end
 
@@ -41,7 +48,7 @@ class IconRedirectsTest < ActionDispatch::IntegrationTest
       assert_equal 301, last_response.status
       assert_equal last_response.headers["Cache-Control"], "max-age=86400, public"
       # In development and test mode the asset pipeline doesn't add the hashes to the URLs
-      assert_equal "http://example.org/assets/static/apple-touch-icon.png", last_response.location
+      assert_equal "http://example.org/assets/static/govuk-apple-touch-icon.png", last_response.location
     end
   end
 end

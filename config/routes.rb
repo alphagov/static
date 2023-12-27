@@ -15,8 +15,10 @@ Rails.application.routes.draw do
     get "/templates/:template.html.erb", to: "root#template"
   end
 
-  # Icon redirects
-  get "/favicon.ico", to: "icon_redirects#show"
+  # Favicon redirect
+  get "/favicon.ico", to: "icon_redirects#show_favicon"
+
+  # Apple touch icon redirects
   get "/apple-touch-icon.png", to: "icon_redirects#show"
   get "/apple-touch-icon-180x180.png", to: "icon_redirects#show"
   get "/apple-touch-icon-167x167.png", to: "icon_redirects#show"
