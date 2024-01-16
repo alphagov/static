@@ -128,7 +128,7 @@ GEM
       rest-client (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (3.25.1)
+    google-protobuf (3.25.2)
     googleapis-common-protos-types (1.11.0)
       google-protobuf (~> 3.18)
     govuk_app_config (9.8.1)
@@ -146,7 +146,7 @@ GEM
     govuk_personalisation (0.15.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (37.2.1)
+    govuk_publishing_components (37.2.2)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -167,9 +167,9 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.1)
-    irb (1.11.0)
+    irb (1.11.1)
       rdoc
-      reline (>= 0.3.8)
+      reline (>= 0.4.2)
     json (2.6.3)
     kramdown (2.4.0)
       rexml
@@ -536,13 +536,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sentry-rails (5.3.1)
+    sentry-rails (5.16.1)
       railties (>= 5.0)
-      sentry-ruby-core (~> 5.3.1)
-    sentry-ruby (5.16.0)
+      sentry-ruby (~> 5.16.1)
+    sentry-ruby (5.16.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    sentry-ruby-core (5.3.1)
-      concurrent-ruby
     shoulda-context (2.0.0)
     simplecov (0.22.0)
       docile (~> 1.1)
