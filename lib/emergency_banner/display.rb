@@ -32,7 +32,8 @@ module EmergencyBanner
 
     def link_text
       return nil if link.blank?
-      return content[:link_text] if content[:link_text].present?
+
+      content[:link_text].presence
     end
 
   private
