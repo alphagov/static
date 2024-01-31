@@ -610,6 +610,7 @@ DEPENDENCIES
   nokogiri
   plek
   pry
+  puma
   rails (= 7.1.3.2)
   redis
   rubocop-govuk
