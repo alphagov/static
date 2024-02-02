@@ -17,9 +17,6 @@ var globalBarInit = {
   },
 
   getLatestCookie: function () {
-    if (!window.GOVUK.cookie('cookies_policy')) {
-      window.GOVUK.setDefaultConsentCookie()
-    }
     var currentCookie = window.GOVUK.getCookie(GLOBAL_BAR_SEEN_COOKIE)
 
     return currentCookie
