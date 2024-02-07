@@ -10,7 +10,7 @@ class Error4XXTest < ActionDispatch::IntegrationTest
     end
 
     within "body" do
-      assert page.has_selector?("#global-cookie-message")
+      assert page.has_selector?("#global-cookie-message", visible: :hidden)
       assert page.has_selector?("#user-satisfaction-survey-container")
 
       within "#content" do
