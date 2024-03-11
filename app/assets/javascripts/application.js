@@ -19,3 +19,4 @@
 
 //= require global-bar-init
 //= require surveys
+window.GOVUK.useSingleConsentApi = true
