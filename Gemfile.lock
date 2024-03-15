@@ -1,7 +1,9 @@
-PATH
-  remote: ../govuk_publishing_components
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 14f730eb1a7811ade89c69f381073819cc31b73a
+  branch: deploy-try-to-update-govukfrontend
   specs:
-    govuk_publishing_components (37.7.1)
+    govuk_publishing_components (37.8.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
