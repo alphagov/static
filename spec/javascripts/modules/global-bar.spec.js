@@ -2,7 +2,6 @@
 describe('Global bar module', function () {
   'use strict'
 
-  var globalBar
   var element
 
   beforeEach(function () {
@@ -31,8 +30,8 @@ describe('Global bar module', function () {
     it('sets basic global_bar_seen cookie if not already set', function () {
       expect(GOVUK.getCookie('global_bar_seen')).toBeNull()
 
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).count).toBe(0)
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).version).toBe(0)
@@ -41,8 +40,8 @@ describe('Global bar module', function () {
     it('sets basic global_bar_seen cookie if existing one is malformed', function () {
       GOVUK.setCookie('global_bar_seen', 1)
 
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).count).toBe(0)
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).version).toBe(0)
@@ -66,16 +65,16 @@ describe('Global bar module', function () {
     it('increments view count', function () {
       GOVUK.setCookie('global_bar_seen', JSON.stringify({ count: 1, version: 0 }))
 
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).count).toBe(2)
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).version).toBe(0)
     })
 
     it('hides additional information section when dismiss link is clicked', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       $(element).find('.dismiss')[0].click()
 
@@ -86,8 +85,8 @@ describe('Global bar module', function () {
     })
 
     it('hides dismiss link once dismiss link is clicked', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       $(element).find('.dismiss')[0].click()
 
@@ -116,8 +115,8 @@ describe('Global bar module', function () {
     })
 
     it('tracks when dismiss link is clicked', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       $(element).find('.dismiss')[0].click()
 
@@ -125,8 +124,8 @@ describe('Global bar module', function () {
     })
 
     it('tracks when clicking on a link marked with js-call-to-action', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       var link = $(element).find('.js-call-to-action')[0]
       link.addEventListener('click', function (e) {
@@ -138,8 +137,8 @@ describe('Global bar module', function () {
     })
 
     it('tracks when global bar is seen', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
       expect(GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions().dimension38.value).toBe('Global Banner viewed')
     })
   })
@@ -162,8 +161,8 @@ describe('Global bar module', function () {
 
       GOVUK.setCookie('global_bar_seen', JSON.stringify({ count: 2, version: 0 }))
 
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).count).toBe(2)
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).version).toBe(0)
@@ -181,8 +180,8 @@ describe('Global bar module', function () {
 
       GOVUK.setCookie('global_bar_seen', JSON.stringify({ count: 2, version: 0 }))
 
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
+      /* eslint-disable no-new */
+      new GOVUK.Modules.GlobalBar(element[0])
 
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).count).toBe(3)
       expect(parseCookie(GOVUK.getCookie('global_bar_seen')).version).toBe(0)
