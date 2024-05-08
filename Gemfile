@@ -15,7 +15,7 @@ gem "nokogiri"
 gem "plek"
 gem "redis"
 gem "sprockets-rails"
-gem "uglifier"
+gem "terser"
 
 group :development do
   gem "better_errors"
