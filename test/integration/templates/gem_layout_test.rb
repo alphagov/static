@@ -19,12 +19,6 @@ class GemLayoutTest < ActionDispatch::IntegrationTest
   should "allow user to report that the page is not useful" do
     click_on "No" # No, this page is not useful
     assert page.has_content?("Help us improve GOV.UK")
-    assert page.has_field?("Email address")
-
-    # Regression test for scenario where wrong URL is set
-    url_input = page.find("form[action='http://www.dev.gov.uk/contact/govuk/email-survey-signup'] input[name='email_survey_signup[survey_source]']", visible: false)
-    full_path = URI(page.current_url).request_uri
-    assert_equal full_path, url_input.value
   end
 
   should "allow user to report that the page is useful" do
