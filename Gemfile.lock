@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 294d2a3ef7b4762b4b2c8379d69d7fbc6de0d78f
-  branch: remove-email-from-survey
+  revision: 7b62e5e806532ecfbf776aea3579dfdc4613b25e
+  branch: remove-email-from-survey-2
   specs:
     govuk_publishing_components (38.2.0)
       govuk_app_config
