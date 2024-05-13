@@ -81,7 +81,7 @@
       url: 'https://www.smartsurvey.co.uk/s/gov_uk?c={{currentPath}}',
       identifier: 'user_satisfaction_survey',
       frequency: 6,
-      surveyType: 'email'
+      surveyType: 'url'
     },
     smallSurveys: [],
 
