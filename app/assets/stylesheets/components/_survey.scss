@@ -95,7 +95,7 @@
 
   .survey-form-button {
     @include govuk-font(19, $weight: bold, $line-height: 1.1);
-    padding: govuk-spacing(2) govuk-spacing(3) govuk-spacing(1) govuk-spacing(3);
+    padding: govuk-spacing(2) govuk-spacing(3) govuk-spacing(1);
     margin-right: .5em;
     color: $govuk-brand-colour;
     background: govuk-colour("white");
