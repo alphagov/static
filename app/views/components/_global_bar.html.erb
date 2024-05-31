@@ -16,15 +16,22 @@
   title_classes = %w(global-bar-title)
   title_classes << "js-call-to-action" if title_href
   title_classes << "govuk-link" if title_href
+
+  ga4_data = {
+    event_name: "navigation",
+    type: "global bar",
+    section: title,
+  }.to_json
+
 -%>
 
 <% if show_global_bar %>
   <!--[if gt IE 7]><!-->
-  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
+  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-ga4-global-bar data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
     <p class="global-bar-message govuk-width-container">
       <% if title %>
         <% if title_href %>
-          <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>"><%= title %></a>
+          <a class="<%= title_classes.join(' ') %>" href="<%= title_href %>" data-module="ga4-link-tracker" data-ga4-link="<%= ga4_data %>"><%= title %></a>
         <% else %>
           <span class="<%= title_classes.join(' ') %>"><%= title %></span>
         <% end %>
@@ -37,7 +44,11 @@
             link_text,
             link_href,
             rel: "external noreferrer",
-            class: "govuk-link js-call-to-action"
+            class: "govuk-link js-call-to-action",
+            data: {
+              module: "ga4-link-tracker",
+              ga4_link: ga4_data,
+            },
           ) %>
         <% else %>
           <%= link_text %>
