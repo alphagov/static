@@ -10,7 +10,6 @@ $covid-grey: #262828;
   @include govuk-font(19);
   background-color: #d9e7f2;
   border-top: govuk-spacing(2) solid govuk-colour("blue");
-  border-bottom: 1px solid govuk-colour("white");
   display: none;
 
   .show-global-bar & {
