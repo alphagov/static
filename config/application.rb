@@ -39,5 +39,7 @@ module Static
 
     # Use temporary directory for page cache if filesystem is read-only
     config.action_controller.page_cache_directory = File.join(ENV["TMPDIR"], "page_cache") if ENV.fetch("USE_TMPDIR_PAGE_CACHE", "false") == "true"
+
+    config.time_zone = "London"
   end
 end
