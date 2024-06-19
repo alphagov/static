@@ -35,7 +35,7 @@ Once a user takes the survey (clicks the link or fills in their email address an
 ## About the data structure
 
 ### `identifier`
-This is used both as the Google Analytics tag to record events against, and used (after being transformed to camelCase) to set a cookie so a visitor is not prompted to take the survey more than once.
+This is used (after being transformed to camelCase) to set a cookie so a visitor is not prompted to take the survey more than once. It was also previously used as a tag to record events against in old analytics code.
 
 ### `frequency`
 How frequently to show the survey. A frequency of `1` means the survey shows to every visitor. A frequency of `50` means the survey shows to 1 in 50 visitors.
@@ -51,8 +51,6 @@ Used in a link in the survey that the user is directed to click on. This should 
 * `https://www.smartsurvey.com/s/2AAAAAA` - it will be left alone and inserted in the template as-is.
 * `https://www.smartsurvey.com/s/2AAAAAA?c={{currentPath}}` - will be transformed into `https://www.smartsurvey.com/s/2AAAAAA?c=/government/publications/the-kingdom-of-the-crystal-skull` (assuming the page the survey was shown on was https://www.gov.uk/government/publications/the-kindgom-of-the-crystal-skull).
 
-Please be aware that the GA client ID will also be appended to the end of the url, so the final result will be: `https://www.smartsurvey.com/s/2AAAAAA?c=/government/publications/the-kingdom-of-the-crystal-skull&gcl=12345.67890`.
-If the `?c={{currentPath}}` template param is missing from the link, then the resulting url will be: `https://www.smartsurvey.com/s/2AAAAAA?gcl=12345.67890`.
 
 The value can be an array of URLs, in which case the URL to use will
 be chosen randomly from the array.
@@ -128,7 +126,6 @@ The template for a url survey is as follows:
         </label>
         <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">
         <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">
-        <input name="email_survey_signup[ga_client_id]" type="hidden" value="{{gaClientId}}">
         <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">
         <button class="survey-form-button" type="submit">{{surveyFormCta}}</button>
         <a href="javascript:void()" id="take-survey" target="_blank" rel="noopener noreferrer">{{surveyFormNoEmailInvite}}</a>
