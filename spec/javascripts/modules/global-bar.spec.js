@@ -98,56 +98,9 @@ describe('Global bar module', function () {
     })
   })
 
-  describe('tracking global banner interactions', function () {
-    var element
-
-    beforeEach(function () {
-      element = $(
-        '<div id="global-bar" data-module="global-bar">' +
-          '<a href="/register-to-vote" class="govuk-link js-call-to-action">Register to Vote</a>' +
-          '<a href="#hide-message" class="govuk-link dismiss" role="button" aria-controls="global-bar">Hide message</a>' +
-        '</div>'
-      )
-
-      $(document.body).append(element)
-
-      document.cookie = 'global_bar_seen=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-      spyOn(GOVUK.analytics, 'trackEvent')
-    })
-
-    it('tracks when dismiss link is clicked', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
-
-      $(element).find('.dismiss')[0].click()
-
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('Global bar', 'Manually dismissed', { nonInteraction: 1 })
-    })
-
-    it('tracks when clicking on a link marked with js-call-to-action', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
-
-      var link = $(element).find('.js-call-to-action')[0]
-      link.addEventListener('click', function (e) {
-        e.preventDefault()
-      })
-      link.click()
-
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('Global bar', '/register-to-vote', { nonInteraction: 1 })
-    })
-
-    it('tracks when global bar is seen', function () {
-      globalBar = new GOVUK.Modules.GlobalBar(element[0])
-      globalBar.init()
-      expect(GOVUK.CustomDimensions.getAndExtendDefaultTrackingOptions().dimension38.value).toBe('Global Banner viewed')
-    })
-  })
-
   describe('always on', function () {
     beforeEach(function () {
       document.cookie = 'global_bar_seen=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-      spyOn(GOVUK.analytics, 'trackEvent')
     })
 
     it('does not increment view count when on', function () {
