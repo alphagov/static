@@ -39,7 +39,7 @@ Background information:
 
 - [How Slimmer and Static work together](https://docs.publishing.service.gov.uk/repos/slimmer/what-slimmer-does.html)
 - [Frontend architecture and long term plan to remove Static / Slimmer](https://docs.publishing.service.gov.uk/manual/frontend-architecture.html)
-- [Analytics (no longer in Static, but imported from govuk_publishing_components)](docs/analytics.md)
+- [Analytics (no longer in Static, but handled by govuk_publishing_components)](https://github.com/alphagov/govuk_publishing_components/blob/main/docs/analytics-ga4/analytics.md)
 
 How to's:
 

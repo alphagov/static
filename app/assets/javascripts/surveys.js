@@ -59,7 +59,6 @@
     '    </label>' +
     '    <input name="email_survey_signup[survey_id]" type="hidden" value="{{surveyId}}">' +
     '    <input name="email_survey_signup[survey_source]" type="hidden" value="{{surveySource}}">' +
-    '    <input name="email_survey_signup[ga_client_id]" type="hidden" value="{{gaClientId}}">' +
     '    <input class="survey-form-input" name="email_survey_signup[email_address]" id="survey-email-address" type="text" aria-describedby="survey-form-description">' +
     '    <button class="survey-form-button" type="submit">{{surveyFormCta}}</button>' +
          takeSurveyLink('{{surveyFormNoEmailInvite}}') +
@@ -153,8 +152,7 @@
             surveyFailure: 'Sorry, we’re unable to send you an email right now. Please try again later.',
             surveyId: survey.identifier,
             surveySource: userSurveys.currentPath(),
-            surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey)),
-            gaClientId: GOVUK.analytics.gaClientId
+            surveyUrl: userSurveys.addParamsToURL(userSurveys.getSurveyUrl(survey))
           }
           var mergedArgs = window.GOVUK.extendObject(defaultEmailArgs, survey.templateArgs)
           return userSurveys.processTemplate(mergedArgs, EMAIL_SURVEY_TEMPLATE)
@@ -203,7 +201,6 @@
         return
       }
       userSurveys.incrementSurveySeenCounter(survey)
-      userSurveys.trackEvent(survey.identifier, 'banner_shown', 'Banner has been shown')
     },
 
     displayURLSurvey: function (survey, surveyContainer) {
@@ -222,11 +219,7 @@
 
     addParamsToURL: function (surveyUrl) {
       var newSurveyUrl = surveyUrl.replace(/\{\{currentPath\}\}/g, userSurveys.currentPath())
-      if (surveyUrl.indexOf('?c=') !== -1) {
-        return newSurveyUrl + '&gcl=' + GOVUK.analytics.gaClientId
-      } else {
-        return newSurveyUrl + '?gcl=' + GOVUK.analytics.gaClientId
-      }
+      return newSurveyUrl
     },
 
     setEmailSurveyEventHandlers: function (survey) {
@@ -243,7 +236,6 @@
         $takeSurvey.addEventListener('click', function () {
           userSurveys.setSurveyTakenCookie(survey)
           userSurveys.hideSurvey(survey)
-          userSurveys.trackEvent(survey.identifier, 'no_email_link', 'User taken survey via no email link')
         })
       }
 
@@ -251,7 +243,6 @@
         $emailSurveyOpen.addEventListener('click', function (e) {
           e.preventDefault() // otherwise focus doesn't work properly and screen jumps to form
           survey.surveyExpanded = true
-          userSurveys.trackEvent(survey.identifier, 'email_survey_open', 'Email survey opened')
           $emailSurveyPre.classList.add('js-hidden')
           $emailSurveyPre.setAttribute('aria-hidden', 'true')
           $emailSurveyForm.classList.remove('js-hidden')
@@ -265,11 +256,6 @@
         $emailSurveyCancel.addEventListener('click', function (e) {
           userSurveys.setSurveyTakenCookie(survey)
           userSurveys.hideSurvey(survey)
-          if (survey.surveyExpanded) {
-            userSurveys.trackEvent(survey.identifier, 'email_survey_cancel', 'Email survey cancelled')
-          } else {
-            userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
-          }
           e.stopPropagation()
           e.preventDefault()
         })
@@ -284,8 +270,6 @@
             $emailSurveyPostSuccess.setAttribute('aria-hidden', 'false')
             $emailSurveyPostSuccess.focus()
             userSurveys.setSurveyTakenCookie(survey)
-            userSurveys.trackEvent(survey.identifier, 'email_survey_taken', 'Email survey taken')
-            userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey')
           }
           var errorCallback = function () {
             $emailSurveyForm.classList.add('js-hidden')
@@ -352,7 +336,6 @@
         $emailSurveyCancel.addEventListener('click', function (e) {
           userSurveys.setSurveyTakenCookie(survey)
           userSurveys.hideSurvey(survey)
-          userSurveys.trackEvent(survey.identifier, 'banner_no_thanks', 'No thanks clicked')
           e.stopPropagation()
           e.preventDefault()
         })
@@ -362,7 +345,6 @@
         $takeSurvey.addEventListener('click', function () {
           userSurveys.setSurveyTakenCookie(survey)
           userSurveys.hideSurvey(survey)
-          userSurveys.trackEvent(survey.identifier, 'banner_taken', 'User taken survey')
         })
       }
     },
@@ -403,14 +385,6 @@
           stringContains(path, '/driving-transaction-finished')) {
         return true
       }
-    },
-
-    trackEvent: function (identifier, action, label) {
-      window.GOVUK.analytics.trackEvent(identifier, action, {
-        label: label,
-        value: 1,
-        nonInteraction: true
-      })
     },
 
     setSurveyTakenCookie: function (survey) {
@@ -634,6 +608,19 @@
         var cookieVersion = parseFloat(tlsCookie.replace('TLSv', ''))
         return cookieVersion || ''
       }
+    },
+
+    startModule: function () {
+      if (GOVUK.userSurveys) {
+        var consentCookie = window.GOVUK.getConsentCookie()
+
+        if (consentCookie && consentCookie.usage) {
+          window.GOVUK.userSurveys.init()
+        } else {
+          this.start = this.startModule.bind(this)
+          window.addEventListener('cookie-consent', this.start)
+        }
+      }
     }
   }
 
@@ -655,14 +642,5 @@
   }
 
   window.GOVUK.userSurveys = userSurveys
-
-  if (GOVUK.userSurveys) {
-    if (GOVUK.analytics && GOVUK.analytics.gaClientId) {
-      window.GOVUK.userSurveys.init()
-    } else {
-      window.addEventListener('gaClientSet', function () {
-        window.GOVUK.userSurveys.init()
-      })
-    }
-  }
+  window.GOVUK.userSurveys.startModule()
 })()
