@@ -36,5 +36,6 @@ group :test do
   gem "mocha", require: false
   gem "shoulda-context"
   gem "simplecov"
+  gem "timecop"
   gem "webmock"
 end
