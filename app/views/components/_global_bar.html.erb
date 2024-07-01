@@ -1,10 +1,10 @@
 <%
-  show_global_bar ||= true # Toggles the appearance of the global bar
-
-  title = "Bring photo ID to vote"
-  title_href = "/how-to-vote/photo-id-youll-need"
-  link_text = "Check what photo ID you'll need to vote in person in the General Election on 4 July."
-
+  if before_update_time?(year: 2024, month: 7, day: 4, hour: 22, minute: 0)
+    show_global_bar ||= true # Toggles the appearance of the global bar
+    title = "Bring photo ID to vote"
+    title_href = "/how-to-vote/photo-id-youll-need"
+    link_text = "Check what photo ID you'll need to vote in person in the General Election on 4 July."
+  end
 
   link_href = false
 
