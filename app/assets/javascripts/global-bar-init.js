@@ -59,6 +59,10 @@ var globalBarInit = {
 
   makeBannerVisible: function () {
     document.documentElement.className = document.documentElement.className.concat(' show-global-bar')
+    var globalBarEl = document.querySelector('#global-bar')
+    if (globalBarEl) {
+      globalBarEl.setAttribute('data-ga4-global-bar', '')
+    }
   },
 
   init: function () {

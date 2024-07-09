@@ -34,7 +34,7 @@
 
 <% if show_global_bar %>
   <!--[if gt IE 7]><!-->
-  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-ga4-global-bar data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
+  <div id="global-bar" class="<%= global_bar_classes.join(' ') %>" data-module="global-bar" <%= "data-global-bar-permanent=true" if always_visible %> data-nosnippet>
     <p class="global-bar-message govuk-width-container">
       <% if title %>
         <% if title_href %>
