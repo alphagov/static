@@ -204,7 +204,7 @@ GEM
       capybara
       minitest (~> 5.0)
       rake
-    mocha (2.4.0)
+    mocha (2.4.1)
       ruby2_keywords (>= 0.0.5)
     msgpack (1.7.2)
     mutex_m (0.2.0)
