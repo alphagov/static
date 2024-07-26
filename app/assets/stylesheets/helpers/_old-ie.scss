@@ -9,7 +9,7 @@
   margin-right: auto;
 }
 
-.js-enabled .govuk-sticky-element--hidden {
+.govuk-frontend-supported .govuk-sticky-element--hidden {
   @include govuk-visually-hidden;
 }
 
