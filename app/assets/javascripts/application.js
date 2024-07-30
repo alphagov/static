@@ -2,6 +2,7 @@
 
 //= require govuk_publishing_components/lib/trigger-event
 //= require govuk_publishing_components/lib/cookie-functions
+//= require govuk_publishing_components/lib/extend-object
 
 // some applications may depend on these component asset imports
 // check the component auditing before removing any of them
