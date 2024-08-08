@@ -1,4 +1,4 @@
-<%= javascript_include_tag local_assigns[:js_file] || 'application', integrity: false %>
+<%= javascript_include_tag local_assigns[:js_file] || 'application', integrity: false, type: "module" %>
 <% if ENV["DRAFT_ENVIRONMENT"].present? %>
   <%= javascript_include_tag 'modules/base-target', integrity: false %>
 <% end %>
