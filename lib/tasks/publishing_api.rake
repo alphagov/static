@@ -5,7 +5,7 @@ ROUTES = [
     title: "Favicon",
     description: "The favicon is the image displayed in locations such as the browser tabs.",
   },
-  {
+  { # See https://gov-uk.atlassian.net/wiki/spaces/GOVUK/pages/3585441793/Google+Search+Console for ownership of these verification tokens
     base_path: "/googlea6393a390aadfbaa.html",
     content_id: "5a14203f-f79e-4cca-831e-668043f49f1a",
     title: "Google site verification a6393a390aadfbaa",
@@ -17,30 +17,6 @@ ROUTES = [
     base_path: "/googlec908b3bc32386239.html",
     content_id: "7ca03916-4340-4b95-a4dd-3078c0446768",
     title: "Google site verification c908b3bc32386239",
-    description: "These files allow Google to verify ownership of a site.
-                      They should not be removed as that can cause the site to become unverified
-                      See https://support.google.com/webmasters/answer/35658",
-  },
-  {
-    base_path: "/google6db9c061ce178960.html",
-    content_id: "10bdfc2b-6e25-45d9-8a6d-330bd70de056",
-    title: "Google site verification 6db9c061ce178960",
-    description: "These files allow Google to verify ownership of a site.
-                      They should not be removed as that can cause the site to become unverified
-                      See https://support.google.com/webmasters/answer/35658",
-  },
-  {
-    base_path: "/google991dec8b62e37cfb.html",
-    content_id: "2bd98a91-9aaf-4cf0-8145-dd45de947de2",
-    title: "Google site verification 991dec8b62e37cfb",
-    description: "These files allow Google to verify ownership of a site.
-                      They should not be removed as that can cause the site to become unverified
-                      See https://support.google.com/webmasters/answer/35658",
-  },
-  {
-    base_path: "/googlef35857dca8b812e7.html",
-    content_id: "698ebb90-593f-4aee-bc16-af8e532eca26",
-    title: "Google site verification f35857dca8b812e7",
     description: "These files allow Google to verify ownership of a site.
                       They should not be removed as that can cause the site to become unverified
                       See https://support.google.com/webmasters/answer/35658",
