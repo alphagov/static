@@ -5,30 +5,6 @@ ROUTES = [
     title: "Favicon",
     description: "The favicon is the image displayed in locations such as the browser tabs.",
   },
-  { # See https://gov-uk.atlassian.net/wiki/spaces/GOVUK/pages/3585441793/Google+Search+Console for ownership of these verification tokens
-    base_path: "/googlea6393a390aadfbaa.html",
-    content_id: "5a14203f-f79e-4cca-831e-668043f49f1a",
-    title: "Google site verification a6393a390aadfbaa",
-    description: "These files allow Google to verify ownership of a site.
-                      They should not be removed as that can cause the site to become unverified
-                      See https://support.google.com/webmasters/answer/35658",
-  },
-  {
-    base_path: "/googlec908b3bc32386239.html",
-    content_id: "7ca03916-4340-4b95-a4dd-3078c0446768",
-    title: "Google site verification c908b3bc32386239",
-    description: "These files allow Google to verify ownership of a site.
-                      They should not be removed as that can cause the site to become unverified
-                      See https://support.google.com/webmasters/answer/35658",
-  },
-  {
-    base_path: "/BingSiteAuth.xml",
-    content_id: "d793dba8-4ff7-4a3f-a6d3-54f52b7bd259",
-    title: "Bing site verification",
-    description: "This file allows Bing to verify ownership of a site.
-                      It should not be removed as that can cause the site to become unverified
-                      See https://www.bing.com/webmaster/help/how-to-verify-ownership-of-your-site-afcfefc6",
-  },
   {
     base_path: "/apple-touch-icon.png",
     content_id: "cdc36458-74d4-42a7-86c8-221e03877dfc",
