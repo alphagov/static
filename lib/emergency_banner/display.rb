@@ -2,7 +2,14 @@ module EmergencyBanner
   class Display
     class << self
       def client
-        @client ||= Redis.new(timeout: 0.1)
+        @client ||= Redis.new(
+          reconnect_attempts: [
+            15,
+            30,
+            45,
+            60,
+          ],
+        )
       end
     end
 
