@@ -14,7 +14,4 @@ Rails.application.routes.draw do
 
     get "/templates/:template.html.erb", to: "root#template"
   end
-
-  # Favicon redirect
-  get "/favicon.ico", to: "icon_redirects#show_favicon"
 end
