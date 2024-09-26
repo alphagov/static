@@ -7,6 +7,51 @@ describe "Emergency Banner::Display" do
     @banner = EmergencyBanner::Display.new
   end
 
+  context ".client" do
+    context "when the EMERGENCY_BANNER_REDIS_URL environment variable has been set" do
+      should "use that value as the URL for the Redis client" do
+        mock_env("EMERGENCY_BANNER_REDIS_URL" => "redis://emergency-banner") do
+          EmergencyBanner::Display.instance_variable_set(:@client, nil)
+
+          Redis.expects(:new).with(
+            url: "redis://emergency-banner",
+            reconnect_attempts: [
+              15,
+              30,
+              45,
+              60,
+            ],
+          )
+
+          EmergencyBanner::Display.client
+        end
+      end
+    end
+
+    context "when the EMERGENCY_BANNER_REDIS_URL environment variable has not been set" do
+      should "use the default REDIS_URL as the URL for the Redis client" do
+        mock_env({
+          "EMERGENCY_BANNER_REDIS_URL" => nil,
+          "REDIS_URL" => "redis://my-redis-url",
+        }) do
+          EmergencyBanner::Display.instance_variable_set(:@client, nil)
+
+          Redis.expects(:new).with(
+            url: "redis://my-redis-url",
+            reconnect_attempts: [
+              15,
+              30,
+              45,
+              60,
+            ],
+          )
+
+          EmergencyBanner::Display.client
+        end
+      end
+    end
+  end
+
   context "#enabled?" do
     should "return enabled is false when redis connection times out and send an error notification" do
       err = Redis::CannotConnectError.new("Timed out connecting to Redis")
@@ -153,6 +198,16 @@ describe "Emergency Banner::Display" do
       assert_nil @banner.short_description
       assert_nil @banner.link
       assert_nil @banner.link_text
+    end
+  end
+
+  def mock_env(partial_env_hash)
+    old_env = ENV.to_hash
+    ENV.update partial_env_hash
+    begin
+      yield
+    ensure
+      ENV.replace old_env
     end
   end
 end
