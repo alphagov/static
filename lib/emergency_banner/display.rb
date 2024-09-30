@@ -3,7 +3,7 @@ module EmergencyBanner
     class << self
       def client
         @client ||= Redis.new(
-          url: ENV.fetch("EMERGENCY_BANNER_REDIS_URL", ENV["REDIS_URL"]),
+          url: ENV["EMERGENCY_BANNER_REDIS_URL"],
           reconnect_attempts: [
             15,
             30,
