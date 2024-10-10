@@ -10,7 +10,7 @@ gem "dartsass-rails"
 gem "gds-api-adapters"
 gem "govuk_app_config"
 gem "govuk_personalisation"
-gem "govuk_publishing_components"
+gem "govuk_publishing_components", git: 'https://github.com/alphagov/govuk_publishing_components.git', branch: '5.7.0-test'
 gem "nokogiri"
 gem "plek"
 gem "redis"
