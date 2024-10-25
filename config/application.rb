@@ -44,5 +44,15 @@ module Static
 
     # Use temporary directory for page cache if filesystem is read-only
     config.action_controller.page_cache_directory = File.join(ENV["TMPDIR"], "page_cache") if ENV.fetch("USE_TMPDIR_PAGE_CACHE", "false") == "true"
+
+    # Protect from "invalid byte sequence in UTF-8" errors,
+    # when a query or a cookie is a string with incorrect UTF-8 encoding.
+    config.middleware.insert_before(
+      0,
+      Rack::UTF8Sanitizer,
+      sanitizable_content_types: [],
+      only: %w[QUERY_STRING],
+      strategy: :exception,
+    )
   end
 end
