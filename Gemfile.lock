@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: c2d2c9533ea0c29a1bd0459f4dce0a3bd519461c
+  revision: ae9e47b90a115e657b40ff57a16ee739835e2804
   branch: add-for-static-parameter-test-branch
   specs:
     govuk_publishing_components (45.0.0)
