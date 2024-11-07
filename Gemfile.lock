@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 1323959eed57a1b98cf5ac2617ef9f53d890e4fc
-  branch: add-for-static-parameter
+  revision: c2d2c9533ea0c29a1bd0459f4dce0a3bd519461c
+  branch: add-for-static-parameter-test-branch
   specs:
     govuk_publishing_components (45.0.0)
       chartkick
@@ -151,7 +151,7 @@ GEM
       rake (>= 13)
     googleapis-common-protos-types (1.16.0)
       google-protobuf (>= 3.18, < 5.a)
-    govuk_app_config (9.15.0)
+    govuk_app_config (9.15.1)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.30)
       opentelemetry-instrumentation-all (>= 0.39.1, < 0.69.0)
@@ -444,7 +444,7 @@ GEM
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    psych (5.1.2)
+    psych (5.2.0)
       stringio
     public_suffix (6.0.1)
     puma (6.4.3)
@@ -577,7 +577,7 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     statsd-ruby (1.5.0)
-    stringio (3.1.1)
+    stringio (3.1.2)
     terser (1.2.4)
       execjs (>= 0.3.0, < 3)
     thor (1.3.2)
