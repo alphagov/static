@@ -149,7 +149,7 @@ GEM
     govuk_personalisation (1.0.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (45.1.0)
+    govuk_publishing_components (45.2.0)
       chartkick
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
@@ -212,7 +212,7 @@ GEM
     mocha (2.5.0)
       ruby2_keywords (>= 0.0.5)
     msgpack (1.7.2)
-    net-imap (0.5.0)
+    net-imap (0.5.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -506,7 +506,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.3.9)
-    rouge (4.4.0)
+    rouge (4.5.0)
     rubocop (1.64.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -544,7 +544,7 @@ GEM
     sass-embedded (1.77.8)
       google-protobuf (~> 4.26)
       rake (>= 13)
-    securerandom (0.3.1)
+    securerandom (0.3.2)
     selenium-webdriver (4.21.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
