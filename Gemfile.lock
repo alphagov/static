@@ -120,7 +120,7 @@ GEM
     erubi (1.13.0)
     execjs (2.9.1)
     ffi (1.16.3)
-    gds-api-adapters (97.1.0)
+    gds-api-adapters (97.2.0)
       addressable
       link_header
       null_logger
@@ -201,7 +201,7 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.1001)
+    mime-types-data (3.2024.1105)
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
     minitest (5.25.1)
