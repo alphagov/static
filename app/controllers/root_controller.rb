@@ -8,20 +8,6 @@ class RootController < ApplicationController
   caches_page :template
 
   TEMPLATES = %w[
-    400
-    401
-    403
-    404
-    405
-    406
-    410
-    422
-    429
-    500
-    501
-    502
-    503
-    504
     gem_layout
     gem_layout_account_manager
     gem_layout_full_width
