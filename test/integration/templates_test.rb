@@ -3,7 +3,7 @@ require_relative "../integration_test_helper"
 class TemplatesTest < ActionDispatch::IntegrationTest
   context "fetching templates" do
     should "be 200 for templates that exist" do
-      %w[gem_layout scheduled_maintenance].each do |template|
+      %w[gem_layout print].each do |template|
         get "/templates/#{template}.html.erb"
         assert_equal 200, last_response.status
       end

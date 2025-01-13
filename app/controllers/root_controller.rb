@@ -16,7 +16,6 @@ class RootController < ApplicationController
     gem_layout_homepage_new
     gem_layout_no_feedback_form
     gem_layout_no_footer_navigation
-    scheduled_maintenance
     print
   ].freeze
 
