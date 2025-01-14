@@ -8,20 +8,6 @@ class RootController < ApplicationController
   caches_page :template
 
   TEMPLATES = %w[
-    400
-    401
-    403
-    404
-    405
-    406
-    410
-    422
-    429
-    500
-    501
-    502
-    503
-    504
     gem_layout
     gem_layout_account_manager
     gem_layout_full_width
@@ -30,7 +16,6 @@ class RootController < ApplicationController
     gem_layout_homepage_new
     gem_layout_no_feedback_form
     gem_layout_no_footer_navigation
-    scheduled_maintenance
     print
   ].freeze
 
