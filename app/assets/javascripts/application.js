@@ -21,7 +21,4 @@
 //= require govuk_publishing_components/components/skip-link
 //= require govuk_publishing_components/components/search-with-autocomplete
 
-//= require modules/global-bar
-
-//= require global-bar-init
 //= require surveys

@@ -4,7 +4,6 @@
   omit_feedback_form ||= nil
   omit_footer_navigation ||= nil
   omit_footer_border ||= nil
-  omit_global_banner ||= nil
   omit_account_navigation ||= nil
   product_name ||= nil
   navigation_items ||= []
@@ -17,10 +16,6 @@
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
   homepage ||= false
   homepage_blue_navbar ||= false
-
-  global_bar = ''
-  global_banner = render "components/global_bar" unless omit_global_banner
-  global_bar << global_banner if global_banner
 %>
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
@@ -30,7 +25,6 @@
   draft_watermark: draft_environment,
   emergency_banner: render("govuk_web_banners/emergency_banner", homepage:),
   full_width: full_width,
-  global_banner: global_bar,
   homepage: homepage_blue_navbar,
   logo_link: logo_link,
   navigation_items: navigation_items,
