@@ -1,5 +1,7 @@
-PATH
-  remote: ../govuk_publishing_components
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: cc29a14074732a92d6a207ade3ebe8754324f77d
+  branch: test-gem-branch
   specs:
     govuk_publishing_components (50.0.1)
       govuk_app_config
