@@ -18,19 +18,6 @@
   homepage ||= false
   homepage_blue_navbar ||= false
 
-  @emergency_banner = emergency_banner_notification
-
-  if @emergency_banner
-    emergency_banner = render "govuk_publishing_components/components/emergency_banner", {
-      campaign_class: @emergency_banner.campaign_class,
-      heading: @emergency_banner.heading,
-      link: @emergency_banner.link,
-      link_text: @emergency_banner.link_text,
-      short_description: @emergency_banner.short_description,
-      homepage: homepage,
-    }
-  end
-
   global_bar = ''
   global_banner = render "components/global_bar" unless omit_global_banner
   global_bar << global_banner if global_banner
@@ -41,7 +28,7 @@
   account_nav_location: account_nav_location,
   **(defined?(blue_bar) ? {blue_bar: blue_bar,} : {}),
   draft_watermark: draft_environment,
-  emergency_banner: emergency_banner.presence,
+  emergency_banner: render("govuk_web_banners/emergency_banner", homepage:),
   full_width: full_width,
   global_bar: global_bar,
   homepage: homepage_blue_navbar,
