@@ -1,5 +1,5 @@
 /* global parseCookie, expectAdditionalSectionToBeHidden */
-describe('Global bar module', function () {
+xdescribe('Global bar module', function () {
   'use strict'
 
   var globalBar

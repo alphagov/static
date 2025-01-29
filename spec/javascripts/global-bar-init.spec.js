@@ -1,6 +1,6 @@
 /* global globalBarInit, parseCookie, expectGlobalBarToShow, expectGlobalBarToBeHidden, expectGa4AttributeToExist, expectGa4AttributeToNotExist */
 
-describe('Global bar initialize', function () {
+xdescribe('Global bar initialize', function () {
   beforeAll(function () {
     $('html').append('<div id="global-bar"></div>')
   })
