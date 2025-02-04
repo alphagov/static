@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/alphagov/govuk_web_banners
+  revision: f5e33b9fb552c53ab878284816ad8b8b37c6995b
+  branch: static-global-banner-test
+  specs:
+    govuk_web_banners (1.0.0)
+      govuk_app_config
+      govuk_publishing_components
+      rails (>= 7)
+      redis
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -163,11 +174,6 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.0.0)
-      govuk_app_config
-      govuk_publishing_components
-      rails (>= 7)
-      redis
     hashdiff (1.1.1)
     http-accept (1.7.0)
     http-cookie (1.0.8)
@@ -622,7 +628,7 @@ DEPENDENCIES
   govuk_personalisation
   govuk_publishing_components
   govuk_test
-  govuk_web_banners
+  govuk_web_banners!
   listen
   minitest
   minitest-capybara
