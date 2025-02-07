@@ -26,7 +26,6 @@
 <%= render "govuk_publishing_components/components/layout_for_public", {
   for_static: true,
   account_nav_location: account_nav_location,
-  **(defined?(blue_bar) ? {blue_bar: blue_bar,} : {}),
   draft_watermark: draft_environment,
   emergency_banner: render("govuk_web_banners/emergency_banner", homepage:),
   full_width: full_width,
