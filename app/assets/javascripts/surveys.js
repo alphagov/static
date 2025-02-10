@@ -88,11 +88,6 @@
       if (userSurveys.canShowAnySurvey()) {
         var activeSurvey = userSurveys.getActiveSurvey(userSurveys.defaultSurvey, userSurveys.smallSurveys)
         if (activeSurvey !== undefined) {
-          // Hide global bar if one is showing
-          var globalBar = document.getElementById('global-bar')
-          if (globalBar) {
-            globalBar.style.display = 'none'
-          }
           userSurveys.displaySurvey(activeSurvey)
         }
       }
@@ -434,8 +429,7 @@
       }
       var notificationIds = [
         '.emergency-banner',
-        '#taxonomy-survey',
-        '#global-bar' // Currently about Coronavirus
+        '#taxonomy-survey'
       ]
       var count = 0
       for (var i = 0; i < notificationIds.length; i++) {
