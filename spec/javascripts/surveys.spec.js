@@ -50,7 +50,6 @@ describe('Surveys', function () {
       GOVUK.cookie(surveys.surveySeenCookieName(survey), null)
     })
     $block.remove()
-    $('#global-bar').remove()
     window.GOVUK.setConsentCookie({ settings: null })
   })
 
@@ -492,7 +491,6 @@ describe('Surveys', function () {
       $('#global-cookie-message').css('display', 'none')
       $('.emergency-banner').css('display', 'none')
       $('#taxonomy-survey').css('display', 'none')
-      $('#global-bar').css('display', 'none')
     })
 
     it('returns true if the global cookie banner is visible', function () {
