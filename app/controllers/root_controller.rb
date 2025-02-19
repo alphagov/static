@@ -13,7 +13,6 @@ class RootController < ApplicationController
     gem_layout_full_width
     gem_layout_full_width_no_footer_navigation
     gem_layout_homepage
-    gem_layout_homepage_new
     gem_layout_no_feedback_form
     gem_layout_no_footer_navigation
     print
