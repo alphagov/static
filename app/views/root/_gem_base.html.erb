@@ -16,7 +16,6 @@
   footer_meta ||= nil
   draft_environment ||= ENV["DRAFT_ENVIRONMENT"].present?
   homepage ||= false
-  homepage_blue_navbar ||= false
 
   global_bar = ''
   global_banner = render "components/global_bar" unless omit_global_banner
@@ -31,7 +30,7 @@
   emergency_banner: render("govuk_web_banners/emergency_banner", homepage:),
   full_width: full_width,
   global_banner: global_bar,
-  homepage: homepage_blue_navbar,
+  homepage: homepage,
   logo_link: logo_link,
   navigation_items: navigation_items,
   omit_feedback_form: omit_feedback_form,
