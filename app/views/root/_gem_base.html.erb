@@ -9,7 +9,6 @@
   product_name ||= nil
   navigation_items ||= []
   one_login_navigation_items ||= {}
-  show_explore_header = show_explore_header === false ? false : true
   show_cross_service_header ||= false
   show_account_layout ||= false
   account_nav_location ||= nil
@@ -37,7 +36,6 @@
   product_name: product_name,
   show_account_layout: show_account_layout,
   show_cross_service_header: show_cross_service_header,
-  show_explore_header: show_explore_header,
   title: content_for?(:title) ? yield(:title) : "GOV.UK - The best place to find government services and information",
   footer_meta: footer_meta,
 } %>
