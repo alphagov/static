@@ -158,7 +158,7 @@ GEM
       rouge
       sprockets (>= 3)
       sprockets-rails
-    govuk_test (4.1.0)
+    govuk_test (4.1.1)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
       puma
@@ -560,7 +560,7 @@ GEM
       google-protobuf (~> 4.29)
       rake (>= 13)
     securerandom (0.4.1)
-    selenium-webdriver (4.28.0)
+    selenium-webdriver (4.29.1)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
