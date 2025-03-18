@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: c4b184c7c9175787391f52677c09dac022b9dc74
+  revision: 47097a8163004425361d09676ad99e9adc55c05c
   branch: update-super-navigation-header-dropdown-background-colour
   specs:
-    govuk_publishing_components (55.0.1)
+    govuk_publishing_components (55.1.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -209,7 +209,7 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.1.0)
-    mime-types (3.6.0)
+    mime-types (3.6.1)
       logger
       mime-types-data (~> 3.2015)
     mime-types-data (3.2025.0304)
@@ -541,14 +541,14 @@ GEM
       rubocop-ast (>= 1.38.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.38.1)
+    rubocop-ast (1.39.0)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.22.1)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
-    rubocop-govuk (5.0.11)
+    rubocop-govuk (5.1.0)
       rubocop (= 1.74.0)
-      rubocop-ast (= 1.38.1)
+      rubocop-ast (= 1.39.0)
       rubocop-capybara (= 2.22.1)
       rubocop-rails (= 2.30.3)
       rubocop-rake (= 0.7.1)
@@ -568,8 +568,8 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.4.1)
-    sass-embedded (1.85.1)
-      google-protobuf (~> 4.29)
+    sass-embedded (1.86.0)
+      google-protobuf (~> 4.30)
       rake (>= 13)
     securerandom (0.4.1)
     selenium-webdriver (4.29.1)
