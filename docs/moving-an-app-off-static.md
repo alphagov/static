@@ -10,7 +10,7 @@ pages. To move an app off static, you will need to complete the following steps:
 
 [example commit](https://github.com/alphagov/email-alert-frontend/pull/1890/commits/6273b19abdd85432058a5417c9fcb32c6900b5b9)
 
-First, remove the gem reference and rebuild the lockfile. Then search for references
+First, remove the slimmer gem reference and rebuild the lockfile. Then search for references
 to slimmer. There will be at least one, in the application controller where slimmer
 is included, and possibly in other controllers if they need to set slimmer_template.
 
@@ -30,7 +30,7 @@ static (which is in turn the body section of a layout_for_public component).
 
 Since layout_for_public is itself a full HTML page, you replace the entire section
 with a call to the layout_for_public component. You will need to add a `content_for :head`
-block. To this, add the gem component stylesheets for the components used in
+block, containing the gem component stylesheets for the components used in
 layout_for_public, and the call to `render_component_stylesheets`, and also
 any additional head elements that were in the existing layout.
 
@@ -46,7 +46,10 @@ GovukPublishingComponents.configure do |c|
 end
 ```
 
-You will also need to make sure that the js dependencies are included in our application.js,
+(Note: If you are moving the last application, it's worth considering whether this should now be the default
+in the component gem, and removing this configuration)
+
+You will also need to make sure that the js dependencies are included in `application.js`,
 
 ```
 //= require govuk_publishing_components/dependencies
@@ -72,9 +75,15 @@ the default (`gem_layout`), you will now need to look at the relevant templates 
 and decide whether the template used differs enough from the base template to warrant
 a separate layout. This is a judgement call - in the example above, the `gem_layout_account_manager`
 template requires a lot of configuration, so it seems simplest to keep it as a separate
-layout. If there's only one or two things different, possibly configuration is the way.
+layout. If there's only one or two things different, possibly configuration is the way - you
+can add controller helper methods for the different requirements, then set flags in the
+layout component based on the return values of those methods.
 
-## 4. Add `govuk_web_banners` support
+## 4. Add middleware to optimise GA4 data attributes
+
+[example commit]
+
+## 5. Add `govuk_web_banners` support
 
 [example commit](https://github.com/alphagov/email-alert-frontend/pull/1890/commits/39e5915b72a624d14f9ab74fbc1e32dab60dd866)
 
@@ -110,14 +119,14 @@ Rails.application.config.emergency_banner_redis_client = Redis.new(
 ```
 
 Finally, to make sure your tests do not attempt to wait for an emergency banner, it's
-recommented that you mock the redis client in your spec_helper or test_helper:
+recommended that you mock the redis client in your spec_helper or test_helper:
 
 RSpec example:
 ```
 Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
 ```
 
-## 5. Configure environment variables
+## 6. Configure environment variables
 
 In order for the app to see emergency banner messages, it will need to have the
 `EMERGENCY_BANNER_REDIS_URL` variable set - this is done in govuk-helm-charts, eg:
