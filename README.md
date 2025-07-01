@@ -41,10 +41,6 @@ Background information:
 - [Frontend architecture and long term plan to remove Static / Slimmer](https://docs.publishing.service.gov.uk/manual/frontend-architecture.html)
 - [Analytics (no longer in Static, but handled by govuk_publishing_components)](https://github.com/alphagov/govuk_publishing_components/blob/main/docs/analytics-ga4/analytics.md)
 
-How to's:
-
-- [How to: update `humans.txt`](docs/humans.md)
-
 ## Licence
 
 [MIT License](LICENCE)
