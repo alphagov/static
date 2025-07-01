@@ -12,7 +12,7 @@ class GemLayoutTest < ActionDispatch::IntegrationTest
     assert page.has_field?("What went wrong?")
 
     # Regression test for scenario where wrong URL is set
-    url_input = page.find("form[action='http://www.dev.gov.uk/contact/govuk/problem_reports'] input[name=url]", visible: false)
+    url_input = page.find("form[action='/contact/govuk/problem_reports'] input[name=url]", visible: false)
     assert_equal page.current_url, url_input.value
   end
 
