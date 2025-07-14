@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: cc40c66122e68aae8a5dcd2b8867d7e7d10ad2fe
+  branch: tag-component
+  specs:
+    govuk_publishing_components (58.2.0)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      ostruct
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -149,16 +165,6 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (58.2.0)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      ostruct
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
-      sprockets-rails
     govuk_test (4.1.2)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -646,7 +652,7 @@ DEPENDENCIES
   gds-api-adapters
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_test
   govuk_web_banners
   listen
