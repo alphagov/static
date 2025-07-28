@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount GovukPublishingComponents::Engine, at: "/component-guide" if Rails.env.development?
 
   get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }
-  get "/healthcheck/ready", to: GovukHealthcheck.rack_response
+  get "/healthcheck/ready", to: GovukHealthcheck.rack_response(
+    GovukHealthcheck::Redis,
+  )
 
   scope format: false do
     scope to: proc { [410, {}, ["The component system has moved to https://github.com/alphagov/govuk_publishing_components"]] } do
