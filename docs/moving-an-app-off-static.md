@@ -229,7 +229,53 @@ RSpec example:
 Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
 ```
 
-## 10. Configure environment variables
+## 10. Add healthchecks for the `govuk_web_banners` redis
+
+Now that the app depends on checking the emergency banner redis, you must add health checks
+to your `/healthcheck/ready` endpoint.
+
+There is a predefined [healthcheck named
+GovukHealthCheck::EmergencyBannerRedis](https://github.com/alphagov/govuk_app_config/blob/main/lib/govuk_app_config/govuk_healthcheck/emergency_banner_redis.rb#L4)
+in govuk_app_config which you can use for this:
+
+```
+get "/healthcheck/ready", to: GovukHealthcheck.rack_response(
+    GovukHealthcheck::EmergencyBannerRedis,
+)
+```
+
+Finally you also need to update the kubernetes config for your application to
+use `/healthcheck/ready` as a [startup
+probe](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#startup-probe).
+
+In [the app-config chart in
+govuk-helm-charts](https://github.com/alphagov/govuk-helm-charts/tree/main/charts/app-config),
+in `values-<environment>.yaml` you need to add the following snippet to your
+specific applications configuration:
+
+```
+kubernetesProbeEndpoints:
+    startupProbe: "/healthcheck/ready"
+```
+
+For example in [pull request
+#3406](https://github.com/alphagov/govuk-helm-charts/pull/3406/) the
+configuration for static, and draft-static, was updated so that the
+configuration of them looked as follows:
+
+```
+  - name: static
+    helmValues:
+      arch: arm64
+      appResources:
+        ...SNIP...
+      ingress:
+        ...SNIP...
+      kubernetesProbeEndpoints:
+        startupProbe: "/healthcheck/ready"
+```
+
+## 11. Configure environment variables
 
 In order for the app to see emergency banner messages, it will need to have the
 `EMERGENCY_BANNER_REDIS_URL` variable set - this is done in govuk-helm-charts, eg:
