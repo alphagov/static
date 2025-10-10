@@ -210,7 +210,7 @@ GEM
     mime-types-data (3.2025.0812)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.25.5)
+    minitest (5.26.0)
     minitest-capybara (0.9.0)
       capybara
       minitest (~> 5.0)
