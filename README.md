@@ -1,3 +1,8 @@
+> [!WARNING]
+> Static has been retired and is no longer in use.
+>
+> (See [RFC-176](https://github.com/alphagov/govuk-rfcs/blob/main/rfc-176-replacing-static.md) for an explanation.)
+
 # Static
 
 This application defines global templates for [GOV.UK](https://www.gov.uk) pages. It is used in conjunction with [Slimmer](https://github.com/alphagov/slimmer), which is Rack middleware that takes a HTML response from a Rails app and combines it with a template from Static.
